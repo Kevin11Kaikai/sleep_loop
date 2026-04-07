@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+matplotlib
+mne
+neurolib
+fooof
+numba
+jitcdde
+gymnasium
+stable-baselines3

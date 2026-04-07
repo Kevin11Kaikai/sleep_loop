@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Local data paths / machine-specific files
+data/manifest.csv
+data/sleep-edfx-cassette/
+*.edf
+*.hyp
+*.edf.edf
+*.edf.hyp
+
+# Generated outputs
+outputs/
+
+# Logs
+*.log
+
+# TensorBoard / training artifacts
+runs/

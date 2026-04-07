@@ -1,0 +1,9 @@
+{
+  "patient_mue": 2.287134331783031,
+  "patient_mui": 3.0984074327557303,
+  "grid_n": 21,
+  "bistable_dist_default": 0.8182017177861882,
+  "bistable_dist_patient": 0.7934514478667644,
+  "bistable_n_default": 21,
+  "bistable_n_patient": 91
+}
