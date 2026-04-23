@@ -98,6 +98,11 @@ def _generate_fig7_plots(
     out_prefix: str,
 ) -> None:
     """Extra simulation (longer than evolution) + three PNGs; Welch slice matches evolution length."""
+    # 中文画图流程总览（与 docs/compute_fitness_v3_notes.md 一致）：
+    # 1) 单独再跑一轮仿真（时长 plot_sim_ms，常 ≥ SIM_DUR_MS），得到皮层/丘脑 r(t)，用于 Fig.7(c)。
+    # 2) 从皮层序列取 burn-in 后、长度与进化一致的片段 r_welch，Welch 得 f_ctx/p_ctx（与 compute_fitness_v3 可比）。
+    # 3) FOOOF：目标 EEG 画 1/f；仿真谱在原生 Welch 网格上画 1/f；另用「插值到 fooof_freqs + 与进化同配方」算 sim_periodic，与 target_periodic 算 Pearson 写入残差图标题。
+    # 4) 输出三张 PNG：timeseries / spectra / residuals，文件名由 out_prefix 决定。
     import matplotlib
 
     matplotlib.use("Agg")
@@ -113,6 +118,7 @@ def _generate_fig7_plots(
     os.makedirs("outputs", exist_ok=True)
 
     print(f"\n[5] Fig. 7 plots — simulation {plot_sim_ms/1000:.0f} s (matplotlib)...")
+    # 中文：此处仿真仅服务于画图，与前面 compute_fitness_v3 内的 30 s 仿真独立；时长用 plot_sim_ms（默认常 ≥30 s）以便时间轴能覆盖例如 16–32 s 窗口。
     m = v3.build_model(
         mue, mui, b, tauA, g_lk, g_h, c_th2ctx, c_ctx2th,
         duration=plot_sim_ms,
@@ -124,10 +130,12 @@ def _generate_fig7_plots(
         m.params["backend"] = "jitcdde"
         m.run()
 
+    # 中文：按模型的 sampling_dt 生成与仿真长度一致的时间轴（秒），后续与 r 序列对齐截断。
     sampling_dt = float(m.params["sampling_dt"])
     n_total = int(plot_sim_ms / sampling_dt)
     t_s = np.linspace(0.0, plot_sim_ms / 1000.0, n_total)
 
+    # 中文：r_mean_EXC 在 neurolib 中为 kHz；×1000 转为 Hz，与 fitness 中 r_E 单位一致。多节点时 [0] 皮层、[1] 丘脑。
     r_exc = m[f"r_mean_{EXC}"]
     if r_exc.ndim == 2 and r_exc.shape[0] >= 2:
         rE_cortex = r_exc[0, :].astype(float) * 1000.0
@@ -136,11 +144,13 @@ def _generate_fig7_plots(
         rE_cortex = (r_exc[0] if r_exc.ndim == 2 else r_exc).astype(float) * 1000.0
         rE_thalamus = np.zeros_like(rE_cortex)
 
+    # 中文：若模型输出点数与 linspace 不完全一致，取最短长度，保证 t 与两条 r 一一对应。
     n_min = min(len(t_s), len(rE_cortex), len(rE_thalamus))
     t_s = t_s[:n_min]
     rE_cortex = rE_cortex[:n_min]
     rE_thalamus = rE_thalamus[:n_min]
 
+    # 中文：与 compute_fitness_v3 一致——前 5 s 为 burn-in；之后只取与「进化仿真」等长的片段做 Welch（30 s 总时长 → 25 s @ FS_SIM）。
     n_burn = int(5.0 * v3.FS_SIM)
     # Same number of post-burn samples as evolution (30 s run → 25 s @ 1 kHz = 25000).
     n_evo_post = int((v3.SIM_DUR_MS / 1000.0 - 5.0) * v3.FS_SIM)
@@ -151,6 +161,7 @@ def _generate_fig7_plots(
     else:
         r_welch = r_ctx[:n_evo_post]
 
+    # 中文：Welch 段长与 v3 中一致（10 s Hann，50% overlap）；再在 [F_LO,F_HI] 上裁频得到 f_ctx、p_ctx。
     nperseg = min(int(10.0 * v3.FS_SIM), len(r_welch))
     f_ctx, p_ctx = welch(
         r_welch,
@@ -169,6 +180,7 @@ def _generate_fig7_plots(
     target_periodic_plot = None
     ff_plot = None
 
+    # 中文：FOOOF 分三路——(A) 目标 EEG 得 tgt_ap/tgt_ff 供谱图上半 1/f 虚线；(B) 仿真 Welch 网格上得 sim_ap 供下半；(C) 将 p_ctx 插值到 fooof_freqs 后按进化配方算 periodic 残差与 Pearson，供残差图与标题。
     if v3.HAS_FOOOF:
         from fooof import FOOOF
 
@@ -182,6 +194,7 @@ def _generate_fig7_plots(
         tgt_ff = fm_tgt.freqs
         tgt_ap = fm_tgt._ap_fit
 
+        # 中文：(B) 在 Welch 原生频率上拟合 1/f，与下半图「原始仿真 PSD」同一网格。
         fm_native = FOOOF(
             peak_width_limits=[1.0, 8.0],
             max_n_peaks=4,
@@ -192,6 +205,7 @@ def _generate_fig7_plots(
         sim_ff_native = fm_native.freqs
         sim_ap = fm_native._ap_fit
 
+        # 中文：(C) 把仿真 PSD 插值到与 target_periodic 相同的 fooof_freqs，再 FOOOF 得 log10(P)-aperiodic = 周期性分量，与 target_periodic 对齐长度后算 Pearson → shape_r_recomp（与进化逻辑对齐，用于残差图说明）。
         if target_periodic is not None and fooof_freqs is not None:
             p_interp = interp1d(
                 f_ctx, p_ctx, bounds_error=False, fill_value=1e-30,
@@ -213,9 +227,11 @@ def _generate_fig7_plots(
             target_periodic_plot = target_periodic[:n_r]
             ff_plot = np.asarray(fooof_freqs)[:n_r]
     else:
+        # 中文：无 FOOOF 时谱图下半仍用 Welch 频率；无 1/f 虚线、无残差第三张图。
         sim_ff_native = f_ctx
 
     # --- 7(c) time series -----------------------------------------------------
+    # 中文：在整段仿真时间轴上取固定窗口 [16,32] s 画皮层/丘脑 r(t)；标题旁注来自 rec（与 [4] 同一次 fitness 的记录）。
     t0, t1 = 16.0, 32.0
     mask_t = (t_s >= t0) & (t_s <= t1)
     fig_c, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 6), sharex=True)
@@ -254,6 +270,7 @@ def _generate_fig7_plots(
     print(f"    Saved: {p_ts}")
 
     # --- 7(d) spectra ---------------------------------------------------------
+    # 中文：上图——目标 EEG 与 FOOOF 1/f（若有）；下图——仿真皮层 PSD 与原生网格 1/f；两侧纵轴单位不同（V²/Hz vs Hz²/Hz）；橙/绿带标 SO 与 spindle 频段。
     fig_d, (ax_d1, ax_d2) = plt.subplots(2, 1, figsize=(8, 8))
     fig_d.suptitle(
         f"Fig. 7(d) V3 test — power spectra\n{v3.SUBJECT_ID} N3 EEG vs simulated cortex "
@@ -294,6 +311,7 @@ def _generate_fig7_plots(
     print(f"    Saved: {p_sp}")
 
     # --- residuals ------------------------------------------------------------
+    # 中文：第三张——在 log 域去掉 1/f 后的「周期分量」曲线：黑=EEG 目标，紫虚线=仿真（与进化网格对齐）；竖虚线标典型 δ/θ/α/σ 频率；标题可展示重算的 Pearson 与 CSV 中 shape_r 对照。
     if (
         v3.HAS_FOOOF
         and target_periodic_plot is not None
@@ -358,8 +376,15 @@ def main() -> int:
     ap.add_argument(
         "--plots",
         action="store_true",
+        default=True,
         help="After fitness, run a longer simulation and write outputs/fig7_v3_test_*.png "
         "(or fig7_v2_*.png with --out-v2-names).",
+    )
+    ap.add_argument(
+        "--no-plots",
+        dest="plots",
+        action="store_false",
+        help="Disable plotting (overrides default plotting-on behaviour).",
     )
     ap.add_argument(
         "--plot-sim-ms",
@@ -456,6 +481,7 @@ def main() -> int:
     print(f"    0.35*shape_r + 0.15*so + 0.15*spindle + 0.35*dyn = {recomputed:.6f}")
     print(f"    recorded score                                      = {rec.get('score')}")
 
+    # 中文：默认开启 --plots——在 [4] 结束后用同一组 params_vec 再跑 plot_sim_ms 的仿真，调用 _generate_fig7_plots 写 outputs/{out_prefix}_*.png；--no-plots 可跳过；--out-v2-names 改用 fig7_v2_* 前缀。
     if args.plots:
         out_prefix = "fig7_v2" if args.out_v2_names else "fig7_v3_test"
         try:

@@ -525,8 +525,8 @@ plt.suptitle(
     fontsize=11,
 )
 plt.tight_layout()
-plt.savefig("outputs/evolution_result.png", dpi=150, bbox_inches="tight")
-print("Saved: outputs/evolution_result.png")
+plt.savefig("outputs/evolution_result_0417_v0.png", dpi=150, bbox_inches="tight")
+print("Saved: outputs/evolution_result_0417_v0.png")
 
 # ── 步骤 8（续）：最终校验（与上图同一步输出）──────────────────────────────────
 
@@ -541,5 +541,5 @@ else:
     print(f"✗ PSD Pearson r = {r:.3f}  (poor fit)")
     print("  Check: cortex not silent, mue search range correct")
 
-print("data/patient_params.json ready for Session 2-C ✓")
+print("data/patient_params_0417_v0.json ready for Session 2-C ✓")
 sys.exit(0)

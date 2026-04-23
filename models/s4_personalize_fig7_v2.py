@@ -270,7 +270,11 @@ def compute_dynamics_score_v3(r_ctx, r_thal, fs=FS_SIM):
 # Part 1: Load target EEG (runs once before evolution)
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 def load_target_psd():
-    manifest = pd.read_csv("data/manifest.csv")
+    # manifest.csv is often saved by Excel as UTF-16 (BOM FF FE). Try UTF-8 first, then fall back.
+    try:
+        manifest = pd.read_csv("data/manifest.csv", encoding="utf-8")
+    except UnicodeDecodeError:
+        manifest = pd.read_csv("data/manifest.csv", encoding="utf-16")
     subj_row = manifest[manifest["subject_id"] == SUBJECT_ID].iloc[0]
     raw = mne.io.read_raw_edf(
         subj_row["psg_path"], include=EEG_CHANNELS, preload=True, verbose=False
@@ -345,7 +349,7 @@ def compute_fitness_v3(params_vec,
     """
     Returns negative fitness (scipy minimises).
 
-    Fitness = 0.35*shape_r + 0.15*so_power + 0.15*spindle_power + 0.35*dynamics
+    Fitness = 
     """
     global _eval_count, _best_score, _best_params, _records
 

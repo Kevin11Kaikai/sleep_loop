@@ -5,11 +5,11 @@ Fig. 7–style personalised fitting of a thalamocortical model to a single
 subject's N3 EEG, following the methodology of Cakan et al. (2023).
 
 Key improvements over s4_personalize.py:
-  1. FOOOF 1/f subtraction on BOTH target EEG and simulated PSD
-  2. 8 free parameters (adds b, tauA, c_ctx→th, c_th→ctx)
-  3. 3-component fitness: corr(residuals) + SO_peak_power + spindle_peak_power
-  4. Larger search scale (popsize=15, 20 generations)
-  5. Generates Fig. 7 (a)(b)(c)(d) panels
+    1. FOOOF 1/f subtraction on BOTH target EEG and simulated PSD
+    2. 8 free parameters (adds b, tauA, c_ctx→th, c_th→ctx)
+    3. Shape-only fitness: corr(residuals)
+    4. Larger search scale (popsize=15, 20 generations)
+    5. Generates Fig. 7 (a)(b)(c)(d) panels
 
 Requirements:
   pip install neurolib fooof scipy matplotlib mne pandas
@@ -40,12 +40,12 @@ from neurolib.models.multimodel.builder.base.constants import EXC, INH
 SUBJECT_ID      = "SC4001"
 EEG_CHANNELS    = ["EEG Fpz-Cz", "EEG Pz-Oz"]
 N3_LABELS       = ["Sleep stage 3", "Sleep stage 4"]
-ARTIFACT_THRESH = 200e-6
-EPOCH_DURATION  = 30.0
+ARTIFACT_THRESH = 200e-6 # 峰峰值超过 200 μV 的 epoch 被视为伪迹，跳过不纳入目标 PSD 计算；s4_personalize.py 中无此 QC 步骤
+EPOCH_DURATION  = 30.0 # 每个 epoch 30 s，与 Fig. 7 / 论文展示一致；s4_personalize.py 中常截 20 s，二者勿混
 
 # Evolution config — increase for better results (at cost of time)
-DE_POPSIZE = 15     # individuals per generation = popsize * n_params = 15*8 = 120
-N_GEN      = 20     # generations; paper uses 50
+DE_POPSIZE = 15     # DE_POPULATION_SIZE；每代评估 15 个个体，每个个体跑一次仿真；paper 用 20，但时间较长，20 可能更稳健但不太现实
+N_GEN      = 20     # N_GEN；DE_GENERATIONS；迭代 20 代；paper 用 50，但时间较长，20 可能更稳健但不太现实
 SIM_DUR_MS = 30_000 # 30 s per evaluation
 
 # Frequency range for fitness
@@ -83,8 +83,12 @@ class ThalamoCorticalNetwork(Network):
     label = "TCNet"
     # ALN 兴奋：network_exc_exc + network_exc_exc_sq；TCR：network_exc_exc；TRN：network_inh_exc
     sync_variables  = ["network_exc_exc", "network_exc_exc_sq", "network_inh_exc"]
-    default_output  = f"r_mean_{EXC}"
+    # sync_variables 定义了网络耦合符号；ALN 兴奋性 r_mean_EXC 既受 network_exc_exc（线性）又受 network_exc_exc_sq（非线性）调制；
+    # TCR 兴奋性 r_mean_EXC 受 network_exc_exc 调制；TRN 兴奋性 r_mean_EXC 受 network_inh_exc 调制。
+    default_output  = f"r_mean_{EXC}" # 默认输出皮层兴奋性 r_mean_EXC，供 DE 评估适应度时直接使用；
+    # 也可在 build_model 后改为其他变量（如 TCR 兴奋性）
     output_vars     = [f"r_mean_{EXC}", f"r_mean_{INH}"]
+    # output_vars 定义了可选的输出变量；默认输出是皮层兴奋性 r_mean_EXC，但也可以选择其他变量，如丘脑兴奋性 r_mean_EXC 或任意 r_mean_INH。
     _EXC_WITHIN_IDX = [6, 9]   # 节点内 r_mean_EXC 下标：皮层 / 丘脑
 
     def __init__(self, c_th2ctx=0.02, c_ctx2th=0.15):
@@ -110,9 +114,12 @@ class ThalamoCorticalNetwork(Network):
         couplings = sum([node._sync() for node in self], [])
         wi = self._EXC_WITHIN_IDX
         couplings += self._additive_coupling(wi, "network_exc_exc")
+        # network_exc_exc 是线性耦合项，ALN 兴奋性 r_mean_EXC 受来自丘脑的线性调制；TCR 兴奋性 r_mean_EXC 受来自皮层的线性调制。
         couplings += self._additive_coupling(wi, "network_exc_exc_sq",
                                              connectivity=self.connectivity ** 2)
+        # network_exc_exc_sq 是非线性耦合项，ALN 兴奋性 r_mean_EXC 受来自丘脑的非线性调制（C**2）；TCR 兴奋性 r_mean_EXC 不受非线性调制。
         couplings += self._additive_coupling(wi, "network_inh_exc")
+        # network_inh_exc 是抑制性耦合项，ALN 兴奋性 r_mean_EXC 受来自丘脑的抑制调制；TCR 兴奋性 r_mean_EXC 不受抑制调制。
         return couplings
 
 
@@ -184,18 +191,26 @@ for ep_idx in range(len(epochs_n3)):
     nperseg = min(int(10.0 * fs_eeg), len(mean_signal))
     f_ep, p_ep = welch(mean_signal, fs=fs_eeg, nperseg=nperseg,
                        noverlap=nperseg//2, window="hann")
+    # f_ep 是频率数组，p_ep 是对应的功率谱密度；保留 [F_LO, F_HI] 频段，供后续对齐与 FOOOF 使用
     freq_mask = (f_ep >= F_LO) & (f_ep <= F_HI)
+    #freq_mask是一个布尔数组，标记了哪些频率在指定范围内；p_ep[freq_mask] 则提取了这些频率对应的功率谱密度值。
     psds_subject.append(p_ep[freq_mask])
+    # psds_subject 是一个列表，收集了每个通过 QC 的 epoch 的功率谱密度；每个元素是一个数组，对应于 [F_LO, F_HI] 频段的功率谱密度值。
 
 n_passed = len(psds_subject)
+# n_passed 是通过 QC (QC指的是 Quality Control ) 的 epoch 数量；如果 n_passed 为 0，说明没有任何 epoch 通过 QC，无法计算目标 PSD，因此抛出错误。
 print(f"  N3 epochs passed QC: {n_passed} / {len(epochs_n3)}")
+# 输出通过 QC 的 epoch 数量与总 epoch 数量的比率，供用户了解数据质量和可用性。
 if n_passed == 0:
     raise ValueError("No N3 epochs passed QC")
 
 # 最后一个通过 QC 的 epoch 给出 f_ep/freq_mask；通常各 epoch 格点一致
 target_psd   = np.mean(psds_subject, axis=0)
+# target_psd 是通过 QC 的 epoch 的功率谱密度的平均值，代表了该受试者 N3 EEG 的典型 PSD；对齐到 [F_LO, F_HI] 频段。
 target_freqs = f_ep[freq_mask]
+# target_freqs 是对应于 target_psd 的频率数组，包含了 [F_LO, F_HI] 频段内的频率值；与 target_psd 的长度一致。
 print(f"  Target PSD shape: {target_psd.shape}, freq: {target_freqs[0]:.1f}-{target_freqs[-1]:.1f} Hz")
+# 输出 target_psd 的形状和对应的频率范围，供用户确认目标 PSD 的维度和频段是否正确。
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -226,18 +241,24 @@ if HAS_FOOOF:
     # peak_width_limits / max_n_peaks：约束慢波、纺锤等峰形；aperiodic_mode='fixed'：单指数 1/f
     fm_tgt = FOOOF(peak_width_limits=[1.0, 8.0], max_n_peaks=4,
                    min_peak_height=0.05, aperiodic_mode='fixed')
+    # 直接 fit 0.5–20 Hz 的目标 PSD；FOOOF 内部会对数变换并拟合非周期项，得到残差谱（周期项）供后续使用
     fm_tgt.fit(target_freqs, target_psd, [F_LO, F_HI])
+    # FOOOF 的 fit() 内部会对数变换 target_psd，并拟合出 aperiodic_fit（_ap_fit）和 periodic_peaks（peak_params_）；此处用 log10(PSD) − aperiodic_fit 近似周期残差，供后续与仿真对齐比较。
 
     # 在 log 域：全谱 = aperiodic_line + peaks；此处用「数据 log 谱 − 拟合的非周期线」近似周期残差
     target_log_psd = np.log10(target_psd + 1e-30)
     fooof_freqs = fm_tgt.freqs          # FOOOF 内部频率格，可能与 target_freqs 长度略有差异
     target_aperiodic = fm_tgt._ap_fit   # log10 域上的非周期拟合曲线（私有属性，与论文脚本一致用法）
     target_periodic = target_log_psd[: len(target_aperiodic)] - target_aperiodic
+    #target_periodic是减去非周期成分target_log_psd与target_aperiodic得到的周期残差，
+    # 供后续与仿真侧同样处理后的谱做 Pearson 相关及 SO/纺锤峰功率。
 
     print(f"  FOOOF target: aperiodic exponent={fm_tgt.aperiodic_params_[1]:.2f}")
+    # FOOOF 的 aperiodic_params_ 包含了非周期项的参数；对于 'fixed' 模式，第二个参数是 1/f 的指数；输出供用户了解目标 PSD 的 1/f 特性。
     if fm_tgt.peak_params_ is not None and len(fm_tgt.peak_params_) > 0:
-        for pk in fm_tgt.peak_params_:
+        for pk in fm_tgt.peak_params_: 
             print(f"    Peak: {pk[0]:.1f} Hz, power={pk[1]:.3f}, width={pk[2]:.1f}")
+            # 输出 FOOOF 拟合出的每个峰的中心频率、功率和宽度，供用户了解目标 PSD 中显著的振荡成分。
 else:
     # 无 FOOOF：用归一化功率的 log 谱代替周期残差，仍可与仿真归一化谱比形状，但无 1/f 显式剥离
     target_periodic = np.log10(target_psd / (target_psd.sum() + 1e-30) + 1e-30)
@@ -250,7 +271,7 @@ else:
 #   输入：8 维参数 → build_model → 跑 SIM_DUR_MS（30 s）。
 #   信号：仅皮层节点兴奋性 r_E（Hz），非 EEG；与 Part 3 的 EEG 目标在「各自去 1/f 后的残差」上比形状。
 #   流程：丢 5 s → Welch → [F_LO,F_HI] → 插值到 fooof_freqs →（可选）FOOOF 得 sim_periodic。
-#   返回：(shape_r, so_power, spindle_power)；加权求和在 Part 5：0.5/0.25/0.25。
+#   返回：(shape_r, so_power, spindle_power)；当前仅保留 shape_r 计入 score。
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # sampling_dt=1 ms → 1000 Hz，与 Welch、n_drop=5 s 的样本数一致
@@ -259,10 +280,10 @@ FS_SIM = 1000.0
 
 def compute_fitness(mue, mui, b, tauA, g_lk, g_h, c_th2ctx, c_ctx2th):
     """
-    单次评估返回三元组；Part 5 中 score = 0.5*r_shape + 0.25*norm(so) + 0.25*norm(spindle)。
+    单次评估返回三元组；Part 5 中 score = shape_r（仅分量 1）。
 
     shape_r：target_periodic（Part 3）与 sim_periodic（本函数）对齐后的 Pearson r；
-    so/spindle：在仿真残差 sp 上 0.2–1.5 Hz / 10–14 Hz 的峰值。
+    so/spindle：保留字段但不再参与优化目标。
     """
     try:
         m = build_model(mue, mui, b, tauA, g_lk, g_h, c_th2ctx, c_ctx2th)
@@ -285,24 +306,32 @@ def compute_fitness(mue, mui, b, tauA, g_lk, g_h, c_th2ctx, c_ctx2th):
 
     nperseg = min(int(10.0 * FS_SIM), len(r_sim))
     f_s, p_s = welch(r_sim, fs=FS_SIM, nperseg=nperseg, noverlap=nperseg//2, window="hann")
+    # f_s 是频率数组，p_s 是对应的功率谱密度；
 
     ms = (f_s >= F_LO) & (f_s <= F_HI)
+    # ms 是一个布尔数组，标记了哪些频率在指定范围内；
     f_s, p_s = f_s[ms], p_s[ms]
-
+    # f_s 和 p_s 现在仅包含了 [F_LO, F_HI] 频段内的频率和对应的功率谱密度值；与 Part 3 的 target_periodic 对齐。
+    # f_s, p_s 是仿真侧的频率和功率谱密度；后续会对 p_s 进行 FOOOF 或归一化处理，以得到 sim_periodic 供与 target_periodic 比较。
     if len(f_s) < 10:
         return -1.0, -1.0, -1.0
 
     # 与 Part 3 的 fooof_freqs 对齐，便于 sp/tp 同维比较
     p_interp = interp1d(f_s, p_s, bounds_error=False,
                         fill_value=1e-30)(fooof_freqs)
-
+    # p_interp 是通过线性插值将仿真侧的功率谱密度 p_s 从 f_s 频率点映射到 Part 3 的 fooof_freqs 频率点；
+    # 这样 sim_periodic 就能与 target_periodic 在同一频率格点上进行比较。
     if HAS_FOOOF:
         try:
             fm_sim = FOOOF(peak_width_limits=[1.0, 8.0], max_n_peaks=4,
                            min_peak_height=0.05, aperiodic_mode='fixed')
+            # fm_sim 是一个 FOOOF 对象，用于拟合仿真侧的功率谱密度；参数设置与 Part 3 的 fm_tgt 一致，确保拟合方式相同。
             fm_sim.fit(fooof_freqs, p_interp, [F_LO, F_HI])
+            # 直接用 log10(PSD) − aperiodic_fit 近似周期残差，供后续与目标周期残差比形状及峰值；与 Part 3 一致用法。
             sim_log = np.log10(p_interp[:len(fm_sim._ap_fit)] + 1e-30)
+            # sim_log 是仿真侧功率谱密度 p_interp 的 log10 变换；加上 1e-30 避免 log(0) 的数值问题；仅取与 fm_sim._ap_fit 长度一致的部分，供后续计算周期残差。
             sim_periodic = sim_log - fm_sim._ap_fit
+            # sim_periodic 是仿真侧的周期残差，计算方式与 Part 3 的 target_periodic 一致；供后续与 target_periodic 比形状及峰值。
         except Exception:
             p_rel = p_interp / (p_interp.sum() + 1e-30)
             sim_periodic = np.log10(p_rel + 1e-30)
@@ -311,24 +340,26 @@ def compute_fitness(mue, mui, b, tauA, g_lk, g_h, c_th2ctx, c_ctx2th):
         sim_periodic = np.log10(p_rel + 1e-30)
 
     n = min(len(sim_periodic), len(target_periodic))
+    # n 是 sim_periodic 和 target_periodic 的最小长度，确保后续比较时两者维度一致；通常两者长度应该相同，但以防万一做了保护。
     sp = sim_periodic[:n]
+    # sp 是仿真侧的周期残差，仅取前 n 个元素，供后续与目标周期残差 tp 进行 Pearson 相关和峰值计算。
     tp = target_periodic[:n]
+    # tp 是目标侧的周期残差，仅取前 n 个元素，与 sp 维度一致，供后续与仿真侧周期残差 sp 进行 Pearson 相关和峰值计算。
     ff = fooof_freqs[:n]
+    # ff 是与 sp 和 tp 对齐的频率数组，仅取前 n 个元素，供后续在特定频段内计算峰值。
 
     if np.std(sp) < 1e-10:
         return -1.0, -1.0, -1.0
 
-    # 分量 1：EEG 与仿真率 PSD 的「去 1/f 残差」逐频 Pearson 相关（形状）
+    # fitness分量 1：EEG 与仿真率 PSD 的「去 1/f 周期残差」逐频 Pearson 相关（形状）
     shape_r, _ = pearsonr(sp, tp)
+
     if np.isnan(shape_r):
         return -1.0, -1.0, -1.0
 
-    # 分量 2/3：仅在仿真残差 sp 上取峰；频带与 Fig.7 / 论文展示一致
-    so_mask = (ff >= 0.2) & (ff <= 1.5)
-    so_power = float(np.max(sp[so_mask])) if so_mask.any() else -5.0
-
-    sp_mask = (ff >= 10.0) & (ff <= 14.0)
-    spindle_power = float(np.max(sp[sp_mask])) if sp_mask.any() else -5.0
+    # 分量 2/3 保留占位返回，避免改动下游记录字段
+    so_power = 0.0
+    spindle_power = 0.0
 
     return float(shape_r), float(so_power), float(spindle_power)
 
@@ -364,8 +395,7 @@ _t0 = [time.time()]
 
 def _objective(x):
     """
-    解包 8 维向量 → Part 4 compute_fitness → 将 so/spindle 峰值压到 [0,1] 后与 shape_r 加权求和。
-    权重 0.5 / 0.25 / 0.25：形状为主，两频段峰为辅（论文多用 Pareto，此处用标量化近似）。
+    解包 8 维向量 → Part 4 compute_fitness → 仅使用 shape_r 作为 score。
     """
     mue, mui, b, tauA, g_lk, g_h, c_th2ctx, c_ctx2th = x
     shape_r, so_pwr, sp_pwr = compute_fitness(
@@ -373,11 +403,8 @@ def _objective(x):
     )
     _evals[0] += 1
 
-    # 经验范围约 [-5, 2]，映射到 [0,1] 便于与 shape_r（约 [-1,1]）同尺度加权
-    so_norm = np.clip((so_pwr + 5.0) / 7.0, 0, 1)
-    sp_norm = np.clip((sp_pwr + 5.0) / 7.0, 0, 1)
-
-    score = 0.5 * shape_r + 0.25 * so_norm + 0.25 * sp_norm
+    score = shape_r
+    # score 仅由形状相关性决定（分量 1）。
 
     all_records.append({
         "mue": mue, "mui": mui, "b": b, "tauA": tauA,
@@ -452,16 +479,16 @@ best_params["fooof"] = HAS_FOOOF          # 适应度是否走 FOOOF 分支
 os.makedirs("data", exist_ok=True)
 os.makedirs("outputs", exist_ok=True)
 
-with open(f"data/patient_params_fig7_{SUBJECT_ID}.json", "w") as fh:
+with open(f"data/patient_params_fig7_v1_0418_2_{SUBJECT_ID}.json", "w") as fh:
     json.dump(best_params, fh, indent=2)
 df.to_csv("outputs/evolution_fig7_records.csv", index=False)
 
 print(f"\nBest parameters (score={best_params['score']:.4f}):")
 for k in PARAM_NAMES:
     print(f"  {k}: {best_params[k]:.4f}")
-print(f"  shape_r: {best_params['shape_r']:.4f}")
-print(f"  so_power: {best_params['so_power']:.4f}")
-print(f"  spindle_power: {best_params['spindle_power']:.4f}")
+print(f"  shape_r: {best_params['shape_r']:.4f}") # 目标 EEG 与仿真周期残差的 Pearson r（形状相关性）
+print(f"  so_power: {best_params['so_power']:.4f}") # 仿真周期残差在 0.2–1.5 Hz 频段的峰值（慢振荡功率）
+print(f"  spindle_power: {best_params['spindle_power']:.4f}") # 仿真周期残差在 10–14 Hz 频段的峰值（纺锤体功率）
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -473,7 +500,16 @@ print(f"  spindle_power: {best_params['spindle_power']:.4f}")
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 print("\nRunning 60s simulation with best parameters...")
-bm = build_model(**{k: best_params[k] for k in PARAM_NAMES})
+bm = build_model(
+    best_params["mue"],
+    best_params["mui"],
+    best_params["b"],
+    best_params["tauA"],
+    best_params["g_LK"],
+    best_params["g_h"],
+    best_params["c_th2ctx"],
+    best_params["c_ctx2th"],
+)
 bm.params["duration"] = 60_000   # 覆盖 build_model 内默认 30 s
 bm.run()
 
@@ -657,8 +693,8 @@ fig.suptitle(
     f"{N_GEN} gen x {DE_POPSIZE*8} pop",
     fontsize=12, fontweight='bold',
 )
-plt.savefig("outputs/fig7_personalized.png", dpi=150, bbox_inches="tight")
-print("\n✓ Saved: outputs/fig7_personalized.png")
+plt.savefig("outputs/fig7_personalized_0417_v3.png", dpi=150, bbox_inches="tight")
+print("\n✓ Saved: outputs/fig7_personalized_0417_v3.png")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Part 9：终端校验 — 根据最优个体的 shape_r 与 SO/纺锤分量打印通过/提示
@@ -680,7 +716,7 @@ else:
 
 print(f"  SO power     : {best_params['so_power']:.3f}")
 print(f"  Spindle power: {best_params['spindle_power']:.3f}")
-print(f"\nSaved: data/patient_params_fig7_{SUBJECT_ID}.json")
-print(f"Saved: outputs/evolution_fig7_records.csv")
-print(f"Saved: outputs/fig7_personalized.png")
+print(f"\nSaved: data/patient_params_fig7_{SUBJECT_ID}_0417_v3.json")
+print(f"Saved: outputs/evolution_fig7_records_0417_v3.csv")
+print(f"Saved: outputs/fig7_personalized_0417_v3.png")
 sys.exit(0)
