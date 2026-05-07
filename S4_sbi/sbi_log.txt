@@ -1,0 +1,122 @@
+[23:24:08] === SBI Stage 2 (FULL RUN) ===
+[23:24:08] sbi=0.26.1  torch=2.5.1  cuda=False
+[23:24:08] x_obs loaded: [1.0, 2.6449999809265137, 0.75, 0.7699999809265137, 14.35200023651123, 1.319000005722046, 0.0002300000051036477]
+[23:24:08] Prior: BoxUniform  low=[0.03500000014901161, 0.019999999552965164, 0.05000000074505806, 28.399999618530273]  high=[0.0949999988079071, 0.07000000029802322, 0.2199999988079071, 42.599998474121094]
+[23:24:08] 
+==================================================
+[23:24:08] Round 1: 2000 simulations
+[23:24:08] ==================================================
+[23:24:08]   Sampling 2000 theta from proposal ...
+[23:32:20]     100/2000  NaN=0  elapsed=8.2min  ETA=155.7min
+[23:41:41]     200/2000  NaN=0  elapsed=17.5min  ETA=157.9min
+[23:55:42]     300/2000  NaN=0  elapsed=31.6min  ETA=178.9min
+[00:09:44]     400/2000  NaN=0  elapsed=45.6min  ETA=182.3min
+[00:23:46]     500/2000  NaN=0  elapsed=59.6min  ETA=178.9min
+[00:37:52]     600/2000  NaN=0  elapsed=73.7min  ETA=172.0min
+[00:51:58]     700/2000  NaN=0  elapsed=87.8min  ETA=163.1min
+[01:06:04]     800/2000  NaN=0  elapsed=101.9min  ETA=152.9min
+[01:20:12]     900/2000  NaN=0  elapsed=116.1min  ETA=141.8min
+[01:34:25]     1000/2000  NaN=0  elapsed=130.3min  ETA=130.3min
+[01:48:35]     1100/2000  NaN=0  elapsed=144.4min  ETA=118.2min
+[02:02:37]     1200/2000  NaN=0  elapsed=158.5min  ETA=105.6min
+[02:16:48]     1300/2000  NaN=0  elapsed=172.7min  ETA=93.0min
+[02:30:59]     1400/2000  NaN=0  elapsed=186.8min  ETA=80.1min
+[02:45:05]     1500/2000  NaN=0  elapsed=200.9min  ETA=67.0min
+[02:59:29]     1600/2000  NaN=0  elapsed=215.3min  ETA=53.8min
+[03:13:46]     1700/2000  NaN=0  elapsed=229.6min  ETA=40.5min
+[03:28:06]     1800/2000  NaN=0  elapsed=244.0min  ETA=27.1min
+[03:42:30]     1900/2000  NaN=0  elapsed=258.4min  ETA=13.6min
+[03:56:58]     2000/2000  NaN=0  elapsed=272.8min  ETA=0.0min
+[03:56:58]   Round 1: 2000 valid / 2000 sims (NaN rate=0.0%)
+[03:56:59]   Round 1 sims: 2000 valid  NaN=0
+[03:56:59]   Training SNPE-C (device=cpu) ...
+[03:57:53]   Checkpoint saved: D:\Year3_Mao_Projects\sleep_loop\S4_sbi\sbi_outputs\round1_posterior.pkl
+[03:57:53]   Round 1 done in 273.7 min
+[03:57:53] 
+==================================================
+[03:57:53] Round 2: 1000 simulations
+[03:57:53] ==================================================
+[03:57:53]   Sampling 1000 theta from proposal ...
+[04:12:24]     100/1000  NaN=0  elapsed=14.5min  ETA=130.3min
+[04:26:36]     200/1000  NaN=0  elapsed=28.7min  ETA=114.7min
+[04:41:05]     300/1000  NaN=0  elapsed=43.2min  ETA=100.7min
+[04:55:20]     400/1000  NaN=0  elapsed=57.4min  ETA=86.1min
+[05:09:39]     500/1000  NaN=0  elapsed=71.7min  ETA=71.7min
+[05:23:57]     600/1000  NaN=0  elapsed=86.0min  ETA=57.4min
+[05:38:19]     700/1000  NaN=0  elapsed=100.4min  ETA=43.0min
+[05:52:43]     800/1000  NaN=0  elapsed=114.8min  ETA=28.7min
+[06:07:09]     900/1000  NaN=0  elapsed=129.2min  ETA=14.4min
+[06:21:40]     1000/1000  NaN=0  elapsed=143.7min  ETA=0.0min
+[06:21:40]   Round 2: 1000 valid / 1000 sims (NaN rate=0.0%)
+[06:21:40]   Round 2 sims: 1000 valid  NaN=0
+[06:21:40]   Training SNPE-C (device=cpu) ...
+[06:22:10]   Checkpoint saved: D:\Year3_Mao_Projects\sleep_loop\S4_sbi\sbi_outputs\round2_posterior.pkl
+[06:22:11]   Posterior std: [0.007816821336746216, 0.0030621460173279047, 0.055565331131219864, 1.8090012073516846]
+[06:22:11]   Round 2 done in 144.3 min
+[06:22:11] 
+==================================================
+[06:22:11] Round 3: 1000 simulations
+[06:22:11] ==================================================
+[06:22:11]   Sampling 1000 theta from proposal ...
+[06:36:48]     100/1000  NaN=0  elapsed=14.6min  ETA=131.1min
+[06:51:22]     200/1000  NaN=0  elapsed=29.1min  ETA=116.5min
+[07:05:30]     300/1000  NaN=0  elapsed=43.3min  ETA=101.0min
+[07:20:11]     400/1000  NaN=0  elapsed=58.0min  ETA=86.9min
+[07:34:57]     500/1000  NaN=0  elapsed=72.7min  ETA=72.7min
+[07:49:15]     600/1000  NaN=0  elapsed=87.0min  ETA=58.0min
+[08:04:08]     700/1000  NaN=0  elapsed=101.9min  ETA=43.7min
+[08:18:31]     800/1000  NaN=0  elapsed=116.3min  ETA=29.1min
+[08:33:27]     900/1000  NaN=0  elapsed=131.2min  ETA=14.6min
+[08:47:57]     1000/1000  NaN=0  elapsed=145.7min  ETA=0.0min
+[08:47:58]   Round 3: 1000 valid / 1000 sims (NaN rate=0.0%)
+[08:47:58]   Round 3 sims: 1000 valid  NaN=0
+[08:47:58]   Training SNPE-C (device=cpu) ...
+[08:48:40]   Checkpoint saved: D:\Year3_Mao_Projects\sleep_loop\S4_sbi\sbi_outputs\round3_posterior.pkl
+[08:48:41]   Posterior std: [0.006916348356753588, 0.002844474511221051, 0.05354175716638565, 1.795575737953186]
+[08:48:41]   Relative std change R2→R3: 5.8%
+[08:48:41]   *** Converged early at Round 3 — skipping Round 4 ***
+[08:48:41] 
+=== Diagnostics ===
+[08:48:41] 
+[1/5] Marginals ...
+[08:48:47]   Saved D:\Year3_Mao_Projects\sleep_loop\S4_sbi\sbi_outputs\fig_marginals.png
+[08:48:47] 
+[2/5] Pairplot ...
+[08:48:52]   Saved D:\Year3_Mao_Projects\sleep_loop\S4_sbi\sbi_outputs\fig_pairplot.png
+[08:48:52] 
+[3/5] MAP + 95% CI ...
+[08:49:02]   Posterior MAP + 95% CI:
+[08:49:02]     g_h           MAP=0.05919  95%CI=[0.05885, 0.08857]
+[08:49:02]     g_LK          MAP=0.05137  95%CI=[0.04849, 0.06074]
+[08:49:02]     c_ctx2th      MAP=0.06917  95%CI=[0.06997, 0.21479]
+[08:49:02]     b             MAP=42.36661  95%CI=[36.73719, 42.54034]
+[08:49:02] 
+[4/5] PPC (100 sims) ...
+[08:49:02]   PPC: sampling 100 posterior params and simulating ...
+[08:52:28]     PPC 25/100  NaN=0
+[08:56:32]     PPC 50/100  NaN=0
+[09:00:00]     PPC 75/100  NaN=0
+[09:03:25]     PPC 100/100  NaN=0
+[09:03:26]   Saved D:\Year3_Mao_Projects\sleep_loop\S4_sbi\sbi_outputs\fig_ppc.png
+[09:03:26]   PPC percentiles of x_obs:
+[09:03:26]     shape_r               x_obs at 100th pct  [FAIL]
+[09:03:26]     T4_q                  x_obs at 98th pct  [FAIL]
+[09:03:26]     T4_freq               x_obs at 30th pct  [PASS]
+[09:03:26]     T6_ibi_cv             x_obs at 100th pct  [FAIL]
+[09:03:26]     T8_n_sp_events        x_obs at 1th pct  [FAIL]
+[09:03:26]     T11_lag_ms            x_obs at 6th pct  [PASS]
+[09:03:26]     MI                    x_obs at 0th pct  [FAIL]
+[09:03:26] 
+[5/5] SBC (200 sims) ...
+[09:03:26]   SBC skipped (sbi.analysis.run_sbc not available)
+[09:03:26] 
+[6/6] Pareto overlay ...
+[09:03:29]   Pareto seed log-probs under posterior:
+[09:03:51]     Seed A: log_prob=-12.074  (shape_r=0.6655  MI=0.1370)
+[09:03:51]     Seed B: log_prob=2.407  (shape_r=0.6786  MI=0.0700)
+[09:03:51]     Seed C: log_prob=1.210  (shape_r=0.6895  MI=0.0290)
+[09:03:52]   Saved D:\Year3_Mao_Projects\sleep_loop\S4_sbi\sbi_outputs\fig_pareto_overlay.png
+[09:03:52]   Saved D:\Year3_Mao_Projects\sleep_loop\S4_sbi\sbi_results.md
+[09:03:52] 
+Total wall-clock: 579.7 min (9.66 h)
+[09:03:52] Stage 2 SBI complete.
