@@ -126,6 +126,12 @@ mne.set_log_level("WARNING")
 from neurolib.models.multimodel import MultiModel, ALNNode, ThalamicNode
 from neurolib.models.multimodel.builder.base.network import Network
 from neurolib.models.multimodel.builder.base.constants import EXC, INH
+from neurolib.utils.stimulus import OrnsteinUhlenbeckProcess
+import numba
+
+@numba.njit
+def seed_numba(seed):
+    np.random.seed(seed)
 
 try:
     from fooof import FOOOF
@@ -223,6 +229,11 @@ class ThalamoCorticalNetwork(Network):
     def __init__(self, c_th2ctx=0.02, c_ctx2th=0.02): #     
         aln = ALNNode(exc_seed=42, inh_seed=42) # ALNNode is a 2-mass cortical microcircuit (1 EXC, 1 INH)
         th  = ThalamicNode()# ThalamicNode is a 2-mass thalamic motif (TCR, TRN)
+        # --- Bulletproof Seed Injection (mirrors plot_fig7_compare_v7_vs_v8.py) ---
+        th[0].seed = 42
+        th[0].noise_input = [OrnsteinUhlenbeckProcess(
+            mu=0.0, sigma=0.0, tau=5.0, seed=42)]
+        # -------------------------------------------------------------------------
         aln.index = 0;  aln.idx_state_var = 0 # cortical state variables start at index 0
         th.index  = 1;  th.idx_state_var  = aln.num_state_variables # thalamic state variables start after cortical ones
         for i, node in enumerate([aln, th]):
@@ -375,112 +386,13 @@ BAD_OBJECTIVE = 1e6  # DE minimizes, so large = worst case
 # V5 NEW: PAC helper — computes MI, preferred phase, directional lag
 # =====================================================================
 def compute_pac_metrics(r_ctx, r_thal, fs=FS_SIM):
-    """
-    Compute three phase-amplitude coupling metrics between cortical SO
-    phase and thalamic spindle amplitude, for T9-T11 hard constraints.
-
-    Pipeline:
-      1. Band-pass r_ctx in SO band [SO_FREQ_LO, SO_FREQ_HI] → Hilbert
-         → instantaneous phase φ_SO(t).
-      2. Band-pass r_thal in spindle band [SPINDLE_LO, SPINDLE_HI] →
-         Hilbert → instantaneous amplitude envelope A_sp(t).
-      3. Compute KL modulation index (Tort et al. 2010).
-      4. Compute mean vector length (Canolty et al. 2006) → preferred phase.
-      5. Compute cross-correlation lag of A_sp wrt band-pass SO signal.
-
-    Convention for preferred phase:
-      sosfiltfilt returns zero-phase filtered signal. Hilbert phase on a
-      cosine-like SO signal equals 0 at the SO peak (Up-state maximum).
-      So preferred_phase ≈ 0 means "spindle amplitude peaks at SO Up-state
-      peak" — the physiologically correct target (Mölle 2011).
-
-    Convention for lag (T11):
-      correlate(sp_env, so_filt) indexed by lag k means: at k > 0,
-      sp_env[n+k] correlates with so_filt[n] → so_filt leads sp_env by
-      k samples → "SO leads spindle". This is what we want.
-
-    Returns a dict with: mi, preferred_phase, lag_samples, lag_ms.
-    Falls back to safe defaults on any numerical failure.
-    """
-    out = {
-        "mi": 0.0,
-        "preferred_phase": np.pi,  # farthest from 0 → fails T10 on failure
-        "lag_samples": 0,
-        "lag_ms": 0.0,
-        "ok": False,
-    }
-    try:
-        # Protect against tiny or flat signals
-        if len(r_ctx) < int(2 * fs) or len(r_thal) < int(2 * fs):
-            return out
-        if r_ctx.std() < 1e-6 or r_thal.std() < 1e-6:
-            return out
-
-        # 1. SO phase from cortex
-        sos_so = butter(4, [SO_FREQ_LO, SO_FREQ_HI], btype="band",
-                        fs=fs, output="sos")
-        so_filt = sosfiltfilt(sos_so, r_ctx)
-        so_analytic = hilbert(so_filt)
-        so_phase = np.angle(so_analytic)
-
-        # 2. Spindle envelope from thalamus
-        sos_sp = butter(4, [SPINDLE_LO, SPINDLE_HI], btype="band",
-                        fs=fs, output="sos")
-        sp_filt = sosfiltfilt(sos_sp, r_thal)
-        sp_amp = np.abs(hilbert(sp_filt))
-
-        # Drop ±0.5 s at edges to avoid Hilbert/filtfilt boundary artefacts
-        edge = int(0.5 * fs)
-        so_filt = so_filt[edge:-edge]
-        so_phase = so_phase[edge:-edge]
-        sp_amp = sp_amp[edge:-edge]
-
-        # 3. KL Modulation Index
-        bin_edges = np.linspace(-np.pi, np.pi, PAC_N_BINS + 1)
-        mean_amp = np.zeros(PAC_N_BINS)
-        for i in range(PAC_N_BINS):
-            mask = (so_phase >= bin_edges[i]) & (so_phase < bin_edges[i + 1])
-            if mask.any():
-                mean_amp[i] = sp_amp[mask].mean()
-        total = mean_amp.sum()
-        if total <= 0 or not np.isfinite(total):
-            return out
-        p = mean_amp / total
-        # Shannon entropy with safe log
-        p_safe = np.where(p > 0, p, 1.0)
-        H = -np.sum(p * np.log(p_safe))
-        mi = (np.log(PAC_N_BINS) - H) / np.log(PAC_N_BINS)
-        mi = float(np.clip(mi, 0.0, 1.0))
-
-        # 4. Preferred phase via mean vector length (Canolty 2006)
-        mvl = (sp_amp * np.exp(1j * so_phase)).mean()
-        preferred_phase = float(np.angle(mvl))
-
-        # 5. Directional lag via cross-correlation, restricted search window
-        max_lag = int(PAC_MAX_LAG_S * fs)
-        # Subtract means to avoid DC dominating xcorr
-        a = sp_amp - sp_amp.mean()
-        b = so_filt - so_filt.mean()
-        xc = correlate(a, b, mode="full")
-        lags = np.arange(-(len(b) - 1), len(a))
-        # Restrict to ±max_lag window
-        keep = (lags >= -max_lag) & (lags <= max_lag)
-        xc_w = xc[keep]
-        lags_w = lags[keep]
-        if xc_w.size == 0:
-            return out
-        peak_lag_samples = int(lags_w[np.argmax(xc_w)])
-
-        out.update({
-            "mi": mi,
-            "preferred_phase": preferred_phase,
-            "lag_samples": peak_lag_samples,
-            "lag_ms": peak_lag_samples * 1000.0 / fs,
-            "ok": True,
-        })
-    except Exception:
-        pass
-    return out
+    import sys
+    from pathlib import Path
+    _repair_dir = Path(__file__).resolve().parent.parent / "S4_v7_repair"
+    if str(_repair_dir) not in sys.path:
+        sys.path.insert(0, str(_repair_dir))
+    from compute_pac_metrics_fixed import compute_pac_metrics as _compute_pac_fixed
+    return _compute_pac_fixed(r_ctx, r_thal, fs)
 
 
 def compute_constraints_v7(r_ctx, r_thal, f_c=None, p_c=None, fs=FS_SIM):
@@ -506,156 +418,220 @@ def compute_constraints_v7(r_ctx, r_thal, f_c=None, p_c=None, fs=FS_SIM):
     details = {}
 
     # ── T1: DOWN state exists ─────────────────────────────────────────
-    min_rE = float(r_ctx.min())
-    t1 = min_rE < DOWN_THRESH_HZ
-    details["T1"] = t1
-    details["T1_min_rE"] = min_rE
+    min_rE = float(r_ctx.min()) # minimum cortical EXC firing rate across the run
+    t1 = min_rE < DOWN_THRESH_HZ # min_rE below threshold → DOWN state exists → T1 passes
+    details["T1"] = t1 # boolean pass/fail for T1
+    details["T1_min_rE"] = min_rE # actual minimum firing rate
 
     # ── T2: UP state exists ───────────────────────────────────────────
-    max_rE = float(r_ctx.max())
-    t2 = max_rE > UP_THRESH_HZ
-    details["T2"] = t2
-    details["T2_max_rE"] = max_rE
+    max_rE = float(r_ctx.max()) # maximum cortical EXC firing rate across the run
+    t2 = max_rE > UP_THRESH_HZ # max_rE above threshold → UP state exists → T2 passes
+    details["T2"] = t2 # boolean pass/fail for T2
+    details["T2_max_rE"] = max_rE # actual maximum firing rate
 
     # ── T3: UP state sustained ≥ UP_DURATION_MS ───────────────────────
-    min_run_samples = int(UP_DURATION_MS * fs / 1000.0)
-    above = (r_ctx > UP_THRESH_HZ).astype(np.int8)
-    diff  = np.diff(np.concatenate(([0], above, [0])))
-    starts = np.where(diff == 1)[0]
-    ends   = np.where(diff == -1)[0]
-    max_run = int((ends - starts).max()) if len(starts) > 0 else 0
-    t3 = max_run >= min_run_samples
-    details["T3"] = t3
-    details["T3_longest_ms"] = max_run * 1000.0 / fs
+    min_run_samples = int(UP_DURATION_MS * fs / 1000.0) # min number of samples 
+    # corresponding to UP_DURATION_MS at sampling rate fs
+    above = (r_ctx > UP_THRESH_HZ).astype(np.int8) # 1 where r_ctx above UP_THRESH_HZ, else 0
+    diff  = np.diff(np.concatenate(([0], above, [0]))) # find transitions in above-threshold state
+    starts = np.where(diff == 1)[0] # indices where above goes from 0 to 1 → start of UP run
+    ends   = np.where(diff == -1)[0] # indices where above goes from 1 to 0 → end of UP run
+    max_run = int((ends - starts).max()) if len(starts) > 0 else 0 # longest run of consecutive samples above threshold
+    t3 = max_run >= min_run_samples # t3 passes if longest run is larger than or equal to min_run_samples
+    details["T3"] = t3 # boolean pass/fail for T3
+    details["T3_longest_ms"] = max_run * 1000.0 / fs # actual longest run duration in ms
 
     # ── T4+: SO peak in range AND sharp (Q-factor) ───────────────────
     if f_c is None or p_c is None:
-        f_c, p_c = compute_epoch_psd(r_ctx, fs)
-    so_mask = (f_c >= SO_FREQ_LO) & (f_c <= SO_FREQ_HI)
+        f_c, p_c = compute_epoch_psd(r_ctx, fs) # f_c: frequencies, p_c: power at f_c
+        # f_s: sampling frequencies; r_ctx: cortical firing rate time series
+    so_mask = (f_c >= SO_FREQ_LO) & (f_c <= SO_FREQ_HI) # so_mask is True where f_c in the Slow Oscillation (SO) frequency range
     # Neighbor bands: same width on each side of SO band
-    so_width = SO_FREQ_HI - SO_FREQ_LO
+    so_width = SO_FREQ_HI - SO_FREQ_LO # width of the SO frequency band
     neighbor_lo = (f_c >= max(0.1, SO_FREQ_LO - so_width)) & (f_c < SO_FREQ_LO)
+    # neighbor_lo is a mask: True where f_c is lower than SO_FREQ_LO but higher than max(0.1, SO_FREQ_LO - so_width)
     neighbor_hi = (f_c > SO_FREQ_HI) & (f_c <= SO_FREQ_HI + so_width)
-
+    # neighbor_hi is a mask: True where f_c is higher than SO_FREQ_HI but lower than or equal to SO_FREQ_HI + so_width
     so_peak_freq = 0.0
     so_q = 0.0
     t4 = False
     if so_mask.any():
         so_peak_freq = float(f_c[so_mask][np.argmax(p_c[so_mask])])
+        # so_peak_freq is the frequency that has the maximum power within the SO band
         so_peak_val  = p_c[so_mask].max()
+        # so_peak_val is maximum power value within the SO band
         neighbors = np.concatenate([
             p_c[neighbor_lo] if neighbor_lo.any() else np.array([]),
             p_c[neighbor_hi] if neighbor_hi.any() else np.array([])
-        ])
+        ]) # neighbors_values are the power values in the neighbor_lo  and neighbor_hi bands
         if len(neighbors) > 0 and neighbors.mean() > 0:
             so_q = float(so_peak_val / neighbors.mean())
+            # so_q is the ratio of the SO peak power to the average power in the neighboring frequency bands
         t4 = (SO_FREQ_LO <= so_peak_freq <= SO_FREQ_HI) and (so_q > SO_Q_MIN)
-    details["T4"] = t4
-    details["T4_freq"] = so_peak_freq
-    details["T4_q"]    = round(so_q, 3)
+        # t4 passes if the SO peak freq is within the SO frequency range
+        # and the Q-factor is above the minimum threshold
+    details["T4"] = t4 # boolean pass/fail for T4
+    details["T4_freq"] = so_peak_freq # actual SO peak frequency
+    details["T4_q"]    = round(so_q, 3) # actual Q-factor
+
 
     # ── T5: Spindle FWHM > threshold ──────────────────────────────────
     f_th, p_th = compute_epoch_psd(r_thal, fs)
+    # f_th: frequencies, p_th: power at f_th, r_thal: thalamic firing rate time series
     sp_mask = (f_th >= SPINDLE_LO) & (f_th <= SPINDLE_HI)
-    fwhm = 0.0
+    # sp_mask is True where f_th is in the spindle frequency range
+    fwhm = 0.0 # full width at half maximum of the spindle peak
     if sp_mask.any() and p_th[sp_mask].max() > 0:
-        p_sp = p_th[sp_mask]
-        f_sp = f_th[sp_mask]
-        half_power  = p_sp.max() / 2.0
-        above_half  = f_sp[p_sp >= half_power]
+        p_sp = p_th[sp_mask] # p_sp: array of power values in the spindle frequency range
+        f_sp = f_th[sp_mask] # f_sp: array of frequencies in the spindle frequency range
+        half_power  = p_sp.max() / 2.0 # half of the maximum power in the spindle band
+        above_half  = f_sp[p_sp >= half_power] # array of frequencies where the power is above half of the maximum
         if len(above_half) >= 2:
-            fwhm = float(above_half[-1] - above_half[0])
-    t5 = fwhm > SPINDLE_FWHM_MIN
-    details["T5"] = t5
-    details["T5_fwhm"] = fwhm
+            fwhm = float(above_half[-1] - above_half[0]) # full width at half maximum
+    t5 = fwhm > SPINDLE_FWHM_MIN # t5 passes if the FWHM is greater than the minimum threshold
+    details["T5"] = t5 # boolean pass/fail for T5
+    details["T5_fwhm"] = fwhm # actual full width at half maximum of the spindle peak
 
     # ── T6: SO regularity — inter-burst interval CV (NEW) ─────────────
     # Uses `starts` from T3's run-length encoding of UP events.
     # Requires ≥ 3 UP events to compute meaningful CV.
-    ibi_cv = 999.0
-    n_bursts = len(starts)
-    if n_bursts >= 3:
-        intervals = np.diff(starts) / fs  # in seconds
+    ibi_cv = 999.0 # coefficient of variation of inter-burst intervals (IBI)
+    n_bursts = len(starts) # number of UP events (brusts) detected in T3
+    # starts, an array of indices where UP events start (from T3)
+    if n_bursts >= 3: 
+        intervals = np.diff(starts) / fs  # inter-burst intervals in seconds
+        # np.diff(starts) gives the differences between consecutive start indices
         ibi_cv = float(intervals.std() / (intervals.mean() + 1e-12))
+        # ibi_cv is calcuated as intervals.std() / intervals.mean()
+        # the higher the ibi_cv, the more irregular the intervals between UP events (bursts) are
+        # the lower the ibi_cv, the more regular the intervals between UP events (bursts) are
     t6 = (n_bursts >= 3) and (ibi_cv < IBI_CV_MAX)
-    details["T6"] = t6
-    details["T6_ibi_cv"]    = round(ibi_cv, 3)
-    details["T6_n_bursts"]  = n_bursts
+    # t6 passes if there are at least 3 UP events 
+    # and ibi_cv is below the maximum threshold, indicating regular bursting
+
+    details["T6"] = t6 # boolean pass/fail for T6
+    details["T6_ibi_cv"]    = round(ibi_cv, 3) # actual IBI CV
+    details["T6_n_bursts"]  = n_bursts # actual number of UP events (bursts) detected in T3
 
     # ── T7: Spindle envelope burstiness — CV (NEW) ────────────────────
-    sp_cv = 0.0
-    envelope = None
+    # T7是一个新的约束条件，用于评估纺锤体包络的爆发性（burstiness）。纺锤体活动通常以短暂的爆发形式出现，而不是持续的振荡。
+    # T7通过计算纺锤体包络的变异系数（CV）来量化这种爆发性。CV是标准差与均值的比值，反映了包络振幅的相对变异程度。较高的CV表示包络具有更多的爆发性（更大的振幅变化），而较低的CV表示包络更连续（较小的振幅变化）。T7要求纺锤体包络的CV必须大于预设的最小阈值，以确保模拟中纺锤体活动具有足够的爆发性特征。
+    sp_cv = 0.0 # sp_cv, coefficient of variation of the spindle envelope
+    envelope = None # envelope of the spindl amplitude
     try:
         sos = butter(4, [SPINDLE_LO, SPINDLE_HI], btype='band', fs=fs, output='sos')
+        # sos是一个巴特沃斯带通滤波器的二阶节系数，设计用于纺锤体频段 [SPINDLE_LO, SPINDLE_HI]，采样率为fs
+        # sos is the second order representation of Butter filter coefficients for the spindle frequency band
         filtered = sosfiltfilt(sos, r_thal)
+        # sosfiltfilt是一个零相位滤波函数，应用sos滤波器对r_thal进行前向和反向滤波，以避免相位失真
+        # filtered is the filtered thalamic signal (t_thal) obtained by applying sos filter
         envelope = np.abs(hilbert(filtered))
+        # envelope是通过对滤波后的信号应用Hilbert变换并取绝对值得到的纺锤体振幅包络。Hilbert变换提供了一个解析信号，其中实部是原始信号，
+        # 虚部是原始信号的90度相位移。纺锤体振幅
+        # envelope is the absolute value of the Hilbert transform of the filtered signal，
+        #  A(t) = |H(x(t))|, which gives the amplitude envelope of the spindle activity
+        # x(t) = A(t) * cos(θ(t)), where x(t) is the original signal, A(t) is the envelope, 
+        # and θ(t) is the instantaneous phase
         sp_cv = float(envelope.std() / (envelope.mean() + 1e-12))
+        # sp_cv is calculated as the standard deviation of the envelope divided by its mean
+        # the higher the sp_cv, the more busty the spindle envelope is (more variability in amplitude)
+        # the lower the sp_cv, the less busty the spindle envelope is (less variability in amplitude, more continuous)
     except Exception:
         sp_cv = 0.0
         envelope = None
     t7 = sp_cv > SPINDLE_CV_MIN
-    details["T7"] = t7
-    details["T7_sp_cv"] = round(sp_cv, 3)
+    # t7 is true if sp_cv is greater than the minimum threshold,
+    # indicating that the spindle envelope is sufficiently bursty (variable) than continuous
+    details["T7"] = t7 # boolean pass/fail for T7
+    details["T7_sp_cv"] = round(sp_cv, 3) # actual spindle envelope CV
 
     # ── T8: Spindle event count — enough discrete bursts ─────────────
     # V6 FIX: threshold = percentile(smoothed envelope) instead of
     # mean + k*std (which fails on bimodal distributions). Lacourse A7
     # / YASA spindle-detection convention.
-    n_sp_events = 0
-    mean_sp_dur = 0.0
-    sp_starts_valid = np.array([], dtype=int)   # for T12
-    sp_ends_valid = np.array([], dtype=int)
+    n_sp_events = 0 # number of detected spindle events
+    mean_sp_dur = 0.0 # mean duration of detected spindle events in seconds
+    sp_starts_valid = np.array([], dtype=int)   # starts of valid spindle eventsfor T12
+    sp_ends_valid = np.array([], dtype=int) # ends of valid spindle events
     try:
         if envelope is not None and len(envelope) > 0:
             sigma_samples = SPINDLE_ENV_SMOOTH_MS * fs / 1000.0
+            # sigma_samples: number of samples corresponding to the Gaussian smoothing σ for the spindle envelope
             env_smooth = gaussian_filter1d(envelope, sigma=sigma_samples)
+            # env_smooth: smoothed envelope using Gaussian smoothing with sigma_samples
             thresh = np.percentile(env_smooth, SPINDLE_EVT_PCTILE)
+            # thresh: threshold for spindle event detection
             above = (env_smooth > thresh).astype(np.int8)
+            # above: array indicating where the smoothed envelope is above the threshold (1) or not (0)
             diff_sp = np.diff(np.concatenate(([0], above, [0])))
+            # diff_sp: array of differences to find transitions in above-threshold state for spindle events
             sp_starts = np.where(diff_sp == 1)[0]
+            # sp_starts: array of indices where envelope goes from below to above thrshold → start of spindle event
             sp_ends   = np.where(diff_sp == -1)[0]
-            # Filter by duration
+            # sp_ends: array of indices where envelope goes from above to below threshold → end of spindle event
             durations = (sp_ends - sp_starts) / fs  # seconds
+            # durations: array of durations of detected spindle events in seconds
             valid = (durations >= SPINDLE_DUR_LO_S) & (durations <= SPINDLE_DUR_HI_S)
-            n_sp_events = int(valid.sum())
+            # valid: boolean array indicating which spindle events have durations within the spindle duration range
+            # is valid if the duration of the spindle event is >= SPINDLE_DUR_LO_S and <= SPINDLE_DUR_HI_S
+            n_sp_events = int(valid.sum()) 
+            # n_sp_events: number of valid spindle events that have durations within the spindle duration range
             if n_sp_events > 0:
-                mean_sp_dur = float(durations[valid].mean())
+                mean_sp_dur = float(durations[valid].mean()) 
+                # mean_sp_dur: mean duration of valid spindle events in seconds
                 sp_starts_valid = sp_starts[valid]
+                # sp_starts_valid: array of start indices of valid spindle events for T12
                 sp_ends_valid   = sp_ends[valid]
+                # sp_ends_valid: array of end indices of valid spindle events for T12
     except Exception:
         n_sp_events = 0
         mean_sp_dur = 0.0
     t8 = n_sp_events >= SPINDLE_EVT_MIN
-    details["T8"] = t8
-    details["T8_n_sp_events"] = n_sp_events
-    details["T8_mean_sp_dur"] = round(mean_sp_dur, 3)
+    # t8 is true if the number of valid spindle events is greater than or qual to the minimum threshold
+    details["T8"] = t8 # boolean pass/fail for T8
+    details["T8_n_sp_events"] = n_sp_events # actual number of valid spindle events
+    details["T8_mean_sp_dur"] = round(mean_sp_dur, 3) # actual mean duration of valid spindle events in seconds
 
     # ── T9-T11: PAC three-pack (NEW in V5) ────────────────────────────
     # Guards against Failure Mode 3 (thalamo-cortical spatiotemporal
     # decoupling). Without these, optimiser can fit the N3 spectrum while
     # simulating a diseased brain (PAC-decoupled = aged / AD / schizophrenia).
-    pac = compute_pac_metrics(r_ctx, r_thal, fs=fs)
+    pac = compute_pac_metrics(r_ctx, r_thal, fs=fs) # compute PAC metrics for T9-T11
+
+    PAC_MI_MIN = 0.005
+    PAC_PHASE_TOL_DEG = 50
+    PAC_CONCENTRATION_MIN = 0.08
+    PAC_UP_DOWN_RATIO_MIN = 1.20
 
     # T9: PAC strength — Modulation Index above chance
-    t9 = pac["ok"] and (pac["mi"] > PAC_MI_MIN)
+    t9 = pac["ok"] and (pac.get("mi", 0.0) >= PAC_MI_MIN)
     details["T9"] = t9
-    details["T9_mi"] = round(pac["mi"], 5)
+    details["T9_mi"] = round(pac.get("mi", 0.0), 5)
 
-    # T10: preferred SO phase near Up-peak (0) OR Down-to-Up transition (±π)
-    # Two-sided acceptance for fast-spindle and slow-spindle regimes.
-    phi = pac["preferred_phase"]
-    # Minimum angular distance to targets {0, +π, -π}. Since +π and -π
-    # identify on the circle, just take min of |phi| and (π - |phi|).
-    phase_dist_to_target = min(abs(phi), np.pi - abs(phi))
-    t10 = pac["ok"] and (phase_dist_to_target < PAC_PHASE_TOL)
+    # T10: preferred SO phase AND phase concentration
+    if pac["ok"]:
+        ph_deg = np.degrees(pac.get("phase_argmax", np.pi))
+        dist_0 = min(abs(ph_deg), 360 - abs(ph_deg))
+        dist_180 = abs(abs(ph_deg) - 180)
+        dist_tgt = min(dist_0, dist_180)
+        t10a = dist_tgt <= PAC_PHASE_TOL_DEG
+        t10b = pac.get("phase_concentration", 0.0) >= PAC_CONCENTRATION_MIN
+        t10 = t10a and t10b
+        phase_to_record = round(np.radians(ph_deg), 3)
+        dist_to_record = round(np.radians(dist_tgt), 3)
+    else:
+        t10 = False
+        phase_to_record = round(np.pi, 3)
+        dist_to_record = round(np.pi, 3)
+
     details["T10"] = t10
-    details["T10_phase"] = round(phi, 3)
-    details["T10_dist_to_target"] = round(phase_dist_to_target, 3)
+    details["T10_phase"] = phase_to_record
+    details["T10_dist_to_target"] = dist_to_record
 
-    # T11: SO leads spindle (positive xcorr lag of sp_env vs so_filt)
-    t11 = pac["ok"] and (pac["lag_ms"] >= PAC_MIN_LAG_MS)
+    # T11: SO leads spindle (up_down_ratio proxy)
+    t11 = pac["ok"] and (pac.get("up_down_ratio", 0.0) >= PAC_UP_DOWN_RATIO_MIN)
     details["T11"] = t11
-    details["T11_lag_ms"] = round(pac["lag_ms"], 1)
+    details["T11_lag_ms"] = round(pac.get("up_down_ratio", 0.0), 3)
 
     # ── T12: Peak-inside-event verification (NEW in V6) ──────────────
     # For each valid spindle event (T8), compute Welch PSD within the
@@ -663,21 +639,33 @@ def compute_constraints_v7(r_ctx, r_thal, f_c=None, p_c=None, fs=FS_SIM):
     # This plugs the fake-spindle loophole: sporadic transient spikes
     # can pass T8 (envelope ripples cross threshold) but have no real
     # 10-14 Hz oscillation inside the event.
+    # T12： 对于每一个有效的纺锤体事件（由T8定义的事件），在事件窗口内计算Welch功率谱密度，
+    #并要求纺锤体频段（10-14 Hz）内的峰值功率必须大于非纺锤体频段内峰值功率的1.5倍。
+    # 这是为了防止“假纺锤体”现象：偶发的瞬态峰值可能会通过T8（因为包络线波动超过阈值），但它们在事件内部没有真正的10-14 Hz振荡。
     n_verified = 0
     for s, e in zip(sp_starts_valid, sp_ends_valid):
+    # 对于每一个有效的纺锤体事件（由sp_starts_valid和sp_ends_valid定义的开始和结束索引），执行以下操作：
         if e - s < int(0.2 * fs):
             continue
+        # 如果事件持续时间小于0.2秒（对应的样本数小于0.2 * fs），则跳过该事件，因为太短的事件可能无法提供可靠的频谱估计。
         event = r_thal[s:e]
+        # 提取事件窗口内的thalamic firing rate数据，准备进行Welch功率谱密度估计。
         try:
             f_ev, p_ev = welch(event, fs=fs,
                                 nperseg=min(len(event), 512))
+            # 使用Welch方法计算事件窗口内的功率谱密度，f_ev是频率数组，p_ev是对应的功率值。
             sp_m = (f_ev >= SPINDLE_LO) & (f_ev <= SPINDLE_HI)
+            # sp_m是一个布尔数组，指示哪些频率点在纺锤体频段内（10-14 Hz）。
             ns_m = (f_ev >= 4) & (f_ev < SPINDLE_LO)
+            # ns_m是一个布尔数组，指示哪些频率点在非纺锤体频段内（4-10 Hz）。
             if not sp_m.any() or not ns_m.any():
                 continue
-            ns_peak = p_ev[ns_m].max() if p_ev[ns_m].size > 0 else 1e-12
-            ns_peak = ns_peak if ns_peak > 0 else 1e-12
+            ns_peak = p_ev[ns_m].max() if p_ev[ns_m].size > 0 else 1e-12 # ns_peak是非纺锤体频段内的最大功率值，
+            #如果没有非纺锤体频段的频率点，则设置为一个非常小的值（1e-12）以避免除零错误。
+            ns_peak = ns_peak if ns_peak > 0 else 1e-12 # 确保ns_peak是正数，避免后续计算中的除零错误。
             if (p_ev[sp_m].max() / ns_peak) > T12_PEAK_INSIDE_RATIO:
+            # 如果纺锤体频段内的最大功率值与非纺锤体频段内的最大功率值之比大于T12_PEAK_INSIDE_RATIO（例如1.5），
+            # 则认为该事件通过了峰值验证，n_verified计数器增加
                 n_verified += 1
         except Exception:
             continue
@@ -904,11 +892,13 @@ def compute_fitness_v7(params_vec,
     # ── Run simulation ────────────────────────────────────────────────
     try:
         m = build_model(mue, mui, b, tauA, g_lk, g_h, c_th2ctx, c_ctx2th)
+        seed_numba(42)  # reseed numba RNG before every evaluation
         m.run()
     except Exception:
         # Fallback backend to avoid losing whole generations on numba/JIT failures.
         try:
             m.params["backend"] = "jitcdde"
+            seed_numba(42)  # reseed before fallback run too
             m.run()
         except Exception:
             return BAD_OBJECTIVE

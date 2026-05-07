@@ -211,12 +211,30 @@ def build_model(bp, duration=SIM_DUR_MS):
 
 def load_target_psd_v3_aligned():
     """Match the target PSD pipeline used in v3 personalization."""
+    cached_psd = f"data/target_psd_{SUBJECT_ID}.npy"
+    cached_freqs = f"data/target_freqs_{SUBJECT_ID}.npy"
+
+    def _load_cached_target():
+        if os.path.isfile(cached_psd) and os.path.isfile(cached_freqs):
+            print("  [warn] Sleep-EDF raw files unavailable; using cached target PSD/FREQ arrays")
+            return np.load(cached_psd), np.load(cached_freqs)
+        raise FileNotFoundError(
+            "Target EEG files are missing and cached arrays were not found. "
+            f"Expected EDF in manifest path, or {cached_psd} and {cached_freqs}."
+        )
+
     try:
         manifest = pd.read_csv("data/manifest.csv", encoding="utf-8")
     except UnicodeDecodeError:
         manifest = pd.read_csv("data/manifest.csv", encoding="utf-16")
 
+    if SUBJECT_ID not in set(manifest["subject_id"]):
+        return _load_cached_target()
+
     subj_row = manifest[manifest["subject_id"] == SUBJECT_ID].iloc[0]
+    if not os.path.isfile(subj_row["psg_path"]) or not os.path.isfile(subj_row["hypnogram_path"]):
+        return _load_cached_target()
+
     raw = mne.io.read_raw_edf(
         subj_row["psg_path"], include=EEG_CHANNELS, preload=True, verbose=False
     )
@@ -335,7 +353,9 @@ def main():
     print("=" * 65)
 
     print("\nRunning simulation...")
-    model = build_model(bp, duration=sim_dur_ms)
+    # Handle both nested {"params": {...}} and flat JSON structures
+    model_bp = bp["params"] if "params" in bp else bp
+    model = build_model(model_bp, duration=sim_dur_ms)
     # Run the model using the numba backend for speed, but fall back to jitcdde if there are issues (e.g., due to numba version or environment). This allows for a more robust execution of the plotting script across different setups while still prioritizing performance when possible.
     try:
         model.run()
@@ -434,9 +454,9 @@ def main():
     ax_c2.set_title("Thalamic TCR")
 
     param_txt = (
-        f"mue={bp['mue']:.3f}  mui={bp['mui']:.3f}  b={bp['b']:.1f}  tauA={bp['tauA']:.0f}\n"
-        f"g_LK={bp['g_LK']:.4f}  g_h={bp['g_h']:.4f}  "
-        f"c_th2ctx={bp['c_th2ctx']:.4f}  c_ctx2th={bp['c_ctx2th']:.4f}"
+        f"mue={model_bp['mue']:.3f}  mui={model_bp['mui']:.3f}  b={model_bp['b']:.1f}  tauA={model_bp['tauA']:.0f}\n"
+        f"g_LK={model_bp['g_LK']:.4f}  g_h={model_bp['g_h']:.4f}  "
+        f"c_th2ctx={model_bp['c_th2ctx']:.4f}  c_ctx2th={model_bp['c_ctx2th']:.4f}"
     )
     fig_c.text(0.5, 0.01, param_txt, ha="center", fontsize=8, color="gray", family="monospace")
 
