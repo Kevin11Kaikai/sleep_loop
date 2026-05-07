@@ -1,0 +1,25 @@
+VALIDATION SUMMARY: compute_pac_metrics_fixed
+============================================================
+
+  PASS   V1: synthetic UP-locked recovery
+  PASS   V2: invariance to cortex waveform
+  PASS   V3: no-coupling baseline
+  PASS   V4: three regimes correctly distinguished
+  PASS   V5: noise robustness
+  PASS   V6: old (v7) vs new comparison
+  PASS   V7: bin sampling uniformity
+  PASS   V8: bimodality detection
+  PASS   V9: edge case handling
+
+9 / 9 validations passed
+
+Plots and details:
+  V1_synthetic_up_locked.png
+  V2_invariance_to_waveform.png
+  V3_no_coupling_baseline.png
+  V4_three_regimes.png
+  V5_noise_robustness.png
+  V6_v7_old_vs_new_comparison.png
+  V7_bin_uniformity.png
+  V8_bimodality_detection.png
+  V9_edge_cases.txt

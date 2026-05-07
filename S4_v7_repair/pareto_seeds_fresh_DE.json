@@ -1,0 +1,83 @@
+{
+  "description": "Stage 1 closure: 5 representative solutions from the Pareto front of 302 feasible warm_start_DE solutions. Sorted by shape_r ascending (i.e., seed A is most PAC-dominant, seed C is most shape_r-dominant). Use these as informative prior centers for Stage 2 SBI.",
+  "n_feasible": 364,
+  "n_pareto_optimal": 3,
+  "n_seeds": 3,
+  "seeds": [
+    {
+      "tag": "A",
+      "params": {
+        "mue": 3.4730901340781704,
+        "mui": 3.447264779138688,
+        "b": 34.408730008969485,
+        "tauA": 1229.5166684735598,
+        "g_LK": 0.0558119036335147,
+        "g_h": 0.0581933610096167,
+        "c_th2ctx": 0.0274983761264104,
+        "c_ctx2th": 0.0590185259365645
+      },
+      "objectives": {
+        "shape_r": 0.665496,
+        "PAC_compound": 1.000000999996935,
+        "score": 0.51031,
+        "T4_q": 2.241,
+        "T12_n_verified": 6
+      },
+      "pac_metrics": {
+        "MI": 0.13699,
+        "up_down_ratio": 6.898,
+        "distance_to_target": 0.175
+      }
+    },
+    {
+      "tag": "B",
+      "params": {
+        "mue": 3.3406859406304865,
+        "mui": 3.2758268081375705,
+        "b": 41.839010370803365,
+        "tauA": 1257.4091819444602,
+        "g_LK": 0.0523567827437,
+        "g_h": 0.0550313855044075,
+        "c_th2ctx": 0.0329531573906836,
+        "c_ctx2th": 0.0997838197248941
+      },
+      "objectives": {
+        "shape_r": 0.678615,
+        "PAC_compound": 0.5924268027371029,
+        "score": 0.67437,
+        "T4_q": 2.361,
+        "T12_n_verified": 17
+      },
+      "pac_metrics": {
+        "MI": 0.07,
+        "up_down_ratio": 3.613,
+        "distance_to_target": 0.175
+      }
+    },
+    {
+      "tag": "C",
+      "params": {
+        "mue": 3.4480314135065533,
+        "mui": 3.12044566000247,
+        "b": 36.51251362056325,
+        "tauA": 1825.816578436309,
+        "g_LK": 0.0497405645633206,
+        "g_h": 0.063520613940566,
+        "c_th2ctx": 0.018107261182632,
+        "c_ctx2th": 0.1229888326011856
+      },
+      "objectives": {
+        "shape_r": 0.689545,
+        "PAC_compound": 0.31019519172008714,
+        "score": 0.66096,
+        "T4_q": 2.059,
+        "T12_n_verified": 19
+      },
+      "pac_metrics": {
+        "MI": 0.02899,
+        "up_down_ratio": 2.147,
+        "distance_to_target": 0.175
+      }
+    }
+  ]
+}

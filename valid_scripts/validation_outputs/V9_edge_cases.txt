@@ -1,0 +1,10 @@
+V9 ¡ª Edge case handling
+============================================================
+  flat r_ctx (zeros)                            ok=False   PASS
+  flat r_thal (zeros)                           ok=False   PASS
+  very short signal (1s)                        ok=False   PASS
+  constant signal (DC)                          ok=False   PASS
+  NaN-injected r_ctx                            ok=False   PASS
+  very low peak prominence (< threshold)        ok=True    PASS
+
+OVERALL: PASS

@@ -1,0 +1,56 @@
+========================================================================
+V7 RE-EVALUATION WITH FIXED PAC
+========================================================================
+
+Total v7 feasible solutions:      50
+Still feasible under new criteria: 8
+Failure rate:                     84.0%
+
+Failure breakdown (counts; some may fail multiple):
+  T9 fail (MI < 0.005):                  14
+  T10a fail (phase_argmax > 50бу from UP): 15
+  T10b fail (concentration < 0.08):     19
+  T11 fail (up_down_ratio < 1.2):      17
+
+Top 10 solutions under new criteria:
+------------------------------------------------------------------------
+
+# Rank 1 (was rank ~6 under old criteria)
+  Score: 0.6840 б· 0.6793
+  PAC:   MI=0.0129, phase_argmax=+10.0бу, concentration=0.177, up_down_ratio=1.66, bimodal=False
+  Params: mue=3.9745 mui=3.0836 b=35.0383 tauA=1777.4575 g_LK=0.0542 g_h=0.0673 c_th2ctx=0.0106 c_ctx2th=0.1229 
+
+# Rank 2 (was rank ~21 under old criteria)
+  Score: 0.6531 б· 0.6574
+  PAC:   MI=0.0059, phase_argmax=-10.0бу, concentration=0.102, up_down_ratio=1.55, bimodal=False
+  Params: mue=3.7061 mui=3.1513 b=32.6985 tauA=1625.2451 g_LK=0.0485 g_h=0.0628 c_th2ctx=0.0144 c_ctx2th=0.1305 
+
+# Rank 3 (was rank ~25 under old criteria)
+  Score: 0.6488 б· 0.6545
+  PAC:   MI=0.0465, phase_argmax=+10.0бу, concentration=0.340, up_down_ratio=2.21, bimodal=False
+  Params: mue=3.8204 mui=3.1520 b=34.2280 tauA=1758.2143 g_LK=0.0517 g_h=0.0639 c_th2ctx=0.0241 c_ctx2th=0.0769 
+
+# Rank 4 (was rank ~38 under old criteria)
+  Score: 0.6323 б· 0.6336
+  PAC:   MI=0.0135, phase_argmax=-10.0бу, concentration=0.119, up_down_ratio=1.49, bimodal=False
+  Params: mue=3.7626 mui=2.9871 b=33.9049 tauA=1753.6607 g_LK=0.0564 g_h=0.0693 c_th2ctx=0.0132 c_ctx2th=0.1358 
+
+# Rank 5 (was rank ~46 under old criteria)
+  Score: 0.6206 б· 0.6300
+  PAC:   MI=0.0161, phase_argmax=+10.0бу, concentration=0.175, up_down_ratio=1.67, bimodal=False
+  Params: mue=3.7400 mui=3.0542 b=34.4412 tauA=1786.6125 g_LK=0.0533 g_h=0.0703 c_th2ctx=0.0174 c_ctx2th=0.1325 
+
+# Rank 6 (was rank ~50 under old criteria)
+  Score: 0.6133 б· 0.6257
+  PAC:   MI=0.0056, phase_argmax=+10.0бу, concentration=0.086, up_down_ratio=1.41, bimodal=True
+  Params: mue=3.7772 mui=3.0491 b=37.4904 tauA=1666.9206 g_LK=0.0499 g_h=0.0678 c_th2ctx=0.0134 c_ctx2th=0.1101 
+
+# Rank 7 (was rank ~43 under old criteria)
+  Score: 0.6224 б· 0.6062
+  PAC:   MI=0.0130, phase_argmax=-10.0бу, concentration=0.176, up_down_ratio=1.87, bimodal=False
+  Params: mue=3.9520 mui=2.7958 b=36.5831 tauA=1795.2229 g_LK=0.0523 g_h=0.0611 c_th2ctx=0.0090 c_ctx2th=0.1014 
+
+# Rank 8 (was rank ~49 under old criteria)
+  Score: 0.6153 б· 0.5539
+  PAC:   MI=0.0060, phase_argmax=+10.0бу, concentration=0.107, up_down_ratio=1.59, bimodal=False
+  Params: mue=3.8490 mui=2.8658 b=38.1073 tauA=1799.1656 g_LK=0.0576 g_h=0.0715 c_th2ctx=0.0182 c_ctx2th=0.0765 
