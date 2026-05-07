@@ -46,3 +46,9 @@ outputs/
 
 # TensorBoard / training artifacts
 runs/
+
+# Claude Code project memory
+.claude/
+
+# Temporary archives
+*.zip
