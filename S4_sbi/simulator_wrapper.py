@@ -18,9 +18,11 @@ Seed B reference metrics (for smoke-test comparison):
 Returns: np.ndarray of shape (len(SUMMARY_KEYS),) in SUMMARY_KEYS order.
 On failure: np.full(len(SUMMARY_KEYS), np.nan).
 
-SUMMARY_KEYS (must match compute_xobs_from_eeg.py):
-    [shape_r, T4_q, T4_freq, T6_ibi_cv,
-     T8_n_sp_events, T11_lag_ms, MI]
+SUMMARY_KEYS (must match compute_xobs_from_eeg_v3.py):
+    [shape_r, T4_q, T4_freq, T8_n_sp_events, T11_lag_ms]
+
+T6_ibi_cv and MI dropped — r_proxy envelope is structurally incompatible with
+UP/DOWN detection and cycle-by-cycle PAC phase interpolation (diagnostic 2026-05-10).
 
 Windows-specific constraints (non-negotiable):
   - num_workers=1 in all simulate_for_sbi calls (neurolib/numba hangs in fork)
@@ -84,8 +86,8 @@ print(f"[simulator_wrapper] Target PSD loaded: {len(_target_psd)} bins, "
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 SUMMARY_KEYS = [
-    "shape_r", "T4_q", "T4_freq", "T6_ibi_cv",
-    "T8_n_sp_events", "T11_lag_ms", "MI",
+    "shape_r", "T4_q", "T4_freq",
+    "T8_n_sp_events", "T11_lag_ms",
 ]
 
 # Seed B fixed parameters (non-free dims; kept constant across SBI runs)
@@ -156,10 +158,8 @@ def _extract_summaries(r_ctx, r_thal):
         "shape_r":         shape_r,
         "T4_q":            float(con.get("T4_q", 0.0)),
         "T4_freq":         float(con.get("T4_freq", 0.0)),
-        "T6_ibi_cv":       float(con.get("T6_ibi_cv", 999.0)),
         "T8_n_sp_events":  t8_norm,
         "T11_lag_ms":      float(con.get("T11_lag_ms", 0.0)),   # = up_down_ratio
-        "MI":              float(con.get("T9_mi", 0.0)),        # PAC MI
     }
 
 
@@ -252,7 +252,7 @@ if __name__ == "__main__":
         print(f"  {k:20s} = {v_val:.5f}")
 
     nan_count = int(np.isnan(x).sum())
-    print(f"\nNaN count: {nan_count}/8")
+    print(f"\nNaN count: {nan_count}/5")
     if nan_count == 0:
         print("SMOKE TEST PASSED")
     else:

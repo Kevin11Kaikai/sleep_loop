@@ -1,45 +1,44 @@
 """
 run_sbi.py
 ==========
-Sequential SNPE-C with Neural Spline Flow for Sleep Digital Twin Stage 2.
+睡眠数字孪生 Stage 2：基于神经样条流（NSF）的顺序 SNPE-C。
 
-Inference target:   x_obs from S4_sbi/x_obs.npz  (len(SUMMARY_KEYS); same order as simulator)
-Free parameters:    [g_h, g_LK, c_ctx2th, b]       (4-dim)
-Algorithm:          SNPE-C  (sbi >= 0.21, density_estimator='nsf')
-Budget:             ~5000 simulations across 4 rounds  (~9-10 h wall-clock)
-                    + 200 SBC sims + 100 PPC sims
+推断目标：  S4_sbi/x_obs.npz 中的 x_obs（长度 len(SUMMARY_KEYS)，与 simulator 输出顺序一致）
+自由参数：  [g_h, g_LK, c_ctx2th, b]（4 维）
+算法：      SNPE-C（sbi >= 0.21，density_estimator='nsf'）
+预算：      4 轮合计约 5000 次仿真（墙钟约 9–10 小时）
+            + 200 次 SBC 仿真 + 100 次 PPC 仿真
 
-Round plan:
-    R1: 2000 sims from prior
-    R2: 1000 sims from R1 posterior at x_obs
-    R3: 1000 sims from R2 posterior at x_obs  (early stop if Δstd < 10%)
-    R4: 1000 sims from R3 posterior at x_obs
+各轮计划：
+    R1：从先验采样 2000 次仿真
+    R2：在 x_obs 处从 R1 后验采样 1000 次
+    R3：在 x_obs 处从 R2 后验采样 1000 次（若 Δstd < 10% 可提前结束）
+    R4：在 x_obs 处从 R3 后验采样 1000 次
 
-Checkpointing: posterior pickled after every round; all_simulations.npz
-               grows by appending each round's (theta, x) batch.
+检查点：    每轮结束后 pickle 保存后验；all_simulations.npz 按轮追加 (theta, x) 批次。
 
-Windows / neurolib constraints:
-  - num_workers=1 enforced throughout (numba hangs under fork).
-  - No multiprocessing. Sequential simulation only.
+Windows / neurolib 约束：
+  - 全程 num_workers=1（fork 下 numba 易挂起）
+  - 不使用多进程，仅顺序仿真
 
-Abort rules:
-  - NaN rate > 30% in any round.
-  - Round produces < 200 valid sims (after NaN filtering).
-  - SBC shows U-shaped rank histogram (over-confident posterior).
-  - x_obs sanity check fails (run compute_xobs_from_eeg.py first).
+中止规则：
+  - 任一轮 NaN 率 > 30%
+  - 一轮过滤 NaN 后有效仿真 < 200
+  - SBC 秩直方图呈 U 形（后验过窄）
+  - x_obs 未通过合理性检查（须先运行 compute_xobs_from_eeg.py）
 
-Usage (from project root):
+用法（在项目根目录）：
     conda activate neurolib
-    python S4_sbi/run_sbi.py             # full run
-    python S4_sbi/run_sbi.py --dry-run   # 50-sim Round 1, no save
+    python S4_sbi/run_sbi.py             # 完整运行
+    python S4_sbi/run_sbi.py --dry-run   # 每轮 50 次仿真（共 4 轮），不落盘
 
-Outputs in S4_sbi/sbi_outputs/:
+输出目录 S4_sbi/sbi_outputs/：
     round{1-4}_posterior.pkl
     all_simulations.npz
     fig_marginals.png, fig_pairplot.png
     fig_sbc.png, fig_ppc.png, fig_pareto_overlay.png
 
-Also writes:
+另写入：
     S4_sbi/sbi_log.txt
     S4_sbi/sbi_results.md
 """
@@ -55,26 +54,26 @@ from pathlib import Path
 
 warnings.filterwarnings("ignore")
 
-# ── CWD = project root (must happen before simulator_wrapper import) ──────────
+# ── 工作目录 = 项目根（须在导入 simulator_wrapper 之前完成）──────────────────
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _ROOT = _SCRIPT_DIR.parent
 os.chdir(str(_ROOT))
 sys.path.insert(0, str(_ROOT))
 sys.path.insert(0, str(_SCRIPT_DIR))
 
-# ── NumPy alias shim — before any neurolib import ────────────────────────────
+# ── NumPy 旧别名补丁 — 须在任何 neurolib 导入之前 ───────────────────────────
 import numpy as np
 import builtins as _builtins_mod
 for _alias in ("int", "float", "bool", "object", "complex", "str"):
     if not hasattr(np, _alias):
         setattr(np, _alias, getattr(_builtins_mod, _alias))
 
-# ── Local neurolib takes precedence ──────────────────────────────────────────
+# ── 优先使用本地 neurolib ───────────────────────────────────────────────────
 _LOCAL_NEUROLIB = Path(r"D:\Year3_Mao_Projects\neurolib")
 if _LOCAL_NEUROLIB.is_dir() and str(_LOCAL_NEUROLIB) not in sys.path:
     sys.path.insert(0, str(_LOCAL_NEUROLIB))
 
-# ── Check environment before heavy imports ────────────────────────────────────
+# ── 在重量级导入之前检查环境 ─────────────────────────────────────────────────
 print("[run_sbi] Checking environment ...")
 try:
     import sbi
@@ -95,13 +94,13 @@ except ImportError as e:
 DEVICE = "cuda" if cuda_avail else "cpu"
 print(f"  Neural network training device: {DEVICE}")
 
-# ── SBI imports ───────────────────────────────────────────────────────────────
+# ── SBI 相关导入 ─────────────────────────────────────────────────────────────
 import torch
 from torch import tensor
 from sbi.inference import SNPE
 from sbi.utils import BoxUniform
 
-# Optional imports (diagnostic functions; version-guard below)
+# 可选导入（诊断函数；下方有版本判断）
 try:
     from sbi.diagnostics.sbc import run_sbc
     from sbi.analysis.plot import sbc_rank_plot
@@ -116,31 +115,31 @@ try:
 except ImportError:
     HAS_PAIRPLOT = False
 
-# ── Simulator (loaded here; triggers V7 import + target PSD load) ─────────────
+# ── 仿真器（在此导入；会触发 V7 与目标 PSD 的加载）────────────────────────────
 print("[run_sbi] Importing simulator_wrapper ...")
 from simulator_wrapper import simulator, SUMMARY_KEYS
 
-# ── Matplotlib (non-interactive backend for headless execution) ───────────────
+# ── Matplotlib（无界面后端，便于无显示器环境运行）──────────────────────────
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# Config
+# 配置
 # ═══════════════════════════════════════════════════════════════════════════════
 PARAMS      = ["g_h", "g_LK", "c_ctx2th", "b"]
 PRIOR_LOW   = tensor([0.035, 0.020, 0.05, 28.4], dtype=torch.float32)
-PRIOR_HIGH  = tensor([0.095, 0.070, 0.22, 42.6], dtype=torch.float32)
+PRIOR_HIGH  = tensor([0.095, 0.070, 0.22, 80.0], dtype=torch.float32)
 
-ROUND_SIMS  = [2000, 1000, 1000, 1000]   # sims per round (normal run)
+ROUND_SIMS  = [2000, 1000, 1000, 1000]   # 正常模式下每轮仿真次数
 SEED        = 42
 
 OUTPUT_DIR  = _SCRIPT_DIR / "sbi_outputs"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 LOG_PATH    = _SCRIPT_DIR / "sbi_log.txt"
 
-# Pareto seeds — NOTE: spec says pareto_seeds_freshDE.json (no underscore)
-# but actual file on disk is pareto_seeds_fresh_DE.json (with underscore).
+# Pareto 种子 — 说明文档曾写 pareto_seeds_freshDE.json（无下划线），
+# 磁盘上实际文件名为 pareto_seeds_fresh_DE.json（带下划线）。
 PARETO_SEEDS_PATH = _ROOT / "S4_v7_repair" / "pareto_seeds_fresh_DE.json"
 
 torch.manual_seed(SEED)
@@ -148,13 +147,13 @@ np.random.seed(SEED)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# Logging
+# 日志
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class Logger:
     def __init__(self, path):
         self.path = path
-        self.path.write_text("", encoding="utf-8")   # clear on start
+        self.path.write_text("", encoding="utf-8")   # 启动时清空日志文件
 
     def log(self, msg):
         ts = time.strftime("%H:%M:%S")
@@ -165,20 +164,20 @@ class Logger:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# Simulation helpers
+# 仿真辅助函数
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def run_batch(proposal, n_sims, log, rnd_label, fallback_prior=None):
     """
-    Sample theta from proposal and run simulator sequentially (num_workers=1).
-    Returns (theta_tensor, x_tensor, n_nan).
-    Aborts if NaN rate > 30% or valid sims < 200 (for full rounds).
-    fallback_prior: BoxUniform; used if posterior sampling raises an assertion
-    (can happen when NSF is trained on very few samples, e.g. dry-run R2+).
+    从 proposal 采样 theta，顺序调用 simulator（等价 num_workers=1）。
+    返回 (theta_tensor, x_tensor, n_nan)。
+    若 NaN 率 > 30%，或完整轮次有效仿真 < 200，则中止。
+    fallback_prior：BoxUniform；当从后验采样触发断言/运行时错误时使用
+    （例如 dry-run 下 R2+ NSF 训练样本过少）。
     """
     log.log(f"  Sampling {n_sims} theta from proposal ...")
     try:
-        thetas = proposal.sample((n_sims,))   # (n_sims, 4) float32 tensor
+        thetas = proposal.sample((n_sims,))   # (n_sims, 4) float32 张量
     except (AssertionError, RuntimeError) as _sample_err:
         if fallback_prior is not None:
             log.log(f"  [warn] Posterior sampling failed ({_sample_err}); "
@@ -190,7 +189,7 @@ def run_batch(proposal, n_sims, log, rnd_label, fallback_prior=None):
     xs, t_start = [], time.time()
     n_nan = 0
     for i in range(n_sims):
-        x = simulator(thetas[i])          # returns np.ndarray (len(SUMMARY_KEYS),)
+        x = simulator(thetas[i])          # 返回 np.ndarray，形状 (len(SUMMARY_KEYS),)
         xs.append(x)
         if np.isnan(x).any():
             n_nan += 1
@@ -202,7 +201,7 @@ def run_batch(proposal, n_sims, log, rnd_label, fallback_prior=None):
 
     x_tensor = torch.tensor(np.stack(xs), dtype=torch.float32)
 
-    # NaN filtering
+    # 过滤含 NaN 的样本
     valid_mask = ~torch.isnan(x_tensor).any(dim=1)
     nan_rate   = (~valid_mask).float().mean().item()
     log.log(f"  {rnd_label}: {valid_mask.sum().item()} valid / {n_sims} sims "
@@ -214,7 +213,7 @@ def run_batch(proposal, n_sims, log, rnd_label, fallback_prior=None):
             "Check simulator or parameter bounds."
         )
     n_valid = int(valid_mask.sum())
-    if n_valid < 200 and n_sims >= 500:   # only enforce for full rounds
+    if n_valid < 200 and n_sims >= 500:   # 仅对大样本轮次强制执行
         raise RuntimeError(
             f"ABORT: only {n_valid} valid sims in {rnd_label} (< 200). "
             "Prior / bounds may be too wide for the current model config."
@@ -224,7 +223,7 @@ def run_batch(proposal, n_sims, log, rnd_label, fallback_prior=None):
 
 
 def append_to_simulations(theta, x, path):
-    """Append a new round's (theta, x) to the cumulative npz file."""
+    """将本轮 (theta, x) 追加写入累计 npz 文件。"""
     theta_np = theta.numpy() if hasattr(theta, "numpy") else np.array(theta)
     x_np     = x.numpy()     if hasattr(x, "numpy")     else np.array(x)
     if path.exists():
@@ -236,12 +235,12 @@ def append_to_simulations(theta, x, path):
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# Build SNPE with NSF, z_score_x='independent'
+# 构建带 NSF 的 SNPE，z_score_x='independent'
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def build_inference(prior):
     try:
-        # sbi >= 0.22: posterior_nn factory available
+        # sbi >= 0.22：可使用 posterior_nn 工厂
         from sbi.neural_nets import posterior_nn
         density_est = posterior_nn(
             model="nsf",
@@ -251,17 +250,17 @@ def build_inference(prior):
         return SNPE(prior=prior, density_estimator=density_est,
                     device=DEVICE, show_progress_bars=True)
     except (ImportError, TypeError):
-        # Fallback for slightly older sbi: pass string; z_score handled internally
+        # 略旧版 sbi 的回退：传入字符串；z_score 由库内部处理
         return SNPE(prior=prior, density_estimator="nsf",
                     device=DEVICE, show_progress_bars=True)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# Diagnostics
+# 诊断作图与检验
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def plot_marginals(posterior, x_obs_t, prior, log):
-    """4 marginal histograms with prior overlay."""
+    """4 个参数的一维边际直方图，并叠画先验。"""
     samples = posterior.sample((2000,), x=x_obs_t).numpy()
     prior_s = prior.sample((2000,)).numpy()
 
@@ -284,7 +283,7 @@ def plot_marginals(posterior, x_obs_t, prior, log):
 
 
 def plot_pairplot_fig(posterior, x_obs_t, log):
-    """4×4 pairplot of posterior samples."""
+    """后验样本的 4×4 配对图。"""
     samples = posterior.sample((2000,), x=x_obs_t)
     if HAS_PAIRPLOT:
         fig, _ = pairplot(samples, labels=PARAMS,
@@ -313,7 +312,7 @@ def plot_pairplot_fig(posterior, x_obs_t, log):
 
 
 def plot_ppc(posterior, x_obs_t, x_obs_vals, log):
-    """PPC: 100 posterior-predictive simulations vs x_obs."""
+    """PPC：从后验抽 100 组参数再仿真，与 x_obs 对比。"""
     log.log("  PPC: sampling 100 posterior params and simulating ...")
     samples = posterior.sample((100,), x=x_obs_t).numpy()
     xs_ppc = []
@@ -327,8 +326,10 @@ def plot_ppc(posterior, x_obs_t, x_obs_vals, log):
             log.log(f"    PPC {i+1}/100  NaN={n_nan}")
     xs_ppc = np.stack(xs_ppc)
 
-    fig, axes = plt.subplots(2, 4, figsize=(18, 8))
-    axes = axes.ravel()
+    n_stats = len(SUMMARY_KEYS)
+    fig, axes = plt.subplots(1, n_stats, figsize=(4 * n_stats + 2, 5))
+    if n_stats == 1:
+        axes = [axes]
     ppc_pcts = []
     for i, (ax, key) in enumerate(zip(axes, SUMMARY_KEYS)):
         col = xs_ppc[:, i]
@@ -340,7 +341,7 @@ def plot_ppc(posterior, x_obs_t, x_obs_vals, log):
         ax.axvline(hi, color="grey", ls="--", lw=1)
         ax.set_title(key, fontsize=9)
         ax.legend(fontsize=7)
-        # Percentile of x_obs in PPC
+        # x_obs 在 PPC 样本分布中的分位位置
         pct = float(np.mean(valid <= x_obs_vals[i]) * 100)
         ppc_pcts.append(pct)
         ax.set_xlabel(f"x_obs pct={pct:.0f}%", fontsize=8)
@@ -351,7 +352,7 @@ def plot_ppc(posterior, x_obs_t, x_obs_vals, log):
     plt.close(fig)
     log.log(f"  Saved {path}")
 
-    # Report
+    # 汇总报告到日志
     log.log("  PPC percentiles of x_obs:")
     all_pass = True
     for key, pct in zip(SUMMARY_KEYS, ppc_pcts):
@@ -363,7 +364,7 @@ def plot_ppc(posterior, x_obs_t, x_obs_vals, log):
 
 
 def run_sbc_diagnostics(posterior, prior, x_obs_t, log, n_sbc=200):
-    """Run SBC: 200 ground-truth simulations from prior."""
+    """运行 SBC：从先验采样 n_sbc 组 (theta, x) 作为真值检验校准。"""
     if not HAS_SBC:
         log.log("  SBC skipped (sbi.analysis.run_sbc not available)")
         return None, None
@@ -389,7 +390,7 @@ def run_sbc_diagnostics(posterior, prior, x_obs_t, log, n_sbc=200):
     xs_sbc     = xs_sbc[valid]
 
     try:
-        # API varies across sbi versions; try both
+        # 不同 sbi 版本 API 不同；两种调用都尝试
         try:
             ranks, _ = run_sbc(thetas_sbc, xs_sbc, posterior,
                                 num_posterior_samples=1000,
@@ -398,7 +399,7 @@ def run_sbc_diagnostics(posterior, prior, x_obs_t, log, n_sbc=200):
             ranks = run_sbc(thetas_sbc, xs_sbc, posterior,
                             num_posterior_samples=1000)
 
-        # KS test: ranks should be uniform if calibrated
+        # KS 检验：若后验校准良好，秩应接近均匀分布
         from scipy.stats import kstest
         log.log("  SBC KS p-values (> 0.05 = PASS):")
         ks_results = {}
@@ -410,13 +411,13 @@ def run_sbc_diagnostics(posterior, prior, x_obs_t, log, n_sbc=200):
             ks_results[param] = {"ks": float(ks_stat), "p": float(p_val),
                                  "pass": p_val >= 0.05}
 
-        # Check for U-shape (over-confident posterior)
+        # 检查 U 形秩直方图（后验过窄、过度自信）
         n_fail = sum(1 for v in ks_results.values() if not v["pass"])
         if n_fail >= 2:
             log.log(f"  *** SBC WARNING: {n_fail}/4 params failed KS test — "
                     "possible over-confident posterior. STOP and review. ***")
 
-        # Plot
+        # 作图
         try:
             fig, _ = sbc_rank_plot(ranks, num_sims=len(thetas_sbc))
         except TypeError:
@@ -433,7 +434,7 @@ def run_sbc_diagnostics(posterior, prior, x_obs_t, log, n_sbc=200):
 
 
 def plot_pareto_overlay(posterior, x_obs_t, log):
-    """Overlay Pareto seeds on pairplot of posterior samples."""
+    """在后验样本的若干 2D 投影上叠画 Pareto 种子点。"""
     if not PARETO_SEEDS_PATH.exists():
         log.log(f"  [warn] Pareto seeds not found at {PARETO_SEEDS_PATH}")
         return
@@ -460,7 +461,7 @@ def plot_pareto_overlay(posterior, x_obs_t, log):
                 f"(shape_r={seed['objectives']['shape_r']:.4f}  "
                 f"MI={seed['pac_metrics']['MI']:.4f})")
 
-    # Simple 2D scatter overlay: c_ctx2th vs g_h (most informative dims per V7)
+    # 简单 2D 散点叠画：多组参数对（V7 经验上信息量较大的维度组合）
     fig, axes = plt.subplots(2, 3, figsize=(14, 9))
     pairs = [(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
     colors = ["red", "orange", "green"]
@@ -483,14 +484,14 @@ def plot_pareto_overlay(posterior, x_obs_t, log):
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# MAP extraction
+# MAP 与置信区间
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def get_map_and_ci(posterior, x_obs_t, log, n_samples=5000):
-    """Return MAP (argmax of samples) and 95% CI per parameter."""
+    """返回各参数的 MAP（近似）及 95% 置信区间。"""
     samples = posterior.sample((n_samples,), x=x_obs_t).numpy()
-    map_est  = samples[np.argmax([1] * n_samples), :]   # placeholder; use mode
-    # Better MAP: find sample nearest to KDE mode (approx via histogram peak)
+    map_est  = samples[np.argmax([1] * n_samples), :]   # 占位行，下一行会覆盖
+    # 更合理的 MAP：用直方图峰值近似众数（非严格 KDE）
     map_est = np.array([
         float(np.histogram(samples[:, i], bins=50)[1][
             np.argmax(np.histogram(samples[:, i], bins=50)[0])
@@ -508,7 +509,7 @@ def get_map_and_ci(posterior, x_obs_t, log, n_samples=5000):
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# Write summary report
+# 写入 Markdown 汇总报告
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def write_results_md(x_obs_vals, meta, map_est, ci_lo, ci_hi,
@@ -525,13 +526,11 @@ def write_results_md(x_obs_vals, meta, map_est, ci_lo, ci_hi,
         "|---------|-------|-------------------|",
     ]
     notes = {
-        "shape_r":        "hardcoded 1.0 (EEG = reference)",
+        "shape_r":        "fixed 1.0 (EEG reference)",
         "T4_q":           "SO peak Q-factor",
-        "T4_freq":        "SO peak freq [Hz]",
-        "T6_ibi_cv":      "UP-burst IBI CV",
-        "T8_n_sp_events": "spindle events per 60 s (normalized)",
+        "T4_freq":        "SO peak frequency [Hz]",
+        "T8_n_sp_events": "spindle events per 60 s (from eeg_raw)",
         "T11_lag_ms":     "up_down_ratio (PAC)",
-        "MI":             "PAC Modulation Index",
     }
     for k, v in zip(SUMMARY_KEYS, x_obs_vals):
         lines.append(f"| {k} | {v:.5f} | {notes.get(k, '')} |")
@@ -578,23 +577,23 @@ def write_results_md(x_obs_vals, meta, map_est, ci_lo, ci_hi,
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# Main
+# 主流程
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def main(dry_run=False):
+def main(dry_run=False, x_obs_arg=None):
     log = Logger(LOG_PATH)
     t_overall = time.time()
 
-    # Log versions
+    # 记录库版本
     log.log(f"=== SBI Stage 2 ({'DRY RUN' if dry_run else 'FULL RUN'}) ===")
     log.log(f"sbi={sbi.__version__}  torch={torch.__version__}  cuda={cuda_avail}")
 
-    # ── Load x_obs ────────────────────────────────────────────────────────────
-    x_obs_path = _SCRIPT_DIR / "x_obs.npz"
+    # ── 加载 x_obs ────────────────────────────────────────────────────────────
+    x_obs_path = Path(x_obs_arg) if x_obs_arg else _SCRIPT_DIR / "x_obs_v3.npz"
     if not x_obs_path.exists():
         raise FileNotFoundError(
             f"{x_obs_path} not found.\n"
-            "Run: python S4_sbi/compute_xobs_from_eeg.py first."
+            "Run: python S4_sbi/compute_xobs_from_eeg_v3.py first."
         )
     xdata = np.load(str(x_obs_path), allow_pickle=True)
     x_obs_vals = xdata["values"].astype(np.float32)
@@ -603,11 +602,11 @@ def main(dry_run=False):
     x_obs_t    = torch.tensor(x_obs_vals, dtype=torch.float32)
     log.log(f"x_obs loaded: {x_obs_vals.tolist()}")
 
-    # ── Build prior ───────────────────────────────────────────────────────────
+    # ── 构建先验 ───────────────────────────────────────────────────────────────
     prior = BoxUniform(low=PRIOR_LOW, high=PRIOR_HIGH)
     log.log(f"Prior: BoxUniform  low={PRIOR_LOW.tolist()}  high={PRIOR_HIGH.tolist()}")
 
-    # ── Build SNPE inference ──────────────────────────────────────────────────
+    # ── 构建 SNPE 推断对象 ─────────────────────────────────────────────────────
     inference = build_inference(prior)
 
     round_sims  = [50, 50, 50, 50] if dry_run else ROUND_SIMS
@@ -617,7 +616,7 @@ def main(dry_run=False):
 
     sim_path = OUTPUT_DIR / "all_simulations.npz"
 
-    # ── 4 Rounds ──────────────────────────────────────────────────────────────
+    # ── 共 4 轮（或第 3 轮后提前结束）──────────────────────────────────────────
     for rnd in range(1, 5):
         n_sims = round_sims[rnd - 1]
         rnd_label = f"Round {rnd}"
@@ -627,22 +626,22 @@ def main(dry_run=False):
 
         t_rnd = time.time()
 
-        # Proposal: prior for R1, posterior for R2+
+        # 提议分布：R1 用先验，R2 起用上一轮后验（在 x_obs 处条件化）
         if rnd == 1:
             proposal = prior
         else:
             proposal = posteriors[-1].set_default_x(x_obs_t)
 
-        # Simulate
+        # 仿真
         theta, x, n_nan = run_batch(proposal, n_sims, log, rnd_label,
                                     fallback_prior=prior)
         log.log(f"  {rnd_label} sims: {len(theta)} valid  NaN={n_nan}")
 
-        # Append to cumulative dataset (survives crashes)
+        # 追加到累计数据集（便于崩溃后恢复）
         if not dry_run:
             append_to_simulations(theta, x, sim_path)
 
-        # Train SNPE-C on all accumulated simulations
+        # 用至今累计的全部仿真数据训练 SNPE-C
         log.log(f"  Training SNPE-C (device={DEVICE}) ...")
         inference.append_simulations(theta, x,
                                      proposal=prior if rnd == 1 else posteriors[-1])
@@ -650,14 +649,14 @@ def main(dry_run=False):
         posterior = inference.build_posterior(density_est)
         posteriors.append(posterior)
 
-        # Checkpoint
+        # 检查点：保存本轮后验
         if not dry_run:
             pkl_path = OUTPUT_DIR / f"round{rnd}_posterior.pkl"
             with open(str(pkl_path), "wb") as f:
                 pickle.dump(posterior, f)
             log.log(f"  Checkpoint saved: {pkl_path}")
 
-        # Convergence check (R3 and R4)
+        # 收敛判据（自第 2 轮起采样后验标准差；第 3 轮可与第 2 轮比较）
         if rnd >= 2:
             try:
                 samps = posterior.sample((500,), x=x_obs_t)
@@ -684,10 +683,10 @@ def main(dry_run=False):
         log.log("\nDry run complete. No files saved. Pipeline works end-to-end.")
         return
 
-    # ── Final posterior ───────────────────────────────────────────────────────
+    # ── 最终后验 ───────────────────────────────────────────────────────────────
     final_posterior = posteriors[-1]
 
-    # ── Diagnostics ───────────────────────────────────────────────────────────
+    # ── 诊断 ───────────────────────────────────────────────────────────────────
     log.log("\n=== Diagnostics ===")
 
     log.log("\n[1/5] Marginals ...")
@@ -714,7 +713,7 @@ def main(dry_run=False):
     log.log("\n[6/6] Pareto overlay ...")
     plot_pareto_overlay(final_posterior.set_default_x(x_obs_t), x_obs_t, log)
 
-    # ── Summary report ────────────────────────────────────────────────────────
+    # ── Markdown 汇总报告 ─────────────────────────────────────────────────────
     write_results_md(x_obs_vals, meta, map_est, ci_lo, ci_hi,
                      ks_results, ppc_pcts, round_times, log)
 
@@ -726,6 +725,8 @@ def main(dry_run=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true",
-                        help="50-sim Round 1 only; verify pipeline, no saves")
+                        help="50 sims per round (4 rounds), pipeline check, no saves")
+    parser.add_argument("--x-obs", type=str, default=None,
+                        help="Path to x_obs .npz file (default: S4_sbi/x_obs_v3.npz)")
     args = parser.parse_args()
-    main(dry_run=args.dry_run)
+    main(dry_run=args.dry_run, x_obs_arg=args.x_obs)

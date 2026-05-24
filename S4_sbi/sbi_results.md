@@ -1,28 +1,26 @@
 # SBI Stage 2 Results
 
-**Date**: 2026-05-07 09:03
+**Date**: 2026-05-23 04:34
 **Subject**: SC4001
 
 ## x_obs values
 
 | Summary | Value | Extraction method |
 |---------|-------|-------------------|
-| shape_r | 1.00000 | hardcoded 1.0 (EEG = reference) |
+| shape_r | 1.00000 | fixed 1.0 (EEG reference) |
 | T4_q | 2.64500 | SO peak Q-factor |
-| T4_freq | 0.75000 | SO peak freq [Hz] |
-| T6_ibi_cv | 0.77000 | UP-burst IBI CV |
-| T8_n_sp_events | 14.35200 | spindle events per 60 s (normalized) |
-| T11_lag_ms | 1.31900 | up_down_ratio (PAC) |
-| MI | 0.00023 | PAC Modulation Index |
+| T4_freq | 0.75000 | SO peak frequency [Hz] |
+| T8_n_sp_events | 15.31000 | spindle events per 60 s (from eeg_raw) |
+| T11_lag_ms | 1.28000 | up_down_ratio (PAC) |
 
 ## Posterior MAP + 95% CI
 
 | Parameter | MAP | CI_lo | CI_hi |
 |-----------|-----|-------|-------|
-| g_h | 0.05919 | 0.05885 | 0.08857 |
-| g_LK | 0.05137 | 0.04849 | 0.06074 |
-| c_ctx2th | 0.06917 | 0.06997 | 0.21479 |
-| b | 42.36661 | 36.73719 | 42.54034 |
+| g_h | 0.07641 | 0.04939 | 0.07973 |
+| g_LK | 0.04914 | 0.04220 | 0.05687 |
+| c_ctx2th | 0.20636 | 0.05193 | 0.21358 |
+| b | 50.52520 | 49.48069 | 50.76123 |
 
 ## SBC Results
 
@@ -33,15 +31,14 @@ SBC not run or failed.
 | Summary | x_obs percentile | Pass (5–95%) |
 |---------|-----------------|-------------|
 | shape_r | 100% | FAIL |
-| T4_q | 98% | FAIL |
-| T4_freq | 30% | PASS |
-| T6_ibi_cv | 100% | FAIL |
-| T8_n_sp_events | 1% | FAIL |
-| T11_lag_ms | 6% | PASS |
-| MI | 0% | FAIL |
+| T4_q | 100% | FAIL |
+| T4_freq | 77% | PASS |
+| T8_n_sp_events | 11% | PASS |
+| T11_lag_ms | 37% | PASS |
 
 ## Wall-clock breakdown
 
-- Round 1: 273.7 min
-- Round 2: 144.3 min
-- Round 3: 146.5 min
+- Round 1: 185.6 min
+- Round 2: 88.3 min
+- Round 3: 90.6 min
+- Round 4: 90.9 min

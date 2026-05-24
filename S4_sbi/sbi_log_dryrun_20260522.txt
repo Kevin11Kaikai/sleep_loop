@@ -1,0 +1,39 @@
+[19:52:35] === SBI Stage 2 (DRY RUN) ===
+[19:52:35] sbi=0.26.1  torch=2.5.1  cuda=False
+[19:52:35] x_obs loaded: [1.0, 2.6449999809265137, 0.75, 15.3100004196167, 1.2799999713897705]
+[19:52:35] Prior: BoxUniform  low=[0.03500000014901161, 0.019999999552965164, 0.05000000074505806, 28.399999618530273]  high=[0.0949999988079071, 0.07000000029802322, 0.2199999988079071, 80.0]
+[19:52:35] 
+==================================================
+[19:52:35] Round 1: 50 simulations
+[19:52:35] ==================================================
+[19:52:35]   Sampling 50 theta from proposal ...
+[19:59:05]     50/50  NaN=0  elapsed=6.5min  ETA=0.0min
+[19:59:05]   Round 1: 50 valid / 50 sims (NaN rate=0.0%)
+[19:59:05]   Round 1 sims: 50 valid  NaN=0
+[19:59:05]   Training SNPE-C (device=cpu) ...
+[19:59:10]   Round 1 done in 6.6 min
+[19:59:10] 
+==================================================
+[19:59:10] Round 2: 50 simulations
+[19:59:10] ==================================================
+[19:59:10]   Sampling 50 theta from proposal ...
+[20:04:06]     50/50  NaN=0  elapsed=4.9min  ETA=0.0min
+[20:04:06]   Round 2: 50 valid / 50 sims (NaN rate=0.0%)
+[20:04:06]   Round 2 sims: 50 valid  NaN=0
+[20:04:06]   Training SNPE-C (device=cpu) ...
+[20:04:07]   Posterior std: [0.01466611959040165, 0.014689252711832523, 0.0332862064242363, 7.712564468383789]
+[20:04:07]   Round 2 done in 4.9 min
+[20:04:07] 
+==================================================
+[20:04:07] Round 3: 50 simulations
+[20:04:07] ==================================================
+[20:04:07]   Sampling 50 theta from proposal ...
+[20:08:26]     50/50  NaN=0  elapsed=4.3min  ETA=0.0min
+[20:08:26]   Round 3: 50 valid / 50 sims (NaN rate=0.0%)
+[20:08:26]   Round 3 sims: 50 valid  NaN=0
+[20:08:26]   Training SNPE-C (device=cpu) ...
+[20:08:27]   Posterior std: [0.014281269162893295, 0.013891163282096386, 0.032931383699178696, 7.065768241882324]
+[20:08:27]   Relative std change R2→R3: 4.4%
+[20:08:27]   *** Converged early at Round 3 — skipping Round 4 ***
+[20:08:27] 
+Dry run complete. No files saved. Pipeline works end-to-end.
