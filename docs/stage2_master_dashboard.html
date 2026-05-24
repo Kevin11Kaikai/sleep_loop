@@ -272,6 +272,29 @@
     font-size: 10px; color: #9ca3af; margin-top: 10px; font-style: italic;
   }
 
+  /* ── How-to-read explainers (Tab 2 cards) ─────────────────────── */
+  .how-to-read {
+    margin-top: 12px; padding: 10px 12px;
+    background: #eff6ff; border-left: 3px solid #3b82f6;
+    border-radius: 4px; font-size: 12px; line-height: 1.65; color: #1e3a8a;
+  }
+  .how-to-read .htr-header {
+    font-weight: 700; margin-bottom: 6px; color: #1e40af; font-size: 12px;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .how-to-read .htr-header::before {
+    content: "💡"; font-size: 13px;
+  }
+  .how-to-read p { margin: 0 0 6px 0; }
+  .how-to-read p:last-child { margin-bottom: 0; }
+  .how-to-read b { color: #1e40af; }
+  .how-to-read code {
+    background: #dbeafe; color: #1e3a8a; padding: 0 4px; border-radius: 3px;
+    font-family: "SF Mono", Consolas, monospace; font-size: 11px;
+  }
+  .how-to-read ul { margin: 4px 0 6px 18px; }
+  .how-to-read li { margin-bottom: 3px; }
+
   /* ── Footer ───────────────────────────────────────────────────── */
   footer.report-foot {
     text-align: center; padding: 24px; font-size: 11px; color: #9ca3af;
@@ -325,6 +348,34 @@
   <div style="margin-top: 16px; font-size:12px; color:#6b7280; text-align:center;">
     悬停查看完整决策文本 · 数据源:master_doc 表 6
   </div>
+
+  <div class="how-to-read">
+    <div class="htr-header">看图指南</div>
+    <p><b>这张图是什么?</b>这条水平时间线代表 Stage 2 从启动到关闭的真实时间流
+    (2026-05-07 → 2026-05-23,共 17 天)。每个圆点 = 一个<b>决策事件</b>,
+    奇偶节点交错排在线上方/下方,避免标签重叠。鼠标悬停在任何圆点上可看完整决策文本。</p>
+
+    <p><b>三种颜色含义:</b></p>
+    <ul>
+      <li><span style="color:#6b7280;">●</span> <b>灰色 = 工程事件</b>:归档、commit、dry-run 等运营性动作,paper 里不写</li>
+      <li><span style="color:#2563eb;">●</span> <b>蓝色 = Paper-relevant 决策</b>:对论文叙事直接影响的转折点(共 8 个)</li>
+      <li><span style="color:#dc2626;">●</span> <b>红色 = 诊断发现</b>:实验跑出来后才发现的新事实(共 4 个)</li>
+    </ul>
+
+    <p><b>节奏对比:</b>前 15 天(May 7 → May 21)只有 3 个事件,缓慢推进;
+    后 1.5 天(May 22 → May 23)挤了 12 个事件——这就是 Stage 2 真正的收尾密集期。</p>
+
+    <p><b>建议的阅读路径</b>(按 paper-relevant 蓝点扫读 8 步):</p>
+    <ul>
+      <li>① <b>05-07</b> 7 维 SBI baseline(起点)</li>
+      <li>② <b>05-10</b> r_proxy 不可修复 → 降到 5 维</li>
+      <li>③ <b>05-22</b> Pre-flight 发现 P0+P1 → b prior 放宽到 80</li>
+      <li>④ <b>05-23 04:34</b> 5 维 SBI 完成(主结果)</li>
+      <li>⑤ <b>05-23 早</b> <span style="color:#dc2626;">红点</span>:c_ctx2th 4 模态发现(关键发现)</li>
+      <li>⑥⑦⑧ <b>05-23 下午→傍晚</b> 三个<span style="color:#dc2626;">红点</span>:
+        MI=0.00019 → Quick verification → Surrogate z=0.14 → 走路径 W</li>
+    </ul>
+  </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════ -->
@@ -342,6 +393,22 @@
         数据源:master_doc 表 1。
         c_ctx2th MAP +198% 表明 likelihood 维度变化引发模态结构跳变。
       </div>
+      <div class="how-to-read">
+        <div class="htr-header">看图指南</div>
+        <p><b>MAP 是什么?</b>给定 EEG 观测,4 个生理参数<b>最可能</b>的取值。
+        每个参数 2 根 bar:<span style="color:#3b82f6;">■</span> 蓝色 = 用 7 个 EEG
+        特征推出来,<span style="color:#f59e0b;">■</span> 橙色 = 用 5 个 EEG 特征推出来。</p>
+        <p><b>4 个参数生理含义:</b></p>
+        <ul>
+          <li><code>g_h</code>:超极化激活电流(神经元慢节律驱动)</li>
+          <li><code>g_LK</code>:K<sup>+</sup> 漏电流(神经元静息状态)</li>
+          <li><code>c_ctx2th</code>:皮层→丘脑突触连接强度(我们最关心的参数)</li>
+          <li><code>b</code>:适应电流(神经元疲劳/适应)</li>
+        </ul>
+        <p><b>怎么看:</b>两根 bar 越接近 → 这个参数<b>稳定可识别</b>(不管用几个特征都推出同一个值)。
+        看 <code>c_ctx2th</code>:蓝 0.069 → 橙 0.206,差 +198% → <b>不稳定 = 不可识别</b>,
+        这就是 Tab 3 详细诊断的对象。</p>
+      </div>
     </div>
 
     <!-- Card B: SBC -->
@@ -352,6 +419,20 @@
       <div id="card-sbc"></div>
       <div style="font-size:11px;color:#6b7280;margin-top:10px;">
         数据源:master_doc 表 2 · NSF 算法层无故障。
+      </div>
+      <div class="how-to-read">
+        <div class="htr-header">看图指南</div>
+        <p><b>SBC 是什么?</b>给算法做的"自检":从 prior 随机生成 200 组<b>真值参数</b>,
+        每组跑一次仿真,然后让算法反推后验,看后验<b>包不包对</b>真值。
+        如果算法过度自信(后验太窄)或不够自信(后验太宽),都会被这个检验抓到。</p>
+        <p><b>怎么看:</b>每根绿色 bar 长度 = <b>KS p-value</b>。
+        红色虚线在 <code>p=0.05</code> 阈值。bar 越过红线右边 = <b>PASS</b>
+        (算法对这个参数校准合格)。</p>
+        <p><b>大字 "4/4 PASS" 含义:</b>4 个参数全部通过 → NSF 神经网络在 5 维 likelihood 上
+        <b>学到了正确的算法映射</b>。这意味着 Tab 1 看到的 c_ctx2th 4 模态<b>不是算法 bug</b>,
+        是数据本身就这样,这一点对 paper 论证非常关键。</p>
+        <p style="color:#991b1b;">⚠️ 注意 <code>b</code> 的 p=0.0850 离 0.05 阈值只剩 0.035 余量,虽然 PASS 但贴边,
+        Sprint 2 可考虑增加 SBC 样本数复测。</p>
       </div>
     </div>
 
@@ -364,6 +445,21 @@
       <div style="font-size:11px;color:#6b7280;margin-top:10px;">
         数据源:master_doc 表 3。T4_q=100% 为新发现偏移项,值得 Sprint 2 跟进。
       </div>
+      <div class="how-to-read">
+        <div class="htr-header">看图指南</div>
+        <p><b>PPC 是什么?</b>从训练好的后验抽 100 组参数,跑 100 次仿真,
+        看真实 EEG 观测 <code>x_obs</code> 落在这 100 个仿真值的<b>哪个百分位</b>。
+        理想情况是落在中间(后验仿真分布包住 x_obs)。</p>
+        <p><b>怎么看:</b>每根 bar 长度 = 百分位(0% 到 100%)。
+        判据是落在 <code>[5%, 95%]</code> 区间 = PASS。</p>
+        <ul>
+          <li><span style="color:#10b981;">■</span> 绿色 PASS:仿真器能产生包含 x_obs 的输出分布</li>
+          <li><span style="color:#ef4444;">■</span> 红色 FAIL:x_obs 落在仿真分布之外(0% 或 100%)</li>
+          <li><span style="color:#9ca3af;">■</span> 灰色 design:<code>shape_r=1.0</code> 是我们硬编码的设计哨兵,100% FAIL 是预期,豁免</li>
+        </ul>
+        <p><b>3/5 PASS 解读:</b><code>T4_q=100%</code> 是<b>新发现的偏移项</b> — 后验仿真的
+        SO 峰 Q 因子全都低于真实 EEG。这不影响 c_ctx2th 主结论,但 Sprint 2 需要单独跟进。</p>
+      </div>
     </div>
 
     <!-- Card D: Pareto -->
@@ -375,6 +471,26 @@
       <div id="card-pareto"></div>
       <div style="font-size:11px;color:#6b7280;margin-top:10px;">
         数据源:master_doc 表 4 · A 与 C 反转,因 5 维删去 MI 失去 PAC 区分度。
+      </div>
+      <div class="how-to-read">
+        <div class="htr-header">看图指南</div>
+        <p><b>Pareto Seed 是什么?</b>Stage 1(进化算法 DE)找到的 3 组<b>有代表性</b>
+        的最优参数,各代表不同"权衡":</p>
+        <ul>
+          <li><b>Seed A</b> — PAC-dominant:SO-spindle 耦合强度最高(MI=0.137)</li>
+          <li><b>Seed B</b> — 综合 fitness 最高(score=0.674,DE 排名第一)</li>
+          <li><b>Seed C</b> — shape-dominant:谱形匹配最好(shape_r=0.690)</li>
+        </ul>
+        <p><b>log_prob 怎么读?</b>后验在该点的<b>对数概率密度</b>。
+        值越<b>大</b>(=越靠右)→ 这个点越靠近后验高密度区,SBI 越"认可"它。
+        值越负 → 越被后验排除。</p>
+        <p><b>怎么看:</b>每个 Seed 有 2 根 bar:
+        <span style="color:#3b82f6;">■</span> 蓝色 = 7 维后验下,
+        <span style="color:#f59e0b;">■</span> 橙色 = 5 维后验下。</p>
+        <p><b>关键发现:</b>排序从 <b>7 维 B&gt;C&gt;A</b> → <b>5 维 B&gt;A&gt;C</b>,
+        Seed A 和 Seed C 的相对位置<b>反转</b>。原因:5 维删除了 MI(PAC 强度指标),
+        所以 PAC-dominant 的 A 和 shape-dominant 的 C 不再被区分。
+        <b>这是 likelihood 维度选择直接影响后验排序的硬证据</b>。</p>
       </div>
     </div>
 
@@ -460,6 +576,69 @@
       </div>
     </div>
   </div>
+
+  <div class="how-to-read" style="margin-top: 20px;">
+    <div class="htr-header">看图指南(1/2):边际后验对比图 + 95% CI 横条</div>
+
+    <p><b>"边际后验"是什么?</b>SBI 训出来的是 4 维联合后验(4 个参数的联合概率分布)。
+    把其他 3 个参数(g_h、g_LK、b)"积分掉"(数学上叫 marginalize),只看 c_ctx2th
+    这一维上的分布形状,就是<b>边际后验</b>。可以理解成"不管其他参数怎么变,
+    c_ctx2th 单独看下来在哪些值上密度高"。</p>
+
+    <p><b>怎么看大图(左上):</b></p>
+    <ul>
+      <li>每个"山头"= 一个 <b>mode</b>(后验偏好的取值);山越高 → 后验密度越大</li>
+      <li><b>上半 May 7(蓝色,7 维)</b>:3 个 mode,主峰在低端 <code>0.075</code>,
+        小峰在 <code>0.21</code>。整体偏向 prior 下半区。</li>
+      <li><b>下半 May 23(橙色,5 维)</b>:4 个 mode 跨越整个 prior
+        (<code>0.052 / 0.107 / 0.155 / 0.207</code>),<b>主峰跳到上端 0.207</b>。</li>
+      <li>底部灰条:prior <code>[0.05, 0.22]</code> 全宽,提供尺度参考</li>
+    </ul>
+
+    <p><b>关键观察:</b>不同的 likelihood 维度(7 维 vs 5 维)给出
+    <b>完全不同的模态结构</b>——真实可识别的参数不应有这种敏感性。
+    打个比方:如果你用两种不同的尺(7 个刻度 vs 5 个刻度)量同一个物体,
+    长度应该差不多;但 c_ctx2th 给的结果是"完全不同的形状"——说明这个"物体"
+    其实根本不能被尺测到,你看到的只是尺刻度本身的伪影。</p>
+
+    <p><b>怎么看底部 95% CI 横条:</b></p>
+    <ul>
+      <li><b>"95% CI" 是什么</b>:后验质量 95% 集中在哪个区间。
+        理想情况下,可识别参数的 CI 会非常窄(只占 prior 的一小段)</li>
+      <li>这里 CI = <code>[0.052, 0.214]</code>,跨度占 prior 全宽 <b>95%</b></li>
+      <li>意思是:EEG 数据<b>几乎没缩小</b> c_ctx2th 的不确定性——
+        后验和 prior 在这个维度上几乎一样宽,等于"没学到东西"</li>
+    </ul>
+  </div>
+
+  <div class="how-to-read" style="margin-top: 12px;">
+    <div class="htr-header">看图指南(2/2):右栏 3 个 Pairplot mini panel</div>
+
+    <p><b>"pairplot"是什么?</b>把后验在<b>两个参数维度</b>上的联合分布画出来,
+    看两者之间有没有结构性关系。可识别参数的 pairplot 应该呈现"集中的椭圆"
+    或"斜对角的山脊"(ridge);<b>横条</b>或<b>竖条</b>意味着其中一个参数
+    被另一个参数"决定不了"——即两者独立。</p>
+
+    <p><b>3 个 panel 的形态:</b></p>
+    <ul>
+      <li><b>c_ctx2th × g_h(横条)</b>:水平方向的细带跨越全 prior。
+        意思是不管 g_h 取什么值,c_ctx2th 几乎可以是任何值 → <b>g_h 不约束 c_ctx2th</b></li>
+      <li><b>c_ctx2th × g_LK(横条)</b>:同上,<b>g_LK 也不约束 c_ctx2th</b></li>
+      <li><b>c_ctx2th × b(竖条)</b>:4 个垂直亮带堆叠,但 b 维度极窄(50 附近)。
+        意思是 b 紧紧锁定,c_ctx2th 的 4 个 mode <b>共享同一个 b 值</b> → b 也不
+        解释 c_ctx2th 的多模态来源</li>
+    </ul>
+
+    <p><b>"无 ridge"的含义:</b>如果两参数有耦合,你会看到斜对角的"山脊带"
+    (比如 c_ctx2th 大时 b 也大)。这里 3 个 panel 都<b>没有 ridge</b> →
+    没有任何其他参数在"解释"c_ctx2th 的变异 → c_ctx2th 的所有不确定性都
+    来自 likelihood 信息不足,不是被其他参数耦合掉了。</p>
+
+    <p><b>三条证据合起来</b>(marginal 4 模态 + pairplot 无 ridge + CI 占 prior 95%):
+    c_ctx2th 不是"测出来一个 95% CI 偏宽但峰值清晰"的参数,
+    而是"模态结构本身随观测维度变化"的<b>结构性不可识别</b>参数。
+    这就是 Stage 2 论文的核心发现。</p>
+  </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════ -->
@@ -503,6 +682,86 @@
         master_doc 作为 source of truth 不改。)
       </span>
     </div>
+  </div>
+
+  <div class="how-to-read" style="margin-top: 20px;">
+    <div class="htr-header">看图指南(1/2):顶部 5 步流程框 + 中部 z-score 卡片</div>
+
+    <p><b>这一页讲什么?</b>Sprint 1 Phase 2 的"补救尝试"为什么失败,为什么我们最终
+    选择走"路径 W"(接受 5 维 baseline 作为最终结果)。整个 Phase 2 持续了
+    May 23 一整天,顶部 5 步流程框就是这一天的真实时间顺序。</p>
+
+    <p><b>顶部 5 步流程框(左→右):</b></p>
+    <ul>
+      <li><b>阶段 A 合成 5 case PASS</b>(白框):在合成 ground-truth 信号上跑算法,
+        10/10 通过判据 → <b>算法本身没 bug</b>,可以进真实数据测试</li>
+      <li><b>阶段 B step 5 SC4001 MI=0.00019</b>(<span style="color:#b91c1c;">红框</span>):
+        真实 EEG 上测出来的 MI 比预期低 <b>100×</b>(预期 [0.02, 0.05])→
+        触发 algorithm-suspect FAIL,暂停</li>
+      <li><b>Quick verification</b>(白框):猜想"epoch 拼接是主因",
+        测试 480s 零边界连续段 → MI 仍 = 0.0001 → <b>排除拼接根因</b></li>
+      <li><b>Surrogate test</b>(<span style="color:#b91c1c;">红框</span>):
+        换更严格的统计检验,看 MI 是不是高于"零信号"水平 → 仍然 null(z=0.14)→
+        <b>排除"信号弱但显著"的可能</b></li>
+      <li><b>走路径 W</b>(<span style="color:#065f46;">绿框</span>):MI 维度物理上不可用,
+        放弃增加 likelihood 维度,5 维 baseline 作为最终结果</li>
+    </ul>
+
+    <p><b>中部 5 个 z-score 卡片:</b></p>
+
+    <p><b>"z-score" 是什么?</b>衡量观测到的 MI 比"零信号假设"高多少个标准差。
+    可以理解成"PAC 信号比噪声强多少倍"的标准化指标。
+    判据:<code>|z| &gt; 2</code> ≈ 显著(p &lt; 0.05),说明 PAC 真实存在;
+    <code>|z| &lt; 2</code> = 在 null 范围内,统计上不能区分于无信号。</p>
+
+    <p><b>怎么看每张卡:</b>大数字 = z 值,左边色条标颜色:</p>
+    <ul>
+      <li><span style="color:#f59e0b;">■</span> <b>橙色 warn(Mode X +21.40)</b>:
+        看起来"显著",但实际是 <b>boundary artifact</b> — 4260s 信号是 142 个
+        非连续 epoch 拼接而成,141 个边界让 null σ 异常窄,人为推高 z</li>
+      <li><span style="color:#9ca3af;">■</span> <b>灰色 null(Mode Y +0.14 和白噪 -1.70)</b>:
+        Mode Y 是 480s 连续段(0 边界),z=+0.14 与<b>白噪</b>的 -1.70 在
+        ±2 内统计不可区分 → <b>SC4001 真实 PAC ≈ 白噪</b></li>
+      <li><span style="color:#10b981;">■</span> <b>绿色 good(Simulator +42.51 和 +68.72)</b>:
+        仿真器侧 PAC 真实可测且强烈;single-channel (r_ctx × r_ctx) z=+68.72 比
+        cross-channel (r_ctx × r_thal) z=+42.51 更高,因为 r_ctx 自身包含完整
+        皮层-丘脑共耦合电路输出</li>
+    </ul>
+
+    <p><b>"白噪 paranoia" 是什么?</b>专门跑一遍纯白噪信号作为 algorithm self-check —
+    如果算法本身有 bug,白噪也会给出高 z;实际白噪 z=-1.70(在 ±2 内)→
+    <b>算法自身没问题</b>,Mode Y 的 z=+0.14 是真实 null,不是算法故障。</p>
+
+    <p><b>关键对比:</b><b>SC4001 EEG 端 z=+0.14</b>(null) vs <b>Simulator 端 z=+42</b>
+    (强显著),两端 z 量级差 <b>~300 倍</b>。意思是 MI 这一维"对仿真器而言可观察、
+    对 EEG 数据而言不可测"——把它放进 7 维 SBI 会把 NSF 推向"破坏仿真器 PAC"
+    的参数空间,反而错。</p>
+  </div>
+
+  <div class="how-to-read" style="margin-top: 12px;">
+    <div class="htr-header">看图指南(2/2):底部绿色决策框</div>
+
+    <p><b>绿色决策框的 3 个部分:</b></p>
+    <ul>
+      <li><b>第一行大字</b>:决策本身——"走路径 W(接受 5 维 baseline)"</li>
+      <li><b>第二行小字</b>:具体行动——"Phase 2 archived,主线代码冻结,
+        Sprint 2 启动 4 个 post-hoc validation"</li>
+      <li><b>白色 inset 框</b>:negative result 的视图层措辞,把 master_doc 的
+        "贡献为零"软化为<b>"统计不显著"</b>。理由见底部灰色斜体 footnote —
+        审稿人通常对 "为零"这种 absolute claim 比较敏感,严格说法是
+        "在 surrogate test 显著性水平下,SC4001 EEG 在 PAC 维度上的可识别性贡献
+        统计不显著"</li>
+    </ul>
+
+    <p><b>Negative result 的 publication value:</b>用 SBI + surrogate test
+    <b>严格证明</b>某个 EEG 数据集在 PAC 维度上不携带可用信号,这是一个
+    publication-worthy 的方法学贡献。论文 framing 由"4 维全可识别"调整为
+    <b>"3/4 可识别 + 1 个 c_ctx2th unidentifiability 的硬证据负结果"</b>。</p>
+
+    <p><b>视图层 vs source of truth:</b>master_doc 是 source of truth(论文写作的
+    权威依据),HTML dashboard 是视图层(给非作者读者快速理解的辅助工具)。
+    两边措辞可以略有不同——dashboard 倾向更严谨/对外友好的表述,master_doc 保留
+    更直接的研究语言。当二者有冲突时,以 master_doc 为准。</p>
   </div>
 
 </section>
