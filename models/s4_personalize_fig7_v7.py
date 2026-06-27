@@ -53,8 +53,9 @@ Six deliberate changes in V7:
 
   (2) spindle_power reward: FOOOF → event-based.
       reward = min(T12_n_verified / 15, 1.0)
-      Events are already counted (T12). 15 ≈ expected real-spindle
-      count in 60s (15-20 spindles/min in N3 per Ferrarelli 2007).
+      Events are already counted (T12). 15 is an empirical saturation
+      scale for spindle_power; chosen above observed event counts to
+      keep the reward discriminative, NOT a normative spindle rate.
       Motivation: D2.
 
   (3) so_power reward: FOOOF → T4_q-derived.
@@ -476,6 +477,9 @@ def compute_constraints_v7(r_ctx, r_thal, f_c=None, p_c=None, fs=FS_SIM):
 
 
     # ── T5: Spindle FWHM > threshold ──────────────────────────────────
+    # FWHM: Full width at half maximum of the spindle peak in the thalamic PSD. 
+    # This ensures that the spindle peak is not only present but also has a physiologically realistic width,
+    #  which is important for validating the model's ability to produce realistic spindle dynamics.
     f_th, p_th = compute_epoch_psd(r_thal, fs)
     # f_th: frequencies, p_th: power at f_th, r_thal: thalamic firing rate time series
     sp_mask = (f_th >= SPINDLE_LO) & (f_th <= SPINDLE_HI)
@@ -515,7 +519,9 @@ def compute_constraints_v7(r_ctx, r_thal, f_c=None, p_c=None, fs=FS_SIM):
 
     # ── T7: Spindle envelope burstiness — CV (NEW) ────────────────────
     # T7是一个新的约束条件，用于评估纺锤体包络的爆发性（burstiness）。纺锤体活动通常以短暂的爆发形式出现，而不是持续的振荡。
-    # T7通过计算纺锤体包络的变异系数（CV）来量化这种爆发性。CV是标准差与均值的比值，反映了包络振幅的相对变异程度。较高的CV表示包络具有更多的爆发性（更大的振幅变化），而较低的CV表示包络更连续（较小的振幅变化）。T7要求纺锤体包络的CV必须大于预设的最小阈值，以确保模拟中纺锤体活动具有足够的爆发性特征。
+    # T7通过计算纺锤体包络的变异系数（CV）来量化这种爆发性。CV是标准差与均值的比值，反映了包络振幅的相对变异程度。
+    # 较高的CV表示包络具有更多的爆发性（更大的振幅变化），而较低的CV表示包络更连续（较小的振幅变化）。
+    # T7要求纺锤体包络的CV必须大于预设的最小阈值，以确保模拟中纺锤体活动具有足够的爆发性特征。
     sp_cv = 0.0 # sp_cv, coefficient of variation of the spindle envelope
     envelope = None # envelope of the spindl amplitude
     try:
@@ -526,7 +532,8 @@ def compute_constraints_v7(r_ctx, r_thal, f_c=None, p_c=None, fs=FS_SIM):
         # sosfiltfilt是一个零相位滤波函数，应用sos滤波器对r_thal进行前向和反向滤波，以避免相位失真
         # filtered is the filtered thalamic signal (t_thal) obtained by applying sos filter
         envelope = np.abs(hilbert(filtered))
-        # envelope是通过对滤波后的信号应用Hilbert变换并取绝对值得到的纺锤体振幅包络。Hilbert变换提供了一个解析信号，其中实部是原始信号，
+        # envelope是通过对滤波后的信号应用Hilbert变换并取绝对值得到的纺锤体振幅包络。
+        # Hilbert变换提供了一个解析信号，其中实部是原始信号，
         # 虚部是原始信号的90度相位移。纺锤体振幅
         # envelope is the absolute value of the Hilbert transform of the filtered signal，
         #  A(t) = |H(x(t))|, which gives the amplitude envelope of the spindle activity
@@ -976,8 +983,9 @@ def compute_fitness_v7(params_vec,
         # detection fails for narrow T-current-resonance peaks that live
         # only in the thalamus).
         # T12_n_verified is the # of detected spindle events that contain
-        # dominant σ-band oscillation. Target = 15 events in 60s
-        # (≈ 15-20 spindles/min is normal N3 per Ferrarelli 2007).
+        # dominant σ-band oscillation. 15 is an empirical saturation scale
+        # for spindle_power; chosen above observed event counts to keep the
+        # reward discriminative, NOT a normative spindle rate.
         n_ver = con.get("T12_n_verified", 0)
         spindle_power = float(np.clip(n_ver / 15.0, 0.0, 1.0))
 
