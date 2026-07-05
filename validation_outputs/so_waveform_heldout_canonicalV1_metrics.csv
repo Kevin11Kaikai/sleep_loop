@@ -1,0 +1,4 @@
+label,template_rmse,template_corr,template_1_minus_corr,n_snippets,anchor_mode,real_anchor_mode,real_n_snippets,real_clean_n3_epochs,real_channel
+V3 dynamics,0.3423922060340394,0.9414162938672572,0.058583706132742774,37,peak,peak,3881,142,EEG Fpz-Cz
+V7 event-constrained,0.3908581011833961,0.9234481353086346,0.07655186469136543,64,peak,peak,3881,142,EEG Fpz-Cz
+V1 canonical (0.8586),0.5685068993518654,0.8389674828639131,0.1610325171360869,23,peak,peak,3881,142,EEG Fpz-Cz

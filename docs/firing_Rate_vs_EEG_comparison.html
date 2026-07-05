@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cortical Firing Rate vs EEG Voltage</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      color: #1f2933;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      background: #f8fafc;
+    }
+
+    main {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    h1, h2 {
+      color: #0f172a;
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 1.4rem;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 14px 18px;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 8px;
+      font-size: 0.95rem;
+      background: #ffffff;
+    }
+
+    th, td {
+      border: 1px solid #d9e2ec;
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #e0f2fe;
+      color: #0f172a;
+      text-align: left;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    code {
+      background: #eef2ff;
+      color: #3730a3;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    ol, ul {
+      padding-left: 1.4rem;
+    }
+
+    .note {
+      background: #fff7ed;
+      border-left: 4px solid #f97316;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Cortical Firing Rate 和 EEG 电压的比较</h1>
+
+    <p class="lead">
+      Cortical firing rate 不是 EEG 电压，但在慢振荡形状比较里，可以把它当作
+      “皮层活动强弱随时间变化的 proxy”。比较时不要比绝对单位和绝对振幅，而是比低频节律的时间结构：
+      峰谷位置、周期、波形宽窄、上升和下降形状。
+    </p>
+
+    <h2>一、相似和区别</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>Cortical firing rate</th>
+          <th>EEG 电压</th>
+          <th>相似之处</th>
+          <th>比较时要注意</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>物理含义</td>
+          <td>模型里皮层兴奋性群体的平均放电率</td>
+          <td>头皮电极测到的电位差</td>
+          <td>都反映皮层神经群体活动随时间变化</td>
+          <td>不是同一种物理量，不能直接比数值大小</td>
+        </tr>
+        <tr>
+          <td>单位</td>
+          <td>通常是 Hz 或 spikes per second</td>
+          <td>微伏，记作 <code>uV</code></td>
+          <td>都可以看成一条时间序列</td>
+          <td>单位完全不同，必须标准化</td>
+        </tr>
+        <tr>
+          <td>来源</td>
+          <td>neurolib neural mass model 的状态变量</td>
+          <td>真实脑电仪记录</td>
+          <td>都可表现 N3 慢振荡</td>
+          <td>firing rate 是模型内部变量，EEG 是经过组织、头骨、电极混合后的外部观测</td>
+        </tr>
+        <tr>
+          <td>空间尺度</td>
+          <td>一个模型节点或神经群体的平均活动</td>
+          <td>电极附近大量神经源的混合投影</td>
+          <td>都属于群体级信号，不是单神经元信号</td>
+          <td>EEG 更受 volume conduction、电极位置和参考电极影响</td>
+        </tr>
+        <tr>
+          <td>慢振荡表现</td>
+          <td>UP/DOWN 状态导致 firing rate 高低交替</td>
+          <td>N3 中出现大幅低频慢波</td>
+          <td>二者都能有 <code>0.3-1.5 Hz</code> 的周期结构</td>
+          <td>极性可能相反：模型 peak 不一定对应 EEG peak</td>
+        </tr>
+        <tr>
+          <td>振幅意义</td>
+          <td>放电率高低，反映神经群体激活程度</td>
+          <td>电位差大小，受源强度和传导影响</td>
+          <td>振幅变化都可表示活动强弱变化</td>
+          <td>不应直接比较“多少 Hz”和“多少 uV”</td>
+        </tr>
+        <tr>
+          <td>频谱</td>
+          <td>可计算 PSD、SO band power、sigma band power</td>
+          <td>也可计算 PSD、频段功率</td>
+          <td>都能做滤波和频谱分析</td>
+          <td>模型信号可能比 EEG 更干净，真实 EEG 有噪声和伪迹</td>
+        </tr>
+        <tr>
+          <td>波形形状</td>
+          <td>可能更尖、更规则、机制驱动更强</td>
+          <td>可能更平滑、更混合、有噪声</td>
+          <td>可比较归一化后的周期平均形状</td>
+          <td>需要滤波、对齐、归一化后比较</td>
+        </tr>
+        <tr>
+          <td>生理解释</td>
+          <td>表示“模型皮层节点活动如何变化”</td>
+          <td>表示“头皮上观测到的电场变化”</td>
+          <td>二者都和皮层同步活动有关</td>
+          <td>EEG 不是 firing rate 的线性复制品</td>
+        </tr>
+        <tr>
+          <td>适合比较什么</td>
+          <td>周期、峰谷结构、UP/DOWN timing、相对形状</td>
+          <td>周期、峰谷结构、慢波模板、spindle 可见性</td>
+          <td>适合比较 rhythm morphology</td>
+          <td>不适合直接说模型生成了真实 EEG 电压</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>二、如何比较二者的“形状”</h2>
+
+    <p>
+      在 <code>valid_scripts/validate_so_waveform_heldout.py</code> 里，比较的不是原始数值，而是慢振荡频段里的平均周期形状。
+      这可以分成四步理解。
+    </p>
+
+    <ol>
+      <li>
+        <strong>只看同一个频段。</strong>
+        真实 EEG 和 cortical firing rate 都先滤到 SO 频段 <code>0.3-1.5 Hz</code>。
+        这样比较的是慢振荡形状，而不是全部信号。
+      </li>
+      <li>
+        <strong>去掉单位差异。</strong>
+        EEG 是 <code>uV</code>，firing rate 是类似 <code>Hz</code> 的量，所以不能直接比较振幅。
+        脚本用 z-score 标准化：
+        <code>标准化后 = (信号 - 平均值) / 标准差</code>。
+        这样每条信号都变成“相对高低变化”，不再关心原始单位。
+      </li>
+      <li>
+        <strong>按 SO 周期对齐。</strong>
+        脚本找每个慢波的 peak 或 trough，然后在锚点前后各取 <code>1 s</code>。
+        这相当于把很多个慢波周期剪成一张张小卡片，并把峰或谷对齐在中间。
+      </li>
+      <li>
+        <strong>平均成模板再比较。</strong>
+        把所有 SO snippets 平均，得到一个代表性慢波模板。
+        然后比较模型模板和真实 EEG 模板的 <code>RMSE</code> 和 correlation。
+      </li>
+    </ol>
+
+    <h2>三、两个指标怎么读</h2>
+
+    <ul>
+      <li><strong>RMSE</strong>：两条模板平均差多少。越小，说明形状越接近。</li>
+      <li><strong>Correlation</strong>：两条模板走势是否一致。越接近 1，说明上升、下降、峰谷结构越一致。</li>
+    </ul>
+
+    <p>
+      所以这里的“相似”不是指模型 firing rate 的数值等于 EEG 微伏值，而是指：
+      在慢振荡频段里，模型的上升、下降、峰谷位置、周期平均轮廓，和真实 EEG 的周期平均轮廓是否相似。
+    </p>
+
+    <div class="note">
+      <strong>直观比喻：</strong>
+      EEG 电压和 firing rate 像两种不同乐器。EEG 是钢琴录音，firing rate 是小提琴旋律线。
+      它们音色和响度不同，不能直接比“声音大小”。但如果都在演同一首慢节奏旋律，就可以比较节拍是否一致、
+      高低起伏是否类似、每个音符出现的时间是否接近、平均旋律轮廓是否相似。
+      这个脚本比较的就是“旋律轮廓”，不是“音色”和“音量”。
+    </div>
+  </main>
+</body>
+</html>

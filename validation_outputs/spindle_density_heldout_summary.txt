@@ -1,0 +1,23 @@
+Held-out spindle-density check (Item 2B)
+============================================================
+Subject: SC4001   real channel: EEG Fpz-Cz @ 100 Hz
+Detector: sigma=(11.0, 15.0) Hz, RMS win=0.2s, thr=mean+1.5*SD, dur=[0.5,3.0]s, merge<0.1s
+Sim duration: 120s, burn-in 5.0s, detector on cortical r_ctx. Disjoint from T1-T12.
+============================================================
+
+signal                              events     min    /min  |Δ real|
+Real SC4001 N3 EEG                     210    71.0    2.96      0.00
+V1 canonical (shape_r=0.8586)            2     1.9    1.04      1.92
+V1 taskfile (shape_r=0.8226)             0     1.9    0.00      2.96
+V3 dynamics                              0     1.9    0.00      2.96
+V7 event-constrained                     0     1.9    0.00      2.96
+
+Real spindle density           : 2.96 /min
+|V1 canonical - real|          : 1.92
+|V7 - real|                    : 2.96
+=> Held-out spindle density FAVORS: V1
+
+Interpretation: if this favors V7, the held-out evidence is MIXED
+(SO morphology favored V1; spindle density favors V7) rather than
+uniformly pro-V1, which licenses a directional event-level reading.
+If it also favors V1, the conservative 'invalid-under-audit' claim stands.

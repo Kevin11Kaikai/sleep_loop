@@ -1,0 +1,23 @@
+Confirmatory held-out spindle-density re-run (Item 2B robustness)
+================================================================
+Subject SC4001; real EEG Fpz-Cz @ 100 Hz, 142 clean N3 epochs
+Sim 300s, burn-in 5.0s, detector on cortical r_ctx, thr=mean+1.5*SD, dur=[0.5,3.0]s
+================================================================
+
+sigma band 10-14Hz:
+  Real SC4001 N3 EEG           2.41/min (171 ev / 71 min)  |Δreal|=0.00
+  V1 canonical (0.8586)        1.22/min (  6 ev / 5 min)  |Δreal|=1.19
+  V7 event-constrained         0.00/min (  0 ev / 5 min)  |Δreal|=2.41
+  -> favors V1
+
+sigma band 11-15Hz:
+  Real SC4001 N3 EEG           2.96/min (210 ev / 71 min)  |Δreal|=0.00
+  V1 canonical (0.8586)        1.42/min (  7 ev / 5 min)  |Δreal|=1.53
+  V7 event-constrained         0.00/min (  0 ev / 5 min)  |Δreal|=2.96
+  -> favors V1
+
+Conclusion:
+  V7 cortical spindle density across bands: [0.0, 0.0] /min
+  V7 is near-zero in BOTH bands at 300 s -> the zero is robust, not a
+  short-duration or band artifact. Thalamic spindles (T8/T12) do not
+  propagate to the EEG-analog cortical signal at V7's small c_th2ctx.

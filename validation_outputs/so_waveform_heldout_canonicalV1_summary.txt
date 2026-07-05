@@ -1,0 +1,17 @@
+Held-out SO waveform validation
+========================================
+Subject: SC4001
+Real EEG channel: EEG Fpz-Cz
+Clean real N3 epochs: 142 (artifact rejected: 78)
+Real anchor mode selected: peak
+Real snippets: 3881
+
+Distances to real template:
+  V3 dynamics: RMSE=0.3424, corr=0.9414, 1-corr=0.0586, snippets=37
+  V7 event-constrained: RMSE=0.3909, corr=0.9234, 1-corr=0.0766, snippets=64
+  V1 canonical (0.8586): RMSE=0.5685, corr=0.8390, 1-corr=0.1610, snippets=23
+
+Best by RMSE: V3 dynamics
+Best by correlation: V3 dynamics
+
+Note: This metric uses SO average-cycle waveform morphology only. It does not call compute_constraints_v7 or reuse T1-T12 fields.

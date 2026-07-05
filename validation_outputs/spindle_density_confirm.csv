@@ -1,0 +1,7 @@
+signal,band,n_events,minutes,density_per_min
+Real SC4001 N3 EEG,10-14Hz,171,71.0,2.408
+V1 canonical (0.8586),10-14Hz,6,4.9,1.22
+V7 event-constrained,10-14Hz,0,4.9,0.0
+Real SC4001 N3 EEG,11-15Hz,210,71.0,2.958
+V1 canonical (0.8586),11-15Hz,7,4.9,1.424
+V7 event-constrained,11-15Hz,0,4.9,0.0
