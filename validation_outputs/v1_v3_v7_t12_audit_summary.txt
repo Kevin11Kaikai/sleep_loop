@@ -1,0 +1,81 @@
+V1 / V3 / V7 selected-point audit through V7 T1-T12 constraints
+SIM_DUR_MS=60000  FS=1000.0  burn-in=5s  seed=42
+Re-scoring of stored parameter vectors (no re-fit).
+======================================================================
+
+[V1_taskfile_shape_r0.8226]  (data/patient_params_fig7_SC4001.json)
+  stored shape_r : 0.8226149908629231
+  n_passed       : 7.0/12   feasible=0
+  FAILED checks  : T4;T7;T9;T10;T11
+    T1_min_rE       = 0.00017184537230051695
+    T2_max_rE       = 33.3629600981212
+    T3_longest_ms   = 109.0
+    T4_freq         = 1.5
+    T4_q            = 0.425
+    T5_fwhm         = 0.5
+    T6_ibi_cv       = 0.298
+    T7_sp_cv        = 0.206
+    T8_n_sp_events  = 20.0
+    T8_mean_sp_dur  = 0.609
+    T9_mi           = 0.00038
+    T10_phase       = 1.571
+    T11_lag_ms      = 1.198
+    T12_n_verified  = 20.0
+
+[V1_manuscript_shape_r0.8586]  (data/patient_params_fig7_v1_0418_2_SC4001.json)
+  stored shape_r : 0.8586166269333223
+  n_passed       : 5.0/12   feasible=0
+  FAILED checks  : T3;T4;T6;T7;T9;T10;T11
+    T1_min_rE       = 2.2434120034126334e-06
+    T2_max_rE       = 38.57493236480562
+    T3_longest_ms   = 86.0
+    T4_freq         = 0.25
+    T4_q            = 1.676
+    T5_fwhm         = 4.0
+    T6_ibi_cv       = 1.028
+    T7_sp_cv        = 0.517
+    T8_n_sp_events  = 18.0
+    T8_mean_sp_dur  = 0.592
+    T9_mi           = 0.0
+    T10_phase       = 3.142
+    T11_lag_ms      = 0.0
+    T12_n_verified  = 7.0
+
+[V3_shape_r0.8334]  (data/patient_params_fig7_v3_SC4001.json)
+  stored shape_r : 0.833359
+  n_passed       : 5.0/12   feasible=0
+  FAILED checks  : T4;T6;T7;T9;T10;T11;T12
+    T1_min_rE       = 3.557884925680953e-08
+    T2_max_rE       = 47.049004075392126
+    T3_longest_ms   = 123.0
+    T4_freq         = 0.5
+    T4_q            = 1.318
+    T5_fwhm         = 4.0
+    T6_ibi_cv       = 0.588
+    T7_sp_cv        = 0.521
+    T8_n_sp_events  = 17.0
+    T8_mean_sp_dur  = 0.577
+    T9_mi           = 0.0
+    T10_phase       = 3.142
+    T11_lag_ms      = 0.0
+    T12_n_verified  = 3.0
+
+[V7_selected_n12]  (data/patient_params_fig7_v7_SC4001.json)
+  stored shape_r : 0.62263
+  n_passed       : 12.0/12   feasible=1
+  FAILED checks  : (none)
+    T1_min_rE       = 5.77866424656773e-09
+    T2_max_rE       = 60.22775788568787
+    T3_longest_ms   = 180.0
+    T4_freq         = 1.25
+    T4_q            = 4.433
+    T5_fwhm         = 2.0
+    T6_ibi_cv       = 0.197
+    T7_sp_cv        = 1.266
+    T8_n_sp_events  = 25.0
+    T8_mean_sp_dur  = 0.475
+    T9_mi           = 0.01902
+    T10_phase       = 0.524
+    T11_lag_ms      = 1.493
+    T12_n_verified  = 20.0
+

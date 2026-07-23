@@ -1,0 +1,39 @@
+V8a coupling sweep long diagnostic summary
+============================================
+
+No full DE, no V8b, no threshold/reward/T13 changes, no 300s validation.
+total_simulations_completed: 2500
+phase1_simulations: 2070
+phase2_simulations: 430
+phase3_simulations: 0
+phase4_120s_simulations: 0
+
+any_13_of_13_candidate: no (0)
+any_T4_T6_T13_candidate: no (0)
+best_n_passed: 12
+best_T4_T6_T13: T4=1, T6=1, T13=0
+best_metrics: c_th2ctx=0.015000, c_ctx2th=0.131831, T4_q=4.544, T6_ibi_cv=0.376, T13_density=0.000
+
+Phase 1 Spearman trends:
+  c_th2ctx_vs_T13_density: rho=0.3205, p=1.17e-50, n=2070
+  c_th2ctx_vs_T6_ibi_cv: rho=0.5114, p=2.3e-138, n=2070
+  c_th2ctx_vs_T4_q: rho=-0.3873, p=4.5e-75, n=2070
+
+Boundary/V8b reading:
+  points_in_0.075_to_0.085_band: 226
+  best_n_passed_in_0.075_to_0.085_band: 12
+  T4_T6_T13_points_in_0.075_to_0.085_band: 0
+
+Conservative answers:
+1. Did any 13/13 candidate appear? No.
+2. Did any candidate satisfy T4=1, T6=1, T13=1? No.
+3. Increasing c_th2ctx and T13 density: Phase 1 rho=0.3205.
+4. Increasing c_th2ctx and T6_ibi_cv: Phase 1 rho=0.5114.
+5. Increasing c_th2ctx and T4_q: Phase 1 rho=-0.3873.
+6. Is c_th2ctx too small the main blocker? The sweep should be read cautiously; lack of T4/T6/T13 co-occurrence argues against a simple 'too small only' explanation.
+7. Coupling trade-off: records support a coupling trade-off if higher c_th2ctx improves T13 while increasing T6_ibi_cv or lowering T4_q.
+8. V8b usefulness: V8b may be useful only as a diagnostic if the 0.075-0.085 band has promising points; otherwise it is likely to worsen SO stability.
+9. Narrow local DE: more reasonable than full V8b if no 13/13 appears but a near-feasible region exists.
+10. Longer-duration T6 validation: should precede objective changes only for candidates close enough to T6/T13 coexistence.
+
+Recommended one next action: B) Run narrower local DE around best sweep region

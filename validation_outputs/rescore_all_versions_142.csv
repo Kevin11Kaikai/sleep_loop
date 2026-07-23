@@ -1,0 +1,9 @@
+version,note,stored_shape_r,rescored_shape_r_142,delta,n_passed_v7,feasible_v7,file
+V1,canonical (manuscript),0.8586,0.742,-0.1166,5,0,data/patient_params_fig7_v1_0418_2_SC4001.json
+V1_taskfile,"non-canonical, for reference",0.8226,0.8658,0.0432,7,0,data/patient_params_fig7_SC4001.json
+V2,,0.8496,0.7178,-0.1318,4,0,data/patient_params_fig7_v2_SC4001.json
+V3,,0.8334,0.8346,0.0012,5,0,data/patient_params_fig7_v3_SC4001.json
+V4,,0.5449,0.6202,0.0754,11,0,data/patient_params_fig7_v4_SC4001.json
+V5,,0.5867,0.5947,0.008,10,0,data/patient_params_fig7_v5_SC4001.json
+V6,,0.6159,0.6493,0.0334,11,0,data/patient_params_fig7_v6_SC4001.json
+V7,,0.6226,0.6226,0.0,12,1,data/patient_params_fig7_v7_SC4001.json

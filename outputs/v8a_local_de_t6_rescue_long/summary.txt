@@ -1,0 +1,27 @@
+V8a local DE T6 rescue diagnostic summary
+================================================
+
+No full DE, no V8b, no V8a threshold/reward/T13 changes, no long validation.
+total_simulations: 6000
+wall_time_h: 8.880
+13_of_13_candidates: 0
+T4_T6_T13_candidates: 0
+best_n_passed: 12
+best_failed_constraints: T6
+best_T4_q: 3.099
+best_T6_ibi_cv: 0.482
+best_T13_n_ctx_verified: 1
+best_T13_ctx_verified_density_per_min: 1.091
+best_T8_n_sp_events: 21
+best_T12_n_verified: 19
+best_c_th2ctx: 0.078764
+best_c_ctx2th: 0.137187
+
+T13_preserved_but_T6_failed_count: 650
+T6_rescued_but_T13_lost_count: 39
+lowest_T6_ibi_cv_while_T13_preserved: 0.439
+highest_T13_density_when_T6_rescued_but_T13_lost: 0.000
+
+No 13/13 or T4=1,T6=1,T13=1 candidate appeared in this local diagnostic. This is evidence for a local T6-vs-T13 trade-off under the current V8a detector/objective and parameter neighborhood, not evidence of model failure.
+
+Recommended one next action: B) Run narrower local DE around best sweep region

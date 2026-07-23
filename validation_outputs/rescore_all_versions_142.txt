@@ -1,0 +1,20 @@
+Re-scored shape_r under the unified 142-epoch Fpz-Cz pipeline
+======================================================================
+Target: 79 FOOOF freq pts, 142 N3 epochs, FOOOF=ON
+Note: 'stored_shape_r' values were each computed under that
+version's own/legacy target and are NOT mutually comparable.
+'rescored_shape_r_142' is the apples-to-apples column.
+
+ver            stored  rescored142    delta   pass  note
+--------------------------------------------------------
+V1             0.8586        0.742  -0.1166   5/12  canonical (manuscript)
+V1_taskfile    0.8226       0.8658   0.0432   7/12  non-canonical, for reference
+V2             0.8496       0.7178  -0.1318   4/12  
+V3             0.8334       0.8346   0.0012   5/12  
+V4             0.5449       0.6202   0.0754  11/12  
+V5             0.5867       0.5947    0.008  10/12  
+V6             0.6159       0.6493   0.0334  11/12  
+V7             0.6226       0.6226      0.0  12/12  
+
+Caveat: V7 event detection wobbles +/-1-2 across process runs despite
+seed_numba(42); rescored_shape_r is stable, n_passed may vary slightly.

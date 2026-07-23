@@ -1,0 +1,28 @@
+{
+  "source": "existing_v8a_coupling_sweep_record",
+  "n_passed": 12,
+  "failed_constraints": "T6",
+  "T_constraints": {
+    "T1": 1,
+    "T2": 1,
+    "T3": 1,
+    "T4": 1,
+    "T5": 1,
+    "T6": 0,
+    "T7": 1,
+    "T8": 1,
+    "T9": 1,
+    "T10": 1,
+    "T11": 1,
+    "T12": 1,
+    "T13": 1
+  },
+  "T4_q": 2.214,
+  "T6_ibi_cv": 0.417,
+  "T8_n_sp_events": 6.0,
+  "T12_n_verified": 6.0,
+  "T13_n_ctx_verified": 1.0,
+  "T13_ctx_verified_density_per_min": 1.091,
+  "c_th2ctx": 0.0666666666666666,
+  "c_ctx2th": 0.12
+}

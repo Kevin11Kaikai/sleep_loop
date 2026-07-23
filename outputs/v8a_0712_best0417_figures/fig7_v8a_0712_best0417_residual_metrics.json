@@ -1,0 +1,5 @@
+{
+  "source": "visualization_run_not_de",
+  "pearson_r": 0.6698619049388056,
+  "note": "This residual plot is for Fig7-style visualization only; candidate-level pass/fail uses existing coupling sweep record."
+}
