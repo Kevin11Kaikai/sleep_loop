@@ -2886,3 +2886,26 @@ image outputs = 7
 11-15 Hz RMS detector 采用逐 epoch threshold，和旧 held-out 脚本先拼接后求全局 threshold 的数值不完全同义。PAC MI 很弱，preferred phase 与 `pac_up_down_ratio` 对 detector band、Hilbert 边缘裁切及 phase convention 敏感；这些指标继续保留为 held-out/mechanism diagnostics，不应直接升级为稳定 inference summaries。
 
 本阶段没有运行 V7 或 V8a simulation，没有 prior predictive，没有训练 NPE，也没有把任何 DE fitting candidate 称为 posterior sample。下一阶段应先定义版本化 `SummaryContractV1`，再让 Observation 与统一 SimulatorAdapter 对同一组名称、单位、band、aggregation、validity 和 source semantics 进行契约校验。
+
+# 第十九部分：2026-07-23 Observation 分支远程备份
+
+## 上传结果
+
+用户明确确认上传 Observation Notebook 和本进度文档后，已将第一阶段实现提交到独立开发分支：
+
+```text
+branch = feature/observation-notebook-20260723
+implementation commit = 918baba2b7352878eb1a6f4b72a7303745f1af4c
+commit message = feat: add SC4001 observation notebook
+remote branch = origin/feature/observation-notebook-20260723
+```
+
+`git ls-remote` 已只读验证远程 branch 指向上述 implementation commit。该 commit 共包含 10 个明确审查的文件：Observation Notebook、配置、`sleep_sbi` observation/schema 源代码、3 个目标测试、测试 fixture，以及截至第十八部分的本进度文档。
+
+## 上传边界
+
+本次没有纳入原有 dirty worktree、`S4_sbi/legacy/` 重排、manuscript、机器路径 helper、原始 EDF、`data/manifest.csv`、NPZ、PNG、执行后 Notebook 或其他 ignored outputs。Notebook 源文件没有 cell output 或嵌入 EEG 数组。
+
+由于本进度文档的历史 section 含 6 行机器路径引用，此前 checkpoint 阶段曾将其排除；本次是在用户明确要求上传最新版文档后保持历史 section 原样纳入，没有静默改写过去记录。重新扫描未发现 credentials、密钥或 EDF 内容。
+
+本 section 将通过后续纯文档 commit 上传，使远程进度文档能够完整记录 Observation implementation commit 与远程验证结果。
