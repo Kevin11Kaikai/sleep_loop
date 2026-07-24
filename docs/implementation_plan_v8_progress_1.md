@@ -3077,3 +3077,52 @@ outputs/observation_sc4001/panel_manifest.json
 下一阶段 `SummaryContractV1` 建议首先纳入 scale-invariant normalized PSD、严格 `fooof==1.1.1` 的 aperiodic exponent、`so_peak_frequency_hz`、`relative_so_power`/`so_q`、`so_event_rate_per_min` 和带 validity 规则的 `ibi_cv`。observable spindle density/duration、PAC MI、preferred-phase sin/cos 和 SO waveform morphology 继续作为 held-out PPC candidates；T8/T12、V8a internal T13 和 `pac_up_down_ratio` 保持 mechanism diagnostics，并明确 simulator/observation source semantics。
 
 本轮没有 push Observation 分支，没有创建 commit，也没有开始 SummaryContract、simulator、prior predictive 或 NPE 阶段；等待用户审阅。
+
+# 第二十一部分：2026-07-24 Observation 独立面板上传记录
+
+## 实现提交
+
+经用户明确要求上传最新进展后，本轮已将第二十部分记录的 Observation 实现整理为独立提交：
+
+```text
+branch = feature/observation-notebook-20260723
+implementation commit = 054d02b
+commit message = feat: complete SC4001 observation panels
+```
+
+该提交只包含 10 个经过安全检查的文件：
+
+```text
+S4_sbi/configs/observation_sc4001.yaml
+S4_sbi/notebooks/01_observation.ipynb
+S4_sbi/src/sleep_sbi/__init__.py
+S4_sbi/src/sleep_sbi/observation.py
+S4_sbi/src/sleep_sbi/observation_plots.py
+S4_sbi/src/sleep_sbi/schemas.py
+tests/test_epoch_boundaries.py
+tests/test_observation_plots.py
+tests/test_observation_schema.py
+docs/implementation_plan_v8_progress_1.md
+```
+
+## Notebook 上传形态
+
+上传版本的 `S4_sbi/notebooks/01_observation.ipynb` 是最新的完整执行版本，包含 `Obs-a` 至 `Obs-h` 八个 publication-safe panel 输出，使 GitHub notebook 预览可以直接检查图和表。安全检查结果：
+
+```text
+notebook cells = 25
+embedded panel images = 8
+error outputs = 0
+machine absolute paths = 0
+credentials or key patterns = 0
+raw EEG arrays serialized = 0
+notebook size = 1.61 MB
+```
+
+唯一包含本地路径的 FOOOF deprecation warning 已改写为仓库相对路径 `S4_sbi/src/sleep_sbi/observation.py:117`。Notebook 中保留的是 publication-safe 图片、aggregate tables 和 QC metadata，不包含 EDF、完整 EEG samples 或原始数据副本。
+
+## 上传边界
+
+本次仍明确排除原有 `S4_sbi/legacy/` 重排、S4_sbi 根目录 tracked deletions、`compute_xobs_from_eeg_v4.py` 注释式修改、manuscript、held-out validation 注释式修改、NPZ、PNG/PDF 原始输出、simulation records、logs、cache、原始 EDF 和 `data/manifest.csv`。没有使用 `git add .`、`git add -A` 或 `git add -f`，也没有回滚、移动或删除这些既有成果。
+
+Observation 定向测试仍为 `19 passed`；完整仓库测试仍受旧 `tests/test_spindles.py` 依赖缺失的 `outputs/r_cortex.npy` 阻塞。本轮未运行 simulator 来生成该文件。
