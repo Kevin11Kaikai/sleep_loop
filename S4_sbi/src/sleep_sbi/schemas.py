@@ -44,6 +44,8 @@ class ObservationConfig:
     filter_edge_trim_s: float
     fooof_version: str
     fooof_parameters: dict[str, Any]
+    artifact_output_dir: str
+    artifact_dpi: int
 
 
 @dataclass(frozen=True)
@@ -57,7 +59,9 @@ class SummaryMetric:
     source_signal: str
     category: str
     valid: bool
+    valid_epoch_count: int = 0
     invalid_reason: str | None = None
+    warnings: tuple[str, ...] = ()
     parameters: dict[str, Any] = field(default_factory=dict)
 
     def as_dict(self) -> dict[str, Any]:
@@ -71,8 +75,19 @@ class SummaryMetric:
             "source_signal": self.source_signal,
             "category": self.category,
             "valid": bool(self.valid),
+            "valid_epoch_count": int(self.valid_epoch_count),
             "invalid_reason": self.invalid_reason,
+            "warnings": list(self.warnings),
             "parameters": dict(self.parameters),
+            # Observation artifact column names. The original keys above remain
+            # available for compatibility with the first Observation milestone.
+            "field_name": self.name,
+            "frequency_band": (
+                list(self.band_hz) if self.band_hz is not None else None
+            ),
+            "aggregation_method": self.aggregation,
+            "validity_status": "valid" if self.valid else "invalid",
+            "intended_role": self.category,
         }
 
 
@@ -150,6 +165,11 @@ class ObservationBundle:
             "source_signal",
             "category",
         }
+        allowed_roles = {
+            "inference_summary_candidate",
+            "mechanism_diagnostic",
+            "held_out_ppc_candidate",
+        }
         for name, metric in self.summaries.items():
             if name != metric.name:
                 raise ValueError(f"summary dictionary key mismatch for {name}")
@@ -159,6 +179,12 @@ class ObservationBundle:
                 raise ValueError(f"summary {name} lacks metadata: {missing}")
             if metric.valid and not np.isfinite(metric.value):
                 raise ValueError(f"valid summary {name} is non-finite")
+            if metric.category not in allowed_roles:
+                raise ValueError(
+                    f"summary {name} has unsupported role {metric.category!r}"
+                )
+            if metric.valid_epoch_count < 0:
+                raise ValueError(f"summary {name} has negative valid epoch count")
 
     def summary_rows(self) -> list[dict[str, Any]]:
         return [self.summaries[name].as_dict() for name in sorted(self.summaries)]

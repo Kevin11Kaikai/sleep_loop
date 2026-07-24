@@ -2909,3 +2909,171 @@ remote branch = origin/feature/observation-notebook-20260723
 由于本进度文档的历史 section 含 6 行机器路径引用，此前 checkpoint 阶段曾将其排除；本次是在用户明确要求上传最新版文档后保持历史 section 原样纳入，没有静默改写过去记录。重新扫描未发现 credentials、密钥或 EDF 内容。
 
 本 section 将通过后续纯文档 commit 上传，使远程进度文档能够完整记录 Observation implementation commit 与远程验证结果。
+
+# 第二十部分：2026-07-24 Observation 独立面板实现与验证
+
+## 本轮边界与组织方式
+
+本轮在 `feature/observation-notebook-20260723` 分支继续实现真实 SC4001 EEG Observation。Notebook 只学习 SBI Practical Guide Figure 10 assembly notebook 的组织方式：每个 panel 独立说明、准备数据、调用绘图函数、立即显示，并分别导出 SVG 与 PNG。没有复制 pyloric network 的科学内容、panel 字母含义或视觉风格，也没有把 Observation panels 称为 Figure 10(a)-(g)。
+
+正式内容统一命名为 `Obs-a` 至 `Obs-h`。Notebook 开头只用路线表把 simulator、5 个独立 NPE、global diagnostics、L-C2ST、posterior predictive 和 posterior marginals 标记为 `Future notebook`，没有生成空白、占位或虚假 scientific panel。本轮没有运行 V7/V8a simulator、prior predictive、SBC、expected coverage、L-C2ST、NPE 或 posterior predictive，也没有把 fitting candidates 称为 posterior samples。
+
+## 新增与完善的实现
+
+本轮最小增量修改为：
+
+```text
+S4_sbi/notebooks/01_observation.ipynb
+S4_sbi/configs/observation_sc4001.yaml
+S4_sbi/src/sleep_sbi/__init__.py
+S4_sbi/src/sleep_sbi/schemas.py
+S4_sbi/src/sleep_sbi/observation.py
+S4_sbi/src/sleep_sbi/observation_plots.py
+tests/test_epoch_boundaries.py
+tests/test_observation_schema.py
+tests/test_observation_plots.py
+docs/implementation_plan_v8_progress_1.md
+```
+
+没有移动或重构 `S4_sbi/legacy/`，没有修改原始 EDF、`data/manifest.csv`、旧 held-out validation、manuscript 或其他既有 dirty files。
+
+`observation_plots.py` 提供八个独立绘图函数，以及统一的 `save_panel()` 和 `write_observation_artifacts()`。每个绘图函数返回 `fig` 与 publication-safe `panel_data`；完整 EEG samples 只在内存中的 `ObservationBundle.segments` 保持二维 epoch 结构，不写入 CSV/JSON 或 Git artifact。
+
+## Obs-a 至 Obs-h
+
+```text
+Obs-a  full-night hypnogram、N3位置、retained/rejected位置、真实annotation标签计数
+Obs-b  按固定peak-to-peak分位数选择的4个30秒retained N3 EEG epochs
+Obs-c  单epoch PSD、跨epoch区间、aggregate Hann PSD、SO band/peak、Hamming sensitivity
+Obs-d  逐epoch SO检测示例、trough-centered individual/aggregate waveform
+Obs-e  严格同epoch IBI分布、SO rate、mean/median IBI、IBI_CV及invalid reasons
+Obs-f  真实EEG observable-channel 11-15 Hz、RMS threshold、事件、density和duration
+Obs-g  SO phase、10-14 Hz amplitude、phase-amplitude分布、PAC MI和preferred phase
+Obs-h  epoch/QC守恒、rejection reasons、跨epoch分布和最终summary table
+```
+
+所有 panels 使用同一字体、字号层级、线宽、Observation/retained/rejected颜色、频带阴影、DPI 和单位格式。Obs-f 的显示事件按“距 epoch 边界至少 2 秒的事件中取 peak envelope 中位数”确定，避免把边界附近极值作为代表图，但没有改变 detector 或汇总结果。Obs-g 显式阴影标出两端各 2 秒的 PAC edge trim。Obs-h 对不同量纲的跨 epoch 分布使用 `(value - median) / IQR` 做仅用于绘图的稳健标准化，原始数值保留在 summary table。
+
+## 标签、epoch 与 QC 核验
+
+真实 annotation 事件计数保持为：
+
+```text
+Sleep stage W = 12
+Sleep stage 1 = 24
+Sleep stage 2 = 40
+Sleep stage 3 = 48
+Sleep stage 4 = 23
+Sleep stage R = 6
+Sleep stage ? = 1
+```
+
+Stage 3 展开为 101 个 30 秒 epochs，Stage 4 展开为 119 个 30 秒 epochs，二者均映射为 N3，总计 220 个 N3 epochs。`Sleep stage 3`、`Sleep stage 4` 和短标签 `"3"` 均有回归测试确认映射为 N3；短标签 `"3"` 不再落入 N2。
+
+```text
+complete PSG epochs = 2650
+N3 epochs = 220
+retained N3 epochs = 142
+rejected N3 epochs = 78
+peak_to_peak_above_threshold = 78
+segment shape = (142, 3000)
+sampling rate = 100 Hz
+epoch duration = 30 s
+channel = EEG Fpz-Cz
+unit = uV
+recording duration = 22.083 h
+```
+
+所有 filtering、SO/spindle event detection、PAC 和 IBI 均逐 30 秒 epoch 运行。SO waveform 中 40 个无法在本 epoch 内取得完整 ±1.25 秒窗口的边界事件以 `incomplete_boundary_window` 排除；891 个完整事件来自 141 个有效 waveform epochs。IBI 只在同一 epoch 内计算，124 个 epochs 满足至少 3 个 SO events 的要求，共提供 779 个有效 IBIs；其余 18 个 epochs 以 `fewer_than_three_so_events` 标记 invalid。
+
+## Observation summaries
+
+严格 validity 聚合后的主要结果为：
+
+```text
+FOOOF aperiodic exponent = 2.558807
+SO peak frequency = 0.500000 Hz
+relative SO power = 0.777428
+SO Q = 4.869293
+SO event rate = 13.112676 events/min
+mean within-epoch IBI = 2.931861 s
+median within-epoch IBI = 1.830000 s
+IBI_CV = 1.011715
+observable spindle density = 2.859155 events/min
+mean spindle duration = 0.676798 s
+PAC MI = 0.000203706
+PAC preferred phase = 1.221730 rad
+PAC preferred phase sin/cos = 0.939693 / 0.342020
+pac_up_down_ratio = 1.034337
+SO waveform peak-to-peak = 1.993695 z
+```
+
+`IBI_CV` 与第十八部分的 1.019784 不同，是因为本轮修正为只聚合满足每 epoch 至少两个 IBIs 的有效 epochs；没有把单个 interval 的 epoch 静默混入 aggregate。该修改不涉及 simulator 或 fitting target。
+
+Summary schema 现在明确包含：
+
+```text
+field_name, value, unit, frequency_band, algorithm,
+aggregation_method, valid_epoch_count, validity_status,
+intended_role, warnings
+```
+
+`intended_role` 只允许 `inference_summary_candidate`、`mechanism_diagnostic` 或 `held_out_ppc_candidate`。PAC 新字段统一为 `pac_mi`、`pac_preferred_phase_rad`、`pac_preferred_phase_sin`、`pac_preferred_phase_cos` 和 `pac_up_down_ratio`。`T11_lag_ms` 只在说明中标记为 `legacy misnomer; do not use as lag`，不作为 summary 字段或真实延迟解释。
+
+## Hann/Hamming sensitivity
+
+Hann 继续作为主结果，Hamming 只作为 legacy 文档差异的 sensitivity：
+
+```text
+Welch segment = 4.0 s
+overlap = 1.0 s
+frequency resolution = 0.25 Hz
+aggregation = arithmetic mean across retained epoch PSDs
+Hann/Hamming normalized PSD correlation = 0.999570
+SO peak = 0.500/0.500 Hz
+relative SO power = 0.777428/0.780901
+SO Q = 4.869293/5.041093
+```
+
+Hamming 没有改变 SO peak frequency 或主要频谱结论。Notebook 明确记录旧文档写 Hamming、当前 target 实现使用 Hann，没有静默替换主定义。
+
+## Spindle 与 PAC 限制
+
+Obs-f 检测到 203 个 observable-channel events，142/142 epochs 的 detector 计算有效。该 detector 仍标记为 `provisional_held_out_ppc_candidate`：它不是 V8a 内部 T13，也不能代替 thalamic T8/T12；逐 epoch threshold、边缘行为和跨信号校准尚未冻结，不能直接升级为 inference summary。
+
+PAC 有 142/142 有效 epochs、369200 个 edge-trim 后支持 samples，但 aggregate MI 仅 0.000203706，效应很弱。其 preferred phase、sin/cos 和 `pac_up_down_ratio` 仍对 band、phase convention、Hilbert edge trim 与 aggregation 选择敏感，因此 PAC 保留为 held-out PPC candidate，`pac_up_down_ratio` 保留为 mechanism diagnostic。
+
+## 自动验证与 artifacts
+
+所有 Python 命令均在 `neurolib` conda 环境中运行。Observation 定向测试结果：
+
+```text
+19 passed, 1 fooof deprecation warning
+```
+
+Notebook 使用非交互 nbconvert 从头执行成功：
+
+```text
+executed code cells = 12
+error outputs = 0
+image outputs = 8
+```
+
+八个 panels 均独立生成 SVG 和 PNG；测试逐个解析 SVG、读取 PNG 并检查有限像素与非空图像。人工目视检查确认没有空白 panel、NaN 扩散、错误坐标轴、单位缺失或明显文字重叠。publication-safe 输出位于 gitignored 的：
+
+```text
+outputs/observation_sc4001/panels/
+outputs/observation_sc4001/observation_summary.csv
+outputs/observation_sc4001/qc_summary.json
+outputs/observation_sc4001/panel_manifest.json
+```
+
+`panel_manifest.json` 包含 panel ID/title、subject/channel 安全标识、config SHA-256、算法参数、输入/有效 epoch 数、相对 artifact 路径、UTC 时间和 warnings。安全扫描未发现机器绝对路径、EDF 副本或完整 EEG arrays。没有对 ignored outputs 使用 `git add -f`。
+
+全仓库 `pytest -q` 在 collection 阶段被旧 `tests/test_spindles.py` 阻塞，因为该测试直接要求不存在的 `outputs/r_cortex.npy`。本轮禁止运行 simulator，因此没有为该旧测试生成文件；这不是 Observation 测试失败。
+
+## 下一阶段建议与停止点
+
+下一阶段 `SummaryContractV1` 建议首先纳入 scale-invariant normalized PSD、严格 `fooof==1.1.1` 的 aperiodic exponent、`so_peak_frequency_hz`、`relative_so_power`/`so_q`、`so_event_rate_per_min` 和带 validity 规则的 `ibi_cv`。observable spindle density/duration、PAC MI、preferred-phase sin/cos 和 SO waveform morphology 继续作为 held-out PPC candidates；T8/T12、V8a internal T13 和 `pac_up_down_ratio` 保持 mechanism diagnostics，并明确 simulator/observation source semantics。
+
+本轮没有 push Observation 分支，没有创建 commit，也没有开始 SummaryContract、simulator、prior predictive 或 NPE 阶段；等待用户审阅。

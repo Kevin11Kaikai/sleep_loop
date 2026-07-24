@@ -46,3 +46,28 @@ def test_detector_validity_masks_cover_retained_epochs(observation_bundle):
         assert mask.shape == (n_retained,)
         failures = observation_bundle.diagnostics[name]["failure_reasons"]
         assert int((~mask).sum()) == len(failures)
+
+
+def test_so_intervals_and_waveforms_respect_epoch_boundaries(observation_bundle):
+    so = observation_bundle.diagnostics["slow_oscillation"]
+    assert so["ibi_validity_mask"].shape == (
+        len(observation_bundle.retained_epoch_indices),
+    )
+    assert so["waveform_validity_mask"].shape == (
+        len(observation_bundle.retained_epoch_indices),
+    )
+    assert np.all(so["ibi_s"] > 0)
+    assert np.all(so["ibi_s"] < observation_bundle.epoch_duration_s)
+    for row in so["per_epoch"]:
+        if row["ibi_valid"]:
+            assert row["ibi_count"] >= 2
+            assert np.isfinite(row["ibi_cv"])
+        else:
+            assert row["invalid_reason"] is not None
+    for event in so["events"]:
+        if not event["waveform_valid"]:
+            assert event["waveform_invalid_reason"] is not None
+    assert so["waveform_boundary_excluded_count"] == sum(
+        event["waveform_invalid_reason"] == "incomplete_boundary_window"
+        for event in so["events"]
+    )

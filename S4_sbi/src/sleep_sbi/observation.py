@@ -6,6 +6,7 @@ from collections import Counter
 from hashlib import sha256
 from importlib import metadata
 from pathlib import Path
+import platform
 from typing import Any, Iterable
 import warnings as python_warnings
 
@@ -101,6 +102,8 @@ def load_observation_config(
             "min_peak_height": float(payload["fooof"]["min_peak_height"]),
             "aperiodic_mode": str(payload["fooof"]["aperiodic_mode"]),
         },
+        artifact_output_dir=str(payload["artifacts"]["output_dir"]),
+        artifact_dpi=int(payload["artifacts"]["dpi"]),
     )
 
 
@@ -239,7 +242,14 @@ def _annotation_epoch_alignment(
 
 def _load_epoch_data(
     config: ObservationConfig,
-) -> tuple[dict[str, Any], np.ndarray, np.ndarray, list[dict[str, Any]], list[str]]:
+) -> tuple[
+    dict[str, Any],
+    np.ndarray,
+    np.ndarray,
+    np.ndarray,
+    list[dict[str, Any]],
+    list[str],
+]:
     manifest_path, psg_path, hypnogram_path = _resolve_source_paths(config)
     mne.set_log_level("ERROR")
     with python_warnings.catch_warnings():
@@ -295,6 +305,7 @@ def _load_epoch_data(
     return (
         source_metadata,
         segments_all,
+        raw_epoch_labels,
         mapped_stages,
         annotation_table,
         warnings,
@@ -505,10 +516,15 @@ def _compute_so_diagnostics(
 ) -> dict[str, Any]:
     filtered = np.full_like(segments, np.nan, dtype=float)
     valid_mask = np.zeros(len(segments), dtype=bool)
+    ibi_validity_mask = np.zeros(len(segments), dtype=bool)
+    waveform_validity_mask = np.zeros(len(segments), dtype=bool)
     failure_reasons: dict[int, str] = {}
+    ibi_failure_reasons: dict[int, str] = {}
     events: list[dict[str, Any]] = []
     ibis_s: list[float] = []
     waveform_snippets: list[np.ndarray] = []
+    per_epoch: list[dict[str, Any]] = []
+    waveform_boundary_excluded = 0
     half_window = int(round(config.waveform_half_window_s * fs_hz))
     min_distance = int(round(config.so_min_peak_distance_s * fs_hz))
 
@@ -521,15 +537,47 @@ def _compute_so_diagnostics(
             )
         except (ValueError, FloatingPointError) as error:
             failure_reasons[int(epoch_index)] = f"filter_failed: {error}"
+            ibi_failure_reasons[int(epoch_index)] = "so_filter_failed"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "detector_valid": False,
+                    "event_count": 0,
+                    "event_rate_per_min": float("nan"),
+                    "ibi_valid": False,
+                    "ibi_count": 0,
+                    "mean_ibi_s": float("nan"),
+                    "median_ibi_s": float("nan"),
+                    "ibi_cv": float("nan"),
+                    "invalid_reason": "so_filter_failed",
+                }
+            )
             continue
         if not np.isfinite(epoch_so).all() or np.std(epoch_so) < 1e-9:
             failure_reasons[int(epoch_index)] = "filtered_signal_degenerate"
+            ibi_failure_reasons[int(epoch_index)] = "so_signal_degenerate"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "detector_valid": False,
+                    "event_count": 0,
+                    "event_rate_per_min": float("nan"),
+                    "ibi_valid": False,
+                    "ibi_count": 0,
+                    "mean_ibi_s": float("nan"),
+                    "median_ibi_s": float("nan"),
+                    "ibi_cv": float("nan"),
+                    "invalid_reason": "so_signal_degenerate",
+                }
+            )
             continue
         filtered[row] = epoch_so
         valid_mask[row] = True
         down_peaks, _ = find_peaks(-epoch_so, distance=min_distance)
         up_peaks, _ = find_peaks(epoch_so, distance=min_distance)
         up_indices: list[int] = []
+        epoch_event_count = 0
+        epoch_waveform_count = 0
         up_cursor = 0
         for down_index in down_peaks:
             while (
@@ -552,15 +600,16 @@ def _compute_so_diagnostics(
             if amplitude_uv < config.so_half_wave_uv:
                 continue
             up_indices.append(up_index)
-            events.append(
-                {
-                    "epoch_index": int(epoch_index),
-                    "down_sample": int(down_index),
-                    "up_sample": up_index,
-                    "duration_s": float(duration_s),
-                    "half_wave_amplitude_uv": amplitude_uv,
-                }
-            )
+            epoch_event_count += 1
+            event = {
+                "epoch_index": int(epoch_index),
+                "down_sample": int(down_index),
+                "up_sample": up_index,
+                "duration_s": float(duration_s),
+                "half_wave_amplitude_uv": amplitude_uv,
+                "waveform_valid": False,
+                "waveform_invalid_reason": None,
+            }
             start = int(down_index) - half_window
             stop = int(down_index) + half_window + 1
             if start >= 0 and stop <= len(epoch_so):
@@ -570,8 +619,51 @@ def _compute_so_diagnostics(
                     waveform_snippets.append(
                         (snippet - np.mean(snippet)) / snippet_std
                     )
-        if len(up_indices) >= 2:
-            ibis_s.extend(np.diff(np.asarray(up_indices, dtype=float)) / fs_hz)
+                    event["waveform_valid"] = True
+                    epoch_waveform_count += 1
+                else:
+                    event["waveform_invalid_reason"] = "waveform_degenerate"
+            else:
+                event["waveform_invalid_reason"] = "incomplete_boundary_window"
+                waveform_boundary_excluded += 1
+            events.append(event)
+        waveform_validity_mask[row] = epoch_waveform_count > 0
+        epoch_ibis = (
+            np.diff(np.asarray(up_indices, dtype=float)) / fs_hz
+            if len(up_indices) >= 2
+            else np.empty(0, dtype=float)
+        )
+        ibi_valid = len(epoch_ibis) >= 2 and float(np.mean(epoch_ibis)) > 0
+        if ibi_valid:
+            ibi_validity_mask[row] = True
+            ibis_s.extend(epoch_ibis)
+            mean_ibi_s = float(np.mean(epoch_ibis))
+            median_ibi_s = float(np.median(epoch_ibis))
+            ibi_cv = float(np.std(epoch_ibis) / mean_ibi_s)
+            invalid_reason = None
+        else:
+            mean_ibi_s = float("nan")
+            median_ibi_s = float("nan")
+            ibi_cv = float("nan")
+            invalid_reason = "fewer_than_three_so_events"
+            ibi_failure_reasons[int(epoch_index)] = invalid_reason
+        per_epoch.append(
+            {
+                "epoch_index": int(epoch_index),
+                "detector_valid": True,
+                "event_count": int(epoch_event_count),
+                "event_rate_per_min": float(
+                    epoch_event_count / (config.epoch_duration_s / 60.0)
+                ),
+                "waveform_count": int(epoch_waveform_count),
+                "ibi_valid": bool(ibi_valid),
+                "ibi_count": int(len(epoch_ibis)),
+                "mean_ibi_s": mean_ibi_s,
+                "median_ibi_s": median_ibi_s,
+                "ibi_cv": ibi_cv,
+                "invalid_reason": invalid_reason,
+            }
+        )
 
     waveform_time_s = (
         np.arange(2 * half_window + 1, dtype=float) - half_window
@@ -599,12 +691,20 @@ def _compute_so_diagnostics(
         "filtered_uv": filtered,
         "validity_mask": valid_mask,
         "failure_reasons": failure_reasons,
+        "ibi_validity_mask": ibi_validity_mask,
+        "ibi_failure_reasons": ibi_failure_reasons,
+        "waveform_validity_mask": waveform_validity_mask,
         "events": events,
         "ibi_s": np.asarray(ibis_s, dtype=float),
+        "per_epoch": per_epoch,
         "waveform_snippets_z": snippets_array,
         "waveform_time_s": waveform_time_s,
         "waveform_mean_z": waveform_mean,
         "waveform_sem_z": waveform_sem,
+        "waveform_boundary_excluded_count": int(waveform_boundary_excluded),
+        "waveform_exclusion_reasons": {
+            "incomplete_boundary_window": int(waveform_boundary_excluded)
+        },
     }
 
 
@@ -620,6 +720,7 @@ def _compute_spindle_diagnostics(
     valid_mask = np.zeros(len(segments), dtype=bool)
     failure_reasons: dict[int, str] = {}
     events: list[dict[str, Any]] = []
+    per_epoch: list[dict[str, Any]] = []
     rms_samples = max(1, int(round(config.spindle_rms_window_s * fs_hz)))
     kernel = np.ones(rms_samples, dtype=float) / rms_samples
     merge_gap_samples = int(round(config.spindle_merge_gap_s * fs_hz))
@@ -633,6 +734,16 @@ def _compute_spindle_diagnostics(
             )
         except (ValueError, FloatingPointError) as error:
             failure_reasons[int(epoch_index)] = f"filter_failed: {error}"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "valid": False,
+                    "event_count": 0,
+                    "density_per_min": float("nan"),
+                    "mean_duration_s": float("nan"),
+                    "invalid_reason": "filter_failed",
+                }
+            )
             continue
         rms = np.sqrt(np.convolve(sigma**2, kernel, mode="same"))
         threshold = float(
@@ -640,6 +751,16 @@ def _compute_spindle_diagnostics(
         )
         if not np.isfinite(rms).all() or not np.isfinite(threshold):
             failure_reasons[int(epoch_index)] = "envelope_non_finite"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "valid": False,
+                    "event_count": 0,
+                    "density_per_min": float("nan"),
+                    "mean_duration_s": float("nan"),
+                    "invalid_reason": "envelope_non_finite",
+                }
+            )
             continue
         above = (rms > threshold).astype(np.int8)
         edges = np.diff(np.concatenate(([0], above, [0])))
@@ -651,6 +772,7 @@ def _compute_spindle_diagnostics(
                 merged[-1][1] = int(stop)
             else:
                 merged.append([int(start), int(stop)])
+        epoch_events: list[dict[str, Any]] = []
         for start, stop in merged:
             duration_s = (stop - start) / fs_hz
             if (
@@ -658,20 +780,40 @@ def _compute_spindle_diagnostics(
                 <= duration_s
                 <= config.spindle_duration_s[1]
             ):
-                events.append(
-                    {
-                        "epoch_index": int(epoch_index),
-                        "start_sample": start,
-                        "stop_sample": stop,
-                        "duration_s": float(duration_s),
-                        "peak_envelope_uv": float(np.max(rms[start:stop])),
-                        "threshold_uv": threshold,
-                    }
-                )
+                event = {
+                    "epoch_index": int(epoch_index),
+                    "start_sample": start,
+                    "stop_sample": stop,
+                    "duration_s": float(duration_s),
+                    "peak_envelope_uv": float(np.max(rms[start:stop])),
+                    "threshold_uv": threshold,
+                }
+                epoch_events.append(event)
+                events.append(event)
         filtered[row] = sigma
         envelopes[row] = rms
         thresholds[row] = threshold
         valid_mask[row] = True
+        per_epoch.append(
+            {
+                "epoch_index": int(epoch_index),
+                "valid": True,
+                "event_count": int(len(epoch_events)),
+                "density_per_min": float(
+                    len(epoch_events) / (config.epoch_duration_s / 60.0)
+                ),
+                "mean_duration_s": (
+                    float(
+                        np.mean(
+                            [event["duration_s"] for event in epoch_events]
+                        )
+                    )
+                    if epoch_events
+                    else float("nan")
+                ),
+                "invalid_reason": None,
+            }
+        )
     return {
         "parameters": {
             "filter": "scipy.signal.butter+sosfiltfilt, per epoch",
@@ -691,6 +833,8 @@ def _compute_spindle_diagnostics(
         "validity_mask": valid_mask,
         "failure_reasons": failure_reasons,
         "events": events,
+        "per_epoch": per_epoch,
+        "status": "provisional_held_out_ppc_candidate",
     }
 
 
@@ -705,7 +849,10 @@ def _compute_pac_diagnostics(
     amplitude_sums = np.zeros(config.pac_phase_bins, dtype=float)
     sample_counts = np.zeros(config.pac_phase_bins, dtype=int)
     valid_mask = np.zeros(len(segments), dtype=bool)
+    phase_by_epoch = np.full_like(segments, np.nan, dtype=float)
+    amplitude_by_epoch = np.full_like(segments, np.nan, dtype=float)
     failure_reasons: dict[int, str] = {}
+    per_epoch: list[dict[str, Any]] = []
     up_amplitude = 0.0
     down_amplitude = 0.0
     trim = int(round(config.filter_edge_trim_s * fs_hz))
@@ -727,32 +874,159 @@ def _compute_pac_diagnostics(
             amplitude = np.abs(hilbert(amplitude_signal))
         except (ValueError, FloatingPointError) as error:
             failure_reasons[int(epoch_index)] = f"filter_or_hilbert_failed: {error}"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "valid": False,
+                    "valid_sample_count": 0,
+                    "mi": float("nan"),
+                    "preferred_phase_rad": float("nan"),
+                    "preferred_phase_sin": float("nan"),
+                    "preferred_phase_cos": float("nan"),
+                    "pac_up_down_ratio": float("nan"),
+                    "invalid_reason": "filter_or_hilbert_failed",
+                }
+            )
             continue
         if 2 * trim >= len(phase):
             failure_reasons[int(epoch_index)] = "edge_trim_removes_entire_epoch"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "valid": False,
+                    "valid_sample_count": 0,
+                    "mi": float("nan"),
+                    "preferred_phase_rad": float("nan"),
+                    "preferred_phase_sin": float("nan"),
+                    "preferred_phase_cos": float("nan"),
+                    "pac_up_down_ratio": float("nan"),
+                    "invalid_reason": "edge_trim_removes_entire_epoch",
+                }
+            )
             continue
-        phase = phase[trim:-trim] if trim else phase
-        amplitude = amplitude[trim:-trim] if trim else amplitude
-        if not np.isfinite(phase).all() or not np.isfinite(amplitude).all():
+        phase_by_epoch[row] = phase
+        amplitude_by_epoch[row] = amplitude
+        phase_valid = phase[trim:-trim] if trim else phase
+        amplitude_valid = amplitude[trim:-trim] if trim else amplitude
+        if (
+            not np.isfinite(phase_valid).all()
+            or not np.isfinite(amplitude_valid).all()
+        ):
             failure_reasons[int(epoch_index)] = "phase_or_amplitude_non_finite"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "valid": False,
+                    "valid_sample_count": 0,
+                    "mi": float("nan"),
+                    "preferred_phase_rad": float("nan"),
+                    "preferred_phase_sin": float("nan"),
+                    "preferred_phase_cos": float("nan"),
+                    "pac_up_down_ratio": float("nan"),
+                    "invalid_reason": "phase_or_amplitude_non_finite",
+                }
+            )
             continue
+        epoch_amplitude_sums = np.zeros(config.pac_phase_bins, dtype=float)
+        epoch_sample_counts = np.zeros(config.pac_phase_bins, dtype=int)
         for bin_index in range(config.pac_phase_bins):
             if bin_index == config.pac_phase_bins - 1:
                 mask = (
-                    (phase >= bin_edges[bin_index])
-                    & (phase <= bin_edges[bin_index + 1])
+                    (phase_valid >= bin_edges[bin_index])
+                    & (phase_valid <= bin_edges[bin_index + 1])
                 )
             else:
                 mask = (
-                    (phase >= bin_edges[bin_index])
-                    & (phase < bin_edges[bin_index + 1])
+                    (phase_valid >= bin_edges[bin_index])
+                    & (phase_valid < bin_edges[bin_index + 1])
                 )
-            amplitude_sums[bin_index] += float(np.sum(amplitude[mask]))
-            sample_counts[bin_index] += int(np.sum(mask))
-        up_mask = np.abs(phase) <= np.pi / 2
-        up_amplitude += float(np.sum(amplitude[up_mask]))
-        down_amplitude += float(np.sum(amplitude[~up_mask]))
+            epoch_amplitude_sums[bin_index] = float(
+                np.sum(amplitude_valid[mask])
+            )
+            epoch_sample_counts[bin_index] = int(np.sum(mask))
+        epoch_mean_amplitude = np.divide(
+            epoch_amplitude_sums,
+            epoch_sample_counts,
+            out=np.zeros_like(epoch_amplitude_sums),
+            where=epoch_sample_counts > 0,
+        )
+        epoch_total = float(np.sum(epoch_mean_amplitude))
+        epoch_valid = bool(
+            np.all(epoch_sample_counts > 0) and epoch_total > 1e-12
+        )
+        if not epoch_valid:
+            failure_reasons[int(epoch_index)] = "insufficient_phase_bin_support"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "valid": False,
+                    "valid_sample_count": int(len(phase_valid)),
+                    "mi": float("nan"),
+                    "preferred_phase_rad": float("nan"),
+                    "preferred_phase_sin": float("nan"),
+                    "preferred_phase_cos": float("nan"),
+                    "pac_up_down_ratio": float("nan"),
+                    "invalid_reason": "insufficient_phase_bin_support",
+                }
+            )
+            continue
+        epoch_probability = epoch_mean_amplitude / epoch_total
+        epoch_entropy = float(
+            -np.sum(epoch_probability * np.log(epoch_probability))
+        )
+        epoch_mi = float(
+            (np.log(config.pac_phase_bins) - epoch_entropy)
+            / np.log(config.pac_phase_bins)
+        )
+        epoch_preferred_phase = float(
+            bin_centers[int(np.argmax(epoch_mean_amplitude))]
+        )
+        up_mask = np.abs(phase_valid) <= np.pi / 2
+        epoch_up_amplitude = float(np.sum(amplitude_valid[up_mask]))
+        epoch_down_amplitude = float(np.sum(amplitude_valid[~up_mask]))
+        epoch_ratio = (
+            epoch_up_amplitude / epoch_down_amplitude
+            if epoch_down_amplitude > 1e-12
+            else float("nan")
+        )
+        if not np.isfinite(epoch_ratio):
+            failure_reasons[int(epoch_index)] = "down_phase_amplitude_zero"
+            per_epoch.append(
+                {
+                    "epoch_index": int(epoch_index),
+                    "valid": False,
+                    "valid_sample_count": int(len(phase_valid)),
+                    "mi": epoch_mi,
+                    "preferred_phase_rad": epoch_preferred_phase,
+                    "preferred_phase_sin": float(
+                        np.sin(epoch_preferred_phase)
+                    ),
+                    "preferred_phase_cos": float(
+                        np.cos(epoch_preferred_phase)
+                    ),
+                    "pac_up_down_ratio": float("nan"),
+                    "invalid_reason": "down_phase_amplitude_zero",
+                }
+            )
+            continue
+        amplitude_sums += epoch_amplitude_sums
+        sample_counts += epoch_sample_counts
+        up_amplitude += epoch_up_amplitude
+        down_amplitude += epoch_down_amplitude
         valid_mask[row] = True
+        per_epoch.append(
+            {
+                "epoch_index": int(epoch_index),
+                "valid": True,
+                "valid_sample_count": int(len(phase_valid)),
+                "mi": epoch_mi,
+                "preferred_phase_rad": epoch_preferred_phase,
+                "preferred_phase_sin": float(np.sin(epoch_preferred_phase)),
+                "preferred_phase_cos": float(np.cos(epoch_preferred_phase)),
+                "pac_up_down_ratio": float(epoch_ratio),
+                "invalid_reason": None,
+            }
+        )
 
     mean_amplitude = np.divide(
         amplitude_sums,
@@ -764,7 +1038,7 @@ def _compute_pac_diagnostics(
     valid = bool(
         np.all(sample_counts > 0)
         and total > 1e-12
-        and np.sum(valid_mask) > 0
+        and int(np.sum(valid_mask)) > 0
     )
     if valid:
         probability = mean_amplitude / total
@@ -799,6 +1073,11 @@ def _compute_pac_diagnostics(
         "valid": valid,
         "validity_mask": valid_mask,
         "failure_reasons": failure_reasons,
+        "per_epoch": per_epoch,
+        "phase_rad_by_epoch": phase_by_epoch,
+        "amplitude_uv_by_epoch": amplitude_by_epoch,
+        "valid_sample_count": int(np.sum(sample_counts)),
+        "valid_epoch_count": int(np.sum(valid_mask)),
         "phase_bin_edges_rad": bin_edges,
         "phase_bin_centers_rad": bin_centers,
         "mean_amplitude_uv": mean_amplitude,
@@ -821,7 +1100,9 @@ def _summary(
     source_signal: str,
     category: str,
     valid: bool = True,
+    valid_epoch_count: int = 0,
     invalid_reason: str | None = None,
+    warnings: tuple[str, ...] = (),
     parameters: dict[str, Any] | None = None,
 ) -> SummaryMetric:
     return SummaryMetric(
@@ -834,7 +1115,9 @@ def _summary(
         source_signal=source_signal,
         category=category,
         valid=valid,
+        valid_epoch_count=int(valid_epoch_count),
         invalid_reason=invalid_reason,
+        warnings=tuple(warnings),
         parameters={} if parameters is None else dict(parameters),
     )
 
@@ -850,6 +1133,7 @@ def build_observation_bundle(
     (
         source_metadata,
         all_segments,
+        raw_epoch_labels,
         mapped_stages,
         annotation_table,
         warnings,
@@ -886,7 +1170,17 @@ def build_observation_bundle(
         len(retained_indices) * config.epoch_duration_s / 60.0
     )
     so_event_rate = len(so["events"]) / retained_minutes
-    ibi_valid = len(so["ibi_s"]) >= 2 and np.mean(so["ibi_s"]) > 0
+    retained_count = int(len(retained_indices))
+    so_valid_epoch_count = int(np.sum(so["validity_mask"]))
+    ibi_valid_epoch_count = int(np.sum(so["ibi_validity_mask"]))
+    waveform_valid_epoch_count = int(np.sum(so["waveform_validity_mask"]))
+    spindle_valid_epoch_count = int(np.sum(spindle["validity_mask"]))
+    pac_valid_epoch_count = int(pac["valid_epoch_count"])
+    ibi_valid = (
+        ibi_valid_epoch_count > 0
+        and len(so["ibi_s"]) >= 2
+        and np.mean(so["ibi_s"]) > 0
+    )
     ibi_cv = (
         float(np.std(so["ibi_s"]) / np.mean(so["ibi_s"]))
         if ibi_valid
@@ -907,9 +1201,17 @@ def build_observation_bundle(
         else float("nan")
     )
 
-    category_a = "inference-summary candidate"
-    category_b = "mechanism diagnostic"
-    category_c = "held-out PPC candidate"
+    category_a = "inference_summary_candidate"
+    category_b = "mechanism_diagnostic"
+    category_c = "held_out_ppc_candidate"
+    provisional_spindle_warning = (
+        "Provisional real-EEG observable-channel detector; not the V8a internal "
+        "T13 detector and not yet cross-signal calibrated."
+    )
+    pac_support_warning = (
+        "Single-channel observational PAC; retain as held-out PPC until detector "
+        "and sample-support choices are frozen."
+    )
     summaries = {
         "fooof_aperiodic_exponent": _summary(
             "fooof_aperiodic_exponent",
@@ -920,6 +1222,7 @@ def build_observation_bundle(
             "fit to arithmetic-mean Hann epoch PSD",
             "EEG Fpz-Cz",
             category_a,
+            valid_epoch_count=retained_count,
             parameters={
                 "fooof_version": installed_fooof,
                 **config.fooof_parameters,
@@ -934,6 +1237,7 @@ def build_observation_bundle(
             "arithmetic mean across retained epoch PSDs",
             "EEG Fpz-Cz",
             category_a,
+            valid_epoch_count=retained_count,
             parameters=psd.parameters,
         ),
         "relative_so_power": _summary(
@@ -945,6 +1249,7 @@ def build_observation_bundle(
             "ratio from aggregate Hann PSD",
             "EEG Fpz-Cz",
             category_a,
+            valid_epoch_count=retained_count,
             parameters={"denominator_band_hz": config.psd_band_hz},
         ),
         "so_q": _summary(
@@ -956,6 +1261,7 @@ def build_observation_bundle(
             "computed from aggregate Hann PSD",
             "EEG Fpz-Cz",
             category_a,
+            valid_epoch_count=retained_count,
         ),
         "so_event_rate_per_min": _summary(
             "so_event_rate_per_min",
@@ -966,6 +1272,7 @@ def build_observation_bundle(
             "events summed across epochs / retained N3 minutes",
             "EEG Fpz-Cz",
             category_a,
+            valid_epoch_count=so_valid_epoch_count,
             parameters=so["parameters"],
         ),
         "ibi_cv": _summary(
@@ -978,7 +1285,10 @@ def build_observation_bundle(
             "EEG Fpz-Cz",
             category_a,
             valid=ibi_valid,
-            invalid_reason=None if ibi_valid else "fewer than two valid intervals",
+            valid_epoch_count=ibi_valid_epoch_count,
+            invalid_reason=(
+                None if ibi_valid else "no epoch has at least three SO events"
+            ),
             parameters=so["parameters"],
         ),
         "pac_up_down_ratio": _summary(
@@ -991,7 +1301,9 @@ def build_observation_bundle(
             "EEG Fpz-Cz",
             category_b,
             valid=pac["valid"],
+            valid_epoch_count=pac_valid_epoch_count,
             invalid_reason=None if pac["valid"] else "PAC detector invalid",
+            warnings=(pac_support_warning,),
             parameters=pac["parameters"],
         ),
         "spindle_density_per_min": _summary(
@@ -1003,6 +1315,14 @@ def build_observation_bundle(
             "events summed across epochs / retained N3 minutes",
             "EEG Fpz-Cz",
             category_c,
+            valid=spindle_valid_epoch_count > 0,
+            valid_epoch_count=spindle_valid_epoch_count,
+            invalid_reason=(
+                None
+                if spindle_valid_epoch_count > 0
+                else "no epoch passed spindle detector"
+            ),
+            warnings=(provisional_spindle_warning,),
             parameters=spindle["parameters"],
         ),
         "spindle_mean_duration_s": _summary(
@@ -1015,9 +1335,11 @@ def build_observation_bundle(
             "EEG Fpz-Cz",
             category_c,
             valid=spindle_duration_valid,
+            valid_epoch_count=spindle_valid_epoch_count,
             invalid_reason=(
                 None if spindle_duration_valid else "no spindle events detected"
             ),
+            warnings=(provisional_spindle_warning,),
             parameters=spindle["parameters"],
         ),
         "pac_mi": _summary(
@@ -1030,11 +1352,28 @@ def build_observation_bundle(
             "EEG Fpz-Cz",
             category_c,
             valid=pac["valid"],
+            valid_epoch_count=pac_valid_epoch_count,
             invalid_reason=None if pac["valid"] else "PAC detector invalid",
+            warnings=(pac_support_warning,),
             parameters=pac["parameters"],
         ),
-        "preferred_phase_sin": _summary(
-            "preferred_phase_sin",
+        "pac_preferred_phase_rad": _summary(
+            "pac_preferred_phase_rad",
+            pac["preferred_phase_rad"],
+            "rad",
+            config.pac_phase_band_hz,
+            "maximum-amplitude PAC phase-bin center",
+            "from aggregate PAC phase-amplitude distribution",
+            "EEG Fpz-Cz",
+            category_c,
+            valid=pac["valid"],
+            valid_epoch_count=pac_valid_epoch_count,
+            invalid_reason=None if pac["valid"] else "PAC detector invalid",
+            warnings=(pac_support_warning,),
+            parameters=pac["parameters"],
+        ),
+        "pac_preferred_phase_sin": _summary(
+            "pac_preferred_phase_sin",
             pac["preferred_phase_sin"],
             "1",
             config.pac_phase_band_hz,
@@ -1043,11 +1382,13 @@ def build_observation_bundle(
             "EEG Fpz-Cz",
             category_c,
             valid=pac["valid"],
+            valid_epoch_count=pac_valid_epoch_count,
             invalid_reason=None if pac["valid"] else "PAC detector invalid",
+            warnings=(pac_support_warning,),
             parameters=pac["parameters"],
         ),
-        "preferred_phase_cos": _summary(
-            "preferred_phase_cos",
+        "pac_preferred_phase_cos": _summary(
+            "pac_preferred_phase_cos",
             pac["preferred_phase_cos"],
             "1",
             config.pac_phase_band_hz,
@@ -1056,7 +1397,9 @@ def build_observation_bundle(
             "EEG Fpz-Cz",
             category_c,
             valid=pac["valid"],
+            valid_epoch_count=pac_valid_epoch_count,
             invalid_reason=None if pac["valid"] else "PAC detector invalid",
+            warnings=(pac_support_warning,),
             parameters=pac["parameters"],
         ),
         "waveform_peak_to_peak_z": _summary(
@@ -1069,6 +1412,7 @@ def build_observation_bundle(
             "EEG Fpz-Cz",
             category_c,
             valid=waveform_valid,
+            valid_epoch_count=waveform_valid_epoch_count,
             invalid_reason=None if waveform_valid else "no complete SO snippets",
             parameters=so["parameters"],
         ),
@@ -1100,6 +1444,21 @@ def build_observation_bundle(
             "uses Hann. Hann remains primary in this observation."
         ),
         "fooof_version": installed_fooof,
+        "software_versions": {
+            "python": platform.python_version(),
+            **{
+                package: metadata.version(package)
+                for package in (
+                    "numpy",
+                    "scipy",
+                    "mne",
+                    "pandas",
+                    "matplotlib",
+                    "PyYAML",
+                    "fooof",
+                )
+            },
+        },
         "config_file": config_path.name,
         "config_sha256": sha256(config_path.read_bytes()).hexdigest(),
         "full_raw_eeg_serialized": False,
@@ -1117,6 +1476,7 @@ def build_observation_bundle(
             )
     diagnostics = {
         "mapped_stages": mapped_stages,
+        "raw_epoch_labels": raw_epoch_labels,
         "annotation_table": annotation_table,
         "qc_rows": qc_rows,
         "spectral_hann": hann_stats,

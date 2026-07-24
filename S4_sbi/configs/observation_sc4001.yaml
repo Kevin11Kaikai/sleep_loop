@@ -53,3 +53,7 @@ fooof:
   max_n_peaks: 4
   min_peak_height: 0.05
   aperiodic_mode: fixed
+
+artifacts:
+  output_dir: outputs/observation_sc4001
+  dpi: 180
