@@ -3126,3 +3126,170 @@ notebook size = 1.61 MB
 本次仍明确排除原有 `S4_sbi/legacy/` 重排、S4_sbi 根目录 tracked deletions、`compute_xobs_from_eeg_v4.py` 注释式修改、manuscript、held-out validation 注释式修改、NPZ、PNG/PDF 原始输出、simulation records、logs、cache、原始 EDF 和 `data/manifest.csv`。没有使用 `git add .`、`git add -A` 或 `git add -f`，也没有回滚、移动或删除这些既有成果。
 
 Observation 定向测试仍为 `19 passed`；完整仓库测试仍受旧 `tests/test_spindles.py` 依赖缺失的 `outputs/r_cortex.npy` 阻塞。本轮未运行 simulator 来生成该文件。
+
+# 第二十二部分：2026-07-25 Pyloric-inspired Observation 18D 实现与验证
+
+## 本轮范围与文件
+
+本轮保留现有 `S4_sbi/notebooks/01_observation.ipynb` 完全不变，并新增独立的真实 EEG observation engineering 实现：
+
+```text
+S4_sbi/notebooks/01_Pyloric_Inspired_Observation.ipynb
+S4_sbi/src/sleep_sbi/pyloric_inspired_observation.py
+S4_sbi/configs/pyloric_inspired_observation_sc4001.yaml
+tests/test_pyloric_inspired_observation.py
+```
+
+原 notebook 在本轮开始和结束时的 SHA-256 均为：
+
+```text
+6ee079f548cb871996f10dc394f742ad4d2b8859c7f917f53ca4c14c34fbe1e5
+```
+
+新增 notebook 只运行 SC4001 真实 EEG，不运行 V7/V8a simulator、prior predictive、NPE/NLE、SBC、L-C2ST 或 posterior predictive，也不产生或声称任何 posterior。
+
+## neurolib 运行证据
+
+所有 Python 检查、测试和 notebook 执行均使用既有 `neurolib` 环境：
+
+```text
+Python executable = <neurolib-env>\python.exe（公开上传前已隐藏机器绝对路径）
+Conda environment = neurolib
+Jupyter kernelspec = python3
+kernelspec location = ...\envs\neurolib\share\jupyter\kernels\python3
+notebook display name = Python (neurolib)
+Python = 3.10.20
+nbformat = 5.10.4
+nbclient = 0.10.4
+jupyter_core = 5.9.1
+ipykernel = 7.2.0
+numpy = 2.2.6
+scipy = 1.15.2
+pandas = 2.3.3
+matplotlib = 3.10.8
+mne = 1.9.0
+fooof = 1.1.1
+neurolib = 0.6.1
+```
+
+Notebook metadata 使用 `display_name = Python (neurolib)`、`name = python3`；运行时 cell 同时断言 `CONDA_DEFAULT_ENV == "neurolib"` 和 `fooof == "1.1.1"`，禁止 silent fallback。
+
+## 实际 SC4001 epoch accounting
+
+完整数据重算得到：
+
+```text
+aligned 30-second epochs = 2650
+all N3 epochs = 220
+retained N3 epochs = 142
+rejected N3 epochs = 78
+rejection reason = peak_to_peak_above_threshold: 78
+channel = EEG Fpz-Cz
+sampling rate = 100 Hz
+```
+
+Stage 3、Stage 4 和短标签 `"3"` 均显式回归验证为 N3。`retained + rejected = all N3`、两集合互斥、每个 rejected epoch 有原因、non-N3 不进入 QC rejection 均通过。所有 filtering、event detection、IBI、完整 SO cycle 和 SO-spindle pairing 都限制在原生 30 秒 epoch 内。
+
+## Pyloric-inspired 18D 结果
+
+18 个数值字段按稳定顺序定义，其中 9 个为 `inference_summary_candidate`，9 个为 `held_out_ppc_candidate`：
+
+```text
+fooof_aperiodic_exponent                 2.558807   inference
+relative_so_power                       0.777428   inference
+so_peak_frequency_hz                    0.500000   inference
+so_q                                    4.869293   inference
+so_event_rate_per_min                  13.112676   inference
+so_median_ibi_s                         2.452500   inference
+ibi_cv                                  1.011715   inference
+so_up_proxy_duration_s                  0.606530   inference candidate
+so_down_proxy_duration_s                0.611617   inference candidate
+so_up_proxy_duty_cycle                  0.487025   held out
+waveform_peak_to_peak_z                 1.993695   held out
+so_trough_to_peak_time_s                0.672500   held out
+spindle_density_per_min                 2.859155   held out, provisional
+spindle_mean_duration_s                 0.676798   held out, provisional
+spindle_occupancy                       0.032251   held out, provisional
+spindle_onset_phase_cos                -0.361593   held out, provisional
+spindle_onset_phase_sin                 0.932336   held out, provisional
+spindle_onset_phase_concentration       0.198199   held out, provisional
+```
+
+IBI 的新增 median 使用“每个 epoch 内 median，再跨有效 epoch 取 median”的 hierarchical robust aggregation。`ibi_cv` 继续复用旧版“只汇集通过最少事件支持的 within-epoch intervals”的定义，从而保持回归可比性。
+
+## 新增时间结构的科学边界
+
+SO temporal proxy 使用 as-recorded Fpz-Cz polarity：负相位称为 DOWN-proxy，正相位称为 UP-proxy。它只表示 scalp EEG observable-level temporal proxy，不等于神经元膜电位或 simulator 内部 cortical UP/DOWN state。
+
+视觉审计发现第一版 cycle 终点曾从 detector 的后续 peak 之后搜索，可能把多个中间振荡合并为一个正相位。实现已修正为：
+
+1. 从 trough 前的 positive-to-negative crossing 开始；
+2. 使用 trough 后的第一个 negative-to-positive crossing；
+3. 使用紧邻的 positive-to-negative crossing 结束；
+4. detector peak 必须落在该完整正相位内；
+5. 边界截断、polarity 不符或 peak 不在紧邻正相位内均返回明确 invalid reason。
+
+修正后支持为 `322` 个完整 SO proxy cycles、`116` 个有效 epochs；其中 `580` 个 upstream events 因 `detected_up_peak_outside_immediate_positive_phase` 被保守排除。该修正不改变原 notebook 的 detector 或任何重叠 aggregate。
+
+Spindle occupancy 使用每个 epoch 内 accepted intervals 的 union duration 除以 detector-valid observation duration，防止重叠区间重复计数。有效但 0-event epoch 的 density 和 occupancy 为 0，mean duration 保持 NaN 并记录 `no_spindle_events_mean_duration_undefined`。
+
+Event-conditioned coordination 只配对同一 epoch 内、位于两个支持范围内 SO trough 之间的 spindle onset。当前 trough 为 0 rad、下一 trough 为 2*pi；共有 `52` 个 paired events、`42` 个有配对支持的 epochs。核心 18D 只保留 circular mean 的 cos/sin 和 resultant length `R`，raw angle 只进入 auxiliary diagnostic，避免重复计维。`R = 0.198199` 表明方向集中度偏弱，暂不应作为稳定生理靶点。
+
+## 冗余、角色与旧版回归
+
+稳定性审计显示：
+
+```text
+spindle density vs occupancy: Spearman rho = 0.92, n = 142
+event-conditioned phase per-epoch missing fraction = 0.929577
+SO proxy per-epoch missing fraction = 0.183099
+IBI median/CV per-epoch missing fraction = 0.126761
+near-constant core features = 0
+```
+
+因此 18D 是 feature library，不是 18 个独立证据。UP-proxy duty cycle 是两个 proxy durations 的确定性派生量；SO rate 与 IBI 具有反比结构；spindle occupancy 与 density、duration 具有派生关系。Spindle 三项继续 held out 并要求 detector validation；event-conditioned phase 三项因 per-epoch 支持稀疏而继续 held out。
+
+旧版重叠指标回归包含 aperiodic exponent、relative SO power、SO peak、SO Q、SO event rate、IBI_CV、waveform peak-to-peak、spindle density/duration，以及 continuous PAC MI、preferred phase 和 `pac_up_down_ratio`。结果为：
+
+```text
+12 pass
+0 warning
+0 fail
+maximum absolute difference = 0
+```
+
+Continuous PAC 和 `pac_up_down_ratio` 只在 auxiliary diagnostics 中保留。`T11_lag_ms` 继续标记为 `legacy misnomer; do not use as lag`。V7/V8 的 T9-T13 均标记为 model-side mechanism diagnostic，不为单通道真实 EEG 伪造数值。
+
+## Notebook、测试、图形与输出
+
+新 notebook 共 `31` 个 cells、`15` 个 code cells。使用 `neurolib` 的 `nbconvert --execute --inplace` 从头执行成功：
+
+```text
+execution counts = 1..15
+error outputs = 0
+display/execute outputs = 36
+```
+
+结构和执行验证包括 nbformat JSON、所有 code cells 静态编译、18D 恰好 18 个唯一字段、raw angle 不重复计维、bounded metrics 位于 `[0, 1]`、duration/frequency/rate 单位、无 inf、epoch ledger 恒等式、metric-specific support、旧版回归和 artifact existence。
+
+相关测试结果：
+
+```text
+26 passed
+0 failed
+1 expected fooof deprecation warning
+```
+
+11 组独立方法检查图均在 notebook 中立即显示并保存 PNG/PDF：concept mapping、epoch QC、18D distributions、robust variability、Spearman/valid-pair heatmap、SO proxy morphology、spindle detection、event pairing、circular onset phase、support/missingness 和 role map。人工检查确认图非空、无 NaN 扩散、单位和坐标轴可读，SO proxy 修正后的相位阴影不再跨越中间零点。
+
+所有运行输出位于 gitignored 的：
+
+```text
+S4_sbi/outputs/pyloric_inspired_observation/
+```
+
+主要导出包括 `pyloric_inspired_18d_summary.csv/json`、`pyloric_inspired_per_epoch_features.csv`、`epoch_ledger.csv`、`feature_dictionary.csv`、`old_vs_new_regression.csv`、`feature_stability_audit.csv`、`validation_report.md` 及 `figures/*.png/pdf`。这些 artifact 不包含 EDF、完整原始或 filtered EEG arrays、simulation records 或 posterior；本轮未使用 `git add -f`。
+
+## 停止点
+
+本轮没有 commit、push、创建 PR、训练 NPE、运行 simulator 或修改 legacy 重排。当前没有阻止 notebook 在本机完整 Run All 的 blocker。进入 fitting 前应先审查 notebook 的 `SO temporal morphology`、`Observable spindle activity and occupancy`、`Event-conditioned SO-spindle coordination`、`Redundancy and stability audit` 及 `Regression against the existing Observation notebook` 五节。

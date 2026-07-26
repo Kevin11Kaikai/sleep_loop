@@ -1,0 +1,24 @@
+base_observation_config: S4_sbi/configs/observation_sc4001.yaml
+
+reproducibility:
+  random_seed: 20260723
+
+slow_oscillation_proxy:
+  # Conservative complete-cycle support derived from the existing SO detector.
+  complete_cycle_duration_s: [0.5, 5.0]
+  polarity_convention: as-recorded Fpz-Cz; negative phase is DOWN-proxy and positive phase is UP-proxy
+
+event_conditioned_coordination:
+  trough_to_trough_cycle_duration_s: [0.5, 5.0]
+  minimum_global_paired_events: 10
+  minimum_per_epoch_paired_events: 2
+  phase_convention: current SO trough is 0 rad and the next trough is 2*pi
+
+stability:
+  redundancy_abs_spearman: 0.90
+  minimum_pair_count: 20
+  near_constant_iqr: 1.0e-9
+
+artifacts:
+  output_dir: S4_sbi/outputs/pyloric_inspired_observation
+  dpi: 180
