@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SBI Stage 2 — 观测臂 vs 仿真臂对照</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #1f2937; background: #f3f4f6; line-height: 1.65;
+  }
+  header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #334155 100%);
+    color: #f8fafc; padding: 28px 32px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.12);
+  }
+  header h1 { font-size: 24px; font-weight: 600; }
+  header .meta { margin-top: 10px; font-size: 13px; color: #cbd5e1; }
+  header .meta code { background: rgba(255,255,255,.12); padding: 2px 6px;
+                      border-radius: 4px; font-size: 12px; }
+  main { max-width: 960px; margin: 0 auto; padding: 28px 24px 48px; }
+  section { margin-bottom: 36px; }
+  h2 {
+    font-size: 20px; font-weight: 600; color: #0f172a;
+    margin-bottom: 14px; padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  h3 { font-size: 15px; font-weight: 600; color: #334155; margin: 18px 0 10px; }
+  p, li { font-size: 14px; margin-bottom: 10px; }
+  ul { margin-left: 1.25rem; margin-bottom: 12px; }
+  .card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 18px 20px; margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  }
+  .flow {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 12px; line-height: 1.5; background: #f8fafc;
+    border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px;
+    white-space: pre; overflow-x: auto;
+  }
+  table {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+    margin: 12px 0 16px;
+  }
+  th, td {
+    border: 1px solid #e2e8f0; padding: 10px 12px; text-align: left;
+  }
+  th { background: #f1f5f9; font-weight: 600; color: #334155; }
+  tr:nth-child(even) td { background: #fafafa; }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    padding: 2px 8px; border-radius: 4px; margin-right: 4px;
+  }
+  .tag-obs { background: #dbeafe; color: #1d4ed8; }
+  .tag-sim { background: #ffedd5; color: #c2410c; }
+  .tag-warn { background: #fef3c7; color: #b45309; }
+  .figure {
+    margin: 16px 0; text-align: center;
+  }
+  .figure img {
+    max-width: 100%; height: auto; border-radius: 8px;
+    border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .figure figcaption {
+    font-size: 12px; color: #64748b; margin-top: 8px; line-height: 1.5;
+  }
+  .grid-2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+  .highlight { background: #fffbeb; border-left: 4px solid #f59e0b;
+               padding: 12px 14px; margin: 12px 0; font-size: 14px; }
+  footer {
+    font-size: 12px; color: #64748b; text-align: center;
+    padding-top: 24px; border-top: 1px solid #e2e8f0;
+  }
+  a { color: #2563eb; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SBI Stage 2：观测臂 vs 仿真臂对照</h1>
+  <p class="meta">
+    版本 2026-05-23 &nbsp;|&nbsp; 受试者 <code>SC4001</code> &nbsp;|&nbsp;
+    Markdown 姊妹篇：<a href="sbi_obs_vs_sim_comparison.md" style="color:#93c5fd">sbi_obs_vs_sim_comparison.md</a>
+  </p>
+</header>
+
+<main>
+
+<section id="terms">
+  <h2>1. 术语</h2>
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>名称</th><th>脚本</th><th>一句话</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag tag-obs">观测臂</span></td>
+          <td><code>compute_xobs_from_eeg_v3.py</code> / <code>v4.py</code></td>
+          <td>真实 N3 EEG → 固定向量 <code>x_obs</code></td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-sim">仿真臂</span></td>
+          <td><code>simulator_wrapper.py</code> + V7</td>
+          <td>参数 θ → 60 s 模型 → <code>x_sim</code></td>
+        </tr>
+        <tr>
+          <td>训练</td>
+          <td><code>run_sbi.py</code></td>
+          <td>SNPE-C 学 <em>p</em>(θ | x<sub>obs</sub>)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight">
+      <strong>常见误解：</strong>142 个 N3 epoch 的 EEG <strong>只进入观测臂</strong>。
+      仿真臂每次只接收 4 个自由参数 + Seed B 固定参数，<strong>不读</strong>长时程 EEG 波形。
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <h2>2. 总数据流</h2>
+  <div class="card">
+    <pre class="flow">              SC4001 真实 N3 EEG
+                     |
+     +---------------+---------------+
+     |                               |
+     v                               v
+ [观测臂]                      [仿真臂]
+ compute_xobs_*.py              simulator(θ)
+ 142 epoch 拼接 ~4260 s          60 s × 1000 Hz
+ r_proxy + eeg_raw               r_ctx + r_thal
+     |                               |
+     v                               v
+  x_obs (5 或 7 维)                x_sim (5 维*)
+     |                               |
+     +---------------+---------------+
+                     |
+                     v
+            run_sbi.py  (SNPE-C)
+
+* Phase 2 目标：仿真也导出 7 维（含 T6、MI）</pre>
+  </div>
+</section>
+
+<section id="obs">
+  <h2>3. 观测臂（真实 EEG → x<sub>obs</sub>）</h2>
+
+  <h3>3.1 输入</h3>
+  <ul>
+    <li><code>data/manifest.csv</code> + Sleep-EDF EDF，通道 Fpz-Cz</li>
+    <li>仅 N3；峰峰值 &gt; 200 µV 的 epoch 剔除</li>
+    <li>典型：约 142 个合格 epoch，合计约 <strong>4260 s</strong></li>
+  </ul>
+
+  <h3>3.2 中间信号</h3>
+  <div class="card">
+    <pre class="flow">eeg_uv → resample 1000 Hz → eeg_raw (detrend)
+              |
+              +-- eeg_raw  → T6(v4), T8, MI, T11(v4)
+              |
+              +-- |eeg_raw| → 50 ms 平滑 → r_proxy [0,60]
+                        → T4_q, T4_freq</pre>
+  </div>
+
+  <h3>3.3 输出维度</h3>
+  <table>
+    <thead>
+      <tr><th>版本</th><th>维数</th><th>文件</th><th>相对 v3 变化</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>v3（当前 5 维 SBI）</td><td>5</td>
+        <td><code>S4_sbi/x_obs_v3.npz</code></td>
+        <td>去掉 T6、MI</td>
+      </tr>
+      <tr>
+        <td>v4（Phase 2）</td><td>7</td>
+        <td><code>S4_sbi/x_obs_v4.npz</code></td>
+        <td>EEG-native T6 + MI；T11 与 MI 同源</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>v3 实测（SC4001）：</strong>
+    <code>[shape_r=1.0, T4_q=2.645, T4_freq=0.75, T8=15.31, T11=1.28]</code></p>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>键</th><th>观测端</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>shape_r</td><td>固定 1.0（哨兵）</td></tr>
+      <tr><td>1–2</td><td>T4_q, T4_freq</td><td><code>r_proxy</code> Welch PSD</td></tr>
+      <tr><td>3</td><td>T8_n_sp_events</td><td><code>eeg_raw</code> 纺锤事件 / 60 s</td></tr>
+      <tr><td>4</td><td>T11_lag_ms</td><td>up_down_ratio（v3：r_proxy 相位 × eeg_raw 幅）</td></tr>
+      <tr><td>3*</td><td>T6_ibi_cv</td><td>v4 only：<code>compute_t6_eeg_aasm(eeg_raw)</code></td></tr>
+      <tr><td>6*</td><td>MI</td><td>v4 only：单通道 Tort PAC on <code>eeg_raw</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="sim">
+  <h2>4. 仿真臂（θ → 模型 → x<sub>sim</sub>）</h2>
+
+  <h3>4.1 加载时（一次）</h3>
+  <p><code>load_target_psd()</code>：每个 30 s N3 epoch 算 PSD → <strong>平均</strong> → FOOOF 周期谱
+     <code>_target_periodic</code>（仅供 <code>shape_r</code>）。</p>
+
+  <h3>4.2 每次 simulator(θ)</h3>
+  <div class="card">
+    <pre class="flow">θ = [g_h, g_LK, c_ctx2th, b]
++ Seed B: mue, mui, tauA, c_th2ctx
+
+build_model → m.run() 60s → r_ctx, r_thal
+→ drop 5s burn-in
+→ compute_constraints_v7 (T1–T12 全算)
+→ 导出 SUMMARY_KEYS 中的 5 维</pre>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>键</th><th>仿真端</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>shape_r</td><td>FOOOF(r_ctx PSD) vs _target_periodic</td></tr>
+      <tr><td>1–2</td><td>T4_q, T4_freq</td><td><strong>r_ctx</strong> PSD（V7 T4）</td></tr>
+      <tr><td>3</td><td>T8_n_sp_events</td><td><strong>r_thal</strong> 事件 / 60 s</td></tr>
+      <tr><td>4</td><td>T11_lag_ms</td><td>PAC: <strong>r_ctx</strong> 相位 × <strong>r_thal</strong> 幅</td></tr>
+      <tr><td>—</td><td>T6, MI</td><td>在 con 内计算，<strong>当前不写入</strong> x_sim</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="compare">
+  <h2>5. 逐维对照（当前 5 维主线）</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>维</th><th>观测 (v3)</th><th>仿真</th>
+        <th>同构？</th><th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>shape_r</td>
+        <td>1.0 固定</td>
+        <td>r ∈ [0,1] vs 目标谱</td>
+        <td>否</td>
+        <td>哨兵设计；PPC 常在高端分位</td>
+      </tr>
+      <tr>
+        <td>T4</td>
+        <td>r_proxy PSD</td>
+        <td>r_ctx PSD</td>
+        <td>公式同</td>
+        <td>信号不同（包络 vs 发放率）</td>
+      </tr>
+      <tr>
+        <td>T8</td>
+        <td>eeg_raw 事件</td>
+        <td>r_thal 事件</td>
+        <td>链类似</td>
+        <td>头皮 vs 丘脑</td>
+      </tr>
+      <tr>
+        <td>T11</td>
+        <td>混合 PAC</td>
+        <td>ctx×thal PAC</td>
+        <td>部分</td>
+        <td>比值语义一致</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="psd">
+  <h2>6. 长拼接 PSD vs 平均 PSD（T4 与 shape 目标）</h2>
+  <p>复现脚本：<code>S4_sbi/plot_concat_vs_mean_psd.py</code></p>
+
+  <table>
+    <thead>
+      <tr><th>方法</th><th>T4_freq</th><th>T4_q</th><th>用于</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>长拼接 r_proxy Welch（v3/v4 T4）</td><td><strong>0.750 Hz</strong></td><td><strong>2.653</strong></td><td>观测 T4</td></tr>
+      <tr><td>逐 epoch r_proxy PSD 平均</td><td>0.750</td><td>2.654</td><td>≈ 与上等价</td></tr>
+      <tr><td>逐 epoch 原始 EEG PSD 平均（V7）</td><td><strong>0.500</strong></td><td><strong>4.869</strong></td><td>shape_r 目标</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight">
+    在 <strong>r_proxy</strong> 上，长拼接与 epoch 平均对 T4 几乎相同。
+    T6 / T8 / MI 需要<strong>时间轴与事件</strong>，不能改为「只用一条平均 PSD」。
+  </div>
+
+  <div class="grid-2">
+    <figure class="figure">
+      <img src="../S4_sbi/scan_diagnostics/fig_concat_vs_mean_psd_overview.png"
+           alt="PSD overview 0-20 Hz">
+      <figcaption>0–20 Hz：灰线=部分 epoch；橙=长拼接 r_proxy；绿=epoch 平均 r_proxy；紫虚线=V7 原始 EEG 平均</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="../S4_sbi/scan_diagnostics/fig_concat_vs_mean_psd_so_zoom.png"
+           alt="SO band zoom">
+      <figcaption>SO 段 0.05–3 Hz 放大 + T4 数值表</figcaption>
+    </figure>
+  </div>
+  <figure class="figure">
+    <img src="../S4_sbi/scan_diagnostics/fig_concat_vs_mean_psd_timeline.png"
+         alt="Timeline schematic">
+    <figcaption>上：拼接 vs 逐 epoch 平均 PSD 的概念；下：拼接 r_proxy 前 25 s（T6/T8/MI 依赖此类时序）</figcaption>
+  </figure>
+</section>
+
+<section id="status">
+  <h2>7. 工程状态</h2>
+  <table>
+    <thead>
+      <tr><th>组件</th><th>维数</th><th>状态</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>x_obs_v3 + simulator_wrapper</td><td>5</td><td>已对齐；5 维 SBI 已完成</td></tr>
+      <tr><td>x_obs_v4</td><td>7</td><td>运行 <code>compute_xobs_from_eeg_v4.py</code> 生成</td></tr>
+      <tr><td>simulator Phase 2</td><td>7</td><td>计划导出 T6/MI（见 sprint1_phase2_plan_v2.md）</td></tr>
+      <tr><td>7 维旧 run（May 7）</td><td>7</td><td>归档；r_proxy 上 T6/MI 不可比</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="refs">
+  <h2>8. 延伸阅读</h2>
+  <ul>
+    <li><a href="sbi_obs_vs_sim_comparison.md">sbi_obs_vs_sim_comparison.md</a>（本页 Markdown）</li>
+    <li><a href="sbi_report_0511.md">sbi_report_0511.md</a></li>
+    <li><a href="sprint1_phase2_plan_v2.md">sprint1_phase2_plan_v2.md</a></li>
+    <li><code>S4_sbi/STAGE2_ARCHITECTURE.md</code></li>
+    <li><a href="sbi_5dim_review_20260523.md">sbi_5dim_review_20260523.md</a>（5 维 run 数字）</li>
+  </ul>
+</section>
+
+<footer>
+  sleep_loop / S4_sbi — 观测臂 vs 仿真臂对照文档 · 2026-05-23
+</footer>
+
+</main>
+</body>
+</html>

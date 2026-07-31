@@ -1,0 +1,29 @@
+{
+  "experiment_id": "figure10_matched_8d_7d_v1",
+  "preregistration_sha256": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60",
+  "deviations": [
+    {
+      "recorded_utc": "2026-07-28T13:26:47.8250450Z",
+      "type": "scientifically_neutral_execution_fix",
+      "file": "S4_sbi/src/sleep_sbi/figure10_bank.py",
+      "before_sha256": "6d7c864bcf5144b702d100ad78e44522d1b13b2b6d6c6dec84782de3c4bc2233",
+      "after_sha256": "3071a6f4eeb81bc0ba9142fa1f4ec2f107ba99fc74e0d022e645a8dabd20459f",
+      "change": "Reuse one ProcessPoolExecutor across immutable shards instead of recreating workers for every shard.",
+      "evidence": "The first completed 64-row 8D shard required 131.05 s wall time and 955.83 s summed worker time because each new worker repeated import/JIT startup. The completed shard was independently reloadable and remains unchanged.",
+      "scientific_contract_impact": "None. Parameter draws, parameter order, simulator seeds, simulator call, v8a_t13 dynamics, 14D extractor, validity rules, shard contents, and preregistered diagnostic rules are unchanged.",
+      "primary_verdict_consequence": "No compromise. The preregistration artifact and its hash remain immutable; this deviation is retained in the final report."
+    },
+    {
+      "recorded_utc": "2026-07-28T19:01:26.6101174Z",
+      "type": "scientifically_neutral_memory_recovery",
+      "file": "S4_sbi/src/sleep_sbi/figure10_bank.py",
+      "before_sha256": "3071a6f4eeb81bc0ba9142fa1f4ec2f107ba99fc74e0d022e645a8dabd20459f",
+      "after_sha256": "e1014f0df4722e498d01f45b0dce0a2fe91d75b095fbf529fed626d64aef1c16",
+      "incident": "After 7,104 attempted 8D rows, long-lived workers exhausted host memory. The immutable originals contain 6,861 valid and 243 explicit failed rows; the pool then terminated with BrokenProcessPool.",
+      "recovery": "Recycle the same eight workers every eight 64-row shards. Retry only failed rows with their exact original theta and simulator seed, save successful retries as immutable sidecars, and preserve all original failure shards.",
+      "audit_evidence": "111 original shards are readable, contiguous over sample IDs 0..7103, contain no duplicates or object arrays, and have no corrupt partial file. Failure reasons are retained in matched_banks/8d/recovery_audit_20260728.json.",
+      "scientific_contract_impact": "None. Priors, parameter order, Sobol rows, simulator seed schedule, worker count, simulator, duration, preprocessing, 14D extractor, validity definition, and diagnostic rules are unchanged.",
+      "primary_verdict_consequence": "No compromise. Retry sidecars are an auditable engineering recovery; original failures remain available and retry resolution is reported separately."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "track": "8d",
+  "ensemble_p_value": 0.0,
+  "ensemble_reject": true,
+  "individual_rejections": 5,
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

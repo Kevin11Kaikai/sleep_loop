@@ -1,0 +1,14 @@
+{
+  "cases": 64,
+  "random_cases": 32,
+  "worst_cases": 32,
+  "posterior_draws_per_case": 16,
+  "posterior_predictive_attempted": 1024,
+  "posterior_predictive_failed": 0,
+  "prior_predictive_attempted": 1024,
+  "prior_predictive_failed": 0,
+  "features_posterior_better": 14,
+  "overall_posterior_scaled_error": 0.09964296864509974,
+  "overall_prior_scaled_error": 0.5950780886710094,
+  "overall_improvement_fraction": 0.8325548015595183
+}

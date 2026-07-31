@@ -1,0 +1,61 @@
+{
+  "created_utc": "2026-07-27T20:16:16.932935+00:00",
+  "engineering_gate": {
+    "failure_rate_threshold": 0.01,
+    "finite_rate_threshold": 0.99,
+    "observed_max_failure_rate": 0.0,
+    "observed_prior_finite_rate": 1.0,
+    "feature_dimension_stable": true,
+    "feature_order_stable": true,
+    "seed_recorded_and_reproducible": true,
+    "pass": true
+  },
+  "prior_multiseed": {
+    "attempted": 384,
+    "success": 384,
+    "failure_rate": 0.0,
+    "fully_finite_rate": 1.0,
+    "noise_floor_q95_robust_x_distance": 2.3048234774636587,
+    "nearest_neighbor_all_three_seed_agreement": 0.2890625,
+    "nearest_neighbor_pair_agreement": {
+      "seed_0_vs_1": 0.390625,
+      "seed_0_vs_2": 0.46875,
+      "seed_1_vs_2": 0.421875
+    },
+    "collision_theta_rms_threshold": 0.25,
+    "global_collision_count": 1469,
+    "near_collision_count": 3670
+  },
+  "local_multiscale": {
+    "attempted": 441,
+    "success": 441,
+    "failure_rate": 0.0,
+    "rank_min": 8,
+    "rank_max": 8,
+    "all_full_rank": true
+  },
+  "pre_registered_scientific_warnings": [
+    {
+      "warning": "far-theta collisions within seed-noise floor",
+      "value": 1469.0
+    },
+    {
+      "warning": "near collisions within two noise floors",
+      "value": 3670.0
+    },
+    {
+      "warning": "all-three-seed nearest-neighbor agreement",
+      "value": 0.2890625
+    },
+    {
+      "warning": "minimum feature SNR",
+      "value": 1.5270085966846427
+    },
+    {
+      "warning": "minimum local rank",
+      "value": 8.0
+    }
+  ],
+  "decision": "Proceed to authorized 2048-point exploratory bank; identifiability not established.",
+  "real_eeg_inference_unlocked": false
+}

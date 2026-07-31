@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-31T11:29:29.097018+00:00",
+  "dataset_id": "prior_predictive",
+  "track": "8d",
+  "attempted": 256,
+  "valid": 256,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 1562.266436900245,
+  "path": "diagnostics/ppc/8d/prior_predictive/prior_predictive_8d.npz",
+  "sha256": "b49b51c5f86d80ac57abc456da39dcca6dd5b8545b4deb7afe5ee58a98c77ea6",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

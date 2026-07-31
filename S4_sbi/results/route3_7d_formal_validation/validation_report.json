@@ -1,0 +1,208 @@
+{
+  "validated_utc": "2026-07-28T00:55:58.729327+00:00",
+  "environment": {
+    "conda_default_env": "neurolib",
+    "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+    "sys_prefix": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib",
+    "python": "3.10.20",
+    "kernel_id": "neurolib",
+    "kernel_display_name": "Python (neurolib)",
+    "versions": {
+      "neurolib": "0.6.1",
+      "sbi": "0.26.1",
+      "torch": "2.5.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "pandas": "2.3.3"
+    }
+  },
+  "preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363",
+  "heldout_criteria_hash": "49a4f9590466a6d9ba83f83ee5b6783e268ba996f8e8fc7328e261fb0405edee",
+  "notebooks": [
+    {
+      "notebook": "15_Route3_7D_Preregistration_and_Robustness.ipynb",
+      "sha256": "077a9ca6be124a44b1feac6b8e921769a3ede48889053619340023e1131e8eb0",
+      "code_cells": 5,
+      "executed_code_cells": 5,
+      "missing_execution_counts": [],
+      "error_outputs": 0,
+      "display_or_figure_outputs": 10,
+      "nbformat_valid": true,
+      "static_compile_valid": true,
+      "html_path": "S4_sbi\\results\\route3_7d_formal_validation\\html\\15_Route3_7D_Preregistration_and_Robustness.html",
+      "html_size_bytes": 495106,
+      "html_contains_title": true
+    },
+    {
+      "notebook": "16_Route3_7D_4096_Simulation_Bank.ipynb",
+      "sha256": "13b09b9a782fe683fda2c5240da3da98d3651a28d32f3510aeda6757bb428ef5",
+      "code_cells": 4,
+      "executed_code_cells": 4,
+      "missing_execution_counts": [],
+      "error_outputs": 0,
+      "display_or_figure_outputs": 4,
+      "nbformat_valid": true,
+      "static_compile_valid": true,
+      "html_path": "S4_sbi\\results\\route3_7d_formal_validation\\html\\16_Route3_7D_4096_Simulation_Bank.html",
+      "html_size_bytes": 353015,
+      "html_contains_title": true
+    },
+    {
+      "notebook": "17_Route3_7D_SNPE_Ensemble.ipynb",
+      "sha256": "cddf6be5cba9188df95b09f471a8141c8118448f524b1cfafa0b0a5469be9d4e",
+      "code_cells": 4,
+      "executed_code_cells": 4,
+      "missing_execution_counts": [],
+      "error_outputs": 0,
+      "display_or_figure_outputs": 5,
+      "nbformat_valid": true,
+      "static_compile_valid": true,
+      "html_path": "S4_sbi\\results\\route3_7d_formal_validation\\html\\17_Route3_7D_SNPE_Ensemble.html",
+      "html_size_bytes": 399430,
+      "html_contains_title": true
+    },
+    {
+      "notebook": "18_Route3_7D_Heldout_Recovery_Coverage_PPC.ipynb",
+      "sha256": "77e7c7598be17bc5c1e9520fe9216dee7d917b1a6241b14468a8e89eb6f8a605",
+      "code_cells": 6,
+      "executed_code_cells": 6,
+      "missing_execution_counts": [],
+      "error_outputs": 0,
+      "display_or_figure_outputs": 12,
+      "nbformat_valid": true,
+      "static_compile_valid": true,
+      "html_path": "S4_sbi\\results\\route3_7d_formal_validation\\html\\18_Route3_7D_Heldout_Recovery_Coverage_PPC.html",
+      "html_size_bytes": 625990,
+      "html_contains_title": true
+    }
+  ],
+  "artifact_reload": {
+    "json": 17,
+    "csv": 21,
+    "npz": 7435,
+    "pt": 6,
+    "unexpected_object_arrays": 0,
+    "all_passed": true
+  },
+  "bank_shapes": {
+    "theta": [
+      4096,
+      7
+    ],
+    "theta_full_8d": [
+      4096,
+      8
+    ],
+    "x": [
+      4096,
+      14
+    ]
+  },
+  "heldout_shapes": {
+    "theta": [
+      256,
+      7
+    ],
+    "x": [
+      256,
+      14
+    ]
+  },
+  "posterior_shape": [
+    256,
+    4096,
+    7
+  ],
+  "ppc_shapes": {
+    "posterior_predictive": {
+      "theta": [
+        1024,
+        7
+      ],
+      "x": [
+        1024,
+        14
+      ]
+    },
+    "prior_predictive": {
+      "theta": [
+        1024,
+        7
+      ],
+      "x": [
+        1024,
+        14
+      ]
+    }
+  },
+  "cross_stage_seed_intersections": {
+    "0_1": 0,
+    "0_2": 0,
+    "0_3": 0,
+    "1_2": 0,
+    "1_3": 0,
+    "2_3": 0
+  },
+  "cross_experiment_independence": {
+    "new_rows": 4352,
+    "old_rows": 2176,
+    "full_8d_exact_duplicate_new_rows": 0,
+    "free_7d_exact_duplicate_new_rows": 0,
+    "simulator_seed_intersection_count": 0,
+    "nearest_7d_prior_rms_distance_min": 0.03428076699320937,
+    "nearest_7d_prior_rms_distance_median": 0.10224507186357615,
+    "nearest_7d_prior_rms_distance_q05": 0.06758781932430936,
+    "descriptive_count_below_0p01": 0,
+    "descriptive_count_below_0p05": 31,
+    "near_neighbor_thresholds_are_exclusion_rules": false,
+    "samples_removed_after_audit": 0
+  },
+  "parameter_names": [
+    "mue",
+    "mui",
+    "b",
+    "tauA",
+    "g_LK",
+    "g_h",
+    "c_th2ctx"
+  ],
+  "feature_names": [
+    "r_exc_mean_hz",
+    "r_exc_std_hz",
+    "r_exc_relative_so_power",
+    "r_exc_relative_sigma_power",
+    "r_exc_so_peak_frequency_hz",
+    "r_exc_sigma_peak_frequency_hz",
+    "r_exc_spectral_entropy_0p5_20",
+    "r_inh_mean_hz",
+    "r_inh_std_hz",
+    "r_inh_relative_so_power",
+    "r_inh_relative_sigma_power",
+    "r_inh_so_peak_frequency_hz",
+    "r_inh_sigma_peak_frequency_hz",
+    "r_inh_spectral_entropy_0p5_20"
+  ],
+  "nonempty_png_figures": 11,
+  "decision": "NO-GO",
+  "protected_notebook_hashes_00_14": {
+    "00_Observation_SBI_Reader_Guide.ipynb": "58de11b5fdfec107cb9bc43c08b891e8c28481e0f29c1a61d721a4ff8fc17097",
+    "01_observation.ipynb": "10045788079b7c65b55820054c0e7937f5f9adb8b736fb90ebb056a38101d755",
+    "01_observation_annotated.ipynb": "91c349078bc1ed5c0f53f4b906b9dbf02e8c28422e010d7c568f79bbd27694eb",
+    "01_Pyloric_Inspired_Observation.ipynb": "b954eb278536b8042da2a4651724e66387377cbd89fd22f70245aa8bd1db8c3c",
+    "01_Pyloric_Inspired_Observation_annotated.ipynb": "7e1ad5b64ce2b93fba765939a5eca86d665ab0776ceb886a23bf0b7105dd6a8f",
+    "02_Observation_Schema_Comparison.ipynb": "ccecfdcd857967112d194837b0f3e993f4c96ecfe01b1394d39da4898b7589b3",
+    "03_Observation_Schema_Freeze.ipynb": "90a6dc5ee5f4e9ed6fde821b50ee52aa188bca9253bb9926a1d2179edb8608f4",
+    "04_Real_Simulation_Extractor_Parity.ipynb": "2091711aa5772b1bba5c04f31366d81ed69c16186e4e229790d835c7b6bd7eb7",
+    "05_Pilot_SNPE_Ablation.ipynb": "11f591962d5e0ddd751822c52dee00fd873c2b17a10d4b2bf1fddc6d520510eb",
+    "06_Ablation_Diagnostics.ipynb": "c27250bc8f7ce4f38196a142451ef6c5d75d279b0d1bd09dfe1203fc617a712f",
+    "07_Simulator_Observable_Adapter_Validation.ipynb": "02479d64f06f3ecba7ab6c1706119f16cfa056b1c48318ed806234fdc4a1d6bf",
+    "08_EEG_Observation_Mapping_Audit.ipynb": "91b21e1cbc27f76e95a1eb47a517dd403b21497088988fe361f619f4de8dc416",
+    "09_Forward_Model_Feasibility_and_Route_Decision.ipynb": "03f956e680f032145399064b65653e49893a8f0b17e5cffffedffcd21d8d92e0",
+    "10_Route3_Synthetic_Recovery_Preflight.ipynb": "3a715225b117db344afccca057e84b4666fa64e169ae0775c58a5344b0d03487",
+    "11_Route3_Global_Robustness.ipynb": "53619610b79ccff816504807e63c2a6be0097dda5c186a76de9698e6201f53a1",
+    "12_Route3_2048_Simulation_Bank.ipynb": "a62337175484ffc62d32cd163e30f46111470d795bc363ed89dd8b36bd7bafa6",
+    "13_Route3_Exploratory_SNPE_Ensemble.ipynb": "635db9341c68eea23b17534a2dc37e2485e07425f27e725db733916bed597c21",
+    "14_Route3_Heldout_Recovery_and_Coverage.ipynb": "de2f5022a8f63bf43fdaf0aa5212706b8d531c6860a468a60eaefdc5b20d9095"
+  },
+  "all_passed": true
+}

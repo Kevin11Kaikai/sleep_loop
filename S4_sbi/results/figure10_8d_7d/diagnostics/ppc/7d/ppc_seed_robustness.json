@@ -1,0 +1,13 @@
+{
+  "track": "7d",
+  "parameter_cases": 16,
+  "seeds_per_case": 3,
+  "attempted": 48,
+  "failed": 0,
+  "median_between_to_seed_variance_ratio": 7.781813355102673,
+  "minimum_between_to_seed_variance_ratio": 1.3398210290827735,
+  "selection": "first frozen posterior-predictive parameter rows",
+  "scope": "secondary robustness; excluded from operational verdict",
+  "csv": "diagnostics/ppc/7d/ppc_seed_robustness.csv",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

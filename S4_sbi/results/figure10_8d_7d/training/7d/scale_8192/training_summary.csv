@@ -1,0 +1,2 @@
+created_utc,track,scale,seed,device,status,epochs_completed,best_epoch,best_validation_loss,last_train_loss,last_validation_loss,runtime_this_call_s,checkpoint,preregistration_hash
+2026-07-29T15:57:53.709390+00:00,7d,8192,9551001,cpu,trained,123,122,-6.718250751495361,-6.059860981604024,-6.718250751495361,66.42465469997842,training/7d/scale_8192/member_9551001/best_checkpoint.pt,a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60

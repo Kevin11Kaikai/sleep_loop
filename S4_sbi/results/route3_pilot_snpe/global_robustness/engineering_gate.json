@@ -1,0 +1,10 @@
+{
+  "failure_rate_threshold": 0.01,
+  "finite_rate_threshold": 0.99,
+  "observed_max_failure_rate": 0.0,
+  "observed_prior_finite_rate": 1.0,
+  "feature_dimension_stable": true,
+  "feature_order_stable": true,
+  "seed_recorded_and_reproducible": true,
+  "pass": true
+}

@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-07-31T11:36:16.669922+00:00",
+  "track": "7d",
+  "posterior_attempted": 256,
+  "posterior_failed": 0,
+  "prior_attempted": 256,
+  "prior_failed": 0,
+  "features_posterior_better": 14,
+  "overall_posterior_scaled_error": 0.3563534524371964,
+  "overall_prior_scaled_error": 0.8751698040226776,
+  "overall_improvement_fraction": 0.5928179299614381,
+  "member_counts": [
+    51,
+    54,
+    38,
+    57,
+    56
+  ],
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

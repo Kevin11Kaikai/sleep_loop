@@ -1,0 +1,14 @@
+{
+  "new_rows": 4352,
+  "old_rows": 2176,
+  "full_8d_exact_duplicate_new_rows": 0,
+  "free_7d_exact_duplicate_new_rows": 0,
+  "simulator_seed_intersection_count": 0,
+  "nearest_7d_prior_rms_distance_min": 0.03428076699320937,
+  "nearest_7d_prior_rms_distance_median": 0.10224507186357615,
+  "nearest_7d_prior_rms_distance_q05": 0.06758781932430936,
+  "descriptive_count_below_0p01": 0,
+  "descriptive_count_below_0p05": 31,
+  "near_neighbor_thresholds_are_exclusion_rules": false,
+  "samples_removed_after_audit": 0
+}

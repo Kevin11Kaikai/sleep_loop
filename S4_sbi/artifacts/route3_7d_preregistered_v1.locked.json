@@ -1,0 +1,285 @@
+{
+  "experiment_id": "route3_7d_fixed_c_ctx2th_formal_v1",
+  "created_utc": "2026-07-27T22:36:40.342713+00:00",
+  "immutable_after_first_scientific_simulation": true,
+  "parameter_order_8d": [
+    "mue",
+    "mui",
+    "b",
+    "tauA",
+    "g_LK",
+    "g_h",
+    "c_th2ctx",
+    "c_ctx2th"
+  ],
+  "parameter_order_7d": [
+    "mue",
+    "mui",
+    "b",
+    "tauA",
+    "g_LK",
+    "g_h",
+    "c_th2ctx"
+  ],
+  "parameter_units_7d": [
+    "mV/ms",
+    "mV/ms",
+    "pA",
+    "ms",
+    "mS/cm^2",
+    "mS/cm^2",
+    "dimensionless coupling"
+  ],
+  "prior_type": "independent uniform box",
+  "prior_bounds_7d": [
+    [
+      3.31075,
+      4.4792499999999995
+    ],
+    [
+      2.57295,
+      3.4810499999999998
+    ],
+    [
+      28.400000000000002,
+      42.6
+    ],
+    [
+      998.1999999999999,
+      1853.8
+    ],
+    [
+      0.02,
+      0.07
+    ],
+    [
+      0.035,
+      0.095
+    ],
+    [
+      0.0,
+      0.075
+    ]
+  ],
+  "fixed_parameter": {
+    "name": "c_ctx2th",
+    "value": 0.1253491302153237,
+    "unit": "dimensionless coupling",
+    "selection_rule": "Notebook 10 canonical V8a local best; no recovery/posterior result used",
+    "source": "outputs/v8a_ultra_narrow_t6_t13_search/best_so_far.json",
+    "source_sha256": "bf18212ebac0ebec39d4f13aecd5b7a9da5618ffe78abb5f8694a67f569af76a",
+    "prior_range": [
+      0.05,
+      0.22
+    ],
+    "inside_old_8d_prior": true,
+    "conditional_claim": "All seven-parameter conclusions are conditional on this fixed value."
+  },
+  "observation_schema": {
+    "name": "cortex-rate-only 14D",
+    "schema_version": "route3-cortex-rate-14d-v1",
+    "schema_hash": "78d0da704422a03917ef4c68207f5e8e8213b0c6f6279deaf26f34c9958d64a8",
+    "feature_names": [
+      "r_exc_mean_hz",
+      "r_exc_std_hz",
+      "r_exc_relative_so_power",
+      "r_exc_relative_sigma_power",
+      "r_exc_so_peak_frequency_hz",
+      "r_exc_sigma_peak_frequency_hz",
+      "r_exc_spectral_entropy_0p5_20",
+      "r_inh_mean_hz",
+      "r_inh_std_hz",
+      "r_inh_relative_so_power",
+      "r_inh_relative_sigma_power",
+      "r_inh_so_peak_frequency_hz",
+      "r_inh_sigma_peak_frequency_hz",
+      "r_inh_spectral_entropy_0p5_20"
+    ],
+    "dimension": 14,
+    "scope": "synthetic cortical population firing-rate observable; not EEG"
+  },
+  "simulator_contract": {
+    "model_version": "v8a_t13",
+    "full_parameter_insertion_order": [
+      "mue",
+      "mui",
+      "b",
+      "tauA",
+      "g_LK",
+      "g_h",
+      "c_th2ctx",
+      "c_ctx2th"
+    ],
+    "sampling_dt_ms": 1.0,
+    "model_integration_dt_ms": 0.1,
+    "duration_s": 60.0,
+    "warm_up_s": 5.0,
+    "analyzed_window_s": 30.0,
+    "seed_policy": "all four stochastic inputs plus numba RNG",
+    "failed_policy": "retain theta; NaN x; validity false; explicit reason",
+    "nonfinite_policy": "invalid; never fill with zero"
+  },
+  "training": {
+    "scheduled_simulations": 4096,
+    "split": "80/20 over valid rows with preregistered split seed",
+    "feature_scaling": "median/IQR fitted only on training split",
+    "architecture": {
+      "model": "maf",
+      "hidden_features": 64,
+      "num_transforms": 5,
+      "z_score_theta": "none",
+      "z_score_x": "none"
+    },
+    "policy": {
+      "batch_size": 128,
+      "learning_rate": 0.0005,
+      "weight_decay": 1e-06,
+      "max_epochs": 300,
+      "early_stopping_patience": 25,
+      "minimum_improvement": 0.0001,
+      "clip_max_norm": 5.0
+    },
+    "members": 3,
+    "proposal": "independent uniform 7D prior",
+    "rounds": 1,
+    "ensemble": "equal-count mixture; no learned weights"
+  },
+  "validation": {
+    "preflight_prior_points": 128,
+    "preflight_replicates": 3,
+    "local_centers": [
+      "v7_fitted",
+      "v8_fitted",
+      "v8a_local_best"
+    ],
+    "local_scales": [
+      0.01,
+      0.02,
+      0.05
+    ],
+    "rank_rule": "relative singular value >= 1e-3 largest singular value",
+    "heldout_cases": 256,
+    "posterior_samples_per_case": 4096,
+    "ppc_cases": 64,
+    "ppc_random_cases": 32,
+    "ppc_worst_cases": 32,
+    "ppc_worst_rule": "top mean normalized posterior-median absolute recovery error after excluding the 32 fixed-random cases",
+    "ppc_draws_per_case": 16
+  },
+  "seeds": {
+    "preflight_sobol": 7315001,
+    "preflight_simulator_replicates": [
+      7315101,
+      7315201,
+      7315301
+    ],
+    "local_simulator_replicates": [
+      7315101,
+      7315201,
+      7315301
+    ],
+    "training_sobol": 7320001,
+    "training_simulator_base": 7321001,
+    "train_validation_split": 7322001,
+    "network_initialization": [
+      7330001,
+      7330002,
+      7330003
+    ],
+    "ensemble_validation_sampling": 7331001,
+    "heldout_sobol": 7340001,
+    "heldout_simulator_base": 7341001,
+    "posterior_sampling": 7342001,
+    "ppc_case_selection": 7343001,
+    "ppc_posterior_simulator_base": 7344001,
+    "ppc_prior_sobol": 7345001,
+    "ppc_prior_simulator_base": 7346001
+  },
+  "seed_nonoverlap_audit": {
+    "old_simulator_seed_count": 3203,
+    "new_planned_simulator_seed_count": 6403,
+    "intersection_count": 0,
+    "old_seed_artifact_scope": "8D multiseed, local, 2048 bank, 128 held-out, posterior/prior PPC",
+    "old_explicit_seeds": [
+      1103,
+      2207,
+      3301,
+      710001,
+      910001,
+      920001,
+      930001,
+      1301,
+      1302,
+      1303,
+      20260730,
+      20260731,
+      20260802,
+      20260803,
+      20260804,
+      20260805
+    ]
+  },
+  "decision_criteria": {
+    "version": "route3-7d-formal-go-criteria-v1",
+    "copied_from": "route3-heldout-go-criteria-v1",
+    "adaptation": "8 to 7 free parameters; 4096 train; 256 held-out; 64 PPC cases",
+    "formal_go": {
+      "preflight_failure_rate_max": 0.01,
+      "training_failure_rate_max": 0.01,
+      "heldout_failure_rate_max": 0.01,
+      "posterior_finite_and_in_prior_rate_min": 0.999,
+      "coverage_80_or_90_wilson_contains_nominal_parameters_min": 6,
+      "severe_undercoverage_definition": "observed coverage < nominal-0.15 and Wilson upper bound < nominal",
+      "severe_undercoverage_parameters_max": 0,
+      "median_error_better_than_prior_parameters_min": 6,
+      "overall_median_error_improvement_min_fraction": 0.1,
+      "systematic_worsening_threshold": -0.05,
+      "systematically_worse_parameters_max": 0,
+      "prior_level_improvement_max": 0.05,
+      "prior_level_rank_correlation_max": 0.1,
+      "prior_level_unrecoverable_parameters_max": 0,
+      "meaningful_contraction_definition": "median 90% CI width < 0.90 prior width",
+      "meaningful_contraction_width_max": 0.9,
+      "meaningful_contraction_with_reasonable_coverage_parameters_min": 6,
+      "ppc_features_better_than_prior_min": 10,
+      "overall_ppc_error_improvement_min_fraction": 0.1,
+      "ensemble_member_median_disagreement_mean_max_prior_width": 0.1,
+      "ensemble_member_disagreement_parameter_max_prior_width": 0.2,
+      "global_collision_requirement": "coverage and contraction must remain honest despite collisions; collision count is reported, not tuned after held-out results"
+    },
+    "conditional_go": {
+      "engineering_failure_and_finite_gates_must_pass": true,
+      "severe_undercoverage_parameters_max": 1,
+      "median_error_better_than_prior_parameters_min": 5,
+      "meaningful_contraction_with_reasonable_coverage_parameters_min": 5,
+      "overall_ppc_must_improve": true,
+      "ensemble_disagreement_gate_must_pass": true
+    },
+    "no_go_if": [
+      "conditional-go criteria fail",
+      "one or more parameters remain prior-level unrecoverable",
+      "multiple parameters show severe undercoverage or false contraction",
+      "seed noise or global collisions dominate recovery",
+      "ensemble scientific conclusions are unstable",
+      "synthetic PPC does not improve over prior predictive"
+    ]
+  },
+  "allowed_claims": [
+    "recoverability of seven free parameters conditional on fixed c_ctx2th",
+    "synthetic cortical-rate observable space only"
+  ],
+  "forbidden_claims": [
+    "real EEG parameter inference",
+    "simulated EEG",
+    "validated Fpz-Cz measurement model",
+    "mechanism truth from observable-level recovery"
+  ],
+  "package_versions": {
+    "neurolib": "0.6.1",
+    "sbi": "0.26.1",
+    "torch": "2.5.1",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "pandas": "2.3.3"
+  }
+}

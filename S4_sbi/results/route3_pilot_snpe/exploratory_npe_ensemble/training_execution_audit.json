@@ -1,0 +1,12 @@
+{
+  "source": "first uncached stage13 driver execution output",
+  "created_utc": "2026-07-27T20:58:03.371366+00:00",
+  "device": "cpu",
+  "member_runtime_s": {
+    "1301": 48.02041730005294,
+    "1302": 46.745328399934806,
+    "1303": 47.01840650010854
+  },
+  "ensemble_stage_runtime_s": 144.02194840006996,
+  "note": "Later Notebook Run All operations reload resumable checkpoints; their runtime_this_call values are cache/resume overhead, not the original training duration."
+}

@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-07-28T00:03:00.995635+00:00",
+  "status": "trained",
+  "members": [
+    {
+      "seed": 7330001,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 291,
+      "best_epoch": 290,
+      "best_validation_loss": -10.151313842215188,
+      "final_train_loss": -10.430866042336264,
+      "final_validation_loss": -10.151313842215188,
+      "runtime_this_call_s": 94.4434670000337,
+      "checkpoint": "D:/Year3_Mao_Projects/sleep_loop/S4_sbi/results/route3_7d_formal_validation/npe_ensemble/member_7330001/best_checkpoint.pt",
+      "preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363"
+    },
+    {
+      "seed": 7330002,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 288,
+      "best_epoch": 287,
+      "best_validation_loss": -10.257992642100264,
+      "final_train_loss": -10.197269093859326,
+      "final_validation_loss": -10.257992642100264,
+      "runtime_this_call_s": 90.62469319999218,
+      "checkpoint": "D:/Year3_Mao_Projects/sleep_loop/S4_sbi/results/route3_7d_formal_validation/npe_ensemble/member_7330002/best_checkpoint.pt",
+      "preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363"
+    },
+    {
+      "seed": 7330003,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 300,
+      "best_epoch": 299,
+      "best_validation_loss": -9.748488607639219,
+      "final_train_loss": -9.8506745383853,
+      "final_validation_loss": -9.748488607639219,
+      "runtime_this_call_s": 88.51094429998193,
+      "checkpoint": "D:/Year3_Mao_Projects/sleep_loop/S4_sbi/results/route3_7d_formal_validation/npe_ensemble/member_7330003/best_checkpoint.pt",
+      "preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363"
+    }
+  ],
+  "member_seeds": [
+    7330001,
+    7330002,
+    7330003
+  ],
+  "weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "mixture_rule": "equal-count sampling; no learned/result-driven weights",
+  "architecture": {
+    "model": "maf",
+    "hidden_features": 64,
+    "num_transforms": 5,
+    "z_score_theta": "none",
+    "z_score_x": "none"
+  },
+  "training_policy": {
+    "batch_size": 128,
+    "learning_rate": 0.0005,
+    "weight_decay": 1e-06,
+    "max_epochs": 300,
+    "early_stopping_patience": 25,
+    "minimum_improvement": 0.0001,
+    "clip_max_norm": 5.0
+  },
+  "training_rows": 3276,
+  "validation_rows": 820,
+  "runtime_this_call_s": 274.7086847999599,
+  "scope": "preregistered Route-3 7D synthetic cortical-rate posterior",
+  "real_eeg_inference": false,
+  "preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363",
+  "package_versions": {
+    "sbi": "0.26.1",
+    "torch": "2.5.1",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  }
+}

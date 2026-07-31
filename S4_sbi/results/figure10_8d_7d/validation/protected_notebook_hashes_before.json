@@ -1,0 +1,167 @@
+{
+  "created_utc": "2026-07-28T13:46:57.235511+00:00",
+  "notebooks": [
+    {
+      "path": "S4_sbi/notebooks/00_Observation_SBI_Reader_Guide.ipynb",
+      "sha256": "58de11b5fdfec107cb9bc43c08b891e8c28481e0f29c1a61d721a4ff8fc17097",
+      "size_bytes": 119254,
+      "reader_guide_authorized_to_change": true
+    },
+    {
+      "path": "S4_sbi/notebooks/01_observation.ipynb",
+      "sha256": "10045788079b7c65b55820054c0e7937f5f9adb8b736fb90ebb056a38101d755",
+      "size_bytes": 1613229,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/01_observation_annotated.ipynb",
+      "sha256": "91c349078bc1ed5c0f53f4b906b9dbf02e8c28422e010d7c568f79bbd27694eb",
+      "size_bytes": 1625029,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/01_Pyloric_Inspired_Observation.ipynb",
+      "sha256": "b954eb278536b8042da2a4651724e66387377cbd89fd22f70245aa8bd1db8c3c",
+      "size_bytes": 2031071,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/01_Pyloric_Inspired_Observation_annotated.ipynb",
+      "sha256": "7e1ad5b64ce2b93fba765939a5eca86d665ab0776ceb886a23bf0b7105dd6a8f",
+      "size_bytes": 2077055,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/02_Observation_Schema_Comparison.ipynb",
+      "sha256": "ccecfdcd857967112d194837b0f3e993f4c96ecfe01b1394d39da4898b7589b3",
+      "size_bytes": 1241234,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/03_Observation_Schema_Freeze.ipynb",
+      "sha256": "90a6dc5ee5f4e9ed6fde821b50ee52aa188bca9253bb9926a1d2179edb8608f4",
+      "size_bytes": 58582,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/04_Real_Simulation_Extractor_Parity.ipynb",
+      "sha256": "2091711aa5772b1bba5c04f31366d81ed69c16186e4e229790d835c7b6bd7eb7",
+      "size_bytes": 64284,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/05_Pilot_SNPE_Ablation.ipynb",
+      "sha256": "11f591962d5e0ddd751822c52dee00fd873c2b17a10d4b2bf1fddc6d520510eb",
+      "size_bytes": 15041,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/06_Ablation_Diagnostics.ipynb",
+      "sha256": "c27250bc8f7ce4f38196a142451ef6c5d75d279b0d1bd09dfe1203fc617a712f",
+      "size_bytes": 26737,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/07_Simulator_Observable_Adapter_Validation.ipynb",
+      "sha256": "02479d64f06f3ecba7ab6c1706119f16cfa056b1c48318ed806234fdc4a1d6bf",
+      "size_bytes": 218686,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/08_EEG_Observation_Mapping_Audit.ipynb",
+      "sha256": "91b21e1cbc27f76e95a1eb47a517dd403b21497088988fe361f619f4de8dc416",
+      "size_bytes": 2745445,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/09_Forward_Model_Feasibility_and_Route_Decision.ipynb",
+      "sha256": "03f956e680f032145399064b65653e49893a8f0b17e5cffffedffcd21d8d92e0",
+      "size_bytes": 341607,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/10_Route3_Synthetic_Recovery_Preflight.ipynb",
+      "sha256": "3a715225b117db344afccca057e84b4666fa64e169ae0775c58a5344b0d03487",
+      "size_bytes": 570200,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/11_Route3_Global_Robustness.ipynb",
+      "sha256": "53619610b79ccff816504807e63c2a6be0097dda5c186a76de9698e6201f53a1",
+      "size_bytes": 717169,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/12_Route3_2048_Simulation_Bank.ipynb",
+      "sha256": "a62337175484ffc62d32cd163e30f46111470d795bc363ed89dd8b36bd7bafa6",
+      "size_bytes": 250856,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/13_Route3_Exploratory_SNPE_Ensemble.ipynb",
+      "sha256": "635db9341c68eea23b17534a2dc37e2485e07425f27e725db733916bed597c21",
+      "size_bytes": 848532,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/14_Route3_Heldout_Recovery_and_Coverage.ipynb",
+      "sha256": "de2f5022a8f63bf43fdaf0aa5212706b8d531c6860a468a60eaefdc5b20d9095",
+      "size_bytes": 535756,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/15_Route3_7D_Preregistration_and_Robustness.ipynb",
+      "sha256": "077a9ca6be124a44b1feac6b8e921769a3ede48889053619340023e1131e8eb0",
+      "size_bytes": 219154,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/16_Route3_7D_4096_Simulation_Bank.ipynb",
+      "sha256": "13b09b9a782fe683fda2c5240da3da98d3651a28d32f3510aeda6757bb428ef5",
+      "size_bytes": 57887,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/17_Route3_7D_SNPE_Ensemble.ipynb",
+      "sha256": "cddf6be5cba9188df95b09f471a8141c8118448f524b1cfafa0b0a5469be9d4e",
+      "size_bytes": 113861,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/18_Route3_7D_Heldout_Recovery_Coverage_PPC.ipynb",
+      "sha256": "77e7c7598be17bc5c1e9520fe9216dee7d917b1a6241b14468a8e89eb6f8a605",
+      "size_bytes": 348399,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/19_Route3_7D_Coverage_Failure_Diagnosis.ipynb",
+      "sha256": "0c1005dbbbb2da2d694775218509a69a677c8510059f8b6f12b04b882fca2aca",
+      "size_bytes": 291550,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/20_Route3_7D_Rescue_Preregistration.ipynb",
+      "sha256": "4b6802c0731bb414207d98da2bdb606dbab6099e7b6155bd75672acdff580fc7",
+      "size_bytes": 20887,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/21_Route3_7D_Rescue_Training.ipynb",
+      "sha256": "df3696277516fdc953150599e67a68a50f5b414265fff4aa89e98017794968ff",
+      "size_bytes": 355357,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/22_Route3_7D_Fresh_Heldout_Validation.ipynb",
+      "sha256": "cf57ae535486acb4280b3cd66b60b3812bde82aa00fe285facd45da7e0c45052",
+      "size_bytes": 752085,
+      "reader_guide_authorized_to_change": false
+    },
+    {
+      "path": "S4_sbi/notebooks/23_Route3_7D_Rescue_Handoff.ipynb",
+      "sha256": "87b6c36131207744dd78b756c5e2c0a780ab8e1cb6900b5dd95bdeb2b4002db2",
+      "size_bytes": 23034,
+      "reader_guide_authorized_to_change": false
+    }
+  ]
+}

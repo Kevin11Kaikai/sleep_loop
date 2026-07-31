@@ -1,0 +1,13 @@
+{
+  "dataset_id": "powered_1024",
+  "track": "8d",
+  "scale": 32768,
+  "cases": 1024,
+  "posterior_samples_per_case": 1000,
+  "ensemble_joint_ks_statistic": 0.2250122923951049,
+  "ensemble_joint_ks_pvalue": 4.914556785984683e-46,
+  "ensemble_clear_sbc_issue_count": 3,
+  "ensemble_recovery_improvement_fraction": 0.43047458463325416,
+  "ensemble_median_normalized_posterior_sd": 0.6357103659982847,
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

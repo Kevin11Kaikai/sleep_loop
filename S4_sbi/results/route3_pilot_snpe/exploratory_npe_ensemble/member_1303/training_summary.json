@@ -1,0 +1,13 @@
+{
+  "seed": 1303,
+  "device": "cpu",
+  "status": "trained",
+  "epochs_completed": 300,
+  "best_epoch": 295,
+  "best_validation_loss": -8.237807794896568,
+  "final_train_loss": -8.697613713796613,
+  "final_validation_loss": -8.139854626539277,
+  "runtime_this_call_s": 1.2998934835195541e-06,
+  "checkpoint": "D:/Year3_Mao_Projects/sleep_loop/S4_sbi/results/route3_pilot_snpe/exploratory_npe_ensemble/member_1303/best_checkpoint.pt",
+  "contract_hash": "78d0da704422a03917ef4c68207f5e8e8213b0c6f6279deaf26f34c9958d64a8"
+}

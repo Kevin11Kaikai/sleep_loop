@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-07-28T03:40:54.697493+00:00",
+  "scheduled": 1024,
+  "valid": 1024,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 9174.262441698578,
+  "median_simulator_runtime_s": 8.780753599945456,
+  "artifact": "D:/Year3_Mao_Projects/sleep_loop/S4_sbi/results/route3_7d_rescue/fresh_final_validation/dataset/route3_7d_rescue_fresh_final_1024.npz",
+  "artifact_sha256": "0d48482345dcb3c68d0a13f9ca4624fc625e8caf5cdd12e854e25d411b991dec",
+  "simulator_seed_hash": "0d48482345dcb3c68d0a13f9ca4624fc625e8caf5cdd12e854e25d411b991dec",
+  "primary_pipeline_sha256": "6c46a981b81112005fe09f1be4436426d88b48bf96a93643ec0272ce1d1c75b8",
+  "rescue_preregistration_hash": "01e0b0cb2277340872d95fef5fb5f2c0dd15bdf7104d363bd67fb41f1acd4a02"
+}

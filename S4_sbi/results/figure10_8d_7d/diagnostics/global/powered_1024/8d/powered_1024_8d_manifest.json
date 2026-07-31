@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-30T14:30:46.254584+00:00",
+  "dataset_id": "powered_1024",
+  "track": "8d",
+  "attempted": 1024,
+  "valid": 1024,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 6372.492897200049,
+  "path": "diagnostics/global/powered_1024/8d/powered_1024_8d.npz",
+  "sha256": "55b783e4be8d63d4e1f0e09bc936282a91c607a9e0d6855dfb5cc0b6c0e334a1",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

@@ -1,0 +1,29 @@
+{
+  "criteria_version": "route3-heldout-go-criteria-v1",
+  "evaluated_utc": "2026-07-27T21:23:36.322192+00:00",
+  "decision": "NO-GO",
+  "checks": {
+    "training_failure_gate": true,
+    "heldout_failure_gate": true,
+    "posterior_finite_support_gate": true,
+    "coverage_compatible_parameter_count": 1,
+    "coverage_compatible_gate": false,
+    "severe_undercoverage_parameter_count": 1,
+    "severe_undercoverage_gate": false,
+    "better_than_prior_parameter_count": 7,
+    "better_than_prior_gate": true,
+    "overall_recovery_improvement_fraction": 0.43021766671270467,
+    "overall_recovery_gate": true,
+    "contraction_with_coverage_parameter_count": 1,
+    "contraction_with_coverage_gate": false,
+    "ppc_better_feature_count": 14,
+    "ppc_feature_gate": true,
+    "overall_ppc_improvement_fraction": 0.8501778966063311,
+    "overall_ppc_gate": true,
+    "ensemble_disagreement_mean": 0.05141425659166998,
+    "ensemble_disagreement_parameter_max": 0.0724687289330177,
+    "ensemble_disagreement_gate": true
+  },
+  "scope": "synthetic cortical-rate observable recovery only",
+  "real_eeg_inference_unlocked": false
+}

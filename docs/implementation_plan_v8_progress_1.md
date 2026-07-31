@@ -3293,3 +3293,996 @@ S4_sbi/outputs/pyloric_inspired_observation/
 ## 停止点
 
 本轮没有 commit、push、创建 PR、训练 NPE、运行 simulator 或修改 legacy 重排。当前没有阻止 notebook 在本机完整 Run All 的 blocker。进入 fitting 前应先审查 notebook 的 `SO temporal morphology`、`Observable spindle activity and occupancy`、`Event-conditioned SO-spindle coordination`、`Redundancy and stability audit` 及 `Regression against the existing Observation notebook` 五节。
+
+## 第二十三部分：2026-07-27 Simulator Observable Adapter 审计与验证
+
+本轮目标是解除 `04_Real_Simulation_Extractor_Parity.ipynb` 发现的实现层 blocker，而不是训练 SNPE。未改写 `03`--`06` notebooks，未修改 V7/V8/V8a simulator 核心、真实 EEG extractor、科学阈值、filters 或现有 fitting 结果；未 commit、push 或创建 mini simulation bank。
+
+新增文件：
+
+```text
+S4_sbi/src/sleep_sbi/simulator_observable_adapter.py
+S4_sbi/tests/test_simulator_observable_adapter.py
+S4_sbi/notebooks/07_Simulator_Observable_Adapter_Validation.ipynb
+S4_sbi/results/simulator_observable_adapter_validation/
+```
+
+### 审计结论
+
+既有 real-vs-model / fitting 路径实际使用的是 `r_mean_EXC` 的 cortex index 0：这是 ALN cortical excitatory population firing rate state observable。模型记录值按既有实现由 kHz 乘以 `1000` 转为 Hz；它不是 simulated EEG，也不存在项目已验证的 EEG forward proxy。V7/V8/V8a 使用 `sampling_dt=1 ms`（`1000 Hz`）、总时长 `60 s`，并丢弃前 `5 s` warm-up，留下 `55 s` active signal。为不改变已有模拟时长，adapter 只取第一个完整 post-warm-up `30 s` epoch，并显式丢弃余下 `25 s`，不拼接边界。
+
+真实 observation 是 `EEG Fpz-Cz` scalp EEG（uV）。PSD peak frequency、relative SO power、SO Q、FOOOF exponent 以及归一化 PAC 统计对正比例幅度缩放较不敏感，可在 cortical-rate proxy 上调用同一底层 Python 函数作 algorithm-level audit；但这不建立 channel/reference/forward-model 的语义等价。SO half-wave detector 使用真实 EEG 的 `75 uV` threshold，因此 adapter 没有将该数值错误应用于 Hz rate，而是将 SO event rate、IBI CV 与 waveform morphology 标为明确的 unit-mismatch blocker。Spindle detector 和 PAC 函数可运行，但输出仍标记为 cortical-rate proxy diagnostic，不能作为 scalp EEG inference feature。
+
+### 代表性运行与结果
+
+`07` 已在 `neurolib` / `python3` kernel 完整 Run All。验证了：V7 fitted、V8 fitted、V8a local best、以及 3 个来自 `outputs/v8a_coupling_sweep_long/selected_seed_candidates.csv` 的 V8a near-feasible candidates。6/6 simulation 成功；实际单次 runtime 为约 `4.67--9.09 s`，均为 `1000 Hz`、`55 s` active signal、`25 s` excluded tail。未保存完整 firing-rate arrays。
+
+```text
+minimal_spectral_so_proxy4: 6/6 finite, algorithm-level available, semantic parity NO-GO
+minimal_plus_pac9:         6/6 finite, algorithm-level available, semantic parity NO-GO
+minimal_plus_spindle6:     0/6 finite, spindle mean duration undefined because 0 detected events
+minimal_plus_so_morphology7: 0/6 finite, blocked by uV-dependent SO detector
+baseline14:                0/6 finite, contains the blocked/undefined features
+```
+
+所有 schema 的 `semantic_parity_pass` 都是 `False`。没有 NaN/Inf 被静默填为 0：有效但零 spindle-event 的 density 为 0，而 spindle mean duration 保持 undefined/NaN。`adapter_feature_matrix.csv`、`adapter_schema_status.csv` 和 `feature_level_blocker_matrix.csv` 分别保存每个 candidate、feature validity/support/failure reason 与 schema-level hard-gate 证据。
+
+### 结论和最小下一步
+
+当前不存在可用于 pilot SNPE 的 shared observation schema；因此没有重新运行或修改 `04`、没有创建 mini bank、没有训练 SNPE、没有 posterior、coverage、SBC 或 PPC 结果。`parity_reassessment.json` 明确记录 `NO-GO`。
+
+解除 blocker 的最小研究步骤不是将 rate 数值线性改成 uV，而是定义并验证 model cortical observable 到声明的 `Fpz-Cz` scalp EEG observable 的 forward/reference mapping；随后必须冻结单位、30 s epoch policy、aggregation、validity/missingness 和 scaling，并重新运行 parity。只有该 semantic contract 通过后，才可建立小型 checkpointed simulation bank 并考虑 pilot SNPE。
+
+验证完成：`07` 的 `8` 个 code cells 均有 execution count，`nbformat.validate()` 与静态 compile 通过，无 error/traceback；adapter 的 3 个快速 contract tests 通过；CSV/JSON/SVG/PNG/HTML artifacts 均已重新读取或人工检查。HTML 位于 `S4_sbi/results/simulator_observable_adapter_validation/html/07_Simulator_Observable_Adapter_Validation.html`。
+
+
+# 第二十四部分：2026-07-27 EEG Observation Mapping Audit 与正式路线决策
+
+## 本轮范围与文件
+
+本轮只审计 neurolib thalamocortical simulator 输出到真实 `EEG Fpz-Cz` scalp EEG 的 measurement mapping，不训练 SNPE、不生成 simulation bank、不修改 simulator 动力学、真实 EEG extractor、科学阈值、filter、QC 或既有 `03`--`07` notebooks。新增：
+
+```text
+S4_sbi/src/sleep_sbi/eeg_observation_mapping_audit.py
+S4_sbi/tests/test_eeg_observation_mapping_audit.py
+S4_sbi/tests/validate_eeg_observation_mapping_audit.py
+S4_sbi/notebooks/08_EEG_Observation_Mapping_Audit.ipynb
+S4_sbi/results/eeg_observation_mapping_audit/
+S4_sbi/results/overnight_observation_ablation/html/08_EEG_Observation_Mapping_Audit.html
+```
+
+## 既有 fitting / Figure 5/7 信号的代码证据
+
+Figure 5/7 的真实侧目标是 `EEG Fpz-Cz`：MNE 内部 V 乘以 `1e6` 转为 `uV`，保留原生 30 秒 N3 epoch，按 `200 uV` peak-to-peak 做 QC，分别计算 Hann-Welch PSD 后取 arithmetic mean。Figure-5-era `s3_sleep_kernel.py` / `s3_band_power_bars.py` 同样把 `r_mean_EXC` 从 kHz 转为 Hz 后计算 cortical/thalamic firing-rate Welch PSD；其中 `EEGlike` 只出现在输出文件名和频带对齐说明中，不是 measurement function。Figure 7 模拟侧使用 `r_mean_EXC` 的 cortex index 0，60 秒模拟丢弃前 5 秒 warm-up，再计算 firing-rate PSD 与真实 EEG PSD 的 log-space loss。
+
+因此既有结果支持的是跨 modality 的 spectral-shape fitting，不是 source-to-sensor measurement parity。`r_mean_EXC` 和 `r_mean_INH` 分别是 cortical excitatory / inhibitory population firing rate；不得称作 membrane potential 或 simulated scalp EEG。项目搜索没有找到 lead field、bipolar reference operator、cortical LFP、source geometry、volume conduction、sensor noise 或经验证的 Fpz-Cz forward model。
+
+neurolib 的 ALN cortex 还包含 `I_mu`、`I_A`、excitatory/inhibitory synaptic mean/variance states；平均 membrane voltage 只作为 transfer-function lookup 的中间量，不是项目记录的 cortical state。Thalamic TCR/TRN 包含 `V_EXC` / `V_INH` membrane voltages，但它们是丘脑内部状态，不能替代单通道 scalp EEG。
+
+## 三组参数的小规模实证 screening
+
+`08` 只运行 V7 fitted、V8 fitted、V8a local best 三组现有参数。每组为 60 秒、1000 Hz，去除 5 秒 warm-up 后保留 55 秒；EEG extractor screening 只使用第一个完整 30 秒窗口，不拼接剩余 25 秒。实际 runtime 分别约为：
+
+```text
+V7 fitted       8.71 s
+V8 fitted       4.70 s
+V8a local best  4.79 s
+```
+
+审计额外记录变量但不改变微分方程，共检查 19 种 native/derived signals：cortical EXC/INH rates、等权 E-I 与 E+I rate contrasts、EXC/INH `I_mu`、adaptation `I_A`、`I_mu - I_A/C` effective drive、8 个 individual synaptic mean/variance states、synaptic-state balance，以及 TCR/TRN voltages。三组参数的 57 条 signal records 全部 finite；没有保存完整时间序列。
+
+真实 SC4001 observation 仍为 `220 N3 = 142 retained + 78 rejected`，`EEG Fpz-Cz`、100 Hz、30 秒 epoch。标准化比较仅用于 screening：PSD 在 0.5--20 Hz 内归一为 unit area，autocorrelation 在每个 30 秒 epoch 内 z-score 后计算。核心结果包括：
+
+```text
+log-PSD Spearman versus real Fpz-Cz
+V7 cortical r_EXC / I_mu_EXC / effective drive: 0.932 / 0.945 / 0.941
+V8 cortical r_EXC / I_mu_EXC / effective drive: 0.955 / 0.956 / 0.955
+V8a cortical r_EXC / I_mu_EXC / effective drive: 0.953 / 0.956 / 0.954
+TCR voltage: 0.242--0.309
+```
+
+这些值只说明 unit-area spectral rank shape，不能证明 measurement model。线性缩放或 z-score 只能改变 offset/amplitude，不能补足 source mixture、lead field、volume conduction、Fpz-Cz bipolar reference 或 sensor noise。
+
+## EEG extractor 迁移的 blockers
+
+- PSD peak frequency、relative band power、SO Q 和某些 normalized spectral statistics 对正比例幅度缩放较不敏感，可作 shape-level screening；但仍会受 measurement operator 和 source mixture 影响。
+- SO detector 的 `75 uV` half-wave threshold 不能应用于 Hz、pA、mV/ms、dimensionless synaptic states 或内部 mV。数值代码即使返回事件，也没有维度意义。
+- 核心 cortical-rate/current candidates 的 observable spindle detector 在三组参数中均为 0 event；这只表示该 detector 在该 model-state signal 上未检出事件，不代表真实 scalp spindle 为零。`mean duration` 不能由零事件伪造为 0。
+- 单通道 PAC 的 filter/Hilbert/MI 可以数值运行，但 phase、amplitude 与 preferred phase 属于 measurement-dependent quantities；cortical-rate PAC、thalamic-amplitude PAC 和 Fpz-Cz single-channel PAC 不是同一个 observable。
+- 单通道 Fpz-Cz 不能直接观测 thalamic voltage、thalamic spindle onset、传播 latency 或 directional thalamocortical coupling。
+
+## Mapping options 与路线决策
+
+`mapping_option_decisions.csv` 比较 A--H：直接 rate、rate 标准化/线性缩放、EXC/INH 组合、internal voltage/current、LFP-like proxy、显式 EEG forward model、synthetic-only SBI、以及暂停 real-EEG inference。直接 rate、任意线性 `Hz -> uV`、未校准 E/I 组合均不具备 real-EEG inference 的科学可辩护性；internal current/voltage 可作为未来 source-model research candidates，但仍缺 scalp projection。
+
+正式推荐为 **Route 2：先实现并独立验证 measurement/forward model，再考虑 real-EEG SNPE**。Route 1 被拒绝，因为没有找到可信 EEG/LFP proxy。Route 3 仅可作为明确限定的 synthetic cortical-observable parameter recovery；真实 EEG 在此期间只能作为带 modality caveat 的 Route-4 external shape validation。
+
+当前 hard gate：
+
+```text
+shared EEG schema parity = NO-GO
+simulation bank authorized = false
+pilot SNPE authorized = false
+```
+
+进入下一次 parity 前必须冻结并验证：具有生物物理依据的 cortical source variable、source geometry/lead field、Fpz-Cz bipolar reference、physical gain/unit、独立于 inference target 的 calibration protocol、sensor/noise model，以及 SO/spindle/PAC 的 held-out validation。
+
+## 执行、验证与人工复核
+
+Notebook 在实际 `neurolib` 环境执行：
+
+```text
+Python executable = C:\Users\YUS190\AppData\Local\anaconda3\envs\neurolib\python.exe
+Python = 3.10.20
+kernel ID = python3
+display name = Python 3 (ipykernel)
+code cells = 10
+execution counts = 1..10
+error outputs = 0
+```
+
+`nbformat.validate()`、所有 code-cell static compile、4 个 simulation-free unit tests、8 个 CSV 与 JSON artifact reload、4 张 PNG 像素/尺寸检查、HTML export 和 protected notebook SHA-256 复核均通过。HTML 顶部、native-state traces、standardized PSD、z-scored autocorrelation 与 extractor-support 图已人工检查：公式、表格、单位、图例和坐标轴可读，无空白 panel、NaN 扩散或 traceback。`01`--`07` 的 notebook hashes 与本轮开始时一致。
+
+## neurolib 通用 lead-field 工具的补充核对
+
+本机 neurolib 源码另含 `neurolib/utils/leadfield.py`：它可调用 MNE/BEM 构建一般 EEG lead field，并将 sensor-by-dipole 矩阵下采样到 atlas regions。该工具没有在 `sleep_loop` 中被调用，也没有定义两节点 thalamocortical model 的哪个 state 是具有方向和位置的 cortical dipole source，更没有提供 Fpz-Cz bipolar reference、gain/unit 或 sensor-noise contract。因此它是 Route 2 可评估复用的几何基础设施，不是项目已有的 EEG proxy 或已完成的 forward model；本轮 Route 2 / NO-GO 结论不变。
+
+## 明天需要研究者决定的问题
+
+1. 项目的近期科学目标是 Route 2 的真实 EEG parameter inference，还是先做 Route 3 的 synthetic recovery？
+2. 若选择 Route 2，应把 reconstructed ALN mean voltage、transmembrane/synaptic-current proxy 或其他 neural-mass observable 中的哪一种作为 cortical source，并由哪类文献/实验校准支持？
+3. Fpz-Cz measurement contract 应采用何种 source geometry、lead field、bipolar reference、gain/unit 与 sensor-noise model？
+4. 哪套独立数据用于 measurement-model calibration 与 validation，避免使用 SC4001 inference target 造成 leakage？
+5. forward model 通过后，哪些 SO/spindle/PAC summaries 进入 inference，哪些继续保留为真正 held-out evidence？
+
+# 第二十五部分：2026-07-27 Forward-Model Feasibility 与 Route 2/3 正式决策
+
+## 本轮边界与新增交付
+
+本轮只审计当前单个 ALN cortical node 加单个 thalamic node 是否足以定义真实 `EEG Fpz-Cz` measurement contract；没有训练 SNPE、没有生成 simulation bank、没有再次运行 V7/V8/V8a，也没有执行任意 `Hz -> uV` 缩放。`01`--`08` notebooks、simulator 核心、真实 EEG extractor、filter、threshold、QC 和既有 artifacts 均未修改。
+
+新增：
+
+```text
+S4_sbi/src/sleep_sbi/forward_model_feasibility.py
+S4_sbi/tests/test_forward_model_feasibility.py
+S4_sbi/tests/build_forward_route_notebooks.py
+S4_sbi/tests/validate_forward_route_notebooks.py
+S4_sbi/notebooks/09_Forward_Model_Feasibility_and_Route_Decision.ipynb
+S4_sbi/notebooks/00_Observation_SBI_Reader_Guide.ipynb
+S4_sbi/results/forward_model_feasibility_route_decision/
+S4_sbi/results/observation_sbi_reader_guide/
+S4_sbi/results/overnight_observation_ablation/html/09_Forward_Model_Feasibility_and_Route_Decision.html
+S4_sbi/results/overnight_observation_ablation/html/00_Observation_SBI_Reader_Guide.html
+```
+
+## ALN states、内部中间量与 source candidates
+
+neurolib ALN 的 excitatory mass 真正积分保存 `I_mu`、`I_A`、两类 synaptic mean、两类 synaptic variance 和 `r_mean`；inhibitory mass 保存除 `I_A` 外的对应 states。当前项目网络历史上只要求记录 `r_mean_EXC` 与 `r_mean_INH`。`voltage_lookup(I_mu - I_A/C, I_sigma)` 由预计算的 `V_mean_ss` transfer-function table 提供 population mean voltage，并在 excitatory derivative 内用于 adaptation，但 voltage 本身不是保存的 state。
+
+因此 reconstructed population mean voltage 可以在未来通过完整重建 `I_sigma` 与 coupling inputs 后得到，且是当前代码中物理含义最清楚的 voltage-level research candidate；但 membrane voltage 仍不是 primary-current dipole moment，不能直接输入 EEG lead field。更接近 EEG forward physics 的 transmembrane/synaptic-current dipole proxy 当前并不存在：缺少可追踪的 dipole-moment 单位、population size/patch area、laminar geometry、方向和独立校准。
+
+`source_candidate_decisions.csv` 共比较 12 类候选：
+
+- `r_mean_EXC` / `r_mean_INH`：合法 model observable，只适合 Route 3；
+- 等权 E-I / E+I rate：权重没有科学校准，Route 2 排除；
+- `I_mu`、`I_A`、effective drive、individual synaptic states：内部机制或未来 source-derivation candidates，不是现成 dipole；
+- reconstructed population mean voltage：优先保留为 Route-2 source-model research candidate，但未获 forward approval；
+- transmembrane/synaptic-current dipole：最相关的目标定义，但当前完全缺失；
+- TCR/TRN voltage：thalamic internal mechanism state，不能直接进入 cortical surface lead field 或替代 scalp EEG。
+
+## 单 cortical source 与 Fpz-Cz 的 rank-1 限制
+
+若当前唯一 cortical node 被声明为一个 scalar source `q(t)`，线性 instantaneous lead field 给出：
+
+```text
+V_Fpz(t) = L_Fpz * q(t)
+V_Cz(t)  = L_Cz  * q(t)
+V_Fpz-Cz(t) = (L_Fpz - L_Cz) * q(t)
+```
+
+当 `L_Fpz != L_Cz` 时 bipolar signal 可以非零，因此不能简单称为数学上的零信号；但它的 temporal rank 仍为 1，只是相同 `q(t)` 的固定 gain/sign copy，不增加 distributed-source mixing 或 channel-specific dynamics。当前两节点模型没有 source coordinates、patch extent、cortical-normal orientation 或 dipole moment，因此连该固定 gain 也无法由模型本身确定。结论是：当前单 cortical node **不能仅凭现有 states 支持 spatially non-degenerate、measurement-valid 的 Fpz-Cz forward model**；Route 2 必须引入新的、外部约束的 source/spatial assumptions。
+
+Thalamic node 不应直接进入当前 scalp forward path。它是抽象深部结构，缺少深部 source geometry、orientation 和经过验证的 volume-conductor mapping；把 TCR/TRN voltage 或 spindle onset 直接投影到 Fpz-Cz 会把内部机制状态伪装为可观测 scalp source。
+
+## neurolib leadfield.py 能做什么、不能解决什么
+
+本机 `neurolib/utils/leadfield.py` 能复用的部分包括：MNE `Raw/Info` 与 montage、head-to-MRI transform、cortical surface source space、三层 EEG BEM/conductivity、`mne.make_forward_solution`、固定 surface-normal orientation，以及将 sensor-by-dipole matrix 下采样到 AAL2 cortical regions。
+
+它不能解决：
+
+- ALN 哪个 state 是 primary-current/dipole source；
+- 单 cortical node 对应哪个 cortical region、位置、面积与方向；
+- state 到 A m / nA m 等 dipole-moment unit 的转换；
+- Fpz 与 Cz 的独立 sensor potentials 及随后 `[1, -1]` bipolar reference；
+- physical gain、reference/sensor noise；
+- measurement-model calibration 和 held-out validation。
+
+因此通用 leadfield utility 是 Route 2 的几何基础设施，不是当前项目已有的 EEG forward model。
+
+## 严格 measurement contract gate
+
+`measurement_contract_components.csv` 将完整链条冻结为：
+
+```text
+theta
+-> neurolib dynamics
+-> declared cortical source
+-> deterministic source reconstruction
+-> source geometry/orientation
+-> head volume conductor
+-> lead field
+-> Fpz and Cz sensor potentials
+-> Fpz-Cz bipolar reference
+-> physical gain/unit
+-> sensor/reference noise
+-> 100 Hz resampling
+-> native 30-second epochs
+-> unchanged EEG feature extractor
+-> independent validation
+```
+
+当前只有 theta、dynamics、100 Hz resampling 和 30-second epoch policy 为 PASS；EEG extractor 已存在但被 sensor-voltage contract 阻塞；source、geometry、BEM instance、lead field、sensor potentials、gain/unit、noise 和 independent validation 均为 NO-GO。空 declaration 不会获得默认值，`apply_measurement_model()` 会明确拒绝并抛出 `MeasurementContractError`；即使 declaration 字段完整，在没有实际 validated implementation 时仍会抛出 `NotImplementedError`。本轮没有实现任意常数 forward model。
+
+source choice、source weights、coordinates/orientation、source-to-dipole gain 和 noise 参数若使用 SC4001 inference target 按匹配程度校准，会产生 measurement-target leakage。这些量必须由文献、解剖、独立 EEG/MEG/LFP 数据或预注册的外部 calibration protocol 冻结。lead field 可在 geometry 固定后确定性计算；Fpz-Cz reference 本身可固定为 `[1, -1]`，但前提是先有两个物理 sensor potentials。
+
+## Route 2 与 Route 3 推荐
+
+**Route 2** 在物理上并非永远不可实现，但不能从当前两节点 states 单独推出。它是一个新的 source/measurement research program，需要：source derivation、空间位置/方向/面积、BEM/lead field、dipole unit/gain、noise/reference model，以及独立于 SC4001 的 SO/sigma/spindle/PAC measurement validation。当前状态为：
+
+```text
+Route 2 real-EEG SBI = NO-GO_PENDING_EXTERNAL_SOURCE_AND_SPATIAL_ASSUMPTIONS
+```
+
+**Route 3** 将 SBI 严格限定于 declared cortical-observable space，可研究 synthetic theta recovery、calibration 和 identifiability；真实 EEG 只能作为带 modality caveat 的 external shape-level evidence。Route 3 不能声称真实 Fpz-Cz parameter inference、patient posterior 或内部机制正确。近期 conference 最稳妥的范围是：报告模型动力学、adapter 工程、shape-level external comparison 和明确的 measurement limitation；如需增加 inference 内容，优先考虑经过研究者批准并预注册的 Route-3 synthetic recovery。
+
+本 notebook 只推荐近期待讨论 Route 3，并未授权：
+
+```text
+simulation bank authorized = false
+pilot SNPE authorized = false
+```
+
+## Reader Guide
+
+`00_Observation_SBI_Reader_Guide.ipynb` 建立 02--09 的 90 分钟阅读路线并逐本列出 scientific question、input、output、当前结论、最值得看的 1--3 个 sections/figures 与不可声称内容。它明确记录：
+
+- `02` 的实际 baseline 为 14D，candidate augmented 为 23D；
+- `03`/`04` 的 schema/extractor parity 为 NO-GO；
+- `05` 没有训练，simulation count 与 seeds 均为 0；
+- `06` 没有 posterior recovery、coverage 或 PPC 结果；
+- `07` engineering adapter 成功但 semantic parity 失败；
+- `08` 仅证明 normalized shape screening 可执行；
+- `09` 证明当前单源模型仍缺 source/spatial measurement assumptions。
+
+## 执行与验证
+
+两个 notebooks 均在实际 `neurolib` 环境执行：
+
+```text
+Python executable = C:\Users\YUS190\AppData\Local\anaconda3\envs\neurolib\python.exe
+Python = 3.10.20
+kernel ID = python3
+display name = Python 3 (ipykernel)
+
+09: 7/7 code cells executed, execution counts 1..7, errors 0
+00: 8/8 code cells executed, execution counts 1..8, errors 0
+```
+
+`nbformat.validate()`、全部 code-cell static compile、8 项相关 unit tests、12 个 CSV reload、全部 JSON reload、4 张 PNG 像素/尺寸检查、2 个 HTML export 和视觉检查均通过。HTML 的中文、公式、表格、图例和坐标轴可读，无空白 panel、NaN 扩散或 traceback。新增输出目录不含 NPZ/NPY/PT/PKL/EDF、raw EEG、simulator arrays、simulation bank 或 posterior。`01`--`08` 的 SHA-256 与本轮开始时一致。
+
+## 研究者回来后必须决定的三个问题
+
+1. 近期目标选择 Route 3 synthetic cortical-observable recovery，还是投入 Route 2 source/forward-model research program？
+2. 若选择 Route 2，批准哪一种生物物理 source definition，以及使用哪些独立 calibration/validation 数据冻结 source geometry、dipole unit/gain 和 noise？
+3. 若选择 Route 3，在生成任何 bank 前冻结哪一个 cortical observable、prior、extractor、simulation budget、seed protocol 和 synthetic diagnostics？
+
+# 第二十六部分：2026-07-27 Route-3 Synthetic Recovery Preflight
+
+## 本轮授权边界与结论
+
+本轮只执行了研究者明确授权的 Route-3 synthetic cortical-observable preflight、三个中心的局部敏感性simulation，以及最多64点的prior-wide diagnostic simulations。没有训练SNPE/NPE，没有做真实EEG参数推断，没有执行任意`Hz -> uV`缩放，也没有把cortical firing rate或内部state称为simulated EEG。`00`--`09` notebooks、simulator核心机制、真实EEG extractor与科学threshold均未修改。
+
+本轮总体结论为：
+
+```text
+Route-3 local numerical preflight = PASS
+64-point prior-wide numerical diagnostic = PASS
+local full-rank evidence = PASS at V7, V8, V8a for both schemas
+global recoverability = NOT ESTABLISHED
+next staged diagnostic-bank expansion = CONDITIONAL GO
+SNPE/NPE training = NO-GO / NOT AUTHORIZED
+real-EEG inference = NO-GO
+```
+
+## 冻结的8参数contract
+
+精确顺序为：
+
+```text
+mue, mui, b, tauA, g_LK, g_h, c_th2ctx, c_ctx2th
+```
+
+prior采用当前V8a的独立uniform box，以容纳V7、V8和V8a三个中心：
+
+| 参数 | 下界 | 上界 | 单位 |
+|---|---:|---:|---|
+| `mue` | 3.31075 | 4.47925 | mV/ms |
+| `mui` | 2.57295 | 3.48105 | mV/ms |
+| `b` | 28.4 | 42.6 | pA |
+| `tauA` | 998.2 | 1853.8 | ms |
+| `g_LK` | 0.02 | 0.07 | mS/cm^2 |
+| `g_h` | 0.035 | 0.095 | mS/cm^2 |
+| `c_th2ctx` | 0.0 | 0.075 | dimensionless coupling |
+| `c_ctx2th` | 0.05 | 0.22 | dimensionless coupling |
+
+V7历史上的`c_th2ctx`上界为0.05；V8a将其扩到0.075。V7 fitted、V8 fitted和V8a local best三个实际中心均位于V8a prior内。模型积分步长为0.1 ms，recording sampling interval为1 ms（1000 Hz），总时长60 s，去除5 s warm-up，只分析之后第一个完整30 s窗口，余下25 s不进入summary。simulator固定seed为42；局部差分使用common random numbers。failed simulation保留theta、以NaN和false validity记录x并保存明确reason，绝不填0。
+
+旧5D/7D banks分别为`theta.shape=(5000,4), x.shape=(5000,5)`和`theta.shape=(4000,4), x.shape=(4000,7)`，只有4个参数，只作为历史证据，禁止改名、补列或复用为8参数训练bank。
+
+## 两套嵌套Route-3 schemas
+
+### A. `cortex_rate_only_14d`
+
+只使用`r_mean_EXC`与`r_mean_INH`，每个信号各7项：
+
+1. mean firing rate；
+2. firing-rate standard deviation；
+3. relative 0.5--1.5 Hz power；
+4. relative 11--15 Hz power；
+5. 0.5--1.5 Hz peak frequency；
+6. 11--15 Hz peak frequency；
+7. normalized spectral entropy over 0.5--20 Hz。
+
+Welch固定为Hann、4 s window、50% overlap、0.25 Hz resolution。所有字段是synthetic cortical-rate observables，不使用75 uV threshold、scalp channel semantics、真实EEG calibration或任意单位缩放。
+
+### B. `cortex_state_augmented_24d`
+
+前14项与rate-only逐值、逐顺序完全相同，再加入10项：
+
+```text
+I_mu_exc mean/std
+I_mu_inh mean/std
+I_A mean/std
+effective_drive mean/std
+syn_mu_exc_on_exc mean
+syn_mu_inh_on_exc mean
+```
+
+该schema明确是`privileged internal-state upper-bound experiment`。即使它提高synthetic recovery，也不能据此声称真实Fpz-Cz EEG可以恢复参数。
+
+保留在inference schema之外的synthetic held-out diagnostics包括：EXC/INH zero-lag correlation、rate waveform quantiles、其他synaptic-state variability以及thalamic spindle mechanism metrics。后者只属于mechanism diagnostic，不是cortical observable或scalp EEG。
+
+## 局部Jacobian结果
+
+每个中心对每个参数采用prior width的对称2%扰动，共执行：
+
+```text
+3 centers * (1 center + 8 parameters * 2 directions) = 51 simulations
+success = 51
+failed = 0
+NaN/Inf vectors = 0
+artifacted runtime = 250.90 s
+```
+
+标准化Jacobian使用固定unit-aware feature scale。effective-rank规则在查看结果前冻结为：
+
+```text
+relative singular value >= 1e-3 * largest singular value
+```
+
+| 中心 | schema | effective rank | condition number |
+|---|---|---:|---:|
+| V7 fitted | rate-only 14D | 8 | 26.85 |
+| V7 fitted | state-augmented 24D | 8 | 30.82 |
+| V8 fitted | rate-only 14D | 8 | 33.92 |
+| V8 fitted | state-augmented 24D | 8 | 13.02 |
+| V8a local best | rate-only 14D | 8 | 17.45 |
+| V8a local best | state-augmented 24D | 8 | 14.85 |
+
+两套schema在三个中心均达到local full rank 8。privileged states没有增加rank，因为rate-only已经是8；它在V8和V8a改善了condition number，但在V7略微变差，因此不能简单声称内部state普遍改善可辨识性。
+
+三个中心的最弱参数并不稳定：V7 rate-only最弱为`c_th2ctx`、`g_LK`和`mue`；V8 rate-only最弱为`b`、`mui`和`mue`；V8a rate-only最弱为`c_th2ctx`、`b`和`c_ctx2th`。`g_LK/g_h`在V8 rate-only的Jacobian-column cosine为0.985，在V8a为0.894，提示明显局部混淆；加入privileged states后仍分别为0.934和0.811。`c_th2ctx/c_ctx2th`在三个中心没有出现同等级的局部平行性，但部分参数的sensitivity direction在中心之间发生负cosine或反转。由此可见，局部full rank不等于跨prior全局injectivity。
+
+## 64点diagnostic micro-bank
+
+因为两套schema均满足固定order、fixed-length、local finite和明确failure policy，使用scrambled Sobol（seed 20260727）在完整V8a 8D prior内生成了：
+
+```text
+bank role = diagnostic_microbank_not_for_SNPE_training
+theta shape = (64, 8)
+rate-only x shape = (64, 14)
+state-augmented x shape = (64, 24)
+completed = 64
+success = 64
+failed = 0
+NaN/Inf rows = 0
+artifacted runtime = 316.45 s
+median runtime = approximately 4.9 s/simulation
+NPZ object arrays = none
+```
+
+每个simulation完成后立即原子checkpoint。24D前14列与14D矩阵严格相同。micro-bank中rate-only的主要高相关结构包括：EXC/INH SO peak frequency约0.996、EXC/INH relative SO power约0.981、EXC/INH spectral entropy约0.969。privileged schema还出现`r_inh_mean`与`I_mu_inh_mean`约0.999、`I_mu_exc_std`与`effective_drive_std`约0.988等强相关。高相关性是冗余风险筛查，不等于确定性重复，也没有在本轮自动删除feature。
+
+## 科学判断与下一步门槛
+
+`cortex_rate_only_14d`已提供三个中心的local full-rank证据和64点prior-wide numerical stability，因此允许下一轮按阶段扩大纯诊断bank，并设计held-out theta synthetic recovery。它仍不足以支持正式SNPE训练，原因包括：
+
+1. 仅使用一个固定simulator seed，尚未验证stochastic-seed robustness；
+2. sensitivity direction跨中心不一致，存在nonlinearity与全局collision风险；
+3. 0.25 Hz离散peak-frequency summary可能产生量化不连续；
+4. 64点不足以建立global injectivity、coverage或calibration；
+5. scaling、train/validation/test split、failed-run policy、simulation budget和multi-seed protocol尚未正式冻结；
+6. privileged internal-state结果不能外推到真实EEG。
+
+因此推荐：
+
+```text
+next action:
+  staged diagnostic bank expansion + multi-seed robustness
+  + explicit global collision search
+  + held-out synthetic theta recovery protocol
+
+do not start:
+  SNPE/NPE training
+  real EEG inference
+  posterior claims
+```
+
+## 新增交付与验证
+
+新增：
+
+```text
+S4_sbi/src/sleep_sbi/route3_synthetic_preflight.py
+S4_sbi/tests/test_route3_synthetic_preflight.py
+S4_sbi/scripts/build_route3_preflight_notebook.py
+S4_sbi/notebooks/10_Route3_Synthetic_Recovery_Preflight.ipynb
+S4_sbi/results/route3_synthetic_preflight/
+```
+
+主要artifacts：
+
+```text
+route3_parameter_contract.json
+route3_feature_dictionary.csv
+route3_held_out_diagnostics.csv
+local_sensitivity/checkpoints/*.json
+local_sensitivity/jacobian.csv
+local_sensitivity/rank.csv
+local_sensitivity/sensitivity.csv
+local_sensitivity/confounding.csv
+local_sensitivity/direction_consistency.csv
+diagnostic_microbank/diagnostic_microbank_64.npz
+diagnostic_microbank/diagnostic_microbank_status.csv
+diagnostic_microbank/*spearman.csv
+validation_report.json
+environment_report.json
+html/10_Route3_Synthetic_Recovery_Preflight.html
+```
+
+执行证据：
+
+```text
+conda environment = neurolib
+sys.executable = C:\Users\YUS190\AppData\Local\anaconda3\envs\neurolib\python.exe
+sys.prefix = C:\Users\YUS190\AppData\Local\anaconda3\envs\neurolib
+Python = 3.10.20
+kernel ID = neurolib
+display name = Python (neurolib)
+Notebook code cells = 15/15 executed
+Notebook error outputs = 0
+unit tests = 3 passed
+```
+
+`nbformat.validate()`、全部code-cell静态compile、JSON/CSV/NPZ reload、feature order、shape、finite mask、schema version和no-object-array检查均通过。HTML完整导出并以Chrome headless检查全文：公式、表格、Jacobian、singular-value、sensitivity、Sobol coverage、runtime和redundancy图均正常，无空白panel、NaN扩散或traceback。本轮实际执行115个有artifact的simulation，加上1个独立端到端smoke run，共116次；Notebook后续Run All只复用经过contract-hash验证的checkpoint。
+
+# 第二十七部分：2026-07-27 Route-3 Pilot SNPE、Held-out Recovery与正式NO-GO决策
+
+## 授权范围与不可越过的科学边界
+
+本轮完成研究者授权的Route-3 multi-seed/global robustness、2048点bank、三个独立NPE、等权ensemble、128-case held-out recovery、coverage、SBC与synthetic PPC。没有使用真实SC4001 EEG选择、校准或缩放inference features，没有执行`Hz -> uV`映射，没有把cortical firing rate称为simulated EEG，没有运行sequential rounds，也没有修改`00`--`10` notebooks。
+
+所有结论只涉及：
+
+```text
+8 parameters
+-> neurolib thalamocortical dynamics
+-> cortical EXC/INH population firing rates
+-> frozen cortex-rate-only 14D summaries
+-> exploratory synthetic posterior
+```
+
+它不解决cortical source到Fpz-Cz的measurement-model blocker，也不允许真实EEG-SNPE。
+
+## Notebook 11：Multi-seed与Global Robustness
+
+实际执行：
+
+```text
+prior-wide: 128 theta x 3 seeds = 384
+local multi-scale: 3 centers x 3 seeds x 49 runs = 441
+total = 825
+failed = 0
+non-finite = 0
+simulation runtime sum = 4860.31 s
+wall time = 831.2 s
+```
+
+same-theta/same-seed重复逐值完全一致；不同seed改变12/14 summaries，证明新wrapper真实控制了ALN EXC、ALN INH、TCR、TRN stochastic input seeds和numba RNG。
+
+1%、2%、5%三种扰动尺度下，V7/V8/V8a三个中心与三个seed的27个Jacobian全部effective rank 8。condition number范围18.85--80.93；1%尺度最不稳定，median condition约44.43。该结果只支持local full-rank，不支持global injectivity。
+
+seed/global警告：
+
+- all-three-seed nearest-neighbor agreement仅28.9%；
+- pairwise nearest-neighbor agreement为39.1%--46.9%；
+- EXC/INH sigma peak frequency SNR仅1.53/3.14；
+- SO peak每个seed只有5个离散值，sigma peak只有12--13个；
+- 多个参数的Jacobian方向随seed、center或scale反转；
+- 128点audit检测到1469个collision和3670个near collision。
+
+工程gate通过，因此依授权继续exploratory pilot，但global identifiability没有成立。
+
+## Notebook 12：2048点Simulation Bank
+
+```text
+attempted = 2048
+valid = 2048
+failed = 0
+training = 1638
+validation = 410
+unique simulator seeds = 2048
+simulation runtime sum = 11446.81 s
+wall time = 1936.4 s
+```
+
+bank使用独立scrambled Sobol sequence和逐sample seed schedule。每个simulation均有原子NPZ checkpoint；split固定后，14D median/IQR scaling只用1638个training rows拟合。
+
+高分辨率collision audit：
+
+```text
+all pairs = 2,096,128
+far-theta pairs = 1,999,861
+inside seed-noise floor = 327,248
+within two noise floors = 939,831
+collision fraction among far pairs = 16.36%
+```
+
+这构成严重global-identifiability warning，但不违反预注册的training工程gate。
+
+## Notebook 13：三个Exploratory NPE与等权Ensemble
+
+三个single-round MAF均使用相同bank、split、architecture、batch policy和early-stopping规则，只改变初始化/training seed：
+
+| Seed | Best epoch | Best validation loss | 初次训练runtime |
+|---:|---:|---:|---:|
+| 1301 | 294 | -8.4982 | 48.02 s |
+| 1302 | 267 | -8.5618 | 46.75 s |
+| 1303 | 295 | -8.2378 | 47.02 s |
+
+初次ensemble training总wall time约144.02 s，设备为CPU。工程screening中的posterior samples均finite并位于prior support。ensemble严格使用三成员等数量采样，不学习held-out-dependent权重。
+
+GO criteria在独立held-out theta生成前冻结：
+
+```text
+frozen_utc = 2026-07-27T20:58:09.411016+00:00
+version = route3-heldout-go-criteria-v1
+immutable_after_heldout_open = true
+```
+
+## Notebook 14：128-case Held-out Recovery
+
+```text
+held-out cases = 128
+training-theta exact duplicates = 0
+held-out failures = 0
+posterior samples per case = 4096
+posterior tensor = (128, 4096, 8)
+finite/in-prior = 100%
+```
+
+参数恢复：
+
+| 参数 | Posterior median MAE | Prior median MAE | 改善 | rank correlation | Median 90% width |
+|---|---:|---:|---:|---:|---:|
+| mue | 0.1545 | 0.2500 | 38.2% | 0.754 | 0.516 |
+| mui | 0.0050 | 0.2500 | 98.0% | 0.999 | 0.021 |
+| b | 0.0952 | 0.2500 | 61.9% | 0.894 | 0.389 |
+| tauA | 0.1912 | 0.2500 | 23.5% | 0.550 | 0.651 |
+| g_LK | 0.1579 | 0.2500 | 36.9% | 0.682 | 0.504 |
+| g_h | 0.1338 | 0.2500 | 46.5% | 0.793 | 0.457 |
+| c_th2ctx | 0.1505 | 0.2500 | 39.8% | 0.741 | 0.501 |
+| c_ctx2th | 0.2515 | 0.2500 | -0.6% | -0.039 | 0.780 |
+
+7/8参数优于prior-median baseline；`c_ctx2th`完全没有恢复。
+
+ensemble empirical coverage：
+
+| 参数 | 50% | 80% | 90% |
+|---|---:|---:|---:|
+| mue | 0.383 | 0.703 | 0.820 |
+| mui | 0.742 | 0.914 | 0.961 |
+| b | 0.531 | 0.781 | 0.898 |
+| tauA | 0.391 | 0.664 | 0.820 |
+| g_LK | 0.383 | 0.703 | 0.828 |
+| g_h | 0.414 | 0.727 | 0.852 |
+| c_th2ctx | 0.375 | 0.719 | 0.805 |
+| c_ctx2th | 0.352 | 0.633 | 0.773 |
+
+仅`b`的80%与90% Wilson intervals同时包含nominal coverage。`c_ctx2th`在80% level满足预冻结的severe-undercoverage定义。ensemble SBC的10-bin descriptive warnings包括`mui`、`tauA`与`c_ctx2th`；没有使用单个p-value决定GO。
+
+ensemble disagreement gate通过：
+
+```text
+mean member-median range = 0.051 prior width
+largest parameter-level mean range = 0.072 prior width
+```
+
+`g_LK/g_h`在不同case中呈可变ridge，median posterior Spearman rho约0.154，最大约0.618；两者均改善恢复但coverage多数低于nominal。双向coupling posterior平均相关接近0不代表两个方向均可辨识：`c_th2ctx`部分可恢复但undercovered，`c_ctx2th`不可恢复且严重undercovered。
+
+## Synthetic PPC
+
+固定随机选择32个held-out cases，每个case使用16个posterior theta和16个prior theta，全部用新的simulator seeds：
+
+```text
+posterior predictive simulations = 512, failed = 0
+prior predictive simulations = 512, failed = 0
+features better than prior = 14/14
+posterior scaled error = 0.0964
+prior scaled error = 0.6433
+overall improvement = 85.0%
+```
+
+强PPC不能覆盖calibration失败，因为global theta collisions仍可产生相似14D summaries。
+
+## 预冻结规则下的正式决定
+
+```text
+FINAL DECISION = NO-GO
+```
+
+通过的标准：
+
+- training与held-out failure gates；
+- posterior finite/prior-support gate；
+- 7/8 recovery优于prior baseline；
+- overall recovery改善43.0%；
+- 14/14 PPC features改善；
+- overall PPC改善85.0%；
+- ensemble disagreement gate。
+
+失败的标准：
+
+- 只有1/8参数同时满足80%与90% nominal coverage compatibility；
+- 1个参数出现severe undercoverage；
+- 只有1/8参数同时满足contraction与coverage要求；
+- `c_ctx2th`不优于prior；
+- global collisions占far pairs约16.36%。
+
+因此不能声称全部8参数在Route-3 synthetic cortical-rate空间中validated。
+
+## 下一步建议
+
+不自动生成4K/8K bank，不启动真实EEG inference。优先开展新的、重新预注册并使用全新held-out set的synthetic实验：
+
+1. 固定`c_ctx2th`，测试7参数contract；
+2. 或为双向coupling引入有科学依据的reparameterization/constraint；
+3. 独立审计calibration-aware training与density-estimator capacity；
+4. 若修改量化peak-frequency features，必须建立新schema版本，不得在当前held-out结果上调参；
+5. Route 2 measurement model仍是任何Fpz-Cz inference的独立前置条件。
+
+## 交付与验证
+
+新增Notebook：
+
+```text
+11_Route3_Global_Robustness.ipynb
+12_Route3_2048_Simulation_Bank.ipynb
+13_Route3_Exploratory_SNPE_Ensemble.ipynb
+14_Route3_Heldout_Recovery_and_Coverage.ipynb
+```
+
+新增模块：
+
+```text
+route3_global_robustness.py
+route3_pilot_snpe.py
+route3_heldout_validation.py
+```
+
+完整handoff位于：
+
+```text
+docs/route3_pilot_snpe_handoff.md
+```
+
+验证结果：
+
+```text
+Notebook code cells executed = 35/35
+Notebook error outputs = 0
+unit tests = 7 passed
+JSON reload = 17
+CSV reload = 22
+NPZ reload without pickle = 4161
+PyTorch checkpoints reload = 6
+unexpected object arrays = 0
+HTML exports = 4
+visual checks = passed
+```
+
+本轮未commit、未push，也未修改`00`--`10` notebooks。
+
+## 二十八、Route-3 七参数独立正式验证（2026-07-28）
+
+本轮按照预注册规则固定 `c_ctx2th = 0.1253491302153237`，只推断：
+
+```text
+mue, mui, b, tauA, g_LK, g_h, c_th2ctx
+```
+
+固定值来自 Notebook 10 明确运行的 canonical `V8a local best`：
+
+```text
+source = outputs/v8a_ultra_narrow_t6_t13_search/best_so_far.json
+source SHA-256 = BF18212EBAC0EBEC39D4F13AECD5B7A9DA5618FFE78ABB5F8694A67F569AF76A
+```
+
+预注册与 held-out criteria 在新科学模拟和 held-out 结果前分别锁定：
+
+```text
+preregistration SHA-256 = 2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363
+held-out criteria SHA-256 = 49a4f9590466a6d9ba83f83ee5b6783e268ba996f8e8fc7328e261fb0405edee
+```
+
+14D cortex-rate-only schema、旧 8D prior 的七个 marginal ranges、simulator duration/warm-up/sampling、feature order 和 validity policy 均未改变。新旧 simulator seeds 无交集；新 train/held-out 与旧 8D train/held-out 的完整 8D 和自由 7D exact duplicates 均为 0。
+
+### Notebook 15：7D robustness
+
+```text
+prior-wide = 384
+local multi-scale = 387
+total simulations = 771
+valid = 771
+failed = 0
+sum simulator runtime = 4372.91 s
+```
+
+1%、2%、5% 下 27 个 Jacobian 全部 rank 7，工程 hard gate 通过。但三 seed nearest-neighbor 全一致率仅 25.8%；128 点 audit 有 2,106 collisions 和 3,869 near collisions；sigma peak SNR 仅 1.66/2.31，SO/sigma peak 仍有明显频率格点量化。
+
+### Notebook 16：4,096 点独立 bank
+
+```text
+scheduled/valid/failed = 4096 / 4096 / 0
+train/validation = 3276 / 820
+sum simulator runtime = 22935.91 s
+collision fraction among far pairs = 27.83%
+```
+
+Scaling 只用 training split 拟合。高 collision fraction 是严重 global-identifiability warning。
+
+### Notebook 17：三成员 NPE
+
+| Seed | Best epoch | Best validation loss | Runtime |
+|---:|---:|---:|---:|
+| 7330001 | 290 | -10.1513 | 94.44 s |
+| 7330002 | 287 | -10.2580 | 90.62 s |
+| 7330003 | 299 | -9.7485 | 88.51 s |
+
+三个模型均为 single-round MAF，使用相同 bank/split/policy、不同初始化 seed 和等权 mixture。Validation-only finite/in-prior rate 均为 100%。
+
+### Notebook 18：256-case held-out
+
+```text
+held-out valid/failed = 256 / 0
+posterior tensor = (256, 4096, 7)
+posterior finite/in-prior = 100%
+```
+
+| 参数 | Prior MAE | Posterior MAE | 改善 | Rank correlation | 80% coverage | 90% coverage |
+|---|---:|---:|---:|---:|---:|---:|
+| mue | 0.2500 | 0.1467 | 41.3% | 0.774 | 0.672 | 0.812 |
+| mui | 0.2500 | 0.0049 | 98.0% | 0.999 | 0.902 | 0.973 |
+| b | 0.2500 | 0.0879 | 64.8% | 0.908 | 0.746 | 0.871 |
+| tauA | 0.2500 | 0.1863 | 25.5% | 0.593 | 0.676 | 0.824 |
+| g_LK | 0.2500 | 0.1512 | 39.5% | 0.693 | 0.703 | 0.820 |
+| g_h | 0.2500 | 0.1256 | 49.8% | 0.822 | 0.727 | 0.836 |
+| c_th2ctx | 0.2500 | 0.1453 | 41.9% | 0.768 | 0.691 | 0.832 |
+
+7/7 点估计优于 prior median，整体 MAE 改善 51.6%。但 0/7 参数同时满足 80% 和 90% Wilson coverage compatibility，contraction-with-coverage 同样为 0/7。所有 ensemble SBC 10-bin descriptive p-values 均小于 0.05；该结果只与 coverage、bias 和 contraction 联合解释。
+
+64-case PPC 使用 32 个固定随机和 32 个互斥的 worst-recovery cases：
+
+```text
+posterior predictive = 1024, failed = 0
+prior predictive = 1024, failed = 0
+features better than prior = 14/14
+overall PPC improvement = 83.3%
+```
+
+### 正式裁决
+
+```text
+FINAL DECISION = NO-GO
+```
+
+失败原因不是工程故障，而是 uncertainty calibration：
+
+- coverage-compatible parameters 为 0/7，预注册要求至少 6/7；
+- contraction-with-reasonable-coverage 为 0/7，预注册要求至少 6/7；
+- 4,096 bank 的 far-theta collision fraction 为 27.83%；
+- SBC 对全部参数给出分布不一致警告。
+
+因此不能声称七参数在 synthetic cortical-rate observable space 中已正式 validated。强 recovery 和 PPC 不能覆盖 calibration 失败。
+
+新增：
+
+```text
+15_Route3_7D_Preregistration_and_Robustness.ipynb
+16_Route3_7D_4096_Simulation_Bank.ipynb
+17_Route3_7D_SNPE_Ensemble.ipynb
+18_Route3_7D_Heldout_Recovery_Coverage_PPC.ipynb
+route3_7d_experiment.py
+route3_7d_training.py
+route3_7d_validation.py
+docs/route3_7d_formal_validation_handoff.md
+```
+
+验证：
+
+```text
+Notebook code cells executed = 19/19
+Notebook errors = 0
+tests = 8 passed
+JSON/CSV/NPZ/PT reload = passed
+unexpected object arrays = 0
+HTML exports = 4
+visual checks = passed
+```
+
+真实 EEG inference 继续 NO-GO，直到存在经过独立验证的 cortical-source 到 Fpz-Cz measurement/forward model。本轮未 commit、未 push，也未修改 Notebook 00–14。
+
+## 二十九、Route-3 七参数 coverage rescue 与全新独立终检（2026-07-28）
+
+本轮在不修改 Notebook 15–18、不放宽任何原判决门槛的前提下，完成了 coverage failure 诊断、救援预注册、额外 stochastic training bank、两套五成员 NPE ensemble、development-only calibration，以及一次性打开的 1,024-case 全新终检。
+
+### 失败诊断与救援预注册
+
+对原 Notebook 18 的 256-case posterior 进行了独立复算。训练/验证 split 无泄漏，feature scaler 与只使用 training rows 重算的 median/IQR 完全一致，参数归一化与 prior support 正确，三个网络按 `1366/1365/1365` 等数混合，4096 posterior samples 的前后两半 coverage 结果稳定。没有发现 parameter transform、inverse transform、credible interval、ensemble pooling、NaN、clipping 或 Monte Carlo sample-count bug。
+
+原 undercoverage 在 prior 边界样本最严重，并在每个单网络中同时出现，因此定位为真实 calibration failure，而不是展示或实现错误。
+
+在任何新科学 simulation 前冻结：
+
+```text
+rescue preregistration SHA-256 =
+01e0b0cb2277340872d95fef5fb5f2c0dd15bdf7104d363bd67fb41f1acd4a02
+```
+
+七参数、prior bounds、固定 `c_ctx2th`、14D cortex-rate-only schema、simulator contract、coverage/SBC/PPC 定义和原 numerical GO logic 均未改变。新增 training、development 和 final 的 Sobol sequences、simulator seeds 与旧实验及彼此的 exact intersection 均为 0。
+
+### 新 training bank 与 NPE rescue
+
+新增 2,048 个 theta，每个 theta 使用两个独立 simulator seeds：
+
+```text
+additional rows = 4096
+valid / failed = 4096 / 0
+sum simulator runtime = 26825.54 s
+median simulator runtime = 5.94 s
+```
+
+与原 4,096 rows 合并后：
+
+```text
+combined rows = 8192
+unique theta groups = 6144
+train / validation rows = 6583 / 1609
+train / validation theta groups = 4915 / 1229
+same-theta cross-split leakage = false
+scaling fit on training only = true
+```
+
+按预注册的有限候选集训练：
+
+```text
+maf64_t5:  5 independent initializations
+maf128_t8: 5 independent initializations
+single-round prior proposal; no sequential SNPE
+```
+
+全部 10 个模型训练成功。`maf64_t5` best epochs 为 284–298，单模型 runtime 168.5–174.0 s；`maf128_t8` best epochs 为 176–212，单模型 runtime 252.3–303.8 s。所有 ensemble 均为透明的等权、等数 mixture。
+
+独立 development set 为 512/512 valid、0 failure。两套 raw ensemble 在 development 上都只有 1/7 参数同时满足 80%/90% coverage compatibility。预注册的单一 whole-pipeline marginal empirical-rank calibrator 在 development 上达到 7/7，但原 preregistration 没有授权 calibration，因此该方法从一开始就不具备 Formal GO 资格。冻结 primary 为：
+
+```text
+architecture = maf128_t8
+method = empirical_rank_calibrated
+primary pipeline SHA-256 =
+6c46a981b81112005fe09f1be4436426d88b48bf96a93643ec0272ce1d1c75b8
+```
+
+### 1,024-case 全新独立终检
+
+终检在 primary pipeline 和 calibrator 冻结后只打开一次：
+
+```text
+fresh final scheduled / valid / failed = 1024 / 1024 / 0
+posterior samples per case = 4096
+posterior finite and inside prior = 100%
+```
+
+未校准 raw ensemble 在终检上仍为 0/7 coverage-compatible parameters，整体 point-recovery improvement 为 53.3%。冻结 calibrated primary 的结果为：
+
+| 参数 | Prior MAE | Posterior MAE | 改善 | Rank correlation | 80% coverage | 90% coverage | 两级均兼容 |
+|---|---:|---:|---:|---:|---:|---:|---|
+| mue | 0.2500 | 0.1452 | 41.9% | 0.777 | 0.772 | 0.888 | 否 |
+| mui | 0.2500 | 0.0034 | 98.6% | 1.000 | 0.824 | 0.914 | 是 |
+| b | 0.2500 | 0.0792 | 68.3% | 0.927 | 0.789 | 0.870 | 否 |
+| tauA | 0.2500 | 0.1836 | 26.5% | 0.601 | 0.812 | 0.898 | 是 |
+| g_LK | 0.2500 | 0.1430 | 42.8% | 0.717 | 0.807 | 0.900 | 是 |
+| g_h | 0.2500 | 0.1214 | 51.4% | 0.814 | 0.831 | 0.900 | 否 |
+| c_th2ctx | 0.2500 | 0.1401 | 44.0% | 0.764 | 0.801 | 0.902 | 是 |
+
+calibrated primary 的 4/7 参数同时满足 80% 和 90% Wilson compatibility，且 4/7 同时满足 coverage 加 contraction；原 Formal GO 要求至少 6/7。`mue` 的 80%、`b` 的 90% 和 `g_h` 的 80% compatibility 失败。SBC 仍对 `mui`、`g_LK` 和 `g_h` 给出显著非均匀警告，需与 coverage、bias 和 contraction 联合解释。
+
+64-case synthetic PPC 仍使用 32 个固定随机和 32 个预定义 worst-recovery cases：
+
+```text
+posterior predictive = 1024, failed = 0
+prior predictive = 1024, failed = 0
+features better than prior = 14/14
+overall PPC improvement = 87.7%
+ensemble disagreement mean = 0.0474 prior width
+ensemble disagreement parameter maximum = 0.0664 prior width
+```
+
+### 唯一最终裁决
+
+```text
+FINAL DECISION = NO-GO
+```
+
+冻结 primary 虽然整体 recovery 改善 53.4%、PPC 改善 87.7%、7/7 点估计优于 prior median，且没有 severe undercoverage、simulation failure 或 ensemble instability，但只有 4/7 参数通过原始 coverage gate，也只有 4/7 通过 coverage-plus-contraction gate。因此同时未达到 Formal GO 和 Conditional GO，不能用 point recovery 或 PPC 覆盖 uncertainty calibration 的失败。
+
+这说明当前结果仍不能声称七参数在 synthetic cortical-rate observable space 中已正式 validated。真实 EEG inference 继续 NO-GO；本轮没有解决 cortical-source 到 Fpz-Cz measurement/forward model blocker。
+
+### 新增文件与验证
+
+```text
+S4_sbi/notebooks/19_Route3_7D_Coverage_Failure_Diagnosis.ipynb
+S4_sbi/notebooks/20_Route3_7D_Rescue_Preregistration.ipynb
+S4_sbi/notebooks/21_Route3_7D_Rescue_Training.ipynb
+S4_sbi/notebooks/22_Route3_7D_Fresh_Heldout_Validation.ipynb
+S4_sbi/notebooks/23_Route3_7D_Rescue_Handoff.ipynb
+S4_sbi/src/sleep_sbi/route3_7d_rescue.py
+S4_sbi/src/sleep_sbi/route3_7d_rescue_training.py
+S4_sbi/src/sleep_sbi/route3_7d_rescue_validation.py
+S4_sbi/src/sleep_sbi/route3_7d_rescue_reporting.py
+S4_sbi/scripts/run_route3_7d_rescue.py
+S4_sbi/scripts/orchestrate_route3_7d_rescue.py
+S4_sbi/scripts/build_route3_7d_rescue_notebooks.py
+S4_sbi/tests/test_route3_7d_rescue.py
+S4_sbi/configs/route3_7d_rescue_preregistered_v1.json
+S4_sbi/artifacts/route3_7d_rescue_preregistered_v1.locked.json
+ROUTE3_7D_RESCUE_FINAL_DECISION.md
+ROUTE3_7D_RESCUE_FINAL_DECISION.json
+```
+
+验证结果：
+
+```text
+Notebook code cells executed = 23/23
+Notebook error outputs = 0
+kernel ID / display name = neurolib / neurolib
+sys.executable = C:\Users\YUS190\AppData\Local\anaconda3\envs\neurolib\python.exe
+tests = 8 passed
+JSON / CSV / NPZ / PT reload = 30 / 40 / 9739 / 20
+unexpected object arrays = 0
+HTML exports = 5
+visual checks = passed
+Notebook 15–18 SHA-256 unchanged = true
+```
+
+完整人类可读报告位于 `ROUTE3_7D_RESCUE_FINAL_DECISION.md`，机器可读裁决位于 `ROUTE3_7D_RESCUE_FINAL_DECISION.json`。本轮未 commit、未 push，也未修改 Notebook 15–18。

@@ -1,0 +1,347 @@
+{
+  "created_utc": "2026-07-31T11:38:50.468787+00:00",
+  "verdicts": {
+    "8d_figure10": "8D FIGURE-10-EQUIVALENT FAIL",
+    "7d_figure10": "7D FIGURE-10-EQUIVALENT FAIL",
+    "original_route3_strict": "NO-GO"
+  },
+  "training": {
+    "8d_valid": 32768,
+    "7d_valid": 32768,
+    "members_each": 5,
+    "scale": 32768
+  },
+  "diagnostics": {
+    "official_expected_coverage_cases": 300,
+    "powered_cases": 1024,
+    "posterior_samples_per_case": 1000,
+    "lc2st_cases_per_track": 20000,
+    "8d": {
+      "track": "8d",
+      "verdict": "8D FIGURE-10-EQUIVALENT FAIL",
+      "pass_checks": {
+        "technical_gate": true,
+        "joint_coverage": false,
+        "sbc": false,
+        "lc2st": false,
+        "ppc_features": true,
+        "ppc_overall": true
+      },
+      "qualified_checks": {
+        "technical_gate": true,
+        "joint_coverage": false,
+        "sbc": false,
+        "lc2st": false,
+        "ppc_features": true,
+        "ppc_overall": true
+      },
+      "global": {
+        "dataset_id": "powered_1024",
+        "track": "8d",
+        "scale": 32768,
+        "cases": 1024,
+        "posterior_samples_per_case": 1000,
+        "ensemble_joint_ks_statistic": 0.2250122923951049,
+        "ensemble_joint_ks_pvalue": 4.914556785984683e-46,
+        "ensemble_clear_sbc_issue_count": 3,
+        "ensemble_recovery_improvement_fraction": 0.43047458463325416,
+        "ensemble_median_normalized_posterior_sd": 0.6357103659982847,
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      },
+      "lc2st": {
+        "track": "8d",
+        "ensemble_p_value": 0.0,
+        "ensemble_reject": true,
+        "individual_rejections": 5,
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      },
+      "ppc": {
+        "created_utc": "2026-07-31T11:29:29.106128+00:00",
+        "track": "8d",
+        "posterior_attempted": 256,
+        "posterior_failed": 0,
+        "prior_attempted": 256,
+        "prior_failed": 0,
+        "features_posterior_better": 14,
+        "overall_posterior_scaled_error": 0.33076121341831033,
+        "overall_prior_scaled_error": 0.8279167118619389,
+        "overall_improvement_fraction": 0.6004897489332632,
+        "member_counts": [
+          54,
+          46,
+          55,
+          51,
+          50
+        ],
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      },
+      "resource_scale_caveat": "32768 simulations per track, not official 3,000,000",
+      "scope": "synthetic cortical-rate inference only",
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    },
+    "7d": {
+      "track": "7d",
+      "verdict": "7D FIGURE-10-EQUIVALENT FAIL",
+      "pass_checks": {
+        "technical_gate": true,
+        "joint_coverage": false,
+        "sbc": false,
+        "lc2st": false,
+        "ppc_features": true,
+        "ppc_overall": true
+      },
+      "qualified_checks": {
+        "technical_gate": true,
+        "joint_coverage": false,
+        "sbc": false,
+        "lc2st": false,
+        "ppc_features": true,
+        "ppc_overall": true
+      },
+      "global": {
+        "dataset_id": "powered_1024",
+        "track": "7d",
+        "scale": 32768,
+        "cases": 1024,
+        "posterior_samples_per_case": 1000,
+        "ensemble_joint_ks_statistic": 0.2117784559190809,
+        "ensemble_joint_ks_pvalue": 8.893435253963037e-41,
+        "ensemble_clear_sbc_issue_count": 3,
+        "ensemble_recovery_improvement_fraction": 0.5028495513375205,
+        "ensemble_median_normalized_posterior_sd": 0.5681560922686553,
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      },
+      "lc2st": {
+        "track": "7d",
+        "ensemble_p_value": 0.0,
+        "ensemble_reject": true,
+        "individual_rejections": 5,
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      },
+      "ppc": {
+        "created_utc": "2026-07-31T11:36:16.669922+00:00",
+        "track": "7d",
+        "posterior_attempted": 256,
+        "posterior_failed": 0,
+        "prior_attempted": 256,
+        "prior_failed": 0,
+        "features_posterior_better": 14,
+        "overall_posterior_scaled_error": 0.3563534524371964,
+        "overall_prior_scaled_error": 0.8751698040226776,
+        "overall_improvement_fraction": 0.5928179299614381,
+        "member_counts": [
+          51,
+          54,
+          38,
+          57,
+          56
+        ],
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      },
+      "resource_scale_caveat": "32768 simulations per track, not official 3,000,000",
+      "scope": "synthetic cortical-rate inference only",
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    }
+  },
+  "posterior_structure": {
+    "8d": {
+      "track": "8d",
+      "samples": 50000,
+      "median_posterior_sd_over_prior_sd": 0.6595531769290588,
+      "least_contracted_parameter": "c_ctx2th",
+      "least_contracted_ratio": 1.0061944628383617,
+      "most_contracted_parameter": "mui",
+      "most_contracted_ratio": 0.14202803011923698,
+      "strongest_pair": {
+        "parameter_a": "mue",
+        "parameter_b": "tauA",
+        "correlation": 0.8463713264952046,
+        "absolute_correlation": 0.8463713264952046
+      },
+      "c_th2ctx_c_ctx2th_correlation": 0.03091028262936646,
+      "g_LK_g_h_correlation": -0.02983042388260712,
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    },
+    "7d": {
+      "track": "7d",
+      "samples": 50000,
+      "median_posterior_sd_over_prior_sd": 0.6245432999231879,
+      "least_contracted_parameter": "tauA",
+      "least_contracted_ratio": 0.8778514553902118,
+      "most_contracted_parameter": "mui",
+      "most_contracted_ratio": 0.12096409450555029,
+      "strongest_pair": {
+        "parameter_a": "mue",
+        "parameter_b": "tauA",
+        "correlation": 0.8497790199278693,
+        "absolute_correlation": 0.8497790199278693
+      },
+      "c_th2ctx_c_ctx2th_correlation": null,
+      "g_LK_g_h_correlation": -0.07856980710156863,
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    }
+  },
+  "comparison": [
+    {
+      "method": "Historical raw SNPE",
+      "dimension": "7D/8D stored",
+      "training_simulations": "stored pilot",
+      "density_estimator": "historical MAF",
+      "ensemble": "3 stored",
+      "recovery": 0.43021766671270467,
+      "joint_coverage": "not Figure-10 joint diagnostic",
+      "sbc": "historical marginal coverage",
+      "lc2st": "not run",
+      "ppc": 0.8501778966063311,
+      "contraction": "strict gate failed",
+      "verdict": "NO-GO"
+    },
+    {
+      "method": "Historical rank-calibrated rescue",
+      "dimension": "7D",
+      "training_simulations": "8192 rows",
+      "density_estimator": "MAF",
+      "ensemble": "5",
+      "recovery": null,
+      "joint_coverage": "not Figure-10 joint diagnostic",
+      "sbc": null,
+      "lc2st": "not run",
+      "ppc": null,
+      "contraction": null,
+      "verdict": "NO-GO"
+    },
+    {
+      "method": "New large-scale raw 8D ensemble",
+      "dimension": "8D",
+      "training_simulations": 32768,
+      "density_estimator": "NSF 10x100",
+      "ensemble": 5,
+      "recovery": 0.43047458463325416,
+      "joint_coverage": 4.914556785984683e-46,
+      "sbc": 3,
+      "lc2st": 0.0,
+      "ppc": 0.6004897489332632,
+      "contraction": 0.6595531769290588,
+      "verdict": "8D FIGURE-10-EQUIVALENT FAIL"
+    },
+    {
+      "method": "New matched raw 7D ensemble",
+      "dimension": "7D",
+      "training_simulations": 32768,
+      "density_estimator": "NSF 10x100",
+      "ensemble": 5,
+      "recovery": 0.5028495513375205,
+      "joint_coverage": 8.893435253963037e-41,
+      "sbc": 3,
+      "lc2st": 0.0,
+      "ppc": 0.5928179299614381,
+      "contraction": 0.6245432999231879,
+      "verdict": "7D FIGURE-10-EQUIVALENT FAIL"
+    }
+  ],
+  "figures": {
+    "expected_coverage_sbc": {
+      "png": "S4_sbi/results/figure10_8d_7d/figures/figure10_expected_coverage_sbc_8d_7d.png",
+      "svg": "S4_sbi/results/figure10_8d_7d/figures/figure10_expected_coverage_sbc_8d_7d.svg",
+      "pdf": "S4_sbi/results/figure10_8d_7d/figures/figure10_expected_coverage_sbc_8d_7d.pdf"
+    },
+    "lc2st": {
+      "png": "S4_sbi/results/figure10_8d_7d/figures/figure10_lc2st_8d_7d.png",
+      "svg": "S4_sbi/results/figure10_8d_7d/figures/figure10_lc2st_8d_7d.svg",
+      "pdf": "S4_sbi/results/figure10_8d_7d/figures/figure10_lc2st_8d_7d.pdf"
+    },
+    "ppc": {
+      "png": "S4_sbi/results/figure10_8d_7d/figures/figure10_ppc_8d_7d.png",
+      "svg": "S4_sbi/results/figure10_8d_7d/figures/figure10_ppc_8d_7d.svg",
+      "pdf": "S4_sbi/results/figure10_8d_7d/figures/figure10_ppc_8d_7d.pdf"
+    },
+    "ppc_traces": {
+      "png": "S4_sbi/results/figure10_8d_7d/figures/figure10_ppc_cortical_rate_traces.png",
+      "svg": "S4_sbi/results/figure10_8d_7d/figures/figure10_ppc_cortical_rate_traces.svg",
+      "pdf": "S4_sbi/results/figure10_8d_7d/figures/figure10_ppc_cortical_rate_traces.pdf"
+    },
+    "posterior_structure": {
+      "png": "S4_sbi/results/figure10_8d_7d/figures/figure10_posterior_structure_identifiability.png",
+      "svg": "S4_sbi/results/figure10_8d_7d/figures/figure10_posterior_structure_identifiability.svg",
+      "pdf": "S4_sbi/results/figure10_8d_7d/figures/figure10_posterior_structure_identifiability.pdf"
+    },
+    "ablation": {
+      "png": "S4_sbi/results/figure10_8d_7d/figures/figure10_7d_vs_8d_ablation.png",
+      "svg": "S4_sbi/results/figure10_8d_7d/figures/figure10_7d_vs_8d_ablation.svg",
+      "pdf": "S4_sbi/results/figure10_8d_7d/figures/figure10_7d_vs_8d_ablation.pdf"
+    },
+    "trace_manifest": {
+      "created_utc": "2026-07-31T11:37:10.541282+00:00",
+      "scope": "reporting-only deterministic replay of frozen PPC rows",
+      "outputs": {
+        "primary": {
+          "path": "diagnostics/ppc/trace_examples/primary_cortical_rate_trace.npz",
+          "sha256": "ef4936d2572c3e304e93ebcdf5567318c785466255b6fdd5f8f2dc4ab8e1e6fd"
+        },
+        "8d": {
+          "path": "diagnostics/ppc/trace_examples/8d_posterior_predictive_traces.npz",
+          "sha256": "43cf131ac3267d7693aa89c4bb17c365f837b15523576da451478b5405c1f48e",
+          "examples": 4,
+          "summary_replay_allclose": true
+        },
+        "7d": {
+          "path": "diagnostics/ppc/trace_examples/7d_posterior_predictive_traces.npz",
+          "sha256": "e97404b14bcaa0ef5bdcdb9d0244055dd097f8d2091a6e5e24dbd8a6dd525fed",
+          "examples": 4,
+          "summary_replay_allclose": true
+        }
+      },
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    },
+    "seed_robustness": {
+      "8d": {
+        "track": "8d",
+        "parameter_cases": 16,
+        "seeds_per_case": 3,
+        "attempted": 48,
+        "failed": 0,
+        "median_between_to_seed_variance_ratio": 5.639918932443956,
+        "minimum_between_to_seed_variance_ratio": 0.7774063757350667,
+        "selection": "first frozen posterior-predictive parameter rows",
+        "scope": "secondary robustness; excluded from operational verdict",
+        "csv": "diagnostics/ppc/8d/ppc_seed_robustness.csv",
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      },
+      "7d": {
+        "track": "7d",
+        "parameter_cases": 16,
+        "seeds_per_case": 3,
+        "attempted": 48,
+        "failed": 0,
+        "median_between_to_seed_variance_ratio": 7.781813355102673,
+        "minimum_between_to_seed_variance_ratio": 1.3398210290827735,
+        "selection": "first frozen posterior-predictive parameter rows",
+        "scope": "secondary robustness; excluded from operational verdict",
+        "csv": "diagnostics/ppc/7d/ppc_seed_robustness.csv",
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      }
+    },
+    "multivariate_ppc": {
+      "8d": {
+        "track": "8d",
+        "metric": "Euclidean distance after train-only IQR scaling",
+        "posterior_median": 2.381696109784943,
+        "prior_median": 4.067209684441922,
+        "improvement_fraction": 0.41441521471206244,
+        "csv": "diagnostics/ppc/8d/ppc_multivariate_distances.csv",
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      },
+      "7d": {
+        "track": "7d",
+        "metric": "Euclidean distance after train-only IQR scaling",
+        "posterior_median": 2.817683230332193,
+        "prior_median": 4.383191638873334,
+        "improvement_fraction": 0.3571617527869584,
+        "csv": "diagnostics/ppc/7d/ppc_multivariate_distances.csv",
+        "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+      }
+    }
+  },
+  "scope": "synthetic cortical-rate inference only",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

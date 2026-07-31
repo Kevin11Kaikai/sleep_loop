@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-31T11:37:10.541282+00:00",
+  "scope": "reporting-only deterministic replay of frozen PPC rows",
+  "outputs": {
+    "primary": {
+      "path": "diagnostics/ppc/trace_examples/primary_cortical_rate_trace.npz",
+      "sha256": "ef4936d2572c3e304e93ebcdf5567318c785466255b6fdd5f8f2dc4ab8e1e6fd"
+    },
+    "8d": {
+      "path": "diagnostics/ppc/trace_examples/8d_posterior_predictive_traces.npz",
+      "sha256": "43cf131ac3267d7693aa89c4bb17c365f837b15523576da451478b5405c1f48e",
+      "examples": 4,
+      "summary_replay_allclose": true
+    },
+    "7d": {
+      "path": "diagnostics/ppc/trace_examples/7d_posterior_predictive_traces.npz",
+      "sha256": "e97404b14bcaa0ef5bdcdb9d0244055dd097f8d2091a6e5e24dbd8a6dd525fed",
+      "examples": 4,
+      "summary_replay_allclose": true
+    }
+  },
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

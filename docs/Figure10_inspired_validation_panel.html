@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Figure-10-inspired Validation Panel 说明</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #dfe3e8;
+      --soft: #f7f9fb;
+      --accent: #1f77b4;
+      --warn: #b45309;
+      --ok: #17633a;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.62;
+      background: #ffffff;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
+    }
+    h1, h2, h3 {
+      line-height: 1.25;
+      margin: 0 0 14px;
+    }
+    h1 {
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin-top: 34px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 23px;
+    }
+    h3 {
+      margin-top: 22px;
+      font-size: 18px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    code {
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: #eef2f6;
+      font-family: Consolas, "SFMono-Regular", Menlo, monospace;
+      font-size: 0.94em;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: #0f172a;
+      color: #e5e7eb;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+    .callout {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
+      background: var(--soft);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 18px 0;
+    }
+    .warning {
+      border-left-color: var(--warn);
+      background: #fff8ed;
+    }
+    .ok {
+      border-left-color: var(--ok);
+      background: #f1fbf5;
+    }
+    .figure-wrap {
+      margin: 22px 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
+    }
+    .figure-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 22px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f3f6f9;
+      font-weight: 650;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+    ul {
+      padding-left: 22px;
+    }
+    @media (max-width: 760px) {
+      main { padding: 24px 16px 44px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 25px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Figure-10-inspired Validation Panel：看图说话说明</h1>
+  <div class="meta">
+    项目：personalized thalamocortical sleep neural mass fitting ｜ 日期：2026-07-13 ｜ 生成脚本：
+    <code>valid_scripts/plot_figure10_inspired_validation_panel.py</code>
+  </div>
+
+  <div class="callout warning">
+    <strong>先定调：</strong>这张图是受 SBI Figure 10 启发的 validation / audit panel，但当前项目还没有
+    <code>q_phi(theta|x)</code> 形式的 posterior estimator。因此这里不能叫 posterior samples，也不能声称做了 expected coverage、SBC、TARP 或 L-C2ST。
+    本图展示的是 <strong>fitted-candidate ensemble</strong> 上的 PPC-like predictive diagnostics 和一个 cheap synthetic parameter-recovery diagnostic。
+  </div>
+
+  <div class="figure-wrap">
+    <img src="../outputs/figure10_inspired_validation_panel/figure10_inspired_validation_panel.png"
+         alt="Figure-10-inspired validation panel" />
+    <div class="caption">
+      主图位置：<code>outputs/figure10_inspired_validation_panel/figure10_inspired_validation_panel.png</code>。
+      同目录下也保存了 PDF、candidate archive、predictive summaries、real observation summaries 和 synthetic recovery 结果。
+    </div>
+  </div>
+
+  <h2>这张图到底在验证什么？</h2>
+  <p>
+    这张图的核心问题不是“我们是否已经有一个校准良好的 posterior”，而是：
+    在现有 V1-V8/V8a 拟合历史和诊断搜索中，已经留下了一批候选参数。我们能不能把这些候选组织成一个
+    <strong>candidate archive</strong>，然后用统一的短仿真和统一 summary metrics 检查它们是否能生成类似真实 N3 EEG 的关键现象？
+  </p>
+  <p>
+    所以它做的是三层 validation：
+  </p>
+  <ul>
+    <li><strong>候选空间验证：</strong>现有候选是否覆盖了不同版本和关键耦合参数区域。</li>
+    <li><strong>预测行为验证：</strong>这些候选短仿真后，是否能覆盖真实 EEG 或审计目标关心的 summary statistics。</li>
+    <li><strong>可恢复性诊断：</strong>如果从某个已知候选生成 synthetic observation，用 archive 最近邻能否找回相近参数。</li>
+  </ul>
+
+  <h2>数据和运行规模</h2>
+  <table>
+    <tr>
+      <th>项目</th>
+      <th>结果</th>
+    </tr>
+    <tr>
+      <td>Candidate archive</td>
+      <td>50 个去重并截断后的 fitted candidates</td>
+    </tr>
+    <tr>
+      <td>覆盖版本</td>
+      <td>V1, V2, V3, V4, V5, V6, V7, V8a, V8a-coupling, V8a-relaxed, V8a-ultra</td>
+    </tr>
+    <tr>
+      <td>短仿真</td>
+      <td>每个 candidate 3 个 replicate；共 150 次 60s simulation；5s burn-in</td>
+    </tr>
+    <tr>
+      <td>真实观测</td>
+      <td>SC4001 N3 EEG，142 个 clean N3 epochs，通道 EEG Fpz-Cz</td>
+    </tr>
+    <tr>
+      <td>真实 held-out RMS spindle density</td>
+      <td>2.9577 /min，210 个 events</td>
+    </tr>
+  </table>
+
+  <h2>Panel A：模型和参数空间</h2>
+  <p>
+    Panel A 是文字 schematic。它告诉读者，这不是一个黑箱统计模型，而是一个 8 参数 cortical-thalamic neural mass model。
+    被统一比较的参数是：
+  </p>
+  <pre>mue, mui, b, tauA, g_LK, g_h, c_th2ctx, c_ctx2th</pre>
+  <p>
+    这一步的 validation 作用是限定“我们到底在验证哪个模型族”。后续所有 candidate archive、short simulations 和 recovery diagnostic
+    都在这个 8 参数空间内进行。
+  </p>
+
+  <h2>Panel B：真实 EEG 的观测摘要</h2>
+  <p>
+    Panel B 把真实 SC4001 N3 EEG 压缩成几个 summary。这里有 PSD 的低频和 sigma band 摘要，以及独立 sigma-RMS detector 得到的
+    held-out spindle density。
+  </p>
+  <div class="callout">
+    <strong>看图重点：</strong>真实 EEG 不是拿整条时间序列直接和模型逐点比较，而是先抽取和科学问题相关的 summary：
+    slow oscillation / spectral shape / spindle density / PAC-like metrics。这样后续 candidate simulation 才能在同一组 summary 上比较。
+  </div>
+  <p>
+    当前脚本中，如果某些真实 EEG summary 没有现成 utility，例如 PAC preferred phase 或 SO morphology 的完整真实 EEG版本，
+    就填成 NaN 并在 summary 中说明，不让脚本失败。这是保守做法。
+  </p>
+
+  <h2>Panel C：fitted-candidate ensemble</h2>
+  <p>
+    Panel C 是参数空间散点图：横轴 <code>c_th2ctx</code>，纵轴 <code>c_ctx2th</code>，颜色表示版本或来源。
+    这张图回答的问题是：我们现在手里的 candidate archive 覆盖了哪些耦合区域？
+  </p>
+  <p>
+    这里的 archive 来自三类来源：
+  </p>
+  <ul>
+    <li>V1-V8 的 best JSON candidate。</li>
+    <li>V3-V8 的 evolution records top candidates。</li>
+    <li>V8a relaxed / coupling / ultra / local diagnostic CSV 中的候选。</li>
+  </ul>
+  <p>
+    脚本保证 best JSON candidate 优先保留，再从 records 和 diagnostics 中按 <code>n_passed</code>、<code>score</code>
+    以及 <code>c_th2ctx</code> 多样性补足到 50 个候选。
+  </p>
+  <div class="callout warning">
+    <strong>不能过度解读：</strong>这些点不是 posterior samples。它们是历史优化和诊断搜索留下的 fitted-candidate ensemble。
+    点的密度不能解释成 posterior probability density。
+  </div>
+
+  <h2>Panel D：PPC-like predictive diagnostics</h2>
+  <p>
+    Panel D 是这张图最接近“predictive check”的部分。它把每个 candidate 做 3 次 60s 短仿真，计算同一批 summary：
+  </p>
+  <ul>
+    <li><code>T6_ibi_cv</code>：SO regularity。</li>
+    <li><code>T13_ctx_verified_density_per_min</code>：V8a 内部 cortical spindle observability。</li>
+    <li><code>heldout_rms_spindle_density</code>：独立 sigma-RMS detector 下的 cortical spindle density。</li>
+    <li><code>T4_q</code>：cortical SO spectral structure。</li>
+  </ul>
+  <p>
+    图中用 box/strip 的方式展示 candidate-generated summary distributions，并画出关键参考线，例如 strict T6 threshold
+    <code>0.40</code> 和真实 EEG 的 RMS spindle density。
+  </p>
+  <div class="callout ok">
+    <strong>这一步能说明什么：</strong>如果真实 EEG summary 落在 candidate ensemble 生成分布附近，说明 archive 里至少存在能近似该 summary 的候选；
+    如果真实 EEG summary 明显落在分布外，说明当前候选集或模型结构在该观测特征上还有 mismatch。
+  </div>
+  <div class="callout warning">
+    <strong>这一步不能说明什么：</strong>它不是严格 posterior predictive check，因为没有 posterior estimator，也没有从 posterior 中采样。
+    所以文档和图里统一叫 <strong>PPC-like predictive diagnostics</strong>。
+  </div>
+
+  <h2>Panel E：synthetic parameter-recovery diagnostic</h2>
+  <p>
+    Panel E 做的是一个便宜的 synthetic recovery 检查。流程是：
+  </p>
+  <ol>
+    <li>从 archive 中选 5 个 diverse synthetic ground-truth candidates。</li>
+    <li>用每个 <code>theta_true</code> 生成一次 synthetic observation summary。</li>
+    <li>在 archive 已有 summary 表里做 normalized Euclidean nearest-neighbor search。</li>
+    <li>把最近邻 candidate 当作 <code>theta_recovered</code>，计算参数误差。</li>
+  </ol>
+  <table>
+    <tr>
+      <th>Synthetic ID</th>
+      <th>True version</th>
+      <th>Recovered version</th>
+      <th>Same version</th>
+      <th>Mean relative error</th>
+    </tr>
+    <tr>
+      <td>synth_00</td>
+      <td>V1</td>
+      <td>V3</td>
+      <td>0</td>
+      <td>0.9538</td>
+    </tr>
+    <tr>
+      <td>synth_01</td>
+      <td>V7</td>
+      <td>V7</td>
+      <td>1</td>
+      <td>0.0682</td>
+    </tr>
+    <tr>
+      <td>synth_02</td>
+      <td>V8a</td>
+      <td>V8a-coupling</td>
+      <td>0</td>
+      <td>0.2370</td>
+    </tr>
+    <tr>
+      <td>synth_03</td>
+      <td>V8a-relaxed</td>
+      <td>V8a-coupling</td>
+      <td>0</td>
+      <td>0.0682</td>
+    </tr>
+    <tr>
+      <td>synth_04</td>
+      <td>V3</td>
+      <td>V3</td>
+      <td>1</td>
+      <td>0.0000</td>
+    </tr>
+  </table>
+  <p>
+    这里可以看到，V7 和 V3 synthetic cases 能被 archive 最近邻恢复到同版本；V8a-relaxed 被恢复到 V8a-coupling，说明在当前 summary
+    空间下它们非常接近；V1 恢复较差，说明 V1 的 summary-to-parameter 映射在当前 archive 中不够稳定或不够可辨识。
+  </p>
+  <div class="callout warning">
+    <strong>关键边界：</strong>这不是 SBC。SBC 需要从 prior 采样参数、模拟观测、通过 posterior estimator 得到 posterior，再检查 rank statistics。
+    这里没有 posterior estimator，因此只能叫 synthetic parameter-recovery diagnostic，或者 SBC-inspired but not SBC。
+  </div>
+
+  <h2>Panel F：future SBI diagnostics box</h2>
+  <p>
+    Panel F 是整张图的“防误读”面板。它明确说：如果未来要做真正 SBI validation，需要训练
+    <code>q_phi(theta|x)</code>，例如 NPE/NLE/NRE posterior estimator。只有有了这个 posterior estimator，才可以严肃地做：
+  </p>
+  <ul>
+    <li>posterior predictive checks；</li>
+    <li>expected coverage；</li>
+    <li>SBC；</li>
+    <li>TARP；</li>
+    <li>L-C2ST 等 local posterior diagnostics。</li>
+  </ul>
+  <p>
+    这个 panel 的作用是把当前图和未来真正 SBI 图清楚地区分开：当前是 candidate archive validation，未来才是 posterior diagnostics。
+  </p>
+
+  <h2>一句话总结</h2>
+  <div class="callout ok">
+    这张 Figure-10-inspired validation panel 的意义是：把 V1-V8/V8a 历史拟合候选整理成一个 fitted-candidate ensemble，
+    用真实 EEG summary、短仿真 predictive summaries 和 archive-based synthetic recovery 来做审计式 validation。
+    它能帮助我们看清当前模型和候选集在哪些 summary 上接近真实数据、在哪些 summary 上仍有 mismatch；但它不是 posterior calibration，
+    也不能替代未来基于 <code>q_phi(theta|x)</code> 的 SBI diagnostics。
+  </div>
+
+  <h2>相关文件</h2>
+  <ul>
+    <li><code>valid_scripts/plot_figure10_inspired_validation_panel.py</code></li>
+    <li><code>outputs/figure10_inspired_validation_panel/candidate_archive.csv</code></li>
+    <li><code>outputs/figure10_inspired_validation_panel/candidate_predictive_summaries.csv</code></li>
+    <li><code>outputs/figure10_inspired_validation_panel/real_observation_summaries.csv</code></li>
+    <li><code>outputs/figure10_inspired_validation_panel/synthetic_recovery_results.csv</code></li>
+    <li><code>outputs/figure10_inspired_validation_panel/figure10_inspired_validation_panel_summary.md</code></li>
+  </ul>
+</main>
+</body>
+</html>

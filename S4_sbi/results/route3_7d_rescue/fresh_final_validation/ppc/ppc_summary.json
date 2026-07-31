@@ -1,0 +1,16 @@
+{
+  "cases": 64,
+  "random_cases": 32,
+  "worst_cases": 32,
+  "posterior_draws_per_case": 16,
+  "posterior_predictive_attempted": 1024,
+  "posterior_predictive_failed": 0,
+  "prior_predictive_attempted": 1024,
+  "prior_predictive_failed": 0,
+  "features_posterior_better": 14,
+  "overall_posterior_scaled_error": 0.07050510779884192,
+  "overall_prior_scaled_error": 0.5748698117461978,
+  "overall_improvement_fraction": 0.8773546525522381,
+  "posterior_artifact": "D:/Year3_Mao_Projects/sleep_loop/S4_sbi/results/route3_7d_rescue/fresh_final_validation/ppc/posterior_predictive_1024.npz",
+  "prior_artifact": "D:/Year3_Mao_Projects/sleep_loop/S4_sbi/results/route3_7d_rescue/fresh_final_validation/ppc/prior_predictive_1024.npz"
+}

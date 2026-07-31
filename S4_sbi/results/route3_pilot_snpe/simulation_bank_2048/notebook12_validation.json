@@ -1,0 +1,12 @@
+{
+  "failure_rate_threshold": 0.01,
+  "observed_failure_rate": 0.0,
+  "schema_order_match": true,
+  "fully_finite": true,
+  "training_rows": 1638,
+  "validation_rows": 410,
+  "scaling_fit_on_training_only": true,
+  "collision_fraction_of_far_pairs": 0.16363537265839975,
+  "pass": true,
+  "scientific_identifiability_established": false
+}

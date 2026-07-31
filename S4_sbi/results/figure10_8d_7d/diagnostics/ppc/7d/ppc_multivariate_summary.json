@@ -1,0 +1,9 @@
+{
+  "track": "7d",
+  "metric": "Euclidean distance after train-only IQR scaling",
+  "posterior_median": 2.817683230332193,
+  "prior_median": 4.383191638873334,
+  "improvement_fraction": 0.3571617527869584,
+  "csv": "diagnostics/ppc/7d/ppc_multivariate_distances.csv",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

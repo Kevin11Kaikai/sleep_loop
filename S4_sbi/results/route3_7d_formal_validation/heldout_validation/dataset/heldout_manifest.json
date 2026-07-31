@@ -1,0 +1,13 @@
+{
+  "attempted": 256,
+  "success": 256,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 1467.7294431015616,
+  "median_runtime_s": 5.642975849972572,
+  "exact_training_theta_duplicates": 0,
+  "training_simulator_seed_overlaps": 0,
+  "fixed_c_ctx2th": 0.1253491302153237,
+  "preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363",
+  "heldout_criteria_hash": "49a4f9590466a6d9ba83f83ee5b6783e268ba996f8e8fc7328e261fb0405edee"
+}
