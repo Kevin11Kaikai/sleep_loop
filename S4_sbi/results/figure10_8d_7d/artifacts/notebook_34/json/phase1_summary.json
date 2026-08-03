@@ -1,0 +1,125 @@
+{
+  "focus_majority_cov_fail": [
+    {
+      "majority_3of5_cov_fail": true,
+      "majority_3of5_direction": false,
+      "mean_central_cov_90": 0.8294921875,
+      "mean_pit_ks": 0.0744466471028971,
+      "n_cov90_off_by_005": 5,
+      "n_mean_above_055": 0,
+      "n_mean_below_045": 0,
+      "n_members": 5,
+      "parameter": "mue",
+      "rank_means": [
+        0.5203917176573426,
+        0.5168464348151849,
+        0.5127236045204795,
+        0.5315212131618382,
+        0.5220307036713288
+      ],
+      "track": "8d"
+    },
+    {
+      "majority_3of5_cov_fail": true,
+      "majority_3of5_direction": false,
+      "mean_central_cov_90": 0.8283203125,
+      "mean_pit_ks": 0.0755599868881119,
+      "n_cov90_off_by_005": 5,
+      "n_mean_above_055": 0,
+      "n_mean_below_045": 0,
+      "n_members": 5,
+      "parameter": "tauA",
+      "rank_means": [
+        0.5252111170079921,
+        0.5220258257367633,
+        0.5201078218656343,
+        0.5298666177572429,
+        0.5258715893481518
+      ],
+      "track": "8d"
+    },
+    {
+      "majority_3of5_cov_fail": true,
+      "majority_3of5_direction": false,
+      "mean_central_cov_90": 0.8259765625,
+      "mean_pit_ks": 0.0743927947052947,
+      "n_cov90_off_by_005": 5,
+      "n_mean_above_055": 0,
+      "n_mean_below_045": 0,
+      "n_members": 5,
+      "parameter": "mue",
+      "rank_means": [
+        0.5221058238636364,
+        0.5085061422952049,
+        0.5254208681943057,
+        0.5224453281093906,
+        0.514053329483017
+      ],
+      "track": "7d"
+    },
+    {
+      "majority_3of5_cov_fail": true,
+      "majority_3of5_direction": false,
+      "mean_central_cov_90": 0.8259765625,
+      "mean_pit_ks": 0.07203343531468528,
+      "n_cov90_off_by_005": 5,
+      "n_mean_above_055": 0,
+      "n_mean_below_045": 0,
+      "n_members": 5,
+      "parameter": "tauA",
+      "rank_means": [
+        0.5208268294205795,
+        0.5156084150224776,
+        0.5193683269855145,
+        0.5169039944430569,
+        0.5268920532592407
+      ],
+      "track": "7d"
+    }
+  ],
+  "focus_majority_direction": [
+    {
+      "majority_3of5_cov_fail": false,
+      "majority_3of5_direction": true,
+      "mean_central_cov_90": 0.9400390625,
+      "mean_pit_ks": 0.3060166396103896,
+      "n_cov90_off_by_005": 0,
+      "n_mean_above_055": 4,
+      "n_mean_below_045": 1,
+      "n_members": 5,
+      "parameter": "mui",
+      "rank_means": [
+        0.6744525006243756,
+        0.6584792160964036,
+        0.6544002872127872,
+        0.6612411026473527,
+        0.301432942057942
+      ],
+      "track": "8d"
+    },
+    {
+      "majority_3of5_cov_fail": false,
+      "majority_3of5_direction": true,
+      "mean_central_cov_90": 0.9314453125,
+      "mean_pit_ks": 0.28578960102397605,
+      "n_cov90_off_by_005": 1,
+      "n_mean_above_055": 2,
+      "n_mean_below_045": 3,
+      "n_members": 5,
+      "parameter": "mui",
+      "rank_means": [
+        0.6323920220404595,
+        0.3320810049325674,
+        0.3301200752372627,
+        0.33650626717032966,
+        0.6691501857517483
+      ],
+      "track": "7d"
+    }
+  ],
+  "framing": "protocol-locked hypothesis-driven follow-up on reused diagnostic bank",
+  "n_rows": 120,
+  "not_confirmatory": true,
+  "not_hpd_hdi": true,
+  "phase": 1
+}

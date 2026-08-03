@@ -1,0 +1,12 @@
+{
+  "attempted_primary": 256,
+  "completeness_ok": true,
+  "consolidated": "notebook_33_ensemble_attribution/ppc/7d/member_1/posterior_predictive_7d_member_1.npz",
+  "failed_recorded": 0,
+  "member_index": 1,
+  "replacements_from_reserve": 0,
+  "reserve_used": 0,
+  "successful_scoring": 256,
+  "track": "7d",
+  "wall_s": 0.6077521000988781
+}

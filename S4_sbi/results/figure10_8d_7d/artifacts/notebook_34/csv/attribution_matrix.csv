@@ -1,0 +1,6 @@
+candidate,support,against,uncertainty,strength,next_step_impact
+A_implementation_sampling_clip,integrity failures or material clip deltas,,CPU/GPU cross-check skipped if no GPU,moderate,fix transforms/sampling/ranks before any science claim
+B_summary_identifiability,mixed,informative OOF signal,OOF≠structural; local compensation only,unresolved,summary redesign before scale-up if primary
+C_estimator_calibration,stable ≥3/5 member coverage/rank failures with informative summaries,"if summaries uninformative, C is premature",diagnostic bank reuse; no sealed confirm,secondary_pending_A,calibration experiment / architecture — not trusted-member selection via PPC
+D_data_scale,descriptive 8192↔32768 contrast only,no causal multi-seed scale design completed,high,not_primary,131k pilot design only if ABC not more urgent
+E_inconclusive,,,default when gates ambiguous,n/a,minimal decisive offline experiment

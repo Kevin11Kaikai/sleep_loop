@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-08-01T22:44:29.990650+00:00",
+  "matched_geometry": {
+    "n_case_rows": 720,
+    "n_summary_rows": 96
+  },
+  "ppc_member_wise": "pending",
+  "status": "phase1_complete"
+}

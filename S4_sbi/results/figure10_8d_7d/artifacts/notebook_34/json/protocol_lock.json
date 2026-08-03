@@ -1,0 +1,477 @@
+{
+  "artifact_root": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\artifacts\\notebook_34",
+  "clipping_audit": {
+    "material_if": "any focus-param primary metric delta exceeds tolerance (vs clipped baseline)",
+    "metric_specific_tolerances": {
+      "bias_unit": 0.02,
+      "boundary_point_mass": 0.02,
+      "equal_tailed_central_coverage_90": 0.03,
+      "equal_tailed_central_coverage_95": 0.03,
+      "pit_ecdf_ks": 0.05,
+      "rank_mean": 0.03
+    },
+    "strategies": [
+      "raw_preclip",
+      "clipped",
+      "rejection_in_support"
+    ]
+  },
+  "conditioning_summary": {
+    "dimension": 14,
+    "names": [
+      "r_exc_mean_hz",
+      "r_exc_std_hz",
+      "r_exc_relative_so_power",
+      "r_exc_relative_sigma_power",
+      "r_exc_so_peak_frequency_hz",
+      "r_exc_sigma_peak_frequency_hz",
+      "r_exc_spectral_entropy_0p5_20",
+      "r_inh_mean_hz",
+      "r_inh_std_hz",
+      "r_inh_relative_so_power",
+      "r_inh_relative_sigma_power",
+      "r_inh_so_peak_frequency_hz",
+      "r_inh_sigma_peak_frequency_hz",
+      "r_inh_spectral_entropy_0p5_20"
+    ],
+    "order_frozen": true
+  },
+  "decision_priority": [
+    "A_IMPLEMENTATION_FIX_FIRST",
+    "B_SUMMARY_IDENTIFIABILITY_WORK_FIRST",
+    "C_ESTIMATOR_CALIBRATION_EXPERIMENT_FIRST",
+    "D_CONTROLLED_131K_PILOT_JUSTIFIED",
+    "E_INCONCLUSIVE_MINIMAL_EXPERIMENT_REQUIRED"
+  ],
+  "decision_rules": {
+    "A_blocks_causal_attribution": true,
+    "A_highest": true,
+    "B_before_scale_if_summary_uninformative": true,
+    "C_if_summary_informative_and_stable_ge_3_of_5": true,
+    "D_only_if_ABC_not_more_urgent_and_prereg_scale_evidence": true,
+    "D_wording": "controlled multi-seed 131k pilot worth designing \u2014 NOT proof that n_sim is insufficient",
+    "E_if_cannot_distinguish": true
+  },
+  "evaluation_case_ids": {
+    "matched_lock_source": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\notebook_33_ensemble_attribution\\json\\matched_geometry_subset_lock.json",
+    "phase1_bank": "powered_1024 full 1024 cases from global ranks NPZ",
+    "phase2_phase4_matched_48": [
+      0,
+      21,
+      43,
+      65,
+      87,
+      108,
+      130,
+      152,
+      174,
+      195,
+      217,
+      239,
+      261,
+      282,
+      304,
+      326,
+      348,
+      370,
+      391,
+      413,
+      435,
+      457,
+      478,
+      500,
+      522,
+      544,
+      565,
+      587,
+      609,
+      631,
+      652,
+      674,
+      696,
+      718,
+      740,
+      761,
+      783,
+      805,
+      827,
+      848,
+      870,
+      892,
+      914,
+      935,
+      957,
+      979,
+      1001,
+      1023
+    ]
+  },
+  "multiple_comparison": {
+    "majority_members_definition": "at least 3/5 members",
+    "method": "Holm-Bonferroni within family (parameter x estimator panel)"
+  },
+  "notebook": "34_posterior_calibration_root_cause_audit.ipynb",
+  "parameter_order": {
+    "7d": [
+      "mue",
+      "mui",
+      "b",
+      "tauA",
+      "g_LK",
+      "g_h",
+      "c_th2ctx"
+    ],
+    "8d": [
+      "mue",
+      "mui",
+      "b",
+      "tauA",
+      "g_LK",
+      "g_h",
+      "c_th2ctx",
+      "c_ctx2th"
+    ]
+  },
+  "phase2_phase4_manifest": {
+    "case_ids": [
+      0,
+      21,
+      43,
+      65,
+      87,
+      108,
+      130,
+      152,
+      174,
+      195,
+      217,
+      239,
+      261,
+      282,
+      304,
+      326,
+      348,
+      370,
+      391,
+      413,
+      435,
+      457,
+      478,
+      500,
+      522,
+      544,
+      565,
+      587,
+      609,
+      631,
+      652,
+      674,
+      696,
+      718,
+      740,
+      761,
+      783,
+      805,
+      827,
+      848,
+      870,
+      892,
+      914,
+      935,
+      957,
+      979,
+      1001,
+      1023
+    ],
+    "include_ensemble": true,
+    "members": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "n_draws": 512,
+    "n_train_primary": 32768,
+    "strategies": [
+      "raw_preclip",
+      "clipped",
+      "rejection_in_support"
+    ],
+    "tracks": [
+      "8d",
+      "7d"
+    ]
+  },
+  "physical_bounds": {
+    "7d": [
+      [
+        3.31075,
+        4.4792499999999995
+      ],
+      [
+        2.57295,
+        3.4810499999999998
+      ],
+      [
+        28.400000000000002,
+        42.6
+      ],
+      [
+        998.1999999999999,
+        1853.8
+      ],
+      [
+        0.02,
+        0.07
+      ],
+      [
+        0.035,
+        0.095
+      ],
+      [
+        0.0,
+        0.075
+      ]
+    ],
+    "8d": [
+      [
+        3.31075,
+        4.4792499999999995
+      ],
+      [
+        2.57295,
+        3.4810499999999998
+      ],
+      [
+        28.400000000000002,
+        42.6
+      ],
+      [
+        998.1999999999999,
+        1853.8
+      ],
+      [
+        0.02,
+        0.07
+      ],
+      [
+        0.035,
+        0.095
+      ],
+      [
+        0.0,
+        0.075
+      ],
+      [
+        0.05,
+        0.22
+      ]
+    ]
+  },
+  "primary_calibration_metrics": [
+    "randomized_normalized_rank_mean",
+    "pit_ecdf_ks",
+    "equal_tailed_central_coverage_90",
+    "equal_tailed_central_coverage_95",
+    "rank_tail_mass_low005",
+    "rank_tail_mass_high095",
+    "bias_unit",
+    "mae_unit"
+  ],
+  "prohibited_claims": [
+    "untouched confirmatory",
+    "powered_1024 is untouched confirmatory",
+    "classic overconfidence",
+    "structural non-identifiability",
+    "PIT ECDF is credible-interval coverage",
+    "\\bHPD\\b|\\bHDI\\b",
+    "general joint coverage",
+    "PPC improvement offsets",
+    "8192.*32768.*causal",
+    "131k|1M.*will (solve|fix|resolve)",
+    "trusted posterior"
+  ],
+  "rank_definition": {
+    "equal_tailed_central_coverage": "fraction of cases with alpha/2 < rank_norm < 1-alpha/2; NOT HPD/HDI coverage",
+    "legacy_n33": {
+      "deterministic_midpoint": false,
+      "formula": "rank = n_less + U*n_equal; norm = (rank+0.5)/(n+1)",
+      "note": "U is random; not midpoint. Ties broken by Uniform(0,1).",
+      "source": "figure10_diagnostics._randomized_rank + analyze_global_ranks"
+    },
+    "pit_ecdf": "empirical CDF of normalized ranks vs Uniform(0,1) identity; NOT credible-interval coverage",
+    "protocol_locked": {
+      "components_recorded": [
+        "n_less",
+        "n_equal",
+        "u",
+        "rank_randomized",
+        "rank_norm"
+      ],
+      "matches_legacy_normalize": true,
+      "normalize": "(rank_randomized + 0.5) / (n_samples + 1)",
+      "optional_rank_bin_jitter_default": false
+    }
+  },
+  "sampling": {
+    "base_seed": 34000001,
+    "batch_size": 256,
+    "budget_arithmetic": {
+      "ensemble_draws": 49152,
+      "member_draws": 245760,
+      "n_cases": 48,
+      "n_draws": 512,
+      "n_members": 5,
+      "n_tracks": 2,
+      "total_draws": 294912
+    },
+    "member_seed_offset": 104729,
+    "n_draws": 512
+  },
+  "science_framing": "protocol-locked hypothesis-driven follow-up analysis on the reused powered_1024 diagnostic bank; not untouched confirmatory evaluation",
+  "software_provenance": {
+    "cuda_available": false,
+    "cwd": "D:\\Year3_Mao_Projects\\sleep_loop",
+    "numpy": "2.2.6",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.10.20 | packaged by conda-forge | (main, Mar  5 2026, 16:36:49) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.5.1"
+  },
+  "tracks_and_checkpoints": {
+    "members_7d_32768": [
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\7d\\scale_32768\\member_9551001\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 1,
+        "n_train": 32768,
+        "seed": 9551001,
+        "sha256": "5591eaf1372f3862addd0754afd493edebee25a117162ffe7aab220ee8fa38ef",
+        "track": "7d"
+      },
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\7d\\scale_32768\\member_9551002\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 2,
+        "n_train": 32768,
+        "seed": 9551002,
+        "sha256": "2994a1fe3a7f64740388ef52415cebc1c31356e169bf2c75b0b28b329899f4b1",
+        "track": "7d"
+      },
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\7d\\scale_32768\\member_9551003\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 3,
+        "n_train": 32768,
+        "seed": 9551003,
+        "sha256": "bbc7db144d95a8c0e542a2e4f1e944dc818ae956fb3159b5fea5694e47949865",
+        "track": "7d"
+      },
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\7d\\scale_32768\\member_9551004\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 4,
+        "n_train": 32768,
+        "seed": 9551004,
+        "sha256": "767c5eaf1b95ade1a52758dec47bd96a69d22b356af706844f27aa326d18550b",
+        "track": "7d"
+      },
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\7d\\scale_32768\\member_9551005\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 5,
+        "n_train": 32768,
+        "seed": 9551005,
+        "sha256": "a160b630a258eb03235cc4a0950e59eacb8e91ae9255a47ead17702fec6287fa",
+        "track": "7d"
+      }
+    ],
+    "members_7d_8192": [
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\7d\\scale_8192\\member_9551001\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 1,
+        "n_train": 8192,
+        "seed": 9551001,
+        "sha256": "c2478207e053014ebb3e9cb333ade13107e306a5a1b6376b2a1c123b77961d94",
+        "track": "7d"
+      }
+    ],
+    "members_8d_32768": [
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\8d\\scale_32768\\member_9550001\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 1,
+        "n_train": 32768,
+        "seed": 9550001,
+        "sha256": "e9bf1ca2e7a0441f751794894d7de72f9af845eab563c429f96f0f8c457a7b87",
+        "track": "8d"
+      },
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\8d\\scale_32768\\member_9550002\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 2,
+        "n_train": 32768,
+        "seed": 9550002,
+        "sha256": "50779ac59b91cea523a943e5ad75698c21d232fe65161ddc4ee4c19a819e77ba",
+        "track": "8d"
+      },
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\8d\\scale_32768\\member_9550003\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 3,
+        "n_train": 32768,
+        "seed": 9550003,
+        "sha256": "2bb8e23896b15ef7555437172466bef1eb0605bcfd2d10a812a2e07952c9f5ce",
+        "track": "8d"
+      },
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\8d\\scale_32768\\member_9550004\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 4,
+        "n_train": 32768,
+        "seed": 9550004,
+        "sha256": "f5a7845a3ae639ebd9931eee86a3d2a13c4bd1ebde4b366e7f7462044952ae56",
+        "track": "8d"
+      },
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\8d\\scale_32768\\member_9550005\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 5,
+        "n_train": 32768,
+        "seed": 9550005,
+        "sha256": "dce1e6dc185e8e461595c47f722cce23be141722e323ec474ba27a14fd777548",
+        "track": "8d"
+      }
+    ],
+    "members_8d_8192": [
+      {
+        "checkpoint": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\results\\figure10_8d_7d\\training\\8d\\scale_8192\\member_9550001\\best_checkpoint.pt",
+        "exists": true,
+        "member_index": 1,
+        "n_train": 8192,
+        "seed": 9550001,
+        "sha256": "1ecbea32a54053320016ca095725d75e9afdffa295b9ddccc8ecf6ee9b666fba",
+        "track": "8d"
+      }
+    ],
+    "n_train_contrast": [
+      8192,
+      32768
+    ],
+    "scale_contrast_note": "8192 has only one estimator (ensemble\u2261member_1); 32768 has five members. Asymmetric descriptive scale contrast only \u2014 not a causal n_sim effect claim.",
+    "tracks": [
+      "8d",
+      "7d"
+    ]
+  },
+  "transform": {
+    "clip_after_sample_default": true,
+    "norm_posterior": false,
+    "norm_posterior_note": "absolute log-density not comparable across observations; within-observation rank comparisons only",
+    "reject_outside_prior_default": false,
+    "sample_space_for_ranks": "unit box",
+    "theta": "physical <-> unit box via affine map from prior bounds",
+    "x": "median/IQR standardization fit on training train_ids only"
+  }
+}

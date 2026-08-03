@@ -1,0 +1,12 @@
+{
+  "attempted_primary": 256,
+  "completeness_ok": true,
+  "consolidated": "notebook_33_ensemble_attribution/ppc/8d/member_3/posterior_predictive_8d_member_3.npz",
+  "failed_recorded": 0,
+  "member_index": 3,
+  "replacements_from_reserve": 0,
+  "reserve_used": 0,
+  "successful_scoring": 256,
+  "track": "8d",
+  "wall_s": 0.5647986999247223
+}

@@ -1,0 +1,7 @@
+{
+  "both_reported_if_diverged": true,
+  "diverged": false,
+  "legacy_normalize": "(rank + 0.5) / (n_samples + 1)",
+  "protocol_normalize": "(rank_randomized + 0.5) / (n_samples + 1)",
+  "silent_replacement": false
+}

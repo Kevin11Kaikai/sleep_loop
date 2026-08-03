@@ -1,0 +1,8 @@
+work,go_status,reason
+simulator / finite-difference,NO-GO,offline audit only; not authorized
+retrain / new model,NO-GO,forbidden this round
+controlled 131k multi-seed pilot design,NO-GO,A_IMPLEMENTATION_FIX_FIRST
+1M scale-up,NO-GO,not justified; sealed bank required for final confirmation
+summary redesign / identifiability work,HOLD,A_IMPLEMENTATION_FIX_FIRST
+estimator calibration experiment,HOLD,A_IMPLEMENTATION_FIX_FIRST
+implementation fix,GO,A_IMPLEMENTATION_FIX_FIRST

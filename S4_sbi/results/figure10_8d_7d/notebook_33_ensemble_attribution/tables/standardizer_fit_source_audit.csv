@@ -1,0 +1,5 @@
+track,scale,fit_source,train_n,validation_n,train_validation_overlap,location_matches_train_fit,scale_matches_train_fit,evaluation_banks_used_in_fit
+8d,8192,matched_training_bank_train_ids_only,6553,1639,0,True,True,False
+8d,32768,matched_training_bank_train_ids_only,26214,6554,0,True,True,False
+7d,8192,matched_training_bank_train_ids_only,6553,1639,0,True,True,False
+7d,32768,matched_training_bank_train_ids_only,26214,6554,0,True,True,False

@@ -19,6 +19,7 @@ import torch
 from .figure10_bank import run_custom_dataset
 from .figure10_protocol import (
     FINAL_SCALE,
+    INTERMEDIATE_SCALE,
     PARAMETER_NAMES_7D,
     PARAMETER_NAMES_8D,
     RESULTS_ROOT,
@@ -579,13 +580,35 @@ def generate_lc2st_datasets() -> dict[str, str]:
     return outputs
 
 
+def lc2st_track_root(track: str, scale: int = FINAL_SCALE) -> Path:
+    """Return LC2ST artifact directory for a track/scale.
+
+    FINAL_SCALE keeps the legacy path ``lc2st/{track}/`` so existing 32768
+    artifacts and operational verdicts remain valid. Intermediate scale writes
+    under ``lc2st/scale_{scale}/{track}/`` and never overwrites FINAL outputs.
+    """
+    if scale == FINAL_SCALE:
+        return LC2ST_ROOT / track
+    if scale == INTERMEDIATE_SCALE:
+        return LC2ST_ROOT / f"scale_{scale}" / track
+    raise ValueError(f"unsupported LC2ST training scale: {scale}")
+
+
 def _posterior_samples_for_lc2st(
     track: str,
     estimator_index: int,
     x_scaled: np.ndarray,
     members: Sequence[Any],
+    scale: int = FINAL_SCALE,
 ) -> np.ndarray:
-    seed = int(SEEDS[f"lc2st_posterior_{track}"]) + estimator_index * 104729
+    # Keep FINAL_SCALE seeds identical to historical 32768 runs; offset only
+    # intermediate-scale jobs so they never collide with final-scale caches.
+    scale_offset = 0 if scale == FINAL_SCALE else int(scale) * 17
+    seed = (
+        int(SEEDS[f"lc2st_posterior_{track}"])
+        + estimator_index * 104729
+        + scale_offset
+    )
     if estimator_index == 0:
         return _mixture_sample_batched(members, x_scaled, seed)
     member = members[estimator_index - 1]
@@ -607,12 +630,20 @@ def _posterior_samples_for_lc2st(
     return np.clip(values, 0.0, 1.0).astype(np.float32, copy=False)
 
 
-def run_lc2st(track: str) -> dict[str, Any]:
-    """Train official-style LC2ST classifiers for ensemble and five members."""
+def run_lc2st(track: str, scale: int = FINAL_SCALE) -> dict[str, Any]:
+    """Train official-style LC2ST classifiers for ensemble and members.
+
+    ``scale`` selects which trained NSF checkpoint ensemble to load.
+    FINAL_SCALE (32768) → up to 5 members; INTERMEDIATE_SCALE (8192) → 1 member
+    (ensemble≡member_1). Same frozen primary observation and 20k calibration
+    bank are reused; no new simulations.
+    """
 
     from sbi.diagnostics.lc2st import LC2ST
 
     verify_preregistration()
+    if scale not in {FINAL_SCALE, INTERMEDIATE_SCALE}:
+        raise ValueError("scale must be FINAL_SCALE or INTERMEDIATE_SCALE")
     dataset_path = (
         LC2ST_ROOT
         / "calibration"
@@ -633,38 +664,52 @@ def run_lc2st(track: str) -> dict[str, Any]:
         x_o = np.asarray(primary["x"][0], float)
     if not success.all():
         raise RuntimeError("L-C2ST calibration dataset contains failed simulations")
-    data, members = load_members(track)
+    data, members = load_members(track, scale)
     theta_unit = physical_to_unit(data, theta)
     x_scaled = scale_observation(data, x)
     x_o_scaled = scale_observation(data, x_o)
     estimator_names = ["ensemble"] + [
         f"member_{index + 1}" for index in range(len(members))
     ]
+    track_root = lc2st_track_root(track, scale)
+    track_root.mkdir(parents=True, exist_ok=True)
+    n_members = len(members)
+    comparison_role = (
+        "ensemble_asymmetric_scale_contrast"
+        if scale == INTERMEDIATE_SCALE
+        else "final_scale_reference"
+    )
     rows = []
     for estimator_index, estimator in enumerate(estimator_names):
-        output = LC2ST_ROOT / track / estimator
+        output = track_root / estimator
         output.mkdir(parents=True, exist_ok=True)
         result_path = output / "lc2st_result.json"
         classifier_path = output / "lc2st_classifier.pkl"
         if result_path.exists() and classifier_path.exists():
             existing = json.loads(result_path.read_text(encoding="utf-8"))
-            if existing.get("preregistration_hash") == verify_preregistration():
+            if (
+                existing.get("preregistration_hash") == verify_preregistration()
+                and int(existing.get("training_scale", scale)) == int(scale)
+            ):
                 rows.append(existing)
                 continue
         print(
-            f"L-C2ST {track}/{estimator}: sampling posterior "
+            f"L-C2ST {track}/scale_{scale}/{estimator}: sampling posterior "
             f"({len(theta)} calibration rows)...",
             flush=True,
         )
         posterior_samples = _posterior_samples_for_lc2st(
-            track, estimator_index, x_scaled, members
+            track, estimator_index, x_scaled, members, scale=scale
         )
         print(
-            f"L-C2ST {track}/{estimator}: training classifier...",
+            f"L-C2ST {track}/scale_{scale}/{estimator}: training classifier...",
             flush=True,
         )
-        classifier_seed = int(SEEDS[f"lc2st_classifier_{track}"]) + (
-            estimator_index * 1009
+        scale_offset = 0 if scale == FINAL_SCALE else int(scale) * 17
+        classifier_seed = (
+            int(SEEDS[f"lc2st_classifier_{track}"])
+            + estimator_index * 1009
+            + scale_offset
         )
         started = perf_counter()
         lc2st = LC2ST(
@@ -730,6 +775,7 @@ def run_lc2st(track: str) -> dict[str, Any]:
             scores_null=np.asarray(scores_null, np.float64),
             estimator=np.asarray(estimator, dtype="<U32"),
             track=np.asarray(track, dtype="<U8"),
+            training_scale=np.asarray(scale, np.int64),
             preregistration_hash=np.asarray(
                 verify_preregistration(), dtype="<U64"
             ),
@@ -738,6 +784,13 @@ def run_lc2st(track: str) -> dict[str, Any]:
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "track": track,
             "estimator": estimator,
+            "training_scale": int(scale),
+            "n_members": int(n_members),
+            "comparison_role": (
+                "single_estimator_matched"
+                if estimator == "member_1"
+                else comparison_role
+            ),
             "calibration_cases": len(theta),
             "local_posterior_samples": n_local,
             "score_observed": float(np.asarray(score_data).reshape(-1)[0]),
@@ -748,27 +801,83 @@ def run_lc2st(track: str) -> dict[str, Any]:
             "runtime_s": float(perf_counter() - started),
             "classifier_sha256": sha256_file(classifier_path),
             "preregistration_hash": verify_preregistration(),
+            "note": (
+                "8192 has K=1 (ensemble≡member_1); 32768 has K=5. "
+                "Asymmetric descriptive scale contrast only — not a causal "
+                "n_sim effect claim."
+                if scale == INTERMEDIATE_SCALE
+                else "FINAL_SCALE reference LC2ST"
+            ),
         }
         atomic_json(result_path, row)
         rows.append(row)
         print(
-            f"L-C2ST {track}/{estimator}: p={p_value:.4g} reject={reject}",
+            f"L-C2ST {track}/scale_{scale}/{estimator}: "
+            f"p={p_value:.4g} reject={reject}",
             flush=True,
         )
     frame = pd.DataFrame(rows)
-    frame.to_csv(LC2ST_ROOT / track / "lc2st_summary.csv", index=False)
+    frame.to_csv(track_root / "lc2st_summary.csv", index=False)
     ensemble = frame[frame.estimator == "ensemble"].iloc[0]
     summary = {
         "track": track,
+        "training_scale": int(scale),
+        "n_members": int(n_members),
         "ensemble_p_value": float(ensemble.p_value),
         "ensemble_reject": bool(ensemble.reject_alpha_0p05),
         "individual_rejections": int(
             frame[frame.estimator != "ensemble"].reject_alpha_0p05.sum()
         ),
         "preregistration_hash": verify_preregistration(),
+        "scale_contrast_note": (
+            "asymmetric descriptive contrast vs FINAL_SCALE (K=1 vs K=5)"
+            if scale == INTERMEDIATE_SCALE
+            else "final-scale reference"
+        ),
     }
-    atomic_json(LC2ST_ROOT / track / "lc2st_track_summary.json", summary)
+    atomic_json(track_root / "lc2st_track_summary.json", summary)
     return summary
+
+
+def build_lc2st_scale_contrast() -> pd.DataFrame:
+    """Merge 8192 and 32768 LC2ST summaries for Notebook 29 scale contrast."""
+
+    frames = []
+    for scale, label in (
+        (FINAL_SCALE, "final_legacy_or_scale_32768"),
+        (INTERMEDIATE_SCALE, "scale_8192"),
+    ):
+        for track in ("8d", "7d"):
+            path = lc2st_track_root(track, scale) / "lc2st_summary.csv"
+            if not path.is_file():
+                continue
+            frame = pd.read_csv(path)
+            if "training_scale" not in frame.columns:
+                frame["training_scale"] = int(scale)
+            if "n_members" not in frame.columns:
+                frame["n_members"] = 5 if scale == FINAL_SCALE else 1
+            frame["artifact_root_label"] = label
+            frames.append(frame)
+    if not frames:
+        raise RuntimeError("no LC2ST summaries found for scale contrast")
+    out = pd.concat(frames, ignore_index=True)
+    out_path = LC2ST_ROOT / "scale_contrast_8192_vs_32768.csv"
+    out.to_csv(out_path, index=False)
+    atomic_json(
+        LC2ST_ROOT / "scale_contrast_8192_vs_32768_manifest.json",
+        {
+            "created_utc": datetime.now(timezone.utc).isoformat(),
+            "csv": out_path.relative_to(RESULTS_ROOT).as_posix(),
+            "primary_comparison": "member_1 @8192 vs member_1 @32768 (matched single estimator)",
+            "secondary_comparison": (
+                "ensemble @8192 (≡member_1, K=1) vs ensemble @32768 (K=5); "
+                "asymmetric descriptive only — not causal n_sim"
+            ),
+            "n_rows": int(len(out)),
+            "preregistration_hash": verify_preregistration(),
+        },
+    )
+    return out
 
 
 def run_ppc(track: str) -> dict[str, Any]:
@@ -1056,9 +1165,11 @@ __all__ = [
     "STRUCTURE_ROOT",
     "analyze_global_ranks",
     "analyze_posterior_structure",
+    "build_lc2st_scale_contrast",
     "generate_global_datasets",
     "generate_lc2st_datasets",
     "generate_primary_observation",
+    "lc2st_track_root",
     "operational_verdict",
     "run_global_diagnostic",
     "run_lc2st",

@@ -1,0 +1,9 @@
+parameter,ensemble,member_1,member_2,member_3,member_4,member_5
+b,False,False,False,False,False,False
+c_ctx2th,False,False,False,False,False,False
+c_th2ctx,False,True,True,False,False,False
+g_LK,False,False,False,False,False,True
+g_h,False,False,False,False,False,False
+mue,True,True,True,True,True,True
+mui,True,True,True,True,True,True
+tauA,True,True,True,True,True,True

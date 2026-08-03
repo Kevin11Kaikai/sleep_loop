@@ -1,0 +1,29 @@
+{
+  "benchmark_only": true,
+  "created_utc": "2026-08-01T22:47:07.888878+00:00",
+  "does_not_replace_formal_256_per_member": true,
+  "estimated_formal_wall_hours": 0.9326098755553917,
+  "estimated_formal_wall_min": 55.9565925333235,
+  "estimated_formal_wall_s": 3357.39555199941,
+  "formal_phase2_new_sims": 2560,
+  "n_benchmark_per_track": 24,
+  "notes": "Estimate assumes similar throughput to benchmark with 8 workers; excludes posterior sampling overhead and prior reuse savings.",
+  "tracks": {
+    "7d": {
+      "fail_rate": 0.0,
+      "median_worker_runtime_s": 6.162816599942744,
+      "n_benchmark": 24,
+      "output": "notebook_33_ensemble_attribution/ppc/benchmark/7d/notebook33_ppc_benchmark_7d_7d.npz",
+      "throughput_sims_per_s": 0.8655407539480834,
+      "wall_s": 27.72833039984107
+    },
+    "8d": {
+      "fail_rate": 0.0,
+      "median_worker_runtime_s": 7.400744599988684,
+      "n_benchmark": 24,
+      "output": "notebook_33_ensemble_attribution/ppc/benchmark/8d/notebook33_ppc_benchmark_8d_8d.npz",
+      "throughput_sims_per_s": 0.7624957978143082,
+      "wall_s": 31.47558329999447
+    }
+  }
+}
