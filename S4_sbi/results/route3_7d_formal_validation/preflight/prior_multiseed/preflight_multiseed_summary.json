@@ -1,0 +1,11 @@
+{
+  "attempted": 384,
+  "success": 384,
+  "failure_rate": 0.0,
+  "finite_rate": 1.0,
+  "noise_floor_q95": 2.7087935838295074,
+  "nearest_neighbor_all_three_agreement": 0.2578125,
+  "nearest_neighbor_pair_agreement_mean": 0.4166666666666667,
+  "collision_count": 2106,
+  "near_collision_count": 3869
+}

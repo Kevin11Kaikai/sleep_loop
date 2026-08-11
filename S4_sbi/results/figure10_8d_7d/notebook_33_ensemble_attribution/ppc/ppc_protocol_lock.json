@@ -1,0 +1,79 @@
+{
+  "bootstrap_n": 1000,
+  "budget_per_track_member": 256,
+  "code_hashes": {
+    "figure10_bank.py": "e1014f0df4722e498d01f45b0dce0a2fe91d75b095fbf529fed626d64aef1c16",
+    "figure10_diagnostics.py": "9912b2a1552d0f51dc94db94bd2534a479dace1ec3b6a224f35340a8d7f184f1",
+    "figure10_notebook33_phase2_ppc.py": "79e872f47a1f926278ff41181fd2549d4a0c92072befba1c6a68ab4ba2170ef4",
+    "route3_global_robustness.py": "a0dc3b43892bf405906ce1c166be61f91c17e82fb572c49a94ffc57e33bfaf6f",
+    "simulator_observable_adapter.py": "1398d996727e64a5efbb1dac9e280046039e1642b23c72f772705128353d947a"
+  },
+  "completeness_rule": "phase2_complete=true only if every track\u00d7member has exactly 256 successful scoring simulations after retry/reserve",
+  "created_utc": "2026-08-01T22:56:35.274576+00:00",
+  "feature_names": [
+    "r_exc_mean_hz",
+    "r_exc_std_hz",
+    "r_exc_relative_so_power",
+    "r_exc_relative_sigma_power",
+    "r_exc_so_peak_frequency_hz",
+    "r_exc_sigma_peak_frequency_hz",
+    "r_exc_spectral_entropy_0p5_20",
+    "r_inh_mean_hz",
+    "r_inh_std_hz",
+    "r_inh_relative_so_power",
+    "r_inh_relative_sigma_power",
+    "r_inh_so_peak_frequency_hz",
+    "r_inh_sigma_peak_frequency_hz",
+    "r_inh_spectral_entropy_0p5_20"
+  ],
+  "members": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "metric_definition": {
+    "aggregate_improvement": "1 - mean(posterior_error) / mean(prior_error)",
+    "hard_cutoff_60pct": false,
+    "improvement_fraction": "1 - posterior_error / prior_error",
+    "matches_figure10_diagnostics_run_ppc": true,
+    "note_60pct": "observed ensemble reference only; not pass/fail cutoff",
+    "scaled_abs_error": "median_i | (x_i - x_obs) / x_scale | per feature"
+  },
+  "micro_shard_size": 16,
+  "observation": {
+    "path": "diagnostics/ppc/primary_observation/8d/primary_observation_8d.npz",
+    "sha256": "1bd70e584024bbf3a7f05397a8d76f637455ece5f16d3369107c035f78c5b991",
+    "x_shape": [
+      14
+    ]
+  },
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60",
+  "prior_predictive_reuse": {
+    "7d": "diagnostics/ppc/7d/prior_predictive/prior_predictive_7d.npz",
+    "8d": "diagnostics/ppc/8d/prior_predictive/prior_predictive_8d.npz"
+  },
+  "reserve_per_track_member": 64,
+  "retry_rule": "same_theta_same_seed_retry_once; if still failed, replace scoring slot with next unused reserve draw (new theta + new seed); failures are retained in failure records and never silent-zeroed",
+  "schema_hash": "78d0da704422a03917ef4c68207f5e8e8213b0c6f6279deaf26f34c9958d64a8",
+  "seeds": {
+    "bootstrap": 9360001,
+    "posterior_sampling_7d": 9341001,
+    "posterior_sampling_8d": 9340001,
+    "simulator_base_7d": 9351001,
+    "simulator_base_8d": 9350001
+  },
+  "tracks": [
+    "8d",
+    "7d"
+  ],
+  "writes_allowed": [
+    "notebook_33_ensemble_attribution/ppc/",
+    "notebook_33_ensemble_attribution/tables/",
+    "notebook_33_ensemble_attribution/json/",
+    "notebook_33_ensemble_attribution/figures/",
+    "notebook_33_ensemble_attribution/logs/",
+    "notebook_33_ensemble_attribution/validation/"
+  ]
+}

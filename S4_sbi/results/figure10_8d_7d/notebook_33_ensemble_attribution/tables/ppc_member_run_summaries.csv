@@ -1,0 +1,11 @@
+attempted_primary,completeness_ok,consolidated,failed_recorded,member_index,replacements_from_reserve,reserve_used,successful_scoring,track,wall_s
+256,True,notebook_33_ensemble_attribution/ppc/8d/member_1/posterior_predictive_8d_member_1.npz,0,1,0,0,256,8d,0.5681639998219907
+256,True,notebook_33_ensemble_attribution/ppc/8d/member_2/posterior_predictive_8d_member_2.npz,0,2,0,0,256,8d,0.5727979999501258
+256,True,notebook_33_ensemble_attribution/ppc/8d/member_3/posterior_predictive_8d_member_3.npz,0,3,0,0,256,8d,0.5647986999247223
+256,True,notebook_33_ensemble_attribution/ppc/8d/member_4/posterior_predictive_8d_member_4.npz,0,4,0,0,256,8d,0.5647859000600874
+256,True,notebook_33_ensemble_attribution/ppc/8d/member_5/posterior_predictive_8d_member_5.npz,0,5,0,0,256,8d,0.5869622998870909
+256,True,notebook_33_ensemble_attribution/ppc/7d/member_1/posterior_predictive_7d_member_1.npz,0,1,0,0,256,7d,0.6077521000988781
+256,True,notebook_33_ensemble_attribution/ppc/7d/member_2/posterior_predictive_7d_member_2.npz,0,2,0,0,256,7d,0.5703420999925584
+256,True,notebook_33_ensemble_attribution/ppc/7d/member_3/posterior_predictive_7d_member_3.npz,0,3,0,0,256,7d,0.5344690999481827
+256,True,notebook_33_ensemble_attribution/ppc/7d/member_4/posterior_predictive_7d_member_4.npz,0,4,0,0,256,7d,0.5495474999770522
+256,True,notebook_33_ensemble_attribution/ppc/7d/member_5/posterior_predictive_7d_member_5.npz,0,5,0,0,256,7d,0.5217299999203533

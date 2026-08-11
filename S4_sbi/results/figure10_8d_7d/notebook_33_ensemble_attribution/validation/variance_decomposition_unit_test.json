@@ -1,0 +1,21 @@
+{
+  "analytic_identity": {
+    "diag_recon_error": 0.0,
+    "frobenius_recon_error": 0.0,
+    "note": "ddof=1 between overstates weighted between by ~K/(K-1)=1.25 for K=5",
+    "pass": true,
+    "tolerance": 1e-12,
+    "wrong_ddof1_over_weighted_between_mean_ratio": 1.25
+  },
+  "created_utc": "2026-08-01T22:43:22.524381+00:00",
+  "empirical_mc_sanity": {
+    "frobenius_est_vs_emp": 0.001446605390476641,
+    "frobenius_identity_on_estimates": 0.0,
+    "n_draw": 200000,
+    "pass": true,
+    "se_proxy": 0.0032356880947130235,
+    "seed": 9332001,
+    "tolerance": 0.06471376189426047
+  },
+  "pass": true
+}

@@ -1,0 +1,13 @@
+track,estimator,status,features_posterior_better,overall_improvement_fraction,bootstrap_improvement_q025,bootstrap_improvement_q975,failure_rate_among_attempts,note
+8d,ensemble,available_from_notebook30,14,0.6004897489332632,,,0.0,"Observed aggregate ~60% is reference only, not a hard cutoff"
+7d,ensemble,available_from_notebook30,14,0.5928179299614381,,,0.0,"Observed aggregate ~60% is reference only, not a hard cutoff"
+8d,member_1,complete,13,0.5334139139662251,0.5028746265828751,0.578603361721319,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+8d,member_2,complete,14,0.6172437939849089,0.5883976128302234,0.6518530560196258,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+8d,member_3,complete,14,0.6426655752243304,0.6239867050470227,0.6656285534637203,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+8d,member_4,complete,14,0.5834106399579082,0.5590770321665816,0.6275697861211195,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+8d,member_5,complete,14,0.6214410321800914,0.5864316297218813,0.6474523974430957,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+7d,member_1,complete,14,0.5945505000353861,0.5570662608235227,0.6464596879748844,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+7d,member_2,complete,14,0.6128696746083495,0.5747614092400628,0.6304257703593106,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+7d,member_3,complete,14,0.6001716919902967,0.5545583599398692,0.6236170620047575,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+7d,member_4,complete,14,0.5941575599379543,0.5675891977747085,0.6304515728185626,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures
+7d,member_5,complete,14,0.625199244801919,0.5851625940748262,0.6817052835253801,0.0,PPC != calibration; does not offset SBC/joint/L-C2ST failures

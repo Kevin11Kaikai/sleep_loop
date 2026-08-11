@@ -1,0 +1,63 @@
+{
+  "track": "7d",
+  "verdict": "7D FIGURE-10-EQUIVALENT FAIL",
+  "pass_checks": {
+    "technical_gate": true,
+    "joint_coverage": false,
+    "sbc": false,
+    "lc2st": false,
+    "ppc_features": true,
+    "ppc_overall": true
+  },
+  "qualified_checks": {
+    "technical_gate": true,
+    "joint_coverage": false,
+    "sbc": false,
+    "lc2st": false,
+    "ppc_features": true,
+    "ppc_overall": true
+  },
+  "global": {
+    "dataset_id": "powered_1024",
+    "track": "7d",
+    "scale": 32768,
+    "cases": 1024,
+    "posterior_samples_per_case": 1000,
+    "ensemble_joint_ks_statistic": 0.2117784559190809,
+    "ensemble_joint_ks_pvalue": 8.893435253963037e-41,
+    "ensemble_clear_sbc_issue_count": 3,
+    "ensemble_recovery_improvement_fraction": 0.5028495513375205,
+    "ensemble_median_normalized_posterior_sd": 0.5681560922686553,
+    "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+  },
+  "lc2st": {
+    "track": "7d",
+    "ensemble_p_value": 0.0,
+    "ensemble_reject": true,
+    "individual_rejections": 5,
+    "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+  },
+  "ppc": {
+    "created_utc": "2026-07-31T11:36:16.669922+00:00",
+    "track": "7d",
+    "posterior_attempted": 256,
+    "posterior_failed": 0,
+    "prior_attempted": 256,
+    "prior_failed": 0,
+    "features_posterior_better": 14,
+    "overall_posterior_scaled_error": 0.3563534524371964,
+    "overall_prior_scaled_error": 0.8751698040226776,
+    "overall_improvement_fraction": 0.5928179299614381,
+    "member_counts": [
+      51,
+      54,
+      38,
+      57,
+      56
+    ],
+    "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+  },
+  "resource_scale_caveat": "32768 simulations per track, not official 3,000,000",
+  "scope": "synthetic cortical-rate inference only",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

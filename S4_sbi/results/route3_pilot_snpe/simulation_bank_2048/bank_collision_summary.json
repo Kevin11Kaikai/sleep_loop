@@ -1,0 +1,11 @@
+{
+  "valid_rows": 2048,
+  "pair_count": 2096128,
+  "noise_floor_from_stage11": 2.3048234774636587,
+  "far_pair_count": 1999861,
+  "collision_count": 327248,
+  "near_collision_count": 939831,
+  "collision_fraction_of_far_pairs": 0.16363537265839975,
+  "stage11_collision_count": 1469,
+  "scaling_source": "training split only"
+}

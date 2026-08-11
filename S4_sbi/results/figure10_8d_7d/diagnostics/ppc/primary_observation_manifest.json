@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-07-31T11:22:37.824338+00:00",
+  "identifier": "canonical_v8a_local_best_primary",
+  "theta_full_8d": [
+    3.5213182430642145,
+    2.8850644250475654,
+    35.8512589767372,
+    1220.0298990584624,
+    0.05024591467710125,
+    0.05428717809722123,
+    0.06737994007146982,
+    0.1253491302153237
+  ],
+  "simulator_seed": 9580001,
+  "same_observation_for_8d_and_7d": true,
+  "c_ctx2th_equals_frozen_7d_value": true,
+  "path": "diagnostics/ppc/primary_observation/8d/primary_observation_8d.npz",
+  "sha256": "1bd70e584024bbf3a7f05397a8d76f637455ece5f16d3369107c035f78c5b991",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

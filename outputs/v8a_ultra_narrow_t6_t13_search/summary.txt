@@ -1,0 +1,25 @@
+V8a ultra-narrow T6-vs-T13 local search summary
+=======================================================
+
+No V8b, no full DE, no threshold/T13 changes, no long validation.
+total_simulations: 1536
+wall_time_h: 2.153
+13_of_13_candidates: 0
+T4_T6_T13_candidates: 0
+best_n_passed: 12
+best_failed_constraints: T6
+best_T4_q: 2.016
+best_T6_ibi_cv: 0.504
+best_T13_n_ctx_verified: 1
+best_T13_ctx_verified_density_per_min: 1.091
+best_T8_n_sp_events: 13
+best_T12_n_verified: 13
+best_c_th2ctx: 0.067380
+best_c_ctx2th: 0.125349
+
+lowest_T6_ibi_cv_while_T13=1: 0.430
+highest_T13_density_while_T6=1: 0.000
+
+No T4=1,T6=1,T13=1 point appeared. This final ultra-narrow search does not change the T6-vs-T13 trade-off conclusion under the current V8a detector/objective and local parameter neighborhood.
+
+Recommended next step: stop searching for 13/13 and move to paper framing plus diagnostic figures

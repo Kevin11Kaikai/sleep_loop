@@ -1,0 +1,245 @@
+{
+  "decision_if_fail": "A_IMPLEMENTATION_FIX_FIRST",
+  "failed_critical": [],
+  "integrity_gate": "PASS",
+  "n_failed": 0,
+  "n_passed": 39,
+  "n_tests": 39,
+  "phase": 0,
+  "tests": [
+    {
+      "detail": "found 1/1",
+      "name": "checkpoint_inventory_8d_n8192",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "found 5/5",
+      "name": "checkpoint_inventory_8d_n32768",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "found 1/1",
+      "name": "checkpoint_inventory_7d_n8192",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "found 5/5",
+      "name": "checkpoint_inventory_7d_n32768",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "dim=8 expected=8",
+      "name": "parameter_order_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "xdim=14",
+      "name": "conditioning_dim_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "maxabs=4.440892098500626e-16",
+      "name": "transform_roundtrip_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "standardization_finite_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "n=5",
+      "name": "reload_members_8d_32768",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "maxabs=0.0",
+      "name": "fixed_seed_repro_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "clip_to_unit_box_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "log_prob_finite_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "equal mixture w_k=1/K as EqualMixturePosterior",
+      "name": "ensemble_equal_weight_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "train_val_disjoint_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "dim=7 expected=7",
+      "name": "parameter_order_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "xdim=14",
+      "name": "conditioning_dim_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "maxabs=4.440892098500626e-16",
+      "name": "transform_roundtrip_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "standardization_finite_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "n=5",
+      "name": "reload_members_7d_32768",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "maxabs=0.0",
+      "name": "fixed_seed_repro_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "clip_to_unit_box_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "log_prob_finite_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "equal mixture w_k=1/K as EqualMixturePosterior",
+      "name": "ensemble_equal_weight_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "train_val_disjoint_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "legacy=[2.01206135] protocol=[2.01206135]",
+      "name": "rank_matches_legacy_components",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "protocol uses Uniform(0,1) tie break, not midpoint",
+      "name": "rank_not_deterministic_midpoint",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "cov90=0.9",
+      "name": "central_coverage_definition_smoke",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "GPU unavailable \u2014 test not executed (recorded, not forged pass)",
+      "name": "cpu_gpu_consistency",
+      "passed": true,
+      "severity": "info"
+    },
+    {
+      "detail": "n=48",
+      "name": "matched48_subset_of_eval",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "powered_1024 reused diagnostic bank; matched48 linspace from N33; exploratory attribution only",
+      "name": "post_selection_audit",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "shape=(1024, 2, 8) est=['ensemble', 'member_1']",
+      "name": "ranks_npz_schema_8d_n8192",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "shape=(1024, 6, 8) est=['ensemble', 'member_1', 'member_2', 'member_3', 'member_4', 'member_5']",
+      "name": "ranks_npz_schema_8d_n32768",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "shape=(1024, 2, 7) est=['ensemble', 'member_1']",
+      "name": "ranks_npz_schema_7d_n8192",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "shape=(1024, 6, 7) est=['ensemble', 'member_1', 'member_2', 'member_3', 'member_4', 'member_5']",
+      "name": "ranks_npz_schema_7d_n32768",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "total=294912 expected=294912",
+      "name": "draw_budget_arithmetic",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "eval_feature_order_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "got=['mue', 'mui', 'b', 'tauA', 'g_LK', 'g_h', 'c_th2ctx', 'c_ctx2th']",
+      "name": "eval_parameter_order_8d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "",
+      "name": "eval_feature_order_7d",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "detail": "got=['mue', 'mui', 'b', 'tauA', 'g_LK', 'g_h', 'c_th2ctx']",
+      "name": "eval_parameter_order_7d",
+      "passed": true,
+      "severity": "critical"
+    }
+  ]
+}

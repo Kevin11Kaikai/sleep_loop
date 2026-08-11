@@ -1,0 +1,25 @@
+T5 de-confounding ¡ª V7 feasibility under V6's spindle-FWHM threshold
+======================================================================
+records file            : outputs/evolution_fig7_v7_records.csv
+total evaluations N     : 4960
+feasible<=>n_passed==12 mismatches : 0  (expect 0)
+
+V7 feasible (FWHM > 0.2) : 364 / 4960
+Feasible under V6 T5 (FWHM > 2.0) : 156 / 4960
+Feasibility LOST to V6's stricter T5  : 208 (57.1% of V7's feasible points)
+
+T5_fwhm distribution among V7-feasible points:
+  fwhm > 2.0 (survive V6)                       : 156
+  fwhm == 2.0 (lost; strict >)                  : 25
+  0.2 < fwhm < 2.0 (lost)                       : 183
+  fwhm <= 0.2 (should not occur among feasible) : 0
+
+V7 SELECTED point: T5_fwhm = 2.0 -> under V6 (strict > 2.0) FAILS T5 (becomes infeasible)
+
+Interpretation:
+  Of V7's 364 feasible solutions, 156 remain feasible under V6's
+  original FWHM > 2.0 Hz rule and 208 do not. Thus roughly 57% of V7's
+  feasibility recovery is attributable to the T5 threshold relaxation alone,
+  with the remaining 156 attributable to the duration/reward/bound redesign.
+  Note the V7 selected point itself sits exactly at FWHM = 2.0 and would be
+  infeasible under V6's strict threshold, confirming T5 is load-bearing.

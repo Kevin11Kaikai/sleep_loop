@@ -1,0 +1,152 @@
+{
+  "created_utc": "2026-08-01T22:43:28.447423+00:00",
+  "n_expected": 12,
+  "n_ok": 12,
+  "pass": true,
+  "rows": [
+    {
+      "checkpoint": "training/8d/scale_8192/member_9550001/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 1,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 8192,
+      "seed": 9550001,
+      "theta_dimension": 8,
+      "track": "8d"
+    },
+    {
+      "checkpoint": "training/7d/scale_8192/member_9551001/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 1,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 8192,
+      "seed": 9551001,
+      "theta_dimension": 7,
+      "track": "7d"
+    },
+    {
+      "checkpoint": "training/8d/scale_32768/member_9550001/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 1,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9550001,
+      "theta_dimension": 8,
+      "track": "8d"
+    },
+    {
+      "checkpoint": "training/8d/scale_32768/member_9550002/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 2,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9550002,
+      "theta_dimension": 8,
+      "track": "8d"
+    },
+    {
+      "checkpoint": "training/8d/scale_32768/member_9550003/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 3,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9550003,
+      "theta_dimension": 8,
+      "track": "8d"
+    },
+    {
+      "checkpoint": "training/8d/scale_32768/member_9550004/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 4,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9550004,
+      "theta_dimension": 8,
+      "track": "8d"
+    },
+    {
+      "checkpoint": "training/8d/scale_32768/member_9550005/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 5,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9550005,
+      "theta_dimension": 8,
+      "track": "8d"
+    },
+    {
+      "checkpoint": "training/7d/scale_32768/member_9551001/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 1,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9551001,
+      "theta_dimension": 7,
+      "track": "7d"
+    },
+    {
+      "checkpoint": "training/7d/scale_32768/member_9551002/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 2,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9551002,
+      "theta_dimension": 7,
+      "track": "7d"
+    },
+    {
+      "checkpoint": "training/7d/scale_32768/member_9551003/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 3,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9551003,
+      "theta_dimension": 7,
+      "track": "7d"
+    },
+    {
+      "checkpoint": "training/7d/scale_32768/member_9551004/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 4,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9551004,
+      "theta_dimension": 7,
+      "track": "7d"
+    },
+    {
+      "checkpoint": "training/7d/scale_32768/member_9551005/best_checkpoint.pt",
+      "error": "",
+      "exists": true,
+      "member_index": 5,
+      "reload_ok": true,
+      "sample_ok": true,
+      "scale": 32768,
+      "seed": 9551005,
+      "theta_dimension": 7,
+      "track": "7d"
+    }
+  ]
+}

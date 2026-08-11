@@ -1,0 +1,537 @@
+{
+  "experiment_id": "figure10_matched_8d_7d_v1",
+  "created_utc": "2026-07-28T13:16:50.748840+00:00",
+  "immutable_after_first_scientific_simulation": true,
+  "git_head_at_freeze": "6198b12848127a3b1d7fb2704b87ebfda8dbd805",
+  "scope": "synthetic cortical excitatory/inhibitory population-rate posterior inference only; not scalp EEG inference",
+  "contracts": {
+    "primary_8d": {
+      "parameter_names": [
+        "mue",
+        "mui",
+        "b",
+        "tauA",
+        "g_LK",
+        "g_h",
+        "c_th2ctx",
+        "c_ctx2th"
+      ],
+      "parameter_units": [
+        "mV/ms",
+        "mV/ms",
+        "pA",
+        "ms",
+        "mS/cm^2",
+        "mS/cm^2",
+        "dimensionless coupling",
+        "dimensionless coupling"
+      ],
+      "prior_type": "independent uniform box",
+      "prior_bounds": [
+        [
+          3.31075,
+          4.4792499999999995
+        ],
+        [
+          2.57295,
+          3.4810499999999998
+        ],
+        [
+          28.400000000000002,
+          42.6
+        ],
+        [
+          998.1999999999999,
+          1853.8
+        ],
+        [
+          0.02,
+          0.07
+        ],
+        [
+          0.035,
+          0.095
+        ],
+        [
+          0.0,
+          0.075
+        ],
+        [
+          0.05,
+          0.22
+        ]
+      ]
+    },
+    "matched_7d": {
+      "parameter_names": [
+        "mue",
+        "mui",
+        "b",
+        "tauA",
+        "g_LK",
+        "g_h",
+        "c_th2ctx"
+      ],
+      "parameter_units": [
+        "mV/ms",
+        "mV/ms",
+        "pA",
+        "ms",
+        "mS/cm^2",
+        "mS/cm^2",
+        "dimensionless coupling"
+      ],
+      "prior_type": "independent uniform box",
+      "prior_bounds": [
+        [
+          3.31075,
+          4.4792499999999995
+        ],
+        [
+          2.57295,
+          3.4810499999999998
+        ],
+        [
+          28.400000000000002,
+          42.6
+        ],
+        [
+          998.1999999999999,
+          1853.8
+        ],
+        [
+          0.02,
+          0.07
+        ],
+        [
+          0.035,
+          0.095
+        ],
+        [
+          0.0,
+          0.075
+        ]
+      ],
+      "fixed_parameter": {
+        "name": "c_ctx2th",
+        "value": 0.1253491302153237,
+        "unit": "dimensionless coupling",
+        "source": "historical frozen Route-3 7D contract; Notebook 10 canonical V8a local best",
+        "source_artifact": "S4_sbi/configs/route3_7d_preregistered_v1.json"
+      }
+    },
+    "observation": {
+      "name": "cortex-rate-only 14D",
+      "schema_version": "route3-cortex-rate-14d-v1",
+      "schema_hash": "78d0da704422a03917ef4c68207f5e8e8213b0c6f6279deaf26f34c9958d64a8",
+      "feature_names": [
+        "r_exc_mean_hz",
+        "r_exc_std_hz",
+        "r_exc_relative_so_power",
+        "r_exc_relative_sigma_power",
+        "r_exc_so_peak_frequency_hz",
+        "r_exc_sigma_peak_frequency_hz",
+        "r_exc_spectral_entropy_0p5_20",
+        "r_inh_mean_hz",
+        "r_inh_std_hz",
+        "r_inh_relative_so_power",
+        "r_inh_relative_sigma_power",
+        "r_inh_so_peak_frequency_hz",
+        "r_inh_sigma_peak_frequency_hz",
+        "r_inh_spectral_entropy_0p5_20"
+      ],
+      "dimension": 14,
+      "source_signals": [
+        "r_mean_EXC",
+        "r_mean_INH"
+      ],
+      "source_signal_units_after_conversion": "Hz",
+      "not_eeg": true
+    },
+    "simulator": {
+      "model_version": "v8a_t13",
+      "sampling_dt_ms": 1.0,
+      "integration_dt_ms": 0.1,
+      "duration_s": 60.0,
+      "warm_up_s": 5.0,
+      "analyzed_window_s": 30.0,
+      "seed_policy": "all four stochastic inputs and numba RNG receive the recorded per-row simulator seed",
+      "failed_policy": "retain theta and seed; NaN x; explicit validity and reason",
+      "undefined_policy": "never fill with zero"
+    }
+  },
+  "official_reference": {
+    "repository": "https://github.com/sbi-dev/sbi-practical-guide",
+    "commit": "18852e1311880d5d053656984cf3fa7d7096a7f2",
+    "paper": "Deistler, Boelts et al. (2025), arXiv:2508.12939",
+    "sbi_version": "0.25.0",
+    "notebooks": [
+      {
+        "path": "examples/4_3_pyloric/4_3_pyloric.ipynb",
+        "sha256": "df39af18a20cda864af2b019896c3e94ee876c3be64eaa8c00d3f0265ba9b08b",
+        "size_bytes": 185517
+      },
+      {
+        "path": "paper/fig10_pyloric/notebooks/01_analysis_and_diagnostics.ipynb",
+        "sha256": "05fa2e1138f3592d142c06f787256880c97409da702e14b0b29c35f9f1e37ba6",
+        "size_bytes": 194098
+      },
+      {
+        "path": "paper/fig10_pyloric/notebooks/02_assemble_figure.ipynb",
+        "sha256": "c658a216566c950b3434ffc9ed0e20e2bb0b319c62d9abd6943b3c239a9de277",
+        "size_bytes": 91256
+      }
+    ],
+    "verified_protocol": {
+      "training_simulations": 3000000,
+      "ensemble_members": 5,
+      "density_estimator": "NSF",
+      "num_transforms": 10,
+      "hidden_features": 100,
+      "hidden_layers_per_transform": "posterior_nn NSF default; not explicitly passed in train.py",
+      "batch_size": 4096,
+      "max_epochs": 400,
+      "early_stopping_patience": 30,
+      "official_equivalent_sbc_cases": 300,
+      "posterior_samples_per_sbc_case": 1000,
+      "lc2st_calibration_simulations": 20000
+    }
+  },
+  "protocol_mapping": [
+    {
+      "official_component": "31D pyloric simulator and 18 summaries",
+      "equivalent_8d": "8D thalamocortical model and cortical-rate 14D",
+      "equivalent_7d": "same model with c_ctx2th fixed",
+      "difference": "different simulator, parameter dimension, and observable"
+    },
+    {
+      "official_component": "five independently initialized NSF NPEs",
+      "equivalent_8d": "five raw NSF NPEs",
+      "equivalent_7d": "five matched raw NSF NPEs",
+      "difference": "CPU training and smaller measured feasible bank"
+    },
+    {
+      "official_component": "joint expected coverage and marginal SBC",
+      "equivalent_8d": "300 official-style plus 1024 powered cases",
+      "equivalent_7d": "same paired design",
+      "difference": "all 8/7 marginals shown rather than only three"
+    },
+    {
+      "official_component": "L-C2ST",
+      "equivalent_8d": "20,000 independent calibration simulations",
+      "equivalent_7d": "separate matched 20,000 simulations",
+      "difference": "local observation is synthetic cortical-rate 14D"
+    },
+    {
+      "official_component": "PPC and posterior marginals/dependencies",
+      "equivalent_8d": "new nuisance-seed simulations and all 8 parameters",
+      "equivalent_7d": "matched fixed-c_ctx2th baseline",
+      "difference": "synthetic observation; no real EEG inference"
+    }
+  ],
+  "resource_decision": {
+    "benchmark_path": "S4_sbi/results/figure10_8d_7d/resource_benchmark/resource_benchmark.json",
+    "benchmark_sha256": "e14c10c078af5476af7b4403f356ba5197eef331fda1213a5e06e9042ea508a4",
+    "workers": 8,
+    "available_hardware": {
+      "cpu": "Intel i5-13600KF, 14 cores / 20 logical",
+      "ram_gib": 31.72,
+      "cuda_available": false,
+      "disk_free_gib_at_audit": 999.91
+    },
+    "measured_tracks": {
+      "8d": {
+        "attempted": 32,
+        "valid": 32,
+        "failed": 0,
+        "wall_s": 33.847787000006065,
+        "throughput_valid_per_s": 0.945408927324976,
+        "median_worker_runtime_s": 6.142713100009132,
+        "sum_worker_runtime_s": 244.78082660003565
+      },
+      "7d_fixed": {
+        "attempted": 32,
+        "valid": 32,
+        "failed": 0,
+        "wall_s": 33.782932200003415,
+        "throughput_valid_per_s": 0.9472238765584938,
+        "median_worker_runtime_s": 6.281249650055543,
+        "sum_worker_runtime_s": 245.08589430025313
+      }
+    },
+    "projections": {
+      "8192": {
+        "paired_tracks_wall_hours": 4.80929558755623,
+        "paired_tracks_wall_days": 0.20038731614817623,
+        "raw_array_gib_estimate": 0.003173828125
+      },
+      "32768": {
+        "paired_tracks_wall_hours": 19.23718235022492,
+        "paired_tracks_wall_days": 0.8015492645927049,
+        "raw_array_gib_estimate": 0.0126953125
+      },
+      "131072": {
+        "paired_tracks_wall_hours": 76.94872940089968,
+        "paired_tracks_wall_days": 3.2061970583708197,
+        "raw_array_gib_estimate": 0.05078125
+      },
+      "524288": {
+        "paired_tracks_wall_hours": 307.7949176035987,
+        "paired_tracks_wall_days": 12.824788233483279,
+        "raw_array_gib_estimate": 0.203125
+      },
+      "1000000": {
+        "paired_tracks_wall_hours": 587.0722152778601,
+        "paired_tracks_wall_days": 24.46134230324417,
+        "raw_array_gib_estimate": 0.38743019104003906
+      },
+      "3000000": {
+        "paired_tracks_wall_hours": 1761.2166458335803,
+        "paired_tracks_wall_days": 73.38402690973251,
+        "raw_array_gib_estimate": 1.1622905731201172
+      }
+    },
+    "preferred_official_scale": 3000000,
+    "minimum_requested_scale": 1000000,
+    "frozen_final_scale_per_track": 32768,
+    "frozen_intermediate_scale": 8192,
+    "hard_limitation": "Measured paired 1M+1M simulation time is about 24.46 days and 3M+3M about 73.38 days on this CPU-only workstation, before training and diagnostics.",
+    "claim_consequence": "This is a resource-limited Figure-10-equivalent evaluation, not an exact 3-million-simulation reproduction. An unqualified PASS requires all diagnostics to pass and must retain this scale caveat."
+  },
+  "simulation_bank": {
+    "scales": [
+      8192,
+      32768
+    ],
+    "final_scale_per_track": 32768,
+    "shard_size": 64,
+    "workers": 8,
+    "pairing": "same seven Sobol coordinates, paired row ID, and simulator seed; 8D draws c_ctx2th and 7D fixes it",
+    "training_validation_split": "80/20 paired-row split",
+    "failed_rows": "retained in manifests; paired-valid intersection trains",
+    "feature_scaling": "median/IQR fitted on each track training split only",
+    "parameter_scaling": "affine prior-to-unit-box transform"
+  },
+  "training": {
+    "architecture": {
+      "model": "nsf",
+      "num_transforms": 10,
+      "hidden_features": 100,
+      "z_score_theta": "none",
+      "z_score_x": "none"
+    },
+    "policy": {
+      "batch_size": 4096,
+      "learning_rate": 0.0005,
+      "weight_decay": 1e-06,
+      "max_epochs": 400,
+      "early_stopping_patience": 30,
+      "minimum_improvement": 0.0001,
+      "clip_max_norm": 5.0,
+      "validation_fraction": 0.2
+    },
+    "members_per_track": 5,
+    "independence": "distinct initialization and dataloader seeds; same frozen bank",
+    "ensemble": "equal-weight mixture; component selected before sampling; mixture log_prob via log-sum-exp",
+    "rounds": 1,
+    "proposal": "corresponding frozen prior",
+    "intermediate_scale": {
+      "scale": 8192,
+      "8d_members": 1,
+      "7d_members": 1
+    }
+  },
+  "diagnostics": {
+    "official_expected_coverage_cases": 300,
+    "powered_expected_coverage_cases": 1024,
+    "posterior_samples_per_global_case": 1000,
+    "sbc_parameters": {
+      "8d": 8,
+      "7d": 7
+    },
+    "lc2st_calibration_simulations_per_track": 20000,
+    "lc2st_local_posterior_samples": 10000,
+    "lc2st_alpha": 0.05,
+    "primary_observation": "canonical V8a local-best theta with c_ctx2th equal to the historical frozen 7D value; frozen before diagnostics",
+    "ppc_posterior_draws_per_track": 256,
+    "ppc_prior_draws": 256,
+    "posterior_structure_samples_per_track": 50000
+  },
+  "operational_verdict": {
+    "status": "project reproducibility operationalization, not official threshold",
+    "technical_gates": {
+      "bank_failure_rate_max": 0.01,
+      "diagnostic_failure_rate_max": 0.01,
+      "posterior_finite_in_support_rate_min": 0.999,
+      "feature_and_parameter_order_exact": true
+    },
+    "pass": {
+      "powered_joint_rank_ks_p_min": 0.05,
+      "clear_sbc_issues_max": 0,
+      "sbc_holm_family_alpha": 0.05,
+      "ensemble_lc2st_reject": false,
+      "ppc_features_better_than_prior_min": 10,
+      "ppc_overall_improvement_min_fraction": 0.1
+    },
+    "qualified_pass": {
+      "powered_joint_rank_ks_p_min": 0.01,
+      "clear_sbc_issues_max": 1,
+      "ensemble_lc2st_reject": false,
+      "ppc_features_better_than_prior_min": 10,
+      "ppc_overall_improvement_min_fraction": 0.1,
+      "requires_explicit_limitation": true
+    },
+    "fail_if": [
+      "powered joint-rank KS p < 0.01",
+      "two or more Holm-corrected marginal SBC issues",
+      "primary ensemble L-C2ST rejects at alpha 0.05",
+      "PPC improvement gate fails",
+      "technical/data-contract gate fails"
+    ],
+    "wide_prior_like_marginal": "not a failure if joint/marginal calibration is adequate"
+  },
+  "historical_route3": {
+    "verdict": "NO-GO",
+    "frozen_logic_unchanged": true,
+    "source": "ROUTE3_7D_RESCUE_FINAL_DECISION.json",
+    "source_sha256": "37209b9bba0fc46552e94c276d4d83ac401f9bf1170018a13a7ac5612b961efd",
+    "reuse_final_cases": false,
+    "note": "Previously inspected Route-3 cases remain evidentiary history; the strict verdict is preserved, not retroactively recomputed."
+  },
+  "seeds": {
+    "training_sobol": 9530001,
+    "training_simulator_base": 9531001,
+    "train_validation_split": 9532001,
+    "network_8d": [
+      9550001,
+      9550002,
+      9550003,
+      9550004,
+      9550005
+    ],
+    "network_7d": [
+      9551001,
+      9551002,
+      9551003,
+      9551004,
+      9551005
+    ],
+    "official_coverage_sobol": 9560001,
+    "official_coverage_simulator_base": 9561001,
+    "official_posterior_sampling_8d": 9562001,
+    "official_posterior_sampling_7d": 9563001,
+    "powered_coverage_sobol": 9570001,
+    "powered_coverage_simulator_base": 9571001,
+    "powered_posterior_sampling_8d": 9572001,
+    "powered_posterior_sampling_7d": 9573001,
+    "primary_observation_simulator": 9580001,
+    "primary_posterior_sampling_8d": 9581001,
+    "primary_posterior_sampling_7d": 9582001,
+    "ppc_simulator_base_8d": 9583001,
+    "ppc_simulator_base_7d": 9584001,
+    "prior_ppc_sobol": 9585001,
+    "prior_ppc_simulator_base": 9586001,
+    "lc2st_sobol": 9590001,
+    "lc2st_simulator_base": 9591001,
+    "lc2st_posterior_8d": 9592001,
+    "lc2st_posterior_7d": 9593001,
+    "lc2st_classifier_8d": 9594001,
+    "lc2st_classifier_7d": 9595001,
+    "stress_observation_simulator": 9596001
+  },
+  "dataset_disjointness": [
+    "training/validation",
+    "official 300 global diagnostics",
+    "powered 1024 global diagnostics",
+    "8D L-C2ST 20,000",
+    "7D L-C2ST 20,000",
+    "primary observation and PPC",
+    "secondary stress observation",
+    "historical Route-3 data"
+  ],
+  "allowed_claims": [
+    "synthetic posterior inference in frozen cortical-rate proxy space",
+    "matched scientific ablation of releasing c_ctx2th",
+    "resource-limited Figure-10-equivalent diagnostics"
+  ],
+  "forbidden_claims": [
+    "real Fpz-Cz EEG posterior inference",
+    "simulated scalp EEG",
+    "subject-specific physiological recovery",
+    "real EEG digital twin",
+    "measurement-model validation",
+    "official 3M reproduction"
+  ],
+  "fallback": {
+    "bank": "Resume immutable shards. If failure exceeds 1%, stop training and report terminal technical FAIL.",
+    "training": "Resume checkpoints. Terminal member failure remains visible; do not substitute sequential checkpoints as ensemble members.",
+    "diagnostics": "Never tune on final sets. Missing required diagnostic yields FAIL."
+  },
+  "environment": {
+    "conda_default_env": "neurolib",
+    "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+    "sys_prefix": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib",
+    "python": "3.10.20 | packaged by conda-forge | (main, Mar  5 2026, 16:36:49) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "logical_cpu_count": 20,
+    "packages": {
+      "neurolib": "0.6.1",
+      "sbi": "0.26.1",
+      "torch": "2.5.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "matplotlib": "3.10.8",
+      "nbformat": "5.10.4",
+      "nbclient": "0.10.4"
+    }
+  },
+  "source_files": [
+    {
+      "path": "models/s4_personalize_fig7_v7.py",
+      "size_bytes": 69281,
+      "sha256": "ae7881c0df252e561e3c2293259380c32503f90513bead6bff44aea5f0a1f25a"
+    },
+    {
+      "path": "models/s4_personalize_fig7_v8.py",
+      "size_bytes": 71033,
+      "sha256": "9e4f525bee282a7c3fff2ea3a6557a41d8fdf4b6620b32dff97058c58dd598b1"
+    },
+    {
+      "path": "S4_sbi/src/sleep_sbi/route3_synthetic_preflight.py",
+      "size_bytes": 44207,
+      "sha256": "3213787d06283a06a969557012fe6c9af7cb34d8ebdc5393af616db2516baee5"
+    },
+    {
+      "path": "S4_sbi/src/sleep_sbi/route3_global_robustness.py",
+      "size_bytes": 40598,
+      "sha256": "a0dc3b43892bf405906ce1c166be61f91c17e82fb572c49a94ffc57e33bfaf6f"
+    },
+    {
+      "path": "S4_sbi/src/sleep_sbi/simulator_observable_adapter.py",
+      "size_bytes": 23917,
+      "sha256": "1398d996727e64a5efbb1dac9e280046039e1642b23c72f772705128353d947a"
+    },
+    {
+      "path": "S4_sbi/src/sleep_sbi/figure10_protocol.py",
+      "size_bytes": 25554,
+      "sha256": "e45198abafb13a53f63926570a21fc97cf0c8058901426879cdbab191e099279"
+    },
+    {
+      "path": "S4_sbi/src/sleep_sbi/figure10_bank.py",
+      "size_bytes": 19900,
+      "sha256": "6d7c864bcf5144b702d100ad78e44522d1b13b2b6d6c6dec84782de3c4bc2233"
+    },
+    {
+      "path": "S4_sbi/src/sleep_sbi/figure10_training.py",
+      "size_bytes": 20068,
+      "sha256": "f570ce861ee2bbd4c3586087c5f8b9874629e3c1f10aa10e719d960fe0130584"
+    },
+    {
+      "path": "S4_sbi/src/sleep_sbi/figure10_diagnostics.py",
+      "size_bytes": 39428,
+      "sha256": "df9a572797956fc0c9faf27d999b184749d2e7088d57bf6c5f82b46085e0fb6a"
+    }
+  ]
+}

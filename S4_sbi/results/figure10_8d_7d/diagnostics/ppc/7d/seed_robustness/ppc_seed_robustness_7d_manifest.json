@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-31T11:38:42.207037+00:00",
+  "dataset_id": "ppc_seed_robustness",
+  "track": "7d",
+  "attempted": 48,
+  "valid": 48,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 316.13265659986064,
+  "path": "diagnostics/ppc/7d/seed_robustness/ppc_seed_robustness_7d.npz",
+  "sha256": "d5bd1bc308118f8fd726e5b6fd33a1bdad68070c7f9ed912cf5de78e59cbfcd3",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

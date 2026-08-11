@@ -1,0 +1,59 @@
+subject_id: SC4001
+manifest_path: data/manifest.csv
+channel_candidates:
+  - EEG Fpz-Cz
+  - Fpz-Cz
+  - EEG FPZ-CZ
+  - FPZ-CZ
+
+epoch:
+  duration_s: 30.0
+
+reproducibility:
+  random_seed: 20260723
+
+qc:
+  max_peak_to_peak_uv: 200.0
+  min_std_uv: 0.1
+
+welch:
+  primary_window: hann
+  sensitivity_window: hamming
+  segment_s: 4.0
+  overlap_s: 1.0
+  analysis_band_hz: [0.5, 20.0]
+  so_band_hz: [0.2, 1.5]
+
+filters:
+  order: 4
+  edge_trim_s: 2.0
+
+slow_oscillation:
+  event_band_hz: [0.2, 4.0]
+  half_wave_uv: 75.0
+  duration_s: [0.5, 2.0]
+  min_peak_distance_s: 0.4
+  waveform_half_window_s: 1.25
+
+spindle:
+  detector_band_hz: [11.0, 15.0]
+  rms_window_s: 0.2
+  threshold_sd: 1.5
+  duration_s: [0.5, 3.0]
+  merge_gap_s: 0.1
+
+pac:
+  phase_band_hz: [0.5, 1.5]
+  amplitude_band_hz: [10.0, 14.0]
+  phase_bins: 18
+
+fooof:
+  required_version: 1.1.1
+  peak_width_limits: [1.0, 8.0]
+  max_n_peaks: 4
+  min_peak_height: 0.05
+  aperiodic_mode: fixed
+
+artifacts:
+  output_dir: outputs/observation_sc4001
+  dpi: 180

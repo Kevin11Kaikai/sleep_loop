@@ -1,0 +1,73 @@
+{
+  "created_utc": "2026-07-28T13:00:01.759157+00:00",
+  "scope": "resource benchmark only; excluded from scientific datasets",
+  "environment": {
+    "conda_default_env": "neurolib",
+    "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+    "sys_prefix": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib",
+    "python": "3.10.20 | packaged by conda-forge | (main, Mar  5 2026, 16:36:49) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "logical_cpu_count": 20
+  },
+  "configuration": {
+    "pairs": 32,
+    "workers": 8,
+    "sobol_seed": 9424001,
+    "simulator_seed_base": 9424101,
+    "fixed_c_ctx2th": 0.1253491302153237
+  },
+  "tracks": {
+    "8d": {
+      "attempted": 32,
+      "valid": 32,
+      "failed": 0,
+      "wall_s": 33.847787000006065,
+      "throughput_valid_per_s": 0.945408927324976,
+      "median_worker_runtime_s": 6.142713100009132,
+      "sum_worker_runtime_s": 244.78082660003565
+    },
+    "7d_fixed": {
+      "attempted": 32,
+      "valid": 32,
+      "failed": 0,
+      "wall_s": 33.782932200003415,
+      "throughput_valid_per_s": 0.9472238765584938,
+      "median_worker_runtime_s": 6.281249650055543,
+      "sum_worker_runtime_s": 245.08589430025313
+    }
+  },
+  "paired_rate_per_s_conservative": 0.945408927324976,
+  "total_wall_s": 67.64699489995837,
+  "projections": {
+    "8192": {
+      "paired_tracks_wall_hours": 4.80929558755623,
+      "paired_tracks_wall_days": 0.20038731614817623,
+      "raw_array_gib_estimate": 0.003173828125
+    },
+    "32768": {
+      "paired_tracks_wall_hours": 19.23718235022492,
+      "paired_tracks_wall_days": 0.8015492645927049,
+      "raw_array_gib_estimate": 0.0126953125
+    },
+    "131072": {
+      "paired_tracks_wall_hours": 76.94872940089968,
+      "paired_tracks_wall_days": 3.2061970583708197,
+      "raw_array_gib_estimate": 0.05078125
+    },
+    "524288": {
+      "paired_tracks_wall_hours": 307.7949176035987,
+      "paired_tracks_wall_days": 12.824788233483279,
+      "raw_array_gib_estimate": 0.203125
+    },
+    "1000000": {
+      "paired_tracks_wall_hours": 587.0722152778601,
+      "paired_tracks_wall_days": 24.46134230324417,
+      "raw_array_gib_estimate": 0.38743019104003906
+    },
+    "3000000": {
+      "paired_tracks_wall_hours": 1761.2166458335803,
+      "paired_tracks_wall_days": 73.38402690973251,
+      "raw_array_gib_estimate": 1.1622905731201172
+    }
+  }
+}

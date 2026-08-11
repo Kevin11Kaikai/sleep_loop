@@ -1,0 +1,11 @@
+{
+  "failure_rate_max": 0.01,
+  "finite_rate_min": 0.99,
+  "observed_failure_rate_max": 0.0,
+  "observed_finite_rate": 1.0,
+  "feature_dimension_order_stable": true,
+  "seed_recorded_reproducible": true,
+  "silent_parameter_insertion_errors": 0,
+  "pickle_free_reload": true,
+  "pass": true
+}

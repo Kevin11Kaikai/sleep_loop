@@ -1,0 +1,16 @@
+{
+  "conda_default_env": "neurolib",
+  "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+  "sys_prefix": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib",
+  "python": "3.10.20",
+  "kernel_id": "neurolib",
+  "kernel_display_name": "Python (neurolib)",
+  "versions": {
+    "neurolib": "0.6.1",
+    "sbi": "0.26.1",
+    "torch": "2.5.1",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "pandas": "2.3.3"
+  }
+}

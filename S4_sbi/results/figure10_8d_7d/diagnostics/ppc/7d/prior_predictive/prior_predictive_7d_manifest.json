@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-31T11:36:16.664800+00:00",
+  "dataset_id": "prior_predictive",
+  "track": "7d",
+  "attempted": 256,
+  "valid": 256,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 1545.8822866012342,
+  "path": "diagnostics/ppc/7d/prior_predictive/prior_predictive_7d.npz",
+  "sha256": "586c2d22717b2bda7a9f44f21d50fcc47de7b9ce30475c9593a722cf6651745c",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

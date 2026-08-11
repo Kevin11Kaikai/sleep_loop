@@ -1,0 +1,10 @@
+{
+  "draws_nominal": 294912,
+  "elapsed_s": 68.17684888839722,
+  "failed": [],
+  "jobs_done": 576,
+  "jobs_failed": 0,
+  "jobs_skipped_resume": 0,
+  "jobs_total": 576,
+  "phase": 2
+}

@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-08-01T22:46:39.581970+00:00",
+  "dataset_id": "notebook33_ppc_benchmark_8d",
+  "track": "8d",
+  "attempted": 24,
+  "valid": 24,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 225.6681816012133,
+  "path": "notebook_33_ensemble_attribution/ppc/benchmark/8d/notebook33_ppc_benchmark_8d_8d.npz",
+  "sha256": "2e5871e0d155c205569ca6f4ed66ba05abf27098d44f27e7dcd036caced30e9e",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-08-02T05:20:31.850885+00:00",
+  "track": "7d",
+  "estimator": "ensemble",
+  "training_scale": 8192,
+  "n_members": 1,
+  "comparison_role": "ensemble_asymmetric_scale_contrast",
+  "calibration_cases": 20000,
+  "local_posterior_samples": 10000,
+  "score_observed": 0.21822404564823414,
+  "null_q95": 0.030170103116658055,
+  "p_value": 0.0,
+  "reject_alpha_0p05": true,
+  "classifier_seed": 9734265,
+  "runtime_s": 2891.2903148999903,
+  "classifier_sha256": "1618c6317881446356f4aa3a9b3f6e518f4ae7fac6347eb655fa9f31af14d46a",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60",
+  "note": "8192 has K=1 (ensemble\u2261member_1); 32768 has K=5. Asymmetric descriptive scale contrast only \u2014 not a causal n_sim effect claim."
+}

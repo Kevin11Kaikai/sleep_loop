@@ -1,0 +1,51 @@
+{
+  "conclusion": "Observation standardizer (median/IQR) is fit on training-bank train_ids only; evaluation banks are not used in the fit.",
+  "created_utc": "2026-08-01T22:43:22.484382+00:00",
+  "ok": true,
+  "rows": [
+    {
+      "evaluation_banks_used_in_fit": false,
+      "fit_source": "matched_training_bank_train_ids_only",
+      "location_matches_train_fit": true,
+      "scale": 8192,
+      "scale_matches_train_fit": true,
+      "track": "8d",
+      "train_n": 6553,
+      "train_validation_overlap": 0,
+      "validation_n": 1639
+    },
+    {
+      "evaluation_banks_used_in_fit": false,
+      "fit_source": "matched_training_bank_train_ids_only",
+      "location_matches_train_fit": true,
+      "scale": 32768,
+      "scale_matches_train_fit": true,
+      "track": "8d",
+      "train_n": 26214,
+      "train_validation_overlap": 0,
+      "validation_n": 6554
+    },
+    {
+      "evaluation_banks_used_in_fit": false,
+      "fit_source": "matched_training_bank_train_ids_only",
+      "location_matches_train_fit": true,
+      "scale": 8192,
+      "scale_matches_train_fit": true,
+      "track": "7d",
+      "train_n": 6553,
+      "train_validation_overlap": 0,
+      "validation_n": 1639
+    },
+    {
+      "evaluation_banks_used_in_fit": false,
+      "fit_source": "matched_training_bank_train_ids_only",
+      "location_matches_train_fit": true,
+      "scale": 32768,
+      "scale_matches_train_fit": true,
+      "track": "7d",
+      "train_n": 26214,
+      "train_validation_overlap": 0,
+      "validation_n": 6554
+    }
+  ]
+}

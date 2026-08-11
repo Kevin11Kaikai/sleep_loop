@@ -1,0 +1,35 @@
+{
+  "clip_sensitivity": "material",
+  "evidence_strength": {
+    "A": "moderate",
+    "C": "secondary_pending_A"
+  },
+  "failed_integrity_tests": [],
+  "integrity_gate": "PASS",
+  "phase1_framing": "protocol-locked hypothesis-driven follow-up on reused diagnostic bank",
+  "phase3_guard": "low OOF R2 indicates weak summary informativeness / practical identifiability pressure only \u2014 it does not establish a structural identifiability theorem",
+  "phase4_guard": "Gaussian-moment diagnostic only; not joint SBC / general CR coverage",
+  "pilot_131k_status": "NO-GO",
+  "primary_action": "A_IMPLEMENTATION_FIX_FIRST",
+  "scale_1M_status": "NO-GO",
+  "scale_up_status": "NO-GO",
+  "sealed_bank_required_for_final_confirmation": true,
+  "secondary_supported_mechanisms": [
+    "clipping_strategy_material",
+    "after_A_fix_C_likely: summaries_informative_and_stable_member_miscalibration"
+  ],
+  "simulator_status": "NO-GO",
+  "top_evidence": [
+    "Phase0 integrity gate=PASS (failed_critical=0)",
+    "Phase2 clip sensitivity=material",
+    "Focus OOF ExtraTrees R2: mue[8d]=0.607, mui[8d]=0.987, tauA[8d]=0.366, mue[7d]=0.606, mui[7d]=0.987, tauA[7d]=0.367"
+  ],
+  "top_limitations": [
+    "powered_1024 is a reused diagnostic bank, not sealed confirmatory evaluation",
+    "8192 vs 32768 is an asymmetric descriptive contrast (1 vs 5 estimators), not a causal n_sim effect",
+    "Phase 2/4 use matched 48 cases \u00d7 512 draws; ranks/PIT are equal-tailed from samples, not HPD/HDI"
+  ],
+  "unresolved_mechanisms": [
+    "D_scale_asymmetric_descriptive_only"
+  ]
+}

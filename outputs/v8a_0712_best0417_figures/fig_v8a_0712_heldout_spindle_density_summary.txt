@@ -1,0 +1,16 @@
+V8a 0712 held-out cortical spindle-density visualization
+========================================================================
+Subject: SC4001; real channel: EEG Fpz-Cz @ 100 Hz
+Detector: sigma=11.0-15.0 Hz, RMS=0.20s, threshold=mean+1.5SD, duration=[0.5,3.0]s
+Model duration: 120s; burn-in=5s
+
+label                                       events     min     /min   |real|
+Real SC4001 N3 EEG                             210   71.00    2.958    0.000
+V1 canonical (shape_r=0.8586)                    2    1.92    1.043    1.915
+V7 event-constrained                             0    1.92    0.000    2.958
+V8a 0712 best0417                                0    1.92    0.000    2.958
+
+Interpretation:
+- V8a 0712 is shown as a controlled audit-patch diagnostic, not final correctness.
+- Compare absolute distance to the real EEG density for V1, V7, and V8a.
+- |V1-real|=1.915, |V7-real|=2.958, |V8a-real|=2.958 events/min.

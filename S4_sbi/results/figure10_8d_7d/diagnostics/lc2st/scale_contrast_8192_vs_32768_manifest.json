@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-08-02T06:09:21.913224+00:00",
+  "csv": "diagnostics/lc2st/scale_contrast_8192_vs_32768.csv",
+  "primary_comparison": "member_1 @8192 vs member_1 @32768 (matched single estimator)",
+  "secondary_comparison": "ensemble @8192 (\u2261member_1, K=1) vs ensemble @32768 (K=5); asymmetric descriptive only \u2014 not causal n_sim",
+  "n_rows": 16,
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

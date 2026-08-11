@@ -1,0 +1,16 @@
+{
+  "actual_draw_budget": {
+    "ensemble_draws": 49152,
+    "member_draws": 245760,
+    "total_draws": 294912
+  },
+  "diagnostic_type": "Gaussian-moment posterior consistency z=L^{-1}(theta_true-mu)",
+  "focus_mean_abs_z": {
+    "mue": 0.129946502107101,
+    "mui": 0.14311386609999058,
+    "tauA": 0.20048963021706556
+  },
+  "not_general_credible_region_coverage": true,
+  "not_joint_sbc": true,
+  "phase": 4
+}

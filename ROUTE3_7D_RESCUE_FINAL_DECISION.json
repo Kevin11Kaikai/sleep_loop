@@ -1,0 +1,178 @@
+{
+  "verdict": "NO-GO",
+  "evaluated_utc": "2026-07-28T04:07:10.120248+00:00",
+  "applies_to": "empirical_rank_calibrated",
+  "selected_config_id": "maf128_t8",
+  "formal_go_eligible": false,
+  "numeric_formal_gates_pass": false,
+  "conditional_gates_pass": false,
+  "fresh_final_cases": 1024,
+  "parameters_passing_all_80_90_coverage_requirements": 4,
+  "parameters_passing_coverage_plus_contraction": 4,
+  "checks": {
+    "preflight_engineering_gate": true,
+    "training_failure_gate": true,
+    "heldout_failure_gate": true,
+    "posterior_finite_support_rate": 1.0,
+    "posterior_finite_support_gate": true,
+    "prior_level_unrecoverable_parameter_count": 0,
+    "prior_level_unrecoverable_gate": true,
+    "systematically_worse_parameter_count": 0,
+    "systematic_worsening_gate": true,
+    "better_than_prior_parameter_count": 7,
+    "better_than_prior_gate": true,
+    "overall_recovery_improvement_fraction": 0.5336931370010721,
+    "overall_recovery_gate": true,
+    "coverage_compatible_parameter_count": 4,
+    "coverage_compatible_gate": false,
+    "severe_undercoverage_parameter_count": 0,
+    "severe_undercoverage_gate": true,
+    "contraction_with_coverage_parameter_count": 4,
+    "contraction_with_coverage_gate": false,
+    "ppc_better_feature_count": 14,
+    "ppc_feature_gate": true,
+    "overall_ppc_improvement_fraction": 0.8773546525522381,
+    "overall_ppc_gate": true,
+    "ensemble_disagreement_mean": 0.04735214770114128,
+    "ensemble_disagreement_parameter_max": 0.06635786993501824,
+    "ensemble_disagreement_gate": true
+  },
+  "blockers": [
+    "coverage_compatible_gate",
+    "contraction_with_coverage_gate"
+  ],
+  "scope": "synthetic cortical-rate observable inference only",
+  "real_eeg_inference_unlocked": false,
+  "rescue_preregistration_hash": "01e0b0cb2277340872d95fef5fb5f2c0dd15bdf7104d363bd67fb41f1acd4a02",
+  "primary_pipeline_sha256": "6c46a981b81112005fe09f1be4436426d88b48bf96a93643ec0272ce1d1c75b8",
+  "parameter_table": [
+    {
+      "parameter": "mue",
+      "prior_median_mae": 0.25,
+      "posterior_median_mae": 0.1451657862680804,
+      "mae_improvement_fraction": 0.4193368549276783,
+      "rank_correlation": 0.7769129085902295,
+      "median_90_ci_width": 0.5644580842927098,
+      "coverage_80": 0.7724609375,
+      "coverage_90": 0.8876953125,
+      "coverage_80_90_compatible": false,
+      "contracted": true
+    },
+    {
+      "parameter": "mui",
+      "prior_median_mae": 0.25,
+      "posterior_median_mae": 0.0034462935376495,
+      "mae_improvement_fraction": 0.9862148258494016,
+      "rank_correlation": 0.999800544041914,
+      "median_90_ci_width": 0.0111548034474253,
+      "coverage_80": 0.82421875,
+      "coverage_90": 0.9140625,
+      "coverage_80_90_compatible": true,
+      "contracted": true
+    },
+    {
+      "parameter": "b",
+      "prior_median_mae": 0.25,
+      "posterior_median_mae": 0.079240624068916,
+      "mae_improvement_fraction": 0.6830375037243357,
+      "rank_correlation": 0.9266169824225732,
+      "median_90_ci_width": 0.2676084004342556,
+      "coverage_80": 0.7890625,
+      "coverage_90": 0.8701171875,
+      "coverage_80_90_compatible": false,
+      "contracted": true
+    },
+    {
+      "parameter": "tauA",
+      "prior_median_mae": 0.25,
+      "posterior_median_mae": 0.1836254520840157,
+      "mae_improvement_fraction": 0.2654981916639372,
+      "rank_correlation": 0.600505820399113,
+      "median_90_ci_width": 0.7350392458029091,
+      "coverage_80": 0.8125,
+      "coverage_90": 0.8984375,
+      "coverage_80_90_compatible": true,
+      "contracted": true
+    },
+    {
+      "parameter": "g_LK",
+      "prior_median_mae": 0.25,
+      "posterior_median_mae": 0.1430457970964198,
+      "mae_improvement_fraction": 0.4278168116143206,
+      "rank_correlation": 0.7172087453508332,
+      "median_90_ci_width": 0.5064932880923152,
+      "coverage_80": 0.806640625,
+      "coverage_90": 0.900390625,
+      "coverage_80_90_compatible": true,
+      "contracted": true
+    },
+    {
+      "parameter": "g_h",
+      "prior_median_mae": 0.25,
+      "posterior_median_mae": 0.1214266588322061,
+      "mae_improvement_fraction": 0.5142933646711754,
+      "rank_correlation": 0.8139747358021601,
+      "median_90_ci_width": 0.471852992195636,
+      "coverage_80": 0.8310546875,
+      "coverage_90": 0.900390625,
+      "coverage_80_90_compatible": false,
+      "contracted": true
+    },
+    {
+      "parameter": "c_th2ctx",
+      "prior_median_mae": 0.25,
+      "posterior_median_mae": 0.140086398360836,
+      "mae_improvement_fraction": 0.4396544065566559,
+      "rank_correlation": 0.7634813988627421,
+      "median_90_ci_width": 0.6050001122057438,
+      "coverage_80": 0.80078125,
+      "coverage_90": 0.90234375,
+      "coverage_80_90_compatible": true,
+      "contracted": true
+    }
+  ],
+  "comparison": [
+    {
+      "stage": "Original Route-3",
+      "cases": 256,
+      "method": "raw 3-member MAF64x5",
+      "coverage_compatible_parameters": 0,
+      "recovery_improvement_fraction": 0.5155275672426949,
+      "ppc_improvement_fraction": 0.8325548015595183,
+      "verdict": "NO-GO"
+    },
+    {
+      "stage": "Best development rescue",
+      "cases": 512,
+      "method": "maf128_t8:empirical_rank_calibrated",
+      "coverage_compatible_parameters": 7,
+      "recovery_improvement_fraction": 0.529324146409258,
+      "ppc_improvement_fraction": null,
+      "verdict": "selection only; not final"
+    },
+    {
+      "stage": "Fresh independent final (raw)",
+      "cases": 1024,
+      "method": "maf128_t8:raw",
+      "coverage_compatible_parameters": 0,
+      "recovery_improvement_fraction": 0.5330325719502462,
+      "ppc_improvement_fraction": null,
+      "verdict": "diagnostic raw result; no separate PPC"
+    },
+    {
+      "stage": "Fresh independent final",
+      "cases": 1024,
+      "method": "empirical_rank_calibrated",
+      "coverage_compatible_parameters": 4,
+      "recovery_improvement_fraction": 0.5336931370010721,
+      "ppc_improvement_fraction": 0.8773546525522381,
+      "verdict": "NO-GO"
+    }
+  ],
+  "final_report_sha256": "c8ffa4689f3483a9de4182d2c304baa8dc24de4868850a92a04e5da521f538ab",
+  "fresh_raw_summary": {
+    "coverage_compatible_parameters": 0,
+    "overall_recovery_improvement_fraction": 0.5330325719502462,
+    "ppc_run": false
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-07-29T15:46:13.881061+00:00",
+  "target_per_track": 32768,
+  "8d_valid": 32768,
+  "8d_failed": 0,
+  "8d_failure_rate": 0.0,
+  "7d_valid": 32768,
+  "7d_failed": 0,
+  "7d_failure_rate": 0.0,
+  "paired_valid": 32768,
+  "train_rows": 26214,
+  "validation_rows": 6554,
+  "bank_paths": {
+    "8d": "matched_banks/8d/figure10_8d_bank_32768.npz",
+    "7d": "matched_banks/7d/figure10_7d_bank_32768.npz"
+  },
+  "bank_sha256": {
+    "8d": "75f4ebcf785db5c866509e63657d7a016c5089fe0e2c72dddb59a14dd5148804",
+    "7d": "03cf096b79875190b13ca0120c5b95f8bbd6f337c7ca7381c3fa383ecb5a1ecf"
+  },
+  "split_path": "matched_banks/paired_split_and_scaling.npz",
+  "split_sha256": "6b2ea0b44868f65a3f4196946e487fdfb9c0eb2839f3c97124cdf8bde61ca7b6",
+  "training_allowed": true,
+  "selection_bias_warning": "All failures remain in bank artifacts. Training uses only the paired-valid intersection.",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

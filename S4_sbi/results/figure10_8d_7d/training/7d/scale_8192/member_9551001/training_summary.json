@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-07-29T15:57:53.709390+00:00",
+  "track": "7d",
+  "scale": 8192,
+  "seed": 9551001,
+  "device": "cpu",
+  "status": "trained",
+  "epochs_completed": 123,
+  "best_epoch": 122,
+  "best_validation_loss": -6.718250751495361,
+  "last_train_loss": -6.059860981604024,
+  "last_validation_loss": -6.718250751495361,
+  "runtime_this_call_s": 66.42465469997842,
+  "checkpoint": "training/7d/scale_8192/member_9551001/best_checkpoint.pt",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

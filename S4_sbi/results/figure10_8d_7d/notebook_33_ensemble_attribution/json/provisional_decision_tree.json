@@ -1,0 +1,44 @@
+{
+  "branches": [
+    {
+      "if": "joint geometry / dependence differences remain material",
+      "then": "prioritize aggregation and joint-geometry research on a sealed bank"
+    },
+    {
+      "if": "members show predictive PPC improvement but shared calibration failure",
+      "then": "do not promote best-PPC member; pursue calibration/summary/geometry work"
+    },
+    {
+      "if": "mui/mue/tauA anomalies persist on all members",
+      "then": "prioritize parameter-specific recovery, boundary, summary sensitivity"
+    },
+    {
+      "if": "future scale evidence under fixed K=5 protocol",
+      "then": "design confounded-free scale sweep on sealed evaluation"
+    },
+    {
+      "if": "no sealed-bank improvement path is identified",
+      "then": "do not dump compute into 1M by default"
+    }
+  ],
+  "created_utc": "2026-08-01T23:33:18.769799+00:00",
+  "forbidden_promises": [
+    "131k or 1M will fix calibration",
+    "picking best joint-KS or best-PPC member yields validated posterior",
+    "PPC pass implies calibration pass",
+    "logsumexp density dilution proven root cause"
+  ],
+  "layers": [
+    {
+      "claim": "Equal-weight ensemble is associated with substantially worse joint coverage than individual members and with changes in joint posterior geometry on a pre-frozen matched case subset; marginal variance inflation alone does not fully explain the gap.",
+      "layer": 1
+    },
+    {
+      "claim": "Individual members still share SBC and L-C2ST calibration failures. Phase-2 member-wise PPC shows predictive improvement versus prior predictive for members, comparable in spirit to the ensemble reference, but PPC must not be read as posterior calibration and does not offset SBC/joint/L-C2ST failures. Selecting one member is not a validated posterior.",
+      "layer": 2
+    }
+  ],
+  "phase2_ppc_pending": false,
+  "ppc_phase2_note": "Phase2 PPC: all_members_14_of_14=False; improvement median=0.607 range=[0.533,0.643]; PPC does not validate calibration.",
+  "provisional": false
+}

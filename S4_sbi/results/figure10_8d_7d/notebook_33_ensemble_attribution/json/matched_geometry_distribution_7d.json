@@ -1,0 +1,12 @@
+{
+  "n_cases": 48,
+  "not_selected_by_joint_ks": true,
+  "pairwise_mahal_mean_median": 0.5441549309267402,
+  "pairwise_mahal_mean_q25": 0.43965669585224404,
+  "pairwise_mahal_mean_q75": 0.6105894283244828,
+  "role": "global_geometry_attribution_subset",
+  "trace_between_fraction_median": 0.009688166831123597,
+  "trace_between_fraction_q25": 0.00581025607344807,
+  "trace_between_fraction_q75": 0.016362233341289858,
+  "track": "7d"
+}

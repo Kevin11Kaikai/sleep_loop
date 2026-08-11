@@ -1,0 +1,13 @@
+track,scale,members,best_validation_loss_mean,joint_rank_ks_statistic,joint_rank_ks_pvalue,clear_sbc_issues,recovery_improvement_fraction,median_normalized_posterior_sd,training_runtime_s,status
+8d,8192,1,-7.107405185699463,0.12007035932817184,2.538792788551242e-13,4.0,0.39836830896244146,0.7012148825295071,82.3256934999954,completed
+7d,8192,1,-6.718250751495361,0.12361759334415584,4.2636006854034285e-14,5.0,0.45024069725447013,0.7125901787482377,66.52950370009057,completed
+8d,32768,5,-8.935102801749284,0.2250122923951049,4.914556785984683e-46,3.0,0.43047458463325416,0.6357103659982847,1337.924536400009,completed
+7d,32768,5,-9.63694618540564,0.2117784559190809,8.893435253963037e-41,3.0,0.5028495513375205,0.5681560922686553,13768.54238810006,completed
+8d,131072,0,,,,,,,,not run: preregistered hardware limitation
+7d,131072,0,,,,,,,,not run: preregistered hardware limitation
+8d,524288,0,,,,,,,,not run: preregistered hardware limitation
+7d,524288,0,,,,,,,,not run: preregistered hardware limitation
+8d,1000000,0,,,,,,,,not run: preregistered hardware limitation
+7d,1000000,0,,,,,,,,not run: preregistered hardware limitation
+8d,3000000,0,,,,,,,,not run: preregistered hardware limitation
+7d,3000000,0,,,,,,,,not run: preregistered hardware limitation

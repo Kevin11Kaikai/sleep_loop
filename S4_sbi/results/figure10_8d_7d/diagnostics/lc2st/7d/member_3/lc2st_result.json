@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-07-31T09:50:32.049562+00:00",
+  "track": "7d",
+  "estimator": "member_3",
+  "calibration_cases": 20000,
+  "local_posterior_samples": 10000,
+  "score_observed": 0.1542094981989925,
+  "null_q95": 0.031212654506375746,
+  "p_value": 0.0,
+  "reject_alpha_0p05": true,
+  "classifier_seed": 9598028,
+  "runtime_s": 2856.5437586999033,
+  "classifier_sha256": "62205e5b2fd020018b8f10f8f4f8b373684944f552d1380598e282d93a26bce9",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

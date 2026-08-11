@@ -1,0 +1,5 @@
+label,n_events,minutes,density_per_min,fs,signal,abs_diff_vs_real
+Real SC4001 N3 EEG,210,71.0,2.958,100.0,EEG Fpz-Cz,0.0
+V1 canonical (shape_r=0.8586),2,1.917,1.043,1000.0,cortical r_ctx,1.915
+V7 event-constrained,0,1.917,0.0,1000.0,cortical r_ctx,2.958
+V8a 0712 best0417,0,1.917,0.0,1000.0,cortical r_ctx,2.958

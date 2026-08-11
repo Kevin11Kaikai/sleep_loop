@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-08-01T23:33:18.770798+00:00",
+  "dataset_roles": {
+    "official_300": "descriptive_sensitivity",
+    "powered_1024": "descriptive_sensitivity"
+  },
+  "not_supported": [
+    "real EEG parameter inversion",
+    "Fpz-Cz subject-specific physiology",
+    "calibrated physiological parameter uncertainty",
+    "selecting one member yields a trusted posterior",
+    "c_ctx2th proven structural non-identifiability",
+    "mui proven classical overconfidence",
+    "131k/1M guaranteed fix",
+    "logsumexp/density dilution proven root cause",
+    "powered_1024 as untouched final evaluation",
+    "PPC pass as calibration pass"
+  ],
+  "phase2_complete": true,
+  "supported": [
+    "synthetic cortical-rate predictive improvement for ensemble and members (PPC)",
+    "individual vs ensemble diagnostic comparison on descriptive/sensitivity banks",
+    "association between equal-weight ensemble and joint coverage degradation",
+    "parameter-specific SBC abnormalities (mui/mue/tauA)",
+    "7D/8D failure-pattern replication",
+    "matched-subset joint geometry description",
+    "member-wise PPC does not remove shared SBC/L-C2ST failures"
+  ]
+}

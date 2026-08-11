@@ -1,0 +1,16 @@
+track,parameter,analysis_name,not_mixture_variance_decomposition,median_across_cases_mean_member_var,median_across_cases_var_of_member_medians,median_ensemble_var_proxy,note
+8d,mue,location_scale_proxy,True,0.025283073961221668,0.0002804274721420086,0.02551446466657592,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+8d,mui,location_scale_proxy,True,0.00022664212009398493,2.134549591161772e-05,0.00020374654229479748,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+8d,b,location_scale_proxy,True,0.011890493033177674,0.000230485073291149,0.01239617590939926,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+8d,tauA,location_scale_proxy,True,0.04330603264595838,0.0004350925786383186,0.04390822016146878,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+8d,g_LK,location_scale_proxy,True,0.03081669260723041,0.00026773205330712815,0.03168211013847122,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+8d,g_h,location_scale_proxy,True,0.04230429505347963,0.0005450899097609963,0.04312631353723895,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+8d,c_th2ctx,location_scale_proxy,True,0.03529890881595969,0.0004036891061556069,0.03573342517454714,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+8d,c_ctx2th,location_scale_proxy,True,0.08235328256966862,0.0005016649869610035,0.08238504703781757,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+7d,mue,location_scale_proxy,True,0.025358808491768258,0.00021482431488095702,0.025387890706839444,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+7d,mui,location_scale_proxy,True,0.00010680891826873493,1.4206158305114513e-05,8.152893046771848e-05,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+7d,b,location_scale_proxy,True,0.010451653800028654,0.0003771071169335016,0.01098445467309353,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+7d,tauA,location_scale_proxy,True,0.04312606561907498,0.000313795317557819,0.04321212347259629,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+7d,g_LK,location_scale_proxy,True,0.026252355066796372,0.0002940318173533085,0.026900112924736153,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+7d,g_h,location_scale_proxy,True,0.03681402171923931,0.00039809489162184524,0.03716952474702062,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.
+7d,c_th2ctx,location_scale_proxy,True,0.03287276483462295,0.0003368517390712178,0.03296622100089863,Uses stored posterior_median/std only; component means are NOT estimated. Do not interpret as v_within/v_between.

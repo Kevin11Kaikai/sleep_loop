@@ -1,0 +1,10 @@
+{
+  "attempted": 128,
+  "success": 128,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sobol_seed": 20260802,
+  "simulator_seed_base": 910001,
+  "exact_training_theta_duplicates": 0,
+  "contract_hash": "78d0da704422a03917ef4c68207f5e8e8213b0c6f6279deaf26f34c9958d64a8"
+}

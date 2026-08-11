@@ -1,0 +1,21 @@
+{
+  "schema_version": "route3-cortex-rate-14d-v1",
+  "contract_hash": "78d0da704422a03917ef4c68207f5e8e8213b0c6f6279deaf26f34c9958d64a8",
+  "bank_role": "authorized exploratory single-round SNPE bank",
+  "attempted": 2048,
+  "valid": 2048,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "training_rows": 1638,
+  "validation_rows": 410,
+  "sobol_seed": 20260731,
+  "simulator_seed_schedule": "(base + sample_id*104729) mod (2^31-1), base=710001",
+  "split_seed": 20260731,
+  "scaling_fit_rows": "training_indices only",
+  "bank_path": "S4_sbi/results/route3_pilot_snpe/simulation_bank_2048/route3_cortex_rate_14d_bank_2048.npz",
+  "bank_sha256": "6cfc9232ecfe440c2a60311d396685dccd17480d00793b24b5b47dd24f3c61f0",
+  "split_path": "S4_sbi/results/route3_pilot_snpe/simulation_bank_2048/split_and_scaling.npz",
+  "split_sha256": "bc76ad8eed1749cb7922340b73b4313a967f169d7847b24b38b6d375d51a230d",
+  "training_allowed_by_failure_gate": true,
+  "selection_bias_warning": "No failed rows."
+}

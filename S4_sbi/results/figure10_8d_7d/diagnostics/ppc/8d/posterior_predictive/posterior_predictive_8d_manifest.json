@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-31T11:26:02.880744+00:00",
+  "dataset_id": "posterior_predictive",
+  "track": "8d",
+  "attempted": 256,
+  "valid": 256,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 1557.0939592018258,
+  "path": "diagnostics/ppc/8d/posterior_predictive/posterior_predictive_8d.npz",
+  "sha256": "4786934cf06fadb516bd133f0bf5e29bfca37678b5ff3e9c3165182c519bde61",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

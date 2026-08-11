@@ -1,0 +1,69 @@
+{
+  "all_tracks_theta_x_disjoint": true,
+  "created_utc": "2026-08-01T22:43:15.906303+00:00",
+  "policy": {
+    "future_member_selection_or_learned_weights_requires": "new sealed evaluation bank generated after freezing selection rules",
+    "official_300_role": "descriptive_sensitivity",
+    "powered_1024_role": "descriptive_sensitivity",
+    "untouched_final_evaluation": false
+  },
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60",
+  "tracks": {
+    "7d": {
+      "allowed_use_in_notebook_33": "descriptive_sensitivity_only",
+      "canonical_hash_fields": [
+        "normalized_theta",
+        "normalized_x"
+      ],
+      "exact_theta_x_overlap": 0,
+      "future_selection_requires_sealed_bank": true,
+      "independent_cases_by_theta_x": true,
+      "metadata_fields_excluded_from_canonical_hash": [
+        "dataset_id",
+        "sample_id",
+        "paired_row_id"
+      ],
+      "official_n": 300,
+      "official_unique_canonical": 300,
+      "overlap_proportion_vs_official": 0.0,
+      "paired_row_id_overlap_metadata_only": 300,
+      "powered_n": 1024,
+      "powered_unique_canonical": 1024,
+      "sample_id_overlap_metadata_only": 300,
+      "selection_confirmation_split_allowed": false,
+      "simulator_seed_overlap": 0,
+      "theta_only_overlap": 0,
+      "track": "7d",
+      "untouched_final_evaluation": false,
+      "x_only_overlap": 0
+    },
+    "8d": {
+      "allowed_use_in_notebook_33": "descriptive_sensitivity_only",
+      "canonical_hash_fields": [
+        "normalized_theta",
+        "normalized_x"
+      ],
+      "exact_theta_x_overlap": 0,
+      "future_selection_requires_sealed_bank": true,
+      "independent_cases_by_theta_x": true,
+      "metadata_fields_excluded_from_canonical_hash": [
+        "dataset_id",
+        "sample_id",
+        "paired_row_id"
+      ],
+      "official_n": 300,
+      "official_unique_canonical": 300,
+      "overlap_proportion_vs_official": 0.0,
+      "paired_row_id_overlap_metadata_only": 300,
+      "powered_n": 1024,
+      "powered_unique_canonical": 1024,
+      "sample_id_overlap_metadata_only": 300,
+      "selection_confirmation_split_allowed": false,
+      "simulator_seed_overlap": 0,
+      "theta_only_overlap": 0,
+      "track": "8d",
+      "untouched_final_evaluation": false,
+      "x_only_overlap": 0
+    }
+  }
+}

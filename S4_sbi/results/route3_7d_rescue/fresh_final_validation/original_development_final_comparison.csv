@@ -1,0 +1,5 @@
+stage,cases,method,coverage_compatible_parameters,recovery_improvement_fraction,ppc_improvement_fraction,verdict
+Original Route-3,256,raw 3-member MAF64x5,0,0.5155275672426949,0.8325548015595183,NO-GO
+Best development rescue,512,maf128_t8:empirical_rank_calibrated,7,0.529324146409258,,selection only; not final
+Fresh independent final (raw),1024,maf128_t8:raw,0,0.5330325719502462,,diagnostic raw result; no separate PPC
+Fresh independent final,1024,empirical_rank_calibrated,4,0.5336931370010721,0.8773546525522381,NO-GO

@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-31T11:22:37.821339+00:00",
+  "dataset_id": "primary_observation",
+  "track": "8d",
+  "attempted": 1,
+  "valid": 1,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 11.025852899998426,
+  "path": "diagnostics/ppc/primary_observation/8d/primary_observation_8d.npz",
+  "sha256": "1bd70e584024bbf3a7f05397a8d76f637455ece5f16d3369107c035f78c5b991",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

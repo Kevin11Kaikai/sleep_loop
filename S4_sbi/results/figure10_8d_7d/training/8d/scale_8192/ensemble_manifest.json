@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-07-29T15:56:47.199429+00:00",
+  "track": "8d",
+  "scale": 8192,
+  "status": "trained",
+  "architecture": {
+    "model": "nsf",
+    "num_transforms": 10,
+    "hidden_features": 100,
+    "z_score_theta": "none",
+    "z_score_x": "none"
+  },
+  "training_policy": {
+    "batch_size": 4096,
+    "learning_rate": 0.0005,
+    "weight_decay": 1e-06,
+    "max_epochs": 400,
+    "early_stopping_patience": 30,
+    "minimum_improvement": 0.0001,
+    "clip_max_norm": 5.0,
+    "validation_fraction": 0.2
+  },
+  "member_seeds": [
+    9550001
+  ],
+  "weights": [
+    1.0
+  ],
+  "mixture_rule": "equal component probability; samples are pooled, never averaged; log_prob is logsumexp(member log_prob)-log(K)",
+  "training_rows": 6553,
+  "validation_rows": 1639,
+  "members": [
+    {
+      "created_utc": "2026-07-29T15:56:47.166509+00:00",
+      "track": "8d",
+      "scale": 8192,
+      "seed": 9550001,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 147,
+      "best_epoch": 146,
+      "best_validation_loss": -7.107405185699463,
+      "last_train_loss": -7.095570136113475,
+      "last_validation_loss": -7.107405185699463,
+      "runtime_this_call_s": 79.93140810006298,
+      "checkpoint": "training/8d/scale_8192/member_9550001/best_checkpoint.pt",
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    }
+  ],
+  "runtime_this_call_s": 82.3256934999954,
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60",
+  "packages": {
+    "sbi": "0.26.1",
+    "torch": "2.5.1",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  }
+}

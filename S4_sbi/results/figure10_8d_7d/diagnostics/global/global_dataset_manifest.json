@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-07-30T14:30:46.493700+00:00",
+  "datasets": {
+    "official_300": {
+      "8d": "diagnostics/global/official_300/8d/official_300_8d.npz",
+      "7d": "diagnostics/global/official_300/7d/official_300_7d.npz"
+    },
+    "powered_1024": {
+      "8d": "diagnostics/global/powered_1024/8d/powered_1024_8d.npz",
+      "7d": "diagnostics/global/powered_1024/7d/powered_1024_7d.npz"
+    }
+  },
+  "official_cases": 300,
+  "powered_cases": 1024,
+  "seed_overlap": 0,
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

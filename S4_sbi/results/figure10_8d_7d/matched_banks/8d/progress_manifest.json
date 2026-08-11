@@ -1,0 +1,2579 @@
+{
+  "updated_utc": "2026-07-29T04:22:00.350468+00:00",
+  "track": "8d",
+  "target": 32768,
+  "completed": 32768,
+  "valid": 32768,
+  "failed": 0,
+  "raw_original_failed": 243,
+  "retry_resolved": 243,
+  "pending": 0,
+  "failure_rate_completed": 0.0,
+  "sum_simulator_runtime_s": 324072.022824195,
+  "shard_size": 64,
+  "shards": [
+    {
+      "path": "matched_banks/8d/shards/shard_0000000_0000064.npz",
+      "sha256": "2095670c9af2fb4b0f56d26fe3438b2c743c9be5594b20f1c8c85bd25204acdd",
+      "size_bytes": 13322
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000064_0000128.npz",
+      "sha256": "cccf9d78486e5de84aec48dd76a3e76f2edd50f8f147247e2b783eeddf8aecc2",
+      "size_bytes": 13322
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000128_0000192.npz",
+      "sha256": "c250c710d8032bff78bce1ea05fec121435c8f74dd88e92e3d6818a08498c0b4",
+      "size_bytes": 13359
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000192_0000256.npz",
+      "sha256": "5a161c32c5516ed8bb36cfa440a806d6c3bd2fffcd44fc2a2d5080941c9586f7",
+      "size_bytes": 13344
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000256_0000320.npz",
+      "sha256": "65d43627263c435f2c057d512a851a8052b7c46b98c46e699da8d6ee998e3d2e",
+      "size_bytes": 13317
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000320_0000384.npz",
+      "sha256": "d875b9d51dc6d31d835281944895fa544417be1c230d54b99e84d6b2f647b1d1",
+      "size_bytes": 13336
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000384_0000448.npz",
+      "sha256": "1b9a570ce5932108ef9765ceffb03cefd7f66b5e89a89388a57bf241c08b87e5",
+      "size_bytes": 13379
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000448_0000512.npz",
+      "sha256": "1245ef696c84e4669b3da25aabee658f9302a6d1fd21e2aae20f6c7ad3f47f4f",
+      "size_bytes": 13351
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000512_0000576.npz",
+      "sha256": "cd5d249f6e1f148125a956f1b901a7b631f73b83d91593caa2141b70a3d27c32",
+      "size_bytes": 13324
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000576_0000640.npz",
+      "sha256": "7ac044578b73ae610622b42124ae82127dafb8312f59646e0b605f60a93fb2cc",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000640_0000704.npz",
+      "sha256": "47b01530062f06b2342c0b9232bb5491c88f024e7675029b22e3c6f7c5808301",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000704_0000768.npz",
+      "sha256": "65cbba03bad7c2f09be25798325be84759a112c40c06e7282e052a330310fe2a",
+      "size_bytes": 13354
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000768_0000832.npz",
+      "sha256": "4349e67dbd50d84c7023c9167978d41b0f163d3d78fda9ad393765829ad54bcc",
+      "size_bytes": 13351
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000832_0000896.npz",
+      "sha256": "0fcc495e85718a45501d848c444722a84ec39b60675a7fbd50566e300badd456",
+      "size_bytes": 13311
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000896_0000960.npz",
+      "sha256": "f0a0c0026dac6d1603022ffd8b77b212ff723cc6a8e1294ac572774142b872ed",
+      "size_bytes": 13355
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0000960_0001024.npz",
+      "sha256": "888ba7541e8e7da7e486b69d36b43a670d8c1365da216c1dad4155d595ce99a4",
+      "size_bytes": 13350
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001024_0001088.npz",
+      "sha256": "e5fe6706fb230e8b8567c2d1e8a892226153bf4059d014f85fcfaf74bd5b5856",
+      "size_bytes": 13312
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001088_0001152.npz",
+      "sha256": "ed87e7a3bddcfc548eb1e9cca0adcf35e1cbb49b2233868969c7fe247c8c103e",
+      "size_bytes": 13316
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001152_0001216.npz",
+      "sha256": "2e950985c710ad0376b3322164c543e987905541f291ea23204e497d4da4dc10",
+      "size_bytes": 13377
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001216_0001280.npz",
+      "sha256": "d81eb49466a39c6b665bd446581e84f5146993a82d76a5eab069483bd47fc00b",
+      "size_bytes": 13392
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001280_0001344.npz",
+      "sha256": "8953d38302869065dfb88705b47a6555134d5ee1bdb6194e570bca543a5a401a",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001344_0001408.npz",
+      "sha256": "ecf197addc47f5b4bfca2adec8735d5b21551bec949b5d5e8a2560163ffde42a",
+      "size_bytes": 13315
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001408_0001472.npz",
+      "sha256": "a36d73d814dffe0f240a441e906d3d6b22b4a55a2304313bc535f426c730154a",
+      "size_bytes": 13354
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001472_0001536.npz",
+      "sha256": "e95ca99038375cf118b746b0b61e3b26a0bc63e8c48dafc6cdc7587f35f1ad61",
+      "size_bytes": 13391
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001536_0001600.npz",
+      "sha256": "5aba77cd84652ca18b29b7a0af0cce6932802c36e8cf0e8f6e5d7e3ba2e76a88",
+      "size_bytes": 13341
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001600_0001664.npz",
+      "sha256": "0548f01431de0a73f7d941358254e3a9ec7bda2c44908e5658aeb27947f6b222",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001664_0001728.npz",
+      "sha256": "3917774f0349ebbfe19d2ca9019c2c8851febddde2d9fa28b0309ef25bc1d924",
+      "size_bytes": 13363
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001728_0001792.npz",
+      "sha256": "5c99c2aac514bba6b5bfa679729e889ea56c0e312ccf42219edca5bb5becb22f",
+      "size_bytes": 13386
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001792_0001856.npz",
+      "sha256": "e1eb7690c5539c8b2b822ac892be69f44548bd45820c0f41a74147cd85ded6ec",
+      "size_bytes": 13351
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001856_0001920.npz",
+      "sha256": "30298960c6a1cb1939a171fa8ebc39b15595b5fdd54c1a17a30a672937a23e98",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001920_0001984.npz",
+      "sha256": "dd10a7f492742ebf02bdc75c390729288c948675d58791ed614738a7873d87dc",
+      "size_bytes": 13374
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0001984_0002048.npz",
+      "sha256": "4f811fe45ec8fb38460ee4276094930f2234ba20827e64f805b17cbd0763744c",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002048_0002112.npz",
+      "sha256": "872de683b56a677d542fe8e3f794503d3c652ea3230636955e3ef1fba2878d59",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002112_0002176.npz",
+      "sha256": "f6dcff376b22077d881f53dafbed5e20a7cb6c8caebef6ca3f7e233493fb7ea9",
+      "size_bytes": 13335
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002176_0002240.npz",
+      "sha256": "54cf86ccb54f4cd8003249ab67a9c234a5976fcd6dd3390bc1c259fca1a58f94",
+      "size_bytes": 13356
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002240_0002304.npz",
+      "sha256": "338a26c5ce749a7345b89afb1215e787c7871772ab9c6a74d70b3b4d9de95532",
+      "size_bytes": 13372
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002304_0002368.npz",
+      "sha256": "1c06ef0870c92c1e849a981bf54ac983e4d0976b725dcf73486b283246f3ddfb",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002368_0002432.npz",
+      "sha256": "0195e6b93995a285f4572d1b78de811ef32e7ac89408c11e2ece04aedacc711a",
+      "size_bytes": 13318
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002432_0002496.npz",
+      "sha256": "c792c65efb4337295ae148c042d83ba5a3ab5cf069e3b6928273e08ffcad94a1",
+      "size_bytes": 13372
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002496_0002560.npz",
+      "sha256": "8e1f21464e53fb87f01c8f77eb2b782ecc34b83bae682b2c7c58313512b58e28",
+      "size_bytes": 13370
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002560_0002624.npz",
+      "sha256": "aac1c8384cedeba6e759e3eca731923b03df22b033ff69e3d2bb785e1062dd00",
+      "size_bytes": 13321
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002624_0002688.npz",
+      "sha256": "f4319b6c6ae6fb12c4e66af54cb078d0baa9b76a4a2fac3f5a54b38b87704d4e",
+      "size_bytes": 13333
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002688_0002752.npz",
+      "sha256": "adebcd2afe469dffe3b7b7cd24e198f698b404a2539121b52fa2df17c7224575",
+      "size_bytes": 13372
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002752_0002816.npz",
+      "sha256": "3c53778968f78ba0f16b1b50a9ced9db2f7e37c24fd9356b4a5a569729cc2acd",
+      "size_bytes": 13374
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002816_0002880.npz",
+      "sha256": "3a30cbb502232dc70ca50e00b7819927f247c54ac899b70bbb0ce46c9ec46559",
+      "size_bytes": 13346
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002880_0002944.npz",
+      "sha256": "92a3b472c83c78463ed3d6e9e2cf267be8fc69daa9b391a5764f5e275b86edc7",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0002944_0003008.npz",
+      "sha256": "dcdb12ed322a3259163d4ccd3237317f96a7e14202805baee0f20d2e1485257e",
+      "size_bytes": 13374
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003008_0003072.npz",
+      "sha256": "5dd386422aad88ffc1e7bef34179b3109a639cb91f99fb5ef5ac8753031511f9",
+      "size_bytes": 13368
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003072_0003136.npz",
+      "sha256": "6d754880dffff36d2429a0432262afeac1ccbe036fa986b3f2c942e3feebd09f",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003136_0003200.npz",
+      "sha256": "35fde74b0bcebf2970832e7b5fb4d3dedef858f91296b181ff026016cbbf42a5",
+      "size_bytes": 13320
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003200_0003264.npz",
+      "sha256": "565857cb893aea6befd9fc9d3be23826cd492fc12a5d24dc4acb05b2cedb7be9",
+      "size_bytes": 13348
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003264_0003328.npz",
+      "sha256": "17ad297b2f9d10fcc1ead7da84f77130c3a15b9f5205b3da67028390aab10361",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003328_0003392.npz",
+      "sha256": "b11b2f6fabdeac87427c5d4f611cec92487d4fc4d97d5b2b8ac24be24099d88b",
+      "size_bytes": 13325
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003392_0003456.npz",
+      "sha256": "683a414135b33b551d21344af3a76e0282cd7cc684965faa438e97f60d6edb13",
+      "size_bytes": 13330
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003456_0003520.npz",
+      "sha256": "5a0799c0e1a04b8eabe0f02a93dc44e7b5d79a02de401e2b71dab5e3752e86fa",
+      "size_bytes": 13376
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003520_0003584.npz",
+      "sha256": "78662ab62b99047de9d0ac19a2a5ad4813c9c51c3a1375bdc7dfc0b6f791600a",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003584_0003648.npz",
+      "sha256": "27be4937d005c713f51bf21971f1964f8c2315532099a5b46dc2b82a446f6d21",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003648_0003712.npz",
+      "sha256": "b24f1c4ab09d17f2c797d0a4742f7f282358b30e46fad3743d7696a1690f62af",
+      "size_bytes": 13335
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003712_0003776.npz",
+      "sha256": "7ba1a7b4eb6f466c6da3a7aa3df1ef148b4f1fd19c696832dc1a688a8ef8c80a",
+      "size_bytes": 13390
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003776_0003840.npz",
+      "sha256": "9ccc32bb9bf6351e76e8178169e18beb25e6ad087e73baefb84059067a88b62e",
+      "size_bytes": 13359
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003840_0003904.npz",
+      "sha256": "87c70a45116dfb49e3fc50bf0c1c7a8af718e61be8ded54da685ec0f4ff95685",
+      "size_bytes": 13332
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003904_0003968.npz",
+      "sha256": "37fd5ea51950b502f202e47b78ab6f99d2a37fdef8b8249c05abac984dc34fd4",
+      "size_bytes": 13323
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0003968_0004032.npz",
+      "sha256": "becc7d1ad149833e7c8cab32ea6ecf80de59224c8c5301f0252a63c162717d25",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004032_0004096.npz",
+      "sha256": "67efcccb1fe746af297848a9d2ed80b6cb4145998b0e6980eb423d999514682f",
+      "size_bytes": 13401
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004096_0004160.npz",
+      "sha256": "39d834597273cd374ad62aae5f42cf6cc47314603a7cf896986e05dae6691d47",
+      "size_bytes": 13377
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004160_0004224.npz",
+      "sha256": "d7a8b037eebe273d9c50c7bb7ab24714f4a6c99110fb857fe3c0b878ce803968",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004224_0004288.npz",
+      "sha256": "78f6fbd49312ebad4c08810dda5caa53db209a21b35dc392d8cc2538e1dbfb84",
+      "size_bytes": 13367
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004288_0004352.npz",
+      "sha256": "d66cd52e8720748d20b82411f1d8c11b40067b9a842d638d30488cb995e5b0f9",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004352_0004416.npz",
+      "sha256": "e140555769251b7e7303b50602907eef2edea5d6349adf31747c1fc73675d08f",
+      "size_bytes": 13341
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004416_0004480.npz",
+      "sha256": "903f4b00f73313b5c9714a866da964e4d2e2651f3a54be24b761b92401269b0c",
+      "size_bytes": 13334
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004480_0004544.npz",
+      "sha256": "b831f74a2661cc68a6de91f5a7114f52214464ff3fbdd980d799fe45ffbbe489",
+      "size_bytes": 13342
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004544_0004608.npz",
+      "sha256": "25446ed85d4aed426c513cc04ec8f91336f6bc70375708cabf1c9b4634aab67c",
+      "size_bytes": 13370
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004608_0004672.npz",
+      "sha256": "1f22013a80a442b13fc929fb0181415a469051acad96cbbf2bdf8cfbafffbf60",
+      "size_bytes": 13334
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004672_0004736.npz",
+      "sha256": "50bb16af01cb93dc17a5f1db0fd327fa492c46ab38ea5388c5868c3c52393345",
+      "size_bytes": 13347
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004736_0004800.npz",
+      "sha256": "1d33f21613645eb5be99248df0122d4776720bec3b4d9b62848d9e49a2473946",
+      "size_bytes": 13367
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004800_0004864.npz",
+      "sha256": "7e363e1c708fe92de473a8bd5fdacda97f13011cca056565f2042125d1a20f2e",
+      "size_bytes": 13363
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004864_0004928.npz",
+      "sha256": "afe3f775bc9e4a1e7fa6fffbbfb39e7b25cfa1cab5e9e747f23f97634289d909",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004928_0004992.npz",
+      "sha256": "1d37f7e7761954221f593ad978ab606478b807c65156f98c27755e871d79ce23",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0004992_0005056.npz",
+      "sha256": "25297187dfcbeac95ecf5af7b7bb542a52314d6c99399b3e9ab8eadcf51c9b63",
+      "size_bytes": 13372
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005056_0005120.npz",
+      "sha256": "45849a8314b2a4a9550ecf0b025567a27f6510d50dd3f1b64830da9429d3ff5c",
+      "size_bytes": 13363
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005120_0005184.npz",
+      "sha256": "3c0caf58accf312f6d3b22b0629fe2930549a0f6b6b57922432d0dd26d3f901e",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005184_0005248.npz",
+      "sha256": "ad4c090437f2d87f38d013c1475c284c98d3ba656623b868f65b6758a204cf8f",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005248_0005312.npz",
+      "sha256": "534d25420342d8dc9adaa266492804273b71a0ec6c095cfea5188981e1ff4c97",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005312_0005376.npz",
+      "sha256": "fb42621e07c469be6533db3603ca7c93941d50afda849a9a3c60bb0db0a4bc75",
+      "size_bytes": 13384
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005376_0005440.npz",
+      "sha256": "8040009062c731d377e465830ae9021761e246c869b2398ab05a7f90f3556ea9",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005440_0005504.npz",
+      "sha256": "045299b7b88d7cd5d5fecc5472b97d4500ba9fa336715f08a6e802aa23465212",
+      "size_bytes": 13366
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005504_0005568.npz",
+      "sha256": "176d4e701c399f5ed4bfa5ac129f03ab4135dcff19e28535b76bdf3a1f2467e3",
+      "size_bytes": 13372
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005568_0005632.npz",
+      "sha256": "31f0a82efa9901c46d4fe6c42a9b19f0fa3948d6db11afe899757ec5676c811e",
+      "size_bytes": 13397
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005632_0005696.npz",
+      "sha256": "e04fb7894c0fa237f791d78223aa12e6d20bf15ccc6b354e61166e6cf19fb10a",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005696_0005760.npz",
+      "sha256": "8d21d4726b186fe49692d0a6cae081e0e541338b5947c224a36d3269f6af9f49",
+      "size_bytes": 13344
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005760_0005824.npz",
+      "sha256": "24c1684b66e8c477583c1dd896a594d6bdaa4e94a1b63e922a116c0c3beab76b",
+      "size_bytes": 13381
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005824_0005888.npz",
+      "sha256": "884f2608fdb1abe1d02684446fd4af95f2e0f132ed08bcec2a4f3396e39834e1",
+      "size_bytes": 13363
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005888_0005952.npz",
+      "sha256": "ccbd3ddc1af9d3751ce90693773098a38b46af10fe184ba1fea092cd539703a3",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0005952_0006016.npz",
+      "sha256": "6f80f2882352c4c5a949bcf6fdcd8b156facf9c949e4930e1adf4235f74c2b3a",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006016_0006080.npz",
+      "sha256": "946149f49b6fff6a7577e5b3e1d69fc483b7d863e50609810ca900d7552a275b",
+      "size_bytes": 13386
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006080_0006144.npz",
+      "sha256": "b37f4c94904f4d548c973be0fd0faaeefaf930f14b90cf87908b79b6defa64ab",
+      "size_bytes": 13462
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006144_0006208.npz",
+      "sha256": "0666e8519278d013436e86f0935b52b5e07ae683a2eb0a6e92e5fc0fef24d943",
+      "size_bytes": 13311
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006208_0006272.npz",
+      "sha256": "49d3cdd5101650d9e1d8a997947733032b927958cc5ecdfe8c0eec4a4219ed39",
+      "size_bytes": 13237
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006272_0006336.npz",
+      "sha256": "e2c334d5ca8d5d4fbc4b139aff5c5477e23885752abfac701fc49da8a52d68be",
+      "size_bytes": 13220
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006336_0006400.npz",
+      "sha256": "244dc42c7d8c2128ae50920f828fb4e1f9f2aa959218952407bf6a5e241c87d8",
+      "size_bytes": 12530
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006400_0006464.npz",
+      "sha256": "3d3f4897046d9e8fc0e18cf3b88056a596cccb551dd4439a8d799e71f26a978c",
+      "size_bytes": 12250
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006464_0006528.npz",
+      "sha256": "cd5cd490bfa402d11bc1ae3080f53940bbdfe2675724987b1a62eb5e601cc708",
+      "size_bytes": 12150
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006528_0006592.npz",
+      "sha256": "b41d8e11bdcec93cc958e4c329e07a3015bf729849db8482a4b33dae4a03c82e",
+      "size_bytes": 13383
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006592_0006656.npz",
+      "sha256": "0f6fe1728a7124cee622cd125bf95faba9d826352230018360930dca4b72c997",
+      "size_bytes": 13401
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006656_0006720.npz",
+      "sha256": "624880af5d0c06b54f9c82affb47957e2a8c3f2729b11e1b042a36e9c1a1397e",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006720_0006784.npz",
+      "sha256": "657c43e1c321be39e13142e616ce04d821209046060d4b1c759d62bf270a21be",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006784_0006848.npz",
+      "sha256": "67145169f88c086478089a7b6fe62b300feb27692f51fd1b8ffe5999b9c99dde",
+      "size_bytes": 13366
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006848_0006912.npz",
+      "sha256": "b35e2a16008d6465c314e03e0d3c753dd3beab1a9a008ce64142124eaeff6d60",
+      "size_bytes": 13134
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006912_0006976.npz",
+      "sha256": "25ab8529e8ebbf2125c51fad097e1383639cba8387d1e20ea3104608dab96e93",
+      "size_bytes": 13196
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0006976_0007040.npz",
+      "sha256": "e241fab035ea9d6f92fe6940bde2073c7f9316bb1b8fb6b6ad58cc4de5dc877b",
+      "size_bytes": 8779
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007040_0007104.npz",
+      "sha256": "8d68e192cc602d0f4d8680397f4e0c1cf3902f299f8016c5847362d076bc39ba",
+      "size_bytes": 9781
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007104_0007168.npz",
+      "sha256": "c9b4e4447bd7ff85db8b77d2ca87f3e26adf3467e34589c55be3c54d1d828ab3",
+      "size_bytes": 13376
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007168_0007232.npz",
+      "sha256": "3857cd15542dbcd1fb3cecc7ff36d3fdb5729f19c13eef104b836f96b619fe92",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007232_0007296.npz",
+      "sha256": "698becfa92e77ee356246ca7b517b45d18b86f2cece0a0263b89c3a306d32f87",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007296_0007360.npz",
+      "sha256": "78a5617b2b98f1533f706b01396ee3c5170d4dccf9de6a3c3ef84fc644f1a0f4",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007360_0007424.npz",
+      "sha256": "ddecbb4941a6733058b8b54e30dbee02e35963872b099b8eb8ce75ae8fc99665",
+      "size_bytes": 13364
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007424_0007488.npz",
+      "sha256": "8a63b403d374dd5783ff4af485365390f34fd5fea7ec717861b88a080d98d59f",
+      "size_bytes": 13335
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007488_0007552.npz",
+      "sha256": "f4c3fb6e54cc179cc66c8c4219245662eb90c80b7dcbb99390444ef9f643a0ed",
+      "size_bytes": 13315
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007552_0007616.npz",
+      "sha256": "eb85475a63b43499ab2e4b5799f9e4456d77614eff4c571ab0a10cfd9813f6ae",
+      "size_bytes": 13356
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007616_0007680.npz",
+      "sha256": "44fea0ae24da7a494dd1f72f699311349022ed08bb9e58f23d956c479b478ae8",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007680_0007744.npz",
+      "sha256": "9d719ff0d1face209a99cbfae1bb2819ec2784eeae70ab1fbdd1c1409da0f3bc",
+      "size_bytes": 13308
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007744_0007808.npz",
+      "sha256": "e803be5e7c3364177ef6f83e17c7e0faaa6f7e6d27e2daa83e3fc3bba4fb0359",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007808_0007872.npz",
+      "sha256": "9e8fbf5e4963cb91eacc2ef0e197dd5b02f17e00a8914b51a2e68ff99eadde7c",
+      "size_bytes": 13350
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007872_0007936.npz",
+      "sha256": "6c89f9d136a74e096dd789722909fd3574f074b028f47698e7c4a42064d63cae",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0007936_0008000.npz",
+      "sha256": "0a01ee1af7c4b1027c091960a48c6faf7d14633c9fc449e1e7769b7e42704d37",
+      "size_bytes": 13298
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008000_0008064.npz",
+      "sha256": "5cd6748b71916a18fe8ac04e1f444bd7a5a8048c93f3356a2250f8d66202dccd",
+      "size_bytes": 13301
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008064_0008128.npz",
+      "sha256": "ffb2490af034ba59649a9dd7b15a9da7d3ed651647a9682dc2e1d94da8bac834",
+      "size_bytes": 13353
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008128_0008192.npz",
+      "sha256": "ba6e12ed14e073c777f5fefe76325cb74aa20b18e2b9cb9e8d2a8dd890b1f81a",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008192_0008256.npz",
+      "sha256": "2f7613f1a0bd562b03db3356b9cec6cc05420472b38e51fac27e2c1c042f5612",
+      "size_bytes": 13360
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008256_0008320.npz",
+      "sha256": "c96d876324cff9ed7343eb9c6058eaa53210161c8e357bfedef33c920bd7d86e",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008320_0008384.npz",
+      "sha256": "b0153f9294df47260face5f9d93559e0fb485f29e3c1c24afc2fa487122ce1bb",
+      "size_bytes": 13360
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008384_0008448.npz",
+      "sha256": "d2d90052a409869d5e2f702d114998fcd87b340d3ca9ef64a339b025757b1faa",
+      "size_bytes": 13383
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008448_0008512.npz",
+      "sha256": "af383ef0c0b7db42a9ff8d001686508dc8a3a6774334f14e80b9cf09ffae444a",
+      "size_bytes": 13348
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008512_0008576.npz",
+      "sha256": "a3a716dea55a46ddbf4e8e4d577809999cc3ff57cead11d4a5546236ccc79090",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008576_0008640.npz",
+      "sha256": "e061dae21a9aaa607933fe4d08bf490ac8ca2a8b4c376c5adb123b3420daa2a8",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008640_0008704.npz",
+      "sha256": "a90ab97167bc04bd256b7bb91b650d4a34ebe7f489a35f3f304b3ef560139508",
+      "size_bytes": 13374
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008704_0008768.npz",
+      "sha256": "d2759530a77d14cc0a1b8d855060bea9fe8e9a0e80c545f8920ad72977827a93",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008768_0008832.npz",
+      "sha256": "8edd706dc60b9b057dec60689f2cec818c06910ff201d7e7acfa82de47108cc6",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008832_0008896.npz",
+      "sha256": "eba06e7bb8bd02c7844bec806520ee285f9fb37e029358c690099889f0c37335",
+      "size_bytes": 13366
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008896_0008960.npz",
+      "sha256": "95a2d5cda3e53cfe20bddb937f59dace7be301356a292d89c2aec6c31b3633fb",
+      "size_bytes": 13348
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0008960_0009024.npz",
+      "sha256": "32d0ba387617977fb41d6fef3bfa27c2a4289c8402802839055fc5fe5027184c",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009024_0009088.npz",
+      "sha256": "ada045213920de41cc67eccafa4bd64b2e13dad21ed7f6a9b6839974efbd447d",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009088_0009152.npz",
+      "sha256": "2a3aab505475be9cd8178f5699af3fff1741bffcd704c13cb909cceb7727982f",
+      "size_bytes": 13351
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009152_0009216.npz",
+      "sha256": "c0c7ca7b52c98a4d97df0d7be45c4d8fd1908977f84ce8eddc577aa3a9d79bdb",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009216_0009280.npz",
+      "sha256": "1af53525de8f8c72ec51eb24f426e62d3924087185571a56c3dd5f53625af799",
+      "size_bytes": 13321
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009280_0009344.npz",
+      "sha256": "f73cd0f603e8d3b968e0bcca18f8c862556bcfcf3e6accd3343f7971dccf74f5",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009344_0009408.npz",
+      "sha256": "174a1abef2e35044152d96f0b207af22b01e5b57a2e1b2ca9c8885ae893e466d",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009408_0009472.npz",
+      "sha256": "5b7cd78737360f9a63d8861c5ee3ea14813256d859231d66f03891e8c52e9c97",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009472_0009536.npz",
+      "sha256": "836e8e3dff9ffa4a78cf315ee62433379bd2f45ccca5c4a8d4b887508b41ee61",
+      "size_bytes": 13350
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009536_0009600.npz",
+      "sha256": "3794e87cc35f13acc55217269f74fd83197f2da34e384ed1ed3ed215353f1301",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009600_0009664.npz",
+      "sha256": "dab04df10afd850249bf45458c3b7bd7fbb86d332305bf65c521d488cb9d6348",
+      "size_bytes": 13370
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009664_0009728.npz",
+      "sha256": "59b64c4e176b021527ab8d7df3fe05c04c90ed3318a0472de88229d1e9778c4a",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009728_0009792.npz",
+      "sha256": "09e7ec91057094959e78ae59e2c74fcb09aed5f32ac77d5b533a402c780251f4",
+      "size_bytes": 13300
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009792_0009856.npz",
+      "sha256": "a3d8b43c4a5241f973c3abbc25b87b1ca5d37f0d7a9eeb18792855b651957f9e",
+      "size_bytes": 13334
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009856_0009920.npz",
+      "sha256": "c1f6c83abe2a055cfdc96092a8cb3ecedffdd309aeac830551314787c8d067de",
+      "size_bytes": 13333
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009920_0009984.npz",
+      "sha256": "6a7631aa371bd756722c7c338a56cce2fbd2bfe4b3b418b90a6c174a71d230db",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0009984_0010048.npz",
+      "sha256": "e9c43fa9c712451a9aaca0b74897dad5c47190818582b7d508962f5fe2f66254",
+      "size_bytes": 13318
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010048_0010112.npz",
+      "sha256": "59b4b81083b45ec1e9471625018f7baf405268e705dbf0f63f6090c5149ab95f",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010112_0010176.npz",
+      "sha256": "793830288fdbd52e5385d1b97bd6f1d269c533976698a970a732512cc34b46c3",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010176_0010240.npz",
+      "sha256": "e586add95a8e018d192d814eb8c94132e95af5f81a637ba334eb43296fda8b74",
+      "size_bytes": 13361
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010240_0010304.npz",
+      "sha256": "21f249785544f55622a2a10d54291712153e0f5b815bf415aed4700534e937cf",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010304_0010368.npz",
+      "sha256": "e16ccf75d4ad68e5fc20011f3a7b796d4c463db7f46bf55fcbf4bff5ee107ff8",
+      "size_bytes": 13330
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010368_0010432.npz",
+      "sha256": "cd4abe193d4d75ad751e5217b806d4a8da2286896aa6d805d2b6b5322d6d454f",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010432_0010496.npz",
+      "sha256": "d8e0fe8f811e596e1559a118686792b83555bdfc3efa7f16dab330421e067c49",
+      "size_bytes": 13373
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010496_0010560.npz",
+      "sha256": "ed94147559281dd5161c9a322a9284a68a6dc09c1185e659eff9582ba7bede4a",
+      "size_bytes": 13315
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010560_0010624.npz",
+      "sha256": "5dee351d4b2c7322d02604b05ec9abaabb896017bdf6f38ae79fcfc564d4cdec",
+      "size_bytes": 13317
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010624_0010688.npz",
+      "sha256": "fab5b17b5f1a1facba2dfa9c64ee00e9e35a11aae28ec906051423dfbac47ee6",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010688_0010752.npz",
+      "sha256": "241322626902a4c2d271b4fca47dc2f30ecceb6e94b42f963c863cd01e91785d",
+      "size_bytes": 13385
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010752_0010816.npz",
+      "sha256": "c554f2862cd29c8b462828ff10a4f17ae76e8d9dba085209a74bf610e79951de",
+      "size_bytes": 13348
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010816_0010880.npz",
+      "sha256": "e61f18b8690a0d7e997685f248e63d89f080f82fdc0c58d34359e1136237c755",
+      "size_bytes": 13323
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010880_0010944.npz",
+      "sha256": "7cced5f691c165da3a75f2b165d7b96d901b1c1446fb8a1ca4f10c6dd963d7dd",
+      "size_bytes": 13361
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0010944_0011008.npz",
+      "sha256": "9f0fc248dcd880318429e2be584b793de89fbaf3fd350eac332894b02f042544",
+      "size_bytes": 13359
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011008_0011072.npz",
+      "sha256": "05c0c8fe68e2268d724cab36e77884c83c4743482cfb51f35a0378f79183320b",
+      "size_bytes": 13314
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011072_0011136.npz",
+      "sha256": "0a61166e213956e2b43aac3899ce5652665b1aad5de7a65a78269cc3ed5a6c7b",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011136_0011200.npz",
+      "sha256": "e8abde49c59e5bea84f1d6c8231628c4b4cc3639be47d72ea104a3f00b4563f8",
+      "size_bytes": 13361
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011200_0011264.npz",
+      "sha256": "0391864e65683d34d004c32020857208817ed6ea37f1bdd11252dac1c2754075",
+      "size_bytes": 13332
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011264_0011328.npz",
+      "sha256": "84254386577a9df516de37eb437a563fa2440d609b00ff1aa493d00cd2267adb",
+      "size_bytes": 13336
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011328_0011392.npz",
+      "sha256": "4e98198e3b5353323f11968a2ca98ccbea0c1b6eb9be5e3829327f855dd9127a",
+      "size_bytes": 13337
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011392_0011456.npz",
+      "sha256": "1973c78f1be2292c88daa5ed15fbce0dafb690e2ff52d103881dd4a8645288b6",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011456_0011520.npz",
+      "sha256": "6771233c7bd806dde9815b81a6dae282dbe7cf44c5dddd47bf140fa8e9fa3354",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011520_0011584.npz",
+      "sha256": "36cb8dbbd433c5786a8fd3cbb3c056c65a996b3089d916992c07cdef65d4f568",
+      "size_bytes": 13319
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011584_0011648.npz",
+      "sha256": "4ed0a40bd69df1280093978d953b1397348cddf4d1904f98ba2bcf3fea40bed6",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011648_0011712.npz",
+      "sha256": "f20b5bdb8f5b2ec5d10e3f958e306b709c27dca897ee494c833a9fcacafe983d",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011712_0011776.npz",
+      "sha256": "2311b76952fc5d4c7d03c0b260a38ccf67449a40df359241bdd2e4c015d6e84b",
+      "size_bytes": 13368
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011776_0011840.npz",
+      "sha256": "d22fa40c0efc787bbed973ce1fb3d8640b952f3d5d858cc07aeb8a78ab612e8e",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011840_0011904.npz",
+      "sha256": "d7dd2a5a20f5bfbfde487445fa02759ecf1f5d3b9311d12089a1dd9bc775225f",
+      "size_bytes": 13308
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011904_0011968.npz",
+      "sha256": "f129ca3a28bb601cef250cfcb2383c17a900ef765c50d4afe0a8947d19ce95eb",
+      "size_bytes": 13361
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0011968_0012032.npz",
+      "sha256": "8e491de7a636e6abcb89d09c779e3e50e55287a66638ee087f9d6187c725b2c2",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012032_0012096.npz",
+      "sha256": "21fde6e604dfbcf013a283aed36e8c8477460088a04cad451dfd88dea7420a62",
+      "size_bytes": 13323
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012096_0012160.npz",
+      "sha256": "79115b891f60704878e7df694a7bf37fdb7278f3608fb3ef33e2aa1547ab0f43",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012160_0012224.npz",
+      "sha256": "765eb840720ed165c63884cf3f831bdd95102ee777f2194e6a8d5ec9b0fd6ef3",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012224_0012288.npz",
+      "sha256": "11997c79af067cf1c34b15cd9b5bade7fd98b9e548b513ec70c1485734328345",
+      "size_bytes": 13371
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012288_0012352.npz",
+      "sha256": "d5247231480f1a34aeacc0999061322e27a220e890f11cb1442ee15a56778e4e",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012352_0012416.npz",
+      "sha256": "c9207a0d30c12a2defc03a44b06830f0bd8406d7334d632dcf7f86c8417bd310",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012416_0012480.npz",
+      "sha256": "677422a3fa87a96279e476c26681b91ef8f6dca1892bb4de268643857744fd2d",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012480_0012544.npz",
+      "sha256": "a78bf607425fef10f2985b65ca6d2ab15e3709830c70c1b964ea20977db6947b",
+      "size_bytes": 13368
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012544_0012608.npz",
+      "sha256": "797e8bbee8a2fbf8ebd9f00e358cba829ad21630bcf5e26c1f6e65a769de1aa1",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012608_0012672.npz",
+      "sha256": "d66188599b261ccdb96d94bb9e6a7c26cdb75336cb35a271238373307c9d770a",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012672_0012736.npz",
+      "sha256": "980c177c8bbe57112ecec57514c77044f2811955305011d4738374366f8a9af1",
+      "size_bytes": 13392
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012736_0012800.npz",
+      "sha256": "c38bda4d53d66e13b41d5be37418403d84327beed01a1a6487b643e187942821",
+      "size_bytes": 13391
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012800_0012864.npz",
+      "sha256": "abd7b29b603929c41b591d93c657c546825829d5670ba4234962b946cebca7c6",
+      "size_bytes": 13333
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012864_0012928.npz",
+      "sha256": "bec4925f1c3822dd6ae64a77a75d3d7bba53eff93bf1c1f46debedaacea9c47f",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012928_0012992.npz",
+      "sha256": "cae9dd34882fad7f115ce0053db8b7a73bcd8585e15ed446df7f38b4dda77822",
+      "size_bytes": 13362
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0012992_0013056.npz",
+      "sha256": "37e0301b235141e612a831872aced6418341e5a3cd065781b98cccab13f14750",
+      "size_bytes": 13351
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013056_0013120.npz",
+      "sha256": "602bf9fa22068cf80c5b3daa204fcfe225148b524362c4d7e8d809a01c393112",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013120_0013184.npz",
+      "sha256": "9c1104025e7d9e12a03328785ffa6e55bfdba947269453e02beb13fc2287b4d6",
+      "size_bytes": 13348
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013184_0013248.npz",
+      "sha256": "15413d580777abf607cae869300cbd7da7a54c4fac66522aef592cb96adec664",
+      "size_bytes": 13361
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013248_0013312.npz",
+      "sha256": "b6a33eeb6a8c0eb18cd49227cc97264375a5c1f7fbd66fe90527add2b5a42d06",
+      "size_bytes": 13370
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013312_0013376.npz",
+      "sha256": "ee1e4c286100a3e7fdb32f215d7ad1c2eeac41fbc35a393583ff5c73d325dbaf",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013376_0013440.npz",
+      "sha256": "040edd0492d87b2598029edfc6ca141a3aaf1825bc90c7834d5570d80c9e9679",
+      "size_bytes": 13326
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013440_0013504.npz",
+      "sha256": "fd8464d1073fd57b08cba0f41f156b50bbbfde74246abb21d6abbd3169bf7735",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013504_0013568.npz",
+      "sha256": "4eda0baa0253de434ae7166e0f8f31b61fa9a1a1f8b21648871ffcfbf29f198d",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013568_0013632.npz",
+      "sha256": "f150e690ec56bf36bae24c7005b93006ab62e09b9faaffe13ff8d689a98b5d09",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013632_0013696.npz",
+      "sha256": "c53c6ee71fa89789a0d10a6d6405354fc8eadb1a41602c3787c1f6929dce85aa",
+      "size_bytes": 13299
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013696_0013760.npz",
+      "sha256": "a72f40b4807a3d2a2ce8e3404467e7ccc80c00e96cd147bc22b9f99eafba7912",
+      "size_bytes": 13341
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013760_0013824.npz",
+      "sha256": "e283f55dd2aac56d8ca34689a4ee6e8943da25b263f41df998bc46acdb9c682d",
+      "size_bytes": 13368
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013824_0013888.npz",
+      "sha256": "45d7ee971c86889ce2c91fa9ce0ff1cccfd87371d9b50fea8229a83e0f2c5b3f",
+      "size_bytes": 13309
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013888_0013952.npz",
+      "sha256": "1fbf45cae513f032261e696de533347672f48788d586787a28d7d5be30ba2059",
+      "size_bytes": 13308
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0013952_0014016.npz",
+      "sha256": "faf31e6ab096fa3993760705157bf2b9ec9f1f34b31d3e4b21401e0d5e515b9e",
+      "size_bytes": 13360
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014016_0014080.npz",
+      "sha256": "8c9dd379ac95ddb950c2faf2d2a83a340d07a0bc22b3124e0bbfcc6a8abaff8e",
+      "size_bytes": 13347
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014080_0014144.npz",
+      "sha256": "15c8fadb33d62acc66166f11653f53f7906d27a9fc9a029c8b10803f67b65db3",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014144_0014208.npz",
+      "sha256": "3bed89264a41714d90c1c5eba92e617bcb2454ddb10945c87af7c047a3b151f0",
+      "size_bytes": 13293
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014208_0014272.npz",
+      "sha256": "c66b2f70ca963f888372ddbbcc97b1357e6576fe669bca9e0485bfd4977b61df",
+      "size_bytes": 13367
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014272_0014336.npz",
+      "sha256": "becccc29016bfcea7abfb708c4990f2f9c9fd47b2eb8ae5896adb534ce36e2f2",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014336_0014400.npz",
+      "sha256": "a261e8d87b44ccb9497dc5322f19966b87e89f1404934b58b9152dc5ee189c77",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014400_0014464.npz",
+      "sha256": "2c324f9049fcb39bf0156aa610394d59f801455b3e2e9147abccd1c94f132f80",
+      "size_bytes": 13322
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014464_0014528.npz",
+      "sha256": "c4f3f57593a2d8e66bbc1f720ea977c1508a70f0ac09622f4491d14c34c15a1f",
+      "size_bytes": 13347
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014528_0014592.npz",
+      "sha256": "72aeb21d137e961a0d3dbf6800372602033376f0885e2e05b35a9f18993de172",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014592_0014656.npz",
+      "sha256": "9ecbd28422e05da0c1c3b86e9b657129beafab7f1122590cc4edb2e2977361e1",
+      "size_bytes": 13332
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014656_0014720.npz",
+      "sha256": "5ed619b0d0dc5574fa4ce2d6b0e0bebffbe70c98034e5524bc36fe198aa5e6f4",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014720_0014784.npz",
+      "sha256": "7aa7e572c9c8b9a2c31348aa84a03d3696d31a12471fa9f451062290ea87aa5c",
+      "size_bytes": 13391
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014784_0014848.npz",
+      "sha256": "4107c14d8e7237d082db8f4f6de836417cd8a261771b3320776bb128d0dbcfa6",
+      "size_bytes": 13372
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014848_0014912.npz",
+      "sha256": "485296bc4ea79a2ca8d78bb1120c2484df2a7105d0875a15b1550efbd88e9b28",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014912_0014976.npz",
+      "sha256": "549576e4bdaa528d7f175efbd6fb66c12de80638bbdb76e8893a50c1c3833bfc",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0014976_0015040.npz",
+      "sha256": "fad21b028b090d62de39690996bb7e05085273f626282faa64295bfa16be63bc",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015040_0015104.npz",
+      "sha256": "39c6b697bca03e2b32b9f7be61f54c1ce017dcd9a3a0af59c0a7be12f1e3f5a0",
+      "size_bytes": 13362
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015104_0015168.npz",
+      "sha256": "36d67b5b47f364c1d70b94aed30ba397490e58ce24047583b04f1579c62166dd",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015168_0015232.npz",
+      "sha256": "9275db3d0ba263101352a26d08924d7208dddb0d5b1e08afa275edb077469b41",
+      "size_bytes": 13305
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015232_0015296.npz",
+      "sha256": "a0ce743aa89904a38f8e7fb3e93ece6ba6016f4a4e50221d774ee7038d2e46d4",
+      "size_bytes": 13354
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015296_0015360.npz",
+      "sha256": "96b0726b5dc76f6eb49ce43a7c0dcb6a159dc216950249451a65691e8d45d87a",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015360_0015424.npz",
+      "sha256": "1ce63dca83a2303ea35fbcaa99a0a4e95695a0bbe85458260d17703076bf947a",
+      "size_bytes": 13314
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015424_0015488.npz",
+      "sha256": "a8b84d3dd2646c619a9617de361e251e155c3011a06c4a4860656a50130941bc",
+      "size_bytes": 13330
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015488_0015552.npz",
+      "sha256": "48cbff4a71813e2e5399493c9ec084d4377ebef60862fb8529e0921a8542535d",
+      "size_bytes": 13351
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015552_0015616.npz",
+      "sha256": "267bc5311f1ee1941723585dd5f70366240c0ab29888563ea19726385cb24776",
+      "size_bytes": 13342
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015616_0015680.npz",
+      "sha256": "e58a50757001ae0415e187be271239a626f4dcca1eb1434f275b94e71fb53a1c",
+      "size_bytes": 13316
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015680_0015744.npz",
+      "sha256": "d67e12a4a150b9e5a630ae3ef16c51a6bd28d169db9c6bc9c204580a5c3e4668",
+      "size_bytes": 13312
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015744_0015808.npz",
+      "sha256": "f9880b2667c98e61182987830b97931af7f00bb47fe9b4ad6642d794e213047f",
+      "size_bytes": 13370
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015808_0015872.npz",
+      "sha256": "a26a7804242d2024c3d2765ac03673aa5e06d5f2c9b474f54c873b5a81599ba6",
+      "size_bytes": 13363
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015872_0015936.npz",
+      "sha256": "88693b8e83d6cd67aa7a00cbbd05089a6f8d0e9c461dafbf18feebcec10e5155",
+      "size_bytes": 13350
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0015936_0016000.npz",
+      "sha256": "efbc9ed3f8677ea6b64e25d80410687bc9a1d70556218e1a412259f3d58859cb",
+      "size_bytes": 13355
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016000_0016064.npz",
+      "sha256": "78726c9513953c0b55f1ff5b9703c04209098b46415c13073e1d7a1c78c7c5e1",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016064_0016128.npz",
+      "sha256": "0a5982ae3fe00c2d26ab2a631b39eb5ff00cde2687707bc2171c88ba14c85264",
+      "size_bytes": 13375
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016128_0016192.npz",
+      "sha256": "31c154c8616b79325b6a5721bc35cc6eacddaa295bd92775dc64814fec81cae7",
+      "size_bytes": 13311
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016192_0016256.npz",
+      "sha256": "4c8956e21ab7cb0f21dfe36f3b743e53feb66f719fb2e5a42deb81142bc992a1",
+      "size_bytes": 13321
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016256_0016320.npz",
+      "sha256": "def1e83dea3e8772b34345d61007a4e625995a244d0355190d294cfe15638a1e",
+      "size_bytes": 13373
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016320_0016384.npz",
+      "sha256": "f41ba5fa068e0f27348750cef3426d503a25f9d7903d05029b538fd6383fa0dc",
+      "size_bytes": 13350
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016384_0016448.npz",
+      "sha256": "b255a890c8775fc801eaed2f21911eeb7eb91305902b94324e32a650b9e850cf",
+      "size_bytes": 13357
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016448_0016512.npz",
+      "sha256": "f3367ded94ef27f51a225fb55827c83c5c8ea352e2a3e6f5168516aca2a70646",
+      "size_bytes": 13318
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016512_0016576.npz",
+      "sha256": "58617833066ffbf487095b5a1d52120848105ca372b77b5187b1e0182f38caa7",
+      "size_bytes": 13366
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016576_0016640.npz",
+      "sha256": "44b4e88da099fa339b11b2fbb14385b35362874b170a9435af76aaa47151180a",
+      "size_bytes": 13336
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016640_0016704.npz",
+      "sha256": "191f67cc6e0fffd43d8add3b9e61814eda494227cde3fedc9199b5ce0979c100",
+      "size_bytes": 13337
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016704_0016768.npz",
+      "sha256": "99112e4882a0a5ebd14d1f7aa301251ce4ff0be89f546d36d251ba41631dd429",
+      "size_bytes": 13325
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016768_0016832.npz",
+      "sha256": "835485900637a86be023cbd73467ce591c0037a503143f4892507ed94105a8e0",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016832_0016896.npz",
+      "sha256": "06e9b948d2106306388b2c1750fd3a69a7efe97204cef669af77c4cb7fa30400",
+      "size_bytes": 13371
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016896_0016960.npz",
+      "sha256": "f69fc6414fb2c56d1a7b1ddb2e189ea590ebb5adc2ba2ecc4dcf7db49583a32e",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0016960_0017024.npz",
+      "sha256": "e0d879174e2b80676d6f9f43411685144a2c0caf24e142a414f39cbf5851f804",
+      "size_bytes": 13295
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017024_0017088.npz",
+      "sha256": "7dc246c29cc483e28e6e7a327c450a23c083e797eb4edd232ef13ff865492bbf",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017088_0017152.npz",
+      "sha256": "4b2f23c19d6261cfdbe1eb06d190c65b5c48969da7183f0167439b26e6a9326d",
+      "size_bytes": 13351
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017152_0017216.npz",
+      "sha256": "fb60d773e6c119924209ccc372e7c5d0c230591340d441876b3e0640c75f9f7b",
+      "size_bytes": 13359
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017216_0017280.npz",
+      "sha256": "9f4c62faa498241b8982328e7523266b9ea2c7ce793b7d32eb9c0ce13004ea50",
+      "size_bytes": 13329
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017280_0017344.npz",
+      "sha256": "f001e8778f9af9a3cd9d324d904a6e3132b7c411df5ce56b11c145e62ba03d8a",
+      "size_bytes": 13362
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017344_0017408.npz",
+      "sha256": "b0c165ccffea0bba6c3c09d708fd46d261f05c3ae8d834ca1a7f5940c6a470d1",
+      "size_bytes": 13377
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017408_0017472.npz",
+      "sha256": "b3e2019f3bb42901fe784c9ecf7f2a8a91b22c930990e935b50643fb0c5ef9fe",
+      "size_bytes": 13326
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017472_0017536.npz",
+      "sha256": "737c94dc8d4e5055cd1bd00812e392d07767476715d4907b583ca5b609f3b7cf",
+      "size_bytes": 13297
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017536_0017600.npz",
+      "sha256": "426871c4b81b8965530068dd9fbdc1ab4326ecea0374dca65c478fa60e93fbfe",
+      "size_bytes": 13344
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017600_0017664.npz",
+      "sha256": "70b83e96b4c512c60f6d48699e69913e0d1443d7bfe4c9beb9a6af51bdfc2d7e",
+      "size_bytes": 13379
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017664_0017728.npz",
+      "sha256": "9848a9c55e2b519e7cbb2f24da409734d9ff9251d002f37801944eba26e444b7",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017728_0017792.npz",
+      "sha256": "842e3dabc3046be899bd75dcb5fe40f9e1c630d1aed1214428ed526bdbaeedde",
+      "size_bytes": 13325
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017792_0017856.npz",
+      "sha256": "41fc214b2d3cb782577dd630163225bdbc0ff2384a7ca1b18f9e87a695828177",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017856_0017920.npz",
+      "sha256": "554bd5c36333d54f29c92acafc605f5c32bd118ca5d2a91c812c044e8e90515e",
+      "size_bytes": 13377
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017920_0017984.npz",
+      "sha256": "a517294e6f22c6936b2e129a51b2d9610663d928a07c3c4b32f42d8129d5a702",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0017984_0018048.npz",
+      "sha256": "c074af067f87a0d1fdee2b059c28edcf28b534b2a2222a23d4c6ecf8c7233c69",
+      "size_bytes": 13315
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018048_0018112.npz",
+      "sha256": "642edd18b5c7e412f85a40b08dc5e6643b9d154d8bee97ccabc37a86afd74d79",
+      "size_bytes": 13376
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018112_0018176.npz",
+      "sha256": "f0e76d0aa2d625b0789769a1fd0dbacf4ec8894b1c547d27534e67eeb2448933",
+      "size_bytes": 13364
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018176_0018240.npz",
+      "sha256": "3097aa986bebb027a56b5d7c42fe7f70cf4bfee27a68b2cc30b30aa5a603f0c4",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018240_0018304.npz",
+      "sha256": "d1a16d6fb62b6c20762906c365bf7d44b0ac5790bc835dd81ca5625930bad72d",
+      "size_bytes": 13322
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018304_0018368.npz",
+      "sha256": "8939685fdcb76b210857dd3a1debcad858d862e92178d8fb4a02e74739737e2f",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018368_0018432.npz",
+      "sha256": "d92015efcf323ea1da953c7cfceb281da5aa8518ef583d5ec7ac18c21af0e2f2",
+      "size_bytes": 13355
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018432_0018496.npz",
+      "sha256": "f8e87e84e3007d5554ad67db27349c98f77fc074dca6d683004e03371b714209",
+      "size_bytes": 13314
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018496_0018560.npz",
+      "sha256": "2e689d76a4808a75f25ffcd200154f8632d2e71b40aa9f4a296208fab898587f",
+      "size_bytes": 13319
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018560_0018624.npz",
+      "sha256": "46ec51267779770a870c7b05e71688ac65f96f1a2d929566b2b786ae926306b1",
+      "size_bytes": 13344
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018624_0018688.npz",
+      "sha256": "196f6fbe960d5d613c77ad367107e1ca5f4332efa6fe6021bc7561100f3bb9e9",
+      "size_bytes": 13374
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018688_0018752.npz",
+      "sha256": "a24a9f7f2e5cdaef2025713d977196ed3c67bcde9dc62145a192058598823a36",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018752_0018816.npz",
+      "sha256": "ce371f04836180a189cfebda48caaec5cabeed5262bd4f201bb9c01b053a258b",
+      "size_bytes": 13308
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018816_0018880.npz",
+      "sha256": "329d4104b104b8e82ada493818737b502821344324989b1bc0d87357a16e7b24",
+      "size_bytes": 13366
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018880_0018944.npz",
+      "sha256": "22060043489bd78a61e0489b6c1400d7d817b93899b50f649cda853a07bb54dc",
+      "size_bytes": 13373
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0018944_0019008.npz",
+      "sha256": "1e3be84081feb489dd24b12e909a013f93ca0011aba4ac332eae7adb920df6ce",
+      "size_bytes": 13348
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019008_0019072.npz",
+      "sha256": "a17f23f2a32013ff4764dd63c6b4ad39fb2c89675bf5033ed8bc6c90189f52b5",
+      "size_bytes": 13301
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019072_0019136.npz",
+      "sha256": "b61e83832f7dd5f5966a7768eca2e9e1548a39a1996d2517f2113f98707255cd",
+      "size_bytes": 13397
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019136_0019200.npz",
+      "sha256": "ec389e7984d41abae557e04a29c89001d13678c7231878d00474a24311ac80ef",
+      "size_bytes": 13356
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019200_0019264.npz",
+      "sha256": "6d937cad997800c39e3aaa2c62e92014a6ca7db42b8ed3b9a5993dec4b5205e6",
+      "size_bytes": 13334
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019264_0019328.npz",
+      "sha256": "90137ef0bf33a625e3b70afe5f658301fbd6225582eba48bba8d1ebba29ca6a6",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019328_0019392.npz",
+      "sha256": "efd41f33101d75ef95e904abdca6f4467b5215b98ca4aaba9c77ba1dc34bcaa3",
+      "size_bytes": 13374
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019392_0019456.npz",
+      "sha256": "437effcfbd3c57e86e59eec734d1700ab232ad59d8cb478c06517b5667d24609",
+      "size_bytes": 13383
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019456_0019520.npz",
+      "sha256": "e0b5c8ffa13cf22238aa1d207a474298082a526014625423615af7cccccc0e02",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019520_0019584.npz",
+      "sha256": "6e4326815c3b4204958c20b1c4b02fe144a756d1611a8fcce4c8bf23e069c8f2",
+      "size_bytes": 13351
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019584_0019648.npz",
+      "sha256": "663d5879e3c327f0bdeb3dcbfdcc12040b644bd9c048ed844af0673d9610ca96",
+      "size_bytes": 13380
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019648_0019712.npz",
+      "sha256": "8a96a1e1392724e00127b0e42ed30702827ce0b1479c0a06c963cf2b3f95f756",
+      "size_bytes": 13357
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019712_0019776.npz",
+      "sha256": "b30bd1f1df1425d5334223e0d7cf99b611d92c166a72915e0999f3eb538b9dab",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019776_0019840.npz",
+      "sha256": "7e7dc891d49344c8296a6fd829e4d98999026530c398c7b2ba6833a32d3f5f0d",
+      "size_bytes": 13319
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019840_0019904.npz",
+      "sha256": "a61cd4ffc23c7041e0691805cb56be3788cf02e92ab530f8ac34e17cf1ea6bca",
+      "size_bytes": 13367
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019904_0019968.npz",
+      "sha256": "c1e1b91ff06619c3489e7aff5eb3fd722cd8715bca0e808bb75744bad62b9950",
+      "size_bytes": 13354
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0019968_0020032.npz",
+      "sha256": "0aeabadf1bb1c3eb5314168cad94da93e027bf142083252bfaf205c8c7a8f1d6",
+      "size_bytes": 13354
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020032_0020096.npz",
+      "sha256": "8905fa16b1fd10c09484668d8a1ea31751099d245f785bd8840893548d4204a7",
+      "size_bytes": 13309
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020096_0020160.npz",
+      "sha256": "792089eaadf978cf269301dc9b689645a652261921c5e69c3baa710228ce5318",
+      "size_bytes": 13359
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020160_0020224.npz",
+      "sha256": "036cd94ab4e15d55c15f0c99428a0b3cb6237046fb6be3ecd35ee31cab2288b0",
+      "size_bytes": 13356
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020224_0020288.npz",
+      "sha256": "c530c52556185c469de3bf79d330631a4edc6485781c4b6468b25f4d3523bf4c",
+      "size_bytes": 13326
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020288_0020352.npz",
+      "sha256": "d8f69dd6fb826df4d434ed7c5d96569dcae4bd9e51a5d250796e0af98e97b584",
+      "size_bytes": 13316
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020352_0020416.npz",
+      "sha256": "e468a2410b2651648e2e568d1a166e27e8e8014769de3b7e7da83c87a9052b70",
+      "size_bytes": 13356
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020416_0020480.npz",
+      "sha256": "edbb24ded97a5567805fa9e6fc731e954047995de15f1eca38de5516c1f40eb8",
+      "size_bytes": 13347
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020480_0020544.npz",
+      "sha256": "2bdb09ec8c70371bf31a602372a9d31345e78ada2dc423344157a547bfa5020c",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020544_0020608.npz",
+      "sha256": "5ddf36e7a25e820ba2621463cc6af1f2b2ac84b41fe658e08b8cc655989049ff",
+      "size_bytes": 13317
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020608_0020672.npz",
+      "sha256": "f7183369ae4bb4bf18846861b4e2ed8f40649c5c159f27d7b2f43d864c813ef3",
+      "size_bytes": 13375
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020672_0020736.npz",
+      "sha256": "4662c82341c6dd79c74d2ae3804b91be8207c4da938998098afc70058443dc58",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020736_0020800.npz",
+      "sha256": "44a25e9de331a337b41f908de83ea8371ef444d09ac004d4a8cba7bb1e61cc43",
+      "size_bytes": 13353
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020800_0020864.npz",
+      "sha256": "e0be1f17b24cb35e152d02606d7263291963ec544d1b6d82efd1328db2ed86c8",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020864_0020928.npz",
+      "sha256": "606b402c64d7c1e343662fe931f7002d773ad88275afcbb0b2982cfd6f0160ab",
+      "size_bytes": 13368
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020928_0020992.npz",
+      "sha256": "a0a015b1b004fd11321266a13caaa178a0a4bb3d5f594cc5cfcc38adc3f9334f",
+      "size_bytes": 13386
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0020992_0021056.npz",
+      "sha256": "9127224420f30c7177a09c8bb315a84a50743a6bb4484ea99ccfcf6173a8f9a9",
+      "size_bytes": 13335
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021056_0021120.npz",
+      "sha256": "a4d9c5a8c5c654f3be527140412d26308692c0b397ba4651a5d71157020e5384",
+      "size_bytes": 13302
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021120_0021184.npz",
+      "sha256": "d24f994ba20a8c528a603e5052777c44a3a725cae86d95627c23132a6f861477",
+      "size_bytes": 13354
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021184_0021248.npz",
+      "sha256": "21d80a1ad6c352998a795011ec73870beb46763d52418cf3f63e370ca0ec026b",
+      "size_bytes": 13359
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021248_0021312.npz",
+      "sha256": "954ce2581d2b3a5d4a6da22a74c6523f9b09444b4e3ae8002c60965c1ec5c299",
+      "size_bytes": 13329
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021312_0021376.npz",
+      "sha256": "d5684dcf0619577dc3a0c8768e251f2dc80e24226c383586f43242be9e63a533",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021376_0021440.npz",
+      "sha256": "576d6936f07443a05d4e461c2222a7e1fa28c01a4e9377a5d53f826cc9117286",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021440_0021504.npz",
+      "sha256": "d873c6f09980a08b0f2c960a9544bde81a083af4a5fcf784e8cb346627fa498b",
+      "size_bytes": 13385
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021504_0021568.npz",
+      "sha256": "ae4e7afb7f8a95d9e40697b6e1982cf440cc96d539a008c5ec9f6fdba1c7faa5",
+      "size_bytes": 13346
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021568_0021632.npz",
+      "sha256": "66684deeff375a1a081f362655e47f762c7f1c6427ca3c0fdadb4fb52cb9a5d8",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021632_0021696.npz",
+      "sha256": "8656905f974d46146fd88f0098ed1f98cb46791f754e9e607c37d398a1294085",
+      "size_bytes": 13374
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021696_0021760.npz",
+      "sha256": "c2fe63ae947807044ea9a7554135b12ca208843dae4b75fddc83aa877c1b90ff",
+      "size_bytes": 13353
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021760_0021824.npz",
+      "sha256": "2632b7d0b81524af665a140dcd376726a1e2cdbd3808ea9e26a1d0d393da494a",
+      "size_bytes": 13354
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021824_0021888.npz",
+      "sha256": "1205c26159711f6e5fb05d3b9144d650c559c9c7b0b881b5f5c3ae8b8478c3b2",
+      "size_bytes": 13337
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021888_0021952.npz",
+      "sha256": "fa6c3a09093a0e9ed535a491ce04a5dfafb6f0f9831ab9d5e432e9486241c5ba",
+      "size_bytes": 13377
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0021952_0022016.npz",
+      "sha256": "b00178b66a6424c7d8277ebe1463f5d502f57ca12abfa27156c69bf8b720e184",
+      "size_bytes": 13367
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022016_0022080.npz",
+      "sha256": "7b0bfaa92ff684bf3ae8ecdd920a801420a6263e3d2871ad93822cbc7b42389e",
+      "size_bytes": 13330
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022080_0022144.npz",
+      "sha256": "7793d93fd9276d85ee3d729a53d9189528a84a1ac4bcc94070a56a92dacffe21",
+      "size_bytes": 13336
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022144_0022208.npz",
+      "sha256": "9f1e75efc002d8fd705ad229b88d4418fcab970c1842e199ee2697efb1714132",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022208_0022272.npz",
+      "sha256": "05358542d376f73bc99e1d82c363f09e7d0b3894185b80711d07c4431443b216",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022272_0022336.npz",
+      "sha256": "150db9aaee7ac1084518c396b62333b3b38755c6512fbfa7dd5b37aa395294b0",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022336_0022400.npz",
+      "sha256": "dd4ff30dc2bf50935364dac72c735641383fb56d9cf487c476f15ad664af7e0d",
+      "size_bytes": 13337
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022400_0022464.npz",
+      "sha256": "3b31b8d9d19b25f8f537c5207fbea95dc4cf7a9c7ba5a1a5794950b421751a8f",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022464_0022528.npz",
+      "sha256": "6698759809e2bb1c52f709939c827961b37b108c4199f23ea50cf19fdf4deb43",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022528_0022592.npz",
+      "sha256": "d40742b1159f46079ec722e9b6a0ecaefa03c37dcc2fb89e117b2297f51714dd",
+      "size_bytes": 13314
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022592_0022656.npz",
+      "sha256": "d84c1d489e327ddc09eec263c06997144737da037745b7d3a9737821b7622867",
+      "size_bytes": 13305
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022656_0022720.npz",
+      "sha256": "3cfb3f6792732d6a3fc4c3a5f678e4fe099b9164fa1f8f1be86bfbbf45c0c6a2",
+      "size_bytes": 13374
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022720_0022784.npz",
+      "sha256": "39eda770231fc03222ec7ad65dbdd079e898740a5d90f7e54246978521ae7a27",
+      "size_bytes": 13385
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022784_0022848.npz",
+      "sha256": "c641f8ab32fdd43f996dc7791578ed12e6dec9a830cf10e0b52916fa7e5ae1a7",
+      "size_bytes": 13347
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022848_0022912.npz",
+      "sha256": "5244870dafd346bd2740e1271c6d6b84f24b9c400396f0bce28868e93562fb04",
+      "size_bytes": 13322
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022912_0022976.npz",
+      "sha256": "a8326480277c3987b8e50e9b7ae6dc818cd278b1b795fa7010f5a52b110d8e44",
+      "size_bytes": 13337
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0022976_0023040.npz",
+      "sha256": "bef2200525b6c5365202761660aab9bf7e136d4a57c5a0dca1b12ac71f45cdd9",
+      "size_bytes": 13388
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023040_0023104.npz",
+      "sha256": "a01ea605044ca0afaa22d8fd38ef6c46eac21d8e8e062af16d9ef5846f011244",
+      "size_bytes": 13359
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023104_0023168.npz",
+      "sha256": "19f09cb8616420fc4cf4d516976b4ff05f5661ac53234ced697642b27169cf05",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023168_0023232.npz",
+      "sha256": "4b9219b4ae006e14f888645baf1b9d103678e16a23fa02590ae5e52d2e61f6a0",
+      "size_bytes": 13357
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023232_0023296.npz",
+      "sha256": "fa1e9c1ff55db8bacaa8f12e7f123eb2f4759bd6f2a749b88459df2228c8aac3",
+      "size_bytes": 13381
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023296_0023360.npz",
+      "sha256": "2558448ad47c93ddd17682240d4cfef28cf8221cb06ca1816c53c5a84bb9a5a1",
+      "size_bytes": 13335
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023360_0023424.npz",
+      "sha256": "ea5a9da23af8f500f9f625fd14d15cc332f1571126715ee508b98c08e5de6fa1",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023424_0023488.npz",
+      "sha256": "202f92f6e40cd8329c8d461b7518d03e9c68242c52263f36a27c7fa9565ef4de",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023488_0023552.npz",
+      "sha256": "11a827b07feeb650624896cd42c8c094c5cfceca409670213a98d0557f2c076e",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023552_0023616.npz",
+      "sha256": "ad4623e2d21ba1970c845a3dd3a3d26eae1e81d4dcb3cb345b0d4aaedd06fb5d",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023616_0023680.npz",
+      "sha256": "23277a72083b1c521a35d92c39e0dd71a29b48e3e4989e894e0fbab4edcb1361",
+      "size_bytes": 13304
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023680_0023744.npz",
+      "sha256": "aa3270e5c0d62267b601ead70347bbece44308527eeb0a417e2a38a4f2b7b849",
+      "size_bytes": 13373
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023744_0023808.npz",
+      "sha256": "9c0c01a5b3bef4b1d912b12e63245cc1ad6e846086a866821763bd2cb813c465",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023808_0023872.npz",
+      "sha256": "95b5f069e9d10250320578b32ae34be2ddf2db3619c82c2beb25794d656cc661",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023872_0023936.npz",
+      "sha256": "0cf636e761e30af5845fe78c409881eabf8421e2c73a76b36da80ab14950d3a9",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0023936_0024000.npz",
+      "sha256": "9441b7a5fc404aacc6e837d2e1461d6c3fa7d5109f535de376187c0eff186f24",
+      "size_bytes": 13380
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024000_0024064.npz",
+      "sha256": "f6b5211b918126e6c7bc08b8a4db684af902bcfa846447b3ccf9a8a4daa85333",
+      "size_bytes": 13364
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024064_0024128.npz",
+      "sha256": "fedddbc902eb544c170eb4714ec38ec48be923b70aa455d1662a5de7f1ed1976",
+      "size_bytes": 13324
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024128_0024192.npz",
+      "sha256": "411b1720aa6fe1956d7965511386f0929d90ce1d151b74cc2d2c44302592091d",
+      "size_bytes": 13335
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024192_0024256.npz",
+      "sha256": "0589f64a40d42e7b78ac1465131e5441ed4f9f2e1e5093ee8eabfede03c7a688",
+      "size_bytes": 13368
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024256_0024320.npz",
+      "sha256": "501ecffb1e3d478f4d2c406b62cd8b0b5a82f81beafb65da9028b35f962cce10",
+      "size_bytes": 13368
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024320_0024384.npz",
+      "sha256": "4bf19f5a079f4e8cf2628c4631c00edc97173ef6b92be3631c6dc8232c2f7f68",
+      "size_bytes": 13335
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024384_0024448.npz",
+      "sha256": "375ace56861ec048ccacf57c22e10ee54c68e0b0bbd219235be708af2b4ae8f3",
+      "size_bytes": 13321
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024448_0024512.npz",
+      "sha256": "16c2fc3a0807f2461c21ba630d7f2d6716ad0a81242bdd129ad2e35fbf471a36",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024512_0024576.npz",
+      "sha256": "7c882c1642299c3a72dd8e4f27d7c600db63dad6b80ce00bd4deb26ce0c0c361",
+      "size_bytes": 13324
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024576_0024640.npz",
+      "sha256": "c629685df72faa897af7f3a65048185b993d2ec309bdf5836a4767949c46caa8",
+      "size_bytes": 13346
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024640_0024704.npz",
+      "sha256": "bd2ad3fc76b3459d4af640dfc11faf039d2b6ebe0c65c6d5117b2a65007c08dc",
+      "size_bytes": 13330
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024704_0024768.npz",
+      "sha256": "269764825def5910432db66bc8c3c47a3f28458496a7b9563c7cd4496d3da40e",
+      "size_bytes": 13341
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024768_0024832.npz",
+      "sha256": "dadf3a0df97274dccdb3e008a41ec1d369ac7f1b54e30fabc5713bd4fea0e628",
+      "size_bytes": 13336
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024832_0024896.npz",
+      "sha256": "c4fe20c2f184c0b0fdfe2e1c561fc5c5e8560db64394b13cf3d8e6abefefb4be",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024896_0024960.npz",
+      "sha256": "17abb4d351938de47da08c8f63415c90dce9154e918de26d139bc49d9217d223",
+      "size_bytes": 13348
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0024960_0025024.npz",
+      "sha256": "fc4bc1c5df9e267714b84a3f11fd4a2db09ae58b63018a40633bf7d7e53748ec",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025024_0025088.npz",
+      "sha256": "dd0fe59426d99a912ba6f2cf1eef9c41a9fee7a0eddb3b8585196ddc6a13c0e9",
+      "size_bytes": 13371
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025088_0025152.npz",
+      "sha256": "daa03a2430d404dfabc9ccb2900dd6dbc7bba84c275a6923df6fc101a4c45054",
+      "size_bytes": 13347
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025152_0025216.npz",
+      "sha256": "e76f7676941cef50aa910985b2e1028fda829f0048bb3a6d5ba220b1847685a0",
+      "size_bytes": 13347
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025216_0025280.npz",
+      "sha256": "e13e2c911e318431a62591f10b2da4094022ec7403733c090aceb347cd48ceae",
+      "size_bytes": 13367
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025280_0025344.npz",
+      "sha256": "fc90ac2a55c6afcf48bff124d9b3efa2413227f194cef26c4d578eb490000f24",
+      "size_bytes": 13356
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025344_0025408.npz",
+      "sha256": "c32de341162ecc697a0631068bcce9d6e6c6b62fdf4c243bd07233c30ee9ede2",
+      "size_bytes": 13361
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025408_0025472.npz",
+      "sha256": "0e567f658bef3fc12ac0a078a8f4af0331fd820703e879a685bd1b2a6c53d324",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025472_0025536.npz",
+      "sha256": "11a9e2a0b64bc0a434bd4cf2bc7f17ef8261e7777dcfebc4fd1eac8b6131ca7d",
+      "size_bytes": 13364
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025536_0025600.npz",
+      "sha256": "2870e8eb8bf8e4de1e635d6c29b86b7f10cdb338c5ed07a9be8da358514cfeb1",
+      "size_bytes": 13370
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025600_0025664.npz",
+      "sha256": "81b41c17d8ad06df98c7b7b0aec1a3cd2238bb6542e38d79a0828c8a7fdef044",
+      "size_bytes": 13324
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025664_0025728.npz",
+      "sha256": "2692d7031241146747ee3f6d59ea6f48eabc261dc4f1c3f293b7c3a7fb98042c",
+      "size_bytes": 13342
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025728_0025792.npz",
+      "sha256": "7f771fa874d8f02cc947e027f8a4cbb63b95d1f85dcc8829b6bb5217ab2cef96",
+      "size_bytes": 13337
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025792_0025856.npz",
+      "sha256": "2a83189c7e0175d4d7cc5fd912f731c93f99d61f1be0d651257ac9a116d80e11",
+      "size_bytes": 13363
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025856_0025920.npz",
+      "sha256": "30a0cf30d52497eadebfbeca52aa703cc58f9064ae3115652fba7eef5d7d2190",
+      "size_bytes": 13312
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025920_0025984.npz",
+      "sha256": "b4274048b9e148700d05602581ae98870f73f7a766a524c74b33573c1f4e127f",
+      "size_bytes": 13318
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0025984_0026048.npz",
+      "sha256": "db715824d1d786a82b6429f091f1868628a5806d514385011d9061a3d2b30891",
+      "size_bytes": 13356
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026048_0026112.npz",
+      "sha256": "5d92f62bebc7ddfb3447a30808800afcbe1edf7dbadbdcdb11a6b291164b5547",
+      "size_bytes": 13353
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026112_0026176.npz",
+      "sha256": "a1e0762177b086c2be9b8698b25cb0772b5595c9dfc9b8cdec19428a2339402b",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026176_0026240.npz",
+      "sha256": "2c7b7b4651145617add548f22a591889da5c5d8c84ab573412a606f110bbf4a1",
+      "size_bytes": 13312
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026240_0026304.npz",
+      "sha256": "ce22959bdb3a8666a35d7059cbe8e1ab276151e675a863738b4cdd404050bb9c",
+      "size_bytes": 13328
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026304_0026368.npz",
+      "sha256": "76af27a7209d2967706cecbd2178657e1ead77f036edf87b82382e777f1eac52",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026368_0026432.npz",
+      "sha256": "3a40046d5d8e8b9c3dbb8a1cbed96e24114aa0f3d3dac31717510f047158c35a",
+      "size_bytes": 13330
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026432_0026496.npz",
+      "sha256": "5085ab32c3e0ce6d159b2883959b8fc42b92880e9e6b4b9131534522bfebbfb9",
+      "size_bytes": 13325
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026496_0026560.npz",
+      "sha256": "83f428486c8cb35365a2fde09f812cf2b39ba832d1190cd7dc9aef9a176f55d3",
+      "size_bytes": 13373
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026560_0026624.npz",
+      "sha256": "ad5f5c9d1aa5a05b3044634b3495da73c71778a9760ed1a59148312de3ef04f1",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026624_0026688.npz",
+      "sha256": "e18977314fd8abc459c4a6c99b710b0627d55541f1b6bbf032dc46bd8b23087c",
+      "size_bytes": 13321
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026688_0026752.npz",
+      "sha256": "c9be02e5126456cf09934d1f2604a622554a84b9fb231c265643c6d46f45b10b",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026752_0026816.npz",
+      "sha256": "ceab40c0e56b45e878d56c9befd7bfc172826544c484859749042927391899eb",
+      "size_bytes": 13340
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026816_0026880.npz",
+      "sha256": "e082e4c2659516bb89cfcebbcd946515edca5e7d6a53f057ee9d2bc3de3a6534",
+      "size_bytes": 13344
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026880_0026944.npz",
+      "sha256": "c9c6ccc00bb721e89666e7b950742620d89c658905027df7db0609e1fa7d6e15",
+      "size_bytes": 13334
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0026944_0027008.npz",
+      "sha256": "1f28921c581d6045e99fb7ad979fa9653fea7ea54cec66371adeac7adafcb5d6",
+      "size_bytes": 13315
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027008_0027072.npz",
+      "sha256": "11f73c41190fb4e04bf46d3eb1b944b760287dab033dc770e1e74709c70f3105",
+      "size_bytes": 13350
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027072_0027136.npz",
+      "sha256": "6453fadc97c34ee95d66bae4b040ed57622397a81bcc6eb27f4e4985f5c91c83",
+      "size_bytes": 13344
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027136_0027200.npz",
+      "sha256": "092daa9ba8592b3c43b7e73759523f55b33a8931dfd01b3d44c423514b9d5760",
+      "size_bytes": 13363
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027200_0027264.npz",
+      "sha256": "023dc96ad479ffa13251aa53fdbedc7a19388be64bb87eedb9dd28cc8c85642a",
+      "size_bytes": 13307
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027264_0027328.npz",
+      "sha256": "6f57d33f93ba3a9cf8c67c7b15802a6052d1dbeeeed1e5f23b61d97371ba3510",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027328_0027392.npz",
+      "sha256": "75e83d8d13d3691b05008b671c13cf4ba38f3a3e19f674d13e60d42d877d2ca5",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027392_0027456.npz",
+      "sha256": "81a24121d2784439d7b8f56d2fe16866ce35422a0eb0a56507f364bbf90985a7",
+      "size_bytes": 13333
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027456_0027520.npz",
+      "sha256": "caf9ad05749f6b58ebf4a7ab2a7cb903d2dc89abd772d067b819591d271125a5",
+      "size_bytes": 13339
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027520_0027584.npz",
+      "sha256": "80da33f6d315bb639305ec398e1ac403427964275e01b8029e1aef31f6c4fafb",
+      "size_bytes": 13366
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027584_0027648.npz",
+      "sha256": "c8388d4cb2756360c72f95a656878ac30d331a5a92174a27095e2ce734b2ef7f",
+      "size_bytes": 13345
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027648_0027712.npz",
+      "sha256": "f837ad40686b9b2a0672051ecf94f73cfa0f1d0458b8e25a0f926d3a313afbc8",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027712_0027776.npz",
+      "sha256": "83340cb7a9e20ff53e74c514491dd15361683ab821ce4e2f7cca1478ceee3e9a",
+      "size_bytes": 13323
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027776_0027840.npz",
+      "sha256": "1bf02c16a381f64f449a5bcf9d9c9daeeb9c3566b0d878d498682949e9ab0954",
+      "size_bytes": 13382
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027840_0027904.npz",
+      "sha256": "8346fee0986ffd1789c04d643bbae6b14ffe6a4a77a262ee446837a41aed1bdd",
+      "size_bytes": 13377
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027904_0027968.npz",
+      "sha256": "0bf53b5b91a8c8e417b7f8e4bd8b6b85660584469c2a201ddc61dc2a7d88461f",
+      "size_bytes": 13321
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0027968_0028032.npz",
+      "sha256": "d5e66e3317365ff5aa2a6b60726694e6b9f0451cbf499bc14e2be1707e2c1b57",
+      "size_bytes": 13331
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028032_0028096.npz",
+      "sha256": "a1e085024591e32493ae6e9421591078e0773386d07e1e6d6fcf140228f130ea",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028096_0028160.npz",
+      "sha256": "df87ac611a05da20aaad1a185be4124578468d1eeb2c5c3c27769cf7603f2bb5",
+      "size_bytes": 13364
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028160_0028224.npz",
+      "sha256": "7e82d5d73fd520f8889f88aee984807a86b56f97bbbb5faaffb3d2d7e9ec7545",
+      "size_bytes": 13338
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028224_0028288.npz",
+      "sha256": "fb84bce427d814b28a91dbd820eabef5f35c785b16606cbf1cca238c5343b7c1",
+      "size_bytes": 13315
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028288_0028352.npz",
+      "sha256": "5f3a5fe7362a8650fd6d406b56d6ec5a5542b7b76e4d9d4976e96b3f587d0118",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028352_0028416.npz",
+      "sha256": "bde83effeb379d2aa4f5d35caacab431b8a0a7dd77dda1106c8eb1f11759ce6c",
+      "size_bytes": 13357
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028416_0028480.npz",
+      "sha256": "4311b9c4fc7ee0dcf71835a350ff814cf3788b0a1e257a52e31382200f53efef",
+      "size_bytes": 13323
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028480_0028544.npz",
+      "sha256": "5cf7a18315699dbf467601d89659fb3ffc4a3f657d7d5d4f4b346179d7d03280",
+      "size_bytes": 13326
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028544_0028608.npz",
+      "sha256": "fb060b0a631f257e485d331c273dcd00c73edef2c6987eb461d20f0f12faad68",
+      "size_bytes": 13389
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028608_0028672.npz",
+      "sha256": "c87c9f3fbfba220e9987cbca46be1c8a63194eb9872322f0168a2a6255dd023c",
+      "size_bytes": 13378
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028672_0028736.npz",
+      "sha256": "5db6e442a6dc71e9fe65cd75d583294c0f65284b097dc95c74fd388a2a927ed4",
+      "size_bytes": 13330
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028736_0028800.npz",
+      "sha256": "96111e17f0fdfc3985951d9a7abfa3d1bc3d713437fdaa1b76955cc3a800f197",
+      "size_bytes": 13342
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028800_0028864.npz",
+      "sha256": "e3c02591d602adbab8ea8b3c7ebc5a08b9fdca55edce573fb5cc1286a9542d41",
+      "size_bytes": 13362
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028864_0028928.npz",
+      "sha256": "71427e1db469486a84287643fcb689919b53ae53d36bce632987134187f16f2e",
+      "size_bytes": 13364
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028928_0028992.npz",
+      "sha256": "a528092df7bf98f5f99985e82de7aec0b1029b3e63ecb96577244beabdb8e02e",
+      "size_bytes": 13306
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0028992_0029056.npz",
+      "sha256": "dd9437f9ea70bba43ef3ce502d7b3b371ed76797c5d7f5d8178a5e9dd7287531",
+      "size_bytes": 13325
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029056_0029120.npz",
+      "sha256": "1aa6f7f4e639a0ab6b554c3b50ec77321ba0af6bc87d38e129e8b6c4f66e20d7",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029120_0029184.npz",
+      "sha256": "c32cfefcaece27954b400994b1429ee5ed722a8c475c9f89dc431809e5ad14a0",
+      "size_bytes": 13375
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029184_0029248.npz",
+      "sha256": "d98d60f291c6ab0aae74586804697119e79d098a3cd477d0c319735399cd61b4",
+      "size_bytes": 13337
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029248_0029312.npz",
+      "sha256": "8d15d26cc9ff612e9c7144048a14258f7caf356ce339c19f52d722234009c3b4",
+      "size_bytes": 13319
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029312_0029376.npz",
+      "sha256": "fc676fefb582cb3192d3940e5c583a1ba98b8c599f421c3d68218950d874751f",
+      "size_bytes": 13355
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029376_0029440.npz",
+      "sha256": "0450088ea8b03721b789f1c80052b6ce54db5082e26628976ef4ce1423acff8d",
+      "size_bytes": 13366
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029440_0029504.npz",
+      "sha256": "56b49d881c4d2ee350fa0a517a14c4396e2fd2051961e7c09b17afccbe14c6c4",
+      "size_bytes": 13348
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029504_0029568.npz",
+      "sha256": "820cbab46629e493df0297433c10b4d93d0d90f03fa148ed9629f2bc515f48bb",
+      "size_bytes": 13329
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029568_0029632.npz",
+      "sha256": "14519d6308d4549330ccc3931f870f253dd9d367cb61962b96f5ae7b3af52d84",
+      "size_bytes": 13349
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029632_0029696.npz",
+      "sha256": "b3dc68dbf52df966b86b1bba159460332985c6d47cadf980237f067c5f7cc5cd",
+      "size_bytes": 13341
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029696_0029760.npz",
+      "sha256": "142c82dff0149dd2a4cd02aabd0e51413c1858b886c1b1059ad556c1f65e3717",
+      "size_bytes": 13325
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029760_0029824.npz",
+      "sha256": "ff9d5d24f8c672d4da455595e240b5152d6d4502dbd61ee43bbef45c33ae6d97",
+      "size_bytes": 13301
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029824_0029888.npz",
+      "sha256": "c5007a213c4e921e174d04f6ba311a7608853c27027d2e57ad44e153663d12b2",
+      "size_bytes": 13368
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029888_0029952.npz",
+      "sha256": "d9007d7ac372385743e3f9b95418755691300a7211f21a08d4b35d0dce523ad9",
+      "size_bytes": 13379
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0029952_0030016.npz",
+      "sha256": "be10637db6ef7226aafaea97e84d34317832eac6c81b6707004c65369e7c2a39",
+      "size_bytes": 13302
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030016_0030080.npz",
+      "sha256": "d54b4329183eeff75fb847f1ce3b0622cc5bdcd52a3fe642b07826f48985ae16",
+      "size_bytes": 13301
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030080_0030144.npz",
+      "sha256": "31978b1e573b26e6fbae5b3f1453e53af12aeaae2a22d81b40a28eed4b47525d",
+      "size_bytes": 13336
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030144_0030208.npz",
+      "sha256": "2d4941b0258f4f5f8ad4083600a19cd7b5effae258d24f202515c735fd67902e",
+      "size_bytes": 13343
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030208_0030272.npz",
+      "sha256": "99ccfb70d930b1e694072f6e1ba49f4e3d2639c244969309e3c25b2a526f8bd6",
+      "size_bytes": 13324
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030272_0030336.npz",
+      "sha256": "c5506d235b5c6ce20acca7d6c0be8105da2b66c6af21eb799727aca77f58ca18",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030336_0030400.npz",
+      "sha256": "4b3793c198cc5f36e0d02a30ce91cc137929c6324f00a161094374748f63b12b",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030400_0030464.npz",
+      "sha256": "e8c9d544be6c97b50ac7dd4ee52e8b4f4138b9770da9e918e61fada08157bdc2",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030464_0030528.npz",
+      "sha256": "d055c3964fb8ef25d4e89aa02ff1b69161296d6f19c99e25e3acd5120585230a",
+      "size_bytes": 13311
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030528_0030592.npz",
+      "sha256": "15eb904cb58724223ec0a847cc39c53092bcffa3dc30b72949dcbd3ff3dfc10b",
+      "size_bytes": 13325
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030592_0030656.npz",
+      "sha256": "e9077b97cd5e2c0ba7a46929957e77a21ef649ae100b6205859399eb3f3b6aff",
+      "size_bytes": 13347
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030656_0030720.npz",
+      "sha256": "5a885acfb81a343bb8174d3b59f47044ea8cced5b8fa28bbfacf343a13b2de4a",
+      "size_bytes": 13364
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030720_0030784.npz",
+      "sha256": "a76dd79f17c78f6de4b4ffe650cdba14004dce678fcc8c1342694987c482d3ca",
+      "size_bytes": 13337
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030784_0030848.npz",
+      "sha256": "047459606096ae92fcf381d592483a6e40585749046b51ca2b49cc159d2c104b",
+      "size_bytes": 13313
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030848_0030912.npz",
+      "sha256": "4908b62838b64dc943a05bc35c56a1cce64a7b96ae1d545be53e783168f8e366",
+      "size_bytes": 13366
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030912_0030976.npz",
+      "sha256": "dcbf4f4fff129e60bfb7e583e480db1d618e58f6aadfaa98f56b7fac1bd3b2b0",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0030976_0031040.npz",
+      "sha256": "84b89481dd560d103502c1615912cee71d445674e14421332fcae6458c869194",
+      "size_bytes": 13342
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031040_0031104.npz",
+      "sha256": "692b8d688e9f35901e5dc70fbaa0dad0d7aca765eb5ae881e946f4cb6e5a6802",
+      "size_bytes": 13306
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031104_0031168.npz",
+      "sha256": "dcadf0616e5ed70ad172ee2ff797d823df8a820038622bc4e942e180df0d5159",
+      "size_bytes": 13384
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031168_0031232.npz",
+      "sha256": "ca7493fac3478fb4986cc03f41e1b314b4e456fbbc7386de131e41a9a4ad5bc6",
+      "size_bytes": 13355
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031232_0031296.npz",
+      "sha256": "4999f042a4e8680afc01d78c00ba2aca494222fe3992db3c23ea8429a05a1733",
+      "size_bytes": 13323
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031296_0031360.npz",
+      "sha256": "faf6d27e9d6add0ccf02edc222dbbab5942b70921cd1d86379b6ea6995da2017",
+      "size_bytes": 13316
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031360_0031424.npz",
+      "sha256": "bc480898bb94c7691447272f9ed167fffdf308763df50be41360df4b22141dee",
+      "size_bytes": 13352
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031424_0031488.npz",
+      "sha256": "3f600201c800b6d62c14ef04347997aede03ac675b228c60be8f0f121a17a742",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031488_0031552.npz",
+      "sha256": "f36f3dd6a2b4c485cc9b7bf5f0064dc057aa08296641f8ddd010d209468fdfb9",
+      "size_bytes": 13326
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031552_0031616.npz",
+      "sha256": "2f724861dd82257e2b3a8e80dbb51a64f720dc0c4760f7a142c79f8312d70991",
+      "size_bytes": 13315
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031616_0031680.npz",
+      "sha256": "1bce09342f12da680ccb4bb544251fb9e8aa81a603e6320f30efc00bc703c6bf",
+      "size_bytes": 13375
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031680_0031744.npz",
+      "sha256": "3004485a66125584e4a4604fac62cb786451c9e632ff54768691b6f3671fc248",
+      "size_bytes": 13367
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031744_0031808.npz",
+      "sha256": "6017286e3db8abb55e97fae7b54b3163640fa529008cf122d884145ba2c5d37c",
+      "size_bytes": 13313
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031808_0031872.npz",
+      "sha256": "2c67f2a4e4d2e17a9545005d7798cc4d28f85f9edaeeed67388ae293f69747e1",
+      "size_bytes": 13325
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031872_0031936.npz",
+      "sha256": "7b6b57f0de7a566d40cd685c6b1d17d1f2ee07223e84dea44906bc04c6c5b497",
+      "size_bytes": 13377
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0031936_0032000.npz",
+      "sha256": "5e92425ea8e7e73032c68b42b44ed626c2e09f91b527396a858be0791f1f4377",
+      "size_bytes": 13357
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032000_0032064.npz",
+      "sha256": "41f59d4f16fca4d366e02c621ddb7b9ae4d7fb37e59e9deedc78cfbff755d406",
+      "size_bytes": 13310
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032064_0032128.npz",
+      "sha256": "b52ff699808c1f78780fcfe46dee80704039023c99f6637b120ff2ebf02efec3",
+      "size_bytes": 13319
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032128_0032192.npz",
+      "sha256": "2a54f3a27c3395f448762eb2e178936c5431b3c0fd865fe9c2b7c8ab91e9d9d1",
+      "size_bytes": 13358
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032192_0032256.npz",
+      "sha256": "3039c04b4ac0d21d46748c47f948fd601c18fceb49ad75f6eafe2ca4ba14d484",
+      "size_bytes": 13371
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032256_0032320.npz",
+      "sha256": "a18b910c15b3b1b9d2cd5de75a4594afa000ae9eaa7fdcbc3c5cba4ffb86db60",
+      "size_bytes": 13369
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032320_0032384.npz",
+      "sha256": "c6f3363d6240df0111093f7b637c6a6c9038f0c4d5090ac9395006bbb3f64ff1",
+      "size_bytes": 13321
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032384_0032448.npz",
+      "sha256": "ebc4c4865aee852f68222aa4f06135402f3296a4f740bc4bc6d4303a0475dfb7",
+      "size_bytes": 13354
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032448_0032512.npz",
+      "sha256": "3c3639cfcc39101114526562d0f782bf2a2800e1cf4378d6b5526fc7676eaa2f",
+      "size_bytes": 13355
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032512_0032576.npz",
+      "sha256": "9b0ea8dd11d0a156d4107ab14aa693d54f665cd32e18ed4fa02f0f6a8b6cb6ca",
+      "size_bytes": 13365
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032576_0032640.npz",
+      "sha256": "ce4a578cb637457ce6c380da4ae7920e48fc02ec3299e370f5a900f510cea8e7",
+      "size_bytes": 13327
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032640_0032704.npz",
+      "sha256": "77e2d15831be860fd726422e5d6e0bbea5b5e9d815263503a1f3452ffd230b1a",
+      "size_bytes": 13376
+    },
+    {
+      "path": "matched_banks/8d/shards/shard_0032704_0032768.npz",
+      "sha256": "07e1cea62d23e2abd504b39f7c7b4cf726187e7b8579df89e461b891cd5e5c69",
+      "size_bytes": 13354
+    }
+  ],
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60",
+  "wall_time_this_call_s": 33605.49399530003,
+  "worker_recycle_shards": 8
+}

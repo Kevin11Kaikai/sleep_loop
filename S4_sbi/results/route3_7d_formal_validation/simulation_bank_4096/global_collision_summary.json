@@ -1,0 +1,9 @@
+{
+  "valid_rows": 4096,
+  "all_pairs": 8386560,
+  "far_pairs": 7878727,
+  "collision_count": 2192916,
+  "near_collision_count": 3759596,
+  "collision_fraction_of_far_pairs": 0.2783337968176839,
+  "noise_floor_q95_from_independent_preflight": 2.7087935838295074
+}

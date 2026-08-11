@@ -1,0 +1,40 @@
+{
+  "version": "route3-heldout-go-criteria-v1",
+  "frozen_utc": "2026-07-27T20:58:09.411016+00:00",
+  "immutable_after_heldout_open": true,
+  "formal_go": {
+    "training_failure_rate_max": 0.01,
+    "heldout_failure_rate_max": 0.01,
+    "posterior_finite_and_in_prior_rate_min": 0.999,
+    "coverage_80_or_90_wilson_contains_nominal_parameters_min": 7,
+    "severe_undercoverage_definition": "observed coverage < nominal-0.15 and Wilson upper bound < nominal",
+    "severe_undercoverage_parameters_max": 0,
+    "median_error_better_than_prior_parameters_min": 6,
+    "overall_median_error_improvement_min_fraction": 0.1,
+    "meaningful_contraction_definition": "median 90% CI width < 0.90 prior width",
+    "meaningful_contraction_with_reasonable_coverage_parameters_min": 6,
+    "ppc_features_better_than_prior_min": 10,
+    "overall_ppc_error_improvement_min_fraction": 0.1,
+    "ensemble_member_median_disagreement_mean_max_prior_width": 0.1,
+    "ensemble_member_disagreement_parameter_max_prior_width": 0.2,
+    "global_collision_requirement": "coverage/contraction must remain honest despite collisions"
+  },
+  "conditional_go": {
+    "engineering_failure_and_finite_gates_must_pass": true,
+    "severe_undercoverage_parameters_max": 1,
+    "median_error_better_than_prior_parameters_min": 5,
+    "meaningful_contraction_with_reasonable_coverage_parameters_min": 5,
+    "overall_ppc_must_improve": true,
+    "ensemble_disagreement_gate_must_pass": true
+  },
+  "no_go_if": [
+    "conditional_go criteria fail",
+    "multiple parameters do not beat prior baseline",
+    "severe undercoverage or false contraction",
+    "global collisions or seed noise dominate recovery",
+    "ensemble scientific conclusions are unstable",
+    "synthetic PPC does not improve over prior predictive"
+  ],
+  "scope": "synthetic cortical-rate observable recovery only",
+  "does_not_unlock_real_eeg_inference": true
+}

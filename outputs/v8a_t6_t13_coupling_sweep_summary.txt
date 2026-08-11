@@ -1,0 +1,16 @@
+V8a T6-vs-T13 coupling sweep summary
+==========================================
+
+This is a diagnostic sweep only; no V8a constraints or T13 logic were changed.
+total_grid_points: 3875
+base_count: 5
+T4=1,T6=1,T13=1 points: 0
+lowest T6_ibi_cv among T4=1,T13=1 points: 0.417
+highest T13 density among T4=1,T6=1 points: 0.000
+
+c_th2ctx trend checks:
+  mean Spearman rho c_th2ctx->T13 density = 0.809
+  mean Spearman rho c_th2ctx->T6 IBI CV = 0.956
+  mean Spearman rho c_th2ctx->T4_q = -0.597
+
+Recommended next step: one final ultra-narrow local search around the best T13-preserved T6_ibi_cv point

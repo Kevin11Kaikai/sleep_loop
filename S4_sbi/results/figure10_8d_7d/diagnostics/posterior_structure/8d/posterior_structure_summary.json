@@ -1,0 +1,18 @@
+{
+  "track": "8d",
+  "samples": 50000,
+  "median_posterior_sd_over_prior_sd": 0.6595531769290588,
+  "least_contracted_parameter": "c_ctx2th",
+  "least_contracted_ratio": 1.0061944628383617,
+  "most_contracted_parameter": "mui",
+  "most_contracted_ratio": 0.14202803011923698,
+  "strongest_pair": {
+    "parameter_a": "mue",
+    "parameter_b": "tauA",
+    "correlation": 0.8463713264952046,
+    "absolute_correlation": 0.8463713264952046
+  },
+  "c_th2ctx_c_ctx2th_correlation": 0.03091028262936646,
+  "g_LK_g_h_correlation": -0.02983042388260712,
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

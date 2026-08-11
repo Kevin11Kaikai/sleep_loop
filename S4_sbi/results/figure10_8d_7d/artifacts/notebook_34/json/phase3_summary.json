@@ -1,0 +1,43 @@
+{
+  "focus_informative": [
+    {
+      "informative_vs_baseline": true,
+      "oof_r2_extratrees": 0.6065216568665375,
+      "parameter": "mue",
+      "track": "8d"
+    },
+    {
+      "informative_vs_baseline": true,
+      "oof_r2_extratrees": 0.9871783730445245,
+      "parameter": "mui",
+      "track": "8d"
+    },
+    {
+      "informative_vs_baseline": true,
+      "oof_r2_extratrees": 0.36629631508994986,
+      "parameter": "tauA",
+      "track": "8d"
+    },
+    {
+      "informative_vs_baseline": true,
+      "oof_r2_extratrees": 0.6056807765097136,
+      "parameter": "mue",
+      "track": "7d"
+    },
+    {
+      "informative_vs_baseline": true,
+      "oof_r2_extratrees": 0.9873847817819918,
+      "parameter": "mui",
+      "track": "7d"
+    },
+    {
+      "informative_vs_baseline": true,
+      "oof_r2_extratrees": 0.367398405118752,
+      "parameter": "tauA",
+      "track": "7d"
+    }
+  ],
+  "interpretation_guard": "low OOF R2 indicates weak summary informativeness / practical identifiability pressure only \u2014 it does not establish a structural identifiability theorem",
+  "oof_only": true,
+  "phase": 3
+}

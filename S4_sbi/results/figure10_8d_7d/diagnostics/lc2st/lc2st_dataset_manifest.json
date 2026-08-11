@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-07-31T01:10:42.121976+00:00",
+  "cases_per_track": 20000,
+  "paths": {
+    "8d": "diagnostics/lc2st/calibration/8d/lc2st_calibration_20000_8d.npz",
+    "7d": "diagnostics/lc2st/calibration/7d/lc2st_calibration_20000_7d.npz"
+  },
+  "tracks_are_separate_posteriors": true,
+  "same_shared_parameter_coordinates_and_seed_schedule": true,
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

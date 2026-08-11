@@ -1,0 +1,9 @@
+{
+  "clip_sensitivity": "material",
+  "jobs_missing": 0,
+  "n_delta_rows": 900,
+  "n_exceedances": 137,
+  "n_focus_exceedances": 54,
+  "phase": 2,
+  "triggers_decision_A": true
+}

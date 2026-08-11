@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-31T01:10:42.106976+00:00",
+  "dataset_id": "lc2st_calibration_20000",
+  "track": "7d",
+  "attempted": 20000,
+  "valid": 20000,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 124220.14092081459,
+  "path": "diagnostics/lc2st/calibration/7d/lc2st_calibration_20000_7d.npz",
+  "sha256": "5c0a709b8b27376c463817e8199f9c69552b371f388bce857d261b24c7acd5bf",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

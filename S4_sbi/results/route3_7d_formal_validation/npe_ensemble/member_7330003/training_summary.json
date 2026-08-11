@@ -1,0 +1,13 @@
+{
+  "seed": 7330003,
+  "device": "cpu",
+  "status": "trained",
+  "epochs_completed": 300,
+  "best_epoch": 299,
+  "best_validation_loss": -9.748488607639219,
+  "final_train_loss": -9.8506745383853,
+  "final_validation_loss": -9.748488607639219,
+  "runtime_this_call_s": 88.51094429998193,
+  "checkpoint": "D:/Year3_Mao_Projects/sleep_loop/S4_sbi/results/route3_7d_formal_validation/npe_ensemble/member_7330003/best_checkpoint.pt",
+  "preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363"
+}

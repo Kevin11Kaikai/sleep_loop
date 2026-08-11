@@ -1,0 +1,93 @@
+{
+  "conda_env": {
+    "conda_default_env": "neurolib",
+    "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe"
+  },
+  "created_utc": "2026-08-01T22:43:28.454423+00:00",
+  "execution_addendum": {
+    "canonical_hash": "normalized_theta_plus_x_only",
+    "formal_decomp_requires_posterior_samples": true,
+    "matched_subset_n": 48,
+    "median_std_analysis_name": "location_scale_proxy",
+    "n_checkpoints_audited": 12,
+    "notebook_presentation_only": true,
+    "official_powered_role": "descriptive_sensitivity_only",
+    "phase2_requires_benchmark_first": true,
+    "primary_xo_geometry": "illustrative_only"
+  },
+  "matched_subset": {
+    "case_ids": [
+      0,
+      21,
+      43,
+      65,
+      87,
+      108,
+      130,
+      152,
+      174,
+      195,
+      217,
+      239,
+      261,
+      282,
+      304,
+      326,
+      348,
+      370,
+      391,
+      413,
+      435,
+      457,
+      478,
+      500,
+      522,
+      544,
+      565,
+      587,
+      609,
+      631,
+      652,
+      674,
+      696,
+      718,
+      740,
+      761,
+      783,
+      805,
+      827,
+      848,
+      870,
+      892,
+      914,
+      935,
+      957,
+      979,
+      1001,
+      1023
+    ],
+    "created_utc": "2026-08-01T22:43:28.452423+00:00",
+    "dataset_id": "powered_1024",
+    "n_cases_per_track": 48,
+    "posterior_samples_per_member": 512,
+    "role": "descriptive_sensitivity_geometry_subset",
+    "seed_policy": {
+      "decomp_mc_test": 9332001,
+      "matched_sampling_base": 9331001,
+      "matched_subset": 9330001,
+      "ppc_benchmark_base": 9333001
+    },
+    "selection_rule": "evenly spaced indices via numpy.linspace(0,1023,48); NOT selected by joint KS or other diagnostic outcomes",
+    "tracks": [
+      "8d",
+      "7d"
+    ]
+  },
+  "n33_seeds": {
+    "decomp_mc_test": 9332001,
+    "matched_sampling_base": 9331001,
+    "matched_subset": 9330001,
+    "ppc_benchmark_base": 9333001
+  },
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-30T14:30:45.929889+00:00",
+  "dataset_id": "official_300",
+  "track": "8d",
+  "attempted": 300,
+  "valid": 300,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 1953.3202701003756,
+  "path": "diagnostics/global/official_300/8d/official_300_8d.npz",
+  "sha256": "0ddb590a50487084afaddb6221c1b0d7a6ca09b26a83124409e57457988f4e66",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

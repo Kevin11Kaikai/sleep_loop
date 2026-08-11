@@ -41,6 +41,14 @@ data/sleep-edfx-cassette/
 # Generated outputs
 outputs/
 
+# Heavy SBI simulation / training artifacts (keep JSON/SVG/CSV summaries)
+S4_sbi/results/**/*.pt
+S4_sbi/results/**/*.pkl
+S4_sbi/results/**/*.npz
+S4_sbi/results/**/logs/
+S4_sbi/results/figure10_8d_7d/official_reference/
+sbi-logs/
+
 # Logs
 *.log
 

@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-30T14:30:46.010889+00:00",
+  "dataset_id": "official_300",
+  "track": "7d",
+  "attempted": 300,
+  "valid": 300,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 1958.340980599285,
+  "path": "diagnostics/global/official_300/7d/official_300_7d.npz",
+  "sha256": "112556a282cc1176a33c05127df11bee0468bb827bd50dfbc85b3750f9ae1a49",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

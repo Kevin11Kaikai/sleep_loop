@@ -1,0 +1,297 @@
+{
+  "experiment_id": "route3_7d_coverage_rescue_v1",
+  "created_utc": "2026-07-28T01:52:12.853477+00:00",
+  "immutable_after_first_new_simulation": true,
+  "git_head": "6198b12848127a3b1d7fb2704b87ebfda8dbd805",
+  "source_tree": {
+    "sha256": "533eb02275bc1a2b41d0ed3537223e890b0bc77fd684a2c96b9ca1ef149ea7ad",
+    "files": [
+      {
+        "path": "S4_sbi/configs/route3_7d_preregistered_v1.json",
+        "sha256": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363",
+        "size_bytes": 8562
+      },
+      {
+        "path": "S4_sbi/results/route3_7d_formal_validation/heldout_validation/go_criteria_locked.json",
+        "sha256": "49a4f9590466a6d9ba83f83ee5b6783e268ba996f8e8fc7328e261fb0405edee",
+        "size_bytes": 2603
+      },
+      {
+        "path": "S4_sbi/simulator_wrapper.py",
+        "sha256": "7d1be8db95ca21abbad66d8203458018532ebc6dde795e4cbd6eeaef2dcd77d0",
+        "size_bytes": 9922
+      },
+      {
+        "path": "S4_sbi/src/sleep_sbi/route3_7d_experiment.py",
+        "sha256": "36db289abf2be9703474813d40f02f39085955ea72ec52040dda0f76bba2a72c",
+        "size_bytes": 30519
+      },
+      {
+        "path": "S4_sbi/src/sleep_sbi/route3_7d_rescue.py",
+        "sha256": "94ca34beb081f66ae663c958b2a58e110c466fb2e4e5b1905121ae23fdb522ca",
+        "size_bytes": 35168
+      },
+      {
+        "path": "S4_sbi/src/sleep_sbi/route3_7d_training.py",
+        "sha256": "e874c56e45154130f41a7dceb48020e1a3b1ad7d60d825723fe2c94bb208c9b9",
+        "size_bytes": 16095
+      },
+      {
+        "path": "S4_sbi/src/sleep_sbi/route3_7d_validation.py",
+        "sha256": "be5ad908eada2a2df05ae928ae74601f3724e2be8688997ea89eecfdc0cbc436",
+        "size_bytes": 26170
+      },
+      {
+        "path": "S4_sbi/src/sleep_sbi/route3_global_robustness.py",
+        "sha256": "a0dc3b43892bf405906ce1c166be61f91c17e82fb572c49a94ffc57e33bfaf6f",
+        "size_bytes": 40598
+      },
+      {
+        "path": "S4_sbi/src/sleep_sbi/route3_synthetic_preflight.py",
+        "sha256": "3213787d06283a06a969557012fe6c9af7cb34d8ebdc5393af616db2516baee5",
+        "size_bytes": 44207
+      },
+      {
+        "path": "S4_sbi/src/sleep_sbi/simulator_observable_adapter.py",
+        "sha256": "1398d996727e64a5efbb1dac9e280046039e1642b23c72f772705128353d947a",
+        "size_bytes": 23917
+      }
+    ]
+  },
+  "original_preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363",
+  "original_criteria_hash": "49a4f9590466a6d9ba83f83ee5b6783e268ba996f8e8fc7328e261fb0405edee",
+  "original_decision_logic_hash": "be5ad908eada2a2df05ae928ae74601f3724e2be8688997ea89eecfdc0cbc436",
+  "frozen_contract": {
+    "parameter_order": [
+      "mue",
+      "mui",
+      "b",
+      "tauA",
+      "g_LK",
+      "g_h",
+      "c_th2ctx"
+    ],
+    "prior_bounds": [
+      [
+        3.31075,
+        4.4792499999999995
+      ],
+      [
+        2.57295,
+        3.4810499999999998
+      ],
+      [
+        28.400000000000002,
+        42.6
+      ],
+      [
+        998.1999999999999,
+        1853.8
+      ],
+      [
+        0.02,
+        0.07
+      ],
+      [
+        0.035,
+        0.095
+      ],
+      [
+        0.0,
+        0.075
+      ]
+    ],
+    "fixed_c_ctx2th": 0.1253491302153237,
+    "feature_names": [
+      "r_exc_mean_hz",
+      "r_exc_std_hz",
+      "r_exc_relative_so_power",
+      "r_exc_relative_sigma_power",
+      "r_exc_so_peak_frequency_hz",
+      "r_exc_sigma_peak_frequency_hz",
+      "r_exc_spectral_entropy_0p5_20",
+      "r_inh_mean_hz",
+      "r_inh_std_hz",
+      "r_inh_relative_so_power",
+      "r_inh_relative_sigma_power",
+      "r_inh_so_peak_frequency_hz",
+      "r_inh_sigma_peak_frequency_hz",
+      "r_inh_spectral_entropy_0p5_20"
+    ],
+    "feature_dimension": 14,
+    "schema_hash": "78d0da704422a03917ef4c68207f5e8e8213b0c6f6279deaf26f34c9958d64a8",
+    "simulator_contract": {
+      "model_version": "v8a_t13",
+      "full_parameter_insertion_order": [
+        "mue",
+        "mui",
+        "b",
+        "tauA",
+        "g_LK",
+        "g_h",
+        "c_th2ctx",
+        "c_ctx2th"
+      ],
+      "sampling_dt_ms": 1.0,
+      "model_integration_dt_ms": 0.1,
+      "duration_s": 60.0,
+      "warm_up_s": 5.0,
+      "analyzed_window_s": 30.0,
+      "seed_policy": "all four stochastic inputs plus numba RNG",
+      "failed_policy": "retain theta; NaN x; validity false; explicit reason",
+      "nonfinite_policy": "invalid; never fill with zero"
+    }
+  },
+  "allowed_rescue_configurations": [
+    {
+      "id": "maf64_t5",
+      "architecture": {
+        "model": "maf",
+        "hidden_features": 64,
+        "num_transforms": 5,
+        "z_score_theta": "none",
+        "z_score_x": "none"
+      }
+    },
+    {
+      "id": "maf128_t8",
+      "architecture": {
+        "model": "maf",
+        "hidden_features": 128,
+        "num_transforms": 8,
+        "z_score_theta": "none",
+        "z_score_x": "none"
+      }
+    }
+  ],
+  "training_policy": {
+    "batch_size": 128,
+    "learning_rate": 0.0005,
+    "weight_decay": 1e-06,
+    "max_epochs": 300,
+    "early_stopping_patience": 25,
+    "minimum_improvement": 0.0001,
+    "clip_max_norm": 5.0,
+    "members": 5,
+    "proposal": "same independent uniform 7D prior",
+    "rounds": 1,
+    "old_bank_rows": 4096,
+    "additional_unique_theta": 2048,
+    "replicates_per_additional_theta": 2,
+    "combined_rows_scheduled": 8192,
+    "split": "80/20 group-safe by unique theta; training-only median/IQR scaling"
+  },
+  "development": {
+    "cases": 512,
+    "posterior_samples_per_case": 2048,
+    "use": "configuration and calibrator selection only",
+    "not_final_test": true
+  },
+  "calibration": {
+    "allowed_if_raw_fails_development": true,
+    "method": "single whole-pipeline marginal empirical-rank recalibration preserving within-case copula ranks",
+    "fit_data": "development only",
+    "raw_and_calibrated_reported_separately": true,
+    "formal_go_eligibility": false,
+    "reason": "original frozen preregistration did not authorize posterior recalibration"
+  },
+  "selection_rule": [
+    "prefer a raw pipeline satisfying all unchanged calibration and contraction requirements",
+    "then minimize aggregate absolute coverage error at 50%, 80%, and 90%",
+    "then minimize marginal CRPS",
+    "then prefer simpler architecture",
+    "then lower compute cost"
+  ],
+  "fresh_final": {
+    "cases": 1024,
+    "posterior_samples_per_case": 4096,
+    "ppc_cases": 64,
+    "ppc_draws_per_case": 16,
+    "opened_once_after_primary_pipeline_freeze": true
+  },
+  "decision_criteria": {
+    "version": "route3-7d-formal-go-criteria-v1",
+    "copied_from": "route3-heldout-go-criteria-v1",
+    "adaptation": "8 to 7 free parameters; 4096 train; 256 held-out; 64 PPC cases",
+    "formal_go": {
+      "preflight_failure_rate_max": 0.01,
+      "training_failure_rate_max": 0.01,
+      "heldout_failure_rate_max": 0.01,
+      "posterior_finite_and_in_prior_rate_min": 0.999,
+      "coverage_80_or_90_wilson_contains_nominal_parameters_min": 6,
+      "severe_undercoverage_definition": "observed coverage < nominal-0.15 and Wilson upper bound < nominal",
+      "severe_undercoverage_parameters_max": 0,
+      "median_error_better_than_prior_parameters_min": 6,
+      "overall_median_error_improvement_min_fraction": 0.1,
+      "systematic_worsening_threshold": -0.05,
+      "systematically_worse_parameters_max": 0,
+      "prior_level_improvement_max": 0.05,
+      "prior_level_rank_correlation_max": 0.1,
+      "prior_level_unrecoverable_parameters_max": 0,
+      "meaningful_contraction_definition": "median 90% CI width < 0.90 prior width",
+      "meaningful_contraction_width_max": 0.9,
+      "meaningful_contraction_with_reasonable_coverage_parameters_min": 6,
+      "ppc_features_better_than_prior_min": 10,
+      "overall_ppc_error_improvement_min_fraction": 0.1,
+      "ensemble_member_median_disagreement_mean_max_prior_width": 0.1,
+      "ensemble_member_disagreement_parameter_max_prior_width": 0.2,
+      "global_collision_requirement": "coverage and contraction must remain honest despite collisions; collision count is reported, not tuned after held-out results"
+    },
+    "conditional_go": {
+      "engineering_failure_and_finite_gates_must_pass": true,
+      "severe_undercoverage_parameters_max": 1,
+      "median_error_better_than_prior_parameters_min": 5,
+      "meaningful_contraction_with_reasonable_coverage_parameters_min": 5,
+      "overall_ppc_must_improve": true,
+      "ensemble_disagreement_gate_must_pass": true
+    },
+    "no_go_if": [
+      "conditional-go criteria fail",
+      "one or more parameters remain prior-level unrecoverable",
+      "multiple parameters show severe undercoverage or false contraction",
+      "seed noise or global collisions dominate recovery",
+      "ensemble scientific conclusions are unstable",
+      "synthetic PPC does not improve over prior predictive"
+    ]
+  },
+  "decision_logic": "Exact original numerical gates. A calibrated primary pipeline is capped at CONDITIONAL GO because calibration was outside the original contract.",
+  "compute_budget": {
+    "maximum_new_training_simulations": 4096,
+    "maximum_development_simulations": 512,
+    "maximum_final_simulations": 1024,
+    "maximum_training_networks": 10,
+    "fallback": "If an engineering hard gate fails, stop downstream scientific claims and return NO-GO; never shrink the final set below 512."
+  },
+  "seeds": {
+    "additional_bank_sobol": 8911001,
+    "additional_bank_simulator_a_base": 8912001,
+    "additional_bank_simulator_b_base": 8913001,
+    "group_split": 8914001,
+    "development_sobol": 8921001,
+    "development_simulator_base": 8922001,
+    "development_posterior_sampling": 8923001,
+    "network_initialization_baseline": [
+      8931001,
+      8931002,
+      8931003,
+      8931004,
+      8931005
+    ],
+    "network_initialization_wide": [
+      8932001,
+      8932002,
+      8932003,
+      8932004,
+      8932005
+    ],
+    "final_sobol": 8941001,
+    "final_simulator_base": 8942001,
+    "final_posterior_sampling": 8943001,
+    "final_ppc_case_selection": 8944001,
+    "final_ppc_posterior_simulator_base": 8945001,
+    "final_ppc_prior_sobol": 8946001,
+    "final_ppc_prior_simulator_base": 8947001
+  },
+  "scientific_scope": "synthetic cortical-rate observable inference only",
+  "real_eeg_inference_unlocked": false
+}

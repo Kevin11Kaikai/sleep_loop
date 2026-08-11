@@ -1,0 +1,13 @@
+track,scale,member_index,seed,checkpoint,exists,reload_ok,sample_ok,theta_dimension,error
+8d,8192,1,9550001,training/8d/scale_8192/member_9550001/best_checkpoint.pt,True,True,True,8,
+7d,8192,1,9551001,training/7d/scale_8192/member_9551001/best_checkpoint.pt,True,True,True,7,
+8d,32768,1,9550001,training/8d/scale_32768/member_9550001/best_checkpoint.pt,True,True,True,8,
+8d,32768,2,9550002,training/8d/scale_32768/member_9550002/best_checkpoint.pt,True,True,True,8,
+8d,32768,3,9550003,training/8d/scale_32768/member_9550003/best_checkpoint.pt,True,True,True,8,
+8d,32768,4,9550004,training/8d/scale_32768/member_9550004/best_checkpoint.pt,True,True,True,8,
+8d,32768,5,9550005,training/8d/scale_32768/member_9550005/best_checkpoint.pt,True,True,True,8,
+7d,32768,1,9551001,training/7d/scale_32768/member_9551001/best_checkpoint.pt,True,True,True,7,
+7d,32768,2,9551002,training/7d/scale_32768/member_9551002/best_checkpoint.pt,True,True,True,7,
+7d,32768,3,9551003,training/7d/scale_32768/member_9551003/best_checkpoint.pt,True,True,True,7,
+7d,32768,4,9551004,training/7d/scale_32768/member_9551004/best_checkpoint.pt,True,True,True,7,
+7d,32768,5,9551005,training/7d/scale_32768/member_9551005/best_checkpoint.pt,True,True,True,7,

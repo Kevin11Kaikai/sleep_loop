@@ -1,0 +1,21 @@
+{
+  "blockers": [],
+  "checkpoints_n_ok": 12,
+  "checkpoints_ok": true,
+  "conda_env": {
+    "conda_default_env": "neurolib",
+    "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe"
+  },
+  "created_utc": "2026-08-01T22:43:28.466423+00:00",
+  "official_powered_allowed_use": "descriptive_sensitivity_only",
+  "phase1_allowed": true,
+  "pre_run_manifest_files": 836,
+  "standardizer_ok": true,
+  "status": "pass",
+  "theta_x_disjoint": true,
+  "unit_tests_ok": true,
+  "untouched_final_evaluation": false,
+  "whitelist": [
+    "notebook_33_ensemble_attribution/"
+  ]
+}

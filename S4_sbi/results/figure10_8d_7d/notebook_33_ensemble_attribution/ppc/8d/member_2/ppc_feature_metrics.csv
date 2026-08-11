@@ -1,0 +1,15 @@
+track,estimator,feature,posterior_scaled_abs_error,prior_scaled_abs_error,improvement_fraction,posterior_better
+8d,member_2,r_exc_mean_hz,0.04121855727251332,0.4840955016451484,0.9148544922800639,True
+8d,member_2,r_exc_std_hz,0.07887968228071368,0.5070538871095158,0.8444353070038157,True
+8d,member_2,r_exc_relative_so_power,0.35732923957476703,0.6370372215404273,0.4390763561496376,True
+8d,member_2,r_exc_relative_sigma_power,0.5750942623816175,1.2009036333102099,0.521115394749528,True
+8d,member_2,r_exc_so_peak_frequency_hz,0.0,0.5,1.0,True
+8d,member_2,r_exc_sigma_peak_frequency_hz,1.75,2.0,0.125,True
+8d,member_2,r_exc_spectral_entropy_0p5_20,0.16851501888975517,0.699942910687691,0.75924462364482,True
+8d,member_2,r_inh_mean_hz,0.054114261726658494,0.507075139530506,0.8932815720826658,True
+8d,member_2,r_inh_std_hz,0.08164069400232753,0.5163369064393546,0.8418848372367578,True
+8d,member_2,r_inh_relative_so_power,0.39249108055566373,0.7759321507413934,0.4941682978587194,True
+8d,member_2,r_inh_relative_sigma_power,0.47282612323806394,1.8358007235477087,0.7424414768045622,True
+8d,member_2,r_inh_so_peak_frequency_hz,0.0,0.5,1.0,True
+8d,member_2,r_inh_sigma_peak_frequency_hz,0.2857142857142857,0.5714285714285714,0.5,True
+8d,member_2,r_inh_spectral_entropy_0p5_20,0.17864042776634598,0.8552273200866184,0.7911193625710494,True

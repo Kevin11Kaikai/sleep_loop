@@ -1,0 +1,16 @@
+{
+  "scheduled": 4096,
+  "attempted": 4096,
+  "valid": 4096,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 22935.912186002708,
+  "median_simulator_runtime_s": 5.289772449992597,
+  "training_rows": 3276,
+  "validation_rows": 820,
+  "scaling_fit_on_training_only": true,
+  "bank_sha256": "9862dc986314be3a7c940548f79cba821f1b5bdb19c055a243c7186e3f8585d3",
+  "split_sha256": "897f20ebd296f056a033a2fb0c64b1398a6f8852355039dbbdd92590706de7a2",
+  "schema_hash": "78d0da704422a03917ef4c68207f5e8e8213b0c6f6279deaf26f34c9958d64a8",
+  "preregistration_hash": "2cedb6a68de307ab2f9233b4009a8f58854316259b6c185aeb61af5efdcbc363"
+}

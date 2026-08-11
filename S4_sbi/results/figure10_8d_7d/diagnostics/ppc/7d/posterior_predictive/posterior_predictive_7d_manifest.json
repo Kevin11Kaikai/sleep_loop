@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-07-31T11:32:54.605715+00:00",
+  "dataset_id": "posterior_predictive",
+  "track": "7d",
+  "attempted": 256,
+  "valid": 256,
+  "failed": 0,
+  "failure_rate": 0.0,
+  "sum_simulator_runtime_s": 1545.2361666022334,
+  "path": "diagnostics/ppc/7d/posterior_predictive/posterior_predictive_7d.npz",
+  "sha256": "abe12fe9fe3d9febf7a6457b74c7d65a079ee1e86e4744582d257e69e79cb9c8",
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+}

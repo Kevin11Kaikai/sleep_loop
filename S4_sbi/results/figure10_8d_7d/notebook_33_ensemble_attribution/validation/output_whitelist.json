@@ -1,0 +1,18 @@
+{
+  "allowed_repo_paths": [
+    "S4_sbi/notebooks/notebook_33.ipynb",
+    "S4_sbi/src/sleep_sbi/figure10_ensemble_attribution.py"
+  ],
+  "allowed_write_prefixes_under_results": [
+    "notebook_33_ensemble_attribution/"
+  ],
+  "created_utc": "2026-08-01T22:43:13.872941+00:00",
+  "forbidden_write_prefixes_under_results": [
+    "diagnostics/",
+    "training/",
+    "matched_banks/",
+    "figures/",
+    "preregistration/"
+  ],
+  "note": "notebook_33.ipynb is presentation-only and must not launch Phase-2 simulator jobs during nbconvert."
+}

@@ -1,0 +1,130 @@
+{
+  "created_utc": "2026-07-29T20:09:40.234701+00:00",
+  "track": "7d",
+  "scale": 32768,
+  "status": "trained",
+  "architecture": {
+    "model": "nsf",
+    "num_transforms": 10,
+    "hidden_features": 100,
+    "z_score_theta": "none",
+    "z_score_x": "none"
+  },
+  "training_policy": {
+    "batch_size": 4096,
+    "learning_rate": 0.0005,
+    "weight_decay": 1e-06,
+    "max_epochs": 400,
+    "early_stopping_patience": 30,
+    "minimum_improvement": 0.0001,
+    "clip_max_norm": 5.0,
+    "validation_fraction": 0.2
+  },
+  "member_seeds": [
+    9551001,
+    9551002,
+    9551003,
+    9551004,
+    9551005
+  ],
+  "weights": [
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.2
+  ],
+  "mixture_rule": "equal component probability; samples are pooled, never averaged; log_prob is logsumexp(member log_prob)-log(K)",
+  "training_rows": 26214,
+  "validation_rows": 6554,
+  "members": [
+    {
+      "created_utc": "2026-07-29T16:26:06.785179+00:00",
+      "track": "7d",
+      "scale": 32768,
+      "seed": 9551001,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 211,
+      "best_epoch": 210,
+      "best_validation_loss": -9.69256469422737,
+      "last_train_loss": -9.509713043689619,
+      "last_validation_loss": -9.69256469422737,
+      "runtime_this_call_s": 355.0303767999867,
+      "checkpoint": "training/7d/scale_32768/member_9551001/best_checkpoint.pt",
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    },
+    {
+      "created_utc": "2026-07-29T17:38:46.604922+00:00",
+      "track": "7d",
+      "scale": 32768,
+      "seed": 9551002,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 400,
+      "best_epoch": 399,
+      "best_validation_loss": -10.636576199989912,
+      "last_train_loss": -10.659446152413274,
+      "last_validation_loss": -10.636576199989912,
+      "runtime_this_call_s": 4359.738896100083,
+      "checkpoint": "training/7d/scale_32768/member_9551002/best_checkpoint.pt",
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    },
+    {
+      "created_utc": "2026-07-29T18:45:44.971661+00:00",
+      "track": "7d",
+      "scale": 32768,
+      "seed": 9551003,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 207,
+      "best_epoch": 206,
+      "best_validation_loss": -9.523758471503212,
+      "last_train_loss": -9.578864497196905,
+      "last_validation_loss": -9.523758471503212,
+      "runtime_this_call_s": 4018.2936689000344,
+      "checkpoint": "training/7d/scale_32768/member_9551003/best_checkpoint.pt",
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    },
+    {
+      "created_utc": "2026-07-29T19:51:47.235732+00:00",
+      "track": "7d",
+      "scale": 32768,
+      "seed": 9551004,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 195,
+      "best_epoch": 194,
+      "best_validation_loss": -9.440029893665006,
+      "last_train_loss": -9.45430354121767,
+      "last_validation_loss": -9.440029893665006,
+      "runtime_this_call_s": 3962.162146799965,
+      "checkpoint": "training/7d/scale_32768/member_9551004/best_checkpoint.pt",
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    },
+    {
+      "created_utc": "2026-07-29T20:09:40.174138+00:00",
+      "track": "7d",
+      "scale": 32768,
+      "seed": 9551005,
+      "device": "cpu",
+      "status": "trained",
+      "epochs_completed": 140,
+      "best_epoch": 139,
+      "best_validation_loss": -8.891801667642696,
+      "last_train_loss": -8.932117106212925,
+      "last_validation_loss": -8.891801667642696,
+      "runtime_this_call_s": 1072.8443202000344,
+      "checkpoint": "training/7d/scale_32768/member_9551005/best_checkpoint.pt",
+      "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60"
+    }
+  ],
+  "runtime_this_call_s": 13768.54238810006,
+  "preregistration_hash": "a4eb07b24f84454ae85b3321c920d5f50d452d6314a3db96b5532d468c4eba60",
+  "packages": {
+    "sbi": "0.26.1",
+    "torch": "2.5.1",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  }
+}
