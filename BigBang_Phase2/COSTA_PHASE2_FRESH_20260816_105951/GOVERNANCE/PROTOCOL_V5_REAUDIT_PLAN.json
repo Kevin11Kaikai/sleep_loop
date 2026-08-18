@@ -1,0 +1,486 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V5_REAUDIT_PLAN",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "planned_protocol_route_version": "5.0.0",
+  "authored_at": "2026-08-16T16:29:23.2775240-04:00",
+  "author_role": "INDEPENDENT_OUTCOME_BLIND_PROSPECTIVE_V5_REAUDIT_PLANNER",
+  "status": "IMMUTABLE_BEFORE_ANY_CANDIDATE_V5_DISCLOSURE",
+  "scientific_outcomes_visible": false,
+  "purpose": "Freeze the noncompensatory independent re-audit of a prospective V5 protocol whose sole scientific repair is PV4-EDGE-B001, the previously undefined mean/variance-rescale-only SO/spindle event veto. The plan also freezes exact regression checks proving that every unrelated V4 scientific and governance choice remains unchanged.",
+  "authoring_boundary": {
+    "candidate_v5_file_opened": false,
+    "candidate_v5_file_hashed_or_statted": false,
+    "candidate_v5_directory_enumerated": false,
+    "code_opened_hashed_statted_or_enumerated": false,
+    "implementation_or_schema_manifest_opened_hashed_statted_or_enumerated": false,
+    "repository_code_opened": false,
+    "module_imported": false,
+    "python_launcher_preflight_or_scientific_execution": "NONE",
+    "data_or_outcomes_accessed": false,
+    "files_written": [
+      "GOVERNANCE/PROTOCOL_V5_REAUDIT_PLAN.json"
+    ]
+  },
+  "authoritative_v4_inputs": {
+    "governing_controls": [
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+        "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+        "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496"
+      },
+      {
+        "path": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+        "sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+        "sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json",
+        "sha256": "B3FBA1F63E2360A9C9D8CC9ADC7C18A1750EF6076EB4564F02D6FD884056B2C6"
+      }
+    ],
+    "v4_artifacts": [
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/control_target_registry.json",
+        "sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/mechanistic_parameter_map.json",
+        "sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+        "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/advancement_rule.json",
+        "sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/c2_gate_protocol.json",
+        "sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/claim_registry.json",
+        "sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/PREOUTCOME_DESIGN_MEMO.md",
+        "sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+      }
+    ],
+    "adjudicated_inputs": {
+      "sole_blocker": "PV4-EDGE-B001",
+      "rescale_veto_verdict": "C_BLOCKING_REQUIRES_PROSPECTIVE_V5_AND_INDEPENDENT_REAUDIT_BEFORE_IMPLEMENTATION_HASH_FREEZE",
+      "all_missing_bootstrap_verdict": "FAIL_CLOSED_NOT_ESTIMABLE_IS_FAITHFUL_AND_REQUIRES_NO_PROTOCOL_AMENDMENT"
+    },
+    "source_precedence": [
+      "Exact V4 protocol and artifact bytes define the regression baseline.",
+      "V4_EDGE_SEMANTICS_ADJUDICATION defines the only authorized scientific repair and the unchanged all-missing-bootstrap interpretation.",
+      "Corrected implementation-release controls define outcome blindness and closed execution gates."
+    ]
+  },
+  "plan_immutability": {
+    "activation": "This plan is externally SHA-256 hashed before any Candidate V5 artifact is opened, hashed, statted, or enumerated by the planner or assigned auditor.",
+    "self_hash_policy": "The final SHA-256 is reported externally and is not recursively embedded.",
+    "change_rule": "Any change after Candidate V5 disclosure requires a separately named re-audit-plan version; no criterion may be relaxed in response to V5 contents.",
+    "no_self_release": "This plan does not authorize V5 access, protocol audit, code access, implementation, preflight, repair, data, or scientific execution."
+  },
+  "future_reaudit_activation_gate": {
+    "required_root_inputs_before_v5_read": [
+      "Exact immutable path and SHA-256 of this plan.",
+      "Exact immutable path and SHA-256 of the prospective V5 freeze manifest.",
+      "The complete explicit relative-path, byte-size, and SHA-256 list of every V5 artifact bound by that freeze, including every new or reused fixture.",
+      "An explicit stable-byte signal that all V5 propagation is complete and no further writes are planned.",
+      "An outcome-blind auditor assignment limited to the exact listed files."
+    ],
+    "fail_closed": "If any prerequisite is absent, mismatched, duplicated, path-escaping, case-colliding, mutable, or broader than the exact package, return NOT_AUTHORIZED_TO_AUDIT and do not open V5 content.",
+    "audit_method_after_activation": "Hash exact files first; only after every hash matches, parse exact JSON/Markdown and perform semantic comparisons. Do not enumerate directories, read code/manifests, import modules, execute Python/launcher/preflight, or access data/outcomes."
+  },
+  "verdict_model": {
+    "allowed_overall_verdicts": [
+      "PASS_V5_PROTOCOL_FREEZE_REAUDIT",
+      "FAIL_BLOCKING",
+      "NOT_AUTHORIZED_INPUT_INTEGRITY",
+      "BLOCKED_UNIMPLEMENTABLE_OR_AMBIGUOUS_SPECIFICATION"
+    ],
+    "noncompensatory_rule": "Every check family below must pass. Exactness in one field cannot compensate for ambiguity, omission, drift, or an unauthorized change elsewhere.",
+    "ambiguity_rule": "The auditor never chooses a missing tolerance, estimator, event anchor, match window, tie rule, boundary convention, denominator, status, or fixture expectation. Any such choice not explicit in V5 is blocking.",
+    "pass_effect": "Eligibility only for Root to consider a new outcome-blind V5 static implementation release. A PASS does not authorize code access, preflight, Phase2A, verifier execution, Phase2B, data, or outcomes."
+  },
+  "sole_repair_scope": {
+    "finding_id": "PV4-EDGE-B001",
+    "required_repair_summary": "Replace the undefined V4 rescale-only SO/spindle event veto phrase with a complete, deterministic, context-bound paired raw-trace affine-normalization diagnostic and exact artifact-veto/status semantics.",
+    "allowed_semantic_changes": [
+      "Exact raw-trace pairing and analysis-domain definition for the rescale diagnostic.",
+      "Exact affine intervention-to-sham normalization equations and operation order.",
+      "Exact finite, constant, zero-scale, degenerate, and invalid handling for that diagnostic.",
+      "Exact sham/intervention/affine-normalized three-way SO and spindle event matching, classification, aggregation, veto, and NOT_ESTIMABLE rules.",
+      "Exact rescale-diagnostic logging, output schema, and self-contained data-free fixture bindings.",
+      "Version, lineage, repair-scope, status, path, SHA-256, memo narrative, and cross-reference propagation mechanically required by those changes."
+    ],
+    "allowed_nonsemantic_propagation": [
+      "schema_version and protocol_route_version 5.0.0",
+      "V4 parent path/hash and V4 adjudication path/hash bindings",
+      "V5 artifact path/hash bindings",
+      "prospective stale/supersession declarations",
+      "exact restatement of the adjudicated fail-closed all-missing-bootstrap rule without a new numeric convention"
+    ],
+    "forbidden_changes": "Every other scientific value, formula, array, order, seed, RNG lifecycle, detector, metric, threshold, denominator, grid, policy, family, run identity, arithmetic, grade, gate, advancement, claim, Phase2B rule, or M1/C0/P0 boundary.",
+    "repair_scope_assertion": "Every V5 artifact that carries repair metadata must identify exactly PV4-EDGE-B001 and no other scientific finding."
+  },
+  "mandatory_repair_checks": {
+    "V5R_I01_paired_raw_trace_identity": {
+      "objective": "Make the rescale diagnostic's two causal inputs exact and prevent cross-block or processed-signal substitution.",
+      "requirements": [
+        "V5 names the exact sham raw trace and intervention raw trace, observation equation, dtype, stored sampling rate, sample-origin convention, analysis interval, half-open sample-index set, and required sample count before any centering, filtering, envelope, thresholding, event selection, or normalization.",
+        "Each pair is within one execution context, condition, parameter_draw_id, seed, initial state, 210 s duration, solver settings, stored-sample schedule, and complete OU innovation identity. The sham has all forcing channels zero.",
+        "No pairing across seed, draw, target, Level-A/Level-B/verifier context, condition, dose, carrier, repetition, policy candidate, or run duration is permitted.",
+        "V5 explicitly distinguishes raw observation traces from the existing per-run centered/filter-derived detector signals. A centered, filtered, z-scored, envelope, RMS, event-only, pooled, or summary input cannot silently replace a raw trace.",
+        "The raw-trace pair key, trace hashes, length, dtype, finite status, context, run IDs, draw, seed, and sham forcing status are required log/schema fields."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B001-RAW-TRACE-UNDEFINED",
+        "PV5-RA-B002-PAIRING-OR-CONTEXT-AMBIGUOUS",
+        "PV5-RA-B003-PROCESSED-INPUT-SUBSTITUTION"
+      ]
+    },
+    "V5R_N01_affine_normalization_equations_and_order": {
+      "objective": "Require one exact intervention-to-sham affine normalization with no auditor-selected convention.",
+      "required_mathematical_form": {
+        "source": "paired intervention raw trace x_I[n]",
+        "reference": "paired sham raw trace x_S[n]",
+        "standardization_form": "z_I[n]=(x_I[n]-mu_I)/sigma_I",
+        "reconstruction_form": "x_A[n]=mu_S+sigma_S*z_I[n]",
+        "equivalent_affine_form": "x_A[n]=a*x_I[n]+b where a=sigma_S/sigma_I and b=mu_S-a*mu_I",
+        "direction": "intervention moments are mapped to paired-sham moments; the sham is not mapped to the intervention",
+        "auditor_equivalence_rule": "An algebraically equivalent expression passes only if V5 fixes exactly the same estimators, index domain, float64 evaluation order, and degenerate branches and yields exact equality under the V5 fixtures."
+      },
+      "requirements": [
+        "V5 defines mu_S, mu_I, sigma_S, and sigma_I by exact equations, divisor/ddof, sample domain, accumulation dtype/order or canonical library call, square-root rule, and whether any recentering occurs after construction.",
+        "V5 fixes operation order relative to the existing common 180 s per-run centering, order-4 zero-phase filters, SO cycle detector, spindle RMS/envelope, sham-derived spindle thresholds, edge exclusion, and event-containment masks.",
+        "No clipping, winsorization, robust substitute, epsilon denominator, tolerance, rounding, alternate direction, nonlinear transform, per-window normalization, event-conditioned moments, or refitting is permitted unless explicitly prospectively specified by V5; any unspecified choice is blocking.",
+        "The normalized x_A is diagnostic-only. It cannot replace the official intervention trace for target metrics, scientific effects, policies, cross-target primitives, bootstrap members, or plots represented as primary outcomes.",
+        "The exact mu/sigma/a/b values and normalized-trace hash are required per pair in the diagnostic log and schema."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B004-AFFINE-EQUATION-OR-DIRECTION-DEFECT",
+        "PV5-RA-B005-MOMENT-ESTIMATOR-OR-ORDER-UNDEFINED",
+        "PV5-RA-B006-DIAGNOSTIC-TRACE-LEAKS-INTO-PRIMARY-METRICS"
+      ]
+    },
+    "V5R_N02_degenerate_nonfinite_and_invalid_cases": {
+      "objective": "Require exhaustive deterministic status branches before division or detection.",
+      "required_case_partition": [
+        "both traces have required shape and all samples finite with sigma_I strictly positive",
+        "intervention sigma_I equals zero",
+        "sham sigma_S equals zero",
+        "both sigma values equal zero",
+        "a computed moment, scale, coefficient, or normalized sample is nonfinite",
+        "trace shape, sample domain, pair identity, or raw-run validity fails",
+        "official sham or intervention run is already INVALID under frozen stability rules"
+      ],
+      "requirements": [
+        "V5 assigns one exact pre-detection status and downstream action to every case above, with raw float64 equality/tolerance semantics explicit. Cases cannot fall through to division, replacement, clipping, zero imputation, or successful veto clearance.",
+        "Existing solver/state INVALID status remains INVALID and is never downgraded to NOT_ESTIMABLE. A diagnostic that cannot be formed from otherwise valid runs must fail closed as NOT_ESTIMABLE for every dependent veto-clearance decision.",
+        "A constant finite bootstrap distribution is not an all-missing diagnostic and remains governed by the unchanged registered scale floor. The exact T4 ZERO_ADDED_BOOTSTRAP convention remains isolated to T4 attribution.",
+        "No degenerate branch may manufacture an empty-event success, infer absence of rescale artifact, or let a target, surface, cross-target policy row, Grade C, advancement, C2 gate, or claim pass."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B007-DEGENERATE-CASE-GAP",
+        "PV5-RA-B008-NONFINITE-OR-INVALID-FAILS-OPEN",
+        "PV5-RA-B009-ZERO-SCALE-IMPUTATION"
+      ]
+    },
+    "V5R_D01_unchanged_official_detectors_and_sham_thresholds": {
+      "objective": "Ensure the repair diagnoses scaling without changing the official V4 detector.",
+      "requirements": [
+        "The official SO and spindle preprocessing, filter order/bands, full-record filtering, edge exclusion, cycle/event definitions, thresholds, RMS support, duration/gap rules, strict containment, zero-event rules, and validity denominators are byte-semantic matches to V4.",
+        "Spindle high=sham median+3*MAD and low=sham median+1.5*MAD, with the existing MAD equation, are derived once from the original paired sham and applied unchanged to original intervention and affine-normalized diagnostic trace. No normalized-trace recalibration is allowed.",
+        "SO fixed event thresholds and all event boundary/extrema rules remain unchanged and are applied identically to sham, intervention, and normalized diagnostic traces.",
+        "The affine diagnostic cannot alter official sham thresholds, official intervention events, T2/T3/T4/T5 values, T4 attribution matching, T6/T7 event inputs, or T8 window events."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B010-DETECTOR-DRIFT",
+        "PV5-RA-B011-SHAM-THRESHOLD-RECALIBRATION",
+        "PV5-RA-B012-PRIMARY-EVENT-MUTATION"
+      ]
+    },
+    "V5R_M01_three_way_event_matching": {
+      "objective": "Make the sham/original-intervention/affine-intervention event comparison complete, deterministic, and separate for SO and spindle events.",
+      "required_event_sets": [
+        "E_S: events from the original paired sham under the unchanged official detector",
+        "E_I: events from the original paired intervention under the unchanged official detector",
+        "E_A: events from the affine-normalized intervention diagnostic trace under those same frozen detector settings and sham thresholds"
+      ],
+      "requirements": [
+        "V5 defines separate exact SO and spindle event anchors/keys, candidate-pair admissibility, maximum separation or overlap rule, units, strict versus inclusive comparisons, and analysis/edge/window boundary handling.",
+        "V5 defines one exact three-way algorithm or an exact ordered sequence of one-to-one pairings that identifies which E_I events are pre-existing versus E_S and which intervention-added events persist versus disappear in E_A.",
+        "Every candidate tuple sort key and tie breaker is total and ordered explicitly, including event onset, offset, detector extrema/peak, distance/overlap, and stable event ID. Equality at each threshold and boundary is resolved explicitly.",
+        "Matching is per paired block and event type only. No many-to-one match, rematch, amplitude-selected match, cross-block match, cross-context match, cross-window compression, or reuse of the T4 attribution matcher by unstated analogy is allowed.",
+        "Boundary-touching, cross-edge, invalid-support, and T8 cross-window events retain the existing rejection behavior and cannot enter the diagnostic through normalization or matching.",
+        "V5 explicitly defines the rescale-only class from the three-way match result and distinguishes it from a genuine morphology/timing-persistent added event, a pre-existing event, an event lost after intervention, and an unmatched/ambiguous invalid event.",
+        "The auditor independently recomputes every fixture candidate tuple, sorted order, accepted traversal, class, and consumption ledger from raw fixture tables; exact type/order/value equality is required."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B013-SO-MATCHER-INCOMPLETE",
+        "PV5-RA-B014-SPINDLE-MATCHER-INCOMPLETE",
+        "PV5-RA-B015-THREE-WAY-CLASS-OR-TIE-AMBIGUOUS",
+        "PV5-RA-B016-BOUNDARY-OR-ROW-CONSUMPTION-DEFECT"
+      ]
+    },
+    "V5R_P01_context_pooling_and_denominators": {
+      "objective": "Prevent a sparse or cross-context rescale diagnostic from borrowing evidence.",
+      "requirements": [
+        "V5 defines the diagnostic unit, block key, event-type partition, execution-context partition, target/condition/policy partition, and aggregation order before any pooling.",
+        "All trace normalization and three-way event classification occurs within one exact draw-seed paired block. Events are never pooled before blockwise matching/classification.",
+        "No pooling or denominator borrowing across Level-A worker, conditional Level-B, cross-target verifier, target, condition, dose, carrier, repetition, requested mapping value, draw, seed, SO versus spindle, T4 attribution row, inactive policy alternative, or formal versus diagnostic use is permitted.",
+        "V5 specifies exact per-block minimum event support, complete-pair minimum, distinct-seed minimum, distinct-draw minimum, contributing-block definition, context-level numerator/denominator, aggregation statistic, equality rule, and missingness for every context in which the veto can clear or fire.",
+        "The existing complete-block floors remain lower bounds that cannot be weakened: Level A >=30 blocks, >=5 seeds, >=5 draws; Level B >=10 of 12 blocks, >=3 seeds, all 3 draws; verifier >=20 of 24 blocks, >=3 verifier seeds, >=5 draws. Existing target event minima also remain unchanged.",
+        "Inactive verifier alternatives remain NOT_LAUNCHED_BY_POLICY rather than missing and are never pooled. A context that lacks its complete diagnostic denominator is NOT_ESTIMABLE and cannot clear the off-target veto."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B017-POOLING-UNIT-OR-ORDER-UNDEFINED",
+        "PV5-RA-B018-DENOMINATOR-INCOMPLETE-OR-WEAKENED",
+        "PV5-RA-B019-CROSS-CONTEXT-BORROWING"
+      ]
+    },
+    "V5R_V01_veto_and_not_estimable_logic": {
+      "objective": "Make the repaired predicate's decision effect exact without creating a new benefit test.",
+      "requirements": [
+        "V5 defines the exact Boolean/scalar condition for 'SO or spindle events appear only because the signal mean or variance is rescaled', including numerator, denominator, aggregation, threshold, strict/equality rule, event-type combination, and whether one failing block/context is sufficient or a context aggregate is required.",
+        "A determined rescale-only artifact fires the existing off-target veto and follows exact V5 failure/grade/gate consequences. It cannot be reported merely as a warning or descriptive flag.",
+        "An undefined raw pair, affine transform, detector result, match result, required denominator, or context aggregate yields NOT_ESTIMABLE for the dependent veto-clearance path. It never defaults to veto=false, zero artifact fraction, complete off-target passage, Grade C, advancement, C2-G8, or claim support.",
+        "Existing INVALID conditions remain INVALID. NOT_ESTIMABLE and INVALID are never interchangeable, and neither can pass.",
+        "The V4 all-missing-bootstrap adjudication is preserved exactly: an undefined required bootstrap object has no numerical band and fails closed NOT_ESTIMABLE; no skip, redraw, retry, zero, infinity, point estimate, family shrinkage, or generalized T4 zero-added convention is allowed.",
+        "V5 explicitly states which targets, Level-A conditions, conditional Level-B cells/mappings, and verifier policy cells require the diagnostic and proves that every affected route reaches the same noncompensatory veto/status logic."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B020-VETO-PREDICATE-UNDEFINED",
+        "PV5-RA-B021-VETO-OR-MISSINGNESS-FAILS-OPEN",
+        "PV5-RA-B022-CONTEXT-COVERAGE-GAP",
+        "PV5-RA-B023-ALL-MISSING-BOOTSTRAP-DRIFT"
+      ]
+    },
+    "V5R_U01_no_new_multiplicity_family": {
+      "objective": "Keep the rescale diagnostic as an artifact veto rather than an added inferential endpoint.",
+      "requirements": [
+        "The repaired diagnostic is not a member of F_TARGET_DECISIONS, F_LEVEL_B_SURFACES, F_CROSS_TARGET_8X8, F_FORMAL_C2_INTERACTIONS, primary Holm, secondary Holm, or descriptive T8 sign-flip multiplicity.",
+        "All four simultaneous-family seeds, resampling lifecycles, exact member arrays/formulas, member counts, joint-statistic construction, quantile, scale floor, missing-member rules, and Holm/randomization rules remain semantically identical to V4.",
+        "F_TARGET_DECISIONS retains the exact V4 target member counts; F_LEVEL_B_SURFACES retains K=25*n25+20*n20+5*nmap<=80; F_CROSS_TARGET_8X8 retains exactly 64 BENEFIT plus 64 ADVERSE members; formal C2 remains NOT_ESTIMABLE.",
+        "The diagnostic may gate whether an existing result is valid or estimable but cannot produce a new p-value, confidence band, bootstrap seed, family member, multiplicity adjustment, efficacy margin, or favorable scalar."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B024-NEW_FAMILY_OR_MEMBER",
+        "PV5-RA-B025-MULTIPLICITY_OR_RNG_DRIFT"
+      ]
+    },
+    "V5R_L01_logs_schemas_and_fixtures": {
+      "objective": "Make every repair decision independently reproducible before scientific execution.",
+      "required_log_semantics": [
+        "pair/context/run identifiers and raw trace hashes",
+        "sample domain, count, dtype and finite/validity status",
+        "mu_S, mu_I, sigma_S, sigma_I, affine a and b, normalized trace hash",
+        "degenerate/nonfinite branch and reason code",
+        "unchanged detector/filter/threshold binding hashes",
+        "E_S, E_I and E_A event tables with anchors, boundaries and validity",
+        "all candidate match tuples in exact sort order and accepted matches in traversal order",
+        "three-way class per event and complete raw-row consumption ledger",
+        "block/context numerators, denominators, contributing blocks, aggregate, threshold and equality result",
+        "veto, NOT_ESTIMABLE or INVALID status and every dependent grade/gate/claim consequence"
+      ],
+      "requirements": [
+        "Every log field has an exact name, type, units, order or keyed-collection rule, nullability, enum, and schema binding. NaN/Infinity are not serialized as JSON numbers; their status is represented by exact finite-safe enums and null rules.",
+        "V5 supplies at least one self-contained, data-free, freeze-hash-bound raw-trace fixture for the rescale diagnostic. The fixture's raw and expected tables are sufficient for an independent implementation without external arrays or hidden generation.",
+        "Fixture coverage is noncompensatory for: pure mean shift, pure variance rescale, genuine event morphology/timing persistence after normalization, zero intervention scale, zero sham scale, both zero, nonfinite input, exact matcher tie, exact threshold equality, edge/boundary touch, unmatched event, per-block insufficiency, and context-pooling prohibition.",
+        "The fixture freezes exact raw inputs, all intermediate moments/coefficients/hashes, detector events, candidate/accepted matches, classes, denominators, final status, normalization rules, and a full-row-consumption comparison contract.",
+        "Any new fixture is explicitly bound by the V5 freeze and every internal reference with one exact SHA-256. The pre-existing T4 fixture remains byte-identical at 30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9.",
+        "Fixture evidence role is IMPLEMENTATION_PREFLIGHT_ONLY_NOT_SCIENTIFIC_EVIDENCE. Re-audit reads and independently checks it but executes no code."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B026-LOG_OR_SCHEMA-GAP",
+        "PV5-RA-B027-FIXTURE-NOT-SELF-CONTAINED",
+        "PV5-RA-B028-FIXTURE-COVERAGE-OR-HASH-DEFECT",
+        "PV5-RA-B029-T4-FIXTURE-DRIFT"
+      ]
+    },
+    "V5R_X01_cross_file_binding_and_executability": {
+      "objective": "Prove the repair is one exact algorithm everywhere rather than compatible prose variants.",
+      "requirements": [
+        "Every V5 registry, map, protocol, advancement, gate, claim, memo, fixture, and freeze reference to the repaired diagnostic resolves to one canonical algorithm ID, schema ID, fixture ID/path/hash, context list, denominator table, veto rule, and missingness rule.",
+        "Arrays and enumerations repeated across files are exact in value, order, spelling, type, and cardinality. Prose summaries cannot override or weaken the canonical machine-readable definition.",
+        "All algorithm references resolve; no stale Candidate V4 execution path, old undefined rescale phrase standing alone, placeholder, TODO, optional default, inferred tolerance, dangling JSON pointer, or contradictory status remains.",
+        "The V5 freeze binds every artifact and fixture byte; every artifact binds the V4 parent freeze, V4 failed edge adjudication, and exact V5 route consistently."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B030-CROSS-FILE-REPAIR-MISMATCH",
+        "PV5-RA-B031-DANGLING-STALE-OR-PLACEHOLDER-SEMANTICS",
+        "PV5-RA-B032-V5-FREEZE-OR-LINEAGE-BINDING-DEFECT"
+      ]
+    }
+  },
+  "mandatory_v4_regression_checks": {
+    "semantic_diff_method": {
+      "baseline": "The eight exact V4 artifacts and V4 freeze hashes in authoritative_v4_inputs.",
+      "procedure": "Parse exact V4 and stable V5 artifacts; construct a path-indexed semantic diff preserving object keys, array order, numeric type/value, strings, booleans, and nulls. Classify each difference against the sole-repair allowlist. Markdown is compared section-by-section and exact unchanged passages are byte-compared after excluding explicitly allowed V5 lineage/repair passages.",
+      "allowed_metadata_differences": [
+        "schema and route version",
+        "artifact/protocol/registry/rule identifiers and parent identifiers required for V5",
+        "status and repair-scope fields required to describe prospective V5",
+        "parent V4 freeze/artifact/adjudication path and hash bindings",
+        "V5 path/hash bindings and freeze manifest",
+        "repair-specific canonical algorithm, context, log, schema and fixture bindings",
+        "memo narrative limited to PV4-EDGE-B001 and V5 lineage"
+      ],
+      "failure_rule": "Every difference outside the exact allowed metadata or PV4-EDGE-B001 repair surfaces is a blocking UNAUTHORIZED_V4_SEMANTIC_DRIFT. The auditor does not judge it immaterial by magnitude."
+    },
+    "V5G_R01_model_rng_forcing_scheduler_detectors": {
+      "must_remain_identical": [
+        "candidate identity and clean-room/R4 separation",
+        "all model equations, state order, initial values, 32 parameter defaults/bounds/units and 17-coordinate uncertainty rule",
+        "float64 timebase, exact OU update, stochastic Heun order, left-endpoint held input, warmup, analysis, storage and no clipping",
+        "worker/verifier/statistical seeds, PCG64 lifecycles, draw rules, pairing and run ordering",
+        "all seven forcing channels, schedules, signs, bounds, formulas and causal scheduler",
+        "all official T1-T8 preprocessing, detectors, metrics, thresholds, validity, denominator and target-specific T7/T8 rules except the new diagnostic-only normalized trace path",
+        "the complete 16-row T4 attribution domain, sole formal +1.5/13 row, classifier, missingness and T4 fixture"
+      ],
+      "verdict_rule": "Exact semantic equality required."
+    },
+    "V5G_R02_targets_policies_statistics_and_multiplicity": {
+      "must_remain_identical": [
+        "exact target IDs T1-T8 and priority split primary T1/T4/T6, secondary T2/T3/T5/T7, exploratory T8",
+        "all registry fields, directions, estimands, margins, scores C_i/G_i, ties, shape rules and policy candidate arrays",
+        "eight worker-only Level-A policy objects and eight conditional Level-B policy objects",
+        "all Level-A grids including unique eight-phase T6/T7 grid with -pi only",
+        "all Level-B grids including unique four-phase T6/T7 grid, 25/20 cell counts and at-most-three selection",
+        "F_TARGET_DECISIONS, F_LEVEL_B_SURFACES, F_CROSS_TARGET_8X8 and F_FORMAL_C2_INTERACTIONS definitions, seeds, members, counts and missingness",
+        "all sign-flip and T7 Fisher-Lee permutation algorithms, seeds, 100000 draws, greater tails, tie rules, finite corrections and Holm families/order",
+        "8x8 benefit/adverse construction, 64+64 member registry, block-normalize then block-median order, mapping min/max, diagonal G and selected T4 replica adverse"
+      ],
+      "verdict_rule": "Exact semantic equality required; the rescale veto adds no family member or favorable scalar."
+    },
+    "V5G_R03_run_and_compute_arithmetic": {
+      "exact_values": {
+        "level_a_maximum_runs": 1800,
+        "conditional_level_b_maximum_runs": 900,
+        "cross_target_verifier_unique_runs": 456,
+        "maximum_registered_runs": 3156,
+        "identity": "1800+900+456=3156",
+        "maximum_simulated_seconds": 662760,
+        "maximum_internal_solver_intervals": 662760000,
+        "phase2a_worker_cpu_hour_cap": 60,
+        "verifier_cpu_hours_reserved": 50,
+        "campaign_total_cpu_hours": 180,
+        "cross_partition_borrowing": "PROHIBITED"
+      },
+      "additional_checks": [
+        "The repair creates zero scientific simulation runs and zero new worker/verifier run identities.",
+        "The affine diagnostic uses already stored paired raw traces only and does not authorize a new model execution, condition, seed, draw, target, Level-B cell, verifier condition, or compute partition.",
+        "Level-B formula remains 12*(25*n25+20*n20), n25+n20<=3. Verifier remains 24*(18+1)=456."
+      ]
+    },
+    "V5G_R04_advancement_gates_claims_and_phase2b": {
+      "exact_values": {
+        "maximum_advancing_targets": 3,
+        "current_advancing_targets": [],
+        "c2_gate_ids": ["C2-G1", "C2-G2", "C2-G3", "C2-G4", "C2-G5", "C2-G6", "C2-G7", "C2-G8", "C2-G9", "C2-G10"],
+        "c2_gate_count": 10,
+        "claims_count": 8,
+        "claims_status": "DESIGNED_NOT_EXECUTED",
+        "phase2b_status": "NOT_ESTIMABLE",
+        "eligible_certified_subjects": 0,
+        "minimum_certified_subjects": 3,
+        "synthetic_substitution": "PROHIBITED",
+        "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER"
+      },
+      "requirements": [
+        "Ranking, priority, tie, missingness, veto, Grade C, advancement and C2 gate semantics remain exact except that the now-defined existing off-target veto can deterministically block or make dependent decisions NOT_ESTIMABLE.",
+        "No new claim, stronger wording, C1/C2 assignment, personalization, human transfer, therapeutic interpretation, R4 identity, or synthetic-subject substitution is introduced.",
+        "The repair cannot reopen Phase2B or change its N=0/minimum 3 denominator."
+      ]
+    },
+    "V5G_R05_lineage_hashes_placeholders_and_outcome_blindness": {
+      "requirements": [
+        "All V4 baseline hashes reverify exactly before comparison. All V5 paths/hashes are stable and mutually consistent, and every V5 artifact has route/schema 5.0.0 where applicable.",
+        "V5 binds the exact V4 freeze and V4 edge adjudication; V4 is retained as immutable superseded history rather than edited in place.",
+        "Only PV4-EDGE-B001 is claimed repaired. Prior PF-B001..B005, PV2-B001..B004, PV3-B001 and all V4 invariants remain closed and unchanged.",
+        "No placeholder, TODO, TBD, FIXME, optional scientific default, stale current-route declaration, contradictory candidate path, unresolved reference, or outcome-derived value is present.",
+        "No code, manifest, R4, data, output, or scientific outcome is opened or executed during the V5 protocol re-audit."
+      ]
+    }
+  },
+  "independent_fixture_review_procedure": {
+    "method": "Read only the exact freeze-bound raw and expected fixture values. Independently recompute moments, affine coefficients, normalized samples or exact normalized hashes, official detector events, every candidate tuple, sort/tie order, accepted matching, three-way classes, block/context denominators, veto/status and full row-consumption ledger using a separate transparent calculation specified in the audit receipt. Do not import or execute implementation code.",
+    "exactness": "Exact JSON type/order/value equality is required except where the V5 fixture itself prospectively defines a numeric comparison representation; any tolerance must be a single explicit frozen value with unit and rationale and cannot be supplied by the auditor.",
+    "required_edge_coverage": [
+      "mean-only shift",
+      "variance-only rescale",
+      "persistent morphology/timing event",
+      "zero intervention scale",
+      "zero sham scale",
+      "both zero scales",
+      "nonfinite raw input",
+      "event candidate tie",
+      "threshold equality",
+      "edge and window boundary touch",
+      "insufficient event or block denominator",
+      "cross-context pooling trap"
+    ],
+    "failure_action": "Any missing edge case, ambiguous expected value, unconsumed raw row, hash mismatch, exception, or external dependency is blocking and denies implementation release."
+  },
+  "required_reaudit_receipt": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+    "receipt_type": "INDEPENDENT_IMMUTABLE_PREOUTCOME_PROTOCOL_FREEZE_REAUDIT_V5",
+    "required_sections": [
+      "audit boundary and zero code/data/outcome/execution declaration",
+      "this plan path and externally reported SHA-256",
+      "complete V4 baseline and V5 input hash ledger",
+      "V5 lineage, route, sole-repair and stale-V4 checks",
+      "per mandatory repair check evidence and verdict",
+      "independent fixture calculation and exact comparison",
+      "path-indexed V4-to-V5 semantic diff ledger with every allowed difference",
+      "all unchanged model/target/policy/statistics/run/compute/advancement/gate/claim/Phase2B regression verdicts",
+      "blocking, nonblocking and unresolved findings",
+      "release-gate verdicts and immutable self-hash policy"
+    ],
+    "pass_requirements": [
+      "Zero blocking and zero unresolved findings.",
+      "Every repair check and every V4 regression check passes independently.",
+      "The rescale diagnostic is exact, fully cross-bound and fixture-complete.",
+      "No scientific change exists outside PV4-EDGE-B001.",
+      "No code/preflight/data/outcome access or execution occurred."
+    ],
+    "pass_release_ceiling": "ELIGIBLE_FOR_ROOT_TO_ISSUE_A_NEW_OUTCOME_BLIND_STATIC_IMPLEMENTATION_RELEASE_ONLY"
+  },
+  "current_gate_state": {
+    "candidate_v5_access": "DENIED_UNTIL_ACTIVATION_GATE",
+    "v4_implementation_hash_freeze": "BLOCKED_BY_PV4_EDGE_B001",
+    "v5_static_implementation_release": "DENIED_PENDING_V5_FREEZE_AND_INDEPENDENT_REAUDIT_PASS",
+    "code_or_manifest_access": "DENIED",
+    "module_import_or_python_launcher_execution": "DENIED",
+    "data_free_preflight": "DENIED",
+    "phase2a_worker": "DENIED",
+    "cross_target_verifier": "DENIED",
+    "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+    "protected_access": "NONE",
+    "scientific_outcomes": "NONE"
+  },
+  "immutability": {
+    "this_plan_is_immutable": true,
+    "v4_files_modified": false,
+    "candidate_v5_code_or_manifest_files_accessed_or_modified": false,
+    "execution_performed": false,
+    "self_hash_policy": "SHA-256 is computed and reported externally after final serialization and is not recursively embedded."
+  }
+}

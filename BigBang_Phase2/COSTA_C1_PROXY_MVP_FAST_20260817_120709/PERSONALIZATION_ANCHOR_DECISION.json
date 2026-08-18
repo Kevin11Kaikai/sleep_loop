@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "decision": "NO_PERSONALIZATION_ANCHOR",
+  "gates": {
+    "numerical_stability_6_of_6": true,
+    "patient_better_in_at_least_2_of_3_bands": false,
+    "composite_error_reduction_at_least_10pct": false
+  },
+  "bands_better": 0,
+  "composite_error_reduction": -0.6226722627776347,
+  "patient_composite_log_psd_mae": 0.399442831803718,
+  "generic_composite_log_psd_mae": 0.24616359135884006,
+  "band_results": {
+    "so_0p5_1p25_hz": {
+      "patient_median_log_psd_mae": 0.45314591866787646,
+      "generic_median_log_psd_mae": 0.34488176225549055,
+      "patient_better": false
+    },
+    "delta_0p5_4_hz": {
+      "patient_median_log_psd_mae": 0.3532837800291927,
+      "generic_median_log_psd_mae": 0.185203614155384,
+      "patient_better": false
+    },
+    "sigma_10_15_hz": {
+      "patient_median_log_psd_mae": 0.37050586455892087,
+      "generic_median_log_psd_mae": 0.2171119933632829,
+      "patient_better": false
+    }
+  },
+  "formal_c1_authorized": false,
+  "decided_utc": "2026-08-17T16:13:35.021088+00:00"
+}

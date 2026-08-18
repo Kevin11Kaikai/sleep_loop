@@ -1,0 +1,35 @@
+{
+  "freeze_id": "R4_SC4001_NIGHT1_N3_PARTITION_V1",
+  "status": "FROZEN_BEFORE_SCIENTIFIC_GATE_EXECUTION",
+  "source_pair": [
+    {"path":"data/sleep-edfx-cassette/SC4001E0-PSG.edf","bytes":48338048,"sha256":"2B40A18ADF76AF69A42D6DB1F30F31D26B369F6D27CA0050EF30147EF892B131","official_local_match":true},
+    {"path":"data/sleep-edfx-cassette/SC4001EC-Hypnogram.edf","bytes":4620,"sha256":"A4CF67694ADE1B52A0DDD06D5817FD45D2D3E8BAC5302F640F3E9CFBBF12A996","official_local_match":true}
+  ],
+  "partition": {
+    "subject_pseudonym": "SC4001",
+    "night": "Night-1",
+    "eligible_upstream_stages": ["Sleep stage 3", "Sleep stage 4"],
+    "mapped_stage": "N3",
+    "epoch_seconds": 30.0,
+    "partition_seed": 26081601,
+    "fit_fraction": 0.5,
+    "assignment_before_signal_or_missingness": true,
+    "digest": "D9D093B9F28A18C2C46EAC4B2200BF58CE2860D5834595F797C87005D8C62574",
+    "fit_valid_epochs": 110,
+    "heldout_valid_epochs": 110,
+    "fit_excluded_epochs": 0,
+    "heldout_excluded_epochs": 0
+  },
+  "role_payloads": [
+    {"role":"FIT","path":"RUNS/STEWARD_WORKER/FIT_PAYLOAD.json","sha256":"F09D71800F49C79734D2A7A492DBEBEDB18C746418CF6D5F2393CB5F75A3FC2B","permitted_stage":"FIT-only selection"},
+    {"role":"HELDOUT","path":"RUNS/STEWARD_WORKER/HELDOUT_PAYLOAD.json","sha256":"3169F2361F737841BCB46393D24DFC209946FEB8E46608634ADC05E9B5C465EC","permitted_stage":"heldout evaluation after exact selection-freeze hash is bound"}
+  ],
+  "steward_receipt": {"path":"RUNS/STEWARD_WORKER/STEWARD_RECEIPT.json","sha256":"C8104174A25A2B13D2B7F1E40D07BD95AB44E26930D3C8A7B6865104B175CEC7"},
+  "raw_open_usage": {
+    "PSG": {"provenance_hash":1,"worker_mne":1,"verifier_mne_reserved":1},
+    "Hypnogram": {"provenance_hash":1,"worker_mne":1,"verifier_mne_reserved":1}
+  },
+  "selection_rule": "open FIT only; select minimum FIT NRMSE with candidate-ID tie break; bind all candidate calibrations and freeze hash; exit before HELDOUT",
+  "heldout_rule": "verify expected selection-freeze SHA-256 before opening HELDOUT; no candidate, calibration, operator, threshold, seed, or missingness change",
+  "scientific_retry": "PROHIBITED"
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": "4.0.0",
+  "schema_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V4_AUDIT_SCHEMA_V4",
+  "audit_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V4_AUDIT_001",
+  "created_at": "2026-08-17T03:08:38-04:00",
+  "auditor_role_id": "ROLE_V4_AMENDMENT_AUDITOR",
+  "auditor_actor_id": "AGENT_ROOT_CLEAN_GOVERNANCE_AUDIT_20260817",
+  "amendment_binding": {
+    "artifact_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V4",
+    "path_id": "static:v4",
+    "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V4.json",
+    "bytes": 316217,
+    "sha256": "0C83B242A64575BF874DFA7BBB7CFEAA084E4D90D1B829C23D5629885BD37DEC"
+  },
+  "authorized_input_bindings": [
+    {"artifact_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM", "path_id": "static:v1", "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json", "bytes": 64268, "sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE"},
+    {"artifact_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V2", "path_id": "static:v2", "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json", "bytes": 62447, "sha256": "ABF4E15ABCC08A6BD6CED113D0E21349E2067A7587EE8A2B230FAB31D3EF4B32"},
+    {"artifact_id": "PROTOCOL-V6-READUDIT-ADDENDUM-V2-AUDIT-001", "path_id": "static:v2_audit", "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT.json", "bytes": 22076, "sha256": "BA544E0CA08AE28A0245979092FE54A20F3C03073B9F1DB9C251ACB68ACF162A"},
+    {"artifact_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V3", "path_id": "static:v3", "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3.json", "bytes": 92125, "sha256": "B3E9759B1F4EE1EEA51CE1230FCC1F9DFFB8D62862CA9E304D60F11BA5DF512F"},
+    {"artifact_id": "PROTOCOL-V6-READUDIT-ADDENDUM-V3-AUDIT-001", "path_id": "static:v3_audit", "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3_AUDIT.json", "bytes": 30095, "sha256": "FE74877ADCA45857DC0E07B29D79717E6E3934409C9430A6568C94BF65EE4D0E"},
+    {"artifact_id": "V6-FIXTURE-COMPILER-STATIC-AUDIT-001", "path_id": "static:compiler_fail", "relative_path": "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json", "bytes": 25872, "sha256": "F0D0B8C2511AE4DEB2447E54D95313280BCFC0BA33060DD2AAC8A1E89D070409"},
+    {"artifact_id": "V6-COMPILER-BOOTSTRAP-ADJUDICATION-001", "path_id": "static:bootstrap_adjudication", "relative_path": "GOVERNANCE/V6_COMPILER_BOOTSTRAP_ADJUDICATION.json", "bytes": 15352, "sha256": "9B287254D2E25FF7D8588674A9F151DDF3C6DFE7313CEDE9D804E7E6B20771EF"}
+  ],
+  "checks_in_exact_order": [
+    {"check_id": "CHK01_INPUT_INTEGRITY", "requirement": "Rehash V4 and all seven authorized inputs and validate JSON without accessing any prohibited domain.", "observed": "PASS: all eight exact files are JSON-valid and match frozen bytes and SHA-256. V4 is 316217 bytes with SHA-256 0C83B242A64575BF874DFA7BBB7CFEAA084E4D90D1B829C23D5629885BD37DEC.", "verdict": "PASS"},
+    {"check_id": "CHK02_B001_B008_NONCOMPENSATORY", "requirement": "Trace V6A3-AUD-B001 through B008 noncompensatorily to exact V4 fields; one failure makes overall FAIL_BLOCKING.", "observed": "FAIL_BLOCKING: B001, B002, B003, B005, B006 and B007 are not fully closed; B004 and B008 pass. Seven blockers follow; passing gates do not compensate.", "verdict": "FAIL_BLOCKING"},
+    {"check_id": "CHK03_CLAIM_HANDOFF_STATE", "requirement": "Verify durable READY-to-CLAIMED claim and handoff precede worker start; explicit unchanged-READY rename failure is unspent; every uncertainty is typed, spent and incident-routed.", "observed": "FAIL_BLOCKING: ordering and unchanged-READY failure pass, but CreateProcess start uncertainty is unrepresentable and reachable claim, publication and incident checkpoints lack an exhaustive, disjoint mapping.", "verdict": "FAIL_BLOCKING"},
+    {"check_id": "CHK04_ATOMIC_TEMPORAL_DURABILITY", "requirement": "Verify acyclic receipt ledgers, truthful worker-time failure state, unchanged quarantine handling and durable terminal publication.", "observed": "FAIL_BLOCKING: hash ledgers, same-volume no-replace publication, S001 pending-quarantine truthfulness and later unchanged Root disposition pass. Root lacks staging content-read authority, and mandatory FlushFileBuffers is unreachable with handles lacking GENERIC_WRITE.", "verdict": "FAIL_BLOCKING"},
+    {"check_id": "CHK05_PATH_SCHEMA_HASH_GRAPH", "requirement": "Resolve every path, schema, specialization, transaction, role and writer; require uniqueness, complete typed field order and acyclic hashes.", "observed": "FAIL_BLOCKING: 236 paths, 47 schemas, 230 schema references and all 597 field descriptors pass; transaction hash ledgers are acyclic. Two composite materialized-schema files lack constructible exact source projections and complete hash domains.", "verdict": "FAIL_BLOCKING"},
+    {"check_id": "CHK06_ROLE_ACCESS_DIRECTORY_SCOPE", "requirement": "Expand role scopes; verify 37 prebound directory intents, exact 8/29/0 fallback partition, typed records and permanent halt after last-fallback failure.", "observed": "FAIL_BLOCKING: S002, all 37 intents, 8/29/0 partition, writer/parent authority and halt semantics pass. Conflict rows are not joined to assignments; Root lacks staging reads; the flush mask cannot execute its API.", "verdict": "FAIL_BLOCKING"},
+    {"check_id": "CHK07_BOUNDED_MEMBERSHIP", "requirement": "Limit directory enumeration to exact registered roots and depths and prove no extra READY, CLAIMED, staging, terminal or incident member.", "observed": "PASS: exact roots/depths, handle-relative opens, expected/observed ledgers, set hashes, and reparse, hardlink, file-ID and volume checks are frozen; unregistered enumeration is denied.", "verdict": "PASS"},
+    {"check_id": "CHK08_PRESTAGE_ROLE_FREEZE", "requirement": "Verify V4 audit, Root activation and preserved 18-assignment/153-pair role freeze precede Stage A, with the auditor outside and distinct from all 18.", "observed": "FAIL_BLOCKING: the order exists, but the audit pass condition demands future-unbound comparisons and omits later-claimed identity dimensions. The 153 rows do not join roles and actors to the 18 assignments.", "verdict": "FAIL_BLOCKING"},
+    {"check_id": "CHK09_RESULT_JUDGES_AND_CANDIDATE_DENIAL", "requirement": "Verify judges read complete producer/verifier committed bundles and attestations; official judge writes only d_result_acceptance and has zero Candidate access.", "observed": "PASS: both routes bind complete producer, verifier and publication trails; official judge writes only static:d_result_acceptance. No Candidate V6 destination or judge grant exists.", "verdict": "PASS"},
+    {"check_id": "CHK10_PRESERVATION_REGRESSION", "requirement": "Verify 23 cases, PV5-B001..B005, compiler failures, eight targets/claims, ten gates, 1800+900+456=3156, N0/min3, M1/C0/P0, zero new simulation and no-evidence rules.", "observed": "PASS: all named case, finding, count, arithmetic, advancement, Phase2B NOT_ESTIMABLE, zero-repair-simulation and M1/C0/P0 no-transfer invariants are preserved exactly.", "verdict": "PASS"},
+    {"check_id": "CHK11_CONTRADICTION_SCAN", "requirement": "Search for drafting markers, stale paths, implicit lookup, favorable choice, unregistered state and Candidate access; material ambiguity is blocking.", "observed": "FAIL_BLOCKING: no TODO/TBD/FIXME/placeholder or stale GOVERNANCE/PROTOCOL mismatch was found. Seven new material contradictions or underdefined contracts remain.", "verdict": "FAIL_BLOCKING"}
+  ],
+  "blocking_findings": [
+    {
+      "finding_id": "V6A4-AUD-B001",
+      "severity": "BLOCKING",
+      "title": "Prestage auditor independence is chronologically unsatisfiable and lacks a typed identity binding",
+      "evidence": "Order is audit, Root activation, then role freeze, but audit PASS must distinguish its actor from future unassigned actors. The audit binds only auditor_actor_id while the freeze later claims actor, session, process-principal, delegation, public-attestation and provenance distinctions. Repair: bind the auditor's complete identity/provenance tuple at audit time; compare Root at activation; later verify exact auditor-to-18 joins.",
+      "affected_path_ids": ["/bidirectional_governance_binding_closure/prestage_chain", "/prospective_v4_audit_and_activation_contract/pass_condition", "/role_independence/assignment_and_conflict_rule", "/schema_system/schemas/ROLE_ASSIGNMENT_FREEZE_V4/fields/amendment_auditor_binding", "/schema_system/schemas/ROLE_ASSIGNMENT_FREEZE_V4/fields/amendment_auditor_outside_operational_freeze_and_distinct_boolean", "/schema_system/schemas/ROOT_ACTIVATION_V4/fields", "/schema_system/schemas/V4_AUDIT_RECEIPT_V4/fields"]
+    },
+    {
+      "finding_id": "V6A4-AUD-B002",
+      "severity": "BLOCKING",
+      "title": "The 153 conflict rows are not schema-joined to the 18 frozen assignments",
+      "evidence": "Conflict-row role and actor IDs are merely nonempty; count/order does not require indexed role pairs, actor equality to assignments, or a unique pair key. Other identity dimensions are bare booleans. Repair: require exact indexed roles, actor-to-assignment equality, unique pairs, typed identities, all 153 joins and 18 auditor comparisons.",
+      "affected_path_ids": ["/role_independence/assignment_and_conflict_rule", "/schema_system/schemas/ROLE_ASSIGNMENT_FREEZE_V4/fields/pairwise_conflict_rows", "/schema_system/schemas/ROLE_ASSIGNMENT_V4/fields", "/schema_system/schemas/ROLE_CONFLICT_ROW_V4/fields"]
+    },
+    {
+      "finding_id": "V6A4-AUD-B003",
+      "severity": "BLOCKING",
+      "title": "CreateProcess crash uncertainty cannot be truthfully represented",
+      "evidence": "A crash during or just after CreateProcessW leaves identical bytes for never-started versus started-before-staging, but the incident schema requires a Boolean and a favorable trigger choice. Repair: freeze NOT_STARTED_PROVEN, STARTED_PROVEN or UNKNOWN_CONSERVATIVELY_SPENT, or an equivalent durable protocol; UNKNOWN is always spent and incident-contained.",
+      "affected_path_ids": ["/schema_system/schemas/INCIDENT_RECEIPT_V4/fields/trigger_state", "/schema_system/schemas/INCIDENT_RECEIPT_V4/fields/worker_process_start_boolean", "/terminal_state_machine/INTERRUPTED_SPENT", "/trusted_root_controller_protocol/claim_before_worker_algorithm"]
+    },
+    {
+      "finding_id": "V6A4-AUD-B004",
+      "severity": "BLOCKING",
+      "title": "The terminal state machine and incident routing are incomplete and overlapping",
+      "evidence": "Claimed-before-handoff and terminal-renamed-before-attestation checkpoints lack states; INTERRUPTED_SPENT overlaps ordinary states; P1-P5 failures lack an exhaustive exact trigger map despite implicit normalization being forbidden. Repair: define disjoint observable checkpoint states and an ordered total failure/interruption-to-trigger/state table.",
+      "affected_path_ids": ["/incident_and_durability_rules/trigger", "/terminal_state_machine", "/trusted_root_controller_protocol/incident_trigger_to_terminal_state_exact", "/trusted_root_controller_protocol/post_worker_publication_algorithm"]
+    },
+    {
+      "finding_id": "V6A4-AUD-B005",
+      "severity": "BLOCKING",
+      "title": "Root lacks staging content-read authority required by terminal validation",
+      "evidence": "P2S/P2F require parsing staged artifact and receipts before publication/quarantine, but Root reads include final committed/failed members, not staged files; metadata permission expressly is not content read. Repair: add exact selected-branch staging read_path_ids, bind them in authorization/attestation, and deny unselected-branch reads.",
+      "affected_path_ids": ["/role_access_model/effective_metadata_rule", "/role_access_model/root_controller_transaction_expansion", "/trusted_root_controller_protocol/post_worker_publication_algorithm"]
+    },
+    {
+      "finding_id": "V6A4-AUD-B006",
+      "severity": "BLOCKING",
+      "title": "Composite materialized-schema projections and hash domains are undefined",
+      "evidence": "The eight-schema Root file has no exact projection container/pointer list or same-path byte equality; the literal-audit specialization lies outside its source hash domain. source_json_pointer is untyped text and byte equality is asserted, not derived. Repair: freeze one typed source projection per physical file, all source pointers including specialization, canonical byte/hash equations, and same-path membership semantics.",
+      "affected_path_ids": ["/schema_system/materialization_rule", "/schema_system/materialized_schema_file_contracts/static:literal_audit_schema", "/schema_system/materialized_schema_file_contracts/static:root_controller_schema", "/schema_system/schemas/SCHEMA_BUNDLE_V4/fields/materialized_schema_entries_in_schema_id_order", "/schema_system/schemas/SCHEMA_MATERIALIZATION_ENTRY_V4/fields", "/schema_system/specialization_registry/LITERAL_BUNDLE_STATIC_AUDIT_V4"]
+    },
+    {
+      "finding_id": "V6A4-AUD-B007",
+      "severity": "BLOCKING",
+      "title": "Mandatory FlushFileBuffers publication is unreachable with the frozen handle access",
+      "evidence": "V4 grants attribute-only directory handles but requires FlushFileBuffers SUCCESS_DURABLE; that API requires GENERIC_WRITE. Repair: freeze CreateFileW DesiredAccess including GENERIC_WRITE and attest its mask, while separately prohibiting mutation calls, or freeze another durability API with matching access requirements.",
+      "affected_path_ids": ["/role_access_model/effective_flush_rule", "/schema_system/schemas/FLUSH_OBSERVATION_V4/fields/file_write_attributes_only_boolean", "/schema_system/schemas/PUBLICATION_ATTESTATION_V4/fields/destination_parent_post_rename_flush_state", "/schema_system/schemas/PUBLICATION_ATTESTATION_V4/fields/source_parent_pre_rename_flush_state", "/trusted_root_controller_protocol/directory_flush_primitive", "/trusted_root_controller_protocol/post_worker_publication_algorithm"]
+    }
+  ],
+  "unresolved_findings": [],
+  "access_attestation": {
+    "role_id": "ROLE_V4_AMENDMENT_AUDITOR",
+    "read_path_ids": ["static:v1", "static:v2", "static:v2_audit", "static:v3", "static:v3_audit", "static:compiler_fail", "static:bootstrap_adjudication", "static:v4"],
+    "read_after_write_path_ids": ["static:v4_audit"],
+    "metadata_path_ids": ["static:bootstrap_adjudication", "static:compiler_fail", "static:v1", "static:v2", "static:v2_audit", "static:v3", "static:v3_audit", "static:v4", "static:v4_audit"],
+    "runtime_dependency_path_snapshots": [],
+    "membership_list_path_ids": [],
+    "membership_observations": [],
+    "write_path_ids": ["static:v4_audit"],
+    "directory_creation_records_in_creation_order": [],
+    "flush_path_ids": [],
+    "flush_observations": [],
+    "rename_pairs": [],
+    "delete_path_ids": [],
+    "runtime_dependency_manifest_binding_or_null": null,
+    "observed_runtime_load_path_sha256_pairs": [],
+    "worker_process_start_targets": [],
+    "forbidden_access_boolean": false,
+    "unbounded_directory_enumeration_boolean": false,
+    "scientific_execution_boolean": false
+  },
+  "verdict": "FAIL_BLOCKING",
+  "audit_payload_hash_envelope": {
+    "schema_id": "NONRECURSIVE_SHA256_ENVELOPE_V4",
+    "algorithm": "SHA-256",
+    "canonicalization_id": "CANONICAL_JSON_SHA256_V6",
+    "excluded_field": "audit_payload_hash_envelope",
+    "payload_byte_length": 14282,
+    "payload_sha256": "DEBFF517CCEC3984C86F506AF9620D71C266D0F20A1E1F8D7D6A3313991D5125"
+  }
+}

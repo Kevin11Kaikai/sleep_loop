@@ -1,0 +1,461 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "role_isolation_policy": "Fresh-context roles receive explicit path and evidence briefs. Governance auditors, scientific workers, verifiers, adversarial reviewers, and final judges may not certify work from a conflicting role.",
+  "sole_shared_state_writer": "Root Orchestrator",
+  "agents": [
+    {
+      "agent_identity": "root",
+      "context_source": "fresh user-launched COSTA Phase 2 task",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Root Orchestrator and State Steward",
+      "allowed_paths": [
+        "current campaign root",
+        "two attached governing documents",
+        "four exact R4 import candidates after governance authorization",
+        "later explicitly allowlisted repository inputs"
+      ],
+      "prohibited_paths": [
+        "Night-2",
+        "Sealed Bank",
+        "protected-derived or fresh-final payloads",
+        "recursive R1-R4 campaign enumeration"
+      ],
+      "prior_scientific_exposure": "governing prompts only; no repository scientific content inspected in this campaign",
+      "conflicts": [
+        "may not serve as independent verifier",
+        "may not serve as adversarial reviewer",
+        "may not serve as final claim judge"
+      ],
+      "status": "ACTIVE",
+      "started_at": "2026-08-16T10:56:00-04:00"
+    },
+    {
+      "agent_identity": "/root/clean_governance_audit",
+      "context_source": "fresh isolated context",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Clean Governance Auditor",
+      "status": "COMPLETED",
+      "allowed_paths": [
+        "explicitly listed current-campaign governance files only"
+      ],
+      "prohibited_paths": [
+        "all repository scientific content",
+        "all R4 files during clean-root audit",
+        "Night-2, Sealed Bank, protected-derived, fresh-final, ambiguous, or quarantined material"
+      ],
+      "prior_scientific_exposure": "none; fresh isolated context",
+      "conflicts": ["scientific worker", "verifier", "adversarial reviewer", "final claim judge"],
+      "started_at": "2026-08-16T11:03:17.1534543-04:00",
+      "ended_at": "2026-08-16T11:05:50.9094447-04:00",
+      "output": "GOVERNANCE/CLEAN_ROOT_AUDIT.md",
+      "adjudication_resumed_at": "2026-08-16T11:19:03.3022117-04:00",
+      "adjudication_ended_at": "2026-08-16T11:20:14.3891482-04:00",
+      "adjudication_output": "GOVERNANCE/OAV_001_ADJUDICATION.md",
+      "revalidation_resumed_at": "2026-08-16T11:22:14.7933948-04:00"
+      ,"revalidation_ended_at": "2026-08-16T11:25:53.9649449-04:00",
+      "revalidation_output": "IMPORT_ALLOWLIST/OFFICIAL_ALLOWLIST_V5_REVALIDATION.json"
+      ,"sanitizer_output_audit_resumed_at": "2026-08-16T11:34:45.7232561-04:00",
+      "sanitizer_output_audit_ended_at": "2026-08-16T11:35:21.2904684-04:00",
+      "sanitizer_output_audit_output": "GOVERNANCE/SANITIZER_OUTPUT_AUDIT.json",
+      "protocol_freeze_audit_resumed_at": "2026-08-16T12:36:00-04:00",
+      "protocol_freeze_audit_ended_at": "2026-08-16T12:46:00-04:00",
+      "protocol_freeze_audit_output": "GOVERNANCE/PROTOCOL_FREEZE_AUDIT.json",
+      "protocol_freeze_audit_verdict": "FAIL_BLOCKING_SPECIFICATION_DEFECTS",
+      "protocol_v2_reaudit_resumed_at": "2026-08-16T13:10:00-04:00",
+      "protocol_v2_reaudit_scope": "PROTOCOL/PROTOCOL_FREEZE_V2.json and exact bound package plus exact V1 fail/stale and feasibility/compute receipts",
+      "protocol_v2_reaudit_output": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+      "protocol_v2_reaudit_ended_at": "2026-08-16T13:21:25-04:00",
+      "protocol_v2_reaudit_verdict": "FAIL_NEW_BLOCKING_EXECUTABILITY_DEFECTS",
+      "protocol_v3_reaudit_resumed_at": "2026-08-16T14:09:00-04:00",
+      "protocol_v3_reaudit_scope": "PROTOCOL/PROTOCOL_FREEZE_V3.json and exact bound package plus exact protocol lineage, feasibility, and compute receipts",
+      "protocol_v3_reaudit_output": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V3.json",
+      "protocol_v3_reaudit_ended_at": "2026-08-16T14:24:30-04:00",
+      "protocol_v3_reaudit_verdict": "FAIL_ONE_BLOCKING_CROSS_FILE_EXECUTABILITY_DEFECT",
+      "protocol_v4_reaudit_resumed_at": "2026-08-16T14:58:00-04:00",
+      "protocol_v4_reaudit_output": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+      "protocol_v4_reaudit_ended_at": "2026-08-16T15:10:30-04:00",
+      "protocol_v4_reaudit_verdict": "PASS",
+      "implementation_release_v2_revalidation_resumed_at": "2026-08-16T15:17:00-04:00",
+      "implementation_release_v2_revalidation_output": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json",
+      "implementation_release_v2_revalidation_ended_at": "2026-08-16T15:25:30-04:00",
+      "implementation_release_v2_revalidation_verdict": "PASS"
+    },
+    {
+      "agent_identity": "/root/historical_import_audit",
+      "context_source": "fresh isolated context after clean-root PASS",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Historical Import Auditor",
+      "status": "COMPLETED",
+      "allowed_paths": [
+        "four exact R4 import candidates",
+        "explicitly listed current-campaign governance controls"
+      ],
+      "prohibited_paths": [
+        "all other R4 paths and all directory enumeration",
+        "all referenced artifacts",
+        "Night-2, Sealed Bank, protected-derived, fresh-final, ambiguous, or quarantined material"
+      ],
+      "prior_scientific_exposure": "none; fresh isolated context receiving only governance brief",
+      "conflicts": ["scientific worker", "verifier", "adversarial reviewer", "final claim judge"],
+      "started_at": "2026-08-16T11:08:00.5462104-04:00",
+      "ended_at": "2026-08-16T11:12:08.9747343-04:00",
+      "outputs": ["GOVERNANCE/HISTORICAL_IMPORT_AUDIT.md", "IMPORT_ALLOWLIST/AUDIT_DECISIONS.json"],
+      "validation_resumed_at": "2026-08-16T11:14:18.8403172-04:00",
+      "validation_ended_at": "2026-08-16T11:16:02.2991229-04:00",
+      "additional_output": "IMPORT_ALLOWLIST/SANITIZER_PERMISSION_AMENDMENT.json"
+    },
+    {
+      "agent_identity": "/root/evidence_sanitizer",
+      "context_source": "fresh isolated context after historical import audit",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Evidence Sanitizer",
+      "status": "COMPLETED",
+      "allowed_paths": [
+        "official current-campaign import allowlist",
+        "three exact CLEAN_ALLOWLISTED R4 governance/categorical records"
+      ],
+      "prohibited_paths": [
+        "QUARANTINED FINAL_REPORT.md",
+        "all manifest-referenced files",
+        "all directory enumeration",
+        "Night-2, Sealed Bank, protected-derived, fresh-final, ambiguous, or quarantined material"
+      ],
+      "prior_scientific_exposure": "none; fresh isolated context receiving only governance sanitization brief",
+      "conflicts": ["scientific worker", "verifier", "adversarial reviewer", "final claim judge"],
+      "started_at": "2026-08-16T11:13:04.9893727-04:00",
+      "paused_at": "2026-08-16T11:15:00-04:00",
+      "access_attestation": {
+        "historical_files_opened": ["FINAL_CLAIM_MATRIX.json", "ARTIFACT_MANIFEST.json", "FINAL_CLOSEOUT.json"],
+        "quarantined_or_referenced_files_opened": false,
+        "directory_enumeration_performed": false,
+        "outputs_written": false
+      },
+      "resumed_at": "2026-08-16T11:27:38.3085296-04:00",
+      "authorization_receipt": "IMPORT_ALLOWLIST/OFFICIAL_ALLOWLIST_V5_REVALIDATION.json",
+      "ended_at": "2026-08-16T11:34:00-04:00",
+      "outputs": [
+        "COMMON/R4_SANITIZED_SUBSTRATE.json",
+        "COMMON/R4_SANITIZED_SUBSTRATE.md",
+        "IMPORT_ALLOWLIST/R4_EXECUTION_IMPORT_CANDIDATES.json"
+      ]
+    },
+    {
+      "agent_identity": "reserved_scientific_worker",
+      "context_source": "fresh isolated context after governance pass",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Phase 2 Scientific Worker",
+      "status": "INTERRUPTED_BEFORE_PREFLIGHT_OR_OUTCOME_EXECUTION",
+      "agent_identity_actual": "/root/scientific_worker",
+      "allowed_paths": [
+        "exact frozen protocol package",
+        "exact current-campaign environment and compute controls",
+        "CODE and PREFLIGHT current-campaign outputs"
+      ],
+      "prohibited_paths": [
+        "all repository and R4 source files",
+        "all data/config/outcome and subject metadata",
+        "Night-2, Sealed Bank, protected-derived, fresh-final, ambiguous, or quarantined material",
+        "Phase 2A outcome execution before Root release"
+      ],
+      "started_at": "2026-08-16T12:35:00-04:00",
+      "interrupted_at": "2026-08-16T12:43:00-04:00",
+      "partial_unexecuted_file": "CODE/phase2_control_bench.py",
+      "partial_unexecuted_file_sha256": "7D44889862B3D63B02F6239808179A687049EACD4C15C13AE5793E1181340247",
+      "conflicts": ["independent verifier", "adversarial reviewer", "final claim judge"]
+    },
+    {
+      "agent_identity": "/root/repository_input_audit",
+      "context_source": "fresh isolated context after constrained metadata discovery",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Nonhistorical Repository Input Auditor",
+      "status": "ACTIVE_PROTOCOL_V2_REPAIR",
+      "allowed_paths": [
+        "exact files in the first five groups of IMPORT_ALLOWLIST/NONHISTORICAL_METADATA_CANDIDATES.json",
+        "explicit current-campaign audit controls"
+      ],
+      "prohibited_paths": [
+        "DATA_AND_PARAMETER_METADATA_ONLY group",
+        "docs, outputs, validation_outputs, historical campaigns, and every denylist match",
+        "all directory enumeration and scientific execution"
+      ],
+      "prior_scientific_exposure": "none; fresh isolated audit context",
+      "conflicts": ["scientific worker", "verifier", "adversarial reviewer", "final claim judge"],
+      "started_at": "2026-08-16T11:40:52.0844728-04:00",
+      "ended_at": "2026-08-16T11:52:00-04:00",
+      "outputs": [
+        "GOVERNANCE/REPOSITORY_INPUT_AUDIT.md",
+        "IMPORT_ALLOWLIST/REPOSITORY_CODE_AUDIT_DECISIONS.json",
+        "COMMON/VALUE_FREE_REPOSITORY_CAPABILITY_INVENTORY.json"
+      ]
+    },
+    {
+      "agent_identity": "/root/data_feasibility_audit",
+      "context_source": "fresh isolated context after clean repository input release",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Data Feasibility Auditor",
+      "status": "COMPLETED",
+      "allowed_paths": [
+        "exact DATA_AND_PARAMETER_METADATA_ONLY group files",
+        "exact data/manifest.csv if present",
+        "explicit current-campaign audit controls"
+      ],
+      "prohibited_paths": [
+        "all manifest-followed raw paths, directory enumeration, docs, outputs, historical campaigns, and denylist matches",
+        "all scientific execution and target selection"
+      ],
+      "prior_scientific_exposure": "none; fresh isolated data-feasibility context",
+      "conflicts": ["scientific worker", "target selector", "verifier", "final claim judge"],
+      "started_at": "2026-08-16T12:00:26.4244668-04:00",
+      "ended_at": "2026-08-16T12:05:10.1030343-04:00",
+      "outputs": [
+        "COMMON/DATA_FEASIBILITY_RECEIPT.md",
+        "IMPORT_ALLOWLIST/DATA_AUDIT_DECISIONS.json",
+        "COMMON/SUBJECT_MODEL_AVAILABILITY.json"
+      ],
+      "protected_or_raw_access": "NONE"
+    },
+    {
+      "agent_identity": "/root/compute_budget_audit",
+      "context_source": "fresh isolated context with infrastructure records only",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Compute Budget Auditor",
+      "status": "COMPLETED",
+      "allowed_paths": [
+        "current-campaign environment, compute, identity, and Context-of-Use records only"
+      ],
+      "prohibited_paths": [
+        "all repository scientific content, data, historical campaigns, and protected classes"
+      ],
+      "prior_scientific_exposure": "none; fresh isolated infrastructure-audit context",
+      "conflicts": ["scientific worker", "target selector", "final claim judge"],
+      "started_at": "2026-08-16T11:52:35.3545042-04:00",
+      "ended_at": "2026-08-16T12:19:30-04:00",
+      "outputs": [
+        "GOVERNANCE/COMPUTE_BUDGET_AUDIT.json",
+        "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V2.json",
+        "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json"
+      ],
+      "final_verdict": "PASS"
+    },
+    {
+      "agent_identity": "/root/prospective_protocol_architect",
+      "context_source": "fresh isolated context with governing prompts and value-free current-campaign audit derivatives only",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Outcome-blind Prospective Control Protocol Architect",
+      "status": "COMPLETED",
+      "allowed_paths": [
+        "two exact governing attachments",
+        "explicit current-campaign identity, Context-of-Use, sanitized R4 categorical substrate, capability, environment, compute, and data-feasibility records",
+        "PROTOCOL/CANDIDATE_V1 outputs"
+      ],
+      "prohibited_paths": [
+        "all R4 source files",
+        "repository data/config/code and outcomes",
+        "Night-2, Sealed Bank, protected-derived, fresh-final, ambiguous, or quarantined material",
+        "scientific outcome execution"
+      ],
+      "prior_scientific_exposure": "none; value-free/outcome-blind design context",
+      "conflicts": ["scientific worker", "phase2a verifier", "adversarial reviewer", "final claim judge"],
+      "started_at": "2026-08-16T12:13:00-04:00",
+      "ended_at": "2026-08-16T12:33:30-04:00",
+      "output_directory": "PROTOCOL/CANDIDATE_V1",
+      "scientific_outcomes_executed": false,
+      "v2_repair_resumed_at": "2026-08-16T12:47:00-04:00",
+      "v2_authorization": "GOVERNANCE/PROTOCOL_FREEZE_AUDIT.json PF-B001 through PF-B005 only",
+      "v2_repair_ended_at": "2026-08-16T13:04:00-04:00",
+      "v2_output_directory": "PROTOCOL/CANDIDATE_V2",
+      "v2_scientific_outcomes_executed": false,
+      "v3_repair_resumed_at": "2026-08-16T13:23:00-04:00",
+      "v3_authorization": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json PV2-B001 through PV2-B004 only",
+      "v3_repair_ended_at": "2026-08-16T14:06:00-04:00",
+      "v3_output_directory": "PROTOCOL/CANDIDATE_V3",
+      "v3_stable_byte_subaudit": "PASS",
+      "v3_scientific_outcomes_executed": false,
+      "v4_repair_resumed_at": "2026-08-16T14:26:30-04:00",
+      "v4_authorization": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V3.json PV3-B001 only",
+      "v4_repair_ended_at": "2026-08-16T14:55:00-04:00",
+      "v4_output_directory": "PROTOCOL/CANDIDATE_V4",
+      "v4_stable_byte_subaudit": "PASS",
+      "v4_scientific_outcomes_executed": false,
+      "v5_repair_resumed_at": "2026-08-16T16:11:00-04:00",
+      "v5_authorization": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+      "v5_repair_ended_at": "2026-08-16T17:31:00-04:00",
+      "v5_output_directory": "PROTOCOL/CANDIDATE_V5",
+      "v5_stable_byte_subaudit": "PASS_BUT_ROOT_INDEPENDENT_REAUDIT_LATER_FAILED",
+      "v5_scientific_outcomes_executed": false,
+      "v6_repair_resumed_at": "2026-08-16T20:04:00-04:00",
+      "v6_authorization": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json PV5-B001 through PV5-B005 only",
+      "v6_paused_at": "2026-08-16T20:17:00-04:00",
+      "v6_pause_reason": "Unauthorized deletion of Root-commissioned prospective V6 re-audit addendum",
+      "v6_incident_receipt": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_DELETION_INCIDENT.json",
+      "v6_incident_closeout": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_INCIDENT_CLOSEOUT.json",
+      "v6_narrowed_reauthorization_at": "2026-08-16T20:50:01-04:00",
+      "v6_narrowed_prohibitions": [
+        "all GOVERNANCE and STATE writes",
+        "all CODE/PREFLIGHT/manifests/data/R4/outcomes",
+        "all Python/launcher/compiler/preflight/scientific execution"
+      ],
+      "status": "ACTIVE_V6_REPAIR_ONLY_UNDER_NARROWED_REAUTHORIZATION"
+    },
+    {
+      "agent_identity": "/root/scientific_worker_v4",
+      "context_source": "fresh isolated implementation context with exact V4 protocol and infrastructure controls only",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Fresh Isolated Scientific Implementation Worker",
+      "status": "ACTIVE_IMPLEMENTATION_ONLY",
+      "allowed_paths": [
+        "exact inputs listed in GOVERNANCE/IMPLEMENTATION_RELEASE_V4.json",
+        "CODE/CANDIDATE_V4/**",
+        "PREFLIGHT/CANDIDATE_V4_EXPECTED_SCHEMA.json",
+        "PREFLIGHT/CANDIDATE_V4_IMPLEMENTATION_MANIFEST.json"
+      ],
+      "prohibited_paths": [
+        "CODE/phase2_control_bench.py and stale implementations",
+        "all repository code/data/config/outputs",
+        "all R4 files and referenced artifacts",
+        "Night-2, Sealed Bank, protected-derived, fresh-final, ambiguous, quarantined and historical material"
+      ],
+      "prior_scientific_exposure": "none; exact outcome-blind V4 specification only",
+      "conflicts": ["independent code auditor", "phase2a verifier", "adversarial reviewer", "final claim judge"],
+      "started_at": "2026-08-16T15:14:00-04:00",
+      "execution_permission": "NONE_STATIC_IMPLEMENTATION_ONLY",
+      "protected_or_raw_access": "NONE",
+      "paused_at": "2026-08-16T15:15:00-04:00",
+      "pause_reason": "IRB-001 release launcher-hash and compute-path binding mismatch",
+      "implementation_files_written_before_pause": 0,
+      "python_or_scientific_execution": "NONE",
+      "resumed_at": "2026-08-16T15:27:00-04:00",
+      "corrected_release": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+      "corrected_release_revalidation": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json",
+      "paused_again_at": "2026-08-16T16:10:00-04:00",
+      "pause_reason_v2": "V4 rescale-only event veto independently adjudicated as blocking protocol under-specification",
+      "status": "PAUSED_PENDING_PROSPECTIVE_V5_REPAIR_AND_NEW_RELEASE",
+      "implementation_manifest_created": false,
+      "scientific_outcomes_executed": false
+    },
+    {
+      "agent_identity": "/root/prospective_protocol_architect/v3_consistency_audit",
+      "context_source": "independent protocol-only context; no implementation bytes or manifests",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Prospective Code Audit Protocol Author and V4 Edge-Semantics Adjudicator",
+      "status": "COMPLETED",
+      "allowed_paths": [
+        "exact V4 protocol freeze/audit/release controls and hash-bound V4 protocol artifacts only"
+      ],
+      "prohibited_paths": [
+        "CODE/CANDIDATE_V4 and all implementation manifests",
+        "Python, launcher, preflight, simulations, scientific outcomes, repository data, historical and protected material"
+      ],
+      "prior_scientific_exposure": "outcome-blind V3/V4 protocol consistency review only",
+      "conflicts": ["scientific worker", "repair implementer", "final claim judge"],
+      "outputs": [
+        "GOVERNANCE/CODE_AUDIT_PROTOCOL_V4.json",
+        "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json"
+      ],
+      "implementation_code_access": "NONE",
+      "scientific_outcomes_executed": false,
+      "ended_at": "2026-08-16T16:08:00-04:00"
+    },
+    {
+      "agent_identity": "reserved_phase2a_verifier",
+      "context_source": "fresh isolated context with immutable specification first",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Independent Phase 2A Verifier",
+      "status": "RESERVED",
+      "conflicts": ["scientific worker", "final claim judge"]
+    },
+    {
+      "agent_identity": "reserved_phase2b_verifier",
+      "context_source": "fresh isolated context with immutable specification first",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Independent Phase 2B Verifier",
+      "status": "RESERVED",
+      "conflicts": ["scientific worker", "final claim judge"]
+    },
+    {
+      "agent_identity": "reserved_adversarial_reviewer",
+      "context_source": "fresh isolated context after evidence freeze",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Adversarial Reviewer",
+      "status": "RESERVED",
+      "conflicts": ["scientific worker", "repair worker", "final claim judge"]
+    },
+    {
+      "agent_identity": "reserved_final_claim_judge",
+      "context_source": "fresh isolated context with standardized frozen evidence only",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Final Claim Judge",
+      "status": "RESERVED",
+      "conflicts": ["scientific worker", "repair worker", "verifier", "adversarial reviewer"]
+    },
+    {
+      "agent_identity": "/root/c_step6_continuation",
+      "context_source": "fresh delegated C Step-6 continuation context; governing V4D.1.2 and eight-target prompts read before campaign governance inspection",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Root Orchestrator and Sole Shared-State Steward",
+      "protocol_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4",
+      "status": "ACTIVE_PRESTAGE_GOVERNANCE_ONLY",
+      "allowed_paths": [
+        "the two exact governing prompt attachments",
+        "campaign-local GOVERNANCE protocol/addendum/audit controls required for V4 continuation",
+        "campaign-local STATE governance ledgers and STAGE_STATE",
+        "the exact future V4 audit/activation/role-freeze paths only when their gates authorize them"
+      ],
+      "prohibited_paths": [
+        "D:/Year3_Mao_Projects/sleep_loop/BigBang_Prediction/**",
+        "protected, fresh-final, sealed, confirmatory, Phase2B/P1, data, R4, checkpoint, output, outcome, CODE, PREFLIGHT and Candidate V6 payloads"
+      ],
+      "prior_scientific_exposure": "none in this fresh continuation context; governance/state only",
+      "conflicts": [
+        "ROLE_V4_AMENDMENT_AUDITOR",
+        "scientific worker",
+        "independent verifier",
+        "final scientific claim judge"
+      ],
+      "shared_state_write_authority": "SOLE_WRITER",
+      "scientific_execution_permission": "NONE",
+      "protected_or_raw_access": "NONE",
+      "registered_at": "2026-08-17T00:32:23-04:00"
+    },
+    {
+      "agent_identity": "/root/c_step6_continuation/v4_outcome_blind_auditor",
+      "context_source": "brand-new fork_turns:none context; initialized without filesystem access and returned READY before exact-path briefing",
+      "model_requirement": "GPT-5.6 Sol Ultra",
+      "role": "Independent Outcome-Blind Protocol V6 Reaudit Addendum V4 Auditor",
+      "protocol_role_id": "ROLE_V4_AMENDMENT_AUDITOR",
+      "status": "REGISTERED_AWAITING_EXACT_EIGHT_INPUT_BRIEF",
+      "allowed_paths": [
+        "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+        "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json",
+        "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT.json",
+        "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3.json",
+        "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3_AUDIT.json",
+        "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json",
+        "GOVERNANCE/V6_COMPILER_BOOTSTRAP_ADJUDICATION.json",
+        "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V4.json"
+      ],
+      "prohibited_paths": [
+        "D:/Year3_Mao_Projects/sleep_loop/BigBang_Prediction/**",
+        "STATE/** and every campaign path not in the exact eight-input allowlist",
+        "protected, fresh-final, sealed, confirmatory, Phase2B/P1, data, R4, checkpoint, output, outcome, CODE, PREFLIGHT and Candidate V6 payloads"
+      ],
+      "prior_scientific_exposure": "none; fresh outcome-blind context with zero filesystem access before registration",
+      "conflicts": [
+        "ROLE_ROOT_GOVERNANCE_JUDGE_V4",
+        "all 18 operational V4 roles",
+        "scientific worker",
+        "implementation worker",
+        "verifier",
+        "judge"
+      ],
+      "shared_state_write_authority": "NONE_READ_ONLY_REPORT_TO_ROOT",
+      "filesystem_write_authority": "NONE",
+      "scientific_execution_permission": "NONE",
+      "protected_or_raw_access": "NONE",
+      "registered_at": "2026-08-17T00:32:23-04:00"
+    }
+  ],
+  "initialized_at": "2026-08-16T11:01:00-04:00",
+  "last_updated_at": "2026-08-17T00:32:23-04:00"
+}

@@ -1,0 +1,476 @@
+{
+  "schema_version": "3.0.0",
+  "addendum_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V3",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "planned_protocol_route_version": "6.0.0",
+  "created_date": "2026-08-16",
+  "status": "IMMUTABLE_PROSPECTIVE_REPAIR_NOT_AN_EXECUTION_RELEASE",
+  "purpose": "Repair exactly V6A2-AUD-B001 through V6A2-AUD-B004 while preserving every passing V1/V2 scientific, PV5, regression, 23-case, no-evidence, supersession and release-gate rule.",
+  "authoring_boundary": {
+    "authorized_exact_inputs_only": [
+      {"path":"GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json","bytes":64268,"sha256":"545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE","role":"V1_PARENT"},
+      {"path":"GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json","bytes":62447,"sha256":"ABF4E15ABCC08A6BD6CED113D0E21349E2067A7587EE8A2B230FAB31D3EF4B32","role":"V2_PARENT"},
+      {"path":"GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT.json","bytes":22076,"sha256":"BA544E0CA08AE28A0245979092FE54A20F3C03073B9F1DB9C251ACB68ACF162A","role":"V2_FAIL_AUDIT"},
+      {"path":"GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json","bytes":25872,"sha256":"F0D0B8C2511AE4DEB2447E54D95313280BCFC0BA33060DD2AAC8A1E89D070409","role":"COMPILER_FAIL_RECEIPT"},
+      {"path":"GOVERNANCE/V6_COMPILER_BOOTSTRAP_ADJUDICATION.json","bytes":15352,"sha256":"9B287254D2E25FF7D8588674A9F151DDF3C6DFE7313CEDE9D804E7E6B20771EF","role":"BOOTSTRAP_ADJUDICATION"}
+    ],
+    "candidate_v6_opened_hashed_statted_or_enumerated": false,
+    "compiler_code_or_preflight_opened_hashed_statted_or_enumerated": false,
+    "data_r4_checkpoint_output_or_outcome_accessed": false,
+    "state_accessed_or_modified": false,
+    "directory_enumeration": false,
+    "python_compiler_launcher_verifier_preflight_model_or_scientific_execution": "NONE",
+    "only_file_written": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3.json"
+  },
+  "supersession": {
+    "v1_binding": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json@545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+    "v2_binding": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json@ABF4E15ABCC08A6BD6CED113D0E21349E2067A7587EE8A2B230FAB31D3EF4B32",
+    "v2_audit_binding": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT.json@BA544E0CA08AE28A0245979092FE54A20F3C03073B9F1DB9C251ACB68ACF162A",
+    "superseded_surfaces_exact": [
+      "V6A2-AUD-B001: Stage B and D transaction publication/failure/quarantine semantics",
+      "V6A2-AUD-B002: complete role-specific read/write/metadata/runtime-dependency boundaries",
+      "V6A2-AUD-B003: Stage-A, audit, freeze, authorization, receipt and bundle schemas",
+      "V6A2-AUD-B004: cross-stage role and implementation independence"
+    ],
+    "all_v2_passing_findings_preserved": ["V6A2-AUD-P001","V6A2-AUD-P002","V6A2-AUD-P003","V6A2-AUD-P004","V6A2-AUD-P005","V6A2-AUD-P006","V6A2-AUD-P007","V6A2-AUD-P008","V6A2-AUD-P009","V6A2-AUD-P010"],
+    "v1_sections_preserved_by_exact_hash": ["authoritative_inputs","verdict_model","exact_successor_identity_and_bidirectional_binding","closure_checks","canonical_typed_schema_contract","fixture_reaudit_contract","unaffected_v5_v4_regression_checks","required_v6_reaudit_procedure","required_v6_reaudit_receipt","current_gate_state"],
+    "v2_sections_preserved_except_named_defects": ["preserved_noncompensatory_scope","immutable_scientific_and_regression_invariants","staged_route","derived_lockfile_schema","fail_closed_semantics","repair_limits_and_prohibited_uses"],
+    "conflict_rule": "V3 controls only the four named repaired surfaces. Otherwise V1 then V2 remains normative by exact hash. The stricter rule controls; ambiguity is FAIL_BLOCKING and never auditor-selected."
+  },
+  "preserved_noncompensatory_invariants": {
+    "scientific_origin_finding_id": "PV4-EDGE-B001",
+    "closure_finding_ids_in_exact_order": ["PV5-B001","PV5-B002","PV5-B003","PV5-B004","PV5-B005"],
+    "v1_blocking_codes_preserved": ["PV6-RA-B001-FINDING-IDENTITY-DEFECT","PV6-RA-B002-ROUTE-OR-LINEAGE-DEFECT","PV6-RA-B003-BIDIRECTIONAL-BINDING-DEFECT","PV6-RA-B004-RAW-PAIR-OR-ROLE-STATUS-GAP","PV6-RA-B005-MU-SIGMA-A-B-EVALUATION-GAP","PV6-RA-B006-AFFINE-HASH-OR-NULL-RULE-GAP","PV6-RA-B007-CANONICAL-SCHEMA-GAP","PV6-RA-B008-CANDIDATE-OR-ACCEPTED-LEDGER-GAP","PV6-RA-B009-CLASS-OR-CONSUMPTION-GAP","PV6-RA-B010-NONRECURSIVE-HASH-GAP","PV6-RA-B011-FIXTURE-CASE-COVERAGE-GAP","PV6-RA-B012-RAW-ORACLE-OR-INTERMEDIATE-GAP","PV6-RA-B013-END-TO-END-ROUTE-GAP","PV6-RA-B014-FIXTURE-HASH-OR-BINDING-GAP","PV6-RA-B015-PARTIAL-ARRAY-FAILS-OPEN","PV6-RA-B016-EMPTY-MB-UNRESOLVED","PV6-RA-B017-BOOTSTRAP-RECOVERY-OR-RNG-DRIFT"],
+    "compiler_fail_codes_preserved": ["V6FC-SA-B001","V6FC-SA-B002","V6FC-SA-B003","V6FC-SA-B004","V6FC-SA-B005","V6FC-SA-B006","V6FC-SA-B007","V6FC-SA-B008"],
+    "exact_case_ids_in_order": ["MV_MEAN_SHIFT","MV_VARIANCE_SCALE","MV_ZERO_INTERVENTION_VARIANCE","MV_NONFINITE_INPUT","SO_THRESHOLD_EQUALITY_ACCEPTED","SO_LEFT_EDGE_STRICTLY_REJECTED","SPINDLE_THRESHOLD_EQUALITY_ACCEPTED","SPINDLE_RIGHT_EDGE_STRICTLY_REJECTED","MATCH_TIES_AND_TOLERANCE_BOUNDARY","EVENT_NONZERO_SURVIVAL","EVENT_ALL_ADDED_VANISH","EVENT_NO_ADDED_EVENTS","EVENT_MIXED_SURVIVAL","POOL_LEVEL_A_ALL_ADDED_VANISH","POOL_LEVEL_A_NONZERO_SURVIVAL","POOL_LEVEL_A_NO_ADDED_EVENTS","POOL_ZERO_VARIANCE_FAIL_CLOSED","POOL_NONFINITE_FAIL_CLOSED","MV_ZERO_SHAM_VARIANCE","MV_BOTH_ZERO_VARIANCES","T8_WINDOW_BOUNDARY_TOUCH","POOL_CROSS_CONTEXT_PROHIBITION","RAW_END_TO_END_CANONICAL_RECORD_HASH"],
+    "counts": {"targets":8,"claims":8,"c2_gates":10,"level_a_condition_ids":50,"level_a_runs":1800,"conditional_level_b_maximum_runs":900,"cross_target_verifier_unique_runs":456,"maximum_registered_runs":3156,"identity":"1800+900+456=3156","maximum_advancing_targets":3,"phase2b_eligible_N":0,"phase2b_minimum_N":3,"repair_additional_simulations":0},
+    "phase2b_status": "NOT_ESTIMABLE_N0_MIN3",
+    "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER",
+    "no_evidence_rule": "No literal bundle, dependency manifest, bootstrap lockfile, transaction bundle, receipt, compiler, verifier, fixture candidate, audit or freeze is scientific evidence or may support a claim, gate, grade, advancement or human transfer.",
+    "bootstrap_rule": "V1 FAIL_CLOSED_COMPLETE_ARRAY_AND_NONEMPTY_MB_V6 remains exact, including 10000 registered indices, any-incomplete-array and any-required-empty-M_b NOT_ESTIMABLE, no imputation/redraw/retry/shrinkage, and the sole T4 ZERO_ADDED_BOOTSTRAP exception after its point denominator passes."
+  },
+  "route": {
+    "route_id": "V6_DATA_FREE_BOOTSTRAP_ROUTE_V3",
+    "ordered_stages": ["A_LITERAL_FREEZE","B_DERIVATION_BUNDLE_AND_LOCKFILE_FREEZE","C_OFFICIAL_COMPILER_REBUILD_STATIC_PASS","D_OFFICIAL_FIXTURE_BUNDLE_AND_POSTRUN_PASS"],
+    "barrier": "Each stage requires every prior exact artifact, independent PASS and Root freeze/authorization. No future result may choose, edit, replace or reinterpret a prior literal, schema, role, dependency, lockfile, threshold or expected value.",
+    "no_retroactive_selection": "All role IDs, schemas, algorithms, package bytes, environment/dependency manifests, allowlists, path states and authorizations freeze before the corresponding execution. A failed or mismatched attempt is spent and cannot be repaired in place or selected against later official output.",
+    "no_automatic_release": true
+  },
+  "path_registry": {
+    "campaign_root": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951",
+    "v1": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+    "v2": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json",
+    "v2_audit": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT.json",
+    "compiler_fail": "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json",
+    "bootstrap_adjudication": "GOVERNANCE/V6_COMPILER_BOOTSTRAP_ADJUDICATION.json",
+    "v3": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3.json",
+    "role_assignment_freeze": "GOVERNANCE/V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_V3.json",
+    "shared_schema_file": "GOVERNANCE/V6_BOOTSTRAP_V3/v6_bootstrap_governance_schemas_v3.json",
+    "static_tool_dependency_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/static_tooling_dependency_manifest_v3.json",
+    "literal_schema_file": "GOVERNANCE/V6_BOOTSTRAP_V3/literal_primitive_bundle_schema_v3.json",
+    "literal_bundle": "GOVERNANCE/V6_BOOTSTRAP_V3/v6_rescale_literal_primitive_bundle_v3.json",
+    "literal_audit_schema_file": "GOVERNANCE/V6_BOOTSTRAP_V3/literal_bundle_audit_schema_v3.json",
+    "literal_audit": "GOVERNANCE/V6_LITERAL_BUNDLE_STATIC_AUDIT_V3.json",
+    "literal_freeze_schema_file": "GOVERNANCE/V6_BOOTSTRAP_V3/literal_bundle_freeze_schema_v3.json",
+    "literal_freeze": "GOVERNANCE/V6_LITERAL_BUNDLE_FREEZE_V3.json",
+    "b_spec": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/lockfile_derivation_spec_v3.json",
+    "b_source": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/derive_lockfile_v3.py",
+    "b_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/derivation_manifest_v3.json",
+    "b_lockfile_schema": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/derived_lockfile_schema_v3.json",
+    "b_dependency_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/runtime_dependency_manifest_v3.json",
+    "b_launcher": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/run_derivation_v3.ps1",
+    "b_static_audit": "GOVERNANCE/V6_DERIVATION_STATIC_AUDIT_V3.json",
+    "b_auth_ready_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/AUTHORIZATION.READY",
+    "b_auth_ready_file": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/AUTHORIZATION.READY/authorization.json",
+    "b_auth_claimed_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/AUTHORIZATION.CLAIMED",
+    "b_auth_claimed_file": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/AUTHORIZATION.CLAIMED/authorization.json",
+    "b_commit_staging_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/.INVOCATION_001.COMMIT_STAGING",
+    "b_committed_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.COMMITTED",
+    "b_failed_staging_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/.INVOCATION_001.FAILED_STAGING",
+    "b_failed_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.FAILED",
+    "b_quarantine_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.QUARANTINED",
+    "b_committed_lockfile": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.COMMITTED/artifact/v6_rescale_event_veto_lockfile_v3.json",
+    "b_committed_success": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.COMMITTED/receipts/success.json",
+    "b_committed_spent": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.COMMITTED/receipts/spent.json",
+    "b_committed_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.COMMITTED/bundle_manifest.json",
+    "b_failed_receipt": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.FAILED/receipts/failure.json",
+    "b_failed_spent": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.FAILED/receipts/spent.json",
+    "b_failed_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/DERIVATION/INVOCATION_001.FAILED/bundle_manifest.json",
+    "b_verifier_spec": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/verifier_spec_v3.json",
+    "b_verifier_source": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/verify_lockfile_v3.py",
+    "b_verifier_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/verifier_manifest_v3.json",
+    "b_verifier_schema": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/verifier_receipt_schema_v3.json",
+    "b_verifier_dependency_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/runtime_dependency_manifest_v3.json",
+    "b_verifier_launcher": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/run_verifier_v3.ps1",
+    "b_verifier_static_audit": "GOVERNANCE/V6_LOCKFILE_VERIFIER_STATIC_AUDIT_V3.json",
+    "b_verifier_auth_ready_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/AUTHORIZATION.READY",
+    "b_verifier_auth_ready_file": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/AUTHORIZATION.READY/authorization.json",
+    "b_verifier_auth_claimed_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/AUTHORIZATION.CLAIMED",
+    "b_verifier_auth_claimed_file": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/AUTHORIZATION.CLAIMED/authorization.json",
+    "b_verifier_commit_staging_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/.INVOCATION_001.COMMIT_STAGING",
+    "b_verifier_committed_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.COMMITTED",
+    "b_verifier_failed_staging_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/.INVOCATION_001.FAILED_STAGING",
+    "b_verifier_failed_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.FAILED",
+    "b_verifier_quarantine_dir": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.QUARANTINED",
+    "b_result_audit": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.COMMITTED/artifact/lockfile_result_audit.json",
+    "b_verifier_committed_success": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.COMMITTED/receipts/success.json",
+    "b_verifier_committed_spent": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.COMMITTED/receipts/spent.json",
+    "b_verifier_committed_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.COMMITTED/bundle_manifest.json",
+    "b_verifier_failed_receipt": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.FAILED/receipts/failure.json",
+    "b_verifier_failed_spent": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.FAILED/receipts/spent.json",
+    "b_verifier_failed_manifest": "GOVERNANCE/V6_BOOTSTRAP_V3/LOCKFILE_VERIFIER/INVOCATION_001.FAILED/bundle_manifest.json",
+    "b_lockfile_freeze": "GOVERNANCE/V6_DERIVED_LOCKFILE_FREEZE_V3.json",
+    "c_spec": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER_V3/official_compiler_spec_v3.json",
+    "c_source": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER_V3/compile_fixture_v3.py",
+    "c_manifest": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER_V3/official_compiler_manifest_v3.json",
+    "c_schema": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER_V3/official_fixture_schema_v3.json",
+    "c_dependency_manifest": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER_V3/runtime_dependency_manifest_v3.json",
+    "c_launcher": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER_V3/run_official_compiler_v3.ps1",
+    "c_static_audit": "GOVERNANCE/V6_OFFICIAL_COMPILER_STATIC_AUDIT_V3.json",
+    "d_auth_ready_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/AUTHORIZATION.READY",
+    "d_auth_ready_file": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/AUTHORIZATION.READY/authorization.json",
+    "d_auth_claimed_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/AUTHORIZATION.CLAIMED",
+    "d_auth_claimed_file": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/AUTHORIZATION.CLAIMED/authorization.json",
+    "d_commit_staging_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/.INVOCATION_001.COMMIT_STAGING",
+    "d_committed_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.COMMITTED",
+    "d_failed_staging_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/.INVOCATION_001.FAILED_STAGING",
+    "d_failed_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.FAILED",
+    "d_quarantine_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.QUARANTINED",
+    "d_committed_fixture": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.COMMITTED/artifact/rescale_event_veto_fixture_v6.json",
+    "d_committed_success": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.COMMITTED/receipts/success.json",
+    "d_committed_spent": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.COMMITTED/receipts/spent.json",
+    "d_committed_manifest": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.COMMITTED/bundle_manifest.json",
+    "d_failed_receipt": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.FAILED/receipts/failure.json",
+    "d_failed_spent": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.FAILED/receipts/spent.json",
+    "d_failed_manifest": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V3/INVOCATION_001.FAILED/bundle_manifest.json",
+    "d_verifier_spec": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/verifier_spec_v3.json",
+    "d_verifier_source": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/verify_fixture_v3.py",
+    "d_verifier_manifest": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/verifier_manifest_v3.json",
+    "d_verifier_schema": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/verifier_receipt_schema_v3.json",
+    "d_verifier_dependency_manifest": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/runtime_dependency_manifest_v3.json",
+    "d_verifier_launcher": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/run_verifier_v3.ps1",
+    "d_verifier_static_audit": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_STATIC_AUDIT_V3.json",
+    "d_verifier_auth_ready_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/AUTHORIZATION.READY",
+    "d_verifier_auth_ready_file": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/AUTHORIZATION.READY/authorization.json",
+    "d_verifier_auth_claimed_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/AUTHORIZATION.CLAIMED",
+    "d_verifier_auth_claimed_file": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/AUTHORIZATION.CLAIMED/authorization.json",
+    "d_verifier_commit_staging_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/.INVOCATION_001.COMMIT_STAGING",
+    "d_verifier_committed_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.COMMITTED",
+    "d_verifier_failed_staging_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/.INVOCATION_001.FAILED_STAGING",
+    "d_verifier_failed_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.FAILED",
+    "d_verifier_quarantine_dir": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.QUARANTINED",
+    "d_postrun_audit": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.COMMITTED/artifact/official_fixture_postrun_audit.json",
+    "d_verifier_committed_success": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.COMMITTED/receipts/success.json",
+    "d_verifier_committed_spent": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.COMMITTED/receipts/spent.json",
+    "d_verifier_committed_manifest": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.COMMITTED/bundle_manifest.json",
+    "d_verifier_failed_receipt": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.FAILED/receipts/failure.json",
+    "d_verifier_failed_spent": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.FAILED/receipts/spent.json",
+    "d_verifier_failed_manifest": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V3/INVOCATION_001.FAILED/bundle_manifest.json",
+    "d_result_acceptance": "GOVERNANCE/V6_OFFICIAL_FIXTURE_RESULT_ACCEPTANCE_V3.json",
+    "candidate_v6_required_fixture": "PROTOCOL/CANDIDATE_V6/rescale_event_veto_fixture_v6.json"
+  },
+  "path_resolution_rule": "Every relative path equals campaign_root joined with its slash-normalized components. Before a role acts, its release materializes an exact absolute-path ledger with normalized path, bytes, uppercase SHA-256, file/directory type, volume ID, file ID where existing, reparse=false and hardlink_count=1 for files. Reject relative, UNC, device, extended-length, ADS, glob, trailing-dot/space, dot-segment, reparse, junction, symlink, mount and unexpected hardlink aliases. No directory enumeration or discovery is allowed.",
+  "runtime_dependency_boundary": {
+    "dependency_manifest_schema_id": "V6_RUNTIME_DEPENDENCY_MANIFEST_SCHEMA_V3",
+    "runtime_read_set_equation": "For an executing role, allowed runtime reads equal exactly its effective read_path_ids UNION read_after_write_path_ids UNION the normalized file entries in that role's frozen dependency manifest. The effective read_path_ids equal role_access_matrix.common_governance_reads UNION the role's listed read_path_ids. No parent directory, PATH, sys.path, registry, cache, locale, certificate store, dynamic loader search or implicit import is an allowed expansion.",
+    "dependency_manifest_fields_in_order": ["schema_version","dependency_manifest_schema_id","dependency_manifest_id","role_profiles_in_role_order","platform_identity","interpreter_identity","environment_variables","file_entries_in_load_order","native_library_edges","forbidden_capabilities","manifest_payload_hash_envelope"],
+    "field_contracts": {
+      "schema_version": {"type":"STRING","nullable":false,"enum":["3.0.0"]},
+      "dependency_manifest_schema_id": {"type":"STRING","nullable":false,"enum":["V6_RUNTIME_DEPENDENCY_MANIFEST_SCHEMA_V3"]},
+      "dependency_manifest_id": {"type":"STRING","nullable":false,"grammar":"^[A-Z0-9_]+_DEPENDENCIES_V3$"},
+      "role_profiles_in_role_order": {"type":"ARRAY_OBJECT","nullable":false,"item_schema":"DEPENDENCY_ROLE_PROFILE_V3","order":"subsequence of role_independence.role_ids with unique role_id","rule":"The current role must have exactly one profile; only its referenced load_order entries are readable."},
+      "platform_identity": {"type":"OBJECT_EXACT","nullable":false,"fields":{"os_edition_version_build":"STRING","machine_architecture":"STRING","processor_identity_features":"ARRAY_STRING_SORTED_UNIQUE","byteorder":"ENUM:LITTLE_ENDIAN","locale":"STRING","codepage":"STRING"}},
+      "interpreter_identity": {"type":"OBJECT_EXACT","nullable":false,"fields":{"implementation":"STRING","version":"STRING","build_flags":"STRING","absolute_path":"ABSOLUTE_PATH","bytes":"INTEGER_GE_1","sha256":"SHA256"}},
+      "environment_variables": {"type":"ARRAY_OBJECT","nullable":false,"item_schema":"ENV_VAR_ENTRY_V3","order":"variable_name lexical"},
+      "file_entries_in_load_order": {"type":"ARRAY_OBJECT","nullable":false,"item_schema":"DEPENDENCY_FILE_ENTRY_V3","order":"load_order contiguous zero-based"},
+      "native_library_edges": {"type":"ARRAY_OBJECT","nullable":false,"item_schema":"NATIVE_EDGE_V3","order":"parent_load_order then child_load_order"},
+      "forbidden_capabilities": {"type":"ARRAY_STRING","nullable":false,"exact_values":["NETWORK","SUBPROCESS_CHILD","DYNAMIC_IMPORT","PLUGIN_DISCOVERY","REGISTRY","GUI","IPC","CLOCK_AS_INPUT","RNG","DIRECTORY_ENUMERATION","UNREGISTERED_FILE_READ","UNREGISTERED_FILE_WRITE"]},
+      "manifest_payload_hash_envelope": {"type":"OBJECT_EXACT","nullable":false,"schema":"HASH_ENVELOPE_V3","excluded_field":"manifest_payload_hash_envelope"}
+    },
+    "nested_schemas": {
+      "ENV_VAR_ENTRY_V3": {"fields":{"variable_name":"STRING","exact_value":"STRING"},"nullable":false,"additional_fields":false},
+      "DEPENDENCY_ROLE_PROFILE_V3": {"field_order":["role_id","entrypoint_load_order","permitted_file_load_orders","permitted_environment_variable_names"],"fields":{"role_id":"ENUM_REF:role_independence.role_ids","entrypoint_load_order":"INTEGER_GE_0_MEMBER_OF_permitted_file_load_orders","permitted_file_load_orders":"ARRAY_INTEGER_SORTED_UNIQUE_NONEMPTY_REFERENCING_file_entries_in_load_order","permitted_environment_variable_names":"ARRAY_STRING_SORTED_UNIQUE_SUBSET_OF_environment_variables"},"nullable":false,"additional_fields":false},
+      "DEPENDENCY_FILE_ENTRY_V3": {"fields":{"load_order":"INTEGER_GE_0","normalized_absolute_path":"ABSOLUTE_PATH","relative_or_external_class":"ENUM:PACKAGE_FILE|STANDARD_LIBRARY|THIRD_PARTY|NATIVE_RUNTIME|OS_LOADER","bytes":"INTEGER_GE_1","sha256":"SHA256","file_id":"STRING","volume_id":"STRING","hardlink_count":"INTEGER_EQ_1","reparse_boolean":"BOOLEAN_FALSE"},"nullable":false,"additional_fields":false},
+      "NATIVE_EDGE_V3": {"fields":{"parent_load_order":"INTEGER_GE_0","child_load_order":"INTEGER_GE_0","load_reason":"ENUM:PYTHON_IMPORT|EXTENSION_IMPORT|NATIVE_DEPENDENCY|LAUNCHER"},"nullable":false,"additional_fields":false}
+    },
+    "exact_thread_environment": {"OMP_NUM_THREADS":"1","OPENBLAS_NUM_THREADS":"1","MKL_NUM_THREADS":"1","BLIS_NUM_THREADS":"1","VECLIB_MAXIMUM_THREADS":"1","NUMEXPR_NUM_THREADS":"1","PYTHONHASHSEED":"0"},
+    "profile_resolution_rule": "At runtime select the unique profile whose role_id equals the current frozen role. A missing, duplicate, extra-role or wrong-role profile is FAIL_BLOCKING before process start. The runtime loader may read only file_entries whose load_order occurs in that profile; native edges must remain inside that set.",
+    "hash_domain": "Canonical JSON of every field except manifest_payload_hash_envelope; envelope uses HASH_ENVELOPE_V3."
+  },
+  "schema_system": {
+    "canonicalization_id": "CANONICAL_JSON_SHA256_V6",
+    "canonicalization": "UTF-8 json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False); registered arrays retain order; no extra field, NaN or Infinity.",
+    "primitive_types": {"STRING":"JSON string","INTEGER_GE_0":"JSON integer >=0","INTEGER_GE_1":"JSON integer >=1","BOOLEAN":"JSON true/false","BOOLEAN_TRUE":"JSON true","BOOLEAN_FALSE":"JSON false","SHA256":"64 uppercase hex","ABSOLUTE_PATH":"registered normalized drive-qualified absolute string","RELATIVE_PATH":"registered normalized forward-slash relative string","FLOAT64_HEX":"finite lowercase C99 binary64 string","NULL":"JSON null","ARRAY_STRING":"JSON string array in declared order","ARRAY_OBJECT":"JSON object array in declared order","OBJECT_EXACT":"JSON object with exactly declared fields"},
+    "HASH_ENVELOPE_V3": {
+      "field_order": ["schema_id","algorithm","canonicalization_id","excluded_field","payload_byte_length","payload_sha256"],
+      "fields": {"schema_id":{"type":"STRING","nullable":false,"enum":["NONRECURSIVE_SHA256_ENVELOPE_V3"]},"algorithm":{"type":"STRING","nullable":false,"enum":["SHA-256"]},"canonicalization_id":{"type":"STRING","nullable":false,"enum":["CANONICAL_JSON_SHA256_V6"]},"excluded_field":{"type":"STRING","nullable":false,"rule":"exact enclosing schema hash field"},"payload_byte_length":{"type":"INTEGER_GE_1","nullable":false},"payload_sha256":{"type":"SHA256","nullable":false}},
+      "additional_fields": false
+    },
+    "BINDING_V3": {"field_order":["artifact_id","path","bytes","sha256"],"fields":{"artifact_id":{"type":"STRING","nullable":false},"path":{"type":"RELATIVE_PATH","nullable":false},"bytes":{"type":"INTEGER_GE_1","nullable":false},"sha256":{"type":"SHA256","nullable":false}},"additional_fields":false},
+    "ACCESS_ATTESTATION_V3": {"field_order":["read_paths","metadata_paths","write_paths","rename_pairs","delete_paths","runtime_dependency_manifest_binding_or_null","forbidden_access_boolean","directory_enumeration_boolean","model_preflight_science_execution_boolean"],"fields":{"read_paths":{"type":"ARRAY_STRING","nullable":false,"order":"exact role allowlist"},"metadata_paths":{"type":"ARRAY_STRING","nullable":false,"order":"exact role allowlist"},"write_paths":{"type":"ARRAY_STRING","nullable":false,"order":"exact role allowlist"},"rename_pairs":{"type":"ARRAY_OBJECT","nullable":false,"item_schema":"RENAME_PAIR_V3"},"delete_paths":{"type":"ARRAY_STRING","nullable":false,"exact_values":[]},"runtime_dependency_manifest_binding_or_null":{"type":"OBJECT_EXACT_OR_NULL","nullable":true,"schema":"BINDING_V3"},"forbidden_access_boolean":{"type":"BOOLEAN","nullable":false,"enum":[false]},"directory_enumeration_boolean":{"type":"BOOLEAN","nullable":false,"enum":[false]},"model_preflight_science_execution_boolean":{"type":"BOOLEAN","nullable":false,"enum":[false]}},"additional_fields":false},
+    "RENAME_PAIR_V3": {"fields":{"source_path_id":"STRING","destination_path_id":"STRING","same_volume_boolean":"BOOLEAN_TRUE","no_replace_boolean":"BOOLEAN_TRUE"},"nullable":false,"additional_fields":false}
+  },
+  "stage_A_schemas": {
+    "schema_materialization_rule": "Before literal authoring, shared_schema_file, literal_schema_file, literal_audit_schema_file and literal_freeze_schema_file must be byte-exact materializations of this V3 registry, independently hashed, mutually cross-bound and immutable. They may refine no semantic, enum, null, order or hash rule.",
+    "literal_bundle_schema": {
+      "schema_id": "V6_LITERAL_PRIMITIVE_BUNDLE_SCHEMA_V3",
+      "field_order": ["schema_version","literal_bundle_schema_id","literal_bundle_id","campaign_id","candidate_identity","amendment_binding","case_registry","source_arrays_by_sha256","coefficient_arrays_by_sha256","nonfinite_words_by_id","primitive_provenance_ledger","literal_bundle_payload_hash_envelope"],
+      "fields": {
+        "schema_version":{"type":"STRING","nullable":false,"enum":["3.0.0"]},
+        "literal_bundle_schema_id":{"type":"STRING","nullable":false,"enum":["V6_LITERAL_PRIMITIVE_BUNDLE_SCHEMA_V3"]},
+        "literal_bundle_id":{"type":"STRING","nullable":false,"enum":["V6_RESCALE_EVENT_VETO_LITERAL_PRIMITIVE_BUNDLE_V3"]},
+        "campaign_id":{"type":"STRING","nullable":false,"enum":["COSTA_PHASE2_FRESH_20260816_105951"]},
+        "candidate_identity":{"type":"STRING","nullable":false,"enum":["PHASE2_CONTROL_BENCH_V1"]},
+        "amendment_binding":{"type":"OBJECT_EXACT","nullable":false,"schema":"BINDING_V3","artifact_id":"INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V3"},
+        "case_registry":{"type":"ARRAY_STRING","nullable":false,"exact_values_ref":"preserved_noncompensatory_invariants.exact_case_ids_in_order","cardinality":23},
+        "source_arrays_by_sha256":{"type":"ARRAY_OBJECT","nullable":false,"item_schema":"SOURCE_ARRAY_LITERAL_V3","order":"sha256 lexical","key_uniqueness":"sha256"},
+        "coefficient_arrays_by_sha256":{"type":"ARRAY_OBJECT","nullable":false,"item_schema":"COEFFICIENT_LITERAL_V3","order":"coefficient_set_id then sha256","key_uniqueness":"coefficient_set_id"},
+        "nonfinite_words_by_id":{"type":"ARRAY_OBJECT","nullable":false,"item_schema":"NONFINITE_WORD_V3","order":"word_id lexical","key_uniqueness":"word_id"},
+        "primitive_provenance_ledger":{"type":"ARRAY_OBJECT","nullable":false,"item_schema":"PRIMITIVE_PROVENANCE_V3","order":"primitive_id lexical","coverage":"exactly one row per source, coefficient and nonfinite entry"},
+        "literal_bundle_payload_hash_envelope":{"type":"OBJECT_EXACT","nullable":false,"schema":"HASH_ENVELOPE_V3","excluded_field":"literal_bundle_payload_hash_envelope"}
+      },
+      "additional_fields": false,
+      "hash_domain": "All top-level fields except literal_bundle_payload_hash_envelope; nested base64 strings and ledgers included exactly."
+    },
+    "nested_literal_schemas": {
+      "SOURCE_ARRAY_LITERAL_V3": {"field_order":["sha256","semantic_roles","case_ids","shape","dtype","byteorder","c_contiguous","byte_count","encoding","data_base64"],"fields":{"sha256":"SHA256","semantic_roles":"ARRAY_STRING_NONEMPTY_SORTED_UNIQUE","case_ids":"ARRAY_STRING_SUBSEQUENCE_OF_23_CASE_REGISTRY","shape":"ARRAY_INTEGER_EXACT:[36000]","dtype":"ENUM:<f8","byteorder":"ENUM:LITTLE_ENDIAN","c_contiguous":"BOOLEAN_TRUE","byte_count":"INTEGER_EQ_288000","encoding":"ENUM:RFC4648_BASE64_NO_WHITESPACE","data_base64":"BASE64_EXACT_288000_BYTES_HASH_EQUALS_sha256"},"nullable":false,"additional_fields":false},
+      "COEFFICIENT_LITERAL_V3": {"field_order":["sha256","coefficient_set_id","semantic_roles","shape","dtype","byteorder","c_contiguous","byte_count","encoding","data_base64","scientific_parameter_binding"],"fields":{"sha256":"SHA256","coefficient_set_id":"ENUM:SO_BUTTER4_SOS_0P3_1P5_FS200|SPINDLE_BUTTER4_SOS_11_16_FS200","semantic_roles":"ARRAY_STRING_NONEMPTY_SORTED_UNIQUE","shape":"ARRAY_INTEGER_NONEMPTY","dtype":"ENUM:<f8","byteorder":"ENUM:LITTLE_ENDIAN","c_contiguous":"BOOLEAN_TRUE","byte_count":"INTEGER_EQ_8_TIMES_PRODUCT_SHAPE","encoding":"ENUM:RFC4648_BASE64_NO_WHITESPACE","data_base64":"BASE64_EXACT_BYTE_COUNT_HASH_EQUALS_sha256","scientific_parameter_binding":"OBJECT_EXACT:{design=ENUM:SCIPY_BUTTER,order=INTEGER_EQ_4,btype=ENUM:BANDPASS,fs_hz=INTEGER_EQ_200,band_hz=ARRAY_FINITE_NUMBER_EXACT_BY_ID,output=ENUM:SOS}"},"nullable":false,"additional_fields":false},
+      "NONFINITE_WORD_V3": {"field_order":["word_id","semantic_role","case_id","sample_index","ieee754_hex_16_uppercase","little_endian_bytes_base64","sha256"],"fields":{"word_id":"STRING_GRAMMAR:^[A-Z0-9_]+$","semantic_role":"ENUM:SHAM_RE|SHAM_RT|INTERVENTION_RE|INTERVENTION_RT","case_id":"ENUM_REF:23_CASES","sample_index":"INTEGER_RANGE_0_35999","ieee754_hex_16_uppercase":"HEX16_UPPERCASE_NONFINITE_BINARY64","little_endian_bytes_base64":"BASE64_EXACT_8_BYTES","sha256":"SHA256_OF_DECODED_8_BYTES"},"nullable":false,"additional_fields":false},
+      "PRIMITIVE_PROVENANCE_V3": {"field_order":["primitive_id","primitive_class","semantic_role","case_ids","byte_sha256","authoring_method","correctness_authority"],"fields":{"primitive_id":"STRING","primitive_class":"ENUM:SOURCE_ARRAY|FILTER_COEFFICIENT|NONFINITE_WORD","semantic_role":"STRING","case_ids":"ARRAY_STRING_SUBSEQUENCE_OF_23_CASE_REGISTRY","byte_sha256":"SHA256","authoring_method":"ENUM:EXACT_LITERAL_BYTES_NO_PROCEDURAL_GENERATION","correctness_authority":"ENUM:BYTES_ONLY_PENDING_STAGE_B_INDEPENDENT_DERIVATION"},"nullable":false,"additional_fields":false}
+    },
+    "literal_audit_schema": {
+      "schema_id":"V6_LITERAL_BUNDLE_STATIC_AUDIT_SCHEMA_V3",
+      "field_order":["schema_version","audit_schema_id","audit_id","auditor_role_id","amendment_binding","schema_file_bindings","literal_bundle_binding","dependency_manifest_binding","checks_in_exact_order","case_count","source_entry_count","coefficient_entry_count","nonfinite_entry_count","access_attestation","blocking_findings","verdict","audit_payload_hash_envelope"],
+      "fields":{"schema_version":"ENUM:3.0.0","audit_schema_id":"ENUM:V6_LITERAL_BUNDLE_STATIC_AUDIT_SCHEMA_V3","audit_id":"ENUM:V6_LITERAL_BUNDLE_STATIC_AUDIT_V3","auditor_role_id":"ENUM:ROLE_LITERAL_AUDITOR_V3","amendment_binding":"BINDING_V3","schema_file_bindings":"ARRAY_BINDING_V3_NONEMPTY","literal_bundle_binding":"BINDING_V3","dependency_manifest_binding":"BINDING_V3","checks_in_exact_order":"ARRAY_CHECK_RESULT_V3_NONEMPTY","case_count":"INTEGER_EQ_23","source_entry_count":"INTEGER_GE_1","coefficient_entry_count":"INTEGER_EQ_2","nonfinite_entry_count":"INTEGER_GE_1","access_attestation":"ACCESS_ATTESTATION_V3","blocking_findings":"ARRAY_FINDING_V3","verdict":"ENUM:PASS_ZERO_BLOCKING_ZERO_UNRESOLVED|FAIL_BLOCKING","audit_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},
+      "nullability":"No field nullable; finding evidence fields follow FINDING_V3 nullable rules.",
+      "additional_fields":false,
+      "hash_domain":"All fields except audit_payload_hash_envelope."
+    },
+    "literal_freeze_schema": {
+      "schema_id":"V6_LITERAL_BUNDLE_FREEZE_SCHEMA_V3",
+      "field_order":["schema_version","freeze_schema_id","freeze_id","judge_role_id","amendment_binding","literal_bundle_binding","literal_audit_binding","schema_file_bindings","eligibility_scope","prohibited_uses","verdict","freeze_payload_hash_envelope"],
+      "fields":{"schema_version":"ENUM:3.0.0","freeze_schema_id":"ENUM:V6_LITERAL_BUNDLE_FREEZE_SCHEMA_V3","freeze_id":"ENUM:V6_LITERAL_BUNDLE_FREEZE_V3","judge_role_id":"ENUM:ROLE_LITERAL_FREEZE_JUDGE_V3","amendment_binding":"BINDING_V3","literal_bundle_binding":"BINDING_V3","literal_audit_binding":"BINDING_V3","schema_file_bindings":"ARRAY_BINDING_V3_NONEMPTY","eligibility_scope":"ENUM:INPUT_ONLY_FOR_STAGE_B_RELEASE_V3","prohibited_uses":"ARRAY_STRING_EXACT:NO_SCIENCE_NO_CLAIM_NO_OFFICIAL_FIXTURE_NO_MUTATION","verdict":"ENUM:FROZEN_AFTER_INDEPENDENT_PASS|REJECTED","freeze_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},
+      "nullability":"No field nullable.",
+      "additional_fields":false,
+      "hash_domain":"All fields except freeze_payload_hash_envelope."
+    }
+  },
+  "shared_governance_schemas": {
+    "CHECK_RESULT_V3": {"field_order":["check_id","requirement","observed","verdict"],"fields":{"check_id":"STRING_GRAMMAR:^[A-Z0-9_-]+$","requirement":"STRING_NONEMPTY","observed":"STRING_NONEMPTY","verdict":"ENUM:PASS|FAIL_BLOCKING"},"nullable":false,"additional_fields":false},
+    "FINDING_V3": {"field_order":["finding_id","severity","title","evidence","affected_ids"],"fields":{"finding_id":"STRING_GRAMMAR:^[A-Z0-9_-]+$","severity":"ENUM:BLOCKING","title":"STRING_NONEMPTY","evidence":"STRING_NONEMPTY","affected_ids":"ARRAY_STRING_NONEMPTY"},"nullable":false,"additional_fields":false},
+    "ROLE_ASSIGNMENT_V3": {"field_order":["role_id","actor_id","public_attestation_id","role_class","authorized_stage_ids","implementation_provenance_id","conflict_matrix_pass_boolean"],"fields":{"role_id":"ENUM_REF:role_independence.role_ids","actor_id":"STRING_NONEMPTY_UNIQUE_ACROSS_ALL_18_ASSIGNMENTS","public_attestation_id":"STRING_NONEMPTY_UNIQUE_ACROSS_ALL_18_ASSIGNMENTS","role_class":"ENUM:AUTHOR|STATIC_AUDITOR|RUNNER|JUDGE","authorized_stage_ids":"ARRAY_STRING_NONEMPTY_SUBSEQUENCE_OF:A_LITERAL_FREEZE|B_DERIVATION|B_LOCKFILE_VERIFIER|C_OFFICIAL_COMPILER|D_OFFICIAL_COMPILER|D_FIXTURE_VERIFIER|GOVERNANCE","implementation_provenance_id":"STRING_NONEMPTY_UNIQUE_FOR_EACH_AUTHOR_RUNNER_AUDITOR_AND_LITERAL_NOT_APPLICABLE_FOR_JUDGE","conflict_matrix_pass_boolean":"BOOLEAN_TRUE"},"nullable":false,"additional_fields":false},
+    "ROLE_CONFLICT_ROW_V3": {"field_order":["left_role_id","right_role_id","left_actor_id","right_actor_id","actor_ids_distinct_boolean","sessions_and_process_principals_distinct_boolean","delegation_overlap_absent_boolean","verdict"],"fields":{"left_role_id":"ENUM_REF:role_independence.role_ids","right_role_id":"ENUM_REF:role_independence.role_ids","left_actor_id":"STRING_EQUALS_ASSIGNMENT_FOR_left_role_id","right_actor_id":"STRING_EQUALS_ASSIGNMENT_FOR_right_role_id","actor_ids_distinct_boolean":"BOOLEAN_TRUE","sessions_and_process_principals_distinct_boolean":"BOOLEAN_TRUE","delegation_overlap_absent_boolean":"BOOLEAN_TRUE","verdict":"ENUM:PASS"},"nullable":false,"additional_fields":false},
+    "ROLE_ASSIGNMENT_FREEZE_V3": {"schema_id":"V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_SCHEMA_V3","field_order":["schema_version","role_assignment_freeze_schema_id","role_assignment_freeze_id","judge_role_id","amendment_binding","assignments_in_role_order","pairwise_conflict_rows","assignment_count","conflict_row_count","freeze_state","role_assignment_freeze_payload_hash_envelope"],"fields":{"schema_version":"ENUM:3.0.0","role_assignment_freeze_schema_id":"ENUM:V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_SCHEMA_V3","role_assignment_freeze_id":"ENUM:V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_V3","judge_role_id":"ENUM:ROLE_ROOT_GOVERNANCE_JUDGE_V3","amendment_binding":"BINDING_V3","assignments_in_role_order":"ARRAY_ROLE_ASSIGNMENT_V3_EXACT_role_independence.role_ids","pairwise_conflict_rows":"ARRAY_ROLE_CONFLICT_ROW_V3_EXACT_153_UNORDERED_PAIRS_IN_ROLE_ORDER","assignment_count":"INTEGER_EQ_18","conflict_row_count":"INTEGER_EQ_153","freeze_state":"ENUM:FROZEN_BEFORE_STAGE_A","role_assignment_freeze_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},"nullability":"No field nullable.","additional_fields":false,"hash_domain":"All fields except role_assignment_freeze_payload_hash_envelope."},
+    "PRESTATE_ASSERTION_V3": {"field_order":["path_id","required_kind","expected_presence","expected_bytes_or_null","expected_sha256_or_null","expected_volume_id_or_null","no_replace_boolean","observed_before_authorization_boolean"],"fields":{"path_id":"ENUM_KEY_OF:path_registry","required_kind":"ENUM:FILE|DIRECTORY","expected_presence":"ENUM:PRESENT|ABSENT","expected_bytes_or_null":"INTEGER_GE_1_OR_NULL","expected_sha256_or_null":"SHA256_OR_NULL","expected_volume_id_or_null":"STRING_NONEMPTY_OR_NULL","no_replace_boolean":"BOOLEAN_TRUE","observed_before_authorization_boolean":"BOOLEAN_TRUE"},"nullable_rules":"PRESENT FILE requires bytes, SHA-256 and volume; PRESENT DIRECTORY requires volume and null bytes/SHA; ABSENT requires all three value fields null. No field key may be omitted.","additional_fields":false},
+    "EXPECTED_ACTUAL_HASH_V3": {"field_order":["value_id","hash_domain","expected_sha256","actual_sha256","equal_boolean"],"fields":{"value_id":"STRING_NONEMPTY","hash_domain":"ENUM:RAW_BYTES|CANONICAL_JSON_EXCLUDING_ENVELOPE|DECODED_BINARY64_BYTES|INTERMEDIATE_CANONICAL_RECORD","expected_sha256":"SHA256","actual_sha256":"SHA256","equal_boolean":"BOOLEAN_TRUE"},"nullable":false,"additional_fields":false},
+    "BUNDLE_MEMBER_V3": {"field_order":["relative_path_within_bundle","role","bytes","sha256"],"fields":{"relative_path_within_bundle":"RELATIVE_PATH_NO_DOT_SEGMENT","role":"ENUM:ARTIFACT|SUCCESS_RECEIPT|SPENT_RECEIPT|FAILURE_RECEIPT|AUDIT_RECEIPT","bytes":"INTEGER_GE_1","sha256":"SHA256"},"nullable":false,"additional_fields":false},
+    "BUNDLE_MANIFEST_V3": {
+      "schema_id":"V6_ATOMIC_DIRECTORY_BUNDLE_MANIFEST_SCHEMA_V3",
+      "field_order":["schema_version","bundle_manifest_schema_id","bundle_id","release_id","invocation_id","terminal_state","member_entries_in_lexical_path_order","member_count","authority_class","bundle_manifest_payload_hash_envelope"],
+      "fields":{"schema_version":"ENUM:3.0.0","bundle_manifest_schema_id":"ENUM:V6_ATOMIC_DIRECTORY_BUNDLE_MANIFEST_SCHEMA_V3","bundle_id":"STAGE_AND_TERMINAL_SPECIFIC_LOOKUP:stage_receipt_and_bundle_ids","release_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.release_id","invocation_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.invocation_id","terminal_state":"ENUM:COMMITTED_SUCCESS|COMMITTED_FAILURE|COMMITTED_AUDIT_PASS|COMMITTED_AUDIT_FAIL","member_entries_in_lexical_path_order":"ARRAY_BUNDLE_MEMBER_V3_EXACT_FOR_STAGE_AND_TERMINAL","member_count":"INTEGER_EQ_ARRAY_LENGTH","authority_class":"ENUM:NONAUTHORITATIVE_LOCKFILE_CANDIDATE|NONAUTHORITATIVE_FAILURE_EVIDENCE|OFFICIAL_FIXTURE_CANDIDATE_PENDING_POSTRUN_AUDIT|INDEPENDENT_AUDIT_RECEIPT","bundle_manifest_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},
+      "nullability":"No field nullable.","additional_fields":false,"hash_domain":"All fields except bundle_manifest_payload_hash_envelope. Manifest never lists or hashes itself as a member."
+    },
+    "SPENT_RECEIPT_V3": {
+      "field_order":["schema_version","spent_schema_id","spent_receipt_id","stage_id","release_id","invocation_id","authorization_id","authorization_sha256","claim_rename_from","claim_rename_to","consumption_state","first_process_start_boolean","reuse_prohibited_boolean","access_attestation","spent_payload_hash_envelope"],
+      "fields":{"schema_version":"ENUM:3.0.0","spent_schema_id":"STAGE_SPECIFIC_LOOKUP:stage_receipt_and_bundle_ids.spent_schema_id","spent_receipt_id":"STAGE_SPECIFIC_LOOKUP:stage_receipt_and_bundle_ids.spent_receipt_id","stage_id":"ENUM:B_DERIVATION|B_LOCKFILE_VERIFIER|D_OFFICIAL_COMPILER|D_FIXTURE_VERIFIER","release_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.release_id","invocation_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.invocation_id","authorization_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.authorization_id","authorization_sha256":"SHA256","claim_rename_from":"STAGE_SPECIFIC_PATH_LOOKUP:stage_transactions.authorization_ready","claim_rename_to":"STAGE_SPECIFIC_PATH_LOOKUP:stage_transactions.authorization_claimed","consumption_state":"ENUM:CLAIMED_BEFORE_NUMERICAL_WORK","first_process_start_boolean":"BOOLEAN_TRUE","reuse_prohibited_boolean":"BOOLEAN_TRUE","access_attestation":"ACCESS_ATTESTATION_V3","spent_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},
+      "nullability":"No field nullable.","additional_fields":false,"hash_domain":"All fields except spent_payload_hash_envelope."
+    },
+    "SUCCESS_RECEIPT_V3": {
+      "field_order":["schema_version","success_schema_id","success_receipt_id","stage_id","release_id","invocation_id","authorization_id","authorization_sha256","spent_receipt_sha256","package_hash_ledger","dependency_manifest_binding","read_hash_ledger","write_member_ledger","case_or_check_verdicts","expected_actual_hash_ledger","artifact_relative_path","artifact_bytes","artifact_sha256","forbidden_access_boolean","scientific_execution_boolean","overall_status","success_payload_hash_envelope"],
+      "fields":{"schema_version":"ENUM:3.0.0","success_schema_id":"STAGE_SPECIFIC_LOOKUP:stage_receipt_and_bundle_ids.success_schema_id","success_receipt_id":"STAGE_SPECIFIC_LOOKUP:stage_receipt_and_bundle_ids.success_receipt_id","stage_id":"ENUM:B_DERIVATION|B_LOCKFILE_VERIFIER|D_OFFICIAL_COMPILER|D_FIXTURE_VERIFIER","release_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.release_id","invocation_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.invocation_id","authorization_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.authorization_id","authorization_sha256":"SHA256","spent_receipt_sha256":"SHA256","package_hash_ledger":"ARRAY_BINDING_V3_NONEMPTY_UNIQUE_PATH","dependency_manifest_binding":"BINDING_V3","read_hash_ledger":"ARRAY_BINDING_V3_NONEMPTY_UNIQUE_PATH","write_member_ledger":"ARRAY_BUNDLE_MEMBER_V3_EXACT_FOR_STAGE_SUCCESS","case_or_check_verdicts":"ARRAY_CHECK_RESULT_V3_NONEMPTY","expected_actual_hash_ledger":"ARRAY_EXPECTED_ACTUAL_HASH_V3","artifact_relative_path":"STAGE_SPECIFIC_LOOKUP:bundle_member_registry.success_relative_members[0]","artifact_bytes":"INTEGER_GE_1","artifact_sha256":"SHA256","forbidden_access_boolean":"BOOLEAN_FALSE","scientific_execution_boolean":"BOOLEAN_FALSE","overall_status":"ENUM:PASS_DATA_FREE_TRANSACTION","success_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},
+      "nullability":"No field nullable.","additional_fields":false,"hash_domain":"All fields except success_payload_hash_envelope; it includes the already-final spent receipt hash but never the bundle manifest hash."
+    },
+    "FAILURE_RECEIPT_V3": {
+      "field_order":["schema_version","failure_schema_id","failure_receipt_id","stage_id","release_id","invocation_id","authorization_id","authorization_sha256","spent_receipt_sha256","first_failure_code","first_failure_stage","first_failure_path_or_value_id_or_null","precommit_staging_state","quarantine_state","committed_success_absent_boolean","partial_artifact_sha256_or_null","forbidden_access_boolean","scientific_execution_boolean","overall_status","failure_payload_hash_envelope"],
+      "fields":{"schema_version":"ENUM:3.0.0","failure_schema_id":"STAGE_SPECIFIC_LOOKUP:stage_receipt_and_bundle_ids.failure_schema_id","failure_receipt_id":"STAGE_SPECIFIC_LOOKUP:stage_receipt_and_bundle_ids.failure_receipt_id","stage_id":"ENUM:B_DERIVATION|B_LOCKFILE_VERIFIER|D_OFFICIAL_COMPILER|D_FIXTURE_VERIFIER","release_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.release_id","invocation_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.invocation_id","authorization_id":"STAGE_SPECIFIC_LOOKUP:stage_authorization_ids.authorization_id","authorization_sha256":"SHA256","spent_receipt_sha256":"SHA256","first_failure_code":"STRING_GRAMMAR:^[A-Z0-9_-]+$","first_failure_stage":"STRING_NONEMPTY","first_failure_path_or_value_id_or_null":"STRING_OR_NULL","precommit_staging_state":"ENUM:NEVER_CREATED|QUARANTINED|ORPHAN_REQUIRES_ROOT_QUARANTINE","quarantine_state":"ENUM:NONE|EXACT_QUARANTINE_PATH_PRESENT|ROOT_CLOSEOUT_REQUIRED","committed_success_absent_boolean":"BOOLEAN_TRUE","partial_artifact_sha256_or_null":"SHA256_OR_NULL","forbidden_access_boolean":"BOOLEAN_FALSE","scientific_execution_boolean":"BOOLEAN_FALSE","overall_status":"ENUM:FAIL_CLOSED_SPENT","failure_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},
+      "nullability":"Only first_failure_path_or_value_id_or_null and partial_artifact_sha256_or_null nullable.","additional_fields":false,"hash_domain":"All fields except failure_payload_hash_envelope."
+    },
+    "AUTHORIZATION_COMMON_FIELDS": {
+      "field_order":["schema_version","authorization_schema_id","authorization_id","judge_role_id","stage_id","release_id","invocation_id","amendment_binding","parent_binding_ledger","package_binding_ledger","schema_binding_ledger","dependency_manifest_binding","static_audit_binding","input_freeze_bindings","role_assignment_ledger","read_path_ids","metadata_path_ids","runtime_dependency_expansion_id","write_path_ids","rename_pairs","required_prestate","exact_launcher_tokens","one_shot_boolean","no_science_authority","authorization_payload_hash_envelope"],
+      "field_types":{"schema_version":"ENUM:3.0.0","authorization_schema_id":"STAGE_SPECIFIC_ENUM","authorization_id":"STAGE_SPECIFIC_ENUM","judge_role_id":"ENUM:ROLE_ROOT_GOVERNANCE_JUDGE_V3","stage_id":"STAGE_SPECIFIC_ENUM","release_id":"STAGE_SPECIFIC_ENUM","invocation_id":"STAGE_SPECIFIC_ENUM","amendment_binding":"BINDING_V3","parent_binding_ledger":"ARRAY_BINDING_V3_NONEMPTY","package_binding_ledger":"ARRAY_BINDING_V3_NONEMPTY","schema_binding_ledger":"ARRAY_BINDING_V3_NONEMPTY","dependency_manifest_binding":"BINDING_V3","static_audit_binding":"BINDING_V3","input_freeze_bindings":"ARRAY_BINDING_V3_NONEMPTY","role_assignment_ledger":"ARRAY_ROLE_ASSIGNMENT_V3_COMPLETE","read_path_ids":"ARRAY_STRING_EXACT_ROLE_ALLOWLIST","metadata_path_ids":"ARRAY_STRING_EXACT_ROLE_ALLOWLIST","runtime_dependency_expansion_id":"ENUM:DEPENDENCY_MANIFEST_FILE_ENTRIES_ONLY","write_path_ids":"ARRAY_STRING_EXACT_ROLE_ALLOWLIST","rename_pairs":"ARRAY_RENAME_PAIR_V3","required_prestate":"ARRAY_PRESTATE_ASSERTION_V3_NONEMPTY","exact_launcher_tokens":"ARRAY_STRING_NONEMPTY_EXACT_ORDER","one_shot_boolean":"BOOLEAN_TRUE","no_science_authority":"BOOLEAN_TRUE","authorization_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},
+      "nullability":"No field nullable.","additional_fields":false,"hash_domain":"All fields except authorization_payload_hash_envelope."
+    },
+    "stage_authorization_ids": {
+      "B_DERIVATION":{"authorization_schema_id":"V6_DERIVATION_AUTHORIZATION_SCHEMA_V3","authorization_id":"V6_DERIVATION_AUTHORIZATION_001","release_id":"V6_LOCKFILE_DERIVATION_RELEASE_V3","invocation_id":"V6_LOCKFILE_DERIVATION_INVOCATION_001"},
+      "B_LOCKFILE_VERIFIER":{"authorization_schema_id":"V6_LOCKFILE_VERIFIER_AUTHORIZATION_SCHEMA_V3","authorization_id":"V6_LOCKFILE_VERIFIER_AUTHORIZATION_001","release_id":"V6_LOCKFILE_VERIFIER_RELEASE_V3","invocation_id":"V6_LOCKFILE_VERIFIER_INVOCATION_001"},
+      "D_OFFICIAL_COMPILER":{"authorization_schema_id":"V6_OFFICIAL_COMPILER_AUTHORIZATION_SCHEMA_V3","authorization_id":"V6_OFFICIAL_COMPILER_AUTHORIZATION_001","release_id":"V6_OFFICIAL_FIXTURE_COMPILER_RELEASE_V3","invocation_id":"V6_OFFICIAL_FIXTURE_COMPILER_INVOCATION_001"},
+      "D_FIXTURE_VERIFIER":{"authorization_schema_id":"V6_FIXTURE_VERIFIER_AUTHORIZATION_SCHEMA_V3","authorization_id":"V6_FIXTURE_VERIFIER_AUTHORIZATION_001","release_id":"V6_FIXTURE_VERIFIER_RELEASE_V3","invocation_id":"V6_FIXTURE_VERIFIER_INVOCATION_001"}
+    },
+    "authorization_stage_resolution_rule": "For a record whose stage_id is S, every STAGE_SPECIFIC lookup equals the value under stage_authorization_ids[S], stage_receipt_and_bundle_ids[S], stage_transactions[S], and the runner role's frozen allowlists. Mixing values across rows or accepting an unregistered ID is FAIL_BLOCKING.",
+    "stage_receipt_and_bundle_ids": {
+      "B_DERIVATION":{"spent_schema_id":"V6_DERIVATION_SPENT_SCHEMA_V3","spent_receipt_id":"V6_DERIVATION_SPENT_001","success_schema_id":"V6_DERIVATION_SUCCESS_SCHEMA_V3","success_receipt_id":"V6_DERIVATION_SUCCESS_001","failure_schema_id":"V6_DERIVATION_FAILURE_SCHEMA_V3","failure_receipt_id":"V6_DERIVATION_FAILURE_001","success_bundle_id":"V6_LOCKFILE_DERIVATION_INVOCATION_001_COMMITTED","failure_bundle_id":"V6_LOCKFILE_DERIVATION_INVOCATION_001_FAILED"},
+      "B_LOCKFILE_VERIFIER":{"spent_schema_id":"V6_LOCKFILE_VERIFIER_SPENT_SCHEMA_V3","spent_receipt_id":"V6_LOCKFILE_VERIFIER_SPENT_001","success_schema_id":"V6_LOCKFILE_VERIFIER_SUCCESS_SCHEMA_V3","success_receipt_id":"V6_LOCKFILE_VERIFIER_SUCCESS_001","failure_schema_id":"V6_LOCKFILE_VERIFIER_FAILURE_SCHEMA_V3","failure_receipt_id":"V6_LOCKFILE_VERIFIER_FAILURE_001","success_bundle_id":"V6_LOCKFILE_VERIFIER_INVOCATION_001_COMMITTED","failure_bundle_id":"V6_LOCKFILE_VERIFIER_INVOCATION_001_FAILED"},
+      "D_OFFICIAL_COMPILER":{"spent_schema_id":"V6_OFFICIAL_COMPILER_SPENT_SCHEMA_V3","spent_receipt_id":"V6_OFFICIAL_COMPILER_SPENT_001","success_schema_id":"V6_OFFICIAL_COMPILER_SUCCESS_SCHEMA_V3","success_receipt_id":"V6_OFFICIAL_COMPILER_SUCCESS_001","failure_schema_id":"V6_OFFICIAL_COMPILER_FAILURE_SCHEMA_V3","failure_receipt_id":"V6_OFFICIAL_COMPILER_FAILURE_001","success_bundle_id":"V6_OFFICIAL_FIXTURE_COMPILER_INVOCATION_001_COMMITTED","failure_bundle_id":"V6_OFFICIAL_FIXTURE_COMPILER_INVOCATION_001_FAILED"},
+      "D_FIXTURE_VERIFIER":{"spent_schema_id":"V6_FIXTURE_VERIFIER_SPENT_SCHEMA_V3","spent_receipt_id":"V6_FIXTURE_VERIFIER_SPENT_001","success_schema_id":"V6_FIXTURE_VERIFIER_SUCCESS_SCHEMA_V3","success_receipt_id":"V6_FIXTURE_VERIFIER_SUCCESS_001","failure_schema_id":"V6_FIXTURE_VERIFIER_FAILURE_SCHEMA_V3","failure_receipt_id":"V6_FIXTURE_VERIFIER_FAILURE_001","success_bundle_id":"V6_FIXTURE_VERIFIER_INVOCATION_001_COMMITTED","failure_bundle_id":"V6_FIXTURE_VERIFIER_INVOCATION_001_FAILED"}
+    },
+    "static_audit_ids": {
+      "LITERAL":{"audit_schema_id":"V6_LITERAL_BUNDLE_STATIC_AUDIT_SCHEMA_V3","audit_id":"V6_LITERAL_BUNDLE_STATIC_AUDIT_V3","auditor_role_id":"ROLE_LITERAL_AUDITOR_V3"},
+      "B_DERIVATION_PACKAGE":{"audit_schema_id":"V6_DERIVATION_PACKAGE_STATIC_AUDIT_SCHEMA_V3","audit_id":"V6_DERIVATION_PACKAGE_STATIC_AUDIT_V3","auditor_role_id":"ROLE_DERIVATION_STATIC_AUDITOR_V3"},
+      "B_LOCKFILE_VERIFIER_PACKAGE":{"audit_schema_id":"V6_LOCKFILE_VERIFIER_PACKAGE_STATIC_AUDIT_SCHEMA_V3","audit_id":"V6_LOCKFILE_VERIFIER_PACKAGE_STATIC_AUDIT_V3","auditor_role_id":"ROLE_LOCKFILE_VERIFIER_STATIC_AUDITOR_V3"},
+      "C_OFFICIAL_COMPILER_PACKAGE":{"audit_schema_id":"V6_OFFICIAL_COMPILER_PACKAGE_STATIC_AUDIT_SCHEMA_V3","audit_id":"V6_OFFICIAL_COMPILER_PACKAGE_STATIC_AUDIT_V3","auditor_role_id":"ROLE_OFFICIAL_STATIC_AUDITOR_V3"},
+      "D_FIXTURE_VERIFIER_PACKAGE":{"audit_schema_id":"V6_FIXTURE_VERIFIER_PACKAGE_STATIC_AUDIT_SCHEMA_V3","audit_id":"V6_FIXTURE_VERIFIER_PACKAGE_STATIC_AUDIT_V3","auditor_role_id":"ROLE_FIXTURE_VERIFIER_STATIC_AUDITOR_V3"}
+    },
+    "STATIC_AUDIT_SCHEMA_V3": {"field_order":["schema_version","audit_schema_id","audit_id","auditor_role_id","amendment_binding","scope_bindings","dependency_manifest_binding","checks_in_exact_order","access_attestation","blocking_findings","unresolved_findings","verdict","audit_payload_hash_envelope"],"fields":{"schema_version":"ENUM:3.0.0","audit_schema_id":"EXACT_LOOKUP:static_audit_ids.audit_schema_id","audit_id":"EXACT_LOOKUP:static_audit_ids.audit_id","auditor_role_id":"EXACT_MATCHING_LOOKUP:static_audit_ids.auditor_role_id","amendment_binding":"BINDING_V3","scope_bindings":"ARRAY_BINDING_V3_NONEMPTY","dependency_manifest_binding":"BINDING_V3","checks_in_exact_order":"ARRAY_CHECK_RESULT_V3_NONEMPTY","access_attestation":"ACCESS_ATTESTATION_V3","blocking_findings":"ARRAY_FINDING_V3","unresolved_findings":"ARRAY_FINDING_V3","verdict":"ENUM:PASS_ZERO_BLOCKING_ZERO_UNRESOLVED|FAIL_BLOCKING","audit_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},"nullability":"No field nullable; empty finding arrays allowed.","additional_fields":false,"hash_domain":"All fields except audit_payload_hash_envelope."},
+    "RESULT_AUDIT_RECEIPT_V3": {"field_order":["schema_version","result_audit_schema_id","result_audit_id","auditor_role_id","amendment_binding","subject_artifact_binding","subject_bundle_manifest_binding","subject_success_binding","subject_spent_binding","verifier_package_bindings","verifier_dependency_manifest_binding","verifier_static_audit_binding","authorization_binding","verifier_spent_binding","recomputation_checks_in_exact_order","expected_actual_hash_ledger","access_attestation","blocking_findings","unresolved_findings","verdict","result_audit_payload_hash_envelope"],"fields":{"schema_version":"ENUM:3.0.0","result_audit_schema_id":"ENUM:V6_LOCKFILE_RESULT_AUDIT_SCHEMA_V3|V6_OFFICIAL_FIXTURE_POSTRUN_AUDIT_SCHEMA_V3","result_audit_id":"ENUM:V6_LOCKFILE_RESULT_AUDIT_V3|V6_OFFICIAL_FIXTURE_POSTRUN_AUDIT_V3","auditor_role_id":"ENUM:ROLE_LOCKFILE_VERIFIER_RUNNER_V3|ROLE_FIXTURE_VERIFIER_RUNNER_V3","amendment_binding":"BINDING_V3","subject_artifact_binding":"BINDING_V3","subject_bundle_manifest_binding":"BINDING_V3","subject_success_binding":"BINDING_V3","subject_spent_binding":"BINDING_V3","verifier_package_bindings":"ARRAY_BINDING_V3_NONEMPTY","verifier_dependency_manifest_binding":"BINDING_V3","verifier_static_audit_binding":"BINDING_V3","authorization_binding":"BINDING_V3","verifier_spent_binding":"BINDING_V3","recomputation_checks_in_exact_order":"ARRAY_CHECK_RESULT_V3_NONEMPTY","expected_actual_hash_ledger":"ARRAY_EXPECTED_ACTUAL_HASH_V3_NONEMPTY","access_attestation":"ACCESS_ATTESTATION_V3","blocking_findings":"ARRAY_FINDING_V3","unresolved_findings":"ARRAY_FINDING_V3","verdict":"ENUM:PASS_ZERO_BLOCKING_ZERO_UNRESOLVED|FAIL_BLOCKING","result_audit_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},"pairing_rule":"LOCKFILE fields must pair only with ROLE_LOCKFILE_VERIFIER_RUNNER_V3; OFFICIAL_FIXTURE fields must pair only with ROLE_FIXTURE_VERIFIER_RUNNER_V3.","nullability":"No field nullable; empty finding arrays allowed.","additional_fields":false,"hash_domain":"All fields except result_audit_payload_hash_envelope."},
+    "ROOT_FREEZE_SCHEMA_V3": {"field_order":["schema_version","freeze_schema_id","freeze_id","judge_role_id","amendment_binding","artifact_binding","producer_bundle_manifest_binding","producer_success_binding","producer_spent_binding","independent_audit_binding","role_assignment_freeze_binding","eligibility_scope","prohibited_uses","verdict","freeze_payload_hash_envelope"],"fields":{"schema_version":"ENUM:3.0.0","freeze_schema_id":"ENUM:V6_DERIVED_LOCKFILE_FREEZE_SCHEMA_V3|V6_LITERAL_BUNDLE_FREEZE_SCHEMA_V3|V6_OFFICIAL_FIXTURE_RESULT_ACCEPTANCE_SCHEMA_V3","freeze_id":"ENUM:V6_DERIVED_LOCKFILE_FREEZE_V3|V6_LITERAL_BUNDLE_FREEZE_V3|V6_OFFICIAL_FIXTURE_RESULT_ACCEPTANCE_V3","judge_role_id":"ENUM:ROLE_ROOT_GOVERNANCE_JUDGE_V3|ROLE_LITERAL_FREEZE_JUDGE_V3|ROLE_LOCKFILE_RESULT_JUDGE_V3|ROLE_OFFICIAL_RESULT_JUDGE_V3","amendment_binding":"BINDING_V3","artifact_binding":"BINDING_V3","producer_bundle_manifest_binding":"BINDING_V3_OR_NULL","producer_success_binding":"BINDING_V3_OR_NULL","producer_spent_binding":"BINDING_V3_OR_NULL","independent_audit_binding":"BINDING_V3","role_assignment_freeze_binding":"BINDING_V3","eligibility_scope":"ENUM:STAGE_B_INPUT_ONLY|OFFICIAL_COMPILER_EXPECTED_VALUE_INPUT_ONLY|CANDIDATE_V6_ASSEMBLY_PROPOSAL_ONLY","prohibited_uses":"ARRAY_STRING_EXACT:NO_SCIENCE_NO_CLAIM_NO_MUTATION","verdict":"ENUM:FROZEN_AFTER_INDEPENDENT_PASS|ACCEPTED_FOR_PROPOSAL_ONLY|REJECTED","freeze_payload_hash_envelope":"HASH_ENVELOPE_V3_EXCLUDE_SELF"},"pairing_rule":"Literal freeze uses ROLE_LITERAL_FREEZE_JUDGE_V3 and null producer bindings; lockfile freeze uses ROLE_LOCKFILE_RESULT_JUDGE_V3 with all producer bindings and OFFICIAL_COMPILER_EXPECTED_VALUE_INPUT_ONLY; official result acceptance uses ROLE_OFFICIAL_RESULT_JUDGE_V3 with all producer bindings and CANDIDATE_V6_ASSEMBLY_PROPOSAL_ONLY. Any other tuple is invalid.","nullability":"Only the three producer bindings are nullable and only for literal freeze; no field key may be omitted.","additional_fields":false,"hash_domain":"All fields except freeze_payload_hash_envelope."}
+  },
+  "atomic_directory_bundle_protocol": {
+    "protocol_id": "SAME_VOLUME_ATOMIC_DIRECTORY_BUNDLE_V3",
+    "bundle_member_registry": {
+      "B_DERIVATION":{"success_relative_members":["artifact/v6_rescale_event_veto_lockfile_v3.json","receipts/spent.json","receipts/success.json","bundle_manifest.json"],"failure_relative_members":["receipts/spent.json","receipts/failure.json","bundle_manifest.json"]},
+      "B_LOCKFILE_VERIFIER":{"success_relative_members":["artifact/lockfile_result_audit.json","receipts/spent.json","receipts/success.json","bundle_manifest.json"],"failure_relative_members":["receipts/spent.json","receipts/failure.json","bundle_manifest.json"]},
+      "D_OFFICIAL_COMPILER":{"success_relative_members":["artifact/rescale_event_veto_fixture_v6.json","receipts/spent.json","receipts/success.json","bundle_manifest.json"],"failure_relative_members":["receipts/spent.json","receipts/failure.json","bundle_manifest.json"]},
+      "D_FIXTURE_VERIFIER":{"success_relative_members":["artifact/official_fixture_postrun_audit.json","receipts/spent.json","receipts/success.json","bundle_manifest.json"],"failure_relative_members":["receipts/spent.json","receipts/failure.json","bundle_manifest.json"]}
+    },
+    "member_resolution_rule": "The transaction's stage_id selects exactly one registry row. The runner may create only those relative member paths beneath its registered staging root, in the listed construction order except that bundle_manifest.json is always last. No other child, alternate name, temporary file, sidecar, stream or subdirectory is permitted. The manifest lists the first three success members or first two failure members in lexical relative-path order and excludes itself.",
+    "prestate": [
+      "Authorization READY directory exists with exactly authorization.json at its frozen hash; CLAIMED directory is absent.",
+      "Commit staging, committed, failed staging, failed and quarantine directories are all absent.",
+      "Every package/input/dependency path exists at its frozen type, bytes, hash, volume and file identity; no unregistered sibling state is inspected."
+    ],
+    "claim": "The launcher performs the first and only pre-computation mutation: same-volume atomic no-replace rename of AUTHORIZATION.READY to AUTHORIZATION.CLAIMED. Failure or interruption after process creation treats the authorization as spent even if rename fails; Root must issue incident closeout and a new versioned invocation before any retry.",
+    "success_construction": [
+      "Exclusively create commit staging directory and only its registered subdirectories/files.",
+      "Write artifact, spent receipt, success receipt and bundle manifest in that order; each file uses exclusive create, flush, OS durable flush, close, reopen by stable handle, deep schema validation and SHA-256 verification.",
+      "The spent receipt has no success/manifest dependency. The success receipt binds artifact and spent hashes but not manifest. The manifest binds artifact, spent and success member hashes and excludes only its own envelope, so no hash cycle exists.",
+      "Close every handle and durably flush the staging directory and its parent. Recheck committed, failed and quarantine absent.",
+      "Atomically rename the complete staging directory to committed directory on the same volume with no replacement. No file is written after that rename. Artifact, success and spent therefore become visible together or not at all."
+    ],
+    "clean_failure_construction": [
+      "If commit staging was never created, exclusively create failed staging and write spent, failure and manifest; validate and atomically rename the complete directory to failed.",
+      "If commit staging exists and failure occurs before committed rename, atomically rename it to the exact quarantine directory without modifying its bytes, then build and atomically publish the failed bundle. Quarantine content has zero authority regardless of names within it.",
+      "If a process interruption prevents quarantine or failed-bundle publication, CLAIMED plus any staging directory is the explicit INTERRUPTED_SPENT state; it has zero authority and requires Root incident closeout."
+    ],
+    "terminal_states": {
+      "AUTHORIZED_NOT_STARTED":{"ready":true,"claimed":false,"committed":false,"failed":false,"staging":false,"quarantine":false,"authority":"NONE"},
+      "COMMITTED_SUCCESS":{"ready":false,"claimed":true,"committed":true,"failed":false,"staging":false,"quarantine":false,"authority":"PENDING_INDEPENDENT_AUDIT"},
+      "COMMITTED_FAILURE":{"ready":false,"claimed":true,"committed":false,"failed":true,"staging":false,"quarantine":"false_or_true","authority":"NONE"},
+      "INTERRUPTED_SPENT":{"ready":false,"claimed":true,"committed":false,"failed":false,"staging":"false_or_true","quarantine":"false_or_true","authority":"NONE_ROOT_INCIDENT_CLOSEOUT_REQUIRED"},
+      "ILLEGAL_SPLIT_STATE":{"rule":"Any other combination, including committed plus failed, ready plus claimed, or committed plus staging/quarantine, is FAIL_BLOCKING with no artifact authority."}
+    },
+    "quarantine_rules": [
+      "Only the exact registered commit staging directory may be renamed to the exact registered quarantine directory; no deletion, overwrite, merge, mutation or reuse is allowed.",
+      "The operator may perform that rename only during its live failure handler. After interruption, only ROLE_ROOT_GOVERNANCE_JUDGE_V3 under a separately hashed incident authorization may perform the same exact rename.",
+      "Quarantine is immutable incident evidence, is excluded from every later input allowlist, and cannot supply a value, hash, receipt or recovery source.",
+      "A new attempt requires a new release ID, invocation ID, READY/CLAIMED paths, staging/terminal/quarantine paths, static audit and Root authorization; no existing path is cleaned or recycled."
+    ],
+    "no_delete_rule": "Every role delete allowlist is empty. Failure containment uses exact rename to quarantine, never deletion.",
+    "post_commit_rule": "Receipt failure after final publication is impossible because success and spent are already closed members of the atomically published directory. A committed directory is never altered."
+  },
+  "stage_transactions": {
+    "B_DERIVATION": {"release_id":"V6_LOCKFILE_DERIVATION_RELEASE_V3","invocation_id":"V6_LOCKFILE_DERIVATION_INVOCATION_001","authorization_ready":"b_auth_ready_dir","authorization_ready_file":"b_auth_ready_file","authorization_claimed":"b_auth_claimed_dir","authorization_claimed_file":"b_auth_claimed_file","commit_staging":"b_commit_staging_dir","committed":"b_committed_dir","failed_staging":"b_failed_staging_dir","failed":"b_failed_dir","quarantine":"b_quarantine_dir","success_artifact":"b_committed_lockfile","success_receipt":"b_committed_success","spent_receipt":"b_committed_spent","success_manifest":"b_committed_manifest","failure_receipt":"b_failed_receipt","failure_spent":"b_failed_spent","failure_manifest":"b_failed_manifest","artifact_authority":"NONAUTHORITATIVE_EXPECTED_VALUE_CANDIDATE_PENDING_VERIFIER_AND_ROOT_FREEZE"},
+    "B_LOCKFILE_VERIFIER": {"release_id":"V6_LOCKFILE_VERIFIER_RELEASE_V3","invocation_id":"V6_LOCKFILE_VERIFIER_INVOCATION_001","authorization_ready":"b_verifier_auth_ready_dir","authorization_ready_file":"b_verifier_auth_ready_file","authorization_claimed":"b_verifier_auth_claimed_dir","authorization_claimed_file":"b_verifier_auth_claimed_file","commit_staging":"b_verifier_commit_staging_dir","committed":"b_verifier_committed_dir","failed_staging":"b_verifier_failed_staging_dir","failed":"b_verifier_failed_dir","quarantine":"b_verifier_quarantine_dir","success_artifact":"b_result_audit","success_receipt":"b_verifier_committed_success","spent_receipt":"b_verifier_committed_spent","success_manifest":"b_verifier_committed_manifest","failure_receipt":"b_verifier_failed_receipt","failure_spent":"b_verifier_failed_spent","failure_manifest":"b_verifier_failed_manifest","artifact_authority":"INDEPENDENT_AUDIT_ONLY"},
+    "D_OFFICIAL_COMPILER": {"release_id":"V6_OFFICIAL_FIXTURE_COMPILER_RELEASE_V3","invocation_id":"V6_OFFICIAL_FIXTURE_COMPILER_INVOCATION_001","authorization_ready":"d_auth_ready_dir","authorization_ready_file":"d_auth_ready_file","authorization_claimed":"d_auth_claimed_dir","authorization_claimed_file":"d_auth_claimed_file","commit_staging":"d_commit_staging_dir","committed":"d_committed_dir","failed_staging":"d_failed_staging_dir","failed":"d_failed_dir","quarantine":"d_quarantine_dir","success_artifact":"d_committed_fixture","success_receipt":"d_committed_success","spent_receipt":"d_committed_spent","success_manifest":"d_committed_manifest","failure_receipt":"d_failed_receipt","failure_spent":"d_failed_spent","failure_manifest":"d_failed_manifest","artifact_authority":"OFFICIAL_FIXTURE_CANDIDATE_PENDING_POSTRUN_AUDIT"},
+    "D_FIXTURE_VERIFIER": {"release_id":"V6_FIXTURE_VERIFIER_RELEASE_V3","invocation_id":"V6_FIXTURE_VERIFIER_INVOCATION_001","authorization_ready":"d_verifier_auth_ready_dir","authorization_ready_file":"d_verifier_auth_ready_file","authorization_claimed":"d_verifier_auth_claimed_dir","authorization_claimed_file":"d_verifier_auth_claimed_file","commit_staging":"d_verifier_commit_staging_dir","committed":"d_verifier_committed_dir","failed_staging":"d_verifier_failed_staging_dir","failed":"d_verifier_failed_dir","quarantine":"d_verifier_quarantine_dir","success_artifact":"d_postrun_audit","success_receipt":"d_verifier_committed_success","spent_receipt":"d_verifier_committed_spent","success_manifest":"d_verifier_committed_manifest","failure_receipt":"d_verifier_failed_receipt","failure_spent":"d_verifier_failed_spent","failure_manifest":"d_verifier_failed_manifest","artifact_authority":"INDEPENDENT_AUDIT_ONLY"}
+  },
+  "role_independence": {
+    "role_ids": ["ROLE_LITERAL_AUTHOR_V3","ROLE_LITERAL_AUDITOR_V3","ROLE_LITERAL_FREEZE_JUDGE_V3","ROLE_DERIVATION_PACKAGE_AUTHOR_V3","ROLE_DERIVATION_STATIC_AUDITOR_V3","ROLE_DERIVATION_RUNNER_V3","ROLE_LOCKFILE_VERIFIER_AUTHOR_V3","ROLE_LOCKFILE_VERIFIER_STATIC_AUDITOR_V3","ROLE_LOCKFILE_VERIFIER_RUNNER_V3","ROLE_LOCKFILE_RESULT_JUDGE_V3","ROLE_OFFICIAL_COMPILER_AUTHOR_V3","ROLE_OFFICIAL_STATIC_AUDITOR_V3","ROLE_OFFICIAL_RUNNER_V3","ROLE_FIXTURE_VERIFIER_AUTHOR_V3","ROLE_FIXTURE_VERIFIER_STATIC_AUDITOR_V3","ROLE_FIXTURE_VERIFIER_RUNNER_V3","ROLE_OFFICIAL_RESULT_JUDGE_V3","ROLE_ROOT_GOVERNANCE_JUDGE_V3"],
+    "role_class_by_role_id": {"ROLE_LITERAL_AUTHOR_V3":"AUTHOR","ROLE_LITERAL_AUDITOR_V3":"STATIC_AUDITOR","ROLE_LITERAL_FREEZE_JUDGE_V3":"JUDGE","ROLE_DERIVATION_PACKAGE_AUTHOR_V3":"AUTHOR","ROLE_DERIVATION_STATIC_AUDITOR_V3":"STATIC_AUDITOR","ROLE_DERIVATION_RUNNER_V3":"RUNNER","ROLE_LOCKFILE_VERIFIER_AUTHOR_V3":"AUTHOR","ROLE_LOCKFILE_VERIFIER_STATIC_AUDITOR_V3":"STATIC_AUDITOR","ROLE_LOCKFILE_VERIFIER_RUNNER_V3":"RUNNER","ROLE_LOCKFILE_RESULT_JUDGE_V3":"JUDGE","ROLE_OFFICIAL_COMPILER_AUTHOR_V3":"AUTHOR","ROLE_OFFICIAL_STATIC_AUDITOR_V3":"STATIC_AUDITOR","ROLE_OFFICIAL_RUNNER_V3":"RUNNER","ROLE_FIXTURE_VERIFIER_AUTHOR_V3":"AUTHOR","ROLE_FIXTURE_VERIFIER_STATIC_AUDITOR_V3":"STATIC_AUDITOR","ROLE_FIXTURE_VERIFIER_RUNNER_V3":"RUNNER","ROLE_OFFICIAL_RESULT_JUDGE_V3":"JUDGE","ROLE_ROOT_GOVERNANCE_JUDGE_V3":"JUDGE"},
+    "identity_rule": "All 18 stable role IDs must bind 18 pairwise-distinct actor identities before Stage A. No actor, session, agent identity, process principal or delegated operator may occupy two roles. Root governance coordination does not waive separation.",
+    "cross_stage_minimums": [
+      "ROLE_DERIVATION_PACKAGE_AUTHOR_V3 != ROLE_OFFICIAL_COMPILER_AUTHOR_V3",
+      "ROLE_DERIVATION_STATIC_AUDITOR_V3 != ROLE_OFFICIAL_STATIC_AUDITOR_V3",
+      "ROLE_DERIVATION_RUNNER_V3 != ROLE_OFFICIAL_RUNNER_V3",
+      "Every lockfile-verifier role is distinct from every derivation and official role.",
+      "Every fixture-verifier role is distinct from every derivation, lockfile-verifier and official role.",
+      "Every judge is distinct from every author, runner and auditor whose bytes or verdict it accepts."
+    ],
+    "implementation_independence": "The derivation, lockfile verifier, official compiler and fixture verifier have distinct authors, runners, auditors, source paths, source hashes and implementation_provenance_id values; none imports, invokes, copies, templates, generates from, or runtime-reads another source/package. Static audits compare control-flow, formulas, constants and lockfile access and reject common-source derivation, lockfile-special-casing or byte-identical logic. Shared literal bytes and immutable V1/V3 schema IDs are the only permitted common inputs.",
+    "role_freeze": "The exact role_assignment_freeze artifact conforms to ROLE_ASSIGNMENT_FREEZE_V3, contains all 18 assignments in role_ids order and all 153 unordered pair rows, and is frozen by ROLE_ROOT_GOVERNANCE_JUDGE_V3 before Stage A. Every actor_id, public_attestation_id, authoring session, runner process principal and delegation chain is pairwise distinct as required by each row. No assignment changes after any literal/result byte is visible; replacement requires V4 governance and restarts all stages.",
+    "conflict_rule": "An author cannot audit, run or judge any stage; a runner cannot author or audit its package or judge its result; a package static auditor cannot author/run the package or judge its result; a result verifier author/static auditor/runner cannot overlap the producer author/auditor/runner or accepting judge; Root cannot occupy any other role. Any direct, delegated, session, process-principal or common-implementation provenance overlap is FAIL_BLOCKING."
+  },
+  "role_access_matrix": {
+    "common_governance_reads": ["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file"],
+    "ROLE_LITERAL_AUTHOR_V3": {"mode":"STATIC_AUTHORING_NO_EXECUTION","read_path_ids":["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file"],"metadata_path_ids":[],"write_path_ids":["literal_schema_file","literal_bundle"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":null},
+    "ROLE_LITERAL_AUDITOR_V3": {"mode":"STATIC_HASH_AND_SCHEMA_VALIDATION_ONLY","read_path_ids":["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file","literal_schema_file","literal_bundle","literal_audit_schema_file","static_tool_dependency_manifest"],"metadata_path_ids":[],"write_path_ids":["literal_audit"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"},
+    "ROLE_LITERAL_FREEZE_JUDGE_V3": {"mode":"GOVERNANCE_JUDGMENT_NO_NUMERICAL_EXECUTION","read_path_ids":["v3","literal_schema_file","literal_bundle","literal_audit_schema_file","literal_audit","literal_freeze_schema_file"],"metadata_path_ids":[],"write_path_ids":["literal_freeze"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"},
+    "ROLE_DERIVATION_PACKAGE_AUTHOR_V3": {"mode":"STATIC_AUTHORING_NO_EXECUTION","read_path_ids":["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file","literal_schema_file","literal_bundle","literal_audit","literal_freeze"],"metadata_path_ids":[],"write_path_ids":["b_spec","b_source","b_manifest","b_lockfile_schema","b_dependency_manifest","b_launcher"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":null},
+    "ROLE_DERIVATION_STATIC_AUDITOR_V3": {"mode":"STATIC_AUDIT_NO_DERIVATION_EXECUTION","read_path_ids":["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file","literal_schema_file","literal_bundle","literal_audit","literal_freeze","b_spec","b_source","b_manifest","b_lockfile_schema","b_dependency_manifest","b_launcher","static_tool_dependency_manifest"],"metadata_path_ids":["b_auth_ready_dir","b_auth_claimed_dir","b_commit_staging_dir","b_committed_dir","b_failed_staging_dir","b_failed_dir","b_quarantine_dir"],"write_path_ids":["b_static_audit"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"},
+    "ROLE_DERIVATION_RUNNER_V3": {"mode":"ONE_SHOT_DATA_FREE_EXECUTION","read_path_ids":["v1","v3","shared_schema_file","literal_schema_file","literal_bundle","literal_audit","literal_freeze","b_spec","b_source","b_manifest","b_lockfile_schema","b_dependency_manifest","b_launcher","b_static_audit","b_auth_ready_file"],"read_after_write_path_ids":["b_commit_staging_dir","b_failed_staging_dir"],"metadata_path_ids":["b_auth_ready_dir","b_auth_claimed_dir","b_commit_staging_dir","b_committed_dir","b_failed_staging_dir","b_failed_dir","b_quarantine_dir"],"write_path_ids":["b_commit_staging_dir","b_failed_staging_dir"],"rename_pairs":[["b_auth_ready_dir","b_auth_claimed_dir"],["b_commit_staging_dir","b_committed_dir"],["b_commit_staging_dir","b_quarantine_dir"],["b_failed_staging_dir","b_failed_dir"]],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"b_dependency_manifest"},
+    "ROLE_LOCKFILE_VERIFIER_AUTHOR_V3": {"mode":"STATIC_INDEPENDENT_AUTHORING_NO_EXECUTION","read_path_ids":["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file","literal_bundle","literal_freeze","b_lockfile_schema"],"metadata_path_ids":[],"write_path_ids":["b_verifier_spec","b_verifier_source","b_verifier_manifest","b_verifier_schema","b_verifier_dependency_manifest","b_verifier_launcher"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":null},
+    "ROLE_LOCKFILE_VERIFIER_STATIC_AUDITOR_V3": {"mode":"STATIC_AUDIT_NO_VERIFIER_EXECUTION","read_path_ids":["v1","v3","shared_schema_file","b_verifier_spec","b_verifier_source","b_verifier_manifest","b_verifier_schema","b_verifier_dependency_manifest","b_verifier_launcher","static_tool_dependency_manifest"],"metadata_path_ids":["b_verifier_auth_ready_dir","b_verifier_auth_claimed_dir","b_verifier_commit_staging_dir","b_verifier_committed_dir","b_verifier_failed_staging_dir","b_verifier_failed_dir","b_verifier_quarantine_dir"],"write_path_ids":["b_verifier_static_audit"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"},
+    "ROLE_LOCKFILE_VERIFIER_RUNNER_V3": {"mode":"ONE_SHOT_INDEPENDENT_DATA_FREE_RECOMPUTATION","read_path_ids":["v1","v3","shared_schema_file","literal_bundle","literal_audit","literal_freeze","b_lockfile_schema","b_committed_lockfile","b_committed_success","b_committed_spent","b_committed_manifest","b_verifier_spec","b_verifier_source","b_verifier_manifest","b_verifier_schema","b_verifier_dependency_manifest","b_verifier_launcher","b_verifier_static_audit"],"read_after_write_path_ids":["b_verifier_commit_staging_dir","b_verifier_failed_staging_dir"],"metadata_path_ids":["b_verifier_auth_ready_dir","b_verifier_auth_claimed_dir","b_verifier_commit_staging_dir","b_verifier_committed_dir","b_verifier_failed_staging_dir","b_verifier_failed_dir","b_verifier_quarantine_dir"],"write_path_ids":["b_verifier_commit_staging_dir","b_verifier_failed_staging_dir"],"rename_pairs":[["b_verifier_auth_ready_dir","b_verifier_auth_claimed_dir"],["b_verifier_commit_staging_dir","b_verifier_committed_dir"],["b_verifier_commit_staging_dir","b_verifier_quarantine_dir"],["b_verifier_failed_staging_dir","b_verifier_failed_dir"]],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"b_verifier_dependency_manifest"},
+    "ROLE_LOCKFILE_RESULT_JUDGE_V3": {"mode":"GOVERNANCE_JUDGMENT_NO_NUMERICAL_EXECUTION","read_path_ids":["v3","literal_bundle","literal_audit","literal_freeze","b_committed_lockfile","b_committed_success","b_committed_spent","b_committed_manifest","b_result_audit","b_verifier_static_audit","static_tool_dependency_manifest"],"metadata_path_ids":[],"write_path_ids":["b_lockfile_freeze"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"},
+    "ROLE_OFFICIAL_COMPILER_AUTHOR_V3": {"mode":"STATIC_INDEPENDENT_AUTHORING_NO_EXECUTION","read_path_ids":["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file","literal_bundle","literal_freeze","b_committed_lockfile","b_result_audit","b_lockfile_freeze"],"metadata_path_ids":[],"write_path_ids":["c_spec","c_source","c_manifest","c_schema","c_dependency_manifest","c_launcher"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":null},
+    "ROLE_OFFICIAL_STATIC_AUDITOR_V3": {"mode":"STATIC_AUDIT_NO_COMPILER_EXECUTION","read_path_ids":["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file","literal_bundle","literal_freeze","b_committed_lockfile","b_result_audit","b_lockfile_freeze","c_spec","c_source","c_manifest","c_schema","c_dependency_manifest","c_launcher","static_tool_dependency_manifest"],"metadata_path_ids":["d_auth_ready_dir","d_auth_claimed_dir","d_commit_staging_dir","d_committed_dir","d_failed_staging_dir","d_failed_dir","d_quarantine_dir"],"write_path_ids":["c_static_audit"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"},
+    "ROLE_OFFICIAL_RUNNER_V3": {"mode":"ONE_SHOT_DATA_FREE_OFFICIAL_RECOMPUTATION","read_path_ids":["v1","v3","shared_schema_file","literal_bundle","literal_audit","literal_freeze","b_committed_lockfile","b_result_audit","b_lockfile_freeze","c_spec","c_source","c_manifest","c_schema","c_dependency_manifest","c_launcher","c_static_audit","d_auth_ready_file"],"read_after_write_path_ids":["d_commit_staging_dir","d_failed_staging_dir"],"metadata_path_ids":["d_auth_ready_dir","d_auth_claimed_dir","d_commit_staging_dir","d_committed_dir","d_failed_staging_dir","d_failed_dir","d_quarantine_dir"],"write_path_ids":["d_commit_staging_dir","d_failed_staging_dir"],"rename_pairs":[["d_auth_ready_dir","d_auth_claimed_dir"],["d_commit_staging_dir","d_committed_dir"],["d_commit_staging_dir","d_quarantine_dir"],["d_failed_staging_dir","d_failed_dir"]],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"c_dependency_manifest"},
+    "ROLE_FIXTURE_VERIFIER_AUTHOR_V3": {"mode":"STATIC_INDEPENDENT_AUTHORING_NO_EXECUTION","read_path_ids":["v1","v3","shared_schema_file","literal_bundle","literal_freeze","b_committed_lockfile","b_lockfile_freeze","c_schema"],"metadata_path_ids":[],"write_path_ids":["d_verifier_spec","d_verifier_source","d_verifier_manifest","d_verifier_schema","d_verifier_dependency_manifest","d_verifier_launcher"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":null},
+    "ROLE_FIXTURE_VERIFIER_STATIC_AUDITOR_V3": {"mode":"STATIC_AUDIT_NO_VERIFIER_EXECUTION","read_path_ids":["v1","v3","shared_schema_file","d_verifier_spec","d_verifier_source","d_verifier_manifest","d_verifier_schema","d_verifier_dependency_manifest","d_verifier_launcher","static_tool_dependency_manifest"],"metadata_path_ids":["d_verifier_auth_ready_dir","d_verifier_auth_claimed_dir","d_verifier_commit_staging_dir","d_verifier_committed_dir","d_verifier_failed_staging_dir","d_verifier_failed_dir","d_verifier_quarantine_dir"],"write_path_ids":["d_verifier_static_audit"],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"},
+    "ROLE_FIXTURE_VERIFIER_RUNNER_V3": {"mode":"ONE_SHOT_INDEPENDENT_DATA_FREE_RECOMPUTATION","read_path_ids":["v1","v3","shared_schema_file","literal_bundle","literal_freeze","b_committed_lockfile","b_lockfile_freeze","d_committed_fixture","d_committed_success","d_committed_spent","d_committed_manifest","d_verifier_spec","d_verifier_source","d_verifier_manifest","d_verifier_schema","d_verifier_dependency_manifest","d_verifier_launcher","d_verifier_static_audit"],"read_after_write_path_ids":["d_verifier_commit_staging_dir","d_verifier_failed_staging_dir"],"metadata_path_ids":["d_verifier_auth_ready_dir","d_verifier_auth_claimed_dir","d_verifier_commit_staging_dir","d_verifier_committed_dir","d_verifier_failed_staging_dir","d_verifier_failed_dir","d_verifier_quarantine_dir"],"write_path_ids":["d_verifier_commit_staging_dir","d_verifier_failed_staging_dir"],"rename_pairs":[["d_verifier_auth_ready_dir","d_verifier_auth_claimed_dir"],["d_verifier_commit_staging_dir","d_verifier_committed_dir"],["d_verifier_commit_staging_dir","d_verifier_quarantine_dir"],["d_verifier_failed_staging_dir","d_verifier_failed_dir"]],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"d_verifier_dependency_manifest"},
+    "ROLE_OFFICIAL_RESULT_JUDGE_V3": {"mode":"GOVERNANCE_JUDGMENT_NO_NUMERICAL_EXECUTION","read_path_ids":["v1","v3","literal_bundle","literal_freeze","b_committed_lockfile","b_result_audit","b_lockfile_freeze","d_committed_fixture","d_committed_success","d_committed_spent","d_committed_manifest","d_postrun_audit","d_verifier_static_audit","static_tool_dependency_manifest"],"metadata_path_ids":["candidate_v6_required_fixture"],"write_path_ids":[],"rename_pairs":[],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"},
+    "ROLE_ROOT_GOVERNANCE_JUDGE_V3": {"mode":"AUTHORIZATION_AND_INCIDENT_JUDGMENT_ONLY","read_path_ids":["v1","v2","v2_audit","compiler_fail","bootstrap_adjudication","v3","shared_schema_file","literal_freeze","b_static_audit","b_verifier_static_audit","b_result_audit","b_lockfile_freeze","c_static_audit","d_verifier_static_audit","d_postrun_audit"],"metadata_path_ids":["b_auth_ready_dir","b_auth_claimed_dir","b_commit_staging_dir","b_committed_dir","b_failed_staging_dir","b_failed_dir","b_quarantine_dir","b_verifier_auth_ready_dir","b_verifier_auth_claimed_dir","b_verifier_commit_staging_dir","b_verifier_committed_dir","b_verifier_failed_staging_dir","b_verifier_failed_dir","b_verifier_quarantine_dir","d_auth_ready_dir","d_auth_claimed_dir","d_commit_staging_dir","d_committed_dir","d_failed_staging_dir","d_failed_dir","d_quarantine_dir","d_verifier_auth_ready_dir","d_verifier_auth_claimed_dir","d_verifier_commit_staging_dir","d_verifier_committed_dir","d_verifier_failed_staging_dir","d_verifier_failed_dir","d_verifier_quarantine_dir"],"write_path_ids":["b_auth_ready_dir","b_verifier_auth_ready_dir","d_auth_ready_dir","d_verifier_auth_ready_dir"],"incident_rename_pairs":[["b_commit_staging_dir","b_quarantine_dir"],["b_verifier_commit_staging_dir","b_verifier_quarantine_dir"],["d_commit_staging_dir","d_quarantine_dir"],["d_verifier_commit_staging_dir","d_verifier_quarantine_dir"]],"delete_path_ids":[],"runtime_dependency_manifest_path_id":"static_tool_dependency_manifest"}
+  },
+  "role_access_completion_rules": [
+    "A role may inspect content only in read_path_ids, may perform existence/type/file-ID checks only in metadata_path_ids, and may write only exact registered members beneath write_path_ids. Directory membership is supplied by the frozen manifest; listing is prohibited.",
+    "Each operator and verifier staging directory is explicitly readable after write through read_after_write_path_ids. No committed or failed bundle is directly writable.",
+    "All runtime interpreter, standard-library, third-party and native loader reads are exactly the file entries of the named dependency manifest; a missing loader read is forbidden and fails before scientific or artifact authority.",
+    "Every author, static auditor, runner, verifier and judge has an explicit read, metadata, write, rename, delete and dependency scope. null dependency means execution prohibited.",
+    "All delete_path_ids are empty. Rename is allowed only for the exact ordered pair, same volume, no replacement."
+  ],
+  "stage_rules": {
+    "A_LITERAL_FREEZE": [
+      "V3 must first receive an independent stable-byte PASS and Root activation; V3 alone does not authorize Stage A.",
+      "Materialize the exact embedded Stage-A schemas before bundle bytes. Literal author writes only literal_schema_file and literal_bundle; the independent auditor and judge write only their separate receipt/freeze paths.",
+      "Static literal authoring performs no transcendental, filter, detector, model, RNG or derived numerical execution. Audit verifies bytes, base64, shape, case coverage, hashes and exact schema only."
+    ],
+    "B_DERIVATION_BUNDLE_AND_LOCKFILE_FREEZE": [
+      "Freeze and independently static-audit the derivation package and dependency manifest before Root creates the READY authorization directory.",
+      "Run exactly one B_DERIVATION atomic directory transaction. Its lockfile remains non-authoritative.",
+      "Freeze and statically audit a separately authored lockfile verifier package; run its own one-shot atomic audit transaction with independent recomputation and exact access/dependency boundary.",
+      "Only ROLE_LOCKFILE_RESULT_JUDGE_V3 may create b_lockfile_freeze after the verifier committed PASS; any failure, interruption, role conflict or mismatch rejects the lockfile."
+    ],
+    "C_OFFICIAL_COMPILER_REBUILD_STATIC_PASS": [
+      "The official author may begin only after b_lockfile_freeze and must use independent source/provenance.",
+      "The official manifest closes V6FC-SA-B001 through B008, binds V1/V3, all literal/lockfile freezes, complete environment/dependency bytes, exact 23 cases, V1 schemas/statuses/ranks/base64 and the D atomic bundle transaction.",
+      "An independent static audit must return PASS_ZERO_BLOCKING_ZERO_UNRESOLVED before Root creates D authorization."
+    ],
+    "D_OFFICIAL_FIXTURE_BUNDLE_AND_POSTRUN_PASS": [
+      "Run exactly one D_OFFICIAL_COMPILER atomic directory transaction. It independently recomputes every derived value and compares to the frozen lockfile before staging any fixture.",
+      "Freeze and static-audit the independent fixture verifier, then run its own atomic audit transaction. No compiler or verifier may import or execute the other.",
+      "A committed official bundle is only a fixture candidate pending committed postrun PASS and ROLE_OFFICIAL_RESULT_JUDGE_V3 acceptance.",
+      "candidate_v6_required_fixture is not a Stage D write. After postrun PASS, exact bytes may be proposed for a later separately authorized Candidate V6 assembly at the unchanged V1 path; this amendment grants no copy, overwrite or Candidate access."
+    ]
+  },
+  "failure_and_incident_rules": {
+    "first_failure": "Record the first ordered failure only; later errors cannot replace it.",
+    "spent": "READY-to-CLAIMED is the durable claim. Process creation consumes authorization even if the claim rename fails. No authorization or role assignment is reusable.",
+    "orphan": "A staging directory or CLAIMED-without-terminal state is not success and has no evidence authority. Only the exact quarantine rename under live handler or separately authorized Root incident closeout is permitted.",
+    "no_cleanup": "No governed bytes are deleted, overwritten, merged, moved back, or recycled. New attempts use new versioned IDs and paths.",
+    "forbidden_repair": "No in-run edit, expected-value learning, tolerance, retry, resume, case omission, bootstrap imputation, family shrinkage, schema selection or favorable substitution.",
+    "result": "Any unenumerated state is FAIL_BLOCKING; Candidate V6, implementation, preflight and science remain denied."
+  },
+  "repair_limit": {
+    "allowed_only": ["all-or-none directory transaction semantics","complete per-role access and dependency boundaries","fully typed immediate governance schemas","strict cross-stage role and implementation independence"],
+    "forbidden_change": "Any V1/V2 passing scientific, PV5, regression, case, ID, arithmetic, Phase2B, no-evidence, lineage or gate value.",
+    "scientific_compute_change": 0,
+    "simulation_change": 0,
+    "claim_or_gate_change": 0
+  },
+  "activation_and_gates": {
+    "v3_stable_byte_review": "REQUIRED_BEFORE_ROOT_ACTIVATION",
+    "stage_A": "DENIED_PENDING_INDEPENDENT_V3_PASS_AND_ROOT_ACTIVATION",
+    "stage_B_authoring": "DENIED_PENDING_STAGE_A_FREEZE",
+    "stage_B_execution": "DENIED_PENDING_PACKAGE_STATIC_PASS_AND_ROOT_ONE_SHOT_AUTHORIZATION",
+    "stage_C_authoring": "DENIED_PENDING_LOCKFILE_VERIFIER_PASS_AND_ROOT_LOCKFILE_FREEZE",
+    "stage_D_execution": "DENIED_PENDING_OFFICIAL_STATIC_PASS_AND_ROOT_ONE_SHOT_AUTHORIZATION",
+    "candidate_v6_access": "DENIED",
+    "implementation": "DENIED",
+    "preflight": "DENIED",
+    "phase2a_worker": "DENIED",
+    "cross_target_verifier": "DENIED",
+    "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+    "data_r4_outcomes": "DENIED",
+    "automatic_release": false
+  },
+  "immutability": {
+    "this_addendum_is_immutable": true,
+    "change_rule": "Any byte or scope change requires a separately named prospective V4 amendment before any affected stage begins.",
+    "self_hash_policy": "Report uppercase SHA-256 over exact final bytes externally; do not embed it recursively.",
+    "candidate_v6_accessed": false,
+    "compiler_code_or_preflight_accessed": false,
+    "data_r4_or_outcomes_accessed": false,
+    "state_accessed_or_modified": false,
+    "execution_performed": false
+  }
+}

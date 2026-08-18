@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "decision": "PID_MVP_DEMONSTRATED",
+  "selected_target": "T2",
+  "target_improvements_vs_sham": [
+    0.004975608188437053,
+    0.4242926299099619,
+    0.3950569915540936
+  ],
+  "median_target_improvement": 0.3950569915540936,
+  "gates": {
+    "numerical_stability_3_of_3": true,
+    "target_improvement_2_of_3": true,
+    "tracking_error_improved_2_of_3": true,
+    "dynamic_command_2_of_3": true,
+    "median_saturation_below_50pct": true,
+    "t5_median_decline_within_50pct": true,
+    "t6_median_decline_within_20pct": true,
+    "t8_median_ratio_below_2": true
+  },
+  "formal_or_clinical_claim_authorized": false,
+  "decided_utc": "2026-08-17T15:30:07.694744+00:00"
+}

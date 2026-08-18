@@ -1,0 +1,16 @@
+{
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "freeze_version": "PRE_BUILDER_V1",
+  "entries": [
+    {"artifact":"COMMON/CAMPAIGN_IDENTITY.json","sha256":"CAB81BB464A355BD92F012E0A33B56A65880172E03A7B4B1EF8C5CD7119652E8","responsible_role":"Campaign Root","freeze":"campaign identity"},
+    {"artifact":"COMMON/PROTECTED_DENYLIST.json","sha256":"503A3DB11654DB6934AACEFD8B4C679B07DC7D725C2B803B714CE05024C00525","responsible_role":"Campaign Root","freeze":"protected denylist"},
+    {"artifact":"STATE/ACCESS_LEDGER.json","sha256":"FB822DBCFBBB5DB592B433CC2830D3174CDA31CFBC42C2A407B96E979DA8AC8D","responsible_role":"Campaign Root","freeze":"initial access-ledger schema and zero-access state; content remains append-only"},
+    {"artifact":"STATE/AGENT_ROLE_LEDGER.json","sha256":"CAE2C80A840FC30E7F484552194FDE04C0AEF4233DD7A8CB9BFE950F6ED9C758","responsible_role":"Campaign Root","freeze":"initial role-ledger schema; content remains append-only"},
+    {"artifact":"COMMON/CLEAN_ROOT_RECEIPT.md","sha256":"3536FDC375F0AABA0E9AA9F14620C207D0DAD32C5ED9643F38248C29D2155792","responsible_role":"Clean Governance Auditor","freeze":"clean-root receipt"},
+    {"artifact":"IMPORT_ALLOWLIST/V4D1_IMPORT_ALLOWLIST_V2.json","sha256":"F0CCA4913FEB8167561665547F90D58B655CB96328ADFCC05D062EAB88B1672A","responsible_role":"Historical Import Auditor","freeze":"selective seven-file allowlist"},
+    {"artifact":"COMMON/CLEAN_BUILDER_SPEC.md","sha256":"0BB20D0E77019ACB45660F1348B0261E64F4F3BBA521ABBF19B035C0D3BC02EC","responsible_role":"Campaign Root","freeze":"outcome-blind implementation specification"},
+    {"artifact":"STATE/ENVIRONMENT_SNAPSHOT.json","sha256":"39385053F006D484099A1BBAC97F915EE535C9042B75466C42838BFE6AF66E5D","responsible_role":"Environment Auditor","freeze":"environment snapshot"},
+    {"artifact":"COMMON/COMPUTE_AND_OPEN_BUDGET.json","sha256":"ABF14C233A76C115C50B762694BD9BA2610D1F8B9ABCB8EBFF202E5FD08A9E38","responsible_role":"Compute Budget Auditor","freeze":"compute, repair, and raw-open budget"},
+    {"artifact":"COMMON/OFFICIAL_DATA_PROVENANCE_PREOPEN.md","sha256":"1CAA027E30AB2A1C4A2A27894B3FC79DE2D3E855E62E9E857D29870F5768B91B","responsible_role":"Data Provenance Auditor","freeze":"official expected identities before local access"}
+  ]
+}

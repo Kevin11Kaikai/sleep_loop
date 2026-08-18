@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "declaration_id": "PROTOCOL_V2_STALE_FOR_IMPLEMENTATION",
+  "declared_at": "2026-08-16T13:22:31-04:00",
+  "declared_by": "Root Orchestrator",
+  "scientific_outcomes_visible": false,
+  "protected_access": "NONE",
+  "stale_freeze": {
+    "path": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+    "sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8"
+  },
+  "independent_audit": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+    "sha256": "E61465D6357C411DB032AC8989695E1BE73CF04742E3467DBA1246E698975358",
+    "verdict": "FAIL_NEW_BLOCKING_EXECUTABILITY_DEFECTS"
+  },
+  "blocking_findings": [
+    "PV2-B001",
+    "PV2-B002",
+    "PV2-B003",
+    "PV2-B004"
+  ],
+  "disposition": {
+    "candidate_v2_files": "IMMUTABLE_RETAINED_NOT_AUTHORIZED_FOR_IMPLEMENTATION",
+    "implementation": "DENIED",
+    "synthetic_preflight": "DENIED",
+    "phase2a_outcomes": "DENIED",
+    "phase2b": "NOT_ESTIMABLE",
+    "prospective_v3": "AUTHORIZED_FOR_OUTCOME_BLIND_PROTOCOL_REPAIR_ONLY"
+  },
+  "evidence_staleness": {
+    "v2_preflight_executed": false,
+    "v2_scientific_execution_performed": false,
+    "v2_scientific_evidence": "NONE",
+    "incompatible_evidence_to_invalidate": "NONE"
+  },
+  "formal_claim_state": {
+    "mechanistic_level": "M1",
+    "control_level": "C0",
+    "predictive_level": "P0",
+    "change": "NONE"
+  },
+  "status": "V2_STALE_V3_OUTCOME_BLIND_REPAIR_ACTIVE"
+}

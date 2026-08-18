@@ -1,0 +1,889 @@
+{
+  "schema_version": "3.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "registry_id": "COSTA_CONTROL_TARGET_REGISTRY_CANDIDATE_V3",
+  "parent_registry_id": "COSTA_CONTROL_TARGET_REGISTRY_CANDIDATE_V2",
+  "repair_scope": [
+    "PV2-B001",
+    "PV2-B002",
+    "PV2-B003",
+    "PV2-B004"
+  ],
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "status": "FREEZE_CANDIDATE_PREOUTCOME",
+  "outcomes_used": false,
+  "target_priority_frozen": {
+    "primary": [
+      "T1",
+      "T4",
+      "T6"
+    ],
+    "secondary": [
+      "T2",
+      "T3",
+      "T5",
+      "T7"
+    ],
+    "exploratory": [
+      "T8"
+    ]
+  },
+  "global_boundaries": {
+    "bench_evidence_ceiling": "NON_TRANSFERABLE_SYNTHETIC_DIAGNOSTIC_GRADE_C",
+    "r4_claim_substrate": "M1/C0/P0_UNCHANGED",
+    "formal_phase2b_status": "NOT_ESTIMABLE",
+    "formal_phase2b_minimum_subjects": 3,
+    "currently_eligible_subjects": 0,
+    "synthetic_subject_substitution": "PROHIBITED",
+    "intervention_name": "GENERIC EXTERNAL FORCING",
+    "parameter_changes": "SENSITIVITY_ONLY",
+    "formal_phase2b_protocol_version": "CANDIDATE_V3"
+  },
+  "common_comparators": {
+    "sham": "Same parameter draw, initial state, OU innovations, runtime, and detector; all u_E,u_I,u_T,u_R channels are zero.",
+    "matched_nonpersonalized": "For a future eligible N>=3 set only, construct for each subject s a leave-one-subject-out componentwise-median parameter vector from the other certified Night-1 models, freeze it before evaluation, and apply the same fixed-grid policy-selection algorithm. Current status: NOT_ESTIMABLE.",
+    "wrong_subject": "For a future eligible N>=3 set only, sort subjects by SHA256(campaign_id+'|'+subject_id), cyclically shift the selected subject-specific policy by one position, and apply the shifted policy to the recipient's own model with paired randomness. Current status: NOT_ESTIMABLE.",
+    "subject_interaction": "On disjoint evaluation seeds define target-oriented policy benefit G_s(P). Let P_s, P_pop, and P_wrong(s) be selected by the exact target-specific policy object and tie rule: requested-value mappings for T1/T7 and single conditions for other targets. Report I_pop=median_s[G_s(P_s)-G_s(P_pop)] and I_wrong=median_s[G_s(P_s)-G_s(P_wrong(s))], plus R_between=median pairwise L2 distance between standardized subject response curves divided by the median within-subject bootstrap curve distance. Current N=0/minimum 3 remains NOT_ESTIMABLE."
+  },
+  "common_statistics": {
+    "phase2a_uncertainty": "Paired hierarchical percentile bootstrap, 10000 resamples, PCG64(860216), resampling parameter draws then paired seeds; two-sided 95% interval.",
+    "phase2b_uncertainty": "Nested paired percentile bootstrap, 10000 resamples, PCG64(860219), resampling subjects, then within-subject parameter/posterior draws and paired seeds; simultaneous two-sided 95% intervals.",
+    "test": "Exact target-specific Monte Carlo tests are bound to phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests. T1-T6 and descriptive T8 use 100000 one-sided paired sign flips with target-specific PCG64 seeds; T7 uses 100000 within-block circular-label permutations with PCG64(860217); p=(B+1)/(100000+1), equality counts as extreme.",
+    "primary_multiplicity": "Exact Holm step-down at alpha=0.05 over T1,T4,T6: ascending raw p, lexical target_id tie, max-prefix adjusted p, strict adjusted p<0.05.",
+    "secondary_multiplicity": "Open only if at least one primary passes its complete decision; then exact Holm over T2,T3,T5,T7 with the same ordering/tie/adjustment rules. Otherwise descriptive.",
+    "exploratory_multiplicity": "T8 is descriptive/exploratory and ineligible for V3 advancement.",
+    "formal_c2_interaction_threshold": "Both I_pop and I_wrong lower simultaneous 95% confidence bounds must exceed 0.25 sham-standard-deviation units and R_between lower 95% bound must exceed 1.5.",
+    "simultaneous_95_method": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_95_construction",
+    "target_decision_family": "F_TARGET_DECISIONS contains every registered scalar target margin across T1-T8 and uses 10000 paired hierarchical resamples from PCG64(860218), a studentized max-absolute-deviation statistic, and the 9501st order statistic. Every listed scalar lower band must exceed zero; Holm p-values are separate.",
+    "level_b_family": "F_LEVEL_B_SURFACES contains every executed cell C_i(u)-1 plus five mapping G_i(P)-1 members for selected T1/T7: K=25*n25+20*n20+5*nmap<=80, PCG64(860220).",
+    "cross_target_family": "F_CROSS_TARGET_8X8 contains 128 members: BENEFIT and ADVERSE for each of 64 row-policy by column-outcome cells. All eight row policies come from Level-A worker data before conditional Level B. For each condition/column take the verifier block median nHat first, then BENEFIT=max(0,nHat), ADVERSE=max(0,-nHat); mapping rows take min benefit/max adverse; T4 replica adverse is retained. Joint PCG64(860221) inference uses 456 unique verifier runs.",
+    "level_b_run_arithmetic": "Selected Level-B runs=12*(25*n25+20*n20), n25+n20<=3, maximum 900; T6/T7 have 20 unique cells, all other surfaces 25. No cell deduplication.",
+    "cross_target_verifier_denominator": "Each condition has 24 paired verifier blocks (six draws x four seeds); require >=20 complete blocks, >=3 verifier seeds, and >=5 draws per cell.",
+    "level_a_shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency: exact per-target draw rule, >=5 valid seeds per required condition, and >=4 of 6 draws; missing draw fails. This replaces every generic dose-order reference."
+  },
+  "targets": [
+    {
+      "target_id": "T1",
+      "primary_or_secondary": "PRIMARY",
+      "physiological_interpretation": "Dominant slow-oscillation frequency tracking and entrainment within the model observation proxy.",
+      "exact_dependent_variable": "Welch dominant peak frequency f_SO in 0.4-1.5 Hz; supportive lock metric is SO-to-drive PLV.",
+      "units": "Hz for f_SO; dimensionless [0,1] for PLV",
+      "detector_metric_implementation": "phase2_protocol.json#observation_and_detector_contract/T1",
+      "baseline_value": "f0=median f_SO over the 36 paired sham seed-draw blocks; PLV0 is computed against each registered reference frequency. This is a prespecified estimand and is not yet observed.",
+      "desired_intervention_direction": "Bidirectional movement toward both the registered low drive (0.55 Hz) and high drive (1.15 Hz), with frequency locking rather than a single favorable peak.",
+      "intervention": "GENERIC EXTERNAL FORCING through GF_E_SLOW_SINE",
+      "intervention_to_model_mapping": "u_E(t)=0.8*sin(2*pi*f_d*t); every other input is zero. Candidate V3 Level-B variables and exact sample schedule are frozen in level_b_execution and its machine binding; no unregistered amplitude, frequency, carrier, phase endpoint, or exposure timing is permitted.",
+      "bounded_bidirectional_range": {
+        "drive_frequency_hz": [
+          0.55,
+          1.15
+        ],
+        "grid_hz": [
+          0.55,
+          0.7,
+          0.85,
+          1,
+          1.15
+        ],
+        "center_hz": 0.85,
+        "signed_detuning_hz": [
+          -0.3,
+          0.3
+        ]
+      },
+      "sham_or_no_control": "All input channels zero with paired OU streams.",
+      "matched_nonpersonalized_comparator": "Leave-one-subject-out median model and pooled fixed-grid frequency policy; unavailable under V3 because N=0.",
+      "wrong_subject_comparator": "Cyclic hash-deranged subject frequency policy applied to recipient model; unavailable under V3 because N=0.",
+      "effect_estimand": "E1=0.5*((abs(f0-0.55)-abs(f_low-0.55))+(abs(f0-1.15)-abs(f_high-1.15))) in Hz, paired by seed and draw; f_low and f_high are outputs at the two registered endpoint drives.",
+      "subject_interaction_estimand": "Use common I_pop, I_wrong, and R_between with G_s equal to the negative mean absolute peak-to-drive error standardized by sham seed uncertainty.",
+      "practical_margin": "E1>=0.05 Hz, PLV>=0.50 at both endpoint drives, and at least 80% of valid blocks move closer to each drive.",
+      "decision_threshold": "Every T1 F_TARGET_DECISIONS slack has simultaneous lower bound>0: E1-0.05 Hz, both endpoint PLV-0.50, and both move-fraction-0.80; applicable Holm-adjusted p<0.05; >=30 valid pairs; all vetoes pass. The exact level_a_shape_consistency prerequisite must pass in >=4 of 6 draws.",
+      "uncertainty_method": "F_TARGET_DECISIONS studentized max-deviation paired hierarchical bootstrap; formal Phase2B uses the frozen nested subject family.",
+      "statistical_test": "T_obs=mean_b(E1_b/0.05); 100000 one-sided paired sign flips from PCG64(860231); equality is extreme; p=(B+1)/100001.",
+      "confidence_level": 0.95,
+      "minimum_denominators": {
+        "phase2a_valid_paired_blocks": 30,
+        "distinct_seeds": 5,
+        "distinct_draws": 5,
+        "SO_cycles_per_block": 30,
+        "formal_phase2b_subjects": 3
+      },
+      "stability_rule": "At least 95% of all prescribed runs stable; no boundary peak, divergence, clipping, saturation, or invalid spectrum.",
+      "off_target_outcomes": [
+        "T2 amplitude",
+        "T3 SO density",
+        "T4 spindle density",
+        "T6 coupling",
+        "4-30 Hz total power",
+        "population mean rates",
+        "T8 regime occupancy"
+      ],
+      "multiplicity_rule": "Primary Holm family T1,T4,T6 at alpha=0.05.",
+      "failure_rule": "D if valid but any efficacy/robustness threshold fails; F if apparent tracking is forced spectral leakage, boundary selection, instability, detector drift, or protocol violation; NOT_ESTIMABLE if denominators fail.",
+      "personalization_requirement": "Formal C2 additionally requires N>=3 certified subjects and both interaction contrasts plus R_between to pass the common threshold; synthetic draws do not count.",
+      "allowed_claim": "After valid execution only: bounded generic forcing shifted and locked the dominant slow-frequency proxy within PHASE2_CONTROL_BENCH_V1; non-transferable diagnostic evidence.",
+      "prohibited_claim": "Personalized entrainment, auditory stimulation efficacy, human slow-wave control, clinical control, C1, C2, or evidence about the unidentified R4 executable.",
+      "level_b_execution": {
+        "grid": {
+          "f_hz": [
+            0.55,
+            0.7,
+            0.85,
+            1,
+            1.15
+          ],
+          "A_hz_equivalent": [
+            0.4,
+            0.6,
+            0.8,
+            1,
+            1.2
+          ],
+          "cells": 25
+        },
+        "formula": "u_E[30000+a]=A*sin(2*pi*f*a/1000), a=0,...,179999; all other u=0.",
+        "policy": "MAPPING P1_A: each requested f maps to cell (f,A). G1(P1_A)=min_f min(median(e_b)/0.05,median(PLV_b)/0.50,mean(1[e_b>0])/0.80).",
+        "tie": "maximum G1, then smaller A"
+      },
+      "policy_score": "LEVEL_A MAPPING: the sole P1_LA maps all five requested frequencies to their A=0.8 Level-A cells; G1=min_f C1(f,0.8).",
+      "policy_tie_rule": "No tie: one mapping.",
+      "cross_target_normalized_scalars": "Per verifier block for off-row conditions n1_b=-abs(f_u,b-f_sham,b)/0.05; median blocks before B/A. Diagonal T1 uses verifier G1 of the five-condition mapping. Then BENEFIT=max(0,nHat) and ADVERSE=max(0,-nHat). Mapping rows aggregate minimum benefit and maximum adverse; bootstrap replicates repeat this exact order.",
+      "machine_bindings": {
+        "executable_schedule": "phase2_protocol.json#phase2a/conditional_level_b/executable_condition_schedule/T1",
+        "policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects/T1",
+        "cell_score": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cell_scores/T1",
+        "exact_test": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+        "simultaneous_family": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+        "level_b_policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects/T1",
+        "cross_target_aggregation": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cross_target_cell_construction",
+        "shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+      },
+      "level_b_policy_score": "MAPPING P1_A: each requested f maps to cell (f,A). G1(P1_A)=min_f min(median(e_b)/0.05,median(PLV_b)/0.50,mean(1[e_b>0])/0.80).",
+      "level_b_policy_tie_rule": "maximum G1, then smaller A",
+      "shape_consistency_rule": "Require >=5 valid paired seeds for every required condition; draw passes exactly as follows: Per draw, both endpoint median-seed closeness improvements >0 and both endpoint median-seed PLV>=0.50. Target prerequisite passes iff >=4 of 6 draws pass; equality/missing conventions are frozen in phase2_protocol.json."
+    },
+    {
+      "target_id": "T2",
+      "primary_or_secondary": "SECONDARY",
+      "physiological_interpretation": "Slow-oscillation peak-to-peak amplitude of model-observation cycles.",
+      "exact_dependent_variable": "Median peak-to-peak x amplitude over retained 0.3-1.5 Hz SO events.",
+      "units": "model-output units (m.u.)",
+      "detector_metric_implementation": "phase2_protocol.json#observation_and_detector_contract/T2_T3_SO_events",
+      "baseline_value": "A0=median T2 amplitude over sham paired blocks; prespecified and not yet observed.",
+      "desired_intervention_direction": "Predictable bidirectional amplitude response across negative and positive cortical bias without global gain inflation.",
+      "intervention": "GENERIC EXTERNAL FORCING through GF_E_DC",
+      "intervention_to_model_mapping": "u_E(t)=d and all other inputs zero. Candidate V3 Level-B variables and exact sample schedule are frozen in level_b_execution and its machine binding; no unregistered amplitude, frequency, carrier, phase endpoint, or exposure timing is permitted.",
+      "bounded_bidirectional_range": {
+        "dose_hz_equivalent": [
+          -1.5,
+          1.5
+        ],
+        "grid": [
+          -1.5,
+          -1,
+          -0.5,
+          0,
+          0.5,
+          1,
+          1.5
+        ]
+      },
+      "sham_or_no_control": "d=0 with paired OU streams.",
+      "matched_nonpersonalized_comparator": "Leave-one-subject-out median model with its fixed-grid DC policy; unavailable under V3 because N=0.",
+      "wrong_subject_comparator": "Cyclic hash-deranged DC policy; unavailable under V3 because N=0.",
+      "effect_estimand": "E2=(A(+1.5)-A(-1.5))/A0, paired by block; A0 must exceed 0.10 m.u.",
+      "subject_interaction_estimand": "Use common interaction estimands with G_s equal to signed fractional amplitude change while satisfying specificity vetoes.",
+      "practical_margin": "E2>=0.15 and both endpoint amplitudes differ from sham in opposite registered directions by at least 5%.",
+      "decision_threshold": "Every T2 F_TARGET_DECISIONS slack has simultaneous lower bound>0: E2-0.15 and both endpoint fractional changes-0.05; gate-kept Holm p<0.05; >=30 valid pairs; no veto. The exact level_a_shape_consistency prerequisite must pass in >=4 of 6 draws.",
+      "uncertainty_method": "F_TARGET_DECISIONS studentized max-deviation paired hierarchical bootstrap; nested subject bootstrap if future eligible.",
+      "statistical_test": "T_obs=mean_b(E2_b/0.15); 100000 one-sided paired sign flips from PCG64(860232); equality is extreme; p=(B+1)/100001.",
+      "confidence_level": 0.95,
+      "minimum_denominators": {
+        "phase2a_valid_paired_blocks": 30,
+        "SO_events_per_block": 30,
+        "formal_phase2b_subjects": 3
+      },
+      "stability_rule": "Common stability rules plus A0>0.10 m.u. and no >25% broadband-power rise without SO-band fraction increase.",
+      "off_target_outcomes": [
+        "T1 frequency",
+        "T3 density",
+        "T4 density",
+        "4-30 Hz power",
+        "mean and extreme rates",
+        "T8 occupancy"
+      ],
+      "multiplicity_rule": "Gate-kept secondary Holm family T2,T3,T5,T7.",
+      "failure_rule": "D for valid submargin/nonrobust response; F for global scaling, detector-threshold artifact, saturation, instability, or invalid SO cycles; NOT_ESTIMABLE when event minimum fails.",
+      "personalization_requirement": "Common formal C2 interaction rule with N>=3; unavailable and not replaceable by synthetic draws.",
+      "allowed_claim": "After valid execution only: bounded cortical generic forcing altered SO amplitude in the clean-room bench without registered global-gain vetoes.",
+      "prohibited_claim": "Human SO-amplitude modulation, treatment benefit, personalized control, C1, C2, or R4-candidate response.",
+      "level_b_execution": {
+        "grid": {
+          "d": [
+            -1.5,
+            -0.75,
+            0,
+            0.75,
+            1.5
+          ],
+          "A": [
+            0,
+            0.3,
+            0.6,
+            0.9,
+            1.2
+          ],
+          "f_hz": 0.85,
+          "cells": 25
+        },
+        "formula": "u_E[30000+a]=d+A*sin(2*pi*0.85*a/1000); other u=0.",
+        "policy": "SINGLE_CONDITION among d!=0; C2=median_b(sign(d)*(A_u-A_sham)/(0.05*A_sham)), A_sham>0.10.",
+        "tie": "maximum C2, then |d|/1.5+A/1.2, row, column"
+      },
+      "policy_score": "LEVEL_A SINGLE_CONDITION: maximize C2 over nonzero d in [-1.5,-1,-0.5,0.5,1,1.5].",
+      "policy_tie_rule": "Tie: smaller abs(d), then smaller signed d.",
+      "cross_target_normalized_scalars": "Per verifier block n2_b=(A_u,b-A_sham,b)/(0.05*A_sham,b), A_sham,b>0.10; median blocks before B/A. Then BENEFIT=max(0,nHat) and ADVERSE=max(0,-nHat). Mapping rows aggregate minimum benefit and maximum adverse; bootstrap replicates repeat this exact order.",
+      "machine_bindings": {
+        "executable_schedule": "phase2_protocol.json#phase2a/conditional_level_b/executable_condition_schedule/T2",
+        "policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects/T2",
+        "cell_score": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cell_scores/T2",
+        "exact_test": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+        "simultaneous_family": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+        "level_b_policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects/T2",
+        "cross_target_aggregation": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cross_target_cell_construction",
+        "shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+      },
+      "level_b_policy_score": "SINGLE_CONDITION among d!=0; C2=median_b(sign(d)*(A_u-A_sham)/(0.05*A_sham)), A_sham>0.10.",
+      "level_b_policy_tie_rule": "maximum C2, then |d|/1.5+A/1.2, row, column",
+      "shape_consistency_rule": "Require >=5 valid paired seeds for every required condition; draw passes exactly as follows: Per draw on seven ascending doses, positive endpoint span and >=5 of 6 adjacent SO-amplitude differences >=0. Target prerequisite passes iff >=4 of 6 draws pass; equality/missing conventions are frozen in phase2_protocol.json."
+    },
+    {
+      "target_id": "T3",
+      "primary_or_secondary": "SECONDARY",
+      "physiological_interpretation": "Rate of detector-qualified slow-oscillation cycles in the model proxy.",
+      "exact_dependent_variable": "SO events per minute using the fixed cycle detector.",
+      "units": "events/min",
+      "detector_metric_implementation": "phase2_protocol.json#observation_and_detector_contract/T2_T3_SO_events",
+      "baseline_value": "D0=sham SO event density for each paired seed-draw block and its across-block median; prespecified and not yet observed.",
+      "desired_intervention_direction": "Positive pulses increase and negative pulses decrease event density while cycle morphology remains valid.",
+      "intervention": "GENERIC EXTERNAL FORCING through GF_E_SO_PULSE",
+      "intervention_to_model_mapping": "80 ms cortical-E pulses at 0.85 Hz with signed amplitude d; all other inputs zero. Candidate V3 Level-B variables and exact sample schedule are frozen in level_b_execution and its machine binding; no unregistered amplitude, frequency, carrier, phase endpoint, or exposure timing is permitted.",
+      "bounded_bidirectional_range": {
+        "dose_hz_equivalent": [
+          -2,
+          2
+        ],
+        "grid": [
+          -2,
+          -1.25,
+          -0.5,
+          0,
+          0.5,
+          1.25,
+          2
+        ],
+        "pulse_width_s": 0.08,
+        "repetition_hz": 0.85
+      },
+      "sham_or_no_control": "d=0 with paired OU streams.",
+      "matched_nonpersonalized_comparator": "Leave-one-subject-out median model with pooled pulse-dose policy; unavailable under V3 because N=0.",
+      "wrong_subject_comparator": "Cyclic hash-deranged pulse policy; unavailable under V3 because N=0.",
+      "effect_estimand": "E3=D(+2.0)-D(-2.0) events/min, paired by seed and draw.",
+      "subject_interaction_estimand": "Use common interaction estimands with G_s equal to target-oriented density change after morphology and regime vetoes.",
+      "practical_margin": "E3>=3.0 events/min and each endpoint differs from sham by at least 1.5 events/min in the registered direction.",
+      "decision_threshold": "Every T3 F_TARGET_DECISIONS slack has simultaneous lower bound>0: E3-3.0 and both endpoint density changes-1.5 events/min; gate-kept Holm p<0.05; >=30 valid pairs; fixed detector/morphology; no veto. The exact level_a_shape_consistency prerequisite must pass in >=4 of 6 draws.",
+      "uncertainty_method": "F_TARGET_DECISIONS studentized max-deviation paired hierarchical bootstrap; nested subject bootstrap if future eligible.",
+      "statistical_test": "T_obs=mean_b((D(+2)-D(-2))/3); 100000 one-sided paired sign flips from PCG64(860233); equality is extreme; p=(B+1)/100001.",
+      "confidence_level": 0.95,
+      "minimum_denominators": {
+        "phase2a_valid_paired_blocks": 30,
+        "retained_analysis_seconds_per_block": 160,
+        "formal_phase2b_subjects": 3
+      },
+      "stability_rule": "Common stability rules; retained duration >=160 s and median SO amplitude remains 0.10-2.00 m.u.",
+      "off_target_outcomes": [
+        "T1 frequency",
+        "T2 amplitude",
+        "T4 spindle density",
+        "T6 coupling",
+        "population rates",
+        "T8 occupancy"
+      ],
+      "multiplicity_rule": "Gate-kept secondary Holm family T2,T3,T5,T7.",
+      "failure_rule": "D for valid submargin response; F if count changes arise from threshold crossings, shortened retained duration, pulse-count aliasing, instability, silence, or regime collapse.",
+      "personalization_requirement": "Common formal C2 interaction rule with N>=3; unavailable under V3.",
+      "allowed_claim": "After valid execution only: bounded generic cortical pulses changed fixed-detector SO event density within the clean-room bench.",
+      "prohibited_claim": "Increased human slow waves, improved sleep, personalized stimulation, C1, C2, or R4-candidate control.",
+      "level_b_execution": {
+        "grid": {
+          "d": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "f_rep_hz": [
+            0.55,
+            0.7,
+            0.85,
+            1,
+            1.15
+          ],
+          "cells": 25
+        },
+        "formula": "a_p=floor(p*1000/f_rep+0.5); retain a_p+80<=180000; set u_E=d on [30000+a_p,30000+a_p+80), else zero.",
+        "policy": "SINGLE_CONDITION among d!=0; C3=median_b(sign(d)*(D_u-D_sham)/1.5).",
+        "tie": "maximum C3, then |d|/2+abs(f_rep-0.85)/0.30, row, column"
+      },
+      "policy_score": "LEVEL_A SINGLE_CONDITION: maximize C3 over nonzero d in [-2,-1.25,-0.5,0.5,1.25,2] at f_rep=0.85.",
+      "policy_tie_rule": "Tie: smaller abs(d), then smaller signed d.",
+      "cross_target_normalized_scalars": "Per verifier block n3_b=(D_u,b-D_sham,b)/1.5; median blocks before B/A. Then BENEFIT=max(0,nHat) and ADVERSE=max(0,-nHat). Mapping rows aggregate minimum benefit and maximum adverse; bootstrap replicates repeat this exact order.",
+      "machine_bindings": {
+        "executable_schedule": "phase2_protocol.json#phase2a/conditional_level_b/executable_condition_schedule/T3",
+        "policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects/T3",
+        "cell_score": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cell_scores/T3",
+        "exact_test": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+        "simultaneous_family": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+        "level_b_policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects/T3",
+        "cross_target_aggregation": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cross_target_cell_construction",
+        "shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+      },
+      "level_b_policy_score": "SINGLE_CONDITION among d!=0; C3=median_b(sign(d)*(D_u-D_sham)/1.5).",
+      "level_b_policy_tie_rule": "maximum C3, then |d|/2+abs(f_rep-0.85)/0.30, row, column",
+      "shape_consistency_rule": "Require >=5 valid paired seeds for every required condition; draw passes exactly as follows: Per draw on seven ascending doses, positive endpoint span and >=5 of 6 adjacent SO-density differences >=0. Target prerequisite passes iff >=4 of 6 draws pass; equality/missing conventions are frozen in phase2_protocol.json."
+    },
+    {
+      "target_id": "T4",
+      "primary_or_secondary": "PRIMARY",
+      "physiological_interpretation": "Occurrence rate of detector-qualified spindle-like sigma events.",
+      "exact_dependent_variable": "Spindle events per minute from the sham-calibrated fixed sigma-RMS detector.",
+      "units": "events/min",
+      "detector_metric_implementation": "phase2_protocol.json#observation_and_detector_contract/T4_T5_spindle_events and phase2_protocol.json#observation_and_detector_contract/T4_added_event_attribution",
+      "baseline_value": "S0=sham spindle density for each paired block and its across-block median; zero is valid when retained duration is valid.",
+      "desired_intervention_direction": "Relay-directed packets increase and reticular-directed packets decrease spindle density.",
+      "intervention": "GENERIC EXTERNAL FORCING through GF_TR_SIGMA_PACKET_BALANCE",
+      "intervention_to_model_mapping": "At fs=200 Hz packet p starts at s_p=floor(p*200/0.85+0.5); internal start is 30000+5*s_p and the exact 500-step Hann/nonnegative-13-Hz packet is injected into T for d>=0 or R for d<0. Candidate V3 Level-B variables and exact sample schedule are frozen in level_b_execution and its machine binding; no unregistered amplitude, frequency, carrier, phase endpoint, or exposure timing is permitted.",
+      "bounded_bidirectional_range": {
+        "dose_hz_equivalent": [
+          -1.5,
+          1.5
+        ],
+        "grid": [
+          -1.5,
+          -1,
+          -0.5,
+          0,
+          0.5,
+          1,
+          1.5
+        ],
+        "carrier_hz": 13,
+        "packet_s": 0.5
+      },
+      "sham_or_no_control": "d=0 with paired OU streams and sham-derived detector thresholds.",
+      "matched_nonpersonalized_comparator": "Leave-one-subject-out median model with pooled packet-balance policy; unavailable under V3 because N=0.",
+      "wrong_subject_comparator": "Cyclic hash-deranged packet policy; unavailable under V3 because N=0.",
+      "effect_estimand": "E4=S(+1.5)-S(-1.5) events/min, paired by seed and draw.",
+      "subject_interaction_estimand": "Use common interaction estimands with G_s equal to target-oriented spindle-density change after sigma-specificity and rate vetoes.",
+      "practical_margin": "E4>=1.0 spindle/min, each endpoint differs from sham by at least 0.5 spindle/min in the registered direction, and >50% of matched-counterfactual ADDED events at d=+1.5 contain an autonomous full sigma cycle after packet offset.",
+      "decision_threshold": "Every T4 member of F_TARGET_DECISIONS has simultaneous lower slack bound>0, including E4-1.0, both endpoint-minus-sham 0.5-spindle/min margins, and autonomous-added-event fraction-0.50; primary Holm-adjusted p<0.05; >=30 valid pairs; >=95% stability; no veto. The exact level_a_shape_consistency prerequisite must pass in >=4 of 6 draws.",
+      "uncertainty_method": "F_TARGET_DECISIONS studentized max-deviation paired hierarchical bootstrap plus the separate primary Holm test; nested subject bootstrap if future eligible.",
+      "statistical_test": "T_obs=mean_b((S(+1.5)-S(-1.5))/1.0); 100000 one-sided paired sign flips from PCG64(860234); equality is extreme; p=(B+1)/100001.",
+      "confidence_level": 0.95,
+      "minimum_denominators": {
+        "phase2a_valid_paired_blocks": 30,
+        "retained_analysis_seconds_per_block": 160,
+        "added_events_at_positive_endpoint": 30,
+        "distinct_blocks_with_added_events": 10,
+        "formal_phase2b_subjects": 3
+      },
+      "stability_rule": "Common rules; detector retained-duration fraction>=0.85 and sigma-band fraction must increase for an increase claim.",
+      "off_target_outcomes": [
+        "T1 frequency",
+        "T2 amplitude",
+        "T3 SO density",
+        "T5 event RMS",
+        "T6 coupling",
+        "4-30 Hz power",
+        "mean rates",
+        "T8 occupancy"
+      ],
+      "multiplicity_rule": "Primary Holm family T1,T4,T6.",
+      "failure_rule": "Use the frozen one-to-one <=0.250 s peak-time matcher. NOT_ESTIMABLE if N_added<30 or fewer than 10 blocks contain added events. PASS requires the simultaneous lower bound for F_auto-0.50>0. D applies to a valid submargin/nonrobust result when F_replica<0.50. F applies when F_replica>=0.50 or matching, detector, packet timing, broadband, or instability artifact materially generates the effect. Mandatory preflight fixture path/hash and exact deep-comparison rule must pass before scientific execution; any mismatch is F/implementation stop, never a T4 outcome.",
+      "personalization_requirement": "Common formal C2 interaction rule with N>=3; unavailable under V3.",
+      "allowed_claim": "After valid execution only: relay-versus-reticular generic packets changed spindle-like event density within PHASE2_CONTROL_BENCH_V1 under fixed detection.",
+      "prohibited_claim": "Human spindle induction, auditory stimulation, memory benefit, personalized control, C1, C2, or R4 response.",
+      "level_b_execution": {
+        "grid": {
+          "d": [
+            -1.5,
+            -0.75,
+            0,
+            0.75,
+            1.5
+          ],
+          "f_c_hz": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "f_rep_hz": 0.85,
+          "cells": 25
+        },
+        "formula": "s_p=floor(p*200/0.85+0.5); packet q[k;f_c]=Hann500[k]*0.5*(1+sin(2*pi*f_c*k/1000)); d>=0 injects T, d<0 injects R; retain full packets only.",
+        "policy": "SINGLE_CONDITION among d>0; C4=min(median_b((S_u-S_sham)/0.5),F_auto/0.50), requiring N_added>=30 and >=10 contributing blocks.",
+        "tie": "maximum C4, then d/1.5+abs(f_c-13)/2, row, column",
+        "fixture": {
+          "path": "PROTOCOL/CANDIDATE_V3/t4_attribution_fixture_v3.json",
+          "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+        }
+      },
+      "policy_score": "LEVEL_A SINGLE_CONDITION: maximize C4, including F_auto and its denominator, over positive d in [0.5,1,1.5] at f_rep=0.85,f_c=13.",
+      "policy_tie_rule": "Tie: smaller positive d.",
+      "cross_target_normalized_scalars": "Per verifier block n4_b=(S_u,b-S_sham,b)/0.5; take the block median before B/A. A condition emitting T4 packets must meet N_added>=30 and >=10 contributing verifier blocks or both T4 members are missing; if estimable ADVERSE=max(max(0,-nHat),F_replica/0.50), including the T4 diagonal. Nonpacket conditions use replica term 0.",
+      "machine_bindings": {
+        "executable_schedule": "phase2_protocol.json#phase2a/conditional_level_b/executable_condition_schedule/T4",
+        "policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects/T4",
+        "cell_score": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cell_scores/T4",
+        "exact_test": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+        "simultaneous_family": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+        "level_b_policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects/T4",
+        "cross_target_aggregation": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cross_target_cell_construction",
+        "shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+      },
+      "level_b_policy_score": "SINGLE_CONDITION among d>0; C4=min(median_b((S_u-S_sham)/0.5),F_auto/0.50), requiring N_added>=30 and >=10 contributing blocks.",
+      "level_b_policy_tie_rule": "maximum C4, then d/1.5+abs(f_c-13)/2, row, column",
+      "shape_consistency_rule": "Require >=5 valid paired seeds for every required condition; draw passes exactly as follows: Per draw on seven ascending doses, positive endpoint span and >=5 of 6 adjacent spindle-density differences >=0. Target prerequisite passes iff >=4 of 6 draws pass; equality/missing conventions are frozen in phase2_protocol.json."
+    },
+    {
+      "target_id": "T5",
+      "primary_or_secondary": "SECONDARY",
+      "physiological_interpretation": "Event-level sigma amplitude of spindle-like model events.",
+      "exact_dependent_variable": "Median 11-16 Hz RMS across retained spindle events.",
+      "units": "m.u. RMS",
+      "detector_metric_implementation": "phase2_protocol.json#observation_and_detector_contract/T4_T5_spindle_events",
+      "baseline_value": "R0=median sham spindle-event RMS; prespecified and not yet observed; requires at least 10 sham events per valid block.",
+      "desired_intervention_direction": "Relay-directed forcing increases and reticular-directed forcing decreases sigma-event RMS without broadband gain.",
+      "intervention": "GENERIC EXTERNAL FORCING through GF_TR_SIGMA_CONTINUOUS_BALANCE",
+      "intervention_to_model_mapping": "A continuous nonnegative 13 Hz waveform is injected into T for d>=0 or R for d<0. Candidate V3 Level-B variables and exact sample schedule are frozen in level_b_execution and its machine binding; no unregistered amplitude, frequency, carrier, phase endpoint, or exposure timing is permitted.",
+      "bounded_bidirectional_range": {
+        "dose_hz_equivalent": [
+          -1.2,
+          1.2
+        ],
+        "grid": [
+          -1.2,
+          -0.8,
+          -0.4,
+          0,
+          0.4,
+          0.8,
+          1.2
+        ],
+        "carrier_hz": 13
+      },
+      "sham_or_no_control": "d=0 with paired OU streams and sham-calibrated detector thresholds.",
+      "matched_nonpersonalized_comparator": "Leave-one-subject-out median model with pooled sigma-balance policy; unavailable under V3 because N=0.",
+      "wrong_subject_comparator": "Cyclic hash-deranged sigma policy; unavailable under V3 because N=0.",
+      "effect_estimand": "E5=(R(+1.2)-R(-1.2))/R0, paired by block.",
+      "subject_interaction_estimand": "Use common interaction estimands with G_s equal to signed fractional event-RMS change conditional on specificity.",
+      "practical_margin": "E5>=0.15 and each endpoint differs from sham by at least 5% in the registered direction.",
+      "decision_threshold": "Every T5 F_TARGET_DECISIONS slack has simultaneous lower bound>0: E5-0.15 and both endpoint fractional changes-0.05; gate-kept Holm p<0.05; >=30 valid pairs; >=10 events per condition/block; specificity veto passes. The exact level_a_shape_consistency prerequisite must pass in >=4 of 6 draws.",
+      "uncertainty_method": "F_TARGET_DECISIONS studentized max-deviation paired hierarchical bootstrap; nested subject bootstrap if future eligible.",
+      "statistical_test": "T_obs=mean_b(E5_b/0.15); 100000 one-sided paired sign flips from PCG64(860235); equality is extreme; p=(B+1)/100001.",
+      "confidence_level": 0.95,
+      "minimum_denominators": {
+        "phase2a_valid_paired_blocks": 30,
+        "spindle_events_per_condition_block": 10,
+        "formal_phase2b_subjects": 3
+      },
+      "stability_rule": "Common rules plus 4-30 Hz power <=1.25 times sham unless 11-16 Hz fraction increases by >=0.05 absolute.",
+      "off_target_outcomes": [
+        "T4 spindle density",
+        "T1 SO frequency",
+        "T2 SO amplitude",
+        "T6 coupling",
+        "4-30 Hz power",
+        "mean rates",
+        "T8 occupancy"
+      ],
+      "multiplicity_rule": "Gate-kept secondary Holm family T2,T3,T5,T7.",
+      "failure_rule": "D for valid submargin response or inadequate events; F for broadband excitation, threshold drift, saturation, instability, or event selection artifact; event insufficiency is NOT_ESTIMABLE rather than zero.",
+      "personalization_requirement": "Common formal C2 interaction rule with N>=3; unavailable under V3.",
+      "allowed_claim": "After valid execution only: bounded thalamic generic forcing changed spindle-event sigma RMS specifically within the clean-room bench.",
+      "prohibited_claim": "Human spindle strength, enhanced sleep physiology, personalized intervention, C1, C2, or R4 response.",
+      "level_b_execution": {
+        "grid": {
+          "d": [
+            -1.2,
+            -0.6,
+            0,
+            0.6,
+            1.2
+          ],
+          "f_c_hz": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "cells": 25
+        },
+        "formula": "q[a]=0.5*(1+sin(2*pi*f_c*a/1000)); d>=0 injects d*q into T, d<0 injects -d*q into R for a=0,...,179999.",
+        "policy": "SINGLE_CONDITION among d>0; C5=median_b(sign(d)*(R_u-R_sham)/(0.05*R_sham)).",
+        "tie": "maximum C5, then d/1.2+abs(f_c-13)/2, row, column"
+      },
+      "policy_score": "LEVEL_A SINGLE_CONDITION: maximize C5 over positive d in [0.4,0.8,1.2] at f_c=13.",
+      "policy_tie_rule": "Tie: smaller positive d.",
+      "cross_target_normalized_scalars": "Per verifier block n5_b=(R_u,b-R_sham,b)/(0.05*R_sham,b); median blocks before B/A. Then BENEFIT=max(0,nHat) and ADVERSE=max(0,-nHat). Mapping rows aggregate minimum benefit and maximum adverse; bootstrap replicates repeat this exact order.",
+      "machine_bindings": {
+        "executable_schedule": "phase2_protocol.json#phase2a/conditional_level_b/executable_condition_schedule/T5",
+        "policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects/T5",
+        "cell_score": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cell_scores/T5",
+        "exact_test": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+        "simultaneous_family": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+        "level_b_policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects/T5",
+        "cross_target_aggregation": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cross_target_cell_construction",
+        "shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+      },
+      "level_b_policy_score": "SINGLE_CONDITION among d>0; C5=median_b(sign(d)*(R_u-R_sham)/(0.05*R_sham)).",
+      "level_b_policy_tie_rule": "maximum C5, then d/1.2+abs(f_c-13)/2, row, column",
+      "shape_consistency_rule": "Require >=5 valid paired seeds for every required condition; draw passes exactly as follows: Per draw on seven ascending doses, positive endpoint span and >=5 of 6 adjacent sigma-RMS differences >=0. Target prerequisite passes iff >=4 of 6 draws pass; equality/missing conventions are frozen in phase2_protocol.json."
+    },
+    {
+      "target_id": "T6",
+      "primary_or_secondary": "PRIMARY",
+      "physiological_interpretation": "Strength of coordination between slow phase and sigma amplitude in the model proxy.",
+      "exact_dependent_variable": "Surrogate-bias-corrected 18-bin Tort modulation index (bMI).",
+      "units": "dimensionless",
+      "detector_metric_implementation": "phase2_protocol.json#observation_and_detector_contract/T6",
+      "baseline_value": "MI0=paired sham bMI for each seed-draw block and its across-block median; prespecified and not yet observed.",
+      "desired_intervention_direction": "Increase coupling at registered phase 0 relative to sham, with phase-response characterization across the full signed circle.",
+      "intervention": "GENERIC EXTERNAL FORCING through GF_T_PHASE_LOCKED_PACKET",
+      "intervention_to_model_mapping": "Use the exact 200 Hz causal HP(0.3 Hz)-LP(1.5 Hz) scheduler in phase2_protocol.json: phase zero is the accepted filtered upward crossing, period is the median of the last three valid 134-400 sample intervals, signed phase uses forward modulo delay and round-half-up integer scheduling, and the exact 500-step packet is injected into u_T. No filter-delay calibration or subtraction is used. Candidate V3 Level-B variables and exact sample schedule are frozen in level_b_execution and its machine binding; no unregistered amplitude, frequency, carrier, phase endpoint, or exposure timing is permitted.",
+      "bounded_bidirectional_range": {
+        "phase_radians_canonical": [
+          -3.141592653589793,
+          3.141592653589793
+        ],
+        "grid_unique": [
+          -3.141592653589793,
+          -2.0943951023931953,
+          -1.5707963267948966,
+          -1.0471975511965976,
+          0,
+          1.0471975511965976,
+          1.5707963267948966,
+          2.0943951023931953
+        ],
+        "amplitude_hz_equivalent": 1,
+        "endpoint_rule": "-pi is included; +pi is the duplicate-equivalent endpoint and is not executed"
+      },
+      "sham_or_no_control": "Packet amplitude=0 with the causal detector running and paired OU streams.",
+      "matched_nonpersonalized_comparator": "Leave-one-subject-out median model with pooled trigger-phase policy; unavailable under V3 because N=0.",
+      "wrong_subject_comparator": "Cyclic hash-deranged trigger phase/amplitude policy; unavailable under V3 because N=0.",
+      "effect_estimand": "E6=bMI(phi=0)-bMI(sham), paired by seed and draw; all phase-grid values are reported.",
+      "subject_interaction_estimand": "Use common interaction estimands with G_s equal to bMI gain at that subject's training-selected grid phase minus sham, standardized by within-subject uncertainty.",
+      "practical_margin": "E6>=0.010 absolute bMI and at least 75% of valid blocks have positive paired gain.",
+      "decision_threshold": "The simultaneous F_TARGET_DECISIONS lower bounds for E6-0.010 and positive-block-fraction-0.75 are both >0, primary Holm-adjusted p<0.05, >=30 valid pairs, >=30 SO cycles and >=10 spindle events per block, and scheduler/surrogate/off-target rules pass. The exact level_a_shape_consistency prerequisite must pass in >=4 of 6 draws.",
+      "uncertainty_method": "F_TARGET_DECISIONS studentized max-deviation paired hierarchical bootstrap including fixed 200-surrogate correction; nested subject bootstrap if future eligible.",
+      "statistical_test": "T_obs=mean_b((bMI(phi=0)-bMI(sham))/0.010); 100000 one-sided paired sign flips from PCG64(860236); equality is extreme; p=(B+1)/100001.",
+      "confidence_level": 0.95,
+      "minimum_denominators": {
+        "phase2a_valid_paired_blocks": 30,
+        "SO_cycles_per_block": 30,
+        "spindle_events_per_block": 10,
+        "surrogates_per_block": 200,
+        "formal_phase2b_subjects": 3
+      },
+      "stability_rule": "Common rules; all phase bins populated and event counts, SO amplitude, sigma power, and rates remain valid.",
+      "off_target_outcomes": [
+        "T7 preferred phase",
+        "T4 spindle density",
+        "T5 spindle RMS",
+        "T1 SO frequency",
+        "T2 amplitude",
+        "T3 density",
+        "mean rates",
+        "T8 occupancy"
+      ],
+      "multiplicity_rule": "Primary Holm family T1,T4,T6.",
+      "failure_rule": "D for valid submargin or nonrobust bMI gain; F for edge/filter leakage, trigger-count confounding, event insufficiency presented as zero, packet artifact, unstable rates, or failed surrogate null.",
+      "personalization_requirement": "Common formal C2 interaction rule with N>=3 and phase-policy differences exceeding within-model uncertainty; unavailable under V3.",
+      "allowed_claim": "After valid execution only: causal phase-triggered generic thalamic packets increased bias-corrected SO-sigma coupling in the clean-room bench.",
+      "prohibited_claim": "Personalized SO-spindle coordination, human memory consolidation, auditory closed-loop efficacy, C1, C2, or R4 control.",
+      "level_b_execution": {
+        "grid": {
+          "phi_radians": [
+            -3.141592653589793,
+            -1.5707963267948966,
+            0,
+            1.5707963267948966
+          ],
+          "A": [
+            0,
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "f_c_hz": 13,
+          "cells": 20
+        },
+        "formula": "Exact causal scheduler tuple (phi,A,13); packet u_T=A*Hann500*nonnegative-13-Hz carrier. A=0 emits no packet and logs ZERO_AMPLITUDE_SHAM.",
+        "policy": "SINGLE_CONDITION among A>0; C6=min(median_b(delta_bMI)/0.010,mean_b(1[delta_bMI>0])/0.75).",
+        "tie": "maximum C6, then A+abs(wrap(phi))/pi, row, column"
+      },
+      "policy_score": "LEVEL_A SINGLE_CONDITION: maximize C6 over all eight unique phase conditions at A=1,f_c=13.",
+      "policy_tie_rule": "Tie: smaller abs(wrap(phi)), then smaller canonical phi.",
+      "cross_target_normalized_scalars": "Per verifier block n6_b=(bMI_u,b-bMI_sham,b)/0.010; median blocks before B/A. Then BENEFIT=max(0,nHat) and ADVERSE=max(0,-nHat). Mapping rows aggregate minimum benefit and maximum adverse; bootstrap replicates repeat this exact order.",
+      "machine_bindings": {
+        "executable_schedule": "phase2_protocol.json#phase2a/conditional_level_b/executable_condition_schedule/T6",
+        "policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects/T6",
+        "cell_score": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cell_scores/T6",
+        "exact_test": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+        "simultaneous_family": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+        "level_b_policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects/T6",
+        "cross_target_aggregation": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cross_target_cell_construction",
+        "shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+      },
+      "level_b_policy_score": "SINGLE_CONDITION among A>0; C6=min(median_b(delta_bMI)/0.010,mean_b(1[delta_bMI>0])/0.75).",
+      "level_b_policy_tie_rule": "maximum C6, then A+abs(wrap(phi))/pi, row, column",
+      "shape_consistency_rule": "Require >=5 valid paired seeds for every required condition; draw passes exactly as follows: Per draw, median-seed bMI(phi=0)-bMI(sham)>0. Target prerequisite passes iff >=4 of 6 draws pass; equality/missing conventions are frozen in phase2_protocol.json."
+    },
+    {
+      "target_id": "T7",
+      "primary_or_secondary": "SECONDARY",
+      "physiological_interpretation": "Timing of spindle-like maxima relative to slow-oscillation phase.",
+      "exact_dependent_variable": "Circular mean SO phase of the maximum sigma envelope within each retained spindle event.",
+      "units": "radians in [-pi,pi)",
+      "detector_metric_implementation": "phase2_protocol.json#observation_and_detector_contract/T7",
+      "baseline_value": "phi0=paired sham circular mean when resultant length R>=0.20 and event/cycle minima hold; otherwise NOT_ESTIMABLE.",
+      "desired_intervention_direction": "Measured preferred phase tracks both negative and positive registered trigger offsets rather than merely changing coupling magnitude.",
+      "intervention": "GENERIC EXTERNAL FORCING through GF_T_PHASE_LOCKED_PACKET",
+      "intervention_to_model_mapping": "Same exact causal scheduler as T6. The requested signed phase is canonicalized to [-pi,pi), mapped forward modulo 2*pi to an integer delay from the accepted crossing, and negative offsets are delivered later in the current estimated cycle; no retrospective scheduling or delay calibration is permitted. Candidate V3 Level-B variables and exact sample schedule are frozen in level_b_execution and its machine binding; no unregistered amplitude, frequency, carrier, phase endpoint, or exposure timing is permitted.",
+      "bounded_bidirectional_range": {
+        "phase_radians_canonical": [
+          -3.141592653589793,
+          3.141592653589793
+        ],
+        "grid_unique": [
+          -3.141592653589793,
+          -2.0943951023931953,
+          -1.5707963267948966,
+          -1.0471975511965976,
+          0,
+          1.0471975511965976,
+          1.5707963267948966,
+          2.0943951023931953
+        ],
+        "endpoint_rule": "-pi only; +pi not executed"
+      },
+      "sham_or_no_control": "Packet amplitude=0 with causal detector running and paired OU streams.",
+      "matched_nonpersonalized_comparator": "Leave-one-subject-out median model with pooled phase policy; unavailable under V3 because N=0.",
+      "wrong_subject_comparator": "Cyclic hash-deranged phase policy; unavailable under V3 because N=0.",
+      "effect_estimand": "For each complete block and requested phase alpha_l, beta_b,l=atan2(sum_e sin(phi_e),sum_e cos(phi_e)). For lexicographic pairs l<m, rho_b=sum sin(alpha_l-alpha_m)sin(beta_b,l-beta_b,m)/sqrt(sum sin(alpha_l-alpha_m)^2 * sum sin(beta_b,l-beta_b,m)^2), the Fisher-Lee pairwise circular correlation. Let error_b=median_l abs(wrap(beta_b,l-alpha_l)) radians and separation_b=abs(wrap(beta_b,+pi/2-beta_b,-pi/2)) radians. E7 is (median_b rho_b, median_b error_b, median_b separation_b).",
+      "subject_interaction_estimand": "Use common interaction estimands with G_s=-absolute circular tracking error standardized by sham phase uncertainty.",
+      "practical_margin": "rho_c>=0.70, median tracking error<=pi/6, and lower 95% bound on output separation for requested -pi/2 versus +pi/2 >=pi/3.",
+      "decision_threshold": "The F_TARGET_DECISIONS simultaneous lower bounds for circular-correlation-0.70, pi/6-minus-tracking-error, and observed separation at the executed -pi/2 and +pi/2 conditions minus pi/3 are all >0; gate-kept Holm-adjusted circular permutation p<0.05; >=30 valid pairs; event and concentration minima pass. The exact level_a_shape_consistency prerequisite must pass in >=4 of 6 draws.",
+      "uncertainty_method": "F_TARGET_DECISIONS simultaneous bands for rho_c-0.70, pi/6-tracking error, and separation-pi/3; exact circular recomputation in every hierarchical bootstrap. Exact permutation and Holm conventions are separately bound.",
+      "statistical_test": "Across complete eight-phase Level-A blocks, rho_b is the Fisher-Lee pairwise circular correlation; error_b=median_l abs(wrap(beta-alpha)); separation_b=abs(wrap(beta_(+pi/2)-beta_(-pi/2))). T_obs=min(median rho/0.70,min(4,(pi/6)/max(median error,1e-12)),median separation/(pi/3)). Perform 100000 within-block beta-label permutations from one PCG64(860217) lifecycle; greater tail, equality extreme, degeneracy=-infinity, p=(B+1)/100001.",
+      "confidence_level": 0.95,
+      "minimum_denominators": {
+        "phase2a_valid_paired_blocks": 30,
+        "spindle_events_per_condition_block": 10,
+        "SO_cycles_per_block": 30,
+        "formal_phase2b_subjects": 3
+      },
+      "stability_rule": "Common rules plus resultant length R>=0.20; coupling-strength change alone cannot pass T7.",
+      "off_target_outcomes": [
+        "T6 coupling strength",
+        "T4 spindle density",
+        "T5 spindle RMS",
+        "T1 frequency",
+        "T2 amplitude",
+        "T3 density",
+        "mean rates",
+        "T8 occupancy"
+      ],
+      "multiplicity_rule": "Gate-kept secondary Holm family T2,T3,T5,T7.",
+      "failure_rule": "D for valid but poor tracking/separation; F if apparent phase shifts arise only from changed event selection, filter delay, edge leakage, low concentration, or instability; insufficient events are NOT_ESTIMABLE.",
+      "personalization_requirement": "Common formal C2 interaction rule with N>=3 and subject-specific phase policies exceeding circular uncertainty; unavailable under V3.",
+      "allowed_claim": "After valid execution only: registered trigger offsets shifted spindle-like preferred phase within the clean-room bench, separately from coupling strength.",
+      "prohibited_claim": "Human spindle timing prescription, personalized phase targeting, causal human timing control, C1, C2, or R4 response.",
+      "level_b_execution": {
+        "grid": {
+          "phi_radians": [
+            -3.141592653589793,
+            -1.5707963267948966,
+            0,
+            1.5707963267948966
+          ],
+          "A": 1,
+          "f_c_hz": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "cells": 20
+        },
+        "formula": "Exact causal scheduler tuple (phi,1,f_c); packet u_T=Hann500*0.5*(1+sin(2*pi*f_c*k/1000)); +pi absent.",
+        "policy": "MAPPING P7_fc: each of four requested phases maps to (phi,f_c). G7=min(rho_c/0.70,min(4,(pi/6)/max(error,1e-12)),separation/(pi/3)).",
+        "tie": "maximum G7, then abs(f_c-13), then smaller f_c"
+      },
+      "policy_score": "LEVEL_A MAPPING: the sole P7_LA maps all eight requested phases to their A=1,f_c=13 cells; G7 is the joint Fisher-Lee rho/tracking/separation score.",
+      "policy_tie_rule": "No tie: one mapping.",
+      "cross_target_normalized_scalars": "Per verifier block for off-row conditions n7_b=-abs(wrap(beta_u,b-beta_sham,b))/(pi/6); median blocks before B/A. Diagonal T7 uses verifier G7 of the eight-condition mapping. Then BENEFIT=max(0,nHat) and ADVERSE=max(0,-nHat). Mapping rows aggregate minimum benefit and maximum adverse; bootstrap replicates repeat this exact order.",
+      "machine_bindings": {
+        "executable_schedule": "phase2_protocol.json#phase2a/conditional_level_b/executable_condition_schedule/T7",
+        "policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects/T7",
+        "cell_score": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cell_scores/T7",
+        "exact_test": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+        "simultaneous_family": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+        "level_b_policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects/T7",
+        "cross_target_aggregation": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cross_target_cell_construction",
+        "shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+      },
+      "level_b_policy_score": "MAPPING P7_fc: each of four requested phases maps to (phi,f_c). G7=min(rho_c/0.70,min(4,(pi/6)/max(error,1e-12)),separation/(pi/3)).",
+      "level_b_policy_tie_rule": "maximum G7, then abs(f_c-13), then smaller f_c",
+      "shape_consistency_rule": "Require >=5 valid paired seeds for every required condition; draw passes exactly as follows: Per draw, complete seed-aggregated eight-phase curve with Fisher-Lee rho>0 and +/-pi/2 separation>0. Target prerequisite passes iff >=4 of 6 draws pass; equality/missing conventions are frozen in phase2_protocol.json."
+    },
+    {
+      "target_id": "T8",
+      "primary_or_secondary": "EXPLORATORY",
+      "physiological_interpretation": "Transition between prospectively defined model dynamical regimes, not a clinical sleep-state transition.",
+      "exact_dependent_variable": "Fraction of six adjacent 25 s windows [15,40),[40,65),[65,90),[90,115),[115,140),[140,165) s satisfying every mixed SO-spindle model-regime criterion.",
+      "units": "proportion in {0,1/6,2/6,3/6,4/6,5/6,1}",
+      "detector_metric_implementation": "phase2_protocol.json#observation_and_detector_contract/T8; each 25 s window uses Hann Welch fs=200,nperseg=5000,noverlap=0,nfft=10000, with global 180 s filtering, sham threshold calibration over [10,170) s, and strict within-window event containment.",
+      "baseline_value": "O0=sham mixed-regime occupancy across the six exact 25 s windows in each paired block and its median; prespecified and not yet observed.",
+      "desired_intervention_direction": "Demonstrate a persistent bidirectional occupancy range across inhibitory/reticular versus excitatory/relay forcing without silence, saturation, or transient instability.",
+      "intervention": "GENERIC EXTERNAL FORCING through GF_BALANCED_DC",
+      "intervention_to_model_mapping": "For d>=0 inject (u_E,u_T)=(d,0.5d); for d<0 inject (u_I,u_R)=(-d,-0.5d); unused inputs zero. Candidate V3 Level-B variables and exact sample schedule are frozen in level_b_execution and its machine binding; no unregistered amplitude, frequency, carrier, phase endpoint, or exposure timing is permitted.",
+      "bounded_bidirectional_range": {
+        "dose_hz_equivalent": [
+          -2,
+          2
+        ],
+        "grid": [
+          -2,
+          -1.25,
+          -0.5,
+          0,
+          0.5,
+          1.25,
+          2
+        ]
+      },
+      "sham_or_no_control": "d=0 with paired OU streams.",
+      "matched_nonpersonalized_comparator": "Leave-one-subject-out median model with pooled regime policy; unavailable under V3 because N=0.",
+      "wrong_subject_comparator": "Cyclic hash-deranged regime policy; unavailable under V3 because N=0.",
+      "effect_estimand": "E8=max_d O(d)-min_d O(d) over the complete fixed grid, paired by seed and draw; extrema use smallest absolute dose then smaller signed dose for ties.",
+      "subject_interaction_estimand": "Use common interaction estimands with G_s equal to occupancy gain toward the registered mixed regime, standardized by within-subject uncertainty.",
+      "practical_margin": "E8>=1/3; at d_hi, at least 75% of complete blocks have two consecutive valid-regime windows and the simultaneous lower bound for persistence fraction-0.75 is >0; at least one exact pair among (-2,-1.25),(-1.25,-0.5),(0.5,1.25),(1.25,2) has Q(d)>0 at both doses.",
+      "decision_threshold": "The F_TARGET_DECISIONS simultaneous lower bounds for E8-1/3 and persistence_fraction(d_hi)-0.75 are both >0; >=30 valid paired blocks; exact Level-A adjacency and >=4/6 draw shape rules pass; all component/hard stability rules pass. T8 is exploratory and ineligible for V3 advancement.",
+      "uncertainty_method": "F_TARGET_DECISIONS simultaneous bands jointly include E8-1/3 and persistence_fraction(d_hi)-0.75; exact adjacency and shape rules are noncompensatory binary prerequisites.",
+      "statistical_test": "T_obs=mean_b((max_d O(d)-min_d O(d))/(1/3)); 100000 one-sided paired sign flips from PCG64(860238); equality extreme; p=(B+1)/100001; descriptive only.",
+      "confidence_level": 0.95,
+      "minimum_denominators": "[object Object] Persistence and Q(d) use the same complete paired blocks; every support dose requires >=30 blocks, >=5 seeds, and >=5 draws.",
+      "stability_rule": "Every regime-positive window must meet all registered rate, SO, spindle, spectral, and solver bounds; silence, saturation, clipping, or transient blow-up is INVALID.",
+      "off_target_outcomes": [
+        "all T1-T7 outcomes",
+        "mean and extreme rates",
+        "4-30 Hz power",
+        "solver validity",
+        "regime dwell time"
+      ],
+      "multiplicity_rule": "Exploratory descriptive target; ineligible for Candidate V3 Phase2B advancement.",
+      "failure_rule": "D for valid submargin or nonpersistent occupancy response; F if a transition is caused by instability, silence, saturation, clipping, detector collapse, or a single isolated window.",
+      "personalization_requirement": "Common formal C2 interaction rule with N>=3 would be required in a new protocol version; unavailable under V3.",
+      "allowed_claim": "After valid execution only: balanced generic forcing changed occupancy of a prospectively defined model regime in PHASE2_CONTROL_BENCH_V1.",
+      "prohibited_claim": "Sleep-stage transition in humans, movement toward a clinically beneficial attractor, personalized state control, C1, C2, or R4 response.",
+      "level_b_execution": {
+        "grid": {
+          "d": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "fraction": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "cells": 25
+        },
+        "formula": "In each analysis-relative 25,000-step window [a0,a1), L=floor(25000*fraction+0.5), start=a0+floor((25000-L)/2), stop=start+L; apply GF_BALANCED_DC only on [start,stop).",
+        "windows": [
+          [
+            15000,
+            40000
+          ],
+          [
+            40000,
+            65000
+          ],
+          [
+            65000,
+            90000
+          ],
+          [
+            90000,
+            115000
+          ],
+          [
+            115000,
+            140000
+          ],
+          [
+            140000,
+            165000
+          ]
+        ],
+        "policy": "SINGLE_CONDITION: at fixed fraction, a nonzero dose is eligible only when it belongs to passing pair (-2,-1) or (1,2), both Q_f values are >0, and C8=min(oriented occupancy/(1/6),persistence_fraction/0.75) is estimable.",
+        "tie": "maximum C8, then |d|/2+fraction, row, column"
+      },
+      "policy_score": "LEVEL_A SINGLE_CONDITION: among doses belonging to one of the exact strict passing adjacency pairs, maximize C8=min(oriented occupancy/(1/6),persistence_fraction/0.75).",
+      "policy_tie_rule": "Tie: smaller abs(d), then smaller signed d.",
+      "cross_target_normalized_scalars": "Per verifier block n8_b=(O_u,b-O_sham,b)/(1/6); median blocks before B/A. Then BENEFIT=max(0,nHat) and ADVERSE=max(0,-nHat). Mapping rows aggregate minimum benefit and maximum adverse; bootstrap replicates repeat this exact order.",
+      "machine_bindings": {
+        "executable_schedule": "phase2_protocol.json#phase2a/conditional_level_b/executable_condition_schedule/T8",
+        "policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects/T8",
+        "cell_score": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cell_scores/T8",
+        "exact_test": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+        "simultaneous_family": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+        "level_b_policy": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects/T8",
+        "cross_target_aggregation": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/cross_target_cell_construction",
+        "shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+      },
+      "level_b_policy_score": "At each fraction, G8(d,f)=C8(d,f) only for cells belonging to a strict passing same-fraction pair (-2,-1) or (1,2); missing/equality fails.",
+      "level_b_policy_tie_rule": "maximum C8, then |d|/2+fraction, row, column",
+      "shape_consistency_rule": "Require >=5 valid paired seeds for every required condition; draw passes exactly as follows: Per draw, at least one exact same-sign adjacency pair has both oriented occupancy medians >0 and >=75% of valid seeds persist at draw-level d_hi. Target prerequisite passes iff >=4 of 6 draws pass; equality/missing conventions are frozen in phase2_protocol.json."
+    }
+  ],
+  "preserved_v2_repairs": [
+    "PF-B001",
+    "PF-B002",
+    "PF-B003",
+    "PF-B004",
+    "PF-B005"
+  ],
+  "parent_freeze_binding": {
+    "path": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+    "sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8"
+  },
+  "audit_receipt_binding": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+    "sha256": "E61465D6357C411DB032AC8989695E1BE73CF04742E3467DBA1246E698975358"
+  },
+  "protocol_route_version": "3.0.0"
+}

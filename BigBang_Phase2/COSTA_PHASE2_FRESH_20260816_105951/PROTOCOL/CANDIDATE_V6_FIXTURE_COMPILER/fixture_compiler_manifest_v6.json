@@ -1,0 +1,168 @@
+{
+  "schema_version": "6.0.0",
+  "manifest_id": "RESCALE_EVENT_VETO_FIXTURE_COMPILER_MANIFEST_V6",
+  "compiler_id": "RESCALE_EVENT_VETO_FIXTURE_COMPILER_V6",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "6.0.0",
+  "scientific_repair_finding_id": "PV4-EDGE-B001",
+  "governance_blockers_repaired": [
+    "PV5-B001",
+    "PV5-B002",
+    "PV5-B003",
+    "PV5-B004",
+    "PV5-B005"
+  ],
+  "status": "STATIC_FREEZE_CANDIDATE_NOT_EXECUTED",
+  "execution_authorized_by_manifest": false,
+  "scientific_outcomes_visible": false,
+  "compiler_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PROTOCOL\\CANDIDATE_V6_FIXTURE_COMPILER\\compile_rescale_event_veto_fixture_v6.py",
+  "compiler_sha256": "D11F0BC51A52039B3944517FAE10F686B853014E44D5982AF417C94FA69E3925",
+  "manifest_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PROTOCOL\\CANDIDATE_V6_FIXTURE_COMPILER\\fixture_compiler_manifest_v6.json",
+  "record_schema_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PROTOCOL\\CANDIDATE_V6_FIXTURE_COMPILER\\rescale_event_veto_record_schemas_v6.json",
+  "record_schema_sha256": "2601C276BB398E9CD82776BEEB3975E11E6165278BA88342FDB8D875D25C876D",
+  "launcher_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\run_neurolib.ps1",
+  "launcher_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+  "requested_concurrent_processes": 1,
+  "environment_versions": {
+    "environment": "neurolib",
+    "environment_id": "NEUROLIB_ENV_V3",
+    "python": "3.10.20",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "dependency_allowlist": {
+    "third_party": [
+      "numpy",
+      "scipy"
+    ],
+    "standard_library": [
+      "json",
+      "hashlib",
+      "sys"
+    ],
+    "forbidden": "Every repository, model, CODE, PREFLIGHT implementation, manifest outside this compiler package, data, R4, output, network, random, clock, environment-variable, subprocess, multiprocessing, and dynamic-import dependency. The separately frozen launcher is invoked externally and is not read by the compiler."
+  },
+  "designated_output_binding": {
+    "path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PROTOCOL\\CANDIDATE_V6\\rescale_event_veto_fixture_v6.json",
+    "relative_path": "PROTOCOL/CANDIDATE_V6/rescale_event_veto_fixture_v6.json",
+    "required_prestate_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+    "required_prestate_role": "BYTE_IDENTICAL_V5_FIXTURE_STAGING_COPY_ONLY",
+    "write_count": 1,
+    "overwrite_other_path": "PROHIBITED",
+    "poststate_sha256_binding_rule": "The separately authorized compiler prints and externally reports the exact poststate SHA-256; no poststate hash exists prospectively before that single deterministic write.",
+    "expected_poststate_schema_id": "RESCALE_EVENT_VETO_FIXTURE_OUTPUT_V6",
+    "expected_fixture_id": "PF_RESCALE_EVENT_VETO_FIXTURE_V6"
+  },
+  "exact_launcher_command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\run_neurolib.ps1 -ScriptPath D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PROTOCOL\\CANDIDATE_V6_FIXTURE_COMPILER\\compile_rescale_event_veto_fixture_v6.py -RequestedConcurrentProcesses 1 --manifest D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PROTOCOL\\CANDIDATE_V6_FIXTURE_COMPILER\\fixture_compiler_manifest_v6.json --schema D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PROTOCOL\\CANDIDATE_V6_FIXTURE_COMPILER\\rescale_event_veto_record_schemas_v6.json --output D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PROTOCOL\\CANDIDATE_V6\\rescale_event_veto_fixture_v6.json",
+  "fixed_synthetic_contract": {
+    "sample_rate_hz": 200,
+    "sample_count_per_source_array": 36000,
+    "sample_domain_half_open": [
+      0,
+      36000
+    ],
+    "dtype": "<f8",
+    "source_roles": [
+      "r_E_stored",
+      "r_T_stored"
+    ],
+    "observation_formula_id": "XRAW_RE_PLUS_0P25_RT_DIV10_FLOAT64_V1",
+    "determinism": "All source samples are generated solely by the fixed literal constants, ordered numpy operations, and bounded binary64 equality search in the exact compiler. No RNG, clock, external array, implementation result, data, or outcome is consulted. The generated fixture embeds every exact source and intermediate array byte in its content-addressed hexadecimal blob table, so replay requires no generator.",
+    "threshold_equality_search": "The compiler checks at most 2049 prospectively ordered binary64 scale candidates: analytic center, then one nextafter lower and upper per rank through rank 1024. Exhaustion fails without output.",
+    "case_ids": [
+      "E2E_MEAN_SHIFT",
+      "E2E_VARIANCE_SCALE",
+      "E2E_GENUINE_EVENT_PERSISTENCE",
+      "E2E_ALL_ADDED_EVENTS_VANISH",
+      "E2E_MATCH_TIE_AND_UNMATCHED",
+      "E2E_EDGE_AND_T8_WINDOW_BOUNDARY",
+      "E2E_ZERO_INTERVENTION_VARIANCE",
+      "E2E_ZERO_SHAM_VARIANCE",
+      "E2E_BOTH_ZERO_VARIANCE",
+      "E2E_NONFINITE_INTERVENTION",
+      "E2E_SO_THRESHOLD_EQUALITY"
+    ]
+  },
+  "production_route_contract": {
+    "route": [
+      "raw source byte validation",
+      "r_E/r_T observation construction",
+      "raw-pair validation and sham-forcing status",
+      "sequential binary64 mu/v/sigma",
+      "direct binary64 affine a*x_I+b",
+      "common centering and frozen scipy SOS filtering",
+      "sham-only spindle thresholds",
+      "SO and spindle event tables",
+      "all eligible candidates",
+      "greedy accepted matches",
+      "exhaustive event class and row-consumption ledgers",
+      "block records and nonrecursive hashes",
+      "within-context condition pooling",
+      "bootstrap missingness oracles",
+      "fixture nonrecursive hash"
+    ],
+    "projection_or_reduced_schema_bypass": "PROHIBITED",
+    "raw_and_intermediate_array_policy": "Every exact array is embedded as little-endian float64 bytes encoded in lowercase hexadecimal and keyed by its uppercase SHA-256.",
+    "official_detector_mutation": "PROHIBITED",
+    "new_scientific_run": false,
+    "scientific_evidence": false
+  },
+  "lineage": {
+    "finding_id": "PV4-EDGE-B001",
+    "v4_parent_freeze": {
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996"
+    },
+    "edge_adjudication": {
+      "path": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+      "sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A"
+    },
+    "v5_parent_freeze": {
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+      "sha256": "4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA"
+    },
+    "v5_fail_receipt": {
+      "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+      "sha256": "485E664B663BBC2E3A13A5FE05C86684B1295490FEB703EFFE77AB5CEB7EA1CA"
+    },
+    "v5_prospective_plan": {
+      "path": "GOVERNANCE/PROTOCOL_V5_REAUDIT_PLAN.json",
+      "sha256": "F84EBEAD585F0A773A092D3912413FE8319818777262024510FB49D6594C9EC6"
+    },
+    "v5_stale_declaration": {
+      "path": "GOVERNANCE/PROTOCOL_V5_STALE_DECLARATION.json",
+      "sha256": "3CB110644DDE677E57F67D0B4D769BA0F9C7FEB7CBC76755B721138A7C24D503"
+    },
+    "bidirectional_rule": "The generated fixture must contain compiler_path/hash, this manifest path/observed hash, schema path/hash, launcher path/hash, exact finding ID and parent controls; this manifest names exactly one fixture ID/path/prestate. Candidate V6 may bind the output only after Root reports its poststate hash."
+  },
+  "fail_closed_checks_before_write": [
+    "exact three-flag CLI and order",
+    "manifest, schema, compiler and output absolute path equality",
+    "compiler SHA-256 equality",
+    "record-schema SHA-256 equality",
+    "Python/numpy/scipy exact version equality",
+    "requested concurrency exactly one",
+    "manifest cannot self-authorize execution",
+    "output prestate SHA-256 equality",
+    "every case and noncompensatory coverage assertion",
+    "every embedded array byte count and SHA-256",
+    "every block/condition exact field set and nonrecursive record hash",
+    "fixture exact top-level field set and nonrecursive payload hash"
+  ],
+  "write_semantics": {
+    "computation_before_write": "All source arrays, expected intermediates, records, hashes and validations complete in memory before the designated output is opened for its sole write.",
+    "serialization": "json.dumps(sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False).encode('ascii')",
+    "postwrite": "Require exact byte count and independently rehash designated output; print one canonical JSON compilation receipt to stdout.",
+    "failure": "Raise before the output write on any pre-write failure. A write or postwrite I/O failure is a governance incident; do not retry without a new Root release."
+  },
+  "immutability": {
+    "compiler_execution_performed": false,
+    "fixture_output_generated": false,
+    "model_or_scientific_execution": false,
+    "code_or_preflight_implementation_access": false,
+    "data_r4_or_outcome_access": false,
+    "root_freeze_and_independent_static_audit_required_before_execution": true,
+    "self_hash_policy": "This manifest's SHA-256 is external and is captured by the generated fixture at released runtime; embedding it here would be recursive."
+  }
+}

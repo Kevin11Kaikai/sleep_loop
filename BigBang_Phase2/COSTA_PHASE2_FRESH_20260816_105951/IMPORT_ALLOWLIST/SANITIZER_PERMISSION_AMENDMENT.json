@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0.0",
+  "amendment_id": "SANITIZER_PERMISSION_AMENDMENT_V1",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "reviewer": "/root/historical_import_audit",
+  "reviewer_role": "Historical Import Auditor",
+  "timestamp": "2026-08-16T11:16:02.2991229-04:00",
+  "review_boundary": {
+    "reviewed_records": [
+      {
+        "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\AUDIT_DECISIONS.json",
+        "sha256": "DA50B67A50118A6BBB6BD6F65D141EB75A5B1A7931DAF5FF1D4B13458C94C3E7"
+      },
+      {
+        "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\V4D1_IMPORT_ALLOWLIST.json",
+        "sha256": "4BF2D608227F590D1BAC0DC9E8CB1F078CED92CE84398102C575AC131FA32B69",
+        "version": 2
+      }
+    ],
+    "r4_files_reopened": false,
+    "repository_science_inspected": false,
+    "decision_basis": "Frozen audit classifications plus the proposed narrow role and purpose only"
+  },
+  "adjudication": {
+    "approved": true,
+    "decision": "APPROVED_WITH_EXACT_FAIL_CLOSED_CONDITIONS",
+    "approved_role": "Evidence Sanitizer",
+    "role_isolation": "FRESH_ISOLATED_NO_ROLE_MIXING",
+    "activation_status": "APPROVED_NOT_ACTIVE_PENDING_OFFICIAL_ALLOWLIST_REVISION_AND_INDEPENDENT_REVALIDATION"
+  },
+  "exact_source_bindings": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\FINAL_CLAIM_MATRIX.json",
+      "sha256": "0ED307F6866660EA7E3AC2330DE07D1D8A6222C0E42941855FC1CDF8353FCC8E",
+      "required_review_status": "CLEAN_ALLOWLISTED",
+      "evidence_class": "HISTORICAL_DEVELOPMENT_CATEGORICAL_CLAIM_AND_SCOPE_RECORD",
+      "permitted_operations": [
+        "read",
+        "hash",
+        "extract"
+      ],
+      "approved_purpose": "DERIVE_VALUE_FREE_CATEGORICAL_R4_SUBSTRATE_ONLY"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\ARTIFACT_MANIFEST.json",
+      "sha256": "7724D06C468646F4E278548A2CC009DCCD51FB7CD7369012C606051A5E135B2B",
+      "required_review_status": "CLEAN_ALLOWLISTED",
+      "evidence_class": "GOVERNANCE_INTEGRITY_METADATA_AND_HASH_CATALOG",
+      "permitted_operations": [
+        "read",
+        "hash",
+        "extract"
+      ],
+      "approved_purpose": "EXTRACT_EXACT_MANIFEST_LISTED_CODE_CONFIG_PARAMETER_DETECTOR_ENVIRONMENT_INPUT_PATHS_AND_EXPECTED_HASHES_AS_PENDING_INDEPENDENT_AUDIT_WITHOUT_REFERENCED_FILE_ACCESS"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\STATE\\FINAL_CLOSEOUT.json",
+      "sha256": "E4E2BC1755551D001BA6D71849E94E4DD00E7A33C73C8E642C99CC5456A283FA",
+      "required_review_status": "CLEAN_ALLOWLISTED",
+      "evidence_class": "GOVERNANCE_CLOSEOUT_AND_BOUNDED_CATEGORICAL_PROVENANCE_RECORD",
+      "permitted_operations": [
+        "read",
+        "hash",
+        "extract"
+      ],
+      "approved_purpose": "DERIVE_VALUE_FREE_CATEGORICAL_R4_SUBSTRATE_ONLY"
+    }
+  ],
+  "approved_outputs": {
+    "value_free_categorical_r4_substrate": {
+      "permitted": true,
+      "allowed_content": [
+        "canonical categorical M/C/P/evidence assignment",
+        "development-only provenance label",
+        "categorical scope limitations",
+        "categorical raw and protected access-closure status"
+      ],
+      "numeric_scientific_values_permitted": false,
+      "source_files": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\FINAL_CLAIM_MATRIX.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\STATE\\FINAL_CLOSEOUT.json"
+      ]
+    },
+    "manifest_derived_pending_candidates": {
+      "permitted": true,
+      "allowed_artifact_classes": [
+        "code",
+        "config",
+        "parameter",
+        "detector",
+        "environment",
+        "input"
+      ],
+      "allowed_fields": [
+        "exact_path",
+        "expected_sha256",
+        "artifact_class",
+        "source_manifest_exact_path",
+        "source_manifest_sha256",
+        "review_status"
+      ],
+      "required_review_status": "PENDING_INDEPENDENT_AUDIT",
+      "default_access_policy": "DENY",
+      "cleanliness_inheritance": false,
+      "referenced_file_access_permitted": false,
+      "ambiguity_rule": "If an exact path, expected SHA-256, or allowed artifact class is not explicitly and unambiguously manifest-listed, emit no candidate and perform no search or inference."
+    }
+  },
+  "prohibitions": [
+    "No access to FINAL_REPORT.md.",
+    "No access to any R4 file other than the three exact hash-bound sources in this amendment.",
+    "No directory listing, recursive enumeration, globbing, repository search, sibling-path inference, existence probe, or path discovery outside the opened manifest text.",
+    "No opening, reading, previewing, hashing, statting, copying, transforming, executing, importing, or scientific use of any manifest-referenced file.",
+    "No protected, Night-2, Sealed Bank, protected-derived, fresh-final, confirmatory, quarantined, ambiguous, or Incident-001 value access or transfer.",
+    "No transfer of scientific measurements, candidate results, scores, metrics, thresholds, intervals, denominators, parameter values, counts, or other numerical scientific outcomes.",
+    "No scientific interpretation, proposal work, target ranking, tuning, selection, comparison, or evidentiary use.",
+    "No CLEAN_ALLOWLISTED, CLEAN, VERIFIED, or equivalent status may be assigned to any manifest-derived candidate.",
+    "No referenced artifact inherits the manifest's cleanliness, provenance class, permission, or evidence status.",
+    "No mutation of shared STATE, the official allowlist, an R4 file, or an R4 directory.",
+    "No role mixing with scientific worker, independent verifier, adversarial reviewer, final claim judge, or Root Orchestrator roles."
+  ],
+  "rationale": {
+    "approval_basis": [
+      "All three sources are already hash-bound and CLEAN_ALLOWLISTED in the frozen audit decisions.",
+      "The claim matrix and closeout were classified as bounded categorical or governance records without detected protected payload values or out-of-scope numerical scientific outcomes.",
+      "The manifest was classified as integrity metadata rather than scientific evidence, with all referenced artifacts expressly unreviewed.",
+      "The approved categorical output excludes numerical scientific values.",
+      "Manifest-derived paths and hashes remain PENDING_INDEPENDENT_AUDIT under default deny and confer no permission to access the referenced files.",
+      "Fresh role isolation and exact path/hash binding prevent the amendment from authorizing broader historical or scientific access."
+    ],
+    "scope_statement": "This amendment authorizes a mechanical value-free sanitization and candidate-registration step only. It does not revise any scientific claim, declare any referenced artifact clean, or authorize repository inspection."
+  },
+  "required_official_allowlist_changes_to_resolve_OAV_001": [
+    {
+      "change": "Bind this amendment",
+      "instruction": "Add an audit receipt for IMPORT_ALLOWLIST/SANITIZER_PERMISSION_AMENDMENT.json using its final observed SHA-256."
+    },
+    {
+      "change": "Retain the newly approved role only on exact clean sources",
+      "instruction": "Keep Evidence Sanitizer in permitted_roles for FINAL_CLAIM_MATRIX.json, ARTIFACT_MANIFEST.json, and FINAL_CLOSEOUT.json only; do not add it to FINAL_REPORT.md or any referenced artifact."
+    },
+    {
+      "change": "Make the categorical purpose exact",
+      "instruction": "For FINAL_CLAIM_MATRIX.json and FINAL_CLOSEOUT.json, replace the added purpose with exactly: derive value-free categorical R4 substrate only."
+    },
+    {
+      "change": "Make the manifest purpose exact",
+      "instruction": "For ARTIFACT_MANIFEST.json, replace the added purpose with exactly: extract exact manifest-listed code/config/parameter/detector/environment/input paths and expected SHA-256 values as PENDING_INDEPENDENT_AUDIT without opening or otherwise accessing referenced files."
+    },
+    {
+      "change": "Encode fail-closed sanitizer restrictions",
+      "instruction": "Bind the prohibitions and approved-output constraints in this amendment to all Evidence Sanitizer access; preserve default DENY, no cleanliness inheritance, and the existing prohibited-use restrictions."
+    },
+    {
+      "change": "Issue a new frozen version",
+      "instruction": "Increment the official allowlist version, update its freeze metadata, compute a new SHA-256, and obtain independent fidelity revalidation before Evidence Sanitizer access begins."
+    }
+  ],
+  "status": "APPROVED_NARROW_AMENDMENT_PENDING_OFFICIAL_ALLOWLIST_REVISION_AND_REVALIDATION"
+}

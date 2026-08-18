@@ -1,0 +1,17 @@
+[2026-08-17T16:13:02.087857+00:00] EXECUTION_STARTED=true PID=56444 process_status=RUNNING planned_simulations=18 estimated_first_result_min=1 log_path=D:\Year3_Mao_Projects\sleep_loop\BigBang_Phase2\COSTA_C1_PROXY_MVP_FAST_20260817_120709\RUN_LOG.txt
+[2026-08-17T16:13:02.087857+00:00] ENV conda=neurolib python=C:\Users\YUS190\AppData\Local\anaconda3\envs\neurolib\python.exe python_version=3.10.20 where_python=C:\Python313\python.EXE versions={'neurolib': '0.6.1', 'numpy': '2.2.6', 'scipy': '1.15.2', 'pandas': '2.3.3', 'matplotlib': '3.10.8', 'numba': '0.64.0'}
+[2026-08-17T16:13:02.089856+00:00] SCIENTIFIC_DATA_LOAD target_psd_shape=(296,) target_freq_shape=(296,)
+[2026-08-17T16:13:02.090857+00:00] ANCHOR_SIM_START model=patient_v1 seed=44017
+[2026-08-17T16:13:10.847660+00:00] ANCHOR_SIM_DONE model=patient_v1 seed=44017 composite_log_psd_mae=0.385547 elapsed_s=8.56
+[2026-08-17T16:13:10.847660+00:00] ANCHOR_SIM_START model=patient_v1 seed=55021
+[2026-08-17T16:13:15.628821+00:00] ANCHOR_SIM_DONE model=patient_v1 seed=55021 composite_log_psd_mae=0.429472 elapsed_s=4.78
+[2026-08-17T16:13:15.628821+00:00] ANCHOR_SIM_START model=patient_v1 seed=66029
+[2026-08-17T16:13:20.404564+00:00] ANCHOR_SIM_DONE model=patient_v1 seed=66029 composite_log_psd_mae=0.399443 elapsed_s=4.78
+[2026-08-17T16:13:20.404564+00:00] ANCHOR_SIM_START model=generic_table3 seed=44017
+[2026-08-17T16:13:25.346291+00:00] ANCHOR_SIM_DONE model=generic_table3 seed=44017 composite_log_psd_mae=0.246164 elapsed_s=4.94
+[2026-08-17T16:13:25.346395+00:00] ANCHOR_SIM_START model=generic_table3 seed=55021
+[2026-08-17T16:13:30.219614+00:00] ANCHOR_SIM_DONE model=generic_table3 seed=55021 composite_log_psd_mae=0.258976 elapsed_s=4.88
+[2026-08-17T16:13:30.219614+00:00] ANCHOR_SIM_START model=generic_table3 seed=66029
+[2026-08-17T16:13:35.020087+00:00] ANCHOR_SIM_DONE model=generic_table3 seed=66029 composite_log_psd_mae=0.245407 elapsed_s=4.80
+[2026-08-17T16:13:35.023087+00:00] ANCHOR_DECISION decision=NO_PERSONALIZATION_ANCHOR bands_better=0 composite_reduction=-62.267% generic_setpoint=8.8041839155
+[2026-08-17T16:13:35.174813+00:00] STOP single_blocker=NO_PERSONALIZATION_ANCHOR no_additional_experiments=true

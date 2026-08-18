@@ -1,0 +1,462 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "INDEPENDENT_IMMUTABLE_PROTOCOL_V6_REAUDIT_ADDENDUM_V3_AUDIT",
+  "audit_id": "PROTOCOL-V6-READUDIT-ADDENDUM-V3-AUDIT-001",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "created_at": "2026-08-16T22:29:02-04:00",
+  "auditor_role": "independent outcome-blind governance amendment auditor",
+  "audit_mode": "STATIC_NONCOMPENSATORY_NO_EXECUTION",
+  "immutability": {
+    "status": "IMMUTABLE_ON_CREATION",
+    "amendment_policy": "Do not edit this receipt. Any correction or successor audit must be a separately named artifact binding this receipt by its externally reported SHA-256.",
+    "receipt_hash_policy": "The complete receipt SHA-256 is reported externally after creation and is not recursively embedded."
+  },
+  "scope": {
+    "campaign_root": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951",
+    "exact_inputs_only": [
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3.json",
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json",
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT.json",
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+      "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json",
+      "GOVERNANCE/V6_COMPILER_BOOTSTRAP_ADJUDICATION.json"
+    ],
+    "prohibited": [
+      "Candidate V6 access, stat, hash, read, or enumeration",
+      "fixture compiler package or any other CODE access",
+      "PREFLIGHT access",
+      "data, R4, checkpoints, outputs, or outcomes",
+      "STATE access or modification",
+      "Python, compiler, launcher, preflight, model, or scientific execution",
+      "directory enumeration"
+    ],
+    "scope_compliance": "PASS"
+  },
+  "input_integrity": {
+    "verdict": "PASS",
+    "hash_algorithm": "SHA-256",
+    "sealed_rehash_at": "2026-08-16T22:25:49-04:00",
+    "files": [
+      {
+        "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3.json",
+        "expected_bytes": 92125,
+        "observed_bytes": 92125,
+        "expected_sha256": "B3E9759B1F4EE1EEA51CE1230FCC1F9DFFB8D62862CA9E304D60F11BA5DF512F",
+        "observed_sha256": "B3E9759B1F4EE1EEA51CE1230FCC1F9DFFB8D62862CA9E304D60F11BA5DF512F",
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json",
+        "expected_sha256": "ABF4E15ABCC08A6BD6CED113D0E21349E2067A7587EE8A2B230FAB31D3EF4B32",
+        "observed_sha256": "ABF4E15ABCC08A6BD6CED113D0E21349E2067A7587EE8A2B230FAB31D3EF4B32",
+        "observed_bytes": 62447,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT.json",
+        "expected_sha256": "BA544E0CA08AE28A0245979092FE54A20F3C03073B9F1DB9C251ACB68ACF162A",
+        "observed_sha256": "BA544E0CA08AE28A0245979092FE54A20F3C03073B9F1DB9C251ACB68ACF162A",
+        "observed_bytes": 22076,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+        "expected_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+        "observed_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+        "observed_bytes": 64268,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json",
+        "expected_sha256": "F0D0B8C2511AE4DEB2447E54D95313280BCFC0BA33060DD2AAC8A1E89D070409",
+        "observed_sha256": "F0D0B8C2511AE4DEB2447E54D95313280BCFC0BA33060DD2AAC8A1E89D070409",
+        "observed_bytes": 25872,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/V6_COMPILER_BOOTSTRAP_ADJUDICATION.json",
+        "expected_sha256": "9B287254D2E25FF7D8588674A9F151DDF3C6DFE7313CEDE9D804E7E6B20771EF",
+        "observed_sha256": "9B287254D2E25FF7D8588674A9F151DDF3C6DFE7313CEDE9D804E7E6B20771EF",
+        "observed_bytes": 15352,
+        "json_valid": true,
+        "verdict": "PASS"
+      }
+    ]
+  },
+  "audit_method": {
+    "full_v3_scan": "PASS_476_LINES",
+    "v2_defect_trace": "Each V6A2-AUD-B001 through V6A2-AUD-B004 requirement was traced to concrete V3 paths, schemas, role permissions, transaction states, and gates. A partial repair was never counted as closure.",
+    "preservation_method": "Compared V3's exact parent bindings, repeated invariants, case registry, counts, route, no-evidence rule, and supersession contract to the sealed V1, V2, V2 audit, compiler FAIL, and bootstrap adjudication inputs.",
+    "path_registry_checks": {
+      "registered_relative_paths": 110,
+      "unique_relative_paths": 110,
+      "duplicate_relative_paths": 0,
+      "campaign_root_escape_paths": 0,
+      "dot_segment_paths": 0,
+      "verdict": "PASS"
+    },
+    "role_checks": {
+      "stable_role_ids": 18,
+      "required_unordered_pair_rows": 153,
+      "declared_pair_rows": 153,
+      "identity_rule": "ALL_18_PAIRWISE_DISTINCT",
+      "role_access_rows_checked": 18,
+      "verdict_design": "PASS",
+      "verdict_operational_binding": "FAIL_BLOCKING"
+    },
+    "transaction_checks": {
+      "transactions": 4,
+      "success_member_sets": 4,
+      "failure_member_sets": 4,
+      "same_volume_directory_publish_core": "PASS_AFTER_SUCCESSFUL_CLAIM",
+      "claim_failure_and_incident_closure": "FAIL_BLOCKING",
+      "receipt_hash_domain_and_durability": "FAIL_BLOCKING"
+    }
+  },
+  "verdicts": {
+    "OVERALL": "FAIL_BLOCKING",
+    "INPUT_INTEGRITY": "PASS",
+    "V1_SCIENTIFIC_SEMANTICS_PRESERVED": "PASS",
+    "PV5_B001_THROUGH_PV5_B005_PRESERVED": "PASS",
+    "V5_V4_REGRESSION_AND_23_CASE_SCOPE_PRESERVED": "PASS",
+    "COUNTS_PHASE2B_AND_CLAIM_CEILING_PRESERVED": "PASS",
+    "NO_OUTCOME_LEAKAGE": "PASS",
+    "NO_EVIDENCE_AUTHORITY": "PASS",
+    "SUPERSESSION_SCOPE": "PASS",
+    "ROUTE_A_B_FREEZE_C_D_ORDER": "PASS",
+    "SAME_VOLUME_ATOMIC_DIRECTORY_BUNDLE_CORE": "PASS_WITHIN_POSTCLAIM_SUCCESS_PATH",
+    "PRECOMMIT_FAILURE_QUARANTINE_CORE": "PASS_WITHIN_LIVE_HANDLER",
+    "V6A2_AUD_B001_CLOSURE": "FAIL_BLOCKING",
+    "V6A2_AUD_B002_CLOSURE": "FAIL_BLOCKING",
+    "V6A2_AUD_B003_CLOSURE": "FAIL_BLOCKING",
+    "V6A2_AUD_B004_CLOSURE": "FAIL_BLOCKING",
+    "COMPLETE_ROLE_SPECIFIC_RUNTIME_ALLOWLISTS": "FAIL_BLOCKING",
+    "FULLY_TYPED_UNAMBIGUOUS_SCHEMAS_HASH_DOMAINS_AND_IDS": "FAIL_BLOCKING",
+    "CROSS_STAGE_ROLE_INDEPENDENCE_DESIGN": "PASS",
+    "CROSS_STAGE_ROLE_INDEPENDENCE_FREEZE_AND_BINDING": "FAIL_BLOCKING",
+    "MECHANICALLY_IMPLEMENTABLE_TRANSACTION": "FAIL_BLOCKING",
+    "ACTIVATION_AND_DOWNSTREAM_GATES": "FAIL_BLOCKING",
+    "V3_ACTIVATION": "DENIED_BY_AUDIT",
+    "STAGE_A_RELEASE": "DENIED",
+    "STAGE_B_RELEASE": "DENIED",
+    "STAGE_C_RELEASE": "DENIED",
+    "STAGE_D_RELEASE": "DENIED",
+    "CANDIDATE_V6_ACCESS": "DENIED",
+    "IMPLEMENTATION_PREFLIGHT_AND_OUTCOMES": "DENIED"
+  },
+  "prior_blocker_closure": [
+    {
+      "prior_finding_id": "V6A2-AUD-B001",
+      "verdict": "FAIL_BLOCKING",
+      "repairs_that_pass": [
+        "Each of the four governed executions stages artifact, spent receipt, success receipt, and manifest below one same-volume staging root and publishes them with one no-replace directory rename.",
+        "A post-claim failure before commit can quarantine the unchanged staging tree and atomically publish a separate failed bundle; quarantine has zero authority and paths are never recycled."
+      ],
+      "unresolved": [
+        "A process-started invocation is declared spent even when READY-to-CLAIMED rename fails, but the resulting READY-only filesystem state is indistinguishable from AUTHORIZED_NOT_STARTED and is absent from the terminal-state model.",
+        "The separately hashed incident authorization and closeout required for interrupted states have no registered paths, IDs, schemas, or access contract.",
+        "SUCCESS_RECEIPT_V3 write_member_ledger does not unambiguously exclude the receipt itself and manifest, so its exact hash domain can be self-referential or auditor-selected.",
+        "The destination parent is not durably flushed after the final directory rename, and no DURABILITY_UNCERTAIN branch is frozen for a returned rename whose persistence cannot be established."
+      ]
+    },
+    {
+      "prior_finding_id": "V6A2-AUD-B002",
+      "verdict": "FAIL_BLOCKING",
+      "repairs_that_pass": [
+        "V3 gives every declared operational role a read, metadata, write, rename, delete, and dependency slot, and supplies explicit read-after-write staging lists for all four runners.",
+        "Runtime dependency expansion is prospectively limited to exact manifest file entries."
+      ],
+      "unresolved": [
+        "The two verifier runners cannot read their own READY authorization files.",
+        "The authorization and access-attestation schemas cannot represent read_after_write_path_ids.",
+        "Required schema, dependency-manifest, role-freeze, and result-acceptance artifacts have no authorized writer.",
+        "Judges cannot read all verifier committed success, spent, and manifest members that establish atomic audit publication.",
+        "Several judges name static_tool_dependency_manifest as their runtime manifest without permission to read that manifest.",
+        "The required file identity, volume, reparse, and hardlink prestates exceed the metadata scopes granted for governed input and dependency paths."
+      ]
+    },
+    {
+      "prior_finding_id": "V6A2-AUD-B003",
+      "verdict": "FAIL_BLOCKING",
+      "repairs_that_pass": [
+        "V3 substantially expands typed Stage-A, transaction, authorization, receipt, role, freeze, and audit schema registries with ordered fields and nonrecursive hash envelopes."
+      ],
+      "unresolved": [
+        "The literal audit schema ID and literal freeze schema ID are each assigned to two incompatible schema bodies.",
+        "The success receipt member-ledger domain is ambiguous and may be self-referential.",
+        "The access-attestation schema omits the required read-after-write permission dimension.",
+        "Role-matrix rename pairs are two-element arrays while ACCESS_ATTESTATION_V3 requires RENAME_PAIR_V3 objects, with no canonical conversion rule."
+      ]
+    },
+    {
+      "prior_finding_id": "V6A2-AUD-B004",
+      "verdict": "FAIL_BLOCKING",
+      "repairs_that_pass": [
+        "V3 defines 18 pairwise-distinct actors, all 153 unordered conflict rows, strict author/auditor/runner/judge separation, distinct source and implementation provenance, and explicit cross-stage minima."
+      ],
+      "unresolved": [
+        "No role is authorized to write role_assignment_freeze and no Stage-A role can read or bind it.",
+        "Stage authorizations carry a role_assignment_ledger rather than an exact binding to the immutable role_assignment_freeze artifact.",
+        "The independent V3 audit and Root activation required before Stage A have no registered artifact paths, schemas, IDs, or binding fields."
+      ]
+    }
+  ],
+  "passing_findings": [
+    {
+      "finding_id": "V6A3-AUD-P001",
+      "finding": "All six authorized inputs have the exact expected stable SHA-256 values and valid JSON; V3 has the reported 92,125 bytes."
+    },
+    {
+      "finding_id": "V6A3-AUD-P002",
+      "finding": "V3 binds V1, V2, and the V2 FAIL receipt and limits supersession to the four named V2 blocker surfaces. The stricter-rule and ambiguity-fails-closed hierarchy remains intact."
+    },
+    {
+      "finding_id": "V6A3-AUD-P003",
+      "finding": "PV4-EDGE-B001, PV5-B001 through PV5-B005, all seventeen V1 blocker codes, and compiler findings V6FC-SA-B001 through V6FC-SA-B008 remain explicit noncompensatory requirements."
+    },
+    {
+      "finding_id": "V6A3-AUD-P004",
+      "finding": "The exact 23 case IDs are preserved in order. Targets 8, claims 8, C2 gates 10, Level-A conditions 50, runs 1800+900+456=3156, maximum advancing targets 3, Phase2B N=0/minimum 3 NOT_ESTIMABLE, zero repair simulations, and M1/C0/P0 are unchanged."
+    },
+    {
+      "finding_id": "V6A3-AUD-P005",
+      "finding": "The A literal -> B derivation and independent verifier/Root freeze -> C independent official rebuild -> D official one-shot and independent verifier/result-acceptance order is prospective, non-authoritative before each gate, and forbids result-driven repair or selection."
+    },
+    {
+      "finding_id": "V6A3-AUD-P006",
+      "finding": "All 110 registered relative paths are unique, resolve below the exact campaign root, and contain no dot-segment or root-escape defect. Transaction release, invocation, authorization, receipt, and bundle IDs resolve consistently across stage tables."
+    },
+    {
+      "finding_id": "V6A3-AUD-P007",
+      "finding": "For all four transactions, success and failure member path projections match the registered committed and failed paths. Artifact, spent, success, and manifest are constructed before one same-volume no-replace directory publication, with no post-publication file write."
+    },
+    {
+      "finding_id": "V6A3-AUD-P008",
+      "finding": "Precommit failure quarantine is immutable, has zero authority, cannot be reused, and a new attempt requires new versioned paths, release, invocation, audit, and authorization. No delete permission is granted."
+    },
+    {
+      "finding_id": "V6A3-AUD-P009",
+      "finding": "The 18-role pairwise-distinct design, 153-row conflict matrix, cross-stage separation, independent source/provenance rule, and no copied or lockfile-special-cased implementation rule are substantively sufficient as a design."
+    },
+    {
+      "finding_id": "V6A3-AUD-P010",
+      "finding": "Literal, dependency, lockfile, compiler, verifier, fixture, receipt, audit, and freeze artifacts retain zero scientific-evidence, claim, gate, grade, advancement, run-count, or human-transfer authority."
+    },
+    {
+      "finding_id": "V6A3-AUD-P011",
+      "finding": "Candidate V6, implementation, preflight, Phase2A, cross-target verification, Phase2B, data, R4, and outcomes are expressly denied and no automatic release is claimed."
+    }
+  ],
+  "blocking_findings": [
+    {
+      "finding_id": "V6A3-AUD-B001",
+      "severity": "BLOCKING",
+      "title": "Authorization-claim failure has no representable spent state or executable incident closeout",
+      "affected_json_paths": [
+        "atomic_directory_bundle_protocol.claim",
+        "atomic_directory_bundle_protocol.terminal_states",
+        "atomic_directory_bundle_protocol.quarantine_rules[1]",
+        "failure_and_incident_rules.spent",
+        "failure_and_incident_rules.orphan",
+        "path_registry"
+      ],
+      "evidence": "V3 makes process creation consume authorization even when READY-to-CLAIMED rename fails. A failed rename leaves READY=true and CLAIMED=false, exactly the declared AUTHORIZED_NOT_STARTED state, yet the authorization is semantically spent. Publishing a failure bundle while READY remains would create an unlisted READY+FAILED split. The required separately hashed incident authorization and Root incident closeout have no path IDs, IDs, schemas, transaction, or role access entries.",
+      "impact": "The first possible mutation failure cannot be classified or closed without inventing governance, so the one-shot rule is not mechanically executable.",
+      "minimal_v4_repair": [
+        "Move claim ownership to a trusted controller that atomically claims before creating the worker process, or add an explicit READY_PRESENT_BUT_IRREVOCABLY_SPENT terminal state backed by a trusted external start/claim record.",
+        "Register exact incident-authorization, incident-receipt, closeout, and successor-invocation paths, schemas, IDs, writers, readers, prestates, and allowed rename pairs.",
+        "Enumerate every claim interruption point and require a unique nonoverlapping terminal state without reusing READY bytes."
+      ]
+    },
+    {
+      "finding_id": "V6A3-AUD-B002",
+      "severity": "BLOCKING",
+      "title": "Success receipt membership and directory-rename durability remain ambiguous",
+      "affected_json_paths": [
+        "atomic_directory_bundle_protocol.bundle_member_registry",
+        "atomic_directory_bundle_protocol.success_construction[1..4]",
+        "shared_governance_schemas.SUCCESS_RECEIPT_V3.fields.write_member_ledger",
+        "shared_governance_schemas.SUCCESS_RECEIPT_V3.hash_domain"
+      ],
+      "evidence": "write_member_ledger is ARRAY_BUNDLE_MEMBER_V3_EXACT_FOR_STAGE_SUCCESS while the exact success member set includes the success receipt and manifest. V3 says the success receipt excludes the manifest but never freezes whether its member ledger excludes itself, creating either self-hashing or auditor choice. V3 flushes staging and its parent before the final directory rename but never requires a post-rename destination-parent durable flush or defines a DURABILITY_UNCERTAIN branch.",
+      "impact": "Independent implementations can compute different receipt domains, and a crash after rename return can lack a governed rule for proving durable publication.",
+      "minimal_v4_repair": [
+        "Define a concrete BUNDLE_MEMBER_V3 schema and freeze the success receipt ledger to artifact plus already-final spent only; exclude success and manifest explicitly from its hash domain.",
+        "Keep the manifest as the sole ledger over artifact, spent, and success and exclude only itself.",
+        "Register source and destination parent paths and require write-through rename semantics plus a post-rename parent durable flush, or add a typed DURABILITY_UNCERTAIN incident state and closeout."
+      ]
+    },
+    {
+      "finding_id": "V6A3-AUD-B003",
+      "severity": "BLOCKING",
+      "title": "Role-specific read, metadata, write, and runtime-dependency scopes are incomplete",
+      "affected_json_paths": [
+        "role_access_matrix",
+        "role_access_completion_rules",
+        "shared_governance_schemas.AUTHORIZATION_COMMON_FIELDS",
+        "schema_system.ACCESS_ATTESTATION_V3",
+        "atomic_directory_bundle_protocol.prestate"
+      ],
+      "evidence": [
+        "ROLE_LOCKFILE_VERIFIER_RUNNER_V3 omits b_verifier_auth_ready_file and ROLE_FIXTURE_VERIFIER_RUNNER_V3 omits d_verifier_auth_ready_file from read_path_ids, although each must validate and claim that file.",
+        "read_after_write_path_ids exists in runner rows but is absent from AUTHORIZATION_COMMON_FIELDS and ACCESS_ATTESTATION_V3, so authorization and receipts cannot bind or attest the permission.",
+        "No role can write role_assignment_freeze, shared_schema_file, static_tool_dependency_manifest, literal_audit_schema_file, literal_freeze_schema_file, or d_result_acceptance.",
+        "ROLE_LITERAL_FREEZE_JUDGE_V3, ROLE_LOCKFILE_RESULT_JUDGE_V3, ROLE_OFFICIAL_RESULT_JUDGE_V3, and ROLE_ROOT_GOVERNANCE_JUDGE_V3 name static_tool_dependency_manifest as runtime authority but omit it from read_path_ids.",
+        "Result judges cannot read the verifier committed success, spent, and manifest trail they must accept.",
+        "Required type, volume, file-identity, reparse, and hardlink prestates are demanded for every input/dependency path, while role metadata scopes cover transaction directories rather than those governed files."
+      ],
+      "impact": "Required compliant operations are forbidden or cannot be attested, while required artifacts have no lawful producer. The exact runtime and metadata boundary is therefore not closed.",
+      "minimal_v4_repair": [
+        "Add both verifier READY authorization files to the corresponding runner reads.",
+        "Add read_after_write_path_ids with exact stage-specific arrays to authorization and access-attestation schemas.",
+        "Assign exactly one separated writer and all necessary readers to every required schema, dependency, role-freeze, authorization, audit, freeze, and acceptance artifact.",
+        "Give result judges the complete committed verifier bundle trail and give every dependency-manifest user permission to read the manifest.",
+        "Expand metadata_path_ids to every path whose type, identity, volume, reparse, hardlink, or absence prestate must be checked."
+      ]
+    },
+    {
+      "finding_id": "V6A3-AUD-B004",
+      "severity": "BLOCKING",
+      "title": "Exact directory membership cannot be proven under the blanket no-enumeration rule",
+      "affected_json_paths": [
+        "atomic_directory_bundle_protocol.member_resolution_rule",
+        "atomic_directory_bundle_protocol.prestate[0]",
+        "role_access_completion_rules[0]"
+      ],
+      "evidence": "V3 requires the READY directory to contain exactly authorization.json and every staging/terminal bundle to contain no unregistered child, sidecar, stream, or subdirectory. It simultaneously forbids all directory listing and says membership is supplied by a manifest. A manifest proves registered entries but cannot prove absence of an extra child, and READY has no separate authenticated directory-membership manifest.",
+      "impact": "The required exact-member and no-extra-child checks are not mechanically decidable within the frozen access rules.",
+      "minimal_v4_repair": [
+        "Authorize bounded enumeration only of each exact registered transaction root using a frozen API and lexical-order rule, with no sibling or recursive escape, and compare the observed set exactly to the frozen registry.",
+        "Alternatively define an authenticated, independently established directory-membership primitive that proves completeness rather than merely listing expected members.",
+        "Add the bounded membership observation and result to authorization, access-attestation, manifest, and audit schemas."
+      ]
+    },
+    {
+      "finding_id": "V6A3-AUD-B005",
+      "severity": "BLOCKING",
+      "title": "Duplicate schema IDs and incompatible representations make the typed contract nonmechanical",
+      "affected_json_paths": [
+        "stage_A_schemas.literal_audit_schema",
+        "stage_A_schemas.literal_freeze_schema",
+        "shared_governance_schemas.static_audit_ids.LITERAL",
+        "shared_governance_schemas.STATIC_AUDIT_SCHEMA_V3",
+        "shared_governance_schemas.ROOT_FREEZE_SCHEMA_V3",
+        "schema_system.ACCESS_ATTESTATION_V3.fields.rename_pairs",
+        "role_access_matrix.*.rename_pairs"
+      ],
+      "evidence": [
+        "V6_LITERAL_BUNDLE_STATIC_AUDIT_SCHEMA_V3 names the dedicated literal audit schema with literal-specific fields, while static_audit_ids.LITERAL maps the same ID into the incompatible generic STATIC_AUDIT_SCHEMA_V3 field set.",
+        "V6_LITERAL_BUNDLE_FREEZE_SCHEMA_V3 names the dedicated literal freeze schema, while ROOT_FREEZE_SCHEMA_V3 and its pairing rule assign the same ID to a different generic field set.",
+        "ACCESS_ATTESTATION_V3 requires rename_pairs as RENAME_PAIR_V3 objects, but role_access_matrix stores each allowed rename as a two-element array and freezes no canonical conversion.",
+        "SUCCESS_RECEIPT_V3 does not define a non-self-referential exact write_member_ledger projection."
+      ],
+      "impact": "Two incompatible byte structures can claim the same schema identity, and an auditor must choose a representation or hash domain that V3 does not choose.",
+      "minimal_v4_repair": [
+        "Assign unique schema IDs to dedicated and generic forms, or remove one form and freeze exactly one field set and hash domain per artifact.",
+        "Make literal audit and literal freeze pairing rules resolve to only their dedicated schemas or only one explicitly specialized generic schema.",
+        "Use RENAME_PAIR_V3 objects directly in every role row or freeze an exact lossless normalization into the attestation.",
+        "Define every member-ledger item schema, ordering, inclusion, exclusion, and hash dependency explicitly and acyclically."
+      ]
+    },
+    {
+      "finding_id": "V6A3-AUD-B006",
+      "severity": "BLOCKING",
+      "title": "Strong role-independence design is not producible or bound to Stage A and later releases",
+      "affected_json_paths": [
+        "role_independence.role_freeze",
+        "shared_governance_schemas.ROLE_ASSIGNMENT_FREEZE_V3",
+        "shared_governance_schemas.AUTHORIZATION_COMMON_FIELDS.fields.role_assignment_ledger",
+        "role_access_matrix.ROLE_ROOT_GOVERNANCE_JUDGE_V3",
+        "stage_rules.A_LITERAL_FREEZE"
+      ],
+      "evidence": "The required role_assignment_freeze has a registered schema and path but no role write permission, no Stage-A role read permission, and no Stage-A audit/freeze field that binds its exact hash. Later authorizations embed a mutable-looking role_assignment_ledger instead of requiring a BINDING_V3 to the single immutable role freeze.",
+      "impact": "The 18-role/153-pair independence policy cannot become an immutable enforceable precondition even though its abstract design is sufficient.",
+      "minimal_v4_repair": [
+        "Authorize only ROLE_ROOT_GOVERNANCE_JUDGE_V4 to create the exact role freeze before Stage A and give every accepting role read permission.",
+        "Replace or supplement embedded role_assignment_ledger with an exact role_assignment_freeze_binding in every audit, freeze, authorization, spent, success, failure, and result-acceptance schema.",
+        "Require byte/hash equality to one immutable 18-assignment/153-pair freeze in every stage release."
+      ]
+    },
+    {
+      "finding_id": "V6A3-AUD-B007",
+      "severity": "BLOCKING",
+      "title": "The V3 audit and Root activation prerequisite has no mechanically registered artifact contract",
+      "affected_json_paths": [
+        "activation_and_gates.v3_stable_byte_review",
+        "activation_and_gates.stage_A",
+        "stage_rules.A_LITERAL_FREEZE[0]",
+        "path_registry",
+        "shared_governance_schemas"
+      ],
+      "evidence": "V3 correctly denies Stage A pending independent stable-byte PASS and Root activation, but it registers no path, schema, ID, writer, reader, or binding field for that audit receipt or activation. Neither role_assignment_freeze nor Stage-A authorization can bind them.",
+      "impact": "The amendment cannot be activated without inventing an out-of-contract governance artifact, so its release gate is not executable.",
+      "minimal_v4_repair": [
+        "Register exact immutable V4 audit-receipt and Root activation paths, schemas, IDs, roles, and hash bindings.",
+        "Require the role freeze and every Stage-A artifact to bind the exact PASS receipt and activation.",
+        "Keep all stages denied until an independently created receipt and Root activation satisfy those registered contracts."
+      ]
+    },
+    {
+      "finding_id": "V6A3-AUD-B008",
+      "severity": "BLOCKING",
+      "title": "Official result acceptance is unwritable and its Candidate metadata access violates the preserved gate",
+      "affected_json_paths": [
+        "role_access_matrix.ROLE_OFFICIAL_RESULT_JUDGE_V3",
+        "stage_rules.D_OFFICIAL_FIXTURE_BUNDLE_AND_POSTRUN_PASS[2..3]",
+        "activation_and_gates.candidate_v6_access",
+        "path_registry.d_result_acceptance"
+      ],
+      "evidence": "ROLE_OFFICIAL_RESULT_JUDGE_V3 has an empty write list, so it cannot create the required d_result_acceptance. Its metadata_path_ids nevertheless includes candidate_v6_required_fixture while candidate_v6_access is globally DENIED and Stage D expressly grants no Candidate access or copy authority.",
+      "impact": "The final governance acceptance cannot be produced, and following the role matrix would perform forbidden Candidate access before a separately authorized assembly stage.",
+      "minimal_v4_repair": [
+        "Authorize the official result judge to write only d_result_acceptance and bind the complete official and verifier committed trails.",
+        "Remove candidate_v6_required_fixture from every Stage-D read and metadata scope.",
+        "Defer all Candidate path existence, identity, and destination checks to a separately versioned Candidate assembly authorization after accepted official bytes exist."
+      ]
+    }
+  ],
+  "nonblocking_findings": [],
+  "noncompensatory_decision": {
+    "rule": "Every governance requirement is mandatory. Preserved science, exact counts, a sound prospective route, strong abstract role separation, and a correct post-claim directory-bundle core cannot compensate for an unrepresentable claim state, incomplete access boundary, conflicting schema identity, unbound role freeze, or inoperable release gate.",
+    "blocking_finding_count": 8,
+    "unresolved_blocking_finding_count": 8,
+    "result": "FAIL_BLOCKING"
+  },
+  "release_decision": {
+    "v3_amendment_activation": "DENIED",
+    "stage_A_literal_authoring_and_freeze": "DENIED_PENDING_SEPARATELY_NAMED_V4_REPAIR_AND_INDEPENDENT_PASS",
+    "stage_B_package_authoring": "DENIED",
+    "stage_B_bootstrap_execution": "DENIED",
+    "stage_C_official_authoring": "DENIED",
+    "stage_D_official_or_verifier_execution": "DENIED",
+    "Candidate_V6_access": "DENIED",
+    "compiler_or_CODE_access": "DENIED",
+    "implementation": "DENIED",
+    "preflight": "DENIED",
+    "scientific_execution": "DENIED",
+    "data_R4_outcome_access": "DENIED",
+    "automatic_release": false,
+    "next_permitted_action": "Outcome-blind authoring and independent audit of a separately named immutable V4 amendment that closes V6A3-AUD-B001 through V6A3-AUD-B008 while preserving every passing V1/V2/V3 scientific, regression, case, count, role-design, no-evidence, and gate invariant."
+  },
+  "access_and_mutation_attestation": {
+    "Candidate_V6_access": "NONE",
+    "fixture_compiler_or_CODE_access": "NONE",
+    "PREFLIGHT_access": "NONE",
+    "data_access": "NONE",
+    "R4_access": "NONE",
+    "outcome_access": "NONE",
+    "STATE_access": "NONE",
+    "protected_access": "NONE",
+    "Python_or_launcher_execution": "NONE",
+    "scientific_execution": "NONE",
+    "STATE_modified": false,
+    "source_or_governing_controls_modified": false,
+    "only_created_artifact": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V3_AUDIT.json"
+  },
+  "final_verdict": "FAIL_BLOCKING"
+}

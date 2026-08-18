@@ -1,0 +1,138 @@
+{
+  "schema_version": "4.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "freeze_id": "PHASE2_PROTOCOL_FREEZE_V4",
+  "frozen_at": "2026-08-16T14:56:23-04:00",
+  "frozen_by": "Root Orchestrator",
+  "scientific_outcomes_visible": false,
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "4.0.0",
+  "relationship_to_r4": "SEPARATE_CLEAN_ROOM_DIAGNOSTIC_NOT_THE_R4_M1_CANDIDATE",
+  "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER",
+  "lineage": {
+    "parent_freeze_path": "PROTOCOL/PROTOCOL_FREEZE_V3.json",
+    "parent_freeze_sha256": "0FF4B771925FF942B10515384E923EB06649507EC4EE6FDB538C556FCB952412",
+    "parent_failed_audit_path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V3.json",
+    "parent_failed_audit_sha256": "7730B0DF0B5B87B7A6B49FD1DE2F02F7FE1A2D3C6413CD3DEDA78F9B72420C0D",
+    "parent_stale_declaration_path": "GOVERNANCE/PROTOCOL_V3_STALE_DECLARATION.json",
+    "parent_stale_declaration_sha256": "CD7D09A492197A9CC921A9025F8C73E3AF675526F6D67D99A0C10ADABBA21ECC",
+    "v3_scientific_evidence": "NONE",
+    "v3_preflight_executed": false
+  },
+  "prospective_repair": {
+    "finding_id": "PV3-B001",
+    "resolution": "A canonical sixteen-row context-indexed T4 attribution domain now covers every positive Level-A worker candidate, every positive Level-B dose-by-carrier candidate, and every possible selected positive Level-A verifier condition.",
+    "domain_counts": {
+      "level_a_worker": 3,
+      "conditional_level_b": 10,
+      "cross_target_verifier": 3,
+      "total": 16
+    },
+    "formal_comparison": "Level-A +1.5 Hz-equivalent at 13 Hz versus paired sham only",
+    "other_comparisons": "DIAGNOSTIC_POLICY_SURFACE_OR_VERIFIER_USE_ONLY",
+    "per_row_fields": [
+      "context",
+      "join key",
+      "dose",
+      "carrier",
+      "paired sham",
+      "packet schedule",
+      "pooling unit",
+      "N_added",
+      "contributing-block denominator",
+      "F_auto",
+      "F_replica",
+      "missingness",
+      "bootstrap zero-added behavior",
+      "required logs",
+      "allowed decision use"
+    ],
+    "unrelated_scientific_fields_changed": false
+  },
+  "artifacts": [
+    {
+      "path": "PROTOCOL/CANDIDATE_V4/control_target_registry.json",
+      "sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V4/mechanistic_parameter_map.json",
+      "sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V4/advancement_rule.json",
+      "sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V4/c2_gate_protocol.json",
+      "sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V4/claim_registry.json",
+      "sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V4/PREOUTCOME_DESIGN_MEMO.md",
+      "sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+      "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+    }
+  ],
+  "target_priority": {
+    "primary": ["T1", "T4", "T6"],
+    "secondary": ["T2", "T3", "T5", "T7"],
+    "exploratory": ["T8"]
+  },
+  "phase2a": {
+    "targets_required": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "level_a_maximum_runs": 1800,
+    "conditional_level_b_maximum_runs": 900,
+    "cross_target_verifier_unique_runs": 456,
+    "maximum_registered_runs_including_cross_verifier": 3156,
+    "advancement_cap": 3,
+    "outcome_access": "CLOSED_PENDING_INDEPENDENT_V4_FREEZE_AUDIT"
+  },
+  "phase2b": {
+    "status": "NOT_ESTIMABLE",
+    "minimum_certified_subjects": 3,
+    "eligible_certified_subjects": 0,
+    "advancing_targets": [],
+    "synthetic_substitution": "PROHIBITED"
+  },
+  "immutable_scientific_fields": [
+    "candidate identity and clean-room claim boundary",
+    "model equations, defaults, uncertainty draws and timebase",
+    "target identity, priority, observables, detectors and metrics",
+    "all Level-A and conditional Level-B interventions, formulas, schedules, grids, shams and run identities",
+    "comparators, estimands, target scores, policy objects and cross-target benefit/adverse scalars",
+    "practical margins, thresholds, denominators, uncertainty, randomization tests and multiplicity",
+    "stability, off-target, failure, advancement, grading and claim rules",
+    "causal scheduler, event matching, attribution-domain table, fixture and missingness rules",
+    "simultaneous confidence families and cross-target aggregation order",
+    "Phase 2B denominator and C2-G1 through C2-G10"
+  ],
+  "change_control": {
+    "outcome_blind_preflight_repairs": "One initial data-free synthetic preflight followed by at most two bounded implementation/schema/shape repairs; no scientific field may change.",
+    "outcome_visible_change": "Requires a new scientific version and makes incompatible evidence stale.",
+    "repairs_consumed": 0,
+    "current_implementation_authorization": false,
+    "current_phase2a_outcome_authorization": false
+  },
+  "validation": {
+    "json_files_parsed": 7,
+    "targets": 8,
+    "c2_gates": 10,
+    "claims": 8,
+    "t4_attribution_domain_rows": 16,
+    "cross_target_members": 128,
+    "forbidden_placeholder_scan": "PASS",
+    "architect_stable_byte_subaudit": "PASS",
+    "independent_freeze_audit": "PENDING"
+  },
+  "status": "FROZEN_PREOUTCOME_IMPLEMENTATION_AND_OUTCOMES_DENIED_PENDING_INDEPENDENT_REAUDIT"
+}

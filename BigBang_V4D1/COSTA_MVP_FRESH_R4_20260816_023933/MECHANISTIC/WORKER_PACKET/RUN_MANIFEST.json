@@ -1,0 +1,85 @@
+{
+  "schema": "COSTA_R4_M1_WORKER_RUN_MANIFEST_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "worker_role": "/root/costa_campaign_root_r4/r4_scientific_worker",
+  "workdir": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\CODE\\R4_EXECUTION",
+  "launcher": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat run --no-capture-output -n neurolib python",
+  "runtime_environment": {
+    "TEMP": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNTIME_LOCAL\\TEMP",
+    "TMP": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNTIME_LOCAL\\TEMP",
+    "NUMBA_CACHE_DIR": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNTIME_LOCAL\\NUMBA_CACHE",
+    "MNE_DONTWRITE_HOME": "true",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "pre_execution_integrity": {
+    "pre_raw_execution_freeze_sha256": "89CA8649AB1383F6EFC8BD467ECF7EDC872FA099F945A70AE73735EF3C624A5B",
+    "data_partition_freeze_sha256": "FB4216DEC7C2EC2F1AD4F91BED94961302592E5CEF0F58EF673FB973CC3B3F89",
+    "steward_receipt_sha256": "C8104174A25A2B13D2B7F1E40D07BD95AB44E26930D3C8A7B6865104B175CEC7",
+    "fit_payload_sha256": "F09D71800F49C79734D2A7A492DBEBEDB18C746418CF6D5F2393CB5F75A3FC2B",
+    "heldout_payload_sha256": "3169F2361F737841BCB46393D24DFC209946FEB8E46608634ADC05E9B5C465EC",
+    "pre_and_steward_manifest_entries_verified": 31,
+    "all_verified": true,
+    "heldout_payload_content_opened_during_preverification": false
+  },
+  "executions": [
+    {
+      "stage": "SYNTHETIC_M1",
+      "command": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat run --no-capture-output -n neurolib python cli.py synthetic-m1 --output-root D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNS --output-child SYNTHETIC_WORKER",
+      "attempts": 1,
+      "exit_code": 0,
+      "tool_wall_seconds": 11.2344188,
+      "artifact_write_utc": "2026-08-16T07:20:04.170Z",
+      "process_start_end_timestamps_recorded": false
+    },
+    {
+      "stage": "FIT_ONLY_SELECTION",
+      "command": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat run --no-capture-output -n neurolib python cli.py select-fit --fit-payload D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNS\\STEWARD_WORKER\\FIT_PAYLOAD.json --output-root D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNS --output-child FIT_WORKER",
+      "attempts": 1,
+      "exit_code": 0,
+      "tool_wall_seconds": 2.3597693,
+      "artifact_write_utc": "2026-08-16T07:20:15.011Z",
+      "process_start_end_timestamps_recorded": false
+    },
+    {
+      "stage": "HELDOUT_ONLY_G6",
+      "command": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat run --no-capture-output -n neurolib python cli.py evaluate-heldout --heldout-payload D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNS\\STEWARD_WORKER\\HELDOUT_PAYLOAD.json --selection-freeze D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNS\\FIT_WORKER\\SELECTION_FREEZE.json --expected-freeze-sha256 3D8C3D035F074CED2D608132864996D4AF9920C52889A11FE7C8E7DDA5DD8BBF --output-root D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNS --output-child HELDOUT_WORKER",
+      "attempts": 1,
+      "exit_code": 0,
+      "tool_wall_seconds": 2.4102617,
+      "artifact_write_utc": "2026-08-16T07:21:10.705Z",
+      "process_start_end_timestamps_recorded": false,
+      "selection_freeze_verified_before_heldout_open": true
+    }
+  ],
+  "selection": {
+    "selected_candidate_id": "C006",
+    "selected_fit_nrmse": 0.25461189482219504,
+    "population_candidate_id": "C000",
+    "population_fit_nrmse": 0.46256826111763194,
+    "selection_freeze_sha256": "3D8C3D035F074CED2D608132864996D4AF9920C52889A11FE7C8E7DDA5DD8BBF",
+    "checkpoint_sent_before_heldout_execution": true
+  },
+  "output_hashes": {
+    "RUNS/SYNTHETIC_WORKER/SYNTHETIC_M1_REPORT.json": "62C5CA3CEAAD4382A1B1ADA872E447C304C3593CB1B9120613C951DE86113024",
+    "RUNS/SYNTHETIC_WORKER/MANIFEST.json": "1B89DB48F367C71C471446AB53EF9EDAA5E20F4904F32A7DDE0DDEF71C8EE01C",
+    "RUNS/FIT_WORKER/SELECTION_FREEZE.json": "3D8C3D035F074CED2D608132864996D4AF9920C52889A11FE7C8E7DDA5DD8BBF",
+    "RUNS/FIT_WORKER/MANIFEST.json": "B908287828DF16224BC04C35038E7315EC8788D8F7159971E17353F97871440D",
+    "RUNS/HELDOUT_WORKER/HELDOUT_G6_RESULT.json": "E0AD4B1855E6BD570D068D4AC3B962397BAAEF5F21AC917E8C35E238B7004E95",
+    "RUNS/HELDOUT_WORKER/MANIFEST.json": "880F3369D5862A8DAA46D88F1B7C076810358E03139C68BB19156F81457965D5"
+  },
+  "attempt_evidence": {
+    "target_directories_absent_before_execution": true,
+    "orchestrated_invocation_count_per_stage": 1,
+    "scientific_retry_or_repair": false
+  },
+  "message_race": {
+    "classification": "NONMATERIAL_TIMING_DEVIATION",
+    "reason": "The late HOLD message arrived after HELDOUT completion. The frozen protocol and original worker instruction required a checkpoint before HELDOUT but did not require an acknowledgement gate; the checkpoint was sent before execution.",
+    "rerun_performed": false
+  },
+  "worker_execution_validity": "VALID_G1_TO_G6_PENDING_FRESH_VERIFIER",
+  "G7": "NOT_RUN",
+  "claim_assignment": "PENDING_VERIFICATION"
+}

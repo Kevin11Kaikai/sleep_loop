@@ -1,0 +1,405 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "artifact_type": "VALUE_FREE_REPOSITORY_CAPABILITY_INVENTORY",
+  "audit_binding": {
+    "decisions_path": "IMPORT_ALLOWLIST/REPOSITORY_CODE_AUDIT_DECISIONS.json",
+    "decisions_sha256": "9E993DFFC656B9A6C1619E0B6BAA946C2F7A1576E263F2C7D1BFEFF1B4D0D9E7",
+    "exact_candidate_files_reviewed": 54,
+    "code_executed_or_imported": false,
+    "scientific_winner_selected": false
+  },
+  "interpretation_guardrails": [
+    "Capability presence does not establish correctness, calibration, scientific validity, or permission to execute.",
+    "Latest-by-lineage is not canonical-by-audit.",
+    "Thresholds, parameter vectors, rankings, prior scores, and prior outcomes are intentionally excluded from this inventory.",
+    "Every referenced data/config artifact remains pending with no access or cleanliness inheritance.",
+    "No PID implementation was found in the exact reviewed files."
+  ],
+  "personalized_simulator_candidates": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s3_sleep_kernel.py",
+      "sha256": "25EE900777E6BE4EC61A233C580973B4B3DFCB6FD5FFADF451B6C3E91847FB36",
+      "audit_class": "CLEAN_ALLOWLISTED",
+      "candidate_kind": "STATIC_NETWORK_TOPOLOGY_CONTRACT_NOT_PERSONALIZED",
+      "value_free_interfaces": [
+        "two-node cortical/thalamic network construction",
+        "global parameter assignment",
+        "directed connectivity convention",
+        "cortical and thalamic excitatory-rate extraction",
+        "backend fallback"
+      ],
+      "canonical_status": "NOT_A_PERSONALIZED_CANONICAL_SIMULATOR",
+      "execution_status": "NOT_RELEASED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize.py",
+      "sha256": "7209FC8AA9E9C39DAB6EAC6BC2B80344414E7157628EC0D3A03A4797CB939325",
+      "audit_class": "UNRESOLVED",
+      "candidate_kind": "EARLY_PERSONALIZED_FIT_PIPELINE",
+      "value_free_interfaces": [
+        "manifest-gated N3 target construction",
+        "Welch target spectrum",
+        "parameterized simulator",
+        "differential-evolution fitness/output schema"
+      ],
+      "canonical_status": "UNRESOLVED_NOT_CANONICAL",
+      "execution_status": "DENIED_PENDING_DATA_AND_METHOD_AUDIT"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7.py",
+      "sha256": "37717974074A484F088DB0CE406F0D6F4186325BFA42908EEA0FFE51D326DFCC",
+      "audit_class": "UNRESOLVED",
+      "candidate_kind": "EIGHT_PARAMETER_PERSONALIZED_FIT_PIPELINE",
+      "value_free_interfaces": [
+        "thalamocortical build_model contract",
+        "manifest-gated N3 target",
+        "periodic-spectrum comparison",
+        "fitness and plotting flow"
+      ],
+      "canonical_status": "UNRESOLVED_NOT_CANONICAL",
+      "execution_status": "DENIED_PENDING_DATA_AND_METHOD_AUDIT"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py",
+      "sha256": "9E4F525BEE282A7C3FFF2EA3A6557A41D8FDF4B6620B32DFF97058C58DD598B1",
+      "audit_class": "QUARANTINED",
+      "candidate_kind": "LATEST_BY_REVIEWED_LINEAGE_ONLY",
+      "value_free_interfaces": [
+        "build_model",
+        "compute_epoch_psd",
+        "compute_constraints_v8",
+        "compute_fitness_v8",
+        "T1-T13 result dictionary"
+      ],
+      "canonical_status": "NOT_CANONICAL; OUTCOME_GUIDED_AND_DYNAMIC_REPAIR_DEPENDENCY",
+      "execution_status": "DENIED"
+    }
+  ],
+  "canonicality_conclusion": {
+    "clean_canonical_personalized_simulator_found": false,
+    "winner_selected": false,
+    "conclusion": "The audit found candidate interfaces but no clean file that may be designated the canonical personalized simulator."
+  },
+  "observation_and_detector_capabilities": [
+    {
+      "capability": "Observation bundle bootstrap and unavailable-data skip",
+      "clean_contract_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\conftest.py"
+      ],
+      "implementation_dependencies_reviewed": false,
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "capability": "Publication-safe plot rendering and openability checks",
+      "clean_contract_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_plots.py"
+      ],
+      "status": "CLEAN_ENGINEERING_CONTRACT_ONLY"
+    },
+    {
+      "capability": "Deterministic synthetic slow-oscillation and EEG-native PAC sanity shapes",
+      "clean_contract_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_t6_mi_eeg_native.py"
+      ],
+      "status": "CLEAN_SYNTHETIC_CONTRACT; IMPLEMENTATION_DEPENDENCY_PENDING"
+    },
+    {
+      "capability": "Epochwise Welch spectra with alternate-window sensitivity and normalized-band integration",
+      "concept_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_schema.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_compute_fitness_v3.py"
+      ],
+      "status": "CONCEPT_IDENTIFIED_FROM_QUARANTINED_FILES; REIMPLEMENT_AND_VALIDATE"
+    },
+    {
+      "capability": "Strict within-epoch event containment, validity masks, and retained/rejected accounting",
+      "concept_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_epoch_boundaries.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_pyloric_inspired_observation.py"
+      ],
+      "status": "CONCEPT_IDENTIFIED; EMBEDDED REGRESSION OUTCOMES EXCLUDED"
+    },
+    {
+      "capability": "Slow-oscillation waveform snippets, inter-event intervals, peak/trough anchoring, interpolation, and distance summaries",
+      "concept_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_so_waveform_heldout.py"
+      ],
+      "status": "CONCEPT_ONLY; POLARITY SELECTION_AND_RANKING_QUARANTINED"
+    },
+    {
+      "capability": "Sigma-band moving-RMS detector with adaptive threshold, gap merge, duration filter, and event density",
+      "concept_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_spindle_density_confirm.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_spindle_density_heldout.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\plot_v8a_0712_heldout_spindle_density.py"
+      ],
+      "status": "CONCEPT_ONLY; THRESHOLDS_FITTED_POINTS_AND_RANKINGS_QUARANTINED"
+    },
+    {
+      "capability": "Cycle phase, spindle-envelope modulation, Tort KL-MI, preferred phase, concentration, UP/DOWN ratio, and surrogate-shift null topology",
+      "concept_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\compute_pac_metrics_fixed.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\test_surrogate_zscore_pac.py"
+      ],
+      "status": "CONCEPT_ONLY; OUTCOME_GUIDED_REPAIR_AND_HEURISTICS_QUARANTINED"
+    },
+    {
+      "capability": "Zero-event versus undefined-duration semantics, positivity/boundedness invariants, and raw-path/raw-sample publication exclusions",
+      "concept_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_pyloric_inspired_observation.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_loading.py"
+      ],
+      "status": "VALUE_FREE_CONTRACT_SHAPE_IDENTIFIED; DATA_SPECIFIC_EXPECTATIONS_EXCLUDED"
+    }
+  ],
+  "existing_T1_T6_functionality": [
+    {
+      "id": "T1",
+      "value_free_functionality": "Lower-extreme cortical excitatory-rate check.",
+      "metric_field_evidence": [
+        "T1_min_rE"
+      ],
+      "representative_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v2.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\audit_v1_v3_v7_t12.py"
+      ],
+      "status": "PRESENT_IN_QUARANTINED_LINEAGE_NOT_RELEASED"
+    },
+    {
+      "id": "T2",
+      "value_free_functionality": "Upper-extreme cortical excitatory-rate check.",
+      "metric_field_evidence": [
+        "T2_max_rE"
+      ],
+      "representative_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v2.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py"
+      ],
+      "status": "PRESENT_IN_QUARANTINED_LINEAGE_NOT_RELEASED"
+    },
+    {
+      "id": "T3",
+      "value_free_functionality": "Longest cortical UP-state duration check.",
+      "metric_field_evidence": [
+        "T3_longest_ms"
+      ],
+      "representative_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v2.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py"
+      ],
+      "status": "PRESENT_IN_QUARANTINED_LINEAGE_NOT_RELEASED"
+    },
+    {
+      "id": "T4",
+      "value_free_functionality": "Slow-oscillation spectral peak frequency and peak-quality check.",
+      "metric_field_evidence": [
+        "T4_freq",
+        "T4_q"
+      ],
+      "representative_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v2.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\analyze_v8a_tradeoff.py"
+      ],
+      "status": "PRESENT_IN_QUARANTINED_LINEAGE_NOT_RELEASED"
+    },
+    {
+      "id": "T5",
+      "value_free_functionality": "Slow-oscillation peak-width or waveform-width check.",
+      "metric_field_evidence": [
+        "T5_fwhm"
+      ],
+      "representative_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v2.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py"
+      ],
+      "status": "PRESENT_IN_QUARANTINED_LINEAGE_NOT_RELEASED"
+    },
+    {
+      "id": "T6",
+      "value_free_functionality": "Slow-oscillation inter-burst-interval regularity check.",
+      "metric_field_evidence": [
+        "T6_ibi_cv"
+      ],
+      "representative_sources": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v4.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_t6_mi_eeg_native.py"
+      ],
+      "status": "IMPLEMENTATION_PRESENT_IN_QUARANTINED_LINEAGE; CLEAN_SYNTHETIC_SHAPE_CONTRACT_ONLY"
+    }
+  ],
+  "extended_constraint_lineage": {
+    "status": "VALUE_FREE_NAMES_ONLY_NOT_RELEASED",
+    "capabilities": [
+      "spindle-band variability",
+      "spindle event reality",
+      "phase-amplitude coupling magnitude and phase",
+      "directional timing",
+      "event spectral verification",
+      "cortical spindle observability"
+    ],
+    "representative_source": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py",
+    "source_class": "QUARANTINED"
+  },
+  "control_and_intervention_interfaces": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s6_rl_env.py",
+      "audit_class": "QUARANTINED",
+      "interface_kind": "GYM_ENVIRONMENT_CANDIDATE",
+      "value_free_interface": {
+        "reset": "Perturbs model input state and returns an observation.",
+        "step": "Applies a scalar intervention to cortical excitatory input, runs an independent short simulation, returns observation/reward/termination metadata.",
+        "observation": "Three-component spectrum/rate summary.",
+        "intervention": "Scalar additive cortical-input action.",
+        "state_continuity": "Each step rebuilds/restarts simulation; not a continuous closed-loop state trajectory."
+      },
+      "use_status": "STATIC_INTERFACE_INVENTORY_ONLY"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s7_sac_train.py",
+      "audit_class": "QUARANTINED",
+      "interface_kind": "SAC_TRAINING_CONSUMER",
+      "value_free_interface": "Training, evaluation, callback, checkpoint, and logging flow over SleepEnv.",
+      "use_status": "NO_TRAINING_OR_CHECKPOINT_CREATION"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s8_sac_iterate.py",
+      "audit_class": "DENIED",
+      "interface_kind": "SELECTED_CHECKPOINT_CONTINUATION",
+      "value_free_interface": "Outcome-history-aware checkpoint continuation and ranking.",
+      "use_status": "DENIED"
+    }
+  ],
+  "PID_inventory": {
+    "PID_controller_or_interface_found": false,
+    "searched_scope": "The 23 exact MODEL_AND_CONTROL_IMPLEMENTATIONS candidates only.",
+    "conclusion": "No PID gains, integral state, derivative state, or PID update interface was found."
+  },
+  "exact_data_or_config_paths_explicitly_referenced_by_clean_code": [
+    {
+      "exact_or_symbolic_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\manifest.csv",
+      "referencing_files": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\conftest.py"
+      ],
+      "relationship": "Conditional prerequisite for constructing the observation_bundle fixture.",
+      "status": "PENDING_INDEPENDENT_DATA_AUDIT",
+      "accessed_during_repository_input_audit": false,
+      "access_inheritance": "NONE",
+      "cleanliness_inheritance": "NONE",
+      "scientific_use_authorized": false
+    }
+  ],
+  "symbolic_or_transitive_data_requirements_from_clean_contracts": [
+    {
+      "symbolic_path": "<manifest.psg_path>",
+      "status": "PENDING_INDEPENDENT_DATA_AUDIT",
+      "exact_path_known": false,
+      "accessed": false,
+      "inheritance": "NONE"
+    },
+    {
+      "symbolic_path": "<manifest.hypnogram_path>",
+      "status": "PENDING_INDEPENDENT_DATA_AUDIT",
+      "exact_path_known": false,
+      "accessed": false,
+      "inheritance": "NONE"
+    }
+  ],
+  "code_dependencies_referenced_by_clean_files_but_not_reviewed": [
+    {
+      "path_or_import": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\src",
+      "referenced_by": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\conftest.py",
+      "status": "PENDING_INDEPENDENT_CODE_AUDIT",
+      "accessed": false
+    },
+    {
+      "path_or_import": "sleep_sbi",
+      "referenced_by": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\conftest.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_plots.py"
+      ],
+      "status": "PENDING_INDEPENDENT_CODE_AUDIT",
+      "accessed": false
+    },
+    {
+      "path_or_import": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_v7_repair\\compute_pac_metrics_eeg_native.py",
+      "referenced_by": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_t6_mi_eeg_native.py",
+      "status": "PENDING_INDEPENDENT_CODE_AUDIT",
+      "accessed": false
+    }
+  ],
+  "all_other_data_config_references": {
+    "status_for_every_entry": "PENDING_INDEPENDENT_DATA_AUDIT",
+    "access_and_cleanliness_inheritance": "NONE",
+    "accessed": false,
+    "exact_paths_identified_textually": [
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\manifest.csv",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_SC4001.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_psd_SC4001.npy",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs.npy",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs_SC4001.npy",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_SC4001.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v1_0418_2_SC4001.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v2_SC4001.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v3_SC4001.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v7_SC4001.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v8_SC4001.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\S4_v7_repair\\pareto_seeds.json"
+    ],
+    "unresolved_symbolic_paths": [
+      "<manifest.psg_path>",
+      "<manifest.hypnogram_path>",
+      "<load_observation_config()>",
+      "<load_pyloric_inspired_config()>"
+    ],
+    "note": "References from unresolved, quarantined, or denied files do not authorize opening and do not establish that the artifacts exist, are clean, or are suitable."
+  },
+  "excluded_output_consumers": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s8_sac_iterate.py",
+      "class": "DENIED",
+      "reason": "Selected checkpoint and mutable outcome-history consumer."
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_spindles.py",
+      "class": "DENIED",
+      "reason": "Generated output-array consumer at import scope."
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\t5_deconfound.py",
+      "class": "DENIED",
+      "reason": "Historical evolution-record post-hoc consumer at import scope."
+    }
+  ],
+  "code_safety_and_provenance_risks": [
+    "Many scripts execute simulations, optimizers, file reads, or output writes at module import/top-level.",
+    "Dynamic path injection/imports reference unaudited S4_sbi, S4_v7_repair, utils/02_preprocess_psd.py, and an external neurolib checkout.",
+    "Several files use private FOOOF internals, broad exception suppression, or backend fallbacks that can conceal method drift.",
+    "Target-frequency filenames and printed-versus-actual output names are inconsistent in parts of the lineage.",
+    "Held-out waveform/spindle scripts contain outcome-guided selection or ranking and epoch-concatenation boundary risks.",
+    "Historical search scripts encode outcome-selected points, grids, weights, bounds, and next-step recommendations."
+  ],
+  "environment_dependency_inventory": {
+    "source": "D:\\Year3_Mao_Projects\\sleep_loop\\requirements.txt",
+    "status": "PACKAGE_NAMES_ONLY_UNPINNED",
+    "package_names": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "mne",
+      "neurolib",
+      "fooof",
+      "numba",
+      "jitcdde",
+      "gymnasium",
+      "stable-baselines3"
+    ],
+    "reproducible_environment_established": false
+  },
+  "final_status": "VALUE_FREE_CAPABILITY_INVENTORY_COMPLETE_NO_EXECUTION_RELEASE"
+}

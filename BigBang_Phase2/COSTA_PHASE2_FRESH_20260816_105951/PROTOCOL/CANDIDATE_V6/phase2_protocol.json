@@ -1,0 +1,2696 @@
+{
+  "schema_version": "5.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "protocol_id": "COSTA_PHASE2_PROTOCOL_CANDIDATE_V5",
+  "parent_protocol_id": "COSTA_PHASE2_PROTOCOL_CANDIDATE_V4",
+  "repair_scope": [
+    "PV4-EDGE-B001"
+  ],
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "status": "FREEZE_CANDIDATE_PREOUTCOME",
+  "outcome_visibility_at_design": "NONE",
+  "execution_authorized_by_this_artifact": false,
+  "purpose": "Prospectively specify a current-campaign clean-room diagnostic control bench and a compute-bounded Phase 2A assessment of T1-T8 without importing R4 execution artifacts or scientific outcomes.",
+  "claim_boundary": {
+    "r4_categorical_substrate": {
+      "mechanistic_level": "M1",
+      "control_level": "C0",
+      "predictive_level": "P0",
+      "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION"
+    },
+    "bench_relation_to_r4": "NO_EXECUTABLE_IDENTITY_LINK",
+    "maximum_bench_evidence": "NON_TRANSFERABLE_SYNTHETIC_DIAGNOSTIC",
+    "formal_c1_assignment": "PROHIBITED",
+    "formal_c2_assignment": "PROHIBITED",
+    "r4_substrate_change": "PROHIBITED",
+    "clinical_or_human_intervention_inference": "PROHIBITED"
+  },
+  "software_contract": {
+    "environment": "neurolib",
+    "environment_version": "NEUROLIB_ENV_V3",
+    "python": "3.10.20",
+    "required_packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "neurolib": "0.6.1"
+    },
+    "scientific_dependencies": [
+      "numpy",
+      "scipy"
+    ],
+    "neurolib_role": "environment compatibility and future adapter boundary only; no repository or historical neurolib model is imported",
+    "official_launcher": "PREFLIGHT/run_neurolib.ps1",
+    "threads": {
+      "OMP_NUM_THREADS": 4,
+      "MKL_NUM_THREADS": 4,
+      "OPENBLAS_NUM_THREADS": 4,
+      "NUMEXPR_NUM_THREADS": 4
+    },
+    "requested_concurrent_processes": 1,
+    "reason_for_single_process": "The frozen environment snapshot admits one process at captured available memory."
+  },
+  "bench": {
+    "bench_id": "PHASE2_CONTROL_BENCH_V1",
+    "bench_type": "clean-room reduced thalamocortical stochastic rate model",
+    "equations": {
+      "rates": "tau_i*dr_i/dt=-r_i+rmax_i/(1+exp(-beta*(h_i-theta))) for i=E,I,T,R",
+      "adaptation": "tau_a*da/dt=-a+r_E",
+      "h_E": "b_E+w_EE*r_E-w_EI*r_I+w_ET*r_T-g_a*a+eta_E+u_E(t)",
+      "h_I": "b_I+w_IE*r_E-w_II*r_I+w_IT*r_T+eta_I+u_I(t)",
+      "h_T": "b_T+w_TE*r_E-w_TR*r_R+eta_T+u_T(t)",
+      "h_R": "b_R+w_RE*r_E+w_RT*r_T-w_RR*r_R+eta_R+u_R(t)",
+      "ou_update": "eta_i[n+1]=rho*eta_i[n]+sigma_i*sqrt(1-rho^2)*epsilon_i[n], rho=exp(-dt/tau_eta), epsilon_i[n] iid N(0,1)",
+      "observation": "x(t)=(r_E(t)+0.25*r_T(t))/10 m.u."
+    },
+    "state_order": [
+      "r_E",
+      "r_I",
+      "r_T",
+      "r_R",
+      "a",
+      "eta_E",
+      "eta_I",
+      "eta_T",
+      "eta_R"
+    ],
+    "initial_state": [
+      8,
+      10,
+      6,
+      8,
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    "parameter_source": "mechanistic_parameter_map.json#parameter_defaults_and_bounds",
+    "parameter_values": {
+      "tau_E": 0.02,
+      "tau_I": 0.01,
+      "tau_T": 0.02,
+      "tau_R": 0.01,
+      "tau_a": 1,
+      "tau_eta": 0.05,
+      "rmax_E": 100,
+      "rmax_I": 100,
+      "rmax_T": 100,
+      "rmax_R": 100,
+      "beta": 0.18,
+      "theta": 15,
+      "b_E": 12,
+      "b_I": 8,
+      "b_T": 10,
+      "b_R": 8,
+      "g_a": 0.3,
+      "w_EE": 0.22,
+      "w_EI": 0.35,
+      "w_ET": 0.16,
+      "w_IE": 0.3,
+      "w_II": 0.1,
+      "w_IT": 0.1,
+      "w_TE": 0.12,
+      "w_TR": 0.4,
+      "w_RE": 0.08,
+      "w_RT": 0.35,
+      "w_RR": 0.08,
+      "sigma_E": 0.25,
+      "sigma_I": 0.2,
+      "sigma_T": 0.2,
+      "sigma_R": 0.2
+    },
+    "timebase": {
+      "internal_dt_seconds": 0.001,
+      "integrator": "fixed-step stochastic Heun for rate/adaptation states with exact discrete OU update",
+      "predictor_corrector_order": "Compute OU next state from the registered epsilon; Euler-predict r and a using current eta; recompute drift at predictor using next eta; set state_next=state+0.5*dt*(drift_current+drift_predictor).",
+      "clipping": "NONE",
+      "warmup_seconds": 30,
+      "analysis_seconds": 180,
+      "stored_sampling_rate_hz": 200,
+      "decimation_rule": "store every fifth internal sample after warmup; no antialias filter is needed for stored states because detector bands end at 30 Hz, but a fixed scipy.signal.decimate FIR zero-phase check must agree within 1 percent on preflight spectra",
+      "time_origin": "intervention starts after warmup at analysis t=0",
+      "floating_point": "IEEE-754 float64",
+      "input_evaluation": "For each internal solver interval m=0,...,209999 at global time t=m/1000 s, evaluate every additive input at the left endpoint and hold it constant over [m,m+1). Use the same held input in the current and Heun predictor drift. Analysis-relative index a=m-30000 is used below; all intervention inputs are exactly zero when a<0 or a>=180000."
+    },
+    "randomness": {
+      "bit_generator": "numpy.random.PCG64",
+      "worker_seeds": [
+        11003,
+        22007,
+        33013,
+        44017,
+        55021,
+        66029
+      ],
+      "independent_verification_seeds": [
+        77041,
+        88069,
+        99079,
+        111091
+      ],
+      "seed_pairing": "For a given parameter draw and seed, sham and every intervention condition reuse the identical four OU innovation streams.",
+      "stream_layout": "One Generator(seed) produces a float64 array in C order with columns E,I,T,R at each internal step.",
+      "parameter_draws": [
+        "D00_NOMINAL",
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05"
+      ],
+      "parameter_draw_rule": "mechanistic_parameter_map.json#synthetic_uncertainty_rule",
+      "interpretation": "seed and parameter draws quantify synthetic bench uncertainty only; they are not people and not personalization evidence"
+    },
+    "intervention_semantics": {
+      "name_requirement": "Every applied input is named GENERIC EXTERNAL FORCING.",
+      "auditory_like_label": "PROHIBITED",
+      "physiological_parameter_change_as_control": "PROHIBITED",
+      "parameter_perturbation_role": "SENSITIVITY_ONLY",
+      "channels": "mechanistic_parameter_map.json#intervention_channels",
+      "causal_phase_scheduler": {
+        "scope": "Exact scheduler for GF_T_PHASE_LOCKED_PACKET only. Offline T6/T7 measurement filters remain the separately frozen zero-phase filters.",
+        "scheduler_sampling_rate_hz": 200,
+        "scheduler_dt_seconds": 0.005,
+        "sample_origin": "Scheduler sample n=0 is simulation time -30.000 s; analysis begins at n=6000 and ends before n=42000.",
+        "input": "Raw online x[n]=(r_E[n]+0.25*r_T[n])/10 at every fifth 1 ms solver step; no future centering or zero-phase filtering.",
+        "causal_filter": {
+          "type": "one-pole high-pass at 0.3 Hz followed by one-pole low-pass at 1.5 Hz",
+          "tau_hp_seconds": 0.5305164769729844,
+          "alpha_hp": 0.990663219125838,
+          "tau_lp_seconds": 0.1061032953945969,
+          "alpha_lp": 0.04500316558786029,
+          "formula_hp": "hp[n]=alpha_hp*(hp[n-1]+x[n]-x[n-1])",
+          "formula_lp": "bp[n]=bp[n-1]+alpha_lp*(hp[n]-bp[n-1])",
+          "initialization": "At n=0 set x_prev=x[0], hp[0]=0, bp[0]=0. For n>=1 update hp first, then bp, then set x_prev=x[n].",
+          "delay_calibration": "NONE",
+          "delay_semantics": "The causal filtered upward crossing itself defines phase zero; no estimated or subtracted filter delay is permitted."
+        },
+        "warmup_and_history": {
+          "filter_warmup_samples": 6000,
+          "transient_excluded_samples": 4000,
+          "history_collection_samples": [
+            4000,
+            6000
+          ],
+          "packet_delivery_during_warmup": "PROHIBITED",
+          "history_rule": "Crossings during samples 4000 through 5999 may build period history. Only crossings n>=6000 may schedule packets."
+        },
+        "crossing_rule": {
+          "candidate": "bp[n-1]<0 and bp[n]>=0; equality at bp[n-1] is not a crossing; crossing time is integer sample n with no interpolation.",
+          "valid_period_samples_inclusive": [
+            134,
+            400
+          ],
+          "valid_period_seconds_inclusive": [
+            0.67,
+            2
+          ],
+          "valid_frequency_hz_approximate": [
+            0.5,
+            1.4925373134328357
+          ],
+          "invalid_interval_action": "Log PERIOD_OUT_OF_RANGE, replace the prior anchor with n, clear all period intervals, and do not schedule from this crossing.",
+          "valid_interval_action": "Append n-last_anchor to a FIFO containing at most the three most recent valid intervals, set last_anchor=n, and mark n accepted.",
+          "first_anchor_action": "Store n as last_anchor, clear interval history, log FIRST_ANCHOR, and do not schedule."
+        },
+        "period_estimation": {
+          "minimum_intervals": 3,
+          "estimator": "P_hat is the integer median of the three stored valid integer intervals; because there are exactly three, no fractional median occurs.",
+          "clamp_samples_inclusive": [
+            134,
+            400
+          ],
+          "clamp_formula": "P_use=min(400,max(134,P_hat))",
+          "insufficient_history_action": "Log INSUFFICIENT_PERIOD_HISTORY and do not schedule."
+        },
+        "phase_to_delay": {
+          "canonical_phase_domain": "[-pi,pi)",
+          "canonicalization": "phi_c=((phi+pi) mod (2*pi))-pi; an exact +pi input is prohibited and -pi is its sole representative.",
+          "forward_phase": "q=((phi_c mod (2*pi))+2*pi) mod (2*pi), so q is in [0,2*pi).",
+          "unquantized_delay_samples": "d_real=q*P_use/(2*pi)",
+          "quantization": "d_round=floor(d_real+0.5), a deterministic round-half-up for nonnegative d_real.",
+          "causal_minimum_latency": "d=max(1,d_round); the scheduler runs after x[n] is observed, so the earliest packet begins at n+1.",
+          "negative_offset_semantics": "Negative phi maps through q to the remaining fraction of the current estimated cycle and is therefore scheduled after the detected crossing; for example -pi/2 maps to 3*P_use/4. It never refers to an already elapsed phase.",
+          "next_cycle_semantics": "If q is numerically zero only phi_c=0 is allowed and the one-sample causal latency applies. No extra cycle is added. All negative offsets use the forward modulo delay within the cycle ending at the next predicted crossing."
+        },
+        "queue_and_overlap": {
+          "proposed_start_scheduler_sample": "s=n+d",
+          "proposed_start_internal_step": "j_start=5*s",
+          "packet_internal_steps": 500,
+          "interval_convention": "A packet occupies internal steps [j_start,j_start+500), equivalent to scheduler time [s,s+100 samples).",
+          "overlap_rule": "Before insertion, compare the half-open proposed interval with every active or queued interval. If max(start_a,start_b)<min(stop_a,stop_b), log OVERLAP_SKIP and discard the new packet; packets are never summed, truncated, merged, or replaced.",
+          "queue_order": "Nonoverlapping packets are stored by ascending start step; equal starts would overlap and the earlier-created packet remains.",
+          "maximum_queued_not_active": 2,
+          "queue_full_rule": "If two future packets are already queued, log QUEUE_FULL and discard the new packet even if it would not overlap.",
+          "analysis_boundary_rule": "Internal step zero is simulation start; warmup ends at j_analysis_start=30*1000=30000 and analysis ends at j_analysis_stop=210*1000=210000. If j_start<30000 or j_start+500>210000, log OUTSIDE_ANALYSIS_SKIP and discard the packet."
+        },
+        "packet_samples": {
+          "amplitude_parameter": "A_hz_equivalent",
+          "carrier_parameter_hz": "f_c_hz",
+          "allowed_amplitude_hz_equivalent": [
+            0,
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "allowed_carrier_hz": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "duration_seconds": 0.5,
+          "internal_sampling_rate_hz": 1000,
+          "indices": "k=0,...,499",
+          "hann": "w[k]=0.5*(1-cos(2*pi*k/499))",
+          "carrier": "c[k;f_c]=0.5*(1+sin(2*pi*f_c*k/1000))",
+          "injection": "u_T[j_start+k]=A*w[k]*c[k;f_c], with u_E=u_I=u_R=0 for this channel; endpoints w[0] and w[499] are exactly zero.",
+          "evaluation": "Compute float64 values at integer k in ascending order. No phase reset other than k=0 at each packet, no interpolation, normalization, clipping, or overlap summation."
+        },
+        "required_log_per_crossing": [
+          "crossing_sample",
+          "interval_samples",
+          "history_samples",
+          "P_use",
+          "phi_c",
+          "q",
+          "d_real",
+          "d_round",
+          "A_hz_equivalent",
+          "f_c_hz",
+          "scheduled_start",
+          "scheduled_stop",
+          "decision_code"
+        ],
+        "decision_codes": [
+          "FIRST_ANCHOR",
+          "PERIOD_OUT_OF_RANGE",
+          "INSUFFICIENT_PERIOD_HISTORY",
+          "WARMUP_ONLY",
+          "SCHEDULED",
+          "OVERLAP_SKIP",
+          "QUEUE_FULL",
+          "OUTSIDE_ANALYSIS_SKIP",
+          "ZERO_AMPLITUDE_SHAM"
+        ],
+        "missed_trigger_rule": "Every accepted or rejected crossing receives exactly one decision code; skipped triggers are retained in the run artifact and never silently retried.",
+        "parameterization": {
+          "allowed_parameter_tuple": [
+            "phi_c_radians",
+            "A_hz_equivalent",
+            "f_c_hz"
+          ],
+          "level_a": {
+            "phi_c": "one of the eight registered unique canonical phases",
+            "A_hz_equivalent": 1,
+            "f_c_hz": 13
+          },
+          "level_b_T6": {
+            "phi_c": "one of [-pi,-pi/2,0,pi/2]",
+            "A_hz_equivalent": "one of [0,0.25,0.50,0.75,1.00]",
+            "f_c_hz": 13
+          },
+          "level_b_T7": {
+            "phi_c": "one of [-pi,-pi/2,0,pi/2]",
+            "A_hz_equivalent": 1,
+            "f_c_hz": "one of [11,12,13,14,15]"
+          },
+          "bounds": {
+            "phi_c_radians": [
+              -3.141592653589793,
+              3.141592653589793
+            ],
+            "canonical_endpoint": "-pi included; +pi prohibited",
+            "A_hz_equivalent": [
+              0,
+              1
+            ],
+            "f_c_hz": [
+              11,
+              15
+            ]
+          },
+          "combination_rule": "T6 varies A only with f_c=13; T7 varies f_c only with A=1. No run varies both A and f_c, and no other forcing channel is combined with GF_T_PHASE_LOCKED_PACKET.",
+          "sham_rule": "A=0 is exact zero input: do not enqueue packets, but run the causal filter and crossing logger with decision code ZERO_AMPLITUDE_SHAM at every otherwise schedulable crossing.",
+          "scheduler_state_invariance": "Filter, crossing, period, phase-to-delay, latency, queue, overlap, and boundary rules are identical for every allowed A and f_c."
+        }
+      }
+    }
+  },
+  "observation_and_detector_contract": {
+    "common_preprocessing": {
+      "signal": "x(t)=(r_E+0.25*r_T)/10 m.u.",
+      "centering": "subtract the mean of the 180 s analysis interval separately for each run",
+      "filter_implementation": "For each registered band [lo,hi], call scipy.signal.butter(4,[lo,hi],btype='bandpass',analog=False,output='sos',fs=200.0), then scipy.signal.sosfiltfilt(sos,x,padtype='odd',padlen=None). Filter the full centered 180 s record once; metrics then apply the exact edge/window masks.",
+      "filter_order": 4,
+      "edge_exclusion_seconds_each_side": 10,
+      "condition_invariance": "All coefficients, thresholds, duration rules, and edge rules are fixed before non-sham outcomes and applied unchanged across the paired sham and intervention conditions."
+    },
+    "T1": {
+      "metric": "dominant slow-oscillation peak frequency plus frequency-lock validation",
+      "welch": {
+        "fs_hz": 200,
+        "window": "hann",
+        "nperseg": 12000,
+        "noverlap": 6000,
+        "nfft": 24000,
+        "detrend": "constant",
+        "scaling": "density",
+        "peak_band_hz": [
+          0.4,
+          1.5
+        ],
+        "tie_rule": "lowest-frequency maximum"
+      },
+      "peak_refinement": "three-bin parabolic interpolation in log power; use the discrete bin at either boundary",
+      "locking": "PLV=abs(mean(exp(i*(phase_SO-2*pi*f_drive*t)))) after the edge exclusion; phase_SO is the Hilbert phase of the 0.3-1.5 Hz filtered signal",
+      "validity": "Welch power finite and positive, peak not at 0.4 or 1.5 Hz, at least 30 valid SO cycles"
+    },
+    "T2_T3_SO_events": {
+      "band_hz": [
+        0.3,
+        1.5
+      ],
+      "cycle_boundary": "successive upward zero crossings",
+      "cycle_duration_seconds": [
+        0.4,
+        2.5
+      ],
+      "event_thresholds": {
+        "minimum_peak_to_peak_m_u": 0.1,
+        "maximum_negative_trough_m_u": -0.04
+      },
+      "event_containment": "both cycle boundaries and extrema must lie strictly inside the analysis interval after edge exclusion",
+      "T2_metric": "median(max-min) across valid SO events",
+      "T3_metric": "60*valid_event_count/retained_duration_seconds",
+      "zero_event_rule": "T3 density is zero if retained duration is valid; T2 is NOT_ESTIMABLE if fewer than 30 events"
+    },
+    "T4_T5_spindle_events": {
+      "band_hz": [
+        11,
+        16
+      ],
+      "envelope": "At stored fs=200 Hz, let y be the frozen 11-16 Hz signal and define rms[n]=sqrt(mean(y[k]^2 for k=n-19,...,n+20)), exactly 40 samples with 19 before and 20 after n. Samples lacking the full 40-sample support are invalid; they already lie outside the 10 s retained edge. No convolution-mode or alternate even-window centering is permitted.",
+      "threshold_calibration": "For each seed-draw block, threshold constants are derived once from its sham: high=median+3*MAD and low=median+1.5*MAD, MAD=1.4826*median(abs(x-median(x))). The same constants are applied to every condition in that block.",
+      "event_rule": "start on high-threshold crossing, extend to surrounding low-threshold crossings, merge gaps <=0.100 s, retain durations 0.300-2.000 s, enforce strict containment",
+      "T4_metric": "60*spindle_count/retained_duration_seconds",
+      "T5_metric": "median event RMS of the unthresholded 11-16 Hz signal",
+      "zero_event_rule": "T4 density is zero; T5 is NOT_ESTIMABLE if fewer than 10 retained events"
+    },
+    "T4_added_event_attribution": {
+      "comparison": "The classifier is context-indexed by the canonical attribution_domain_table. It is evaluated separately for every positive Level-A worker candidate, every positive Level-B policy candidate, and the actually selected positive Level-A verifier condition. Only Level-A worker d=+1.5, repetition 0.85 Hz, carrier 13 Hz versus its exact paired sham contributes autonomous_added_event_fraction-0.50 to F_TARGET_DECISIONS; every other context is policy, surface, or verifier diagnostic only.",
+      "event_time": "For each retained spindle event, peak_sample is the earliest stored 200 Hz sample attaining the maximum frozen RMS envelope inside the event. Event IDs are assigned by onset sample then offset sample.",
+      "candidate_match": "Create every sham/intervention event pair with abs(intervention_peak_sample-sham_peak_sample)<=50 samples (0.250 s).",
+      "one_to_one_algorithm": "Sort candidate pairs lexicographically by absolute peak difference, intervention peak sample, sham peak sample, intervention event ID, sham event ID. Traverse once; accept a pair only when neither event is already matched. This greedy result is final.",
+      "added_and_lost": "Every unmatched intervention event is ADDED. Every unmatched sham event is LOST. Matched events are PAIRED_EXISTING. No many-to-one matching, rematching, or amplitude-based matching is permitted.",
+      "packet_schedule_for_attribution": "Resolve d and f_c from the unique attribution_domain_table row and apply attribution_domain_contract.packet_schedule exactly. Level-A worker and possible verifier rows use f_c=13; each Level-B row uses its enumerated 11-15 Hz carrier. The emitted packet table, not an inferred delay, is the sole attribution input.",
+      "packet_association": "An ADDED event is associated with an actually emitted packet when packet_start_sample<=event_peak_sample<packet_stop_sample+50. If multiple qualify, select smallest abs(event_peak_sample-packet_stop_sample), then earlier packet_start_sample, then lexicographically smaller packet_id. Otherwise classify UNASSOCIATED_ADDED.",
+      "post_packet_autonomous_cycle": "On the frozen 11-16 Hz filtered signal, enumerate upward zero crossings z where sigma[z-1]<0 and sigma[z]>=0. A packet-associated ADDED event has an autonomous post-packet cycle only if two successive crossings z1,z2 satisfy packet_stop_sample<z1<z2<event_offset_sample and 13<=z2-z1<=19 samples. The crossings must both lie strictly inside that same event.",
+      "classes": [
+        "AUTONOMOUS_PACKET_ASSOCIATED_ADDED",
+        "PACKET_REPLICA_ADDED",
+        "UNASSOCIATED_ADDED"
+      ],
+      "class_rule": "Packet-associated with a qualifying post-offset cycle is AUTONOMOUS_PACKET_ASSOCIATED_ADDED; packet-associated without one is PACKET_REPLICA_ADDED; no packet association is UNASSOCIATED_ADDED.",
+      "attribution_domain_contract": {
+        "table_id": "T4_ATTRIBUTION_DOMAIN_V4",
+        "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+        "row_contract_application": "Every attribution_domain_table row must contain row_contract_id=T4_ATTRIBUTION_ROW_CONTRACT_V4. The packet schedule, paired-sham rule, domain-row pooling unit, event metrics, base attribution minimum, missingness, bootstrap-zero-added rule, and required-log schema in this object apply without override to every row; the row supplies its exact context, condition, dose, carrier, block universe, denominators, family, and use.",
+        "join_key": "(execution_context,dose_hz_equivalent,carrier_hz,repetition_hz)",
+        "join_rule": "Every positive T4 condition referenced by Level-A G4, Level-B C4/G4, or a selected verifier T4 row must match exactly one attribution_domain_table row on the four-field join key. Zero matches, duplicate matches, a candidate absent from the table, or a table row outside the frozen candidate arrays is PF_T4_ATTRIBUTION_DOMAIN_FAIL and stops before scientific execution.",
+        "packet_schedule": "For every row, p=0,1,...; stored start s_p=floor(p*200/0.85+0.5), global internal start j_p=30000+5*s_p, stored stop=s_p+100, and retain exactly j_p+500<=210000. For k=0,...,499, q[k;f_c]=0.5*(1-cos(2*pi*k/499))*0.5*(1+sin(2*pi*f_c*k/1000)); the positive row emits u_T=d*q and u_E=u_I=u_R=0. The emitted packet table is the sole association input.",
+        "paired_sham": "Within the row's execution context, pair intervention and sham only when parameter_draw_id and seed are identical and the initial state, 210 s duration, solver settings, and complete OU innovation arrays are byte-identical; sham has u_E=u_I=u_T=u_R=0 and supplies the fixed detector thresholds. A block has exactly one intervention and one sham record.",
+        "pooling_unit": "One attribution pool is one domain_row_id across that row's valid complete paired blocks. Pool ADDED events only after blockwise matching/classification. Never pool across execution contexts, doses, carriers, repetitions, inactive verifier alternatives, or formal and diagnostic rows.",
+        "event_metrics": "N_added=count(ADDED); N_autonomous=count(AUTONOMOUS_PACKET_ASSOCIATED_ADDED); N_packet_replica=count(PACKET_REPLICA_ADDED); F_auto=N_autonomous/N_added; F_replica=N_packet_replica/N_added. UNASSOCIATED_ADDED remains in N_added and neither numerator.",
+        "base_attribution_minimum": {
+          "N_added": 30,
+          "distinct_contributing_blocks": 10,
+          "contributing_block_definition": "A valid complete paired block with at least one ADDED intervention event in this exact domain row."
+        },
+        "missingness": "If N_added<30, fewer than 10 distinct row-specific contributing blocks exist, the paired sham is absent/invalid, or any required event/packet/crossing field is invalid, then F_auto, F_replica, and every C4/G4 or verifier scalar depending on this row are NOT_ESTIMABLE. Do not substitute zero, borrow another row, or pool another context. An inactive verifier alternative is NOT_LAUNCHED_BY_POLICY, not scientific missingness.",
+        "bootstrap_zero_added": "Only after the point-estimate base attribution minimum passes: within each registered hierarchical bootstrap replicate, re-pool events from that row's resampled blocks. If its resampled N_added=0, set F_auto=0 and F_replica=1 for that replicate and log ZERO_ADDED_BOOTSTRAP with domain_row_id, family_id, and replicate_index. Do not use this convention to rescue a failed point-estimate denominator.",
+        "required_log_fields": [
+          "domain_row_id",
+          "execution_context",
+          "condition_id",
+          "policy_candidate_id",
+          "block_id",
+          "parameter_draw_id",
+          "seed",
+          "dose_hz_equivalent",
+          "carrier_hz",
+          "repetition_hz",
+          "paired_sham_id",
+          "packet_id/start/stop/carrier/dose",
+          "event_id/onset/offset/peak",
+          "candidate_pairs_in_sort_order",
+          "accepted_pairs_in_traversal_order",
+          "added_event_ids",
+          "lost_event_ids",
+          "associated_packet_id_or_null",
+          "post_offset_crossing_pairs_considered",
+          "class",
+          "N_added",
+          "distinct_contributing_blocks",
+          "N_autonomous",
+          "N_packet_replica",
+          "F_auto",
+          "F_replica",
+          "denominator_status",
+          "bootstrap_zero_added_records"
+        ]
+      },
+      "candidate_domain_rows": {
+        "level_a_worker": [
+          "T4_LA_WORKER_D0P50_FC13",
+          "T4_LA_WORKER_D1P00_FC13",
+          "T4_LA_WORKER_D1P50_FC13"
+        ],
+        "level_b_policy": [
+          "T4_LB_D0P75_FC11",
+          "T4_LB_D0P75_FC12",
+          "T4_LB_D0P75_FC13",
+          "T4_LB_D0P75_FC14",
+          "T4_LB_D0P75_FC15",
+          "T4_LB_D1P50_FC11",
+          "T4_LB_D1P50_FC12",
+          "T4_LB_D1P50_FC13",
+          "T4_LB_D1P50_FC14",
+          "T4_LB_D1P50_FC15"
+        ],
+        "cross_target_verifier_possible": [
+          "T4_XV_D0P50_FC13",
+          "T4_XV_D1P00_FC13",
+          "T4_XV_D1P50_FC13"
+        ]
+      },
+      "attribution_domain_table": [
+        {
+          "domain_row_id": "T4_LA_WORKER_D0P50_FC13",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_A_WORKER",
+          "policy_candidate_id": "LA_T4_D0P50",
+          "condition_id": "LEVEL_A_T4_DOSE_INDEX_04",
+          "dose_hz_equivalent": 0.5,
+          "carrier_hz": 13,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_A_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "6 draws D00_NOMINAL,D01,D02,D03,D04,D05 x 6 worker seeds 11003,22007,33013,44017,55021,66029 =36",
+          "minimum_complete_paired_blocks": 30,
+          "minimum_distinct_seeds": 5,
+          "minimum_distinct_draws": 5,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_TARGET_DECISIONS shared resample index tensor from PCG64(860218); F_auto/F_replica are computed as policy diagnostics but excluded from the formal family maximum M_b for this row",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_A_POLICY_SELECTION_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LA_WORKER_D1P00_FC13",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_A_WORKER",
+          "policy_candidate_id": "LA_T4_D1P00",
+          "condition_id": "LEVEL_A_T4_DOSE_INDEX_05",
+          "dose_hz_equivalent": 1.0,
+          "carrier_hz": 13,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_A_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "6 draws D00_NOMINAL,D01,D02,D03,D04,D05 x 6 worker seeds 11003,22007,33013,44017,55021,66029 =36",
+          "minimum_complete_paired_blocks": 30,
+          "minimum_distinct_seeds": 5,
+          "minimum_distinct_draws": 5,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_TARGET_DECISIONS shared resample index tensor from PCG64(860218); F_auto/F_replica are computed as policy diagnostics but excluded from the formal family maximum M_b for this row",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_A_POLICY_SELECTION_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LA_WORKER_D1P50_FC13",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_A_WORKER",
+          "policy_candidate_id": "LA_T4_D1P50",
+          "condition_id": "LEVEL_A_T4_DOSE_INDEX_06",
+          "dose_hz_equivalent": 1.5,
+          "carrier_hz": 13,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_A_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "6 draws D00_NOMINAL,D01,D02,D03,D04,D05 x 6 worker seeds 11003,22007,33013,44017,55021,66029 =36",
+          "minimum_complete_paired_blocks": 30,
+          "minimum_distinct_seeds": 5,
+          "minimum_distinct_draws": 5,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_TARGET_DECISIONS using PCG64(860218)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "SOLE_FORMAL_F_TARGET_DECISIONS_ATTRIBUTION_COMPARISON_AND_LEVEL_A_POLICY_SELECTION",
+          "formal_target_decision_member": true
+        },
+        {
+          "domain_row_id": "T4_LB_D0P75_FC11",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R03_C00",
+          "condition_id": "LB3_T4_R03_C00",
+          "dose_hz_equivalent": 0.75,
+          "carrier_hz": 11,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D0P75_FC12",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R03_C01",
+          "condition_id": "LB3_T4_R03_C01",
+          "dose_hz_equivalent": 0.75,
+          "carrier_hz": 12,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D0P75_FC13",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R03_C02",
+          "condition_id": "LB3_T4_R03_C02",
+          "dose_hz_equivalent": 0.75,
+          "carrier_hz": 13,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D0P75_FC14",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R03_C03",
+          "condition_id": "LB3_T4_R03_C03",
+          "dose_hz_equivalent": 0.75,
+          "carrier_hz": 14,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D0P75_FC15",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R03_C04",
+          "condition_id": "LB3_T4_R03_C04",
+          "dose_hz_equivalent": 0.75,
+          "carrier_hz": 15,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D1P50_FC11",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R04_C00",
+          "condition_id": "LB3_T4_R04_C00",
+          "dose_hz_equivalent": 1.5,
+          "carrier_hz": 11,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D1P50_FC12",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R04_C01",
+          "condition_id": "LB3_T4_R04_C01",
+          "dose_hz_equivalent": 1.5,
+          "carrier_hz": 12,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D1P50_FC13",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R04_C02",
+          "condition_id": "LB3_T4_R04_C02",
+          "dose_hz_equivalent": 1.5,
+          "carrier_hz": 13,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D1P50_FC14",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R04_C03",
+          "condition_id": "LB3_T4_R04_C03",
+          "dose_hz_equivalent": 1.5,
+          "carrier_hz": 14,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_LB_D1P50_FC15",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "LEVEL_B_SURFACE",
+          "policy_candidate_id": "LB3_T4_R04_C04",
+          "condition_id": "LB3_T4_R04_C04",
+          "dose_hz_equivalent": 1.5,
+          "carrier_hz": 15,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "3 draws D00_NOMINAL,D02,D04 x 4 Level-B seeds 11003,33013,55021,66029 =12",
+          "minimum_complete_paired_blocks": 10,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 3,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_LEVEL_B_SURFACES using PCG64(860220)",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_XV_D0P50_FC13",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "CROSS_TARGET_VERIFIER",
+          "policy_candidate_id": "LA_T4_D0P50",
+          "condition_id": "X3_T4_SELECTED_D0P50_FC13",
+          "dose_hz_equivalent": 0.5,
+          "carrier_hz": 13,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "X3__SHAM__{parameter_draw_id}__S{seed}",
+          "intervention_run_id": "X3__T4__K00__{parameter_draw_id}__S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "6 draws D00_NOMINAL,D01,D02,D03,D04,D05 x 4 verifier seeds 77041,88069,99079,111091 =24; execute only if LA_T4_D0P50 was frozen",
+          "minimum_complete_paired_blocks": 20,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 5,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_CROSS_TARGET_8X8 using PCG64(860221) if this is the frozen selected row",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "POSSIBLE_SELECTED_LEVEL_A_POLICY_VERIFIER_DIAGNOSTIC_ONLY",
+          "inactive_status": "NOT_LAUNCHED_BY_POLICY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_XV_D1P00_FC13",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "CROSS_TARGET_VERIFIER",
+          "policy_candidate_id": "LA_T4_D1P00",
+          "condition_id": "X3_T4_SELECTED_D1P00_FC13",
+          "dose_hz_equivalent": 1.0,
+          "carrier_hz": 13,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "X3__SHAM__{parameter_draw_id}__S{seed}",
+          "intervention_run_id": "X3__T4__K00__{parameter_draw_id}__S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "6 draws D00_NOMINAL,D01,D02,D03,D04,D05 x 4 verifier seeds 77041,88069,99079,111091 =24; execute only if LA_T4_D1P00 was frozen",
+          "minimum_complete_paired_blocks": 20,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 5,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_CROSS_TARGET_8X8 using PCG64(860221) if this is the frozen selected row",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "POSSIBLE_SELECTED_LEVEL_A_POLICY_VERIFIER_DIAGNOSTIC_ONLY",
+          "inactive_status": "NOT_LAUNCHED_BY_POLICY",
+          "formal_target_decision_member": false
+        },
+        {
+          "domain_row_id": "T4_XV_D1P50_FC13",
+          "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+          "execution_context": "CROSS_TARGET_VERIFIER",
+          "policy_candidate_id": "LA_T4_D1P50",
+          "condition_id": "X3_T4_SELECTED_D1P50_FC13",
+          "dose_hz_equivalent": 1.5,
+          "carrier_hz": 13,
+          "repetition_hz": 0.85,
+          "paired_sham_id": "X3__SHAM__{parameter_draw_id}__S{seed}",
+          "intervention_run_id": "X3__T4__K00__{parameter_draw_id}__S{seed}",
+          "block_key": "{parameter_draw_id}::S{seed}",
+          "block_universe": "6 draws D00_NOMINAL,D01,D02,D03,D04,D05 x 4 verifier seeds 77041,88069,99079,111091 =24; execute only if LA_T4_D1P50 was frozen",
+          "minimum_complete_paired_blocks": 20,
+          "minimum_distinct_seeds": 3,
+          "minimum_distinct_draws": 5,
+          "N_added_minimum": 30,
+          "minimum_contributing_blocks": 10,
+          "F_auto_formula": "N_autonomous/N_added within this row only",
+          "F_replica_formula": "N_packet_replica/N_added within this row only",
+          "bootstrap_family": "F_CROSS_TARGET_8X8 using PCG64(860221) if this is the frozen selected row",
+          "bootstrap_zero_added": "F_auto=0,F_replica=1; log ZERO_ADDED_BOOTSTRAP",
+          "use": "POSSIBLE_SELECTED_LEVEL_A_POLICY_VERIFIER_DIAGNOSTIC_ONLY",
+          "inactive_status": "NOT_LAUNCHED_BY_POLICY",
+          "formal_target_decision_member": false
+        }
+      ],
+      "domain_cardinality_assertions": {
+        "level_a_worker_rows": 3,
+        "level_b_policy_rows": 10,
+        "cross_target_verifier_possible_rows": 3,
+        "total_rows": 16,
+        "formal_target_decision_rows": [
+          "T4_LA_WORKER_D1P50_FC13"
+        ],
+        "candidate_equality_rule": "The sorted domain_row_id projection for each execution_context must equal its candidate_domain_rows array exactly; set difference, duplicate row_id, or duplicate join key is PF_T4_ATTRIBUTION_DOMAIN_FAIL."
+      },
+      "denominator": "Resolve the exact attribution_domain_table row, pool only that row's ADDED events across its valid complete paired blocks, and apply both its context-specific complete-block minimum and the common N_added>=30/from>=10-contributing-block minimum. F_auto and F_replica are row-specific and never borrowed. The formal target-decision denominator is solely T4_LA_WORKER_D1P50_FC13.",
+      "simultaneous_inference": "Only F_auto(T4_LA_WORKER_D1P50_FC13)-0.50 is a member of F_TARGET_DECISIONS. Level-B positive rows enter their enumerated F_LEVEL_B_SURFACES C4 members; the actually selected verifier row supplies F_auto/F_replica only to F_CROSS_TARGET_8X8. Other Level-A worker rows are point-policy diagnostics. Every context uses the common row-specific bootstrap-zero-added rule.",
+      "decision_and_grade_scope": "PASS/D/F/NOT_ESTIMABLE below is the formal T4 target decision for T4_LA_WORKER_D1P50_FC13 plus the registered endpoint density contrast. Nonformal domain rows receive only ESTIMABLE_DIAGNOSTIC, NOT_ESTIMABLE, INVALID, or NOT_LAUNCHED_BY_POLICY status and cannot change the formal comparison.",
+      "decision_and_grade": {
+        "PASS": "N_added and block minima pass, simultaneous lower 95% bound for F_auto-0.50 is >0, T4 density criteria pass, and no artifact/stability veto fires.",
+        "D": "Classifier and denominator are valid with F_replica<0.50, but the density margin fails, F_auto point estimate is <0.50, or its simultaneous lower bound is <=0.",
+        "F": "F_replica>=0.50, or matching/detector/packet-timing error, instability, threshold drift, or direct-forcing artifact materially generates the apparent density effect.",
+        "NOT_ESTIMABLE": "N_added<30, fewer than 10 blocks contain ADDED events, or required event/paired-sham data are undefined without an artifact finding."
+      },
+      "required_log": "Exactly observation_and_detector_contract.T4_added_event_attribution.attribution_domain_contract.required_log_fields for every executed domain row; logs are partitioned by domain_row_id and include inactive verifier alternatives in a policy-selection manifest with status NOT_LAUNCHED_BY_POLICY.",
+      "fixture_manifest": {
+        "path": "PROTOCOL/CANDIDATE_V5/t4_attribution_fixture_v3.json",
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "fixture_id": "PF_T4_EVENT_ATTRIBUTION_FIXTURE_V3",
+        "comparison": "Execute the classifier on only the manifest raw tables and apply comparison_contract exactly. Deep inequality, unconsumed input, exception, or type/order mismatch yields PF_T4_EVENT_ATTRIBUTION_FAIL and stops before Phase 2A.",
+        "evidence_role": "IMPLEMENTATION_PREFLIGHT_ONLY"
+      }
+    },
+    "T6": {
+      "metric": "surrogate-bias-corrected Tort modulation index",
+      "phase": "Hilbert angle of the 0.3-1.5 Hz filtered signal",
+      "amplitude": "absolute Hilbert transform of the 11-16 Hz filtered signal",
+      "phase_bins": 18,
+      "formula": "MI=(log(18)+sum_j(P_j*log(P_j)))/log(18), where P_j is mean sigma amplitude in bin j divided by the sum across bins; 0*log(0)=0",
+      "surrogate_rule": "Let lags=np.arange(2000,34001,dtype=int64), inclusive 10.000 through 170.000 s at 200 Hz. Instantiate Generator(PCG64(seed+600000)) once per run, draw choice(lags,size=200,replace=False), and in returned order compute each surrogate with np.roll(amplitude_envelope,+lag). Subtract the median of the 200 surrogate MI values; negative corrected values are retained.",
+      "validity": "all 18 phase bins populated, at least 30 SO cycles and at least 10 spindle events"
+    },
+    "T7": {
+      "metric": "circular mean SO phase of within-spindle sigma-envelope maxima",
+      "formula": "atan2(sum(sin(phi_e)),sum(cos(phi_e))) in [-pi,pi); ties in envelope maxima use earliest sample",
+      "concentration": "R=abs(mean(exp(i*phi_e)))",
+      "validity": "at least 10 spindle events, at least 30 SO cycles, and R>=0.20",
+      "exact_phase_response_statistics": {
+        "input_conditions": "Use all eight complete Level-A requested phases alpha_l in their registered order for formal T7. For Level-B policy scoring use the four complete canonical phases [-pi,-pi/2,0,pi/2] in that order.",
+        "observed_phase_per_block_condition": "beta_b,l=atan2(sum_e sin(phi_e),sum_e cos(phi_e)) in [-pi,pi), using all valid spindle events in block b and condition l. A condition is missing if fewer than 10 events, fewer than 30 SO cycles, concentration R<0.20, or resultant magnitude<=1e-12.",
+        "wrap": "wrap(x)=atan2(sin(x),cos(x)); exact +pi returned by atan2 is canonicalized to -pi.",
+        "rho_c_per_block": "Let P={(l,m):0<=l<m<L}. rho_b=sum_(l,m in P)[sin(alpha_l-alpha_m)*sin(beta_b,l-beta_b,m)]/sqrt(sum_P sin(alpha_l-alpha_m)^2 * sum_P sin(beta_b,l-beta_b,m)^2). Enumerate pairs lexicographically by l then m and accumulate float64 sums in that order.",
+        "rho_degeneracy": "If either pairwise squared-sine sum is <=1e-12, rho_b is missing; otherwise rho_b is dimensionless in [-1,1].",
+        "tracking_error_per_block_radians": "e_b=median_l(abs(wrap(beta_b,l-alpha_l))); for an even number of conditions median is the arithmetic mean of the two central sorted float64 values.",
+        "separation_per_block_radians": "s_b=abs(wrap(beta_b,+pi/2-beta_b,-pi/2)), in [0,pi].",
+        "aggregate": "For each context take rho_c=median_b(rho_b), tracking_error=median_b(e_b), and separation=median_b(s_b) over blocks complete for every required phase. Formal Level A requires >=30 blocks, >=5 seeds, >=5 draws; Level B requires >=10 of 12 blocks, >=3 seeds, all 3 draws; cross-target verification requires >=20 of 24 blocks, >=3 verifier seeds, >=5 draws.",
+        "units": {
+          "rho_c": "dimensionless",
+          "tracking_error": "radians",
+          "separation": "radians"
+        },
+        "target_score": "G7=min(rho_c/0.70,min(4,(pi/6)/max(tracking_error,1e-12)),separation/(pi/3)). Larger is better and G7=1 is the joint practical-margin boundary.",
+        "correlation_definition": "Fisher-Lee pairwise circular-circular correlation, which remains defined for the symmetric registered requested-phase grid without requiring a circular mean of alpha."
+      }
+    },
+    "T8": {
+      "metric": "mixed SO-spindle model-regime occupancy",
+      "retained_interval": "The common 10 s edge exclusion applies. The retained half-open interval is analysis time [10,170) s, stored samples [2000,34000) at 200 Hz.",
+      "windows": [
+        {
+          "window_id": "W1",
+          "time_seconds": [
+            15,
+            40
+          ],
+          "sample_indices_half_open": [
+            3000,
+            8000
+          ]
+        },
+        {
+          "window_id": "W2",
+          "time_seconds": [
+            40,
+            65
+          ],
+          "sample_indices_half_open": [
+            8000,
+            13000
+          ]
+        },
+        {
+          "window_id": "W3",
+          "time_seconds": [
+            65,
+            90
+          ],
+          "sample_indices_half_open": [
+            13000,
+            18000
+          ]
+        },
+        {
+          "window_id": "W4",
+          "time_seconds": [
+            90,
+            115
+          ],
+          "sample_indices_half_open": [
+            18000,
+            23000
+          ]
+        },
+        {
+          "window_id": "W5",
+          "time_seconds": [
+            115,
+            140
+          ],
+          "sample_indices_half_open": [
+            23000,
+            28000
+          ]
+        },
+        {
+          "window_id": "W6",
+          "time_seconds": [
+            140,
+            165
+          ],
+          "sample_indices_half_open": [
+            28000,
+            33000
+          ]
+        }
+      ],
+      "window_duration_seconds": 25,
+      "placement_rationale": "Six adjacent 25 s windows occupy the centered 150 s subinterval [15,165), leaving 5 s unused at each side of the already edge-retained [10,170) interval.",
+      "filter_and_threshold_scope": "Compute the registered zero-phase SO and sigma filters once on the complete 180 s analysis signal. Calibrate spindle high/low thresholds once from the paired sham over retained [10,170) s. Apply those unchanged filtered arrays and thresholds to all six windows and all paired intervention conditions.",
+      "strict_event_containment": "An SO or spindle event contributes to a window only if its onset, offset, and detector extrema/peak samples are all strictly greater than the window start sample and strictly less than the window stop sample. Boundary-touching and cross-window events contribute to no T8 window and are logged once as T8_BOUNDARY_REJECT.",
+      "per_window_welch": {
+        "fs_hz": 200,
+        "window": "hann",
+        "nperseg": 5000,
+        "noverlap": 0,
+        "nfft": 10000,
+        "detrend": "constant",
+        "scaling": "density",
+        "peak_band_hz": [
+          0.4,
+          1.5
+        ],
+        "tie_rule": "lowest-frequency maximum",
+        "peak_refinement": "three-bin parabolic interpolation in log power; use the discrete bin when the maximum is at either peak-band boundary"
+      },
+      "window_is_valid_regime": "all rates finite and their means in [0.5,60] Hz; dominant SO peak in [0.5,1.25] Hz; SO median peak-to-peak in [0.10,2.00] m.u.; SO density in [10,90] events/min; spindle density in [0.5,20] events/min; and 11-16 Hz power divided by 4-30 Hz power in [0.02,0.60]",
+      "metric_formula": "number of valid-regime windows/6",
+      "transition_persistence": "an intervention-induced regime requires at least two consecutive valid-regime windows",
+      "invalidity": "solver or state invalidity is never a regime transition",
+      "persistence_and_adjacency_decision": {
+        "per_block_persistence": "For condition u and block b, P_b(u)=1 iff at least one ordered adjacent window pair (W1,W2),(W2,W3),(W3,W4),(W4,W5),(W5,W6) has both windows valid-regime; otherwise P_b(u)=0. A boundary-rejected or invalid window is not valid.",
+        "aggregate_persistence": "P(u)=mean_b P_b(u) over complete paired blocks. The registered persistence boundary is 0.75; equality passes a point prerequisite, while a confirmatory simultaneous slack passes only with lower bound P-0.75>0.",
+        "level_a_high_occupancy_condition": "For each dose d compute O_hat(d)=median_b O_b(d). Let d_hi maximize O_hat over [-2,-1.25,-0.5,0,0.5,1.25,2]; exact ties choose smaller abs(d), then smaller signed d. Formal T8 requires P(d_hi)>=0.75 and the simultaneous lower bound for P(d_hi)-0.75>0.",
+        "level_a_oriented_support": "For each nonzero dose d define Q(d)=median_b[sign(d)*(O_b(d)-O_b(0))]. Dose d supports its registered direction iff Q(d)>0 with >=30 complete blocks, >=5 seeds, and >=5 draws; equality or missing fails.",
+        "level_a_ordered_adjacency_pairs": [
+          [
+            -2,
+            -1.25
+          ],
+          [
+            -1.25,
+            -0.5
+          ],
+          [
+            0.5,
+            1.25
+          ],
+          [
+            1.25,
+            2
+          ]
+        ],
+        "level_a_adjacency_pass": "PASS iff at least one listed pair (d1,d2) has Q(d1)>0 and Q(d2)>0. Negative and positive sides are never treated as adjacent across zero.",
+        "level_b_oriented_support": "At each fixed exposure fraction f, Q_f(d)=median_b[sign(d)*(O_b(d,f)-O_b(0,f))] over >=10 of 12 blocks, >=3 seeds, and all 3 draws.",
+        "level_b_ordered_adjacency_pairs_by_fraction": "At each f independently the only pairs are (-2,-1) and (1,2). A Level-B T8 condition (d,f) is policy-eligible only if d belongs to a pair for which both Q_f values are strictly >0.",
+        "tie_and_missing": "All comparisons use raw float64 values with no tolerance. Equality Q=0 is not support. Any missing dose, paired sham, persistence value, or required denominator makes that pair fail; it is never skipped to create adjacency."
+      }
+    }
+  },
+  "detector_preflight": {
+    "status_required_before_phase2a": "PASS_ALL",
+    "tests": [
+      {
+        "test_id": "PF_NUMERIC_ZERO",
+        "fixture": "180 s all-zero signal",
+        "expected": "T3=0 events/min, T4=0 spindles/min, T2/T5/T6/T7 NOT_ESTIMABLE; no exception"
+      },
+      {
+        "test_id": "PF_T1_FREQUENCY",
+        "fixture": "x=sin(2*pi*0.80*t)",
+        "expected": "T1 peak within 0.02 Hz of 0.80 and PLV>=0.99 at a 0.80 Hz reference"
+      },
+      {
+        "test_id": "PF_SO_EVENTS",
+        "fixture": "x=0.20*sin(2*pi*0.80*t)",
+        "expected": "T3 within 1 event/min of 48 and T2 within 0.01 m.u. of 0.40 after edge handling"
+      },
+      {
+        "test_id": "PF_SPINDLE_EVENTS",
+        "fixture": "thirteen nonoverlapping 1.0 s 13 Hz Hann bursts placed inside a 180 s signal",
+        "expected": "exactly 13 retained spindle events and median duration within 0.05 s of 1.0"
+      },
+      {
+        "test_id": "PF_COUPLING_POSITIVE",
+        "fixture": "0.8 Hz carrier phase with 13 Hz burst envelope centered at phase 0 each cycle",
+        "expected": "bias-corrected T6 MI greater than 0.01 and T7 absolute phase error <=pi/12"
+      },
+      {
+        "test_id": "PF_COUPLING_NULL",
+        "fixture": "same slow carrier with sigma envelope circularly shifted independently each cycle by PCG64(900001)",
+        "expected": "absolute bias-corrected T6 MI <=0.01"
+      },
+      {
+        "test_id": "PF_EDGE_CONTAINMENT",
+        "fixture": "events straddling both analysis boundaries plus one interior event",
+        "expected": "only the interior event is retained"
+      },
+      {
+        "test_id": "PF_BROADBAND_VETO",
+        "fixture": "broadband variance doubled without changing the isolated 13 Hz burst",
+        "expected": "T5 specificity veto is triggered if 4-30 Hz power rises more than 25 percent while sigma fraction fails to rise"
+      },
+      {
+        "test_id": "PF_SOLVER_REPEAT",
+        "fixture": "10 s nominal bench simulation repeated with seed 123457",
+        "expected": "state arrays are byte-identical, finite, unclipped, and within [-1e-6,rmax+1e-6]"
+      },
+      {
+        "test_id": "PF_CAUSAL_PHASE_SCHEDULER",
+        "fixture": "Feed the exact causal scheduler 30 s warmup plus 12 s analysis of x[n]=sin(2*pi*0.8*n/200) for every canonical Level-A phase; disable model dynamics.",
+        "expected": "Accepted period history equals 250 samples after transient; phi=0 starts one sample after its crossing, +pi/2 starts 63 samples after crossing, -pi/2 starts 188 samples after crossing, and -pi starts 125 samples after crossing under round-half-up; every crossing has one decision log and +pi is rejected as noncanonical."
+      },
+      {
+        "test_id": "PF_CAUSAL_QUEUE",
+        "fixture": "Synthetic accepted crossing schedule with proposed packet intervals that overlap, exactly touch, exceed queue length two, and cross the analysis stop.",
+        "expected": "Overlap is skipped, half-open exact touching is accepted, third future packet is QUEUE_FULL, boundary-crossing packet is OUTSIDE_ANALYSIS_SKIP, and no packet samples are summed or truncated."
+      },
+      {
+        "test_id": "PF_T8_WINDOWS",
+        "fixture": "A 180 s analytic mixed signal with events at every T8 window boundary and interior plus a known 0.8 Hz spectral peak.",
+        "expected": "Window sample pairs exactly equal [3000,8000),[8000,13000),[13000,18000),[18000,23000),[23000,28000),[28000,33000); boundary-touching events are rejected; each Welch call uses nperseg=5000 and returns a peak within 0.02 Hz of 0.8."
+      },
+      {
+        "test_id": "PF_T4_EVENT_ATTRIBUTION",
+        "fixture_path": "PROTOCOL/CANDIDATE_V5/t4_attribution_fixture_v3.json",
+        "fixture_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "input": "Read only the fixture's raw sham-event, intervention-event, packet, and sigma-upward-crossing tables.",
+        "expected": "Produce every field named in comparison_contract.exact_fields and deep-compare after the manifest normalization.",
+        "pass_rule": "Exact deep equality and complete raw-row consumption.",
+        "failure_rule": "Any difference or exception emits PF_T4_EVENT_ATTRIBUTION_FAIL with a path-indexed diff and stops before scientific Phase 2A."
+      },
+      {
+        "test_id": "PF_RESCALE_EVENT_VETO_V5",
+        "fixture_path": "PROTOCOL/CANDIDATE_V5/rescale_event_veto_fixture_v5.json",
+        "fixture_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "input": "Read only the fixture's declared hand-calculated normalization arrays and synthetic detector, matching, block, and pooling oracle tables.",
+        "expected": "Execute stability_and_plausibility.rescale_only_event_veto primitives in comparison_contract.execution_order and deep-equal every expected value and status.",
+        "pass_rule": "Exact deep equality, exact candidate/match ordering, and complete fixture-row consumption.",
+        "failure_rule": "Any difference or exception emits PF_RESCALE_EVENT_VETO_FAIL and stops before scientific Phase 2A."
+      },
+      {
+        "test_id": "PF_DETECTOR_PERTURB",
+        "fixture": "repeat analytic fixtures at fs 199.999 and 200.001 Hz and filter order 3 and 5 as sensitivity only",
+        "expected": "event counts differ by at most one and continuous metrics differ by at most 5 percent; registered order 4 remains the official metric"
+      }
+    ],
+    "failure_action": "Stop before scientific Phase 2A. An outcome-blind implementation repair may use the remaining campaign repair authority only if separately authorized; this protocol itself does not authorize a repair."
+  },
+  "phase2a": {
+    "status": "DESIGNED_NOT_EXECUTED",
+    "evidence_label": "SYNTHETIC",
+    "mandatory_targets": [
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "T8"
+    ],
+    "priority_classes": {
+      "primary": [
+        "T1",
+        "T4",
+        "T6"
+      ],
+      "secondary": [
+        "T2",
+        "T3",
+        "T5",
+        "T7"
+      ],
+      "exploratory": [
+        "T8"
+      ]
+    },
+    "level_a_single_channel_grids": {
+      "T1": {
+        "channel": "GF_E_SLOW_SINE",
+        "amplitude_hz_equivalent": 0.8,
+        "drive_frequencies_hz": [
+          0.55,
+          0.7,
+          0.85,
+          1,
+          1.15
+        ],
+        "sham": "all u channels zero"
+      },
+      "T2": {
+        "channel": "GF_E_DC",
+        "dose_hz_equivalent": [
+          -1.5,
+          -1,
+          -0.5,
+          0,
+          0.5,
+          1,
+          1.5
+        ]
+      },
+      "T3": {
+        "channel": "GF_E_SO_PULSE",
+        "dose_hz_equivalent": [
+          -2,
+          -1.25,
+          -0.5,
+          0,
+          0.5,
+          1.25,
+          2
+        ]
+      },
+      "T4": {
+        "channel": "GF_TR_SIGMA_PACKET_BALANCE",
+        "dose_hz_equivalent": [
+          -1.5,
+          -1,
+          -0.5,
+          0,
+          0.5,
+          1,
+          1.5
+        ]
+      },
+      "T5": {
+        "channel": "GF_TR_SIGMA_CONTINUOUS_BALANCE",
+        "dose_hz_equivalent": [
+          -1.2,
+          -0.8,
+          -0.4,
+          0,
+          0.4,
+          0.8,
+          1.2
+        ]
+      },
+      "T6_T7_SHARED": {
+        "channel": "GF_T_PHASE_LOCKED_PACKET",
+        "phase_offsets_radians_canonical_unique": [
+          -3.141592653589793,
+          -2.0943951023931953,
+          -1.5707963267948966,
+          -1.0471975511965976,
+          0,
+          1.0471975511965976,
+          1.5707963267948966,
+          2.0943951023931953
+        ],
+        "fixed_amplitude_hz_equivalent": 1,
+        "sham": "amplitude zero",
+        "endpoint_rule": "-pi is the sole representative of the circular pi endpoint; +pi is not executed"
+      },
+      "T8": {
+        "channel": "GF_BALANCED_DC",
+        "dose_hz_equivalent": [
+          -2,
+          -1.25,
+          -0.5,
+          0,
+          0.5,
+          1.25,
+          2
+        ]
+      }
+    },
+    "level_a_run_identity_registry": {
+      "registry_id": "LEVEL_A_RUN_IDENTITY_REGISTRY_V5",
+      "scope": "Identity-only enumeration of the 50 already frozen V4 Level-A condition sets. This registry creates no condition, waveform, seed, draw, trajectory, or run.",
+      "enumeration_order": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6_T7_SHARED",
+        "T8"
+      ],
+      "draw_ids": [
+        "D00_NOMINAL",
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05"
+      ],
+      "seed_values": [
+        11003,
+        22007,
+        33013,
+        44017,
+        55021,
+        66029
+      ],
+      "run_id_formula": "LA__{condition_id}__{draw_id}__S{seed}, with condition_id copied exactly below, draw_id copied exactly from draw_ids, and seed in base-10 without padding.",
+      "condition_groups": {
+        "T1": {
+          "canonical_record_target_id": "T1",
+          "source_grid_key": "T1",
+          "condition_ids_in_execution_order": [
+            "LEVEL_A_T1_FREQUENCY_INDEX_00",
+            "LEVEL_A_T1_FREQUENCY_INDEX_01",
+            "LEVEL_A_T1_FREQUENCY_INDEX_02",
+            "LEVEL_A_T1_FREQUENCY_INDEX_03",
+            "LEVEL_A_T1_FREQUENCY_INDEX_04",
+            "LEVEL_A_T1_SHAM"
+          ],
+          "value_binding": "Indices 00 through 04 map one-to-one to drive_frequencies_hz[0:5] at amplitude 0.8; LEVEL_A_T1_SHAM maps to the separately registered all-zero sham.",
+          "paired_sham_condition_id": "LEVEL_A_T1_SHAM"
+        },
+        "T2": {
+          "canonical_record_target_id": "T2",
+          "source_grid_key": "T2",
+          "condition_ids_in_execution_order": [
+            "LEVEL_A_T2_DOSE_INDEX_00",
+            "LEVEL_A_T2_DOSE_INDEX_01",
+            "LEVEL_A_T2_DOSE_INDEX_02",
+            "LEVEL_A_T2_DOSE_INDEX_03",
+            "LEVEL_A_T2_DOSE_INDEX_04",
+            "LEVEL_A_T2_DOSE_INDEX_05",
+            "LEVEL_A_T2_DOSE_INDEX_06"
+          ],
+          "value_binding": "Index ii maps one-to-one to dose_hz_equivalent[ii].",
+          "paired_sham_condition_id": "LEVEL_A_T2_DOSE_INDEX_03"
+        },
+        "T3": {
+          "canonical_record_target_id": "T3",
+          "source_grid_key": "T3",
+          "condition_ids_in_execution_order": [
+            "LEVEL_A_T3_DOSE_INDEX_00",
+            "LEVEL_A_T3_DOSE_INDEX_01",
+            "LEVEL_A_T3_DOSE_INDEX_02",
+            "LEVEL_A_T3_DOSE_INDEX_03",
+            "LEVEL_A_T3_DOSE_INDEX_04",
+            "LEVEL_A_T3_DOSE_INDEX_05",
+            "LEVEL_A_T3_DOSE_INDEX_06"
+          ],
+          "value_binding": "Index ii maps one-to-one to dose_hz_equivalent[ii].",
+          "paired_sham_condition_id": "LEVEL_A_T3_DOSE_INDEX_03"
+        },
+        "T4": {
+          "canonical_record_target_id": "T4",
+          "source_grid_key": "T4",
+          "condition_ids_in_execution_order": [
+            "LEVEL_A_T4_DOSE_INDEX_00",
+            "LEVEL_A_T4_DOSE_INDEX_01",
+            "LEVEL_A_T4_DOSE_INDEX_02",
+            "LEVEL_A_T4_DOSE_INDEX_03",
+            "LEVEL_A_T4_DOSE_INDEX_04",
+            "LEVEL_A_T4_DOSE_INDEX_05",
+            "LEVEL_A_T4_DOSE_INDEX_06"
+          ],
+          "value_binding": "Index ii maps one-to-one to dose_hz_equivalent[ii]; indices 04,05,06 are the pre-existing T4 attribution-domain worker conditions.",
+          "paired_sham_condition_id": "LEVEL_A_T4_DOSE_INDEX_03"
+        },
+        "T5": {
+          "canonical_record_target_id": "T5",
+          "source_grid_key": "T5",
+          "condition_ids_in_execution_order": [
+            "LEVEL_A_T5_DOSE_INDEX_00",
+            "LEVEL_A_T5_DOSE_INDEX_01",
+            "LEVEL_A_T5_DOSE_INDEX_02",
+            "LEVEL_A_T5_DOSE_INDEX_03",
+            "LEVEL_A_T5_DOSE_INDEX_04",
+            "LEVEL_A_T5_DOSE_INDEX_05",
+            "LEVEL_A_T5_DOSE_INDEX_06"
+          ],
+          "value_binding": "Index ii maps one-to-one to dose_hz_equivalent[ii].",
+          "paired_sham_condition_id": "LEVEL_A_T5_DOSE_INDEX_03"
+        },
+        "T6_T7_SHARED": {
+          "canonical_record_target_id": "T7",
+          "downstream_target_ids": [
+            "T6",
+            "T7"
+          ],
+          "source_grid_key": "T6_T7_SHARED",
+          "condition_ids_in_execution_order": [
+            "LEVEL_A_T7_PHASE_INDEX_00",
+            "LEVEL_A_T7_PHASE_INDEX_01",
+            "LEVEL_A_T7_PHASE_INDEX_02",
+            "LEVEL_A_T7_PHASE_INDEX_03",
+            "LEVEL_A_T7_PHASE_INDEX_04",
+            "LEVEL_A_T7_PHASE_INDEX_05",
+            "LEVEL_A_T7_PHASE_INDEX_06",
+            "LEVEL_A_T7_PHASE_INDEX_07",
+            "LEVEL_A_T7_SHAM"
+          ],
+          "value_binding": "Indices 00 through 07 map one-to-one to phase_offsets_radians_canonical_unique[0:8] at amplitude 1 and carrier 13 Hz; LEVEL_A_T7_SHAM maps to the separately registered amplitude-zero sham with the scheduler still running.",
+          "paired_sham_condition_id": "LEVEL_A_T7_SHAM",
+          "reuse_rule": "T6 has no separate physical condition or run ID. Every T6 phase reference uses the matching LEVEL_A_T7_PHASE_INDEX_ii physical run; the formal T6 phi=0 condition is ii=04."
+        },
+        "T8": {
+          "canonical_record_target_id": "T8",
+          "source_grid_key": "T8",
+          "condition_ids_in_execution_order": [
+            "LEVEL_A_T8_DOSE_INDEX_00",
+            "LEVEL_A_T8_DOSE_INDEX_01",
+            "LEVEL_A_T8_DOSE_INDEX_02",
+            "LEVEL_A_T8_DOSE_INDEX_03",
+            "LEVEL_A_T8_DOSE_INDEX_04",
+            "LEVEL_A_T8_DOSE_INDEX_05",
+            "LEVEL_A_T8_DOSE_INDEX_06"
+          ],
+          "value_binding": "Index ii maps one-to-one to dose_hz_equivalent[ii] at the frozen six full 25 s windows.",
+          "paired_sham_condition_id": "LEVEL_A_T8_DOSE_INDEX_03"
+        }
+      },
+      "self_pair_condition_ids": [
+        "LEVEL_A_T1_SHAM",
+        "LEVEL_A_T2_DOSE_INDEX_03",
+        "LEVEL_A_T3_DOSE_INDEX_03",
+        "LEVEL_A_T4_DOSE_INDEX_03",
+        "LEVEL_A_T5_DOSE_INDEX_03",
+        "LEVEL_A_T7_SHAM",
+        "LEVEL_A_T8_DOSE_INDEX_03"
+      ],
+      "cardinality_assertion": "6+7+7+7+7+9+7=50 condition identities; 50*6 draws*6 seeds=1800 physical Level-A runs exactly.",
+      "validation_rule": "Every condition_id occurs in exactly one group; every group source array has the asserted length and order; every generated run ID is unique; no T6 physical ID exists; set or cardinality inequality is PF_LEVEL_A_RUN_IDENTITY_FAIL."
+    },
+    "paired_sham_identity_registry": {
+      "registry_id": "PAIRED_SHAM_IDENTITY_REGISTRY_V5",
+      "purpose": "Deterministically map every existing rescale-veto intervention run identity to exactly one already frozen all-zero physical sham identity. Pairing is by this registry, never by searching zero-valued waveforms.",
+      "LEVEL_A_WORKER": {
+        "intervention_domain": "All 50 condition_ids in level_a_run_identity_registry crossed with its six draw_ids and six seed_values.",
+        "mapping_algorithm": "Locate condition_id in exactly one condition_group; let sham_condition_id be that group's paired_sham_condition_id; intervention run_id is LA__{condition_id}__{draw_id}__S{seed} and resolved physical sham run_id is LA__{sham_condition_id}__{draw_id}__S{seed}.",
+        "self_pair_rule": "A condition_id in level_a_run_identity_registry.self_pair_condition_ids maps to its own physical run. This exact self-reference is required, uses one byte-identical array on both roles, and creates no extra run; no other condition may self-pair.",
+        "t4_logical_alias": "LEVEL_A_SHARED_SHAM::{draw_id}::S{seed} resolves one-to-one to LA__LEVEL_A_T4_DOSE_INDEX_03__{draw_id}__S{seed}."
+      },
+      "LEVEL_B_SURFACE": {
+        "intervention_domain": "Every actual LB3_{target_id}_R{rr}_C{cc} cell enumerated for a launched target, including every retained duplicate or zero cell, crossed with D00_NOMINAL,D02,D04 and seeds 11003,33013,55021,66029.",
+        "intervention_run_id": "LB3__{target_id}__R{rr}__C{cc}__{draw_id}__S{seed}.",
+        "logical_sham_id": "LEVEL_B_SHARED_SHAM::{draw_id}::S{seed}.",
+        "resolved_physical_sham_run_id": "LA__LEVEL_A_T4_DOSE_INDEX_03__{draw_id}__S{seed}.",
+        "reuse_rule": "The resolved physical sham is the already completed canonical Level-A all-zero T4 condition for the same draw and seed. The Level-B draw/seed sets are strict subsets of Level A; initial state, duration, solver settings, and complete OU innovations must be byte-identical. The logical alias changes only the execution-context label and creates zero runs.",
+        "zero_cell_rule": "Every LB3 cell, including an exactly zero or waveform-duplicate cell, maps to the single logical alias and resolved physical sham above. It never self-pairs and never searches among other zero LB3 cells; no_cell_deduplication remains unchanged."
+      },
+      "CROSS_TARGET_VERIFIER": {
+        "intervention_domain": "Every unique launched verifier intervention run from verifier_execution after exact T6-to-T7 reuse.",
+        "intervention_condition_id": "X3__T{row}__K{kk}; for T6 use the matching canonical T7 condition ID specified by application_domain.shared_T6_T7_record_identity.",
+        "intervention_run_id": "X3__T{row}__K{kk}__{draw_id}__S{seed}; for T6 use the matching canonical T7 run ID specified by application_domain.shared_T6_T7_record_identity.",
+        "resolved_physical_sham_run_id": "X3__SHAM__{draw_id}__S{seed}.",
+        "reuse_rule": "Exactly one separately simulated shared verifier sham exists per draw-seed block and is paired to all 18 unique intervention trajectories in that block; it is not counted as an additional intervention diagnostic record."
+      },
+      "lookup_and_failure_rule": "Parse execution_context and run_id_intervention, then generate the one registry-prescribed logical alias if any and resolved physical sham run_id. Zero or more than one registry resolution, parse failure, forbidden self-pair, metadata/innovation inequality, duplicate exact-ID records, or a nonzero forcing channel in the resolved sham is INVALID_PAIRING. If the unique prescribed intervention or physical sham record/array is absent or unreadable, status is NOT_ESTIMABLE_INPUT. Multiple all-zero trajectories elsewhere are irrelevant and cannot cause ambiguity.",
+      "scientific_invariance": "These identities and aliases only make the V5 rescale-veto pairing executable. They do not change any V4 scientific comparator, condition, waveform, run count, scheduling order, or result family."
+    },
+    "replication": {
+      "worker_seeds": 6,
+      "parameter_draws": 6,
+      "paired_seed_draw_blocks_per_condition": 36,
+      "minimum_valid_paired_blocks_per_registered contrast": 30,
+      "minimum_distinct_seeds": 5,
+      "minimum_distinct_parameter_draws": 5
+    },
+    "unique_simulation_count": {
+      "level_a_condition_sets_per_seed_draw": 50,
+      "seed_draw_blocks": 36,
+      "maximum_level_a_runs": 1800,
+      "deduplication": "T6 and T7 reuse the same trajectories; every run supplies all eight metrics for the cross-target matrix."
+    },
+    "analysis_order": [
+      "detector preflight",
+      "all sham blocks",
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "shared T6/T7",
+      "T8",
+      "cross-target matrix",
+      "conditional Level B"
+    ],
+    "blinding": "Only implementation/schema/validity flags may be inspected until all Level A trajectories, metrics, and immutable per-target checkpoints are complete.",
+    "negative_result_rule": "Every valid null, adverse, nonmonotonic, or practically negligible result is retained. No target, dose, seed, or draw may be silently removed.",
+    "invalid_run_rule": "Nonfinite state, rate outside [-1e-6,rmax+1e-6], solver/schema failure, detector contradiction, or missing paired sham marks the pair INVALID; instability is not efficacy.",
+    "conditional_level_b": {
+      "purpose": "Prospectively bounded, fully parameterized two-coordinate response surfaces for mechanistic diagnosis, not formal C2.",
+      "eligibility": "A target is eligible only if Level A has at least 30 valid paired blocks, at least 95 percent stable runs, meets every registered practical margin with its simultaneous 95 percent interval, has no hard off-target veto, and passes its exact target-specific level_a_shape_consistency rule in at least 4 of 6 draws.",
+      "selection_cap": 3,
+      "deterministic_order": "Sort eligible targets by priority class primary before secondary before exploratory, then descending Level-A lower-confidence-bound margin slack normalized by that target practical margin, then target_id ascending. T8 remains ineligible for advancement but may be selected for diagnostic Level B only after all eligible primary/secondary targets and within the cap.",
+      "canonical_phase_domain": "[-pi,pi), with -pi the sole circular endpoint; +pi is never enumerated.",
+      "grids": {
+        "T1": {
+          "row_parameter": "drive_frequency_hz",
+          "rows": [
+            0.55,
+            0.7,
+            0.85,
+            1,
+            1.15
+          ],
+          "column_parameter": "amplitude_hz_equivalent",
+          "columns": [
+            0.4,
+            0.6,
+            0.8,
+            1,
+            1.2
+          ],
+          "cells": 25
+        },
+        "T2": {
+          "row_parameter": "GF_E_DC_dose_hz_equivalent",
+          "rows": [
+            -1.5,
+            -0.75,
+            0,
+            0.75,
+            1.5
+          ],
+          "column_parameter": "GF_E_SLOW_SINE_amplitude_hz_equivalent",
+          "columns": [
+            0,
+            0.3,
+            0.6,
+            0.9,
+            1.2
+          ],
+          "fixed_sine_frequency_hz": 0.85,
+          "cells": 25
+        },
+        "T3": {
+          "row_parameter": "pulse_dose_hz_equivalent",
+          "rows": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "column_parameter": "pulse_repetition_frequency_hz",
+          "columns": [
+            0.55,
+            0.7,
+            0.85,
+            1,
+            1.15
+          ],
+          "pulse_width_internal_steps": 80,
+          "cells": 25
+        },
+        "T4": {
+          "row_parameter": "packet_balance_dose_hz_equivalent",
+          "rows": [
+            -1.5,
+            -0.75,
+            0,
+            0.75,
+            1.5
+          ],
+          "column_parameter": "carrier_frequency_hz",
+          "columns": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "fixed_repetition_frequency_hz": 0.85,
+          "cells": 25
+        },
+        "T5": {
+          "row_parameter": "continuous_balance_dose_hz_equivalent",
+          "rows": [
+            -1.2,
+            -0.6,
+            0,
+            0.6,
+            1.2
+          ],
+          "column_parameter": "carrier_frequency_hz",
+          "columns": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "cells": 25
+        },
+        "T6": {
+          "row_parameter": "canonical_phase_offset_radians",
+          "rows": [
+            -3.141592653589793,
+            -1.5707963267948966,
+            0,
+            1.5707963267948966
+          ],
+          "column_parameter": "amplitude_hz_equivalent",
+          "columns": [
+            0,
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "fixed_carrier_frequency_hz": 13,
+          "cells": 20
+        },
+        "T7": {
+          "row_parameter": "canonical_phase_offset_radians",
+          "rows": [
+            -3.141592653589793,
+            -1.5707963267948966,
+            0,
+            1.5707963267948966
+          ],
+          "column_parameter": "carrier_frequency_hz",
+          "columns": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "fixed_amplitude_hz_equivalent": 1,
+          "cells": 20
+        },
+        "T8": {
+          "row_parameter": "balanced_dose_hz_equivalent",
+          "rows": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "column_parameter": "within_window_exposure_fraction",
+          "columns": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "cells": 25
+        }
+      },
+      "executable_condition_schedule": {
+        "common": {
+          "internal_fs_hz": 1000,
+          "stored_fs_hz": 200,
+          "analysis_internal_indices": "[a=0,180000), with global solver step j=30000+a",
+          "warmup": "Every Level-B forcing is exactly zero for j<30000.",
+          "sample_rule": "Evaluate at integer analysis-relative a at the left endpoint and hold through the 1 ms solver interval; use the same value in both Heun drifts.",
+          "channel_combination": "Only the channels and coordinates stated for that target are nonzero. Add components algebraically when T2 explicitly combines DC and sine; no other cross-channel summation is allowed.",
+          "row_column_order": "Rows and columns are enumerated in the array order above, zero-based.",
+          "condition_id": "LB3_{target_id}_R{rr}_C{cc}, where rr and cc are two-digit zero-based indices.",
+          "run_id": "LB3__{target_id}__R{rr}__C{cc}__{draw_id}__S{seed}, with literal separators, two-digit indices, and seed in base-10 without padding.",
+          "no_cell_deduplication": "Every enumerated cell receives all 12 run identities even when its waveform is exactly zero or duplicates another cell; policy aggregation never creates extra trajectories.",
+          "sham": "Every cell maps through phase2a.paired_sham_identity_registry.LEVEL_B_SURFACE to logical LEVEL_B_SHARED_SHAM::{draw_id}::S{seed}, resolved exactly to the already completed physical run LA__LEVEL_A_T4_DOSE_INDEX_03__{draw_id}__S{seed}. That run has all u channels exactly zero and the same draw, seed, initial state, duration, solver settings, and OU innovations. This cached alias creates no additional run.",
+          "paired_sham_logical_id": "LEVEL_B_SHARED_SHAM::{draw_id}::S{seed}",
+          "paired_sham_resolved_physical_run_id": "LA__LEVEL_A_T4_DOSE_INDEX_03__{draw_id}__S{seed}"
+        },
+        "T1": {
+          "variables": "f=rows[rr], A=columns[cc]",
+          "formula": "For a=0,...,179999 set u_E[30000+a]=A*sin(2*pi*f*a/1000); u_I=u_T=u_R=0.",
+          "bounds": {
+            "A_hz_equivalent": [
+              0.4,
+              1.2
+            ],
+            "f_hz": [
+              0.55,
+              1.15
+            ]
+          }
+        },
+        "T2": {
+          "variables": "d=rows[rr], A=columns[cc], f=0.85",
+          "formula": "For a=0,...,179999 set u_E[30000+a]=d+A*sin(2*pi*0.85*a/1000); u_I=u_T=u_R=0.",
+          "bounds": {
+            "d_hz_equivalent": [
+              -1.5,
+              1.5
+            ],
+            "A_hz_equivalent": [
+              0,
+              1.2
+            ]
+          },
+          "combination": "DC and sine are evaluated independently in float64 and added once; d=0,A=0 is exact zero sham."
+        },
+        "T3": {
+          "variables": "d=rows[rr], f_rep=columns[cc]",
+          "onset_formula": "For p=0,1,... compute a_p=floor(p*1000/f_rep+0.5); retain p iff a_p+80<=180000.",
+          "formula": "u_E[30000+a]=d exactly when a_p<=a<a_p+80 for one retained p, otherwise zero; u_I=u_T=u_R=0.",
+          "overlap": "At f_rep<=1.15 the 80-step pulses cannot overlap. If an implementation nevertheless detects overlap, sum is prohibited and preflight fails.",
+          "endpoint": "The interval is half-open and a pulse whose stop exceeds 180000 is omitted, not truncated."
+        },
+        "T4": {
+          "variables": "d=rows[rr], f_c=columns[cc], f_rep=0.85",
+          "onset_formula": "For p=0,1,... compute stored s_p=floor(p*200/0.85+0.5), a_p=5*s_p; retain p iff a_p+500<=180000.",
+          "packet": "For k=0,...,499 let q[k;f_c]=0.5*(1-cos(2*pi*k/499))*0.5*(1+sin(2*pi*f_c*k/1000)).",
+          "formula": "If d>=0 set u_T[30000+a_p+k]=d*q[k;f_c],u_R=0; if d<0 set u_R[30000+a_p+k]=(-d)*q[k;f_c],u_T=0; u_E=u_I=0.",
+          "overlap": "Scheduled packets do not overlap at 0.85 Hz. No normalization or clipping; d=0 is exact zero.",
+          "attribution": "For d>0 resolve the unique LEVEL_B_SURFACE attribution_domain_table row by (d,f_c,0.85), emit its exact s_p,s_p+100 table, and apply the row-specific attribution contract. d<=0 has no F_auto/F_replica component."
+        },
+        "T5": {
+          "variables": "d=rows[rr], f_c=columns[cc]",
+          "carrier": "q[a;f_c]=0.5*(1+sin(2*pi*f_c*a/1000)).",
+          "formula": "If d>=0 set u_T[30000+a]=d*q[a;f_c],u_R=0; if d<0 set u_R[30000+a]=(-d)*q[a;f_c],u_T=0; u_E=u_I=0.",
+          "endpoint": "Evaluate for every a=0,...,179999; d=0 is exact zero."
+        },
+        "T6": {
+          "variables": "phi=rows[rr], A=columns[cc], f_c=13",
+          "formula": "Use the exact causal scheduler with parameter tuple (phi,A,13). Each emitted packet is u_T[j_start+k]=A*w[k]*c[k;13].",
+          "zero_amplitude": "A=0 produces no queued or emitted packet and exact zero forcing while retaining crossing logs with ZERO_AMPLITUDE_SHAM."
+        },
+        "T7": {
+          "variables": "phi=rows[rr], A=1, f_c=columns[cc]",
+          "formula": "Use the exact causal scheduler with parameter tuple (phi,1,f_c). Each emitted packet is u_T[j_start+k]=w[k]*c[k;f_c].",
+          "required_phase_rows": "Both -pi/2 and +pi/2 are executed for every carrier; +pi is absent."
+        },
+        "T8": {
+          "variables": "d=rows[rr], fraction=columns[cc]",
+          "windows_internal_analysis_relative": [
+            [
+              15000,
+              40000
+            ],
+            [
+              40000,
+              65000
+            ],
+            [
+              65000,
+              90000
+            ],
+            [
+              90000,
+              115000
+            ],
+            [
+              115000,
+              140000
+            ],
+            [
+              140000,
+              165000
+            ]
+          ],
+          "length_formula": "L=floor(25000*fraction+0.5), giving [5000,10000,15000,20000,25000] internal steps.",
+          "placement_formula": "For each window [a0,a1), exposure_start=a0+floor((25000-L)/2), exposure_stop=exposure_start+L. Apply forcing on the half-open [exposure_start,exposure_stop) only.",
+          "exposure_intervals_by_fraction": {
+            "0.2": [
+              [
+                25000,
+                30000
+              ],
+              [
+                50000,
+                55000
+              ],
+              [
+                75000,
+                80000
+              ],
+              [
+                100000,
+                105000
+              ],
+              [
+                125000,
+                130000
+              ],
+              [
+                150000,
+                155000
+              ]
+            ],
+            "0.4": [
+              [
+                22500,
+                32500
+              ],
+              [
+                47500,
+                57500
+              ],
+              [
+                72500,
+                82500
+              ],
+              [
+                97500,
+                107500
+              ],
+              [
+                122500,
+                132500
+              ],
+              [
+                147500,
+                157500
+              ]
+            ],
+            "0.6": [
+              [
+                20000,
+                35000
+              ],
+              [
+                45000,
+                60000
+              ],
+              [
+                70000,
+                85000
+              ],
+              [
+                95000,
+                110000
+              ],
+              [
+                120000,
+                135000
+              ],
+              [
+                145000,
+                160000
+              ]
+            ],
+            "0.8": [
+              [
+                17500,
+                37500
+              ],
+              [
+                42500,
+                62500
+              ],
+              [
+                67500,
+                87500
+              ],
+              [
+                92500,
+                112500
+              ],
+              [
+                117500,
+                137500
+              ],
+              [
+                142500,
+                162500
+              ]
+            ],
+            "1.0": [
+              [
+                15000,
+                40000
+              ],
+              [
+                40000,
+                65000
+              ],
+              [
+                65000,
+                90000
+              ],
+              [
+                90000,
+                115000
+              ],
+              [
+                115000,
+                140000
+              ],
+              [
+                140000,
+                165000
+              ]
+            ]
+          },
+          "formula": "Inside an exposure interval, if d>=0 set u_E=d,u_T=0.5*d,u_I=u_R=0; if d<0 set u_I=-d,u_R=-0.5*d,u_E=u_T=0. Outside all exposure intervals all channels are zero.",
+          "detector_binding": "T8 metrics retain the six stored 25 s windows [3000,8000),[8000,13000),[13000,18000),[18000,23000),[23000,28000),[28000,33000); exposure boundaries do not change global sham thresholds, filtering, Welch parameters, or strict event containment."
+        }
+      },
+      "replication": {
+        "worker_seed_values": [
+          11003,
+          33013,
+          55021,
+          66029
+        ],
+        "parameter_draw_values": [
+          "D00_NOMINAL",
+          "D02",
+          "D04"
+        ],
+        "paired_blocks_per_cell": 12,
+        "pairing": "Each cell and its exact sham reuse the same draw, seed, initial state, and OU innovations."
+      },
+      "exact_run_arithmetic": {
+        "cell_count_by_target": {
+          "T1": 25,
+          "T2": 25,
+          "T3": 25,
+          "T4": 25,
+          "T5": 25,
+          "T6": 20,
+          "T7": 20,
+          "T8": 25
+        },
+        "selected_set_formula": "Let n25 be selected targets among {T1,T2,T3,T4,T5,T8} and n20 among {T6,T7}, with n25+n20<=3. Level-B runs=12*(25*n25+20*n20).",
+        "examples": {
+          "three_25_cell_targets": 900,
+          "two_25_plus_one_20": 840,
+          "one_25_plus_two_20": 780
+        },
+        "maximum_runs": 900,
+        "mapping_policy_extra_runs": 0,
+        "no_deduplication": true
+      },
+      "no_level_c": "No PID, adaptive, reinforcement-learning, or model-predictive controller is included in V5. The causal phase-triggered packet is a fixed event-triggered policy, not an optimized controller."
+    },
+    "cross_target_matrix": {
+      "shape": [
+        8,
+        8
+      ],
+      "row_definition": "For each T1-T8, use the exact all-target Level-A worker-selected policy object: a five-condition requested-frequency mapping for T1, an eight-condition requested-phase mapping for T7, and one Level-A condition for every other target. Freeze before verifier outcomes and before conditional Level B.",
+      "column_definition": "On six draws and four disjoint verifier seeds, compute the exact normalized BENEFIT and ADVERSE scalar for every T1-T8 column using the frozen Level-A row-policy expansion.",
+      "labels": {
+        "intended_improvement": "diagonal simultaneous benefit LCB>1 and adverse UCB<1",
+        "beneficial_secondary_effect": "off-diagonal simultaneous benefit LCB>1 and adverse UCB<1",
+        "negligible": "both simultaneous benefit and adverse UCB<=1",
+        "trade_off": "every other estimable non-veto cell",
+        "unacceptable_collateral_effect": "any hard stability, plausibility, broadband, detector, silence, saturation, or regime-collapse veto"
+      },
+      "missing_rule": "If any expanded condition lacks a frozen column primitive, both scalar members are NOT_ESTIMABLE; never impute. Any missing member prevents its policy row from complete off-target passage, Grade C, advancement, or C2-G8.",
+      "verifier_execution": {
+        "draws": [
+          "D00_NOMINAL",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05"
+        ],
+        "seeds": [
+          77041,
+          88069,
+          99079,
+          111091
+        ],
+        "paired_blocks_per_condition": 24,
+        "logical_policy_conditions": "5 T1 mapping + 8 T7 mapping + 6 single-condition rows =19; the selected T6 phase is necessarily one of the T7 mapping conditions and is byte-identically reused.",
+        "unique_intervention_conditions_per_block": 18,
+        "shared_sham_conditions_per_block": 1,
+        "unique_runs": "24*(18+1)=456",
+        "simulated_seconds": 95760,
+        "internal_solver_intervals": 95760000,
+        "minimum_complete_blocks_per_cell": 20,
+        "minimum_distinct_seeds": 3,
+        "minimum_distinct_draws": 5,
+        "condition_id": "X3__T{row}__K{kk}, with row in 1,...,8 and kk the two-digit zero-based expanded-policy index; T6 condition K00 resolves to the matching T7 K{ii} canonical condition under shared_T6_T7_record_identity.",
+        "run_id": "X3__T{row}__K{kk}__{draw_id}__S{seed}; T6 reuse points to the matching T7 run ID, and sham uses X3__SHAM__{draw_id}__S{seed}.",
+        "ordering": "Rows T1 through T8; mapping condition index kk follows the Level-A grid; then draw ID and seed numeric. Deduplicate only the exact T6/T7 phase tuple and shared sham."
+      },
+      "level_b_independence": "Conditional Level-B surfaces occur after the 8x8 matrix and cannot select, alter, or replace any cross-target row policy."
+    },
+    "evidence_grading": {
+      "A": "Reserved for robust subject-dependent mechanistic control with eligible human-subject model denominators; impossible for this bench package.",
+      "B": "Reserved for a transferable, robust in-silico control claim on the exact eligible candidate; impossible because R4 executable identity is absent.",
+      "C": "Maximum bench grade: all registered diagnostic response, uncertainty, stability, specificity, detector, and off-target criteria pass, but transfer and personalization remain unsupported.",
+      "D": "Valid execution does not meet the frozen diagnostic efficacy or robustness criteria.",
+      "F": "Apparent effect is invalid/artifactual because of instability, detector failure, broadband confounding, leakage, or protocol violation."
+    },
+    "policy_selection_and_cross_target_scalars": {
+      "notation": {
+        "block": "b is a paired draw-seed block; med_b is the float64 median over valid paired blocks in draw_id then seed-numeric order.",
+        "wrap": "wrap(x)=atan2(sin(x),cos(x)), with exact +pi canonicalized to -pi.",
+        "missing": "A division denominator <=1e-12, nonfinite primitive, failed frozen detector denominator, invalid simulation, or absent required mapped condition makes that score missing. Missing values are never zero, worst-case values, or imputed.",
+        "threshold": "Every C_i and G_i score is dimensionless and oriented larger-is-better; value 1 is its frozen practical-margin boundary."
+      },
+      "cell_scores": {
+        "T1": "For cell u=(f,A), per block e_b=abs(f_sham,b-f)-abs(f_u,b-f), p_b=PLV_u,b, m_b=1[e_b>0]. C1(u)=min(med_b(e_b)/0.05,med_b(p_b)/0.50,mean_b(m_b)/0.80).",
+        "T2": "For u=(d,A), if d=0 set C2(u)=0. Otherwise require A_sham,b>0.10 and set C2(u)=med_b(sign(d)*(A_u,b-A_sham,b)/(0.05*A_sham,b)).",
+        "T3": "For u=(d,f_rep), if d=0 set C3(u)=0; otherwise C3(u)=med_b(sign(d)*(D_u,b-D_sham,b)/1.5).",
+        "T4": "For u=(d,f_c), if d=0 set C4(u)=0. If d<0, C4(u)=med_b((S_sham,b-S_u,b)/0.5). If d>0, first resolve exactly one attribution_domain_table row for the execution context and u; C4(u)=min(med_b((S_u,b-S_sham,b)/0.5),F_auto(domain_row_id)/0.50). The d>0 score is missing unless that row meets its context complete-block minimum, N_added>=30, and >=10 row-specific contributing blocks.",
+        "T5": "For u=(d,f_c), if d=0 set C5(u)=0. Otherwise require R_sham,b>1e-12 and set C5(u)=med_b(sign(d)*(R_u,b-R_sham,b)/(0.05*R_sham,b)).",
+        "T6": "For u=(phi,A), set delta_b=bMI_u,b-bMI_sham,b and C6(u)=min(med_b(delta_b)/0.010,mean_b(1[delta_b>0])/0.75). A=0 is retained and normally yields zero, subject to exact numerical-identity checks.",
+        "T7": "For u=(phi,f_c), C7(u)=med_b(2-abs(wrap(beta_u,b-phi))/(pi/6)); this is the cell tracking scalar. Formal carrier-policy G7 additionally uses rho_c and separation.",
+        "T8": "For u=(d,fraction), if d=0 set C8(u)=0. Otherwise let q=median_b(sign(d)*(O_u,b-O_sham,b))/(1/6) and p=mean_b(P_b(u))/0.75, where P_b is the exact consecutive-window persistence indicator. Set C8(u)=min(q,p). Missing q or p makes C8 missing."
+      },
+      "policy_objects": {
+        "T1": {
+          "type": "MAPPING",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "Exactly one policy P1_LA maps each requested f in [0.55,0.70,0.85,1.00,1.15] to its Level-A GF_E_SLOW_SINE cell at A=0.8.",
+          "score": "G1(P1_LA)=min_f C1(f,0.8); all five cells and Level-A denominators must be estimable.",
+          "tie_break": "No policy tie is possible because there is one registered mapping."
+        },
+        "T2": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The six nonzero Level-A GF_E_DC doses [-1.5,-1.0,-0.5,0.5,1.0,1.5].",
+          "score": "G2(u)=C2(u).",
+          "tie_break": "Maximize G2, then minimize abs(d), then choose smaller signed d."
+        },
+        "T3": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The six nonzero Level-A GF_E_SO_PULSE doses [-2.0,-1.25,-0.5,0.5,1.25,2.0] at f_rep=0.85.",
+          "score": "G3(u)=C3(u).",
+          "tie_break": "Maximize G3, then minimize abs(d), then choose smaller signed d."
+        },
+        "T4": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The three positive Level-A GF_TR_SIGMA_PACKET_BALANCE doses [0.5,1.0,1.5] at f_rep=0.85 and f_c=13.",
+          "candidate_domain_rows": [
+            "T4_LA_WORKER_D0P50_FC13",
+            "T4_LA_WORKER_D1P00_FC13",
+            "T4_LA_WORKER_D1P50_FC13"
+          ],
+          "verifier_possible_domain_rows": [
+            "T4_XV_D0P50_FC13",
+            "T4_XV_D1P00_FC13",
+            "T4_XV_D1P50_FC13"
+          ],
+          "attribution_domain_binding": "observation_and_detector_contract.T4_added_event_attribution.attribution_domain_table",
+          "score": "G4(u)=C4(u), including the exact added-event attribution denominator and F_auto component.",
+          "tie_break": "Maximize G4, then choose smaller positive d."
+        },
+        "T5": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The three positive Level-A GF_TR_SIGMA_CONTINUOUS_BALANCE doses [0.4,0.8,1.2] at f_c=13.",
+          "score": "G5(u)=C5(u).",
+          "tie_break": "Maximize G5, then choose smaller positive d."
+        },
+        "T6": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "All eight unique Level-A GF_T_PHASE_LOCKED_PACKET phases at A=1 and f_c=13.",
+          "score": "G6(u)=C6(u).",
+          "tie_break": "Maximize G6, then minimize abs(wrap(phi)), then choose numerically smaller canonical phi."
+        },
+        "T7": {
+          "type": "MAPPING",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "Exactly one policy P7_LA maps every one of the eight unique Level-A requested phases to its GF_T_PHASE_LOCKED_PACKET cell at A=1,f_c=13.",
+          "score": "G7(P7_LA)=min(rho_c/0.70,min(4,(pi/6)/max(tracking_error,1e-12)),separation/(pi/3)); all eight cells and Level-A denominators must be estimable.",
+          "tie_break": "No policy tie is possible because there is one registered mapping."
+        },
+        "T8": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The six nonzero full-exposure Level-A doses. A dose is eligible only if it belongs to one of the exact passing adjacency pairs (-2,-1.25),(-1.25,-0.5),(0.5,1.25),(1.25,2) under T8.persistence_and_adjacency_decision and meets persistence.",
+          "score": "G8(u)=C8(u) with fraction=1.",
+          "tie_break": "Maximize G8, then minimize abs(d), then choose smaller signed d."
+        }
+      },
+      "selected_policy_rule": "For every T1-T8 row, select from policy_objects using only completed Level-A worker trajectories and the target-specific maximum/tie rule. T1/T7 are complete requested-value mappings; all others are one condition. Exclude missing candidates; if none remains, that row is NOT_ESTIMABLE. For T4, map the selected candidate position one-to-one from candidate_domain_rows to the same-position verifier_possible_domain_rows and execute exactly that verifier row; the other two are NOT_LAUNCHED_BY_POLICY. Freeze all eight row policies before any verifier trajectory or conditional Level-B result is visible.",
+      "level_b_family_enumeration": {
+        "cell_member_id": "LB3/{target_id}/R{rr}/C{cc}/C_MINUS_1 for every executed cell, row-major.",
+        "mapping_member_id": "LB3/T1/POLICY/A{cc}/G_MINUS_1 for five T1 amplitudes and LB3/T7/POLICY/FC{cc}/G_MINUS_1 for five T7 carriers, when that target is selected.",
+        "member_count_formula": "K=25*n25+20*n20+5*nmap, where nmap counts selected targets among {T1,T7}; maximum K=80.",
+        "ties": "Family IDs are unique strings and sorted lexicographically only for reporting; bootstrap uses this complete frozen member set."
+      },
+      "column_primitives_for_cross_target": {
+        "common_aggregation": "For each expanded policy condition k, column j, and complete verifier block b, first compute n_k,j,b below. Then nHat_k,j=median_b(n_k,j,b) over the frozen complete verifier blocks. Only after that median set B_k,j=max(0,nHat_k,j) and A_k,j=max(0,-nHat_k,j). Every hierarchical bootstrap replicate repeats the block median first and the max operations second.",
+        "T1": "For a non-T1 requested-frequency condition, n_k,1,b=-abs(f_k,b-f_sham,b)/0.05. The diagonal T1 mapping uses G1 recomputed across its five verifier conditions instead of this off-row primitive.",
+        "T2": "n_k,2,b=(A_k,b-A_sham,b)/(0.05*A_sham,b), requiring A_sham,b>0.10.",
+        "T3": "n_k,3,b=(D_k,b-D_sham,b)/1.5.",
+        "T4": "n_k,4,b=(S_k,b-S_sham,b)/0.5. If condition k is the selected T4 packet policy, resolve the unique CROSS_TARGET_VERIFIER attribution_domain_table row matching its frozen Level-A dose, f_c=13, and f_rep=0.85; require >=20 complete verifier blocks, >=3 seeds, >=5 draws, N_added>=30, and >=10 row-specific contributing blocks. Failure makes both T4 scalar members missing. When estimable define r_k,4=F_replica(domain_row_id)/0.50. For a condition with no emitted T4 packets, replica attribution is not applicable and r_k,4=0.",
+        "T5": "n_k,5,b=(R_k,b-R_sham,b)/(0.05*R_sham,b), requiring R_sham,b>1e-12.",
+        "T6": "n_k,6,b=(bMI_k,b-bMI_sham,b)/0.010.",
+        "T7": "For a non-T7 requested-phase condition, n_k,7,b=-abs(wrap(beta_k,b-beta_sham,b))/(pi/6). The diagonal T7 mapping uses G7 recomputed across its eight verifier conditions instead of this off-row primitive.",
+        "T8": "n_k,8,b=(O_k,b-O_sham,b)/(1/6)."
+      },
+      "cross_target_cell_construction": {
+        "policy_expansion": "A SINGLE_CONDITION row has K=1. The T1 Level-A mapping has K=5 requested-frequency conditions; the T7 Level-A mapping has K=8 requested-phase conditions. Expand in the registered Level-A order.",
+        "per_condition": "For each k,j compute nHat, B_k,j, and A_k,j in column_primitives_for_cross_target.common_aggregation. Then set A_k,4=max(A_k,4,r_k,4). No max, clipping, replica term, or policy aggregation occurs before the registered block median except the event pooling that defines F_replica.",
+        "aggregate": "For policy row i, B_i,j=min_k B_k,j and A_i,j=max_k A_k,j across its expanded conditions. On the diagonal set B_i,i=max(0,G_i evaluated on verifier blocks) and A_i,i=max(A_i,i,max(0,-G_i)). Thus T4 replica adverse is retained on the diagonal. Every bootstrap replicate recomputes condition medians, B/A transforms, mapping min/max, G_i, and the diagonal rule in this order.",
+        "family_ids": "Enumerate exactly X3/T{i}/T{j}/BENEFIT and X3/T{i}/T{j}/ADVERSE for i=1,...,8 outer and j=1,...,8 inner, 128 members total.",
+        "missing": "If any primitive needed by an expanded condition is missing, both B_i,j and A_i,j are missing. Any missing cell prevents the complete row from Grade C or advancement.",
+        "classification": "First, any hard veto is UNACCEPTABLE_COLLATERAL_EFFECT. Otherwise, if i=j, simultaneous LCB(B_i,i)>1 and UCB(A_i,i)<1 is INTENDED_IMPROVEMENT. If i!=j, LCB(B_i,j)>1 and UCB(A_i,j)<1 is BENEFICIAL_SECONDARY_EFFECT. If UCB(B_i,j)<=1 and UCB(A_i,j)<=1 it is NEGLIGIBLE. Every other estimable cell is TRADE_OFF.",
+        "ties": "No classification tie is broken: strict inequalities are required; equality to 1 follows the NEGLIGIBLE test if both upper bounds are <=1, otherwise TRADE_OFF."
+      },
+      "score_denominators": {
+        "level_a_worker": "For formal Level-A G_i require at least 30 of 36 complete paired blocks, at least five of six seeds, and at least five of six draws, plus every target-specific event denominator.",
+        "level_b_surface": "For a Level-B C_i or mapping G_i require at least 10 of 12 complete paired blocks, at least three of four seeds, and all three registered draws, plus every target-specific event denominator.",
+        "cross_target_verifier": "For a verifier B_i,j/A_i,j require at least 20 of 24 complete paired blocks, at least three of four verifier seeds, and at least five of six draws. This matrix denominator is diagnostic specificity, not a substitute for the >=30 Level-A target decision."
+      },
+      "level_b_policy_objects": {
+        "T1": {
+          "type": "MAPPING",
+          "candidates": "Five policies P1_A, one for each A in [0.4,0.6,0.8,1.0,1.2]. P1_A maps every requested f in [0.55,0.70,0.85,1.00,1.15] to executed cell (f,A).",
+          "score": "G1(P1_A)=min_f C1(f,A); all five cells must be estimable.",
+          "tie_break": "Maximize raw float64 G1; exact ties choose smaller A."
+        },
+        "T2": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "All 20 cells with d!=0.",
+          "score": "G2(u)=C2(u).",
+          "tie_break": "Maximize G2, then minimize |d|/1.5+A/1.2, then row index, then column index."
+        },
+        "T3": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "All 20 cells with d!=0.",
+          "score": "G3(u)=C3(u).",
+          "tie_break": "Maximize G3, then minimize |d|/2+abs(f_rep-0.85)/0.30, then row index, then column index."
+        },
+        "T4": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "The 10 d>0 cells; negative and zero cells remain in the surface but cannot define the forward diagnostic policy.",
+          "candidate_domain_rows": [
+            "T4_LB_D0P75_FC11",
+            "T4_LB_D0P75_FC12",
+            "T4_LB_D0P75_FC13",
+            "T4_LB_D0P75_FC14",
+            "T4_LB_D0P75_FC15",
+            "T4_LB_D1P50_FC11",
+            "T4_LB_D1P50_FC12",
+            "T4_LB_D1P50_FC13",
+            "T4_LB_D1P50_FC14",
+            "T4_LB_D1P50_FC15"
+          ],
+          "attribution_domain_binding": "observation_and_detector_contract.T4_added_event_attribution.attribution_domain_table",
+          "score": "G4(u)=C4(u).",
+          "tie_break": "Maximize G4, then minimize d/1.5+abs(f_c-13)/2, then row index, then column index."
+        },
+        "T5": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "The 10 d>0 cells; negative and zero cells remain in the surface.",
+          "score": "G5(u)=C5(u).",
+          "tie_break": "Maximize G5, then minimize d/1.2+abs(f_c-13)/2, then row index, then column index."
+        },
+        "T6": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "The 16 cells with A>0.",
+          "score": "G6(u)=C6(u).",
+          "tie_break": "Maximize G6, then minimize A+abs(wrap(phi))/pi, then row index, then column index."
+        },
+        "T7": {
+          "type": "MAPPING",
+          "candidates": "Five policies P7_fc, one for each carrier in [11,12,13,14,15]. P7_fc maps every requested phi in [-pi,-pi/2,0,pi/2] to executed cell (phi,f_c).",
+          "score": "Using exact_phase_response_statistics across the four mapped cells, G7(P7_fc)=min(rho_c/0.70,min(4,(pi/6)/max(tracking_error,1e-12)),separation/(pi/3)); all four cells must be estimable.",
+          "tie_break": "Maximize raw float64 G7; exact ties minimize abs(f_c-13), then choose smaller f_c."
+        },
+        "T8": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "At each exposure fraction, the four nonzero cells. Cell (d,f) is eligible only if it belongs to a passing same-fraction pair (-2,-1) or (1,2), has C8 estimable, and meets the exact persistence component.",
+          "score": "G8(u)=C8(u).",
+          "tie_break": "Maximize G8, then minimize |d|/2+fraction, then row index, then column index."
+        }
+      },
+      "level_b_selected_policy_rule": "For a selected conditional Level-B surface, exclude missing candidate scores, apply level_b_policy_objects maximum/tie rule, and return NOT_ESTIMABLE if none remains. This surface policy is descriptive and does not define an 8x8 row or formal advancement."
+    },
+    "level_a_shape_consistency": {
+      "purpose": "Replace the previously underdefined generic dose-order phrase with an exact target-specific Level-A structural-response rule. A target passes this noncompensatory prerequisite only when at least 4 of 6 parameter draws pass its rule.",
+      "common": "Within draw g and condition u, aggregate the six worker seeds by float64 median in seed-numeric order; require at least 5 valid paired seeds for every required condition. A missing required condition makes that draw fail. Across draws, equality 4/6 passes; no draw is dropped or imputed.",
+      "T1": "Draw passes iff median-seed closeness improvement is strictly >0 at both requested endpoint drives 0.55 and 1.15 Hz and median-seed PLV is >=0.50 at both endpoints.",
+      "T2": "Let y_r be median-seed SO amplitude at the seven ascending doses [-1.5,-1,-0.5,0,0.5,1,1.5]. Draw passes iff y_6>y_0 and at least 5 of the 6 adjacent differences y_(r+1)-y_r are >=0. Equality counts ordered; the strict endpoint prevents an all-tie pass.",
+      "T3": "Use SO-event density y_r at ascending doses [-2,-1.25,-0.5,0,0.5,1.25,2]. Draw passes iff y_6>y_0 and at least 5 of 6 adjacent differences are >=0.",
+      "T4": "Use spindle-event density y_r at ascending doses [-1.5,-1,-0.5,0,0.5,1,1.5]. Draw passes iff y_6>y_0 and at least 5 of 6 adjacent differences are >=0.",
+      "T5": "Use sigma-event RMS y_r at ascending doses [-1.2,-0.8,-0.4,0,0.4,0.8,1.2]. Draw passes iff y_6>y_0 and at least 5 of 6 adjacent differences are >=0.",
+      "T6": "Draw passes iff the median-seed bMI(phi=0)-bMI(sham) is strictly >0.",
+      "T7": "For every requested Level-A phase, take the circular mean of valid seed-level beta values; resultant magnitude must exceed 1e-12. Draw passes iff the exact Fisher-Lee rho across eight phases is strictly >0 and the wrapped +/-pi/2 output separation is strictly >0 radians.",
+      "T8": "Using full-exposure Level-A doses, define Q_g(d)=median_seed sign(d)*(O_d-O_0). Draw passes iff at least one exact adjacency pair has both Q_g values strictly >0 and, at the draw-level d_hi chosen by median-seed O with the frozen tie rule, at least 75% of valid seeds have P_b=1.",
+      "ties_and_reporting": "All strict and non-strict comparisons are as written on raw float64 values. Report the six draw booleans, required condition medians, adjacent-difference count or phase statistic, and final pass count. This rule is distinct from effect-size bands and Holm tests."
+    }
+  },
+  "phase2b": {
+    "formal_status": "NOT_ESTIMABLE",
+    "eligible_public_development_night1_subjects": 0,
+    "eligible_public_development_night1_personalized_models": 0,
+    "minimum_subjects": 3,
+    "same_candidate_r4_executable_identity_available": false,
+    "synthetic_substitution": "PROHIBITED",
+    "reason": "The frozen data-feasibility receipt certifies zero eligible Night-1 personalized models and no exact R4 executable identity. This was decided before any Phase 2A outcomes and cannot be reversed within Candidate V5.",
+    "future_resolution": "A new governance-approved exact release would require a new prospectively frozen protocol version before any affected outcome is viewed.",
+    "formal_execution_under_v5": "PROHIBITED"
+  },
+  "uncertainty_and_statistics": {
+    "primary_effect_interval": "paired hierarchical percentile bootstrap with 10000 resamples using PCG64(860216): resample parameter draws, then paired seeds within selected draws; compute the registered estimand; report two-sided 95 percent interval",
+    "sensitivity_interval": "studentized paired mean interval is reported only as a secondary sensitivity check",
+    "simultaneous_95_construction": {
+      "method": "studentized max-absolute-deviation paired hierarchical bootstrap",
+      "bootstrap_replicates": 10000,
+      "pairing": "A single hierarchical resample index is applied jointly to sham, every intervention condition, every target component, and every off-target outcome in the applicable family.",
+      "phase2a_resampling_unit": "Draw six parameter-draw indices with replacement from D00-D05. For each selected draw occurrence, draw six worker-seed indices with replacement from the six paired seeds. Repeated draw occurrences receive independent seed resamples.",
+      "point_statistic_orientation": "Express each registered numeric requirement as a scalar margin slack z_k with PASS direction z_k>0. For upper-limit requirements use limit-estimate; for lower-limit requirements use estimate-limit. Proportions and correlations are treated on their registered scales.",
+      "bootstrap_deviation": "For noncircular scalar slack k, delta[b,k]=z_boot[b,k]-z_hat[k]. For a raw circular angle, delta[b,k]=atan2(sin(theta_boot-theta_hat),cos(theta_boot-theta_hat)); target rules based on circular distance first convert the wrapped angle to the registered scalar distance and then orient the margin slack.",
+      "scale": "s_k=max(std(delta[:,k],ddof=1),1e-12*max(1,abs(z_hat[k]))).",
+      "joint_statistic": "M_b=max over all estimable k in the frozen family of abs(delta[b,k])/s_k.",
+      "quantile": "Sort M_1 through M_10000 ascending and use the 9501st order statistic (one-based), equivalently numpy.partition(M,9500)[9500].",
+      "band": "Simultaneous two-sided 95 percent band for slack k is [z_hat[k]-q*s_k,z_hat[k]+q*s_k]. A required benefit passes only when its simultaneous lower bound is strictly greater than zero.",
+      "circular_width_failure": "If a raw circular tangent-scale half-width q*s_k is >=pi, mark that component NOT_ESTIMABLE; it cannot pass and is not converted to a linear interval.",
+      "zero_variance": "The registered scale floor is used; if all bootstrap values equal the point estimate, the simultaneous band has the resulting finite floor width rather than zero.",
+      "all_missing_bootstrap_convention": "This restates, without changing, the V4 fail-closed rule. If a point component is missing, it is NOT_ESTIMABLE or INVALID before resampling. If the point is eligible but no complete finite bootstrap replicate can be formed for that component, that component and every dependent decision are NOT_ESTIMABLE and no numeric band is emitted. If no member in a frozen family has a complete finite replicate, the family is NOT_ESTIMABLE and no family quantile is emitted. Skipping a replicate, redrawing it, imputing a value, or shortening the frozen family is prohibited. The sole exception remains T4 ZERO_ADDED_BOOTSTRAP after its point denominator passes. A complete finite constant replicate array uses the registered scale floor and is not all-missing.",
+      "distinction_from_holm": "These bands control joint effect-size uncertainty. Holm step-down tests remain the separately frozen across-target hypothesis-test multiplicity rule and cannot replace the simultaneous bands."
+    },
+    "simultaneous_families": {
+      "F_TARGET_DECISIONS": {
+        "seed": 860218,
+        "resampling": "six draws by six worker seeds as specified above",
+        "family_members": {
+          "T1": [
+            "E1-0.05",
+            "PLV_low-0.50",
+            "PLV_high-0.50",
+            "move_fraction_low-0.80",
+            "move_fraction_high-0.80"
+          ],
+          "T2": [
+            "E2-0.15",
+            "fractional_positive_endpoint_gain-0.05",
+            "fractional_negative_endpoint_reduction-0.05"
+          ],
+          "T3": [
+            "E3-3.0",
+            "positive_endpoint_gain_events_per_min-1.5",
+            "negative_endpoint_reduction_events_per_min-1.5"
+          ],
+          "T4": [
+            "E4-1.0",
+            "positive_endpoint_gain_spindles_per_min-0.5",
+            "negative_endpoint_reduction_spindles_per_min-0.5",
+            "autonomous_added_event_fraction-0.50"
+          ],
+          "T5": [
+            "E5-0.15",
+            "fractional_positive_endpoint_gain-0.05",
+            "fractional_negative_endpoint_reduction-0.05"
+          ],
+          "T6": [
+            "E6-0.010",
+            "positive_block_fraction-0.75"
+          ],
+          "T7": [
+            "circular_correlation-0.70",
+            "pi_over_6-median_absolute_tracking_error",
+            "observed_phase_separation-pi_over_3"
+          ],
+          "T8": [
+            "E8-one_third",
+            "persistent_block_fraction_at_d_hi-0.75"
+          ]
+        },
+        "missing_component_rule": "If a point component is undefined under its frozen event/window denominator, that target is NOT_ESTIMABLE and cannot pass. The missing component is omitted from M_b for other targets, and the exact omitted member is logged; it is never imputed as zero. For T4 only, the formal attribution component resolves solely to domain row T4_LA_WORKER_D1P50_FC13. After that row's point denominator passes, a bootstrap resample with zero added events assigns F_auto=0 and F_replica=1 and logs ZERO_ADDED_BOOTSTRAP; no other attribution row can substitute.",
+        "decision_use": "Every scalar target margin listed above must have simultaneous lower bound>0, in addition to the exact target-specific level_a_shape_consistency prerequisite, frozen Holm test when applicable, binary stability/persistence, and hard-veto rules."
+      },
+      "F_LEVEL_B_SURFACES": {
+        "seed": 860220,
+        "resampling": "For each selected surface jointly draw three registered Level-B parameter draws with replacement and, within each selected draw occurrence, four registered Level-B seeds with replacement. Reuse one index tensor jointly for every executed cell and mapping score.",
+        "family_members": "Enumerate exact cell C_i(u)-1 members plus five mapping G_i(P)-1 members for selected T1 and/or T7. K=25*n25+20*n20+5*nmap and K<=80; one family spans all selected targets.",
+        "statistic": "Use the common max-absolute-deviation construction across every estimable enumerated member. Each positive T4 cell resolves to its exact LEVEL_B_SURFACE attribution-domain row and recomputes row-specific F_auto/F_replica under the shared resample indices; zero-added behavior follows the attribution-domain contract.",
+        "missing_cell_rule": "A missing executed cell remains NOT_ESTIMABLE and is omitted from M_b, but any missing required cell makes its entire surface and any dependent mapping policy NOT_ESTIMABLE for mechanistic support or Grade C. Other bands remain descriptive with the complete missingness map.",
+        "eligibility_use": "Level-B launch eligibility remains based only on completed Level-A F_TARGET_DECISIONS bands; Level-B outcomes cannot retroactively alter eligibility."
+      },
+      "F_CROSS_TARGET_8X8": {
+        "seed": 860221,
+        "resampling": "Jointly resample six parameter draws and, within each selected draw occurrence, the four disjoint verifier seeds; keep every row policy fixed from worker selection and reuse one index tensor for all 128 members.",
+        "family_members": "Exactly X3/T{i}/T{j}/BENEFIT and X3/T{i}/T{j}/ADVERSE for i=1,...,8 outer and j=1,...,8 inner: 128 dimensionless members.",
+        "statistic": "In every joint verifier bootstrap replicate recompute block-level n, block medians, condition BENEFIT/ADVERSE, T4 F_auto and replica adverse from the unique actually selected CROSS_TARGET_VERIFIER domain row, mapping min/max, and diagonal G overrides in the frozen order, then apply the common studentized max-absolute-deviation construction to all estimable 128 members. The two inactive possible T4 verifier rows are not resampled.",
+        "circular_handling": "T1/T7 mapping primitives and T7 off-row phase changes use the frozen wrap and pairwise Fisher-Lee circular statistics before normalization; bootstrap event-phase means are recomputed by complex resultant, converted to G or adverse distance, and only then studentized.",
+        "classification": "Use phase2a.policy_selection_and_cross_target_scalars.cross_target_cell_construction exactly; benefit and adverse bands are both required.",
+        "missing_cell_rule": "If any expanded-condition primitive is missing, both members for that row-column cell are NOT_ESTIMABLE. Any missing cell in a policy row prevents complete off-target passage, Grade C, advancement, or C2-G8; remaining bands retain exact 128-member provenance."
+      },
+      "F_FORMAL_C2_INTERACTIONS": {
+        "seed": 860222,
+        "resampling": "If a future protocol is eligible, jointly resample subjects, then within-subject model/posterior draws and paired evaluation seeds.",
+        "family_members": "I_pop-0.25, I_wrong-0.25, and R_between-1.5 for every formally selected target in one family.",
+        "current_status": "NOT_ESTIMABLE"
+      }
+    },
+    "familywise_multiplicity": "Use exact_hypothesis_tests.holm: primary T1,T4,T6; gate-opened secondary T2,T3,T5,T7; T8 descriptive. Simultaneous effect-size bands are distinct and cannot substitute for Holm.",
+    "dose_selection": "For the all-target 8x8 matrix use phase2a.policy_selection_and_cross_target_scalars.policy_objects on Level-A worker data. For a selected conditional Level-B surface use level_b_policy_objects. T1/T7 are requested-value mappings in both contexts; all other targets are single conditions. Missing scores are excluded and each context uses its exact frozen tie rule.",
+    "missingness": "No imputation. Missing event-dependent metrics remain NOT_ESTIMABLE; invalid simulations remain INVALID.",
+    "attempt_budget": "One frozen scientific execution per run identity; infrastructure reruns require byte-identical inputs and must not follow scientific outcome inspection.",
+    "exact_hypothesis_tests": {
+      "valid_block_order": "After applying frozen validity rules, order complete paired blocks by parameter_draw_id lexicographically then seed numerically. Require the registered minimum denominator before any test.",
+      "sign_flip_targets": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T8"
+      ],
+      "block_statistics": {
+        "T1": "h_b=E1_b/0.05, where E1_b is the registered mean of low- and high-endpoint closeness improvements.",
+        "T2": "h_b=E2_b/0.15.",
+        "T3": "h_b=(D_b(+2)-D_b(-2))/3.0.",
+        "T4": "h_b=(S_b(+1.5)-S_b(-1.5))/1.0.",
+        "T5": "h_b=E5_b/0.15.",
+        "T6": "h_b=(bMI_b(phi=0)-bMI_b(sham))/0.010.",
+        "T8": "h_b=(max_d O_b(d)-min_d O_b(d))/(1/3), using the registered dose tie rule."
+      },
+      "sign_flip_algorithm": {
+        "statistic": "T_obs=mean_b(h_b), dimensionless; alternative is greater than the sign-exchangeable null.",
+        "seeds": {
+          "T1": 860231,
+          "T2": 860232,
+          "T3": 860233,
+          "T4": 860234,
+          "T5": 860235,
+          "T6": 860236,
+          "T8": 860238
+        },
+        "rng_lifecycle": "For target Ti instantiate Generator(PCG64(seed_i)) exactly once after valid blocks are fixed. Call rng.integers(0,2,size=(100000,n_blocks),dtype=np.int8) once in C order; signs=2*bits-1. Row m defines one sign vector. Do not reset, split, advance, or reuse a generator across targets.",
+        "zero_and_ties": "Keep h_b=0; it contributes zero under both signs. For each random row compute T_m=mean(signs_m*h). Count an equality T_m==T_obs as at least as extreme.",
+        "observed_assignment": "Evaluate the all-plus observed assignment once as T_obs. It is represented by the +1 numerator and +1 denominator correction and is not forcibly inserted into the 100000 RNG rows; a coincidentally drawn all-plus row remains counted.",
+        "p_value": "Let M=100000 and B=sum_m 1[T_m>=T_obs]. The exact Monte Carlo p=(B+1)/(M+1).",
+        "missing": "Any nonfinite h_b is excluded only by the frozen complete-pair rule before RNG creation. If fewer than the target minimum complete blocks remain, p is NOT_ESTIMABLE; no generator is instantiated."
+      },
+      "T7_circular_label_permutation": {
+        "source": "Use the exact eight-condition Level-A alpha_l and beta_b,l arrays defined in observation_and_detector_contract.T7.exact_phase_response_statistics.",
+        "statistic": "For each assignment compute Fisher-Lee pairwise rho_c, tracking_error, and separation by the exact formulas across complete blocks; H=min(rho_c/0.70,min(4,(pi/6)/max(tracking_error,1e-12)),separation/(pi/3)). T_obs=H for unpermuted labels. Units are dimensionless; alternative is larger.",
+        "randomization": "M=100000. Instantiate Generator(PCG64(860217)) exactly once. For m=0,...,99999 and, inside it, blocks in frozen order, call rng.permutation(8) exactly once and assign beta_perm[b,l]=beta[b,perm[l]] while alpha labels remain fixed. Recompute all block and aggregate statistics.",
+        "lifecycle": "The generator is not reset between permutations or blocks, not shared with bootstrap or other targets, and receives no calls other than the nested sequence of permutation(8).",
+        "degeneracy": "If a permuted rho denominator is <=1e-12 or another component is nonfinite, set H_m=-infinity. Observed degeneracy makes T7 NOT_ESTIMABLE before RNG creation.",
+        "tails_ties_p": "Use the one-sided greater alternative. Count B=sum_m 1[H_m>=T_obs], including exact ties. The observed assignment is included exactly through p=(B+1)/(100000+1), not forcibly inserted into RNG draws.",
+        "missing": "Require at least 30 blocks complete at all eight phases, five seeds, and five draws. Missing conditions are not permuted or imputed."
+      },
+      "holm": {
+        "alpha": 0.05,
+        "primary_family": [
+          "T1",
+          "T4",
+          "T6"
+        ],
+        "secondary_family": [
+          "T2",
+          "T3",
+          "T5",
+          "T7"
+        ],
+        "primary_order": "Sort raw p ascending; exact p ties sort target_id lexicographically. For ordered rank k=1,...,m compute adjusted p_k=max_{l<=k} min(1,(m-l+1)*p_l). A target rejects only if adjusted p<0.05.",
+        "secondary_gate": "Open the secondary Holm family only if at least one primary target passes its complete effect-size, stability, veto, denominator, and primary-Holm decision. Otherwise report all secondary raw p values as descriptive with rejection=false.",
+        "secondary_order": "When open, use the identical ascending-p, lexical-tie, max-prefix adjusted-p formula and strict adjusted p<0.05 rule.",
+        "missing_p": "A NOT_ESTIMABLE p never rejects and is placed after all finite p values, then target_id lexicographically; it does not reduce family size.",
+        "T8": "T8 p is descriptive only and is never included in either Holm family."
+      }
+    }
+  },
+  "stability_and_plausibility": {
+    "hard_rules": [
+      "all stored states and metrics finite",
+      "all rates within [-1e-6,rmax+1e-6] without clipping",
+      "mean rate of every population between 0.5 and 60 Hz for a valid model-level physiological window",
+      "no more than 1 percent of samples below 0.01 Hz or above 95 Hz",
+      "4-30 Hz total power no more than four times paired sham",
+      "detector retained-duration fraction at least 0.85",
+      "at least 95 percent of all prescribed dose-seed-draw runs stable"
+    ],
+    "off_target_vetoes": [
+      "broadband 4-30 Hz power increases by more than 25 percent without an increased target-band fraction",
+      "SO or spindle detector threshold changes between paired conditions",
+      "SO or spindle events satisfy the exact hard-veto predicate in RESCALE_ONLY_EVENT_VETO_V5",
+      "silence, saturation, solver divergence, clipping, or T8 regime invalidity",
+      "any non-target primary metric crosses its adverse practical margin with a simultaneous interval"
+    ],
+    "rescale_only_event_veto": {
+      "veto_id": "RESCALE_ONLY_EVENT_VETO_V5",
+      "purpose": "Detect an apparent SO or spindle event gain that disappears completely after the intervention trajectory is affinely transformed to the exact paired-sham mean and population variance. This is a deterministic artifact veto, not an effect estimator and not a substitute detector.",
+      "execution_order": [
+        "enumerate exact intervention identity and resolve its one registered physical sham identity",
+        "validate paired raw trajectories",
+        "compute full-record moments",
+        "construct moment-matched intervention trajectory",
+        "rerun frozen preprocessing and both event detectors",
+        "verify official sham/intervention event tables",
+        "perform three registered event matches",
+        "compute block counts",
+        "pool within condition and event type",
+        "apply fail-closed status and downstream veto"
+      ],
+      "application_domain": {
+        "execution_contexts": [
+          "LEVEL_A_WORKER",
+          "LEVEL_B_SURFACE",
+          "CROSS_TARGET_VERIFIER"
+        ],
+        "target_ids": [
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5",
+          "T6",
+          "T7",
+          "T8"
+        ],
+        "event_types_per_run": [
+          "SO",
+          "SPINDLE"
+        ],
+        "enumeration_bindings": {
+          "LEVEL_A_WORKER": "Enumerate exactly the 50 condition identities in phase2a.level_a_run_identity_registry in its group and condition order, crossed with its six draws and six seeds. Include all seven explicit zero/sham identities; diagnose each frozen physical identity, and diagnose each shared T6/T7 phase trajectory once under its canonical T7 identity.",
+          "LEVEL_B_SURFACE": "For each target actually launched by phase2a.conditional_level_b, enumerate every row/column cell from phase2a.conditional_level_b.grids and executable_condition_schedule using its exact LB3 condition/run ID and the 12 registered blocks. Include all zero and waveform-duplicate cells without deduplication; map each intervention ID to the one paired-sham alias and resolved physical run in phase2a.paired_sham_identity_registry.LEVEL_B_SURFACE.",
+          "CROSS_TARGET_VERIFIER": "Freeze the Level-A policies, then enumerate every launched logical condition and exact run ID from phase2a.policy_selection_and_cross_target_scalars.cross_target_cell_construction and verifier_execution. The 19 logical policy conditions yield exactly 18 unique intervention trajectories plus one shared sham per block because the T6 trajectory reuses its matching T7 trajectory; every intervention maps to the exact X3 shared-sham ID in phase2a.paired_sham_identity_registry.CROSS_TARGET_VERIFIER, and inactive policy alternatives remain NOT_LAUNCHED_BY_POLICY.",
+          "coverage_assertion": "Before science, mechanically enumerate intervention and resolved physical sham IDs from phase2a.level_a_run_identity_registry and phase2a.paired_sham_identity_registry. For each event_type, the unique launched non-sham and explicit zero-condition intervention IDs must equal the intervention IDs in rescale-veto block records after only the frozen T6/T7 reuse, and every intervention must resolve to exactly one sham. Set difference, duplicate diagnostic for one unique trajectory/event type, unbound record, or zero/multiple sham mapping is PF_RESCALE_VETO_DOMAIN_FAIL."
+        },
+        "condition_rule": "Evaluate both event types for every launched non-sham condition and every explicit zero-dose condition in the frozen Level-A registry, every cell of each launched Level-B surface, and every launched verifier condition. The exact paired sham in that context is the reference. A trajectory reused by T6/T7 or by multiple metrics is diagnosed once per unique run identity and the identical diagnostic record is referenced by every consumer; no extra simulation is created.",
+        "shared_T6_T7_record_identity": "For every exact T6/T7 reused trajectory, create one block record with canonical source target_id='T7'; T6 creates no duplicate block record and references it through downstream_consumer_ids. In Level A, phase index ii=00,...,07 uses condition_id LEVEL_A_T7_PHASE_INDEX_{ii} and run LA__LEVEL_A_T7_PHASE_INDEX_{ii}__{draw_id}__S{seed}; formal T6 phi=0 is ii=04. In the verifier, if the selected T6 phase has Level-A index ii, logical X3__T6__K00 references canonical condition_id X3__T7__K{ii} and run X3__T7__K{ii}__{draw_id}__S{seed}; the pre-existing phi=0 case is ii=04. Level-B T6 and T7 cells remain distinct even for identical waveforms because no_cell_deduplication is frozen. Condition-level T6 pools may read these canonical T7 block records but retain T6 as their downstream decision target.",
+        "target_and_off_target_rule": "For the target mapped to the condition, the two diagnostics are target-plausibility vetoes; for each of the other seven targets they are off-target vetoes. The algorithm, thresholds, pooling, and status are identical in both roles.",
+        "formal_and_descriptive_use": "The result is a mandatory noncompensatory validity gate for formal Level-A decisions, Level-B surface cells and policies, verifier 8x8 cells and rows, advancement, and C2 plausibility/off-target gates. Counts and rescale-only fraction are also reported descriptively, but descriptive reporting cannot clear a hard veto or missing diagnostic."
+      },
+      "paired_input_contract": {
+        "validation_order": [
+          "generate the expected intervention ID from its execution-context registry",
+          "resolve exactly one logical alias if applicable and one physical sham ID through PAIRED_SHAM_IDENTITY_REGISTRY_V5",
+          "validate draw, seed, initial state, duration, solver settings, OU innovations, and all-zero sham forcing",
+          "validate exact dtype, rank, shape, length, endianness, and C contiguity",
+          "hash both exact raw byte arrays",
+          "scan sham then intervention for the first nonfinite sample",
+          "only if all prior checks pass, compute moments"
+        ],
+        "source_signal": "For each run after the 30 s warmup, use the exact registered stored analysis arrays r_E_stored[n] and r_T_stored[n], n=0,...,35999, produced by storing every fifth internal state at analysis-relative internal index 5*n. Form x_raw[n]=float64((r_E_stored[n]+float64(0.25*r_T_stored[n]))/10.0) with multiplication, addition, then division in that order, before the common 180 s per-run centering and before filtering. This is the same precentered observation that enters the official common preprocessing. No filtered signal, envelope, state other than r_E/r_T, standardized array, truncated interval, or repository/R4 signal may substitute.",
+        "analysis_interval": "Exactly the full half-open analysis interval [0,180) s, 36000 stored samples; the 10 s detector edges are not removed for moment estimation.",
+        "pairing": "Resolve run_id_intervention through phase2a.paired_sham_identity_registry, never through waveform search. Require exactly one registered resolved physical sham run ID. Draw, seed, initial state, 210 s duration, solver settings, and complete OU innovation arrays must be byte-identical; the resolved sham must have all four forcing channels exactly zero. Context is identical for Level A and verifier; the sole context-label exception is the exact Level-B logical alias to its frozen cached Level-A physical sham. A registered Level-A zero/sham self-pair is permitted exactly for the seven listed self_pair_condition_ids. Zero or multiple registry resolutions, duplicate exact-ID records, forbidden self-pair, or any field/byte inequality is INVALID_PAIRING. A uniquely prescribed but absent/unreadable intervention or sham record/array is NOT_ESTIMABLE_INPUT. The presence of other all-zero trajectories is irrelevant.",
+        "dtype_shape": "Convert neither array: both must already be C-contiguous one-dimensional numpy arrays with dtype exactly numpy.dtype('<f8') and shape exactly (36000,). The frozen environment is little-endian; dtype, endianness, contiguity, rank, shape, or length mismatch is INVALID_INPUT_SCHEMA.",
+        "finite_rule": "Scan sham then intervention in ascending sample order using numpy.isfinite semantics. Any nonfinite input sample is INVALID_NONFINITE_INPUT, records the first failing role and index, makes the condition veto-equivalent, and prohibits moment calculation and all scientific use.",
+        "raw_integrity": "Record uppercase SHA-256 over the exact 36000*8 little-endian float64 bytes for each input. Re-encoding, rounding, clipping, detrending, interpolation, or standardization before hashing or moments is prohibited."
+      },
+      "moment_and_rescale_algorithm": {
+        "arithmetic": "IEEE-754 binary64, round-to-nearest ties-to-even, no fused multiply-add, extended precision, reassociation, parallel reduction, or compensated summation.",
+        "mean_formula": "For role q in {sham,intervention}, set s=float64(0). For n=0,...,35999 in ascending order set s=float64(s+x_q[n]); then mu_q=float64(s/36000.0).",
+        "population_variance_formula": "After mu_q is final, set w=float64(0). For n=0,...,35999 in ascending order set d=float64(x_q[n]-mu_q), z=float64(d*d), w=float64(w+z); then v_q=float64(w/36000.0). This is population variance with ddof=0.",
+        "moment_validation": "If any sum, mean, squared deviation, variance, quotient, scale, or output sample is nonfinite, status is INVALID_NUMERIC and veto-equivalent. If v_sham<0 or v_intervention<0, status is INVALID_NUMERIC. Exact equality v_sham==0.0 or v_intervention==0.0, including signed zero, is NOT_ESTIMABLE_ZERO_VARIANCE; no epsilon, variance floor, alternate normalization, or false-veto default is allowed.",
+        "scale_formula": "For strictly positive finite variances set ratio=float64(v_sham/v_intervention) and a=float64(sqrt(ratio)) using the correctly rounded binary64 square root; require a>0 and finite.",
+        "rescale_formula": "For n=0,...,35999 set d=float64(x_intervention[n]-mu_intervention), z=float64(a*d), and x_rescaled[n]=float64(mu_sham+z), in that operation order. Do not force the recomputed moments to equal the sham moments and do not post-correct residual rounding error.",
+        "postcondition": "Require all 36000 x_rescaled samples finite. Record their exact little-endian float64 SHA-256 and recompute/log mu_rescaled and v_rescaled with the same formulas for audit only; no tolerance check on those audit moments changes the detector path."
+      },
+      "detector_rerun_contract": {
+        "common_processing": "Submit sham, intervention, and rescaled intervention separately as the x input to observation_and_detector_contract.common_preprocessing without alteration: its existing per-run 180 s centering and filter_implementation are reused exactly for the 0.3-1.5 Hz and 11-16 Hz bands. The sequential moment means used to construct x_rescaled do not replace or modify the registered common-preprocessing centering. Filter full length once; then enforce stored retained interval (2000,34000) strictly as specified below.",
+        "official_table_integrity": "Rerun the frozen SO and spindle detector on sham and intervention. Each rerun canonical event table must deep-equal the corresponding official V5 event table. Inequality, missing official table, threshold-provenance mismatch, or alternate detector version is INVALID_DETECTOR_DRIFT and veto-equivalent. The rescaled table is diagnostic-only and never replaces an official scientific metric.",
+        "threshold_provenance": {
+          "SO": "Reuse fixed duration [0.4,2.5] s, minimum peak-to-peak 0.10 m.u., and maximum negative trough -0.04 m.u. from observation_and_detector_contract.T2_T3_SO_events. No calibration is performed.",
+          "SPINDLE": "Reuse the exact high and low constants already derived once from the paired sham by observation_and_detector_contract.T4_T5_spindle_events.threshold_calibration. Apply those same two binary64 constants unchanged to sham, intervention, and rescaled intervention; recalibration on either non-sham array is prohibited.",
+          "provenance_object": "For each event type build {event_type,paired_sham_run_id,sham_raw_sha256,filter_sos_coefficients_as_float64_hex,filter_contract_path,high_threshold_float64_hex_or_null,low_threshold_float64_hex_or_null,so_peak_to_peak_float64_hex_or_null,so_trough_float64_hex_or_null,duration_bounds_samples,retained_bounds_samples}. Encode the scipy-returned SOS matrix as a nested row-major array, preserving row and six-column order, with each coefficient from Python float.hex; encode every other non-null binary64 scalar the same way; duration and retained bounds are two-element JSON-integer arrays.",
+          "provenance_hash": "Serialize the provenance object with Python json.dumps(sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False), encode ASCII, compute uppercase SHA-256, and require one identical hash for all three detector reruns."
+        },
+        "SO_exact_comparators": "An upward crossing is sample c with y[c-1]<0.0 and y[c]>=0.0; there is no interpolation and equality at y[c]==0 is accepted. For successive crossings c0<c1, duration is c1-c0 samples and passes iff 80<=duration<=500. Use samples c0,...,c1 inclusive; the earliest sample attains each tied minimum or maximum. Retain iff peak_to_peak=max-min>=0.10 and min<=-0.04. Require 2000<c0<c1<34000 and both extrema indices strictly between 2000 and 34000. Threshold and duration equality pass.",
+        "SPINDLE_exact_comparators": "On finite RMS samples, a high crossing is h with rms[h-1]<high and rms[h]>=high. Extend left to the first sample a of the maximal contiguous run with rms>=low containing h and extend right to exclusive b immediately after that run. Merge two half-open intervals when next_a-current_b<=20 samples; equality at 20 merges. After all merges retain iff 60<=b-a<=400 and 2000<a<b<34000. Equality to high or low and either duration endpoint passes; equality to a retained boundary fails strict containment.",
+        "failure": "A filter exception, nonfinite filtered/RMS value in required support, absent threshold, malformed event interval, or event-table integrity difference is INVALID_DETECTOR and veto-equivalent; it is never reclassified as no event."
+      },
+      "canonical_event_and_matching_contract": {
+        "event_schema": "An SO row is {event_id,event_type,left_upcross_sample,right_upcross_sample,anchor_sample,amplitude_float64_hex}; anchor is the earliest minimum sample and amplitude is peak-to-peak. Sort SO rows by left_upcross_sample,right_upcross_sample,anchor_sample and assign event_id SO000001.... A spindle row is {event_id,event_type,onset_sample,offset_sample_exclusive,anchor_sample,amplitude_float64_hex}; anchor is the earliest maximum-RMS sample and amplitude is that RMS. Sort spindle rows by onset_sample,offset_sample_exclusive,anchor_sample and assign event_id SP000001.... No generic offset interpretation is shared across event types.",
+        "three_matches": "For each event type and block independently, match official intervention events to official sham events to obtain original ADDED events; match rescaled events to official sham events to obtain rescaled ADDED events; then match original ADDED events as left to rescaled ADDED events as right to obtain PERSISTENT events.",
+        "candidate_tolerance": "A pair is eligible iff abs(left.anchor_sample-right.anchor_sample)<=50 stored samples; equality at 50 passes and 51 fails.",
+        "greedy_tie_rule": "Enumerate eligible pairs and sort lexicographically by absolute anchor difference, left anchor, right anchor, left event_id, right event_id. Traverse once and accept only if neither event has been accepted before. Do not rematch or use amplitude, overlap, event type mixing, or random ties.",
+        "match_table_schema": "Each accepted match is {left_event_id,right_event_id,left_anchor_sample,right_anchor_sample,absolute_anchor_difference_samples}; preserve traversal order. Unmatched event IDs are sorted by their canonical event-table order."
+      },
+      "block_estimands": {
+        "counts": "For each event type record N_sham, N_intervention, N_rescaled; N_added_original is unmatched intervention count from intervention-vs-sham; N_added_rescaled is unmatched rescaled count from rescaled-vs-sham; N_persistent is accepted original-added-vs-rescaled-added count; N_rescale_only=N_added_original-N_persistent.",
+        "count_contrasts": "Delta_original=N_intervention-N_sham and Delta_rescaled=N_rescaled-N_sham, in events per 160 s retained interval. Density contrasts are 60*count/160 events/min and are descriptive exact transforms of these integers.",
+        "rescale_only_fraction": "If N_added_original>0, F_rescale_only=N_rescale_only/N_added_original; if N_added_original==0 it is null with reason NO_ADDED_EVENTS, never zero.",
+        "block_boolean": "block_rescale_only is true iff N_added_original>0, N_added_rescaled==0, N_persistent==0, and F_rescale_only==1.0 by exact integer equality; otherwise false for a VALID block."
+      },
+      "condition_pooling_and_decision": {
+        "pooling_unit": "Pool separately within the exact tuple (execution_context,target_id,condition_id,event_type) over complete paired draw-seed blocks in frozen draw-then-seed order. Never pool event types, targets, conditions, contexts, inactive policies, or formal and diagnostic contexts.",
+        "minimum_denominators": {
+          "LEVEL_A_WORKER": "at least 30 of 36 complete blocks, at least 5 distinct seeds, and at least 5 distinct parameter draws",
+          "LEVEL_B_SURFACE": "at least 10 of 12 complete blocks, at least 3 distinct seeds, and all 3 registered Level-B parameter draws",
+          "CROSS_TARGET_VERIFIER": "at least 20 of 24 complete blocks, at least 3 verifier seeds, and at least 5 parameter draws"
+        },
+        "pooled_estimands": "Sum every registered integer block count over complete blocks. If pooled N_added_original>0 set pooled_F_rescale_only=(pooled_N_added_original-pooled_N_persistent)/pooled_N_added_original; otherwise set it null with NO_ADDED_EVENTS. Also report the fraction of complete blocks with block_rescale_only=true; neither fraction is inferential.",
+        "hard_veto_threshold": "For an estimable condition/event-type tuple, status is HARD_VETO_RESCALE_ONLY iff pooled_N_added_original>0, pooled_N_added_rescaled==0, pooled_N_persistent==0, and pooled_F_rescale_only==1.0 by exact integer equality. This is the frozen all-added-events-vanish threshold; no tolerance, majority vote, confidence interval, or effect-size offset applies.",
+        "clear_statuses": "If pooled_N_added_original==0, status is NO_VETO_NO_ADDED_EVENTS. Otherwise, if the hard predicate is false, status is NO_VETO_PERSISTENT_OR_MIXED and the exact partial rescale-only counts remain a sensitivity diagnostic.",
+        "condition_veto": "A condition is hard-vetoed if either its SO tuple or spindle tuple is HARD_VETO_RESCALE_ONLY. INVALID input/numeric/detector status is veto-equivalent. NOT_ESTIMABLE is not coerced to false and prevents the condition and every dependent target, policy, surface, verifier cell/row, advancement decision, C2-G7, and C2-G8 from passing.",
+        "downstream_grade": "HARD_VETO_RESCALE_ONLY or any veto-equivalent INVALID status makes a dependent Level-A target Grade F and makes the corresponding Level-B or verifier condition unacceptable. A valid clear status merely removes this veto and cannot by itself establish benefit, Grade C, advancement, C1, or C2."
+      },
+      "missingness_and_fail_closed": {
+        "block_missing": "Exact zero variance in either finite paired trajectory is NOT_ESTIMABLE_ZERO_VARIANCE. A uniquely registry-prescribed intervention or sham record/array that is absent or unreadable is NOT_ESTIMABLE_INPUT. Identity/pairing disagreement is INVALID_PAIRING and dtype/shape/endianness/contiguity disagreement is INVALID_INPUT_SCHEMA; neither is downgraded to missing. No event-empty table may be fabricated for any unrun detector.",
+        "condition_missing": "After excluding only explicitly NOT_ESTIMABLE blocks, failure of the context minimum is NOT_ESTIMABLE_INSUFFICIENT_BLOCKS and hard_veto_boolean is null. It cannot pass any downstream noncompensatory gate. Do not borrow blocks, shorten the condition family, or impute counts.",
+        "invalid": "Any nonfinite raw value, nonfinite arithmetic, threshold drift, detector mismatch, malformed table, duplicate run identity, or fixture failure is INVALID and veto-equivalent for the affected scope; execution stops before claims are evaluated if the defect is systemic.",
+        "block_status_priority": "Apply the first applicable result in this order: INVALID_PAIRING or INVALID_INPUT_SCHEMA during registry/metadata/schema validation; NOT_ESTIMABLE_INPUT for a uniquely prescribed absent or unreadable input; INVALID_NONFINITE_INPUT for the first nonfinite raw sample; INVALID_NUMERIC for prohibited arithmetic; NOT_ESTIMABLE_ZERO_VARIANCE for exact finite zero variance; INVALID_THRESHOLD_DRIFT, INVALID_DETECTOR, or INVALID_DETECTOR_DRIFT during detector processing; otherwise VALID. No lower-priority status may replace a higher-priority failure.",
+        "condition_status_priority": "If any expected block has a status beginning INVALID_, no pooled clearance is evaluated; select the first such block in ordered_block_ids order and copy that block's exact INVALID_* status to the condition status. Otherwise exclude only NOT_ESTIMABLE blocks; if any context minimum fails, status is NOT_ESTIMABLE_INSUFFICIENT_BLOCKS. Otherwise pool valid blocks and assign HARD_VETO_RESCALE_ONLY if the hard predicate holds, else NO_VETO_NO_ADDED_EVENTS if pooled N_added_original=0, else NO_VETO_PERSISTENT_OR_MIXED. This order is final.",
+        "bootstrap_relationship": "The rescale veto itself is never bootstrapped. A missing or invalid veto diagnostic makes dependent scientific bootstrap components NOT_ESTIMABLE or INVALID before family construction. The frozen all-missing bootstrap convention and the sole T4 ZERO_ADDED_BOOTSTRAP exception remain unchanged and cannot clear this veto."
+      },
+      "uncertainty_and_multiplicity": {
+        "uncertainty": "No interval or p value is calculated for this deterministic artifact diagnostic; exact integer counts and Boolean/status are the registered result.",
+        "simultaneous_families": "The veto is not a member of F_TARGET_DECISIONS, F_LEVEL_B_SURFACES, F_CROSS_TARGET_8X8, or F_FORMAL_C2_INTERACTIONS and does not change their member counts, seeds, resampling, or quantiles.",
+        "holm": "The veto is not a Holm hypothesis and does not change family size or p-value ordering. It is evaluated before bands/Holm and is noncompensatory: no favorable interval or adjusted p can override it."
+      },
+      "required_logs_and_artifact_schema": {
+        "one_block_record_per": "(execution_context,target_id,condition_id,event_type,parameter_draw_id,seed), where target_id and condition_id follow application_domain.shared_T6_T7_record_identity for reused trajectories and otherwise identify the intervention/source row. downstream_consumer_ids contains all target/off-target consumers; do not duplicate a record merely because multiple consumers read the same trajectory. Emit the record even if pairing or computation fails.",
+        "block_id_formula": "RV5B::{execution_context}::{target_id}::{condition_id}::{event_type}::{parameter_draw_id}::S{seed}, using the exact registered strings and base-10 unpadded seed.",
+        "condition_record_id_formula": "RV5C::{execution_context}::{target_id}::{condition_id}::{event_type}.",
+        "block_required_fields": [
+          "schema_version",
+          "veto_id",
+          "block_id",
+          "run_id_intervention",
+          "run_id_sham",
+          "sham_logical_alias_or_null",
+          "paired_sham_registry_id",
+          "self_pair_boolean",
+          "execution_context",
+          "target_id",
+          "condition_id",
+          "downstream_consumer_ids",
+          "event_type",
+          "parameter_draw_id",
+          "seed",
+          "raw_shape",
+          "raw_dtype",
+          "sham_raw_sha256",
+          "intervention_raw_sha256",
+          "rescaled_raw_sha256_or_null",
+          "mu_sham_float64_hex",
+          "v_sham_float64_hex",
+          "mu_intervention_float64_hex",
+          "v_intervention_float64_hex",
+          "scale_float64_hex_or_null",
+          "mu_rescaled_float64_hex_or_null",
+          "v_rescaled_float64_hex_or_null",
+          "threshold_provenance_object",
+          "threshold_provenance_sha256",
+          "sham_event_table",
+          "intervention_event_table",
+          "rescaled_event_table",
+          "intervention_to_sham_match_table",
+          "rescaled_to_sham_match_table",
+          "original_added_to_rescaled_added_match_table",
+          "unmatched_event_id_arrays",
+          "integer_counts",
+          "density_contrasts_events_per_min",
+          "F_rescale_only_or_null",
+          "F_rescale_only_null_reason_or_null",
+          "block_rescale_only_or_null",
+          "status",
+          "reason_code_or_null",
+          "first_failing_field_or_null",
+          "block_record_payload_sha256"
+        ],
+        "condition_required_fields": [
+          "schema_version",
+          "veto_id",
+          "condition_record_id",
+          "execution_context",
+          "target_id",
+          "condition_id",
+          "event_type",
+          "ordered_block_ids",
+          "valid_complete_blocks",
+          "distinct_seed_count",
+          "distinct_draw_count",
+          "missing_block_ids_and_reasons",
+          "invalid_block_ids_and_reasons",
+          "pooled_integer_counts",
+          "pooled_F_rescale_only_or_null",
+          "pooled_F_rescale_only_null_reason_or_null",
+          "block_rescale_only_fraction_or_null",
+          "minimum_denominator_rule",
+          "minimum_denominator_pass",
+          "status",
+          "hard_veto_boolean_or_null",
+          "downstream_consumer_ids",
+          "condition_record_payload_sha256"
+        ],
+        "run_id_field_semantics": "run_id_sham is always the resolved physical sham run ID. sham_logical_alias_or_null is LEVEL_A_SHARED_SHAM::{draw_id}::S{seed} for T4 Level-A attribution rows, LEVEL_B_SHARED_SHAM::{draw_id}::S{seed} for every Level-B cell, and null otherwise. paired_sham_registry_id is always PAIRED_SHAM_IDENTITY_REGISTRY_V5. self_pair_boolean is true exactly for the seven registered Level-A self-pair condition IDs and false otherwise.",
+        "downstream_consumer_ids_semantics": "For every block and condition record, downstream_consumer_ids is exactly the eight-element array [\"T1\",\"T2\",\"T3\",\"T4\",\"T5\",\"T6\",\"T7\",\"T8\"] in application_domain.target_ids order. Every trajectory supplies every target/off-target metric; no consumer is omitted, duplicated, conditionally ordered, or added.",
+        "unmatched_event_id_arrays_schema": "When all three matches ran validly, unmatched_event_id_arrays is one JSON object with exactly six keys: intervention_to_sham_left_intervention_ids, intervention_to_sham_right_sham_ids, rescaled_to_sham_left_rescaled_ids, rescaled_to_sham_right_sham_ids, original_added_to_rescaled_added_left_original_added_ids, and original_added_to_rescaled_added_right_rescaled_added_ids. Each value is a JSON string array ordered by the corresponding source canonical event-table order; a genuine computed empty side is []. Object serialization uses sort_keys=True, so lexical key serialization is final. If matching did not run, the entire object is null under early_failure_null_rule, never an object containing fabricated empty arrays.",
+        "fraction_null_reason_semantics": "For a VALID computed block, F_rescale_only_null_reason_or_null is 'NO_ADDED_EVENTS' iff N_added_original=0 and is null otherwise. At condition level pooled_F_rescale_only_null_reason_or_null is 'NO_ADDED_EVENTS' iff the estimable pooled original-added count is zero and is null otherwise. If computation did not reach either denominator, both the fraction and its null-reason field are null under early_failure_null_rule.",
+        "condition_boolean_semantics": "hard_veto_boolean_or_null is true only for HARD_VETO_RESCALE_ONLY, false only for NO_VETO_NO_ADDED_EVENTS or NO_VETO_PERSISTENT_OR_MIXED, and null for any INVALID_* status or NOT_ESTIMABLE_INSUFFICIENT_BLOCKS. Every INVALID_* status remains veto-equivalent and is never rewritten as Boolean true or false.",
+        "condition_array_semantics": "ordered_block_ids contains every expected block_id in the context's frozen draw-major then seed-minor order. valid_complete_blocks is the JSON integer count of VALID block records. missing_block_ids_and_reasons and invalid_block_ids_and_reasons are arrays of objects with exactly block_id and reason_code, retained in ordered_block_ids order. A block ID occurs in exactly one of valid, missing, or invalid classification; the three counts must sum to the expected context total.",
+        "early_failure_null_rule": "Identity fields, downstream_consumer_ids, status, reason_code_or_null, and first_failing_field_or_null are always populated as specified. If failure occurs before any remaining required scalar, object, or array is computed, set each such uncomputed field to JSON null; never use zero, false, an empty object, or an empty array as a fabricated result. A detector that ran validly and found zero events emits a genuine empty event array and calculated zero counts, which is distinct from null. A later-stage failure preserves every already-computed field and sets only downstream uncomputed fields to null.",
+        "valid_reason_rule": "For a VALID block set status='VALID', reason_code_or_null=null, and first_failing_field_or_null=null. Every nonvalid block sets one exact nonnull reason and the first field or sample that triggered it. Condition clear/veto statuses use the exact condition_pooling_and_decision strings; their missing/invalid arrays carry reasons.",
+        "types_and_serialization": "IDs/reasons are strings; seeds/counts/sample indices are JSON integers; Booleans are JSON booleans; binary64 scalars are lowercase C99 hexadecimal strings produced by float.hex; hashes are uppercase hexadecimal. Sort event/match/block arrays by their registered order. JSON null follows early_failure_null_rule and explicit nullable field names. Serialize with UTF-8, sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False.",
+        "nonrecursive_hash_rule": "For a block, form a JSON object containing exactly every block_required_fields member except block_record_payload_sha256, serialize it by types_and_serialization, and set block_record_payload_sha256 to the uppercase SHA-256 of those bytes. For a condition record, analogously exclude only condition_record_payload_sha256 and hash all other required condition fields. The hash field itself and any enclosing filename/envelope are outside the hash domain; no unregistered field is permitted.",
+        "required_skip_log": "Every omitted or failed block emits its block record and exactly one reason code from NOT_ESTIMABLE_ZERO_VARIANCE, NOT_ESTIMABLE_INPUT, INVALID_INPUT_SCHEMA, INVALID_PAIRING, INVALID_NONFINITE_INPUT, INVALID_NUMERIC, INVALID_THRESHOLD_DRIFT, INVALID_DETECTOR, or INVALID_DETECTOR_DRIFT; silent skip is prohibited."
+      },
+      "preflight_fixture_binding": {
+        "path": "PROTOCOL/CANDIDATE_V5/rescale_event_veto_fixture_v5.json",
+        "sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "fixture_id": "PF_RESCALE_EVENT_VETO_FIXTURE_V5",
+        "pass_requirement": "Execute every primitive/oracle in its registered order and obtain exact deep equality. Any failure emits PF_RESCALE_EVENT_VETO_FAIL and stops before scientific Phase 2A.",
+        "evidence_role": "IMPLEMENTATION_PREFLIGHT_ONLY_NONSCIENTIFIC"
+      }
+    }
+  },
+  "compute_envelope": {
+    "campaign_total_cpu_hours": 180,
+    "phase2a_worker_cpu_hour_cap": 60,
+    "independent_verification_cpu_hours_reserved": 50,
+    "verification_reserve_worker_use": "PROHIBITED",
+    "level_a_maximum_runs": 1800,
+    "conditional_level_b_maximum_runs": 900,
+    "per_run_simulated_seconds": 210,
+    "storage_hard_stop_gib": 45,
+    "wall_clock_deadline": "2026-08-18T23:59:59-04:00",
+    "budget_stop": "Complete all eight Level A targets before any Level B surface; if 52 Phase2A worker CPU-hours are consumed, prohibit new Level B launches and reserve the remaining 8 hours for completion/checkpointing.",
+    "checkpoint": "Write an immutable result block after every target and seed-draw block; resume only byte-identical incomplete run identities; preserve valid negatives.",
+    "level_b_cell_count_by_target": {
+      "T1": 25,
+      "T2": 25,
+      "T3": 25,
+      "T4": 25,
+      "T5": 25,
+      "T6": 20,
+      "T7": 20,
+      "T8": 25
+    },
+    "conditional_level_b_run_formula": "12*(25*n25+20*n20), n25+n20<=3",
+    "phase2a_total_maximum_runs": 2700,
+    "maximum_simulated_seconds": 567000,
+    "maximum_internal_solver_intervals": 567000000,
+    "level_b_launch_budget_rule": "Before each selected target, reserve 12*cells(target) runs and projected CPU time. Launch only if the whole surface fits below the 60-hour Phase2A cap and 52-hour new-launch stop. Partial surfaces may complete after the stop but cannot be newly initiated.",
+    "cross_target_verifier_unique_runs": 456,
+    "cross_target_verifier_simulated_seconds": 95760,
+    "cross_target_verifier_internal_solver_intervals": 95760000,
+    "cross_target_verifier_cpu_budget": "Charged only to the independently reserved 50 verifier CPU-hours, never the 60 Phase2A worker-hour cap; launch only if all 456 unique runs fit the reserve.",
+    "maximum_registered_runs_including_cross_verifier": 3156,
+    "maximum_simulated_seconds_including_cross_verifier": 662760,
+    "maximum_internal_solver_intervals_including_cross_verifier": 662760000,
+    "cpu_cap_partition": "Phase2A worker execution including conditional Level B is capped at 60 CPU-hours; cross-target verification is capped by its separate 50 CPU-hour reserve; combined authorized compute under these partitions is <=110 CPU-hours and therefore <=180 campaign CPU-hours. No partition borrowing is allowed."
+  },
+  "verification": {
+    "required_for_any_reportable_diagnostic_support": true,
+    "verifier_inputs": [
+      "frozen protocol",
+      "immutable implementation hash",
+      "environment hash",
+      "seed list",
+      "parameter-draw manifest",
+      "metric definitions",
+      "expected schema"
+    ],
+    "verifier_seeds": [
+      77041,
+      88069,
+      99079,
+      111091
+    ],
+    "required_outputs": [
+      "NUMERIC_REPRODUCTION",
+      "PROCEDURAL_FIDELITY",
+      "SEED_PAIRING_AGREEMENT",
+      "DETECTOR_AGREEMENT",
+      "CLAIM_AGREEMENT",
+      "MATERIAL_DISAGREEMENT"
+    ],
+    "pass_rule": "VERIFIED and MATERIAL_DISAGREEMENT=false with exact protocol/input hashes; this can support only the non-transferable diagnostic ceiling."
+  },
+  "prohibited_actions": [
+    "access any R4 file or referenced artifact",
+    "access repository data, fitted parameters, scientific configuration, historical code, outputs, protected-derived, Night-2, sealed, fresh-final, or confirmatory material",
+    "tune equations, thresholds, grids, target priority, margins, or detectors after target outcomes are visible",
+    "call a fitted parameter perturbation an intervention",
+    "call generic forcing auditory-like stimulation",
+    "replace missing eligible subjects with synthetic draws",
+    "assign C1 or C2 to PHASE2_CONTROL_BENCH_V1",
+    "change the categorical R4 M1/C0/P0 substrate"
+  ],
+  "preserved_v2_repairs": [
+    "PF-B001",
+    "PF-B002",
+    "PF-B003",
+    "PF-B004",
+    "PF-B005"
+  ],
+  "preserved_v3_repairs": [
+    "PV2-B001",
+    "PV2-B002",
+    "PV2-B003",
+    "PV2-B004"
+  ],
+  "preserved_v4_repairs": [
+    "PV3-B001"
+  ],
+  "parent_freeze_binding": {
+    "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+    "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996"
+  },
+  "audit_receipt_binding": {
+    "path": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+    "sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A"
+  },
+  "parent_reaudit_binding": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+    "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496"
+  },
+  "parent_artifact_binding": {
+    "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+    "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7"
+  },
+  "protocol_route_version": "5.0.0"
+}

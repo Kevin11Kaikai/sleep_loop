@@ -1,0 +1,130 @@
+{
+  "schema_version": "3.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "freeze_id": "PHASE2_PROTOCOL_FREEZE_V3",
+  "frozen_at": "2026-08-16T14:07:55-04:00",
+  "frozen_by": "Root Orchestrator",
+  "scientific_outcomes_visible": false,
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "3.0.0",
+  "relationship_to_r4": "SEPARATE_CLEAN_ROOM_DIAGNOSTIC_NOT_THE_R4_M1_CANDIDATE",
+  "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER",
+  "lineage": {
+    "parent_freeze_path": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+    "parent_freeze_sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8",
+    "parent_failed_audit_path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+    "parent_failed_audit_sha256": "E61465D6357C411DB032AC8989695E1BE73CF04742E3467DBA1246E698975358",
+    "parent_stale_declaration_path": "GOVERNANCE/PROTOCOL_V2_STALE_DECLARATION.json",
+    "parent_stale_declaration_sha256": "ADD7B82FAB3198D7757159DD4F01516B0F238357C341A7A7D4E49DECBBED28B2",
+    "v2_scientific_evidence": "NONE",
+    "v2_preflight_executed": false
+  },
+  "prospective_repairs": {
+    "PV2-B001": "All Level-B second coordinates now have exact parameterized formulas, schedules, bounds, run identities, sham semantics, propagation rules, unique canonical phase grids, and target-specific cell counts.",
+    "PV2-B002": "Each target now has a deterministic condition score, worker-only policy object, multi-component aggregation, missingness and tie rules, and exact benefit/adverse members for all 64 cross-target cells.",
+    "PV2-B003": "T7 Fisher-Lee correlation, tracking error and separation are exact; all sign-flip, circular-permutation, finite-Monte-Carlo, generator, alternative, tail, missingness and Holm rules are frozen.",
+    "PV2-B004": "The mandatory T4 attribution preflight uses a bound self-contained deterministic fixture with exact inputs, expected outputs and failure comparison.",
+    "prefreeze_internal_review": [
+      "Cross-target policies are selected from Level-A worker data only and are independent of optional Level-B surfaces.",
+      "Cross-target block-to-median-to-benefit/adverse-to-mapping aggregation order is exact and retains T4 replica harm.",
+      "T8 adjacent-dose support and the global dose-order gate are exact.",
+      "The T4 fixture crossing oracle and packet-denominator missingness rules are internally consistent."
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "PROTOCOL/CANDIDATE_V3/control_target_registry.json",
+      "sha256": "0227843EA320CA272C2E3385AF3DB1332E8DAC32641793C36E1CDDF07CA71223"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V3/mechanistic_parameter_map.json",
+      "sha256": "36433E1ADFBB4DE78A52F4C3B01C6934E01D3F400220FB8AC354916974750A6C"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V3/phase2_protocol.json",
+      "sha256": "D901CA9ABD0F876268A24FD5C96F8F4FF7B0DAE2844560A44593C9592B8F6053"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V3/advancement_rule.json",
+      "sha256": "8C0879D1B4C0C4E1E1921ACF223C32F0D29AC12E513C9888287844620FED1E88"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V3/c2_gate_protocol.json",
+      "sha256": "F83CDA10944AACB0E86D44DE241CCEB57D2490AA50A1D89B57E7F780A10E683D"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V3/claim_registry.json",
+      "sha256": "5934AE57AE3B8262EA18101BF30654F7A0C9AD4682FAE60C2DAAE7BB743CFF3B"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V3/PREOUTCOME_DESIGN_MEMO.md",
+      "sha256": "6B563539966798064F3427A7DE112F28D743826FC4393BEB53C7A2F27C465FDB"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V3/t4_attribution_fixture_v3.json",
+      "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+    }
+  ],
+  "target_priority": {
+    "primary": ["T1", "T4", "T6"],
+    "secondary": ["T2", "T3", "T5", "T7"],
+    "exploratory": ["T8"]
+  },
+  "phase2a": {
+    "targets_required": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "level_a_maximum_runs": 1800,
+    "conditional_level_b_maximum_runs": 900,
+    "cross_target_verifier_unique_runs": 456,
+    "maximum_registered_runs_including_cross_verifier": 3156,
+    "advancement_cap": 3,
+    "outcome_access": "CLOSED_PENDING_INDEPENDENT_V3_FREEZE_AUDIT"
+  },
+  "phase2b": {
+    "status": "NOT_ESTIMABLE",
+    "minimum_certified_subjects": 3,
+    "eligible_certified_subjects": 0,
+    "advancing_targets": [],
+    "synthetic_substitution": "PROHIBITED"
+  },
+  "immutable_scientific_fields": [
+    "candidate identity and clean-room claim boundary",
+    "model equations, defaults, uncertainty draws and timebase",
+    "target identity, priority, observables, detectors and metrics",
+    "all Level-A and conditional Level-B interventions, formulas, schedules, grids, shams and run identities",
+    "comparators, estimands, target scores, policy objects and cross-target benefit/adverse scalars",
+    "practical margins, thresholds, denominators, uncertainty, randomization tests and multiplicity",
+    "stability, off-target, failure, advancement, grading and claim rules",
+    "causal scheduler, event matching, attribution fixture and missingness rules",
+    "simultaneous confidence families and cross-target aggregation order",
+    "Phase 2B denominator and C2-G1 through C2-G10"
+  ],
+  "change_control": {
+    "outcome_blind_preflight_repairs": "One initial data-free synthetic preflight followed by at most two bounded implementation/schema/shape repairs; no scientific field may change.",
+    "outcome_visible_change": "Requires a new scientific version and makes incompatible evidence stale.",
+    "repairs_consumed": 0,
+    "current_implementation_authorization": false,
+    "current_phase2a_outcome_authorization": false
+  },
+  "validation": {
+    "json_files_parsed": 7,
+    "targets": 8,
+    "required_target_fields_per_target": 33,
+    "c2_gates": 10,
+    "claims": 8,
+    "cross_target_members": 128,
+    "level_b_cell_counts": {
+      "T1": 25,
+      "T2": 25,
+      "T3": 25,
+      "T4": 25,
+      "T5": 25,
+      "T6": 20,
+      "T7": 20,
+      "T8": 25
+    },
+    "forbidden_placeholder_scan": "PASS",
+    "architect_stable_byte_subaudit": "PASS",
+    "independent_freeze_audit": "PENDING"
+  },
+  "status": "FROZEN_PREOUTCOME_IMPLEMENTATION_AND_OUTCOMES_DENIED_PENDING_INDEPENDENT_REAUDIT"
+}

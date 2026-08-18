@@ -1,0 +1,639 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_IMMUTABLE_PREOUTCOME_PROTOCOL_FREEZE_REAUDIT",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_package": "PROTOCOL_CANDIDATE_V4",
+  "protocol_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "4.0.0",
+  "audited_at": "2026-08-16T15:06:42.7780031-04:00",
+  "auditor_role": "INDEPENDENT_OUTCOME_BLIND_PROTOCOL_FREEZE_AUDITOR",
+  "overall_verdict": "PASS",
+  "implementation_release": "PASS_ELIGIBLE_FOR_ROOT_RELEASE_OF_OUTCOME_BLIND_IMPLEMENTATION_ONLY",
+  "data_free_preflight_release": "DENIED_AT_RECEIPT_TIME_PENDING_HASH_FROZEN_IMPLEMENTATION_AND_INDEPENDENT_CODE_AUDIT",
+  "phase2a_scientific_execution": "DENIED_PENDING_DATA_FREE_PREFLIGHT_PASS_DOWNSTREAM_IMMUTABLE_RECEIPTS_AND_ROOT_RELEASE",
+  "phase2b_scientific_execution": "NOT_ESTIMABLE_AND_DENIED_N0_MINIMUM3",
+  "protected_access": "NONE",
+  "scientific_outcomes": "NONE",
+  "audit_boundary": {
+    "campaign_root": "D:/Year3_Mao_Projects/sleep_loop/BigBang_Phase2/COSTA_PHASE2_FRESH_20260816_105951",
+    "exact_files_read": [
+      "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "PROTOCOL/CANDIDATE_V4/control_target_registry.json",
+      "PROTOCOL/CANDIDATE_V4/mechanistic_parameter_map.json",
+      "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "PROTOCOL/CANDIDATE_V4/advancement_rule.json",
+      "PROTOCOL/CANDIDATE_V4/c2_gate_protocol.json",
+      "PROTOCOL/CANDIDATE_V4/claim_registry.json",
+      "PROTOCOL/CANDIDATE_V4/PREOUTCOME_DESIGN_MEMO.md",
+      "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+      "PROTOCOL/PROTOCOL_FREEZE_V3.json",
+      "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V3.json",
+      "GOVERNANCE/PROTOCOL_V3_STALE_DECLARATION.json",
+      "COMMON/DATA_FEASIBILITY_RECEIPT.md",
+      "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json"
+    ],
+    "directory_enumeration": false,
+    "r4_or_historical_scientific_content_opened": false,
+    "repository_code_inspected": false,
+    "scientific_data_opened": false,
+    "scientific_execution_performed": false,
+    "protocol_or_state_modified": false,
+    "output_created": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json"
+  },
+  "input_integrity": {
+    "verdict": "PASS_14_OF_14_HASHES_AND_12_OF_12_JSON_DOCUMENTS",
+    "files": [
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+        "bytes": 5841,
+        "expected_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+        "actual_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/control_target_registry.json",
+        "bytes": 68113,
+        "expected_sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058",
+        "actual_sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/mechanistic_parameter_map.json",
+        "bytes": 32658,
+        "expected_sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013",
+        "actual_sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+        "bytes": 125576,
+        "expected_sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+        "actual_sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/advancement_rule.json",
+        "bytes": 8814,
+        "expected_sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086",
+        "actual_sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/c2_gate_protocol.json",
+        "bytes": 14927,
+        "expected_sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D",
+        "actual_sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/claim_registry.json",
+        "bytes": 42819,
+        "expected_sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F",
+        "actual_sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/PREOUTCOME_DESIGN_MEMO.md",
+        "bytes": 19794,
+        "expected_sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B",
+        "actual_sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+        "bytes": 7903,
+        "expected_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "actual_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V3.json",
+        "bytes": 6290,
+        "expected_sha256": "0FF4B771925FF942B10515384E923EB06649507EC4EE6FDB538C556FCB952412",
+        "actual_sha256": "0FF4B771925FF942B10515384E923EB06649507EC4EE6FDB538C556FCB952412",
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V3.json",
+        "bytes": 23963,
+        "expected_sha256": "7730B0DF0B5B87B7A6B49FD1DE2F02F7FE1A2D3C6413CD3DEDA78F9B72420C0D",
+        "actual_sha256": "7730B0DF0B5B87B7A6B49FD1DE2F02F7FE1A2D3C6413CD3DEDA78F9B72420C0D",
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V3_STALE_DECLARATION.json",
+        "bytes": 1442,
+        "expected_sha256": "CD7D09A492197A9CC921A9025F8C73E3AF675526F6D67D99A0C10ADABBA21ECC",
+        "actual_sha256": "CD7D09A492197A9CC921A9025F8C73E3AF675526F6D67D99A0C10ADABBA21ECC",
+        "verdict": "PASS"
+      },
+      {
+        "path": "COMMON/DATA_FEASIBILITY_RECEIPT.md",
+        "bytes": 6179,
+        "expected_sha256": "B85E5A3A21D10C523BAD707D6F034E3BEFD63EB5573FAC95FE9D1DDCDF855D2C",
+        "actual_sha256": "B85E5A3A21D10C523BAD707D6F034E3BEFD63EB5573FAC95FE9D1DDCDF855D2C",
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+        "bytes": 14848,
+        "expected_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+        "actual_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+        "verdict": "PASS"
+      }
+    ],
+    "manifest_binding": "PASS_ALL_EIGHT_V4_ARTIFACT_PATHS_AND_HASHES",
+    "json_validity": "PASS_12_OF_12",
+    "markdown_inputs": "PASS_2_OF_2_HASH_ONLY_AND_TEXTUAL_CONSISTENCY"
+  },
+  "lineage_verification": {
+    "verdict": "PASS",
+    "v4_freeze_id": "PHASE2_PROTOCOL_FREEZE_V4",
+    "v4_frozen_at": "2026-08-16T14:56:23-04:00",
+    "parent_v3_freeze_hash_match": true,
+    "parent_v3_failed_audit_hash_match": true,
+    "parent_v3_stale_declaration_hash_match": true,
+    "v3_preflight_executed": false,
+    "v3_scientific_evidence": "NONE",
+    "v4_scientific_outcomes_visible": false,
+    "v4_unrelated_scientific_fields_changed": false,
+    "finding_repaired_prospectively": "PV3-B001",
+    "stale_v3_not_released": true
+  },
+  "pv3_b001_closure": {
+    "finding_id": "PV3-B001",
+    "verdict": "PASS_CLOSED",
+    "summary": "The V4 protocol defines one canonical context-indexed T4 attribution table for every positive Level-A worker candidate, every positive conditional Level-B dose/carrier policy cell, and every possible selected positive Level-A verifier condition. Every C4, G4, F_auto, and F_replica reference resolves to exactly one registered row without cross-context borrowing.",
+    "table_id": "T4_ATTRIBUTION_DOMAIN_V4",
+    "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+    "join_key": [
+      "execution_context",
+      "dose_hz_equivalent",
+      "carrier_hz",
+      "repetition_hz"
+    ],
+    "join_invariants": {
+      "domain_row_ids_unique": true,
+      "four_field_join_keys_unique": true,
+      "zero_unresolved_candidates": true,
+      "zero_unregistered_extra_rows": true,
+      "sorted_context_projections_equal_candidate_arrays": true,
+      "zero_duplicate_matches": true,
+      "failure_behavior": "PF_T4_ATTRIBUTION_DOMAIN_FAIL_BEFORE_SCIENTIFIC_EXECUTION"
+    },
+    "domain_counts": {
+      "level_a_worker": 3,
+      "conditional_level_b": 10,
+      "cross_target_verifier_possible": 3,
+      "total": 16,
+      "formal_target_decision_rows": 1
+    },
+    "level_a_worker_rows": [
+      {
+        "domain_row_id": "T4_LA_WORKER_D0P50_FC13",
+        "join_key": ["LEVEL_A_WORKER", 0.5, 13, 0.85],
+        "policy_candidate_id": "LA_T4_D0P50",
+        "condition_id": "LEVEL_A_T4_DOSE_INDEX_04",
+        "paired_sham_id": "LEVEL_A_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+        "minimum_complete_blocks_seeds_draws": [30, 5, 5],
+        "N_added_minimum": 30,
+        "minimum_contributing_blocks": 10,
+        "bootstrap_family": "F_TARGET_DECISIONS_POLICY_DIAGNOSTIC_EXCLUDED_FROM_FORMAL_MAXIMUM",
+        "allowed_use": "LEVEL_A_POLICY_SELECTION_DIAGNOSTIC_ONLY",
+        "formal": false
+      },
+      {
+        "domain_row_id": "T4_LA_WORKER_D1P00_FC13",
+        "join_key": ["LEVEL_A_WORKER", 1.0, 13, 0.85],
+        "policy_candidate_id": "LA_T4_D1P00",
+        "condition_id": "LEVEL_A_T4_DOSE_INDEX_05",
+        "paired_sham_id": "LEVEL_A_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+        "minimum_complete_blocks_seeds_draws": [30, 5, 5],
+        "N_added_minimum": 30,
+        "minimum_contributing_blocks": 10,
+        "bootstrap_family": "F_TARGET_DECISIONS_POLICY_DIAGNOSTIC_EXCLUDED_FROM_FORMAL_MAXIMUM",
+        "allowed_use": "LEVEL_A_POLICY_SELECTION_DIAGNOSTIC_ONLY",
+        "formal": false
+      },
+      {
+        "domain_row_id": "T4_LA_WORKER_D1P50_FC13",
+        "join_key": ["LEVEL_A_WORKER", 1.5, 13, 0.85],
+        "policy_candidate_id": "LA_T4_D1P50",
+        "condition_id": "LEVEL_A_T4_DOSE_INDEX_06",
+        "paired_sham_id": "LEVEL_A_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+        "minimum_complete_blocks_seeds_draws": [30, 5, 5],
+        "N_added_minimum": 30,
+        "minimum_contributing_blocks": 10,
+        "bootstrap_family": "F_TARGET_DECISIONS_PCG64_860218",
+        "allowed_use": "SOLE_FORMAL_F_TARGET_DECISIONS_ATTRIBUTION_COMPARISON_AND_LEVEL_A_POLICY_SELECTION",
+        "formal": true
+      }
+    ],
+    "conditional_level_b_rows": [
+      {
+        "domain_row_id": "T4_LB_D0P75_FC11",
+        "join_key": ["LEVEL_B_SURFACE", 0.75, 11, 0.85],
+        "policy_candidate_id": "LB3_T4_R03_C00",
+        "condition_id": "LB3_T4_R03_C00"
+      },
+      {
+        "domain_row_id": "T4_LB_D0P75_FC12",
+        "join_key": ["LEVEL_B_SURFACE", 0.75, 12, 0.85],
+        "policy_candidate_id": "LB3_T4_R03_C01",
+        "condition_id": "LB3_T4_R03_C01"
+      },
+      {
+        "domain_row_id": "T4_LB_D0P75_FC13",
+        "join_key": ["LEVEL_B_SURFACE", 0.75, 13, 0.85],
+        "policy_candidate_id": "LB3_T4_R03_C02",
+        "condition_id": "LB3_T4_R03_C02"
+      },
+      {
+        "domain_row_id": "T4_LB_D0P75_FC14",
+        "join_key": ["LEVEL_B_SURFACE", 0.75, 14, 0.85],
+        "policy_candidate_id": "LB3_T4_R03_C03",
+        "condition_id": "LB3_T4_R03_C03"
+      },
+      {
+        "domain_row_id": "T4_LB_D0P75_FC15",
+        "join_key": ["LEVEL_B_SURFACE", 0.75, 15, 0.85],
+        "policy_candidate_id": "LB3_T4_R03_C04",
+        "condition_id": "LB3_T4_R03_C04"
+      },
+      {
+        "domain_row_id": "T4_LB_D1P50_FC11",
+        "join_key": ["LEVEL_B_SURFACE", 1.5, 11, 0.85],
+        "policy_candidate_id": "LB3_T4_R04_C00",
+        "condition_id": "LB3_T4_R04_C00"
+      },
+      {
+        "domain_row_id": "T4_LB_D1P50_FC12",
+        "join_key": ["LEVEL_B_SURFACE", 1.5, 12, 0.85],
+        "policy_candidate_id": "LB3_T4_R04_C01",
+        "condition_id": "LB3_T4_R04_C01"
+      },
+      {
+        "domain_row_id": "T4_LB_D1P50_FC13",
+        "join_key": ["LEVEL_B_SURFACE", 1.5, 13, 0.85],
+        "policy_candidate_id": "LB3_T4_R04_C02",
+        "condition_id": "LB3_T4_R04_C02"
+      },
+      {
+        "domain_row_id": "T4_LB_D1P50_FC14",
+        "join_key": ["LEVEL_B_SURFACE", 1.5, 14, 0.85],
+        "policy_candidate_id": "LB3_T4_R04_C03",
+        "condition_id": "LB3_T4_R04_C03"
+      },
+      {
+        "domain_row_id": "T4_LB_D1P50_FC15",
+        "join_key": ["LEVEL_B_SURFACE", 1.5, 15, 0.85],
+        "policy_candidate_id": "LB3_T4_R04_C04",
+        "condition_id": "LB3_T4_R04_C04"
+      }
+    ],
+    "conditional_level_b_common_row_terms": {
+      "paired_sham_id": "LEVEL_B_SHARED_SHAM::{parameter_draw_id}::S{seed}",
+      "minimum_complete_blocks_seeds_draws": [10, 3, 3],
+      "N_added_minimum": 30,
+      "minimum_contributing_blocks": 10,
+      "bootstrap_family": "F_LEVEL_B_SURFACES_PCG64_860220",
+      "allowed_use": "LEVEL_B_SURFACE_AND_POLICY_DIAGNOSTIC_ONLY",
+      "formal": false
+    },
+    "cross_target_verifier_possible_rows": [
+      {
+        "domain_row_id": "T4_XV_D0P50_FC13",
+        "join_key": ["CROSS_TARGET_VERIFIER", 0.5, 13, 0.85],
+        "policy_candidate_id": "LA_T4_D0P50",
+        "condition_id": "X3_T4_SELECTED_D0P50_FC13"
+      },
+      {
+        "domain_row_id": "T4_XV_D1P00_FC13",
+        "join_key": ["CROSS_TARGET_VERIFIER", 1.0, 13, 0.85],
+        "policy_candidate_id": "LA_T4_D1P00",
+        "condition_id": "X3_T4_SELECTED_D1P00_FC13"
+      },
+      {
+        "domain_row_id": "T4_XV_D1P50_FC13",
+        "join_key": ["CROSS_TARGET_VERIFIER", 1.5, 13, 0.85],
+        "policy_candidate_id": "LA_T4_D1P50",
+        "condition_id": "X3_T4_SELECTED_D1P50_FC13"
+      }
+    ],
+    "cross_target_verifier_common_row_terms": {
+      "paired_sham_id": "X3__SHAM__{parameter_draw_id}__S{seed}",
+      "intervention_run_id": "X3__T4__K00__{parameter_draw_id}__S{seed}",
+      "minimum_complete_blocks_seeds_draws": [20, 3, 5],
+      "N_added_minimum": 30,
+      "minimum_contributing_blocks": 10,
+      "bootstrap_family": "F_CROSS_TARGET_8X8_PCG64_860221_FOR_SELECTED_ROW",
+      "allowed_use": "POSSIBLE_SELECTED_LEVEL_A_POLICY_VERIFIER_DIAGNOSTIC_ONLY",
+      "inactive_status": "NOT_LAUNCHED_BY_POLICY",
+      "formal": false
+    },
+    "common_row_contract": {
+      "verdict": "PASS_ALL_16_ROWS_BIND_WITHOUT_OVERRIDE",
+      "packet_schedule": "p>=0; stored start s_p=floor(p*200/0.85+0.5); internal start j_p=30000+5*s_p; stored stop=s_p+100; retain exactly j_p+500<=210000; q[k;f_c]=0.5*(1-cos(2*pi*k/499))*0.5*(1+sin(2*pi*f_c*k/1000)) for k=0..499; positive rows emit u_T=d*q only",
+      "paired_sham": "Same execution context, parameter_draw_id, seed, initial state, 210 s duration, solver, and complete OU innovations byte-for-byte; sham has zero E/I/T/R forcing and supplies fixed detector thresholds",
+      "pooling_unit": "Exactly one domain_row_id across its valid complete paired blocks; no pooling across context, dose, carrier, repetition, inactive verifier alternatives, or formal/diagnostic rows",
+      "event_metrics": "N_added=count(ADDED); N_autonomous=count(AUTONOMOUS_PACKET_ASSOCIATED_ADDED); N_packet_replica=count(PACKET_REPLICA_ADDED); F_auto=N_autonomous/N_added; F_replica=N_packet_replica/N_added; UNASSOCIATED_ADDED remains denominator-only",
+      "missingness": "NOT_ESTIMABLE for N_added<30, fewer than 10 row-specific contributing blocks, absent or invalid paired sham, failed context-specific complete-pair minimum, or invalid required event/packet/crossing field; no substitution, borrowing, or cross-context pooling",
+      "bootstrap_zero_added": "Only after point-denominator passage, a registered resample with N_added=0 sets F_auto=0 and F_replica=1 and logs ZERO_ADDED_BOOTSTRAP with row, family, and replicate; it cannot rescue a failed point denominator",
+      "required_log_entries": 28,
+      "required_log_schema_complete": true,
+      "formal_scope": "Only T4_LA_WORKER_D1P50_FC13 contributes F_auto-0.50 to F_TARGET_DECISIONS; the overall density estimand remains +1.5 versus -1.5, while formal event attribution is +1.5 at 13 Hz versus its paired sham",
+      "classifier": "Earliest RMS-envelope maximum; all <=50-sample candidate pairs; frozen lexicographic greedy one-to-one match; unmatched intervention is ADDED; emitted-packet association; strict post-stop two-crossing 13..19-sample autonomous-cycle test"
+    },
+    "reference_resolution": {
+      "level_a_C4_G4_positive_candidates": "PASS_3_OF_3",
+      "level_b_C4_G4_positive_cells": "PASS_10_OF_10",
+      "cross_verifier_possible_positive_conditions": "PASS_3_OF_3_WITH_EXACTLY_ONE_RUNTIME_SELECTED",
+      "F_TARGET_DECISIONS": "PASS_SOLE_FORMAL_ROW_ONLY",
+      "F_LEVEL_B_SURFACES": "PASS_ALL_10_REGISTERED_POSITIVE_ROWS",
+      "F_CROSS_TARGET_8X8": "PASS_SELECTED_VERIFIER_ROW_ONLY",
+      "grade_C_advancement_C2_G5_C2_G8_and_claim_references": "PASS",
+      "unresolved_or_ambiguous_references": 0
+    }
+  },
+  "t4_fixture_independent_verification": {
+    "verdict": "PASS",
+    "fixture_id": "PF_T4_EVENT_ATTRIBUTION_FIXTURE_V3",
+    "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+    "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+    "v3_manifest_hash_identity": true,
+    "v4_manifest_and_all_internal_bindings_match": true,
+    "raw_expected_fixture_self_contained": true,
+    "independent_candidate_pair_order": [
+      "I1-S1-5",
+      "I4-S3-5",
+      "I2-S2-15",
+      "I3-S2-15",
+      "I6-S4-25"
+    ],
+    "independent_accepted_pairs": [
+      "I1-S1",
+      "I4-S3",
+      "I2-S2",
+      "I6-S4"
+    ],
+    "independent_rejected_pair": "I3-S2_SHAM_ALREADY_MATCHED",
+    "independent_added_events": ["I3", "I5", "I7"],
+    "independent_lost_events": ["S5"],
+    "tie_and_class_checks": [
+      "I3 selects P0 over P1 at equal distance and is PACKET_REPLICA_ADDED after crossings 320-340 and 340-360 fail the post-offset autonomous rule",
+      "I5 selects P2 and is AUTONOMOUS_PACKET_ASSOCIATED_ADDED from qualifying crossings 805-820",
+      "I7 is UNASSOCIATED_ADDED"
+    ],
+    "independent_counts": {
+      "candidate_pairs": 5,
+      "accepted_pairs": 4,
+      "added_events": 3,
+      "lost_events": 1,
+      "N_autonomous": 1,
+      "N_packet_replica": 1,
+      "F_auto": "1/3",
+      "F_replica": "1/3",
+      "denominator_status": "NOT_ESTIMABLE"
+    },
+    "comparison_contract": "PASS_EXACT_TYPES_ORDER_VALUES_AND_FULL_RAW_ROW_CONSUMPTION",
+    "evidence_role": "IMPLEMENTATION_PREFLIGHT_ONLY_NOT_SCIENTIFIC_EVIDENCE"
+  },
+  "prior_blocker_preservation_and_closure": {
+    "original_pf_blockers": [
+      {
+        "finding_id": "PF-B001",
+        "verdict": "PASS_PRESERVED",
+        "evidence": "Fixed causal filter, crossing and period rules, canonical forward-modulo phase, round-half-up quantization, one-sample latency, queue, overlap, boundary decisions, and parameterized packet tuple remain exact."
+      },
+      {
+        "finding_id": "PF-B002",
+        "verdict": "PASS_PRESERVED",
+        "evidence": "T8 retains six adjacent 25 s windows [15,40), [40,65), [65,90), [90,115), [115,140), and [140,165) with the compatible 5000-sample Welch estimator."
+      },
+      {
+        "finding_id": "PF-B003",
+        "verdict": "PASS_PRESERVED",
+        "evidence": "Unique Level-A and Level-B canonical phase grids execute both -pi/2 and +pi/2, retain -pi as the sole endpoint representative, and prohibit +pi."
+      },
+      {
+        "finding_id": "PF-B004",
+        "verdict": "PASS_PRESERVED",
+        "evidence": "Studentized max-absolute-deviation inference preserves paired hierarchical resampling, slack orientation, circular handling, scale floor, 9501st order statistic, seeds, missingness, and all four frozen families."
+      },
+      {
+        "finding_id": "PF-B005",
+        "verdict": "PASS_PRESERVED_AND_GENERALIZED_WITHOUT_CHANGING_FORMAL_SCOPE",
+        "evidence": "Peak timing, greedy one-to-one matching, packet association, autonomous-cycle classification, formal +1.5-at-13-Hz versus sham attribution denominator, bootstrap convention, and PASS/D/F/NOT_ESTIMABLE grading remain exact; V4 adds exact diagnostic context rows without expanding the sole formal comparison."
+      }
+    ],
+    "pv2_blockers": [
+      {
+        "finding_id": "PV2-B001",
+        "verdict": "PASS_CLOSED",
+        "evidence": "All eight conditional Level-B surfaces retain exact arrays, float64 formulas, schedules, shams, run identities, bounds, canonical grids, and 25/20 target-specific cell counts."
+      },
+      {
+        "finding_id": "PV2-B002",
+        "verdict": "PASS_FULLY_CLOSED_BY_V4",
+        "evidence": "All C_i/G_i, worker-only Level-A policy sources, missing/tie/aggregation rules, T4 row-specific fractions, and the 128 benefit/adverse family members are now executable and unambiguous."
+      },
+      {
+        "finding_id": "PV2-B003",
+        "verdict": "PASS_CLOSED",
+        "evidence": "T7 Fisher-Lee correlation, wrapped tracking error, -pi/2 versus +pi/2 separation, aggregation, PCG64 lifecycles, 100000-draw greater-tail and tie conventions, finite corrections, label permutation, and Holm rules remain exact."
+      },
+      {
+        "finding_id": "PV2-B004",
+        "verdict": "PASS_CLOSED",
+        "evidence": "The exact self-contained T4 raw/expected fixture, normalization, deep comparison, consumption, path-indexed error, and pre-science stop remain frozen and byte-bound."
+      }
+    ],
+    "pv3_blocker": {
+      "finding_id": "PV3-B001",
+      "verdict": "PASS_CLOSED",
+      "evidence": "All sixteen context-indexed T4 rows and every dependent cross-file reference are exact, complete, unique, and executable."
+    }
+  },
+  "registry_and_scope_checks": {
+    "verdict": "PASS",
+    "targets_exact": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "priority_split": {
+      "primary": ["T1", "T4", "T6"],
+      "secondary": ["T2", "T3", "T5", "T7"],
+      "exploratory": ["T8"]
+    },
+    "required_registry_fields": "PASS_ALL_33_MANDATED_FIELDS_ON_ALL_EIGHT_TARGETS",
+    "registry_field_counts": "37_EACH_EXCEPT_T4_38",
+    "placeholder_scan": "PASS_NONE",
+    "actionable_mapping": "PASS_EIGHT_TARGET_BINDINGS_TO_SEVEN_EXACT_GENERIC_EXTERNAL_FORCING_CHANNELS",
+    "mechanistic_status": "PASS_ALL_EIGHT_SENSITIVITY_ONLY",
+    "bounded_bidirectional_grids": "PASS",
+    "shams_comparators_estimands_margins_thresholds_denominators": "PASS",
+    "uncertainty_stability_off_target_multiplicity_failure_and_claim_fields": "PASS",
+    "human_or_r4_transfer": "NONE",
+    "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER"
+  },
+  "protocol_executability_checks": {
+    "verdict": "PASS",
+    "model_equations_defaults_units_and_uncertainty_draws": "PASS_EXACT_AND_CROSS_FILE_CONSISTENT",
+    "timebase_and_scheduler": "PASS_FLOAT64_200HZ_LEFT_ENDPOINT_HALF_OPEN_CAUSAL_AND_ONE_SAMPLE_LATENCY",
+    "detectors_observables_metrics_and_denominators": "PASS_ALL_EIGHT",
+    "level_a_policy_source": "PASS_LEVEL_A_WORKER_ONLY_FOR_ALL_EIGHT_TARGETS",
+    "level_a_candidate_selection": "PASS_EXACT_C_I_G_I_MISSINGNESS_TIES_AND_BLOCK_MEDIAN_FIRST_AGGREGATION",
+    "level_b_parameterization": {
+      "verdict": "PASS",
+      "targets_with_25_cells": ["T1", "T2", "T3", "T4", "T5", "T8"],
+      "targets_with_20_cells": ["T6", "T7"],
+      "all_row_column_arrays_parameterized_formulas_schedules_and_run_ids_exact": true,
+      "T4_positive_policy_cells_bound_to_rows": 10
+    },
+    "T7": {
+      "verdict": "PASS",
+      "fisher_lee_circular_correlation": "EXACT",
+      "wrapped_tracking_error": "EXACT",
+      "required_phase_separation": "-pi/2_VERSUS_+pi/2_PRESENT_AND_EXECUTED",
+      "canonical_phase_grid": "-pi_IS_SOLE_ENDPOINT_REPRESENTATIVE_AND_+pi_IS_PROHIBITED",
+      "randomization_and_holm_conventions": "EXACT"
+    },
+    "T8": {
+      "verdict": "PASS",
+      "windows": "SIX_ADJACENT_25_SECOND_HALF_OPEN_WINDOWS_FROM_15_TO_165_SECONDS",
+      "welch_window_samples": 5000,
+      "adjacency": "EXACT_FIXED_NEIGHBOR_RELATION_WITH_NO_MISSING_CELL_COMPRESSION",
+      "dose_order": "EXACT_FROZEN_ASCENDING_ORDER",
+      "persistence_and_metric_rules": "EXACT"
+    },
+    "simultaneous_uncertainty_families": "PASS_F_TARGET_DECISIONS_F_LEVEL_B_SURFACES_F_CROSS_TARGET_8X8_AND_PHASE2B_FAMILY",
+    "exact_tests_randomization_seeds_tail_ties_corrections_and_holm": "PASS",
+    "stability_broadband_off_target_and_artifact_vetoes": "PASS",
+    "failure_grading_and_claim_contracts": "PASS",
+    "internal_cross_references": "PASS_ZERO_DANGLING_OR_CONTRADICTORY_BINDINGS",
+    "unimplementable_specifications": "NONE_IDENTIFIED"
+  },
+  "policy_and_cross_target_checks": {
+    "verdict": "PASS",
+    "worker_only_level_a_policy_objects": 8,
+    "benefit_members": 64,
+    "adverse_members": 64,
+    "total_cross_target_members": 128,
+    "matrix_shape": "8x8_BENEFIT_PLUS_8x8_ADVERSE",
+    "member_ids_unique_and_complete": true,
+    "selected_policy_mapping": "PASS_EXACT_POSITIONAL_MAPPING_TO_REGISTERED_VERIFIER_CONDITION",
+    "aggregation": "PASS_PER_BLOCK_NORMALIZATION_THEN_BLOCK_MEDIAN_BEFORE_BENEFIT_ADVERSE_CONSTRUCTION",
+    "missingness": "PASS_NO_IMPUTATION_OR_RENORMALIZATION",
+    "T4_diagonal_and_off_diagonal_replica_terms": "PASS_SELECTED_T4_VERIFIER_ROW_ONLY",
+    "tie_rules": "PASS_EXACT_AND_TOTAL"
+  },
+  "run_and_compute_arithmetic": {
+    "verdict": "PASS",
+    "level_a_maximum_runs": 1800,
+    "conditional_level_b_maximum_runs": 900,
+    "cross_target_verifier_unique_runs": 456,
+    "maximum_registered_runs": 3156,
+    "identity": "1800+900+456=3156",
+    "verifier_run_identity_deduplication": "PASS_EXACT_456",
+    "compute_receipt": "PASS_HASH_BOUND_COMPUTE_BUDGET_REAUDIT_V3",
+    "cpu_partition_check": "PASS_60_PLUS_50_LESS_THAN_OR_EQUAL_TO_180",
+    "current_admission": "ONE_PROCESS_WITHIN_ENVELOPE",
+    "cross_partition_borrowing": "PROHIBITED",
+    "runtime_or_memory_measured_here": false,
+    "scientific_runs_executed_here": 0
+  },
+  "advancement_c2_phase2b_and_claim_checks": {
+    "verdict": "PASS",
+    "advancement_rule_frozen_preoutcome": true,
+    "advancement_cap": 3,
+    "current_advancing_targets": [],
+    "grading_ranking_tie_missingness_and_veto_rules": "PASS_EXACT",
+    "c2_gate_ids": ["C2-G1", "C2-G2", "C2-G3", "C2-G4", "C2-G5", "C2-G6", "C2-G7", "C2-G8", "C2-G9", "C2-G10"],
+    "c2_gate_count": 10,
+    "c2_cross_file_consistency": "PASS",
+    "phase2b_status": "NOT_ESTIMABLE",
+    "eligible_certified_subjects": 0,
+    "minimum_certified_subjects": 3,
+    "synthetic_substitution": "PROHIBITED",
+    "claims_count": 8,
+    "claims_status": "DESIGNED_NOT_EXECUTED",
+    "formal_claim_ceiling": "M1_C0_P0",
+    "personalization_or_human_claim_release": "DENIED"
+  },
+  "contradiction_hunt": {
+    "verdict": "PASS",
+    "blocking_findings": [],
+    "new_material_contradictions": [],
+    "new_unimplementable_specifications": [],
+    "unresolved_prior_findings": [],
+    "nonblocking_constraints": [
+      {
+        "constraint_id": "PV4-N001",
+        "detail": "Compute approval remains an envelope and arithmetic determination. Actual implementation runtime and memory remain untested because code inspection and execution were outside this protocol-only audit."
+      },
+      {
+        "constraint_id": "PV4-N002",
+        "detail": "The T4 fixture is implementation-preflight evidence only and supplies no scientific outcome evidence."
+      },
+      {
+        "constraint_id": "PV4-N003",
+        "detail": "This PASS establishes eligibility for Root to release outcome-blind implementation; it does not itself release code inspection, preflight, repository data, Phase2A outcomes, or Phase2B."
+      }
+    ]
+  },
+  "release_gate_verdicts": {
+    "protocol_freeze_v4": "PASS",
+    "outcome_blind_implementation": {
+      "verdict": "ELIGIBLE_FOR_ROOT_RELEASE",
+      "scope": "IMPLEMENT_THE_EXACT_HASH_BOUND_V4_PROTOCOL_WITHOUT_DATA_OR_OUTCOME_ACCESS",
+      "self_executing": false
+    },
+    "independent_code_audit": {
+      "verdict": "REQUIRED_NOT_PERFORMED",
+      "reason": "CODE_WAS_OUTSIDE_THIS AUDIT"
+    },
+    "data_free_synthetic_preflight": {
+      "verdict": "DENIED_AT_RECEIPT_TIME",
+      "prerequisites": [
+        "Outcome-blind implementation completed and hash-frozen",
+        "Independent code audit PASS",
+        "Root release limited to the one frozen data-free synthetic preflight and bounded implementation/schema/shape repair policy"
+      ]
+    },
+    "phase2a_scientific_execution": {
+      "verdict": "DENIED_AT_RECEIPT_TIME",
+      "prerequisites": [
+        "Data-free synthetic preflight PASS",
+        "All implementation and preflight receipts immutable and reconciled",
+        "Explicit Root Phase2A release under the frozen V4 hashes"
+      ]
+    },
+    "phase2b_scientific_execution": {
+      "verdict": "DENIED_NOT_ESTIMABLE",
+      "current_N": 0,
+      "minimum_N": 3,
+      "synthetic_substitution": "PROHIBITED"
+    }
+  },
+  "final_verdicts": {
+    "INPUT_HASHES": "PASS_14_OF_14",
+    "JSON_VALIDITY": "PASS_12_OF_12",
+    "FULL_PROTOCOL_FREEZE": "PASS",
+    "ORIGINAL_PF_B001_THROUGH_B005": "PASS_PRESERVED",
+    "PV2_B001_THROUGH_B004": "PASS_CLOSED",
+    "PV3_B001": "PASS_CLOSED",
+    "T4_ATTRIBUTION_ROWS": "PASS_16_OF_16",
+    "T4_FIXTURE": "PASS",
+    "IMPLEMENTATION_RELEASE": "ELIGIBLE_FOR_ROOT_RELEASE_OUTCOME_BLIND_ONLY",
+    "PREFLIGHT_RELEASE": "DENIED_PENDING_HASH_FROZEN_IMPLEMENTATION_AND_CODE_AUDIT",
+    "PHASE2A_OUTCOME_RELEASE": "DENIED_PENDING_PREFLIGHT_AND_ROOT_RELEASE",
+    "PHASE2B": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+    "PROTECTED_ACCESS": "NONE",
+    "SCIENTIFIC_OUTCOMES": "NONE"
+  },
+  "immutability": {
+    "this_receipt_is_immutable": true,
+    "protocol_files_modified": false,
+    "state_files_modified": false,
+    "code_files_modified": false,
+    "other_files_modified": false,
+    "self_hash_policy": "Receipt SHA-256 is computed and reported externally after the final byte is written; it is not recursively embedded."
+  }
+}

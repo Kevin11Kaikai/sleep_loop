@@ -1,0 +1,589 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "artifact_type": "NONHISTORICAL_DATA_AND_PARAMETER_EXACT_FILE_AUDIT_DECISIONS",
+  "auditor_identity": "/root/data_feasibility_audit",
+  "audited_at": "2026-08-16T12:05:10.1030343-04:00",
+  "authority_and_boundary": {
+    "candidate_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+    "additional_exact_dependency": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\manifest.csv",
+    "exact_candidate_file_count": 31,
+    "directory_enumeration_performed": false,
+    "manifest_references_followed": false,
+    "raw_psg_edf_or_hypnogram_opened": false,
+    "historical_campaign_or_r4_tree_opened": false,
+    "docs_outputs_validation_outputs_or_protected_payload_opened": false,
+    "scientific_code_imported_or_executed": false,
+    "parameter_values_or_outcome_values_released": false,
+    "state_modified": false,
+    "controls": [
+      {
+        "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\PROTECTED_DENYLIST.json",
+        "sha256": "AF3AA8AC66775885B09F47C425DE1BE3F515B877FD7DDDC44DCA32F1824EA060"
+      },
+      {
+        "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\NONHISTORICAL_METADATA_RELEASE.json",
+        "sha256": "10C372462C46BADDC6D4D31B52F45776E7D5BF33CE5F82E18635C1F44B376A5D"
+      },
+      {
+        "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\NONHISTORICAL_METADATA_CANDIDATES.json",
+        "sha256": "1EC2BE64605CFAB9DCD5D0B898BE0DD9F1E1975A03E9D3B1002C06328B4A5AEE"
+      },
+      {
+        "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\REPOSITORY_CODE_AUDIT_DECISIONS.json",
+        "sha256": "9E993DFFC656B9A6C1619E0B6BAA946C2F7A1576E263F2C7D1BFEFF1B4D0D9E7"
+      },
+      {
+        "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\COMMON\\VALUE_FREE_REPOSITORY_CAPABILITY_INVENTORY.json",
+        "sha256": "E89DDECF6ED40D566EFFBDCD9CDFCE3E9AC8AA9B12600F2C46E4F8CBF93B5D2E"
+      }
+    ]
+  },
+  "classification_definitions": {
+    "CLEAN_ALLOWLISTED": "Clean only for the stated narrow governance or feasibility purpose; it does not authorize scientific execution or transitive access.",
+    "QUARANTINED": "Contains subject-derived data, fitted parameters, search results, outcome metrics, or raw-data locators that cannot be released to scientific roles.",
+    "UNRESOLVED": "No decisive outcome contamination was found in the inspected metadata, but exact provenance or code-version linkage is absent.",
+    "DENIED": "Opening or using the exact file would necessarily consume a protected or excluded payload. No candidate exact file required this class; manifest-referenced payloads are separately denied and unopened."
+  },
+  "summary": {
+    "total": 31,
+    "by_class": {
+      "CLEAN_ALLOWLISTED": 1,
+      "QUARANTINED": 26,
+      "UNRESOLVED": 4,
+      "DENIED": 0
+    },
+    "clean_parameter_artifact_approved_for_bounded_execution": false,
+    "exact_generating_code_hash_linkage_established_for_any_parameter_artifact": false,
+    "raw_manifest_references": "DENIED_UNOPENED",
+    "scientific_role_file_access": "DENIED_FOR_ALL_31_FILES"
+  },
+  "common_role_guardrail": {
+    "permitted_roles": [
+      "Root Orchestrator",
+      "Independent Data Feasibility Auditor",
+      "Clean Governance Auditor"
+    ],
+    "scientific_role_status": "DENIED",
+    "common_prohibitions": [
+      "No raw-signal, EDF/PSG, hypnogram, or manifest-referenced path opening.",
+      "No parameter, score, metric, threshold, sweep result, or array-value disclosure to scientific roles.",
+      "No execution, model fitting, ranking, winner selection, or cleanliness/access inheritance.",
+      "No R4 identity or Night-1 status inference from filenames, subject suffixes, paths, or content similarity."
+    ]
+  },
+  "decisions": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\bifurcation_summary.json",
+      "sha256": "08420C292507611E617E252DB556DBCD079ABE155D99975C410C10A71F2083FD",
+      "size_bytes": 249,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local JSON with no embedded subject, source, generator path, or code hash; textually referenced by quarantined s5_bifurcation.py.",
+      "schema_or_shape": "Seven scalar fields comprising patient/default bifurcation inputs and summary outcomes; values withheld.",
+      "contamination": "Contains patient parameter values and prior bifurcation outcome summaries.",
+      "code_version_linkage": "Consumer/reference linkage only; exact generating-code linkage not established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, provenance, and contamination audit only.",
+      "prohibitions": ["No value disclosure, scientific interpretation, parameter adoption, or execution."],
+      "review_status": "COMPLETE_HASH_AND_BOUNDED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\cmat.npy",
+      "sha256": "FEAF3E1A304DDBD7D98E4D3531AE6C055A6DC9D3C329C8DAC589A517A10D7C19",
+      "size_bytes": 51328,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "UNRESOLVED",
+      "provenance": "Repository-local NPY; filename suggests a connectivity matrix, but no embedded source, subject, dataset, or code hash exists.",
+      "schema_or_shape": "NPY v1.0, little-endian float64, shape [80, 80], C order; values not inspected.",
+      "contamination": "Semantic/data-source provenance unresolved; no outcome content was established from the header.",
+      "code_version_linkage": "None established by the reviewed controls.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash and NPY-header feasibility audit only.",
+      "prohibitions": ["No array-value access, scientific use, execution, or provenance inference from filename."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\dmat.npy",
+      "sha256": "0947AA9FF72EFAD06C80E00293F13BD650F21228D95B87740B59CB675268A941",
+      "size_bytes": 51328,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "UNRESOLVED",
+      "provenance": "Repository-local NPY; filename suggests a distance matrix, but no embedded source, subject, dataset, or code hash exists.",
+      "schema_or_shape": "NPY v1.0, little-endian float64, shape [80, 80], C order; values not inspected.",
+      "contamination": "Semantic/data-source provenance unresolved; no outcome content was established from the header.",
+      "code_version_linkage": "None established by the reviewed controls.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash and NPY-header feasibility audit only.",
+      "prohibitions": ["No array-value access, scientific use, execution, or provenance inference from filename."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_n1.csv",
+      "sha256": "B2D490EEB0E039CCAC37FF91A05AC63FE587973D78A9E7BA80655906971AA280",
+      "size_bytes": 3190,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local subject-derived epoch-index table; no source dataset, night, split, generator, or code hash is embedded.",
+      "schema_or_shape": "Columns [subject_id, epoch_idx]; 296 rows; 10 unique subjects.",
+      "contamination": "Contains subject-specific sleep-stage-derived epoch indices.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject-count, and denominator feasibility audit only.",
+      "prohibitions": ["No epoch-index disclosure or scientific use; n1 is a stage-context token, not Night-1 certification."],
+      "review_status": "COMPLETE_HASH_AND_BOUNDED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_n2.csv",
+      "sha256": "49ED4E7DDEC187443B0DC97B182FF0A6D249EF68289BDBE5075346C631C200EE",
+      "size_bytes": 4649,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local subject-derived epoch-index table; no source dataset, night, split, generator, or code hash is embedded.",
+      "schema_or_shape": "Columns [subject_id, epoch_idx]; 429 rows; 10 unique subjects.",
+      "contamination": "Contains subject-specific sleep-stage-derived epoch indices.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject-count, and denominator feasibility audit only.",
+      "prohibitions": ["No epoch-index disclosure or scientific use; n2 is a stage-context token, not Night-2 certification or Night-2 access."],
+      "review_status": "COMPLETE_HASH_AND_BOUNDED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_n3.csv",
+      "sha256": "5ADF066FADF899F940EF3BEBA95D45AE8F4FF8B3A5A760BEF37C60753FA6E89C",
+      "size_bytes": 3028,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local subject-derived epoch-index table; no source dataset, night, split, generator, or code hash is embedded.",
+      "schema_or_shape": "Columns [subject_id, epoch_idx]; 280 rows; 10 unique subjects.",
+      "contamination": "Contains subject-specific sleep-stage-derived epoch indices.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject-count, and denominator feasibility audit only.",
+      "prohibitions": ["No epoch-index disclosure or scientific use; n3 is a stage-context token, not a night identifier."],
+      "review_status": "COMPLETE_HASH_AND_BOUNDED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_rem.csv",
+      "sha256": "FE31711729A335811003CD27B2F24554C78129C701FEA13CFD2EB082AF754CCE",
+      "size_bytes": 1556,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local subject-derived REM epoch-index table; no source dataset, night, split, generator, or code hash is embedded.",
+      "schema_or_shape": "Columns [subject_id, epoch_idx]; 148 rows; 10 unique subjects.",
+      "contamination": "Contains subject-specific sleep-stage-derived epoch indices.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject-count, and denominator feasibility audit only.",
+      "prohibitions": ["No epoch-index disclosure or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_BOUNDED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_wake.csv",
+      "sha256": "04E6DE7D3B450DF0CCE436BA2878B349D23FDCDB21743F21F749C77A977BC7DE",
+      "size_bytes": 805,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local subject-derived wake epoch-index table; no source dataset, night, split, generator, or code hash is embedded.",
+      "schema_or_shape": "Columns [subject_id, epoch_idx]; 75 rows; 10 unique subjects.",
+      "contamination": "Contains subject-specific sleep-stage-derived epoch indices.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject-count, and denominator feasibility audit only.",
+      "prohibitions": ["No epoch-index disclosure or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_BOUNDED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params.json",
+      "sha256": "32C22493F41F308F26595CDB92E21FDA3E6D7329E120DC29FDBCA5DABC761772",
+      "size_bytes": 262,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Embedded subject_id SC4001; no source dataset, night, generator path, or generating-code hash; textually referenced by quarantined s5_bifurcation.py.",
+      "schema_or_shape": "Six fitted parameter fields plus fit/outcome and denominator metadata; values withheld.",
+      "contamination": "Contains fitted parameters and prior fit/outcome metadata.",
+      "code_version_linkage": "No exact generating-code linkage; byte-identical to patient_params_SC4001.json.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject identity, duplicate detection, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_SC4001.json",
+      "sha256": "32C22493F41F308F26595CDB92E21FDA3E6D7329E120DC29FDBCA5DABC761772",
+      "size_bytes": 262,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Embedded subject_id SC4001; no source dataset, night, generator path, or generating-code hash; textually consumed by quarantined S6/S7 code.",
+      "schema_or_shape": "Six fitted parameter fields plus fit/outcome and denominator metadata; values withheld.",
+      "contamination": "Contains fitted parameters and prior fit/outcome metadata.",
+      "code_version_linkage": "No exact generating-code linkage; byte-identical to patient_params.json.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject identity, duplicate detection, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_SC4001.json",
+      "sha256": "E9241739979C167909C909F253B17B3939A8862AAAB22F2A84B9242479DD80D7",
+      "size_bytes": 461,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Embedded subject_id SC4001; no night, source dataset, generator path, or generating-code hash; consumer references are quarantined.",
+      "schema_or_shape": "Eight fitted parameter fields plus score, spectral outcome, denominator, and method fields; values withheld.",
+      "contamination": "Contains fitted parameters and prior objective/outcome metrics.",
+      "code_version_linkage": "No exact generating-code linkage; filename lineage is not provenance.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject identity, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v1_0418_2_SC4001.json",
+      "sha256": "A1FB2FC6ECAA9093E48C6DC420CD406B59732FF3562444C79D5BAADD61CBAE96",
+      "size_bytes": 430,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Embedded subject_id SC4001; version/date tokens occur only in the filename; no generator path or code hash; consumer references are quarantined.",
+      "schema_or_shape": "Eight fitted parameter fields plus score, spectral outcome, denominator, and method fields; values withheld.",
+      "contamination": "Contains fitted parameters and prior objective/outcome metrics.",
+      "code_version_linkage": "Filename-only lineage; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject identity, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v2_SC4001.json",
+      "sha256": "BF4F9CA638AFA45EA191B1A4452D2A5C72B8B58FDB4BB32B898D60BA071ACF6B",
+      "size_bytes": 508,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Embedded subject_id SC4001 and version token v2; no night, source dataset, generator path, or generating-code hash; consumer reference is quarantined.",
+      "schema_or_shape": "Eight fitted parameter fields plus objective, spectral/dynamics outcomes, denominator, method, and version fields; values withheld except non-sensitive identity/version metadata.",
+      "contamination": "Contains fitted parameters and prior objective/outcome metrics.",
+      "code_version_linkage": "Embedded version label is not an exact code hash or generator provenance.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, subject identity, version-label, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v3_SC4001.json",
+      "sha256": "342C07A705E79FC8F89CBDD58BC834146961E75CDC4221447386787065E56B8D",
+      "size_bytes": 784,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "SC4001 and v3 occur only in the filename; the JSON has no embedded subject, source dataset, generator path, version, or code hash; consumer references are quarantined.",
+      "schema_or_shape": "Eight fitted parameter fields plus objective, penalty, dynamics, constraint, and evaluation outcomes; values withheld.",
+      "contamination": "Contains fitted parameters, objective-shaping terms, and prior outcome/constraint metrics.",
+      "code_version_linkage": "Filename-only lineage; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, filename-identity limitation, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, identity inference beyond filename, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v4_SC4001.json",
+      "sha256": "9AB638353F0FEA8A0F3A15FB35C9FBE5B5296D2A89093DCF4B63C35B5DED71BA",
+      "size_bytes": 685,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "SC4001 and v4 occur only in the filename; the JSON has no embedded subject, source dataset, generator path, version, or code hash.",
+      "schema_or_shape": "Eight fitted parameter fields plus objective, feasibility, constraint, spectral, and evaluation outcomes; values withheld.",
+      "contamination": "Contains fitted parameters and prior feasibility/outcome metrics.",
+      "code_version_linkage": "Filename-only lineage; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, filename-identity limitation, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, identity inference beyond filename, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v4b_SC4001_0418.json",
+      "sha256": "7930791D2873824796B1EC052F5C341BC26BF11C3B19F33320D6CD155DDB2EBC",
+      "size_bytes": 745,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "SC4001, v4b, and date-like tokens occur only in the filename; the JSON has no embedded subject, source dataset, generator path, version, or code hash.",
+      "schema_or_shape": "Eight fitted parameter fields plus objective, feasibility, constraint, spectral, event, and evaluation outcomes; values withheld.",
+      "contamination": "Contains fitted parameters and prior feasibility/outcome metrics.",
+      "code_version_linkage": "Filename-only lineage; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, filename-identity limitation, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, identity inference beyond filename, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v5_SC4001.json",
+      "sha256": "72F5C8CDF94B1BF7658874F011A06F74B31624BE4DB616E3B66C6285AFAE5A87",
+      "size_bytes": 855,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "SC4001 and v5 occur only in the filename; the JSON has no embedded subject, source dataset, generator path, version, or code hash.",
+      "schema_or_shape": "Eight fitted parameter fields plus objective, feasibility, T1-T11, spectral/event, and evaluation outcomes; values withheld.",
+      "contamination": "Contains fitted parameters and prior feasibility/outcome metrics.",
+      "code_version_linkage": "Filename-only lineage; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, filename-identity limitation, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, identity inference beyond filename, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v6_SC4001.json",
+      "sha256": "F9BDBF9FF1DAE08C83DE1177776040EDB2FC618B893089CC7450DD6091FC9ACF",
+      "size_bytes": 915,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "SC4001 and v6 occur only in the filename; the JSON has no embedded subject, source dataset, generator path, version, or code hash.",
+      "schema_or_shape": "Eight fitted parameter fields plus objective, feasibility, T1-T12, spectral/event, and evaluation outcomes; values withheld.",
+      "contamination": "Contains fitted parameters and prior feasibility/outcome metrics.",
+      "code_version_linkage": "Filename-only lineage; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, filename-identity limitation, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, identity inference beyond filename, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v7_SC4001.json",
+      "sha256": "DAF6A2006BAF10E06EE6DF359D0621D473832DF964295BA7CE72EC2C036871B9",
+      "size_bytes": 921,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "SC4001 and v7 occur only in the filename; the JSON has no embedded subject, source dataset, generator path, version, or code hash; consumer references are quarantined.",
+      "schema_or_shape": "Eight fitted parameter fields plus objective, feasibility, T1-T12, spectral/event, and evaluation outcomes; values withheld.",
+      "contamination": "Contains fitted parameters and prior feasibility/outcome metrics.",
+      "code_version_linkage": "Filename and consumer-reference lineage only; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, filename-identity limitation, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, identity inference beyond filename, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v8_SC4001.json",
+      "sha256": "575B56B5265CDA3515CB80777799A49A6872DD264BA83AE85706339ED721A493",
+      "size_bytes": 1146,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "SC4001 and v8 occur only in the filename; the JSON has no embedded subject, source dataset, generator path, version, or code hash; consumer references are quarantined.",
+      "schema_or_shape": "Eight fitted parameter fields plus objective, feasibility, T1-T13, spectral/event, and evaluation outcomes; values withheld.",
+      "contamination": "Contains fitted parameters and prior feasibility/outcome metrics from an outcome-guided quarantined lineage.",
+      "code_version_linkage": "Filename and consumer-reference lineage only; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, filename-identity limitation, and provenance audit only.",
+      "prohibitions": ["No parameter/value disclosure, identity inference beyond filename, execution, adoption, ranking, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_n1.npy",
+      "sha256": "1479745B9C888AE6D39026DD6B5F9DEFDC2A16E2877406D9F4CE67BA0071DB36",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local stage-labelled spectral array; no embedded subject, dataset, night, generator, or code hash.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "Data-derived spectral content with unresolved aggregation and provenance.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash and array-header feasibility audit only.",
+      "prohibitions": ["No array-value access or scientific use; n1 is a sleep-stage context token, not Night-1 certification."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_n2.npy",
+      "sha256": "059E3D28FCFAD03DD48F9A2A53ED9FF9FC6157065C55DBD9E5BBC9DD1E246A17",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local stage-labelled spectral array; no embedded subject, dataset, night, generator, or code hash.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "Data-derived spectral content with unresolved aggregation and provenance.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash and array-header feasibility audit only.",
+      "prohibitions": ["No array-value access or scientific use; n2 is a sleep-stage context token, not Night-2 certification or access."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_n3.npy",
+      "sha256": "47B4B00B7CBB70D54E1F1DFB87FF5E00E8B2098AA2AB37A151FFC3113F5CA438",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local stage-labelled spectral array; no embedded subject, dataset, night, generator, or code hash.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "Data-derived spectral content; byte-identical to target_psd.npy, establishing aliasing but not clean provenance.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, array-header, and exact-duplicate feasibility audit only.",
+      "prohibitions": ["No array-value access or scientific use; n3 is a sleep-stage context token, not a night identifier."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_rem.npy",
+      "sha256": "DF64A550D0B4D6B645474173962880686FA83838E2BF70999811FE06EB611D85",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local REM-labelled spectral array; no embedded subject, dataset, night, generator, or code hash.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "Data-derived spectral content with unresolved aggregation and provenance.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash and array-header feasibility audit only.",
+      "prohibitions": ["No array-value access or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_wake.npy",
+      "sha256": "7E215F0536F74A67116F5602F690755DCE2E44A4F1C378C6598612C4B1F36281",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local wake-labelled spectral array; no embedded subject, dataset, night, generator, or code hash.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "Data-derived spectral content with unresolved aggregation and provenance.",
+      "code_version_linkage": "None established.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash and array-header feasibility audit only.",
+      "prohibitions": ["No array-value access or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs.npy",
+      "sha256": "DE4C3E386F835F8A9CBC388A3173BB487E95C7E28A1A4175D1CAA4D567C28602",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "UNRESOLVED",
+      "provenance": "Repository-local frequency-axis candidate; no embedded dataset, subject, generator, or code hash.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "No outcome content established from the header, but exact method provenance is absent.",
+      "code_version_linkage": "Textual consumer reference from quarantined code only; byte-identical to target_freqs_SC4001.npy.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, array-header, and exact-duplicate feasibility audit only.",
+      "prohibitions": ["No array-value access, method adoption, execution, or scientific use pending provenance resolution."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs_SC4001.npy",
+      "sha256": "DE4C3E386F835F8A9CBC388A3173BB487E95C7E28A1A4175D1CAA4D567C28602",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "UNRESOLVED",
+      "provenance": "Repository-local frequency-axis candidate with SC4001 only in filename; no embedded subject, dataset, generator, or code hash.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "No outcome content established from the header, but exact method and subject provenance are absent.",
+      "code_version_linkage": "Textual consumer reference from unresolved code only; byte-identical to target_freqs.npy.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, array-header, filename-identity limitation, and exact-duplicate feasibility audit only.",
+      "prohibitions": ["No array-value access, identity inference beyond filename, method adoption, execution, or scientific use pending provenance resolution."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_psd.npy",
+      "sha256": "47B4B00B7CBB70D54E1F1DFB87FF5E00E8B2098AA2AB37A151FFC3113F5CA438",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local target spectral array; no embedded subject, dataset, night, generator, or code hash.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "Data-derived model target; byte-identical to psd_n3.npy.",
+      "code_version_linkage": "No exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, array-header, and exact-duplicate feasibility audit only.",
+      "prohibitions": ["No array-value access, target use, fitting, execution, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_psd_SC4001.npy",
+      "sha256": "388BCD97CCD3FC88D84FC4F763C8C66E01F9CFDD89F6A7458897B460E085D705",
+      "size_bytes": 2496,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local target spectral array with SC4001 only in filename; no embedded subject, dataset, night, generator, or code hash; textually referenced by unresolved/quarantined code.",
+      "schema_or_shape": "NPY v1.0, float64, shape [296]; values not inspected.",
+      "contamination": "Subject-labelled data-derived model target with unresolved exact provenance.",
+      "code_version_linkage": "Consumer/reference linkage only; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, array-header, filename-identity limitation, and provenance audit only.",
+      "prohibitions": ["No array-value access, identity inference beyond filename, target use, fitting, execution, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_HEADER_ONLY_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\thalamus_sweep_3d.csv",
+      "sha256": "2FA8860271DC75B87B67337797A4EF6539B4C814DD4734343BD1FDC456991412",
+      "size_bytes": 228387,
+      "source_group": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "class": "QUARANTINED",
+      "provenance": "Repository-local sweep table textually referenced by quarantined s4_0_isolated_thalamus_sweep.py; no embedded generator hash or source provenance.",
+      "schema_or_shape": "CSV with 19 columns and 1125 rows; columns include grid/parameter coordinates, event counts, spectral/PAC/rate outcomes, pass flag, and failure reason; values withheld.",
+      "contamination": "Parameter sweep results, outcome metrics, pass/failure status, and selection-relevant evidence.",
+      "code_version_linkage": "Consumer/reference linkage only; no exact generating-code linkage.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor"],
+      "permitted_purpose": "Hash, schema, row-count, provenance, and contamination audit only.",
+      "prohibitions": ["No value disclosure, ranking, parameter-region adoption, threshold use, execution, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_VALUE_SUPPRESSED_SCHEMA_REVIEW"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\manifest.csv",
+      "sha256": "1F3A08E8F93EB2BDC6EB4B55AFC0FE67435910DCE7DEE02609B2B8B66CEE9569",
+      "size_bytes": 15030,
+      "source_group": "CODE_DISCOVERED_EXACT_DEPENDENCY",
+      "class": "CLEAN_ALLOWLISTED",
+      "provenance": "Exact dependency identified by CLEAN_ALLOWLISTED tests/conftest.py; repository-local manifest with no embedded dataset source, public/development certification, night, split, license, generator, or code hash.",
+      "schema_or_shape": "Columns [subject_id, psg_path, hypnogram_path]; 153 rows and 153 unique subject IDs. Raw locator values are suppressed and were not followed.",
+      "contamination": "Contains locators to raw PSG and hypnogram payloads; those referenced payloads remain denied. No fitted parameter or outcome columns were present.",
+      "code_version_linkage": "Exact consumer linkage to tests/conftest.py SHA256 D55E748CE6C8E0AC8C8DFA2EA7640A48573ECFA02B8C82F2FCD62BC6DB8BAF69; this is not generator or data-provenance certification.",
+      "permitted_roles": ["Root Orchestrator", "Independent Data Feasibility Auditor", "Clean Governance Auditor", "Repository Input Auditor"],
+      "permitted_purpose": "Subject-ID, schema, row-count, and dependency-presence audit only; release only sanitized availability metadata.",
+      "prohibitions": ["Do not disclose or follow psg_path/hypnogram_path values; no raw-data existence check, Night-1 inference, public/development certification inference, execution, or scientific use."],
+      "review_status": "COMPLETE_HASH_AND_SANITIZED_METADATA_REVIEW"
+    }
+  ],
+  "cross_file_findings": {
+    "sleep_stage_context": "The parallel exact sets epochs_[n1,n2,n3,rem,wake].csv and psd_[n1,n2,n3,rem,wake].npy, together with the absence of any night column, establish n1/n2/n3 as sleep-stage labels in this local context. They do not certify recording nights.",
+    "exact_duplicate_payloads": [
+      {
+        "sha256": "32C22493F41F308F26595CDB92E21FDA3E6D7329E120DC29FDBCA5DABC761772",
+        "paths": [
+          "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params.json",
+          "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_SC4001.json"
+        ]
+      },
+      {
+        "sha256": "DE4C3E386F835F8A9CBC388A3173BB487E95C7E28A1A4175D1CAA4D567C28602",
+        "paths": [
+          "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs.npy",
+          "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs_SC4001.npy"
+        ]
+      },
+      {
+        "sha256": "47B4B00B7CBB70D54E1F1DFB87FF5E00E8B2098AA2AB37A151FFC3113F5CA438",
+        "paths": [
+          "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_n3.npy",
+          "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_psd.npy"
+        ]
+      }
+    ],
+    "personalized_parameter_artifacts": {
+      "exact_files": 12,
+      "distinct_sha256_payloads": 11,
+      "subjects_explicitly_embedded": ["SC4001"],
+      "subjects_present_only_in_filename_tokens": ["SC4001"],
+      "clean_for_execution": 0,
+      "winner_selected": false
+    },
+    "certification": {
+      "explicitly_public_development_night1_subjects_or_artifacts": 0,
+      "reason": "No inspected exact file contains an authoritative public/development designation plus a Night-1 field or certification. Subject suffixes, filenames, and manifest path strings are not certification."
+    },
+    "r4_candidate_identity": {
+      "exact_match_possible_without_inference": false,
+      "reason": "No R4 candidate identifier, exact R4 source path, or approved R4-to-current hash binding appears in the inspected controls or exact data metadata. R4 trees were not opened or searched."
+    },
+    "phase_2b_multi_subject_feasibility": {
+      "can_meet_minimum_without_prohibited_access": false,
+      "reason": "The current clean release provides a 153-subject index and a 10-subject stage-denominator subset, but only one subject token is represented by personalized parameter artifacts, none is clean for execution, and no subject is explicitly certified public/development Night-1. Producing additional personalized models would require denied raw PSG/hypnogram access or a new clean external release."
+    }
+  },
+  "final_status": "COMPLETE_EXACT_FILE_DATA_FEASIBILITY_AUDIT_NO_SCIENTIFIC_EXECUTION_RELEASE"
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "roles": [
+    {
+      "agent_id": "/root/costa_campaign_root_r4",
+      "role": "Campaign Root Orchestrator and Governance Steward",
+      "context_source": "fresh R4 execution brief plus user-supplied protocol",
+      "allowed_paths": [
+        "COSTA_MVP_FRESH_R4_20260816_023933",
+        "exact audited import candidates",
+        "two explicit Night-1 files",
+        "editable neurolib runtime closure"
+      ],
+      "prohibited_paths": [
+        "Night-2",
+        "protected-derived",
+        "sealed/fresh-final",
+        "R1/R2/R3 outcomes/reports/state/narratives",
+        "RUN_V2_002 outputs",
+        "failed DATA_STEWARD adapter"
+      ],
+      "prior_scientific_outcome_exposure": "none disclosed",
+      "conflicts": ["cannot author production scientific adapter", "cannot serve as data steward, scientific worker, or independent M1 verifier"],
+      "started_at": "2026-08-16T02:39:33-04:00",
+      "status": "COMPLETED",
+      "completed_at": "2026-08-16T13:47:33.9322821Z",
+      "outcome": "governance-only orchestration and terminal closeout completed"
+    },
+    {
+      "agent_id": "/root/costa_campaign_root_r4/r4_clean_import_auditor",
+      "role": "Historical Import Auditor",
+      "context_source": "fork_turns=none; exact file-level import brief",
+      "allowed_paths": ["twelve exact outer-manifest candidates"],
+      "prohibited_paths": ["Night-2", "protected-derived", "sealed/fresh-final", "R3 results/reports/state/narratives", "RUN outputs", "DATA_STEWARD"],
+      "prior_scientific_outcome_exposure": "none",
+      "conflicts": ["cannot build, execute, or verify M1"],
+      "status": "COMPLETED",
+      "verdict": "seven-file selective subset clean; outer execution bundle rejected"
+    },
+    {
+      "agent_id": "/root/costa_campaign_root_r4/r4_clean_builder",
+      "role": "Clean Fresh Adapter and Runner Builder",
+      "context_source": "fork_turns=none; frozen R4-local builder specification",
+      "allowed_paths": ["R4 root", "seven R4-local imported inputs"],
+      "prohibited_paths": ["all R3 paths", "raw EDF data", "Night-2", "protected-derived", "sealed/fresh-final", "outcomes/reports/state/narratives"],
+      "prior_scientific_outcome_exposure": "none",
+      "conflicts": ["cannot act as data steward, scientific worker, verifier, or claim certifier"],
+      "status": "COMPLETED",
+      "outcome": "24/24 data-free adapter tests passed; one outcome-blind path-guard repair"
+    },
+    {
+      "agent_id": "/root/costa_campaign_root_r4/r4_partition_steward",
+      "role": "Clean Partition and Data Steward",
+      "context_source": "fork_turns=none; immutable pre-raw freeze",
+      "allowed_paths": ["R4 frozen code/governance", "two exact SC4001 Night-1 EDF files", "RUNS/STEWARD_WORKER"],
+      "prohibited_paths": ["Night-2", "protected-derived", "sealed/fresh-final", "R1/R2/R3", "scientific ranking or interpretation"],
+      "prior_scientific_outcome_exposure": "none",
+      "conflicts": ["cannot select candidate, evaluate heldout claim, verify, or certify"],
+      "status": "COMPLETED",
+      "outcome": "official identity match; disjoint FIT/HELDOUT payloads produced"
+    },
+    {
+      "agent_id": "/root/costa_campaign_root_r4/r4_scientific_worker",
+      "role": "Isolated M1 Scientific Worker",
+      "context_source": "fork_turns=none; frozen R4 code/data/claim packet",
+      "allowed_paths": ["R4 frozen code/governance", "steward role payloads in fixed order", "worker output directories"],
+      "prohibited_paths": ["original EDF", "Night-2", "protected-derived", "sealed/fresh-final", "R1/R2/R3", "SCRATCH root drafts"],
+      "prior_scientific_outcome_exposure": "none before execution",
+      "conflicts": ["cannot independently verify, adversarially certify, or assign final claim"],
+      "status": "COMPLETED",
+      "outcome": "G1-G6 worker PASS; G7 NOT_RUN; claim pending verification"
+    },
+    {
+      "agent_id": "/root/costa_campaign_root_r4/r4_independent_verifier",
+      "role": "Fresh Independent M1 Verifier",
+      "context_source": "fork_turns=none; outcome-blind frozen specification packet",
+      "allowed_paths": ["frozen R4 spec/code/env/input", "two exact Night-1 EDFs for one reserved MNE read each", "verifier outputs", "worker outputs only after independent freeze"],
+      "prohibited_paths": ["worker narrative before preinterpretation/independent run", "Night-2", "protected-derived", "sealed/fresh-final", "R1/R2/R3", "SCRATCH root drafts"],
+      "prior_scientific_outcome_exposure": "none disclosed at start",
+      "conflicts": ["cannot repair, advocate, or assign final claim"],
+      "status": "COMPLETED",
+      "outcome": "G7 VERIFIED; exact numerical/split/baseline reproduction; material disagreement false"
+    },
+    {
+      "agent_id": "/root/costa_campaign_root_r4/r4_adversarial_judge",
+      "role": "Fresh Adversarial Reviewer and Final M1 Eligibility Judge",
+      "context_source": "fork_turns=none; frozen standardized evidence",
+      "allowed_paths": ["R4 frozen governance/code", "standardized worker and verifier evidence", "access/freeze ledgers"],
+      "prohibited_paths": ["original EDF", "Night-2", "protected-derived", "sealed/fresh-final", "R1/R2/R3", "SCRATCH root drafts", "repairs"],
+      "prior_scientific_outcome_exposure": "none before standardized evidence review",
+      "conflicts": [],
+      "status": "COMPLETED",
+      "outcome": "zero material findings; M1 eligible; protected access PASS_NONE; narrow-scope MVP PASS recommended"
+    },
+    {
+      "agent_id": "/root/costa_campaign_root_r4/r4_human_review_packager",
+      "role": "Fresh Human Review Packager",
+      "context_source": "fork_turns=none; standardized final evidence only",
+      "allowed_paths": ["R4 standardized governance/worker/verifier/adversarial/judgment artifacts", "HUMAN_REVIEW output"],
+      "prohibited_paths": ["raw EDF", "Night-2", "protected-derived", "sealed/fresh-final", "R1/R2/R3", "SCRATCH", "scientific reinterpretation"],
+      "prior_scientific_outcome_exposure": "standardized final evidence only",
+      "conflicts": ["cannot change judgment or claim assignment"],
+      "status": "COMPLETED",
+      "completed_at": "2026-08-16T13:47:33.9322821Z",
+      "outcome": "24-file HUMAN_REVIEW package produced and independently validated"
+    }
+  ]
+}

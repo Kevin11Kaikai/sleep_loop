@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "discovery_release": {
+    "path": "GOVERNANCE/NONHISTORICAL_METADATA_RELEASE.json",
+    "sha256": "10C372462C46BADDC6D4D31B52F45776E7D5BF33CE5F82E18635C1F44B376A5D"
+  },
+  "discovery_method": "Exact-root existence checks followed by path-only ripgrep enumeration with case-insensitive protected-name pruning; no file content was read and no candidate file was hashed.",
+  "repository_root": "D:\\Year3_Mao_Projects\\sleep_loop",
+  "default_status": "PENDING_INDEPENDENT_AUDIT",
+  "access_inheritance": "NONE",
+  "cleanliness_inheritance": "NONE",
+  "groups": [
+    {
+      "group_id": "DOCUMENTATION_AND_ENVIRONMENT",
+      "permitted_audit_purpose": "repository context and dependency inventory",
+      "paths": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\README.md",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\requirements.txt"
+      ]
+    },
+    {
+      "group_id": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "permitted_audit_purpose": "identify canonical personalized model, simulator interface, observation operator, and control interfaces without adopting prior results",
+      "paths": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s3_sleep_kernel.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_0_isolated_thalamus_sweep.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_0b_verify_golden_point.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_0c_diagnose_v6_hotspots.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_0d_scan_c_th2ctx_sweetspot.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v2.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v3.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v4.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v4_improve.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v4_improve_v2.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v5.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v6.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v7.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s5_bifurcation.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s6_baseline_check.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s6_decision_check.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s6_rl_env.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s7_sac_train.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s8_sac_iterate.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\scripts\\hce_shift_finite_checks.py"
+      ]
+    },
+    {
+      "group_id": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "permitted_audit_purpose": "identify executable schemas, detectors, observation operators, stochasticity, and numerical contracts",
+      "paths": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\conftest.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_compute_fitness_v3.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_epoch_boundaries.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_loading.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_plots.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_schema.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_pyloric_inspired_observation.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_seed_reproducibility.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_spindles.py"
+      ]
+    },
+    {
+      "group_id": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "permitted_audit_purpose": "identify reusable metric implementations while quarantining embedded prior outcomes or outcome-chosen thresholds",
+      "paths": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\compute_pac_metrics_fixed.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\run_so_waveform_canonicalV1.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\t5_deconfound.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\test_surrogate_zscore_pac.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_compute_pac_metrics_fixed.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_so_waveform_heldout.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_spindle_density_confirm.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_spindle_density_heldout.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_t6_mi_eeg_native.py"
+      ]
+    },
+    {
+      "group_id": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "permitted_audit_purpose": "value-free identification of existing T1-T6 control/sensitivity functionality; direct scientific-role access denied unless independently cleared",
+      "paths": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\analyze_v8a_relaxed_t6_sensitivity.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\analyze_v8a_tradeoff.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\audit_v1_v3_v7_t12.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\diagnose_v8a_t6_t13_coupling_sweep.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\local_de_v8a_t6_rescue_long.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\local_de_v8a_t6_rescue_narrow.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\local_search_v8a_ultra_narrow_t6_t13.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\plot_figure10_inspired_validation_panel.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\plot_v8a_0712_best0417_figures.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\plot_v8a_0712_heldout_spindle_density.py",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\sweep_v8a_coupling_tradeoff_long.py"
+      ],
+      "scientific_role_default": "DENY"
+    },
+    {
+      "group_id": "DATA_AND_PARAMETER_METADATA_ONLY",
+      "permitted_audit_purpose": "data-feasibility and provenance audit only; no raw-data or scientific-role opening",
+      "paths": [
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\bifurcation_summary.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\cmat.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\dmat.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_n1.csv",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_n2.csv",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_n3.csv",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_rem.csv",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\epochs_wake.csv",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v1_0418_2_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v2_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v3_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v4_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v4b_SC4001_0418.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v5_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v6_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v7_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\patient_params_fig7_v8_SC4001.json",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_n1.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_n2.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_n3.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_rem.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\psd_wake.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs_SC4001.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_psd.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_psd_SC4001.npy",
+        "D:\\Year3_Mao_Projects\\sleep_loop\\data\\thalamus_sweep_3d.csv"
+      ],
+      "scientific_role_default": "DENY",
+      "raw_data_authorized": false
+    }
+  ],
+  "excluded_metadata_paths": [
+    "data parameter-copy filenames containing noncanonical duplicate suffixes",
+    "valid_scripts/validation_outputs",
+    "all docs and outputs",
+    "all historical campaign trees",
+    "all protected-denylist matches"
+  ],
+  "created_at": "2026-08-16T11:40:00-04:00",
+  "status": "FROZEN_PENDING_INDEPENDENT_AUDIT"
+}

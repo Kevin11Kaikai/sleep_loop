@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "freeze_id": "PHASE2_PROTOCOL_FREEZE_V1",
+  "frozen_at": "2026-08-16T12:34:00-04:00",
+  "frozen_by": "Root Orchestrator",
+  "scientific_outcomes_visible": false,
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "relationship_to_r4": "SEPARATE_CLEAN_ROOM_DIAGNOSTIC_NOT_THE_R4_M1_CANDIDATE",
+  "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER",
+  "artifacts": [
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/control_target_registry.json",
+      "sha256": "5DD2CBC3FB4EE0BA3F980F063B9A87056359A94A387286B3C1FFFB2040E68CEA"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/mechanistic_parameter_map.json",
+      "sha256": "FCAD91DA91B8B3957D215DF7340097FF1F4006E4F5A18DF04FAC4310F4BF2ECA"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/phase2_protocol.json",
+      "sha256": "0FE4136754B52EB5D516C26F80FE3991F4F9B09207A9B7D8418E10B2D45C6C10"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/advancement_rule.json",
+      "sha256": "B391622DFC308B53108080958DD01973CDC2B4CF02903F30E05B157104F4B643"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/c2_gate_protocol.json",
+      "sha256": "41CDE3295F0761524BA4ED2B0C3FF60126A6D56287F1D513DE9AABA825D49388"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/claim_registry.json",
+      "sha256": "6DEBABFF5A48B1B36B3D073D602667B88DE8FDE2163291DCE65F4B4C9AFD42A8"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/PREOUTCOME_DESIGN_MEMO.md",
+      "sha256": "72EFFF7265EB969CB30B255716D79E37B883EF8FF98CF5B620F5B2214BA3BF77"
+    }
+  ],
+  "target_priority": {
+    "primary": ["T1", "T4", "T6"],
+    "secondary": ["T2", "T3", "T5", "T7"],
+    "exploratory": ["T8"]
+  },
+  "phase2b": {
+    "status": "NOT_ESTIMABLE",
+    "minimum_certified_subjects": 3,
+    "eligible_certified_subjects": 0,
+    "advancing_targets": [],
+    "synthetic_substitution": "PROHIBITED"
+  },
+  "immutable_scientific_fields": [
+    "candidate identity",
+    "model equations, defaults, uncertainty draws, and timebase",
+    "target identity and priority",
+    "observable, detector, and metric implementation",
+    "intervention, mapping, range, dose grid, baseline, and sham",
+    "comparators and estimands",
+    "practical margins, thresholds, denominators, uncertainty, and multiplicity",
+    "stability, off-target, failure, advancement, grading, and claim rules",
+    "Phase 2B denominator and C2-G1 through C2-G10"
+  ],
+  "change_control": {
+    "outcome_blind_preflight_repairs": "At most two bounded implementation/schema/shape repairs; scientific fields remain unchanged.",
+    "outcome_visible_change": "Requires a new scientific version and makes incompatible evidence stale.",
+    "current_phase2a_outcome_authorization": false
+  },
+  "validation": {
+    "json_files_parsed": 6,
+    "targets": 8,
+    "c2_gates": 10,
+    "claims": 8,
+    "forbidden_placeholder_scan": "PASS",
+    "independent_freeze_audit": "PENDING_AFTER_EXECUTABLE_PREFLIGHT"
+  },
+  "status": "FROZEN_PREOUTCOME_EXECUTABLE_IMPLEMENTATION_AUTHORIZED_OUTCOMES_CLOSED"
+}

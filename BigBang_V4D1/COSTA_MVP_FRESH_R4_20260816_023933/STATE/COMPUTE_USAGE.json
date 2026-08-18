@@ -1,0 +1,52 @@
+{
+  "schema": "COSTA_R4_COMPUTE_USAGE_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "closed_at": "2026-08-16T13:47:33.9322821Z",
+  "frozen_budget": {
+    "total_cpu_hours": 2.0,
+    "total_gpu_hours": 0.0,
+    "verification_reserve_cpu_hours": 0.5,
+    "verification_fraction": 0.25,
+    "repair_cycles_maximum": 2
+  },
+  "observed_usage": {
+    "gpu_hours": 0.0,
+    "repair_cycles_used": 1,
+    "repair_cycles_remaining": 1,
+    "worker_command_attempts": {
+      "synthetic_m1": 1,
+      "select_fit": 1,
+      "evaluate_heldout": 1
+    },
+    "worker_tool_wall_seconds": {
+      "synthetic_m1": 11.234,
+      "select_fit": 2.36,
+      "evaluate_heldout": 2.41,
+      "known_worker_total": 16.004
+    },
+    "builder_adapter_tests": {
+      "tests_passed": 24,
+      "tests_failed": 0,
+      "final_run_count": 1
+    },
+    "verifier_attempts": {
+      "steward": 1,
+      "synthetic": 1,
+      "fit": 1,
+      "heldout": 1
+    },
+    "raw_logical_operations": {
+      "PSG": 3,
+      "Hypnogram": 3,
+      "status": "EXHAUSTED_CLOSED"
+    }
+  },
+  "total_cpu_usage_accounting": {
+    "exact_total_instrumented": false,
+    "reason": "not every orchestration, steward, and verifier command recorded process CPU time or wall-clock timestamps",
+    "budget_assessment": "WITHIN_FROZEN_2_CPU_HOUR_BUDGET",
+    "evidence_basis": "all bounded commands completed without timeout; known worker wall time was 16.004 seconds; no retries or scientific repair followed outcome access"
+  },
+  "budget_breach": false,
+  "scientific_change_after_outcome": false
+}

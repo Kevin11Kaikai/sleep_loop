@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "phase": "2A",
+  "phase2b_executed": false,
+  "execution_started": true,
+  "status": "COMPLETE",
+  "pid": 17792,
+  "started_utc": "2026-08-17T14:42:47.858150+00:00",
+  "planned_simulations": 27,
+  "completed_simulations": 27,
+  "candidate": "V1_ACCESSIBLE_FROZEN_DEVELOPMENT_CANDIDATE_NOT_ASSERTED_AS_M1",
+  "prohibited_payloads_used": false,
+  "log_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2A_MVP_FAST_20260817_104026\\RUN_LOG.txt",
+  "last_completed": {
+    "seed": 33013,
+    "dose_mV_per_ms": 0.05,
+    "utc": "2026-08-17T14:45:44.406844+00:00"
+  },
+  "completed_utc": "2026-08-17T14:45:44.883348+00:00",
+  "numerically_stable_simulations": 27
+}

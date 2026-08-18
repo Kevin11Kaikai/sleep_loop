@@ -1,0 +1,6 @@
+{
+  "decision": "NO_VALID_R4_PID_BASELINE",
+  "source": "prior C006 controller MVP negative result",
+  "pid_rerun": false,
+  "limitation": "本MVP未获得有效PID baseline，因此无法完成与有效PID的正式性能比较。"
+}

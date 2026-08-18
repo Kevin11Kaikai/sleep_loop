@@ -1,0 +1,40 @@
+{
+  "registry_id": "COSTA_TC_V2_CLAIMS",
+  "status": "FROZEN",
+  "primary": {
+    "claim_id": "M1",
+    "population_id": "P0",
+    "reproduction_tier": "INDEPENDENT_REPRODUCTION",
+    "text": "In the eventual prespecified one-subject P0 empirical evaluation, a candidate selected using that subject's Night-1 N3 FIT epochs predicts disjoint Night-1 N3 HELDOUT comparison features better than the frozen matched nonpersonalized candidate.",
+    "phase_1_status": "NOT_TESTED_EMPIRICALLY",
+    "phase_1_interpretation": "Synthetic preflight validates identifiability and execution contracts only; it supplies no evidence for M1 in humans or recordings. The eventual one-subject result cannot establish population generalization."
+  },
+  "optional": {
+    "claim_id": "C1",
+    "text": "Bidirectional coupling ablation has registered synthetic specificity and may be evaluated later as a secondary mechanistic contrast.",
+    "confirmatory": false,
+    "phase_1_status": "SYNTHETIC_INTERFACE_ONLY"
+  },
+  "comparators": [
+    {"id": "MATCHED_NONPERSONALIZED", "definition": "frozen C000 candidate with identical drive, operator, affine-calibration rule, and heldout scoring"},
+    {"id": "WRONG_SUBJECT_SYNTHETIC_ONLY", "definition": "candidate selected for the prospectively registered next synthetic pseudonym; impossible as an empirical comparator in the frozen one-subject scope"},
+    {"id": "ZERO_COUPLING_NULL", "definition": "same equations and fixed weights with both g_CT and g_TC set to zero"},
+    {"id": "NONISOMORPHIC_WORLD", "definition": "registered external oscillator with no E/I/T/R latent states"}
+  ],
+  "gate_registry": [
+    {"gate": "G1", "purpose": "numerical repeatability and closed runtime/configuration provenance", "failure_action": "FAIL_CLOSED"},
+    {"gate": "G2", "purpose": "truth, null, and non-isomorphic-world discrimination", "failure_action": "ROUTE_NOT_READY"},
+    {"gate": "G3", "purpose": "matched nonpersonalized and wrong-subject challenge", "failure_action": "ROUTE_NOT_READY"},
+    {"gate": "G4", "purpose": "registered paired block-bootstrap uncertainty", "failure_action": "ROUTE_NOT_READY"},
+    {"gate": "G5", "purpose": "state-to-operator-to-proxy definition and causal/unit limits", "failure_action": "ROUTE_NOT_READY"},
+    {"gate": "G6", "purpose": "deterministic partition and future adapter interface", "failure_action": "ROUTE_NOT_READY"},
+    {"gate": "G7", "purpose": "hash-locked independent reproduction interface", "failure_action": "ROUTE_NOT_READY"}
+  ],
+  "multiplicity": {
+    "confirmatory_primary_count": 1,
+    "optional_claims_are_not_promoted_on_primary_failure": true,
+    "synthetic_gate_success_does_not_modify_empirical_alpha": true,
+    "single_empirical_subject": true,
+    "no_population_or_empirical_wrong_subject_specificity_claim": true
+  }
+}

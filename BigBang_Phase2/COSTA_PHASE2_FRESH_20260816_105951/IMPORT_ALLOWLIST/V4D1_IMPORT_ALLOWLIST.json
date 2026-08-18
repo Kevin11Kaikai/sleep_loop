@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "default_policy": "DENY",
+  "allowed_review_status": "CLEAN_ALLOWLISTED",
+  "entries": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\FINAL_REPORT.md",
+      "sha256": "093E0644DA54445D65F0332A4147352FD35B791E24C53396840F46F1EE0C5E22",
+      "evidence_class": "HISTORICAL_DEVELOPMENT_SCIENTIFIC_NARRATIVE_WITH_EXACT_NUMERIC_OUTCOMES",
+      "development_only_provenance": "CLOSED_R4_DEVELOPMENT_RECORD_NOT_CONFIRMATORY_NOT_FRESH_FINAL_NOT_PHASE2_EVIDENCE",
+      "protected_derived_contamination_status": "NOT_DETECTED_WITHIN_OPENED_FILE_BUT_AUTHORIZED_SUMMARY_SCOPE_EXCEEDED",
+      "permitted_roles": ["Clean Governance Auditor", "Historical Import Auditor"],
+      "permitted_purpose": ["bounded governance audit", "verification of authorized categorical summary only"],
+      "prohibited_use": ["Phase 2 scientific import", "scientific design", "selection", "tuning", "thresholding", "comparison", "reuse of numerical outcomes"],
+      "reviewer": "/root/historical_import_audit",
+      "review_status": "QUARANTINED",
+      "timestamp": "2026-08-16T11:12:08.9747343-04:00"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\FINAL_CLAIM_MATRIX.json",
+      "sha256": "0ED307F6866660EA7E3AC2330DE07D1D8A6222C0E42941855FC1CDF8353FCC8E",
+      "evidence_class": "HISTORICAL_DEVELOPMENT_CATEGORICAL_CLAIM_AND_SCOPE_RECORD",
+      "development_only_provenance": "CLOSED_R4_DEVELOPMENT_RECORD_NOT_CONFIRMATORY_NOT_FRESH_FINAL_NOT_PHASE2_EVIDENCE",
+      "protected_derived_contamination_status": "NOT_DETECTED_WITHIN_OPENED_FILE",
+      "permitted_roles": ["Clean Governance Auditor", "Historical Import Auditor", "Evidence Sanitizer"],
+      "permitted_purpose": ["categorical R4 assignment verification", "development-only scope and limitation provenance", "raw-access closure verification", "derive value-free categorical R4 substrate only"],
+      "prohibited_use": ["confirmatory evidence", "fresh-final evidence", "M2", "P1", "P2", "protected", "clinical", "population claims"],
+      "reviewer": "/root/historical_import_audit",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T11:12:08.9747343-04:00"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\ARTIFACT_MANIFEST.json",
+      "sha256": "7724D06C468646F4E278548A2CC009DCCD51FB7CD7369012C606051A5E135B2B",
+      "evidence_class": "GOVERNANCE_INTEGRITY_METADATA_AND_HASH_CATALOG",
+      "development_only_provenance": "CLOSED_R4_PACKAGE_INTEGRITY_PROVENANCE_NOT_SCIENTIFIC_EVIDENCE",
+      "protected_derived_contamination_status": "NOT_DETECTED_WITHIN_OPENED_FILE_REFERENCED_ARTIFACTS_UNREVIEWED",
+      "permitted_roles": ["Clean Governance Auditor", "Historical Import Auditor", "Evidence Sanitizer"],
+      "permitted_purpose": ["R4 package-integrity checking", "historical provenance binding", "extract exact manifest-listed code/config/parameter/detector/environment/input paths and expected SHA-256 values as PENDING_INDEPENDENT_AUDIT without opening or otherwise accessing referenced files"],
+      "prohibited_use": ["scientific evidence", "authorization or cleanliness inheritance for referenced artifacts"],
+      "reviewer": "/root/historical_import_audit",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T11:12:08.9747343-04:00"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\STATE\\FINAL_CLOSEOUT.json",
+      "sha256": "E4E2BC1755551D001BA6D71849E94E4DD00E7A33C73C8E642C99CC5456A283FA",
+      "evidence_class": "GOVERNANCE_CLOSEOUT_AND_BOUNDED_CATEGORICAL_PROVENANCE_RECORD",
+      "development_only_provenance": "CLOSED_R4_DEVELOPMENT_AND_ACCESS_CLOSEOUT_NOT_CONFIRMATORY_NOT_FRESH_FINAL_NOT_PHASE2_EVIDENCE",
+      "protected_derived_contamination_status": "NOT_DETECTED_WITHIN_OPENED_FILE_REFERENCED_RECORDS_UNREVIEWED",
+      "permitted_roles": ["Clean Governance Auditor", "Historical Import Auditor", "Evidence Sanitizer"],
+      "permitted_purpose": ["campaign closure verification", "authorized categorical summary verification", "raw and protected access-closeout verification", "derive value-free categorical R4 substrate only"],
+      "prohibited_use": ["authorization to open hash-referenced records", "confirmatory evidence", "fresh-final evidence"],
+      "reviewer": "/root/historical_import_audit",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T11:12:08.9747343-04:00"
+    }
+  ],
+  "audit_receipts": {
+    "historical_import_audit": {
+      "path": "GOVERNANCE/HISTORICAL_IMPORT_AUDIT.md",
+      "sha256": "94644C28CFC7AA27B1D7A359B729AED95C009BAB55CDA018E549488987F6B7CB"
+    },
+    "audit_decisions": {
+      "path": "IMPORT_ALLOWLIST/AUDIT_DECISIONS.json",
+      "sha256": "DA50B67A50118A6BBB6BD6F65D141EB75A5B1A7931DAF5FF1D4B13458C94C3E7"
+    },
+    "sanitizer_permission_amendment": {
+      "path": "IMPORT_ALLOWLIST/SANITIZER_PERMISSION_AMENDMENT.json",
+      "sha256": "0EFAFC537841F22D3023EC93B5965DF97033A7AB88F1C6E4D494FB42A655BCCA"
+    }
+  },
+  "evidence_sanitizer_constraints": {
+    "binding_receipt": "IMPORT_ALLOWLIST/SANITIZER_PERMISSION_AMENDMENT.json",
+    "fresh_isolated_role_required": true,
+    "numeric_scientific_values_permitted": false,
+    "manifest_referenced_file_access_permitted": false,
+    "manifest_candidate_status": "PENDING_INDEPENDENT_AUDIT",
+    "default_access_policy_for_referenced_files": "DENY",
+    "cleanliness_inheritance": false,
+    "directory_enumeration_globbing_search_or_existence_probing_permitted": false,
+    "role_mixing_permitted": false
+  },
+  "oav_001_classification": "GOVERNANCE_MATERIAL_OUTCOME_BLIND_SCIENTIFIC_CONTAMINATION_NOT_DETECTED",
+  "revalidation_receipt_policy": "EXTERNAL_IMMUTABLE_RECEIPT_NOT_RECURSIVELY_EMBEDDED",
+  "status": "FROZEN_AUDITED_AMENDED_V5_PENDING_INDEPENDENT_REVALIDATION",
+  "version": 5,
+  "frozen_at": "2026-08-16T11:25:10.1639152-04:00",
+  "responsible_role": "Root Orchestrator"
+}

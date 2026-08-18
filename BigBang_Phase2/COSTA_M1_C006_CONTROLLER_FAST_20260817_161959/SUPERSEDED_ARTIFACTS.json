@@ -1,0 +1,12 @@
+{
+  "reason": "The first completed bakeoff did not strictly match phase-shifted total control energy and was superseded by the bounded implementation repair.",
+  "not_valid_for_controller_selection": [
+    "controller_runs.csv",
+    "controller_traces.csv",
+    "controller_8target_evaluation.csv",
+    "controller_quicklook.png"
+  ],
+  "final_valid_decision_artifact": "CONTROLLER_SELECTION_DECISION.json",
+  "final_status": "STOPPED",
+  "single_blocker": "PHASE_CONTROL_MATCH_FAILED"
+}

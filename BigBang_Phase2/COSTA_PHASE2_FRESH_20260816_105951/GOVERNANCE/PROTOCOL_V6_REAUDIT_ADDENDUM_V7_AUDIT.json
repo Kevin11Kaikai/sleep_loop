@@ -1,0 +1,307 @@
+{
+  "schema_version": "7.0.0",
+  "schema_id": "V7_AUDIT_RECEIPT_SCHEMA_V7",
+  "audit_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V7_AUDIT_001",
+  "created_at": "2026-08-17T13:30:43.911Z",
+  "auditor_role_id": "ROLE_V7_AMENDMENT_AUDITOR",
+  "auditor_identity_tuple": {
+    "actor_id": "AGENT_CLEAN_GOVERNANCE_AUDITOR",
+    "session_id": "COSTA_PHASE2_FRESH_20260816_105951_V7_AUDIT_SESSION",
+    "process_principal_id": "CODEX_CHILD_AGENT_CLEAN_GOVERNANCE_AUDIT",
+    "delegation_chain": {
+      "nodes_in_root_to_leaf_order": [
+        {
+          "node_index": 0,
+          "actor_id": "AGENT_ROOT_COORDINATOR",
+          "session_id": "COSTA_PHASE2_FRESH_20260816_105951_ROOT_SESSION",
+          "process_principal_id": "CODEX_ROOT_AGENT",
+          "public_attestation_id": "ROOT_TASK_DELEGATION_TO_CLEAN_GOVERNANCE_AUDITOR_20260817",
+          "implementation_provenance_id": "CODEX_ROOT_GOVERNANCE_ORCHESTRATOR_20260817"
+        },
+        {
+          "node_index": 1,
+          "actor_id": "AGENT_CLEAN_GOVERNANCE_AUDITOR",
+          "session_id": "COSTA_PHASE2_FRESH_20260816_105951_V7_AUDIT_SESSION",
+          "process_principal_id": "CODEX_CHILD_AGENT_CLEAN_GOVERNANCE_AUDIT",
+          "public_attestation_id": "INDEPENDENT_V7_AUDIT_RECEIPT_PUBLIC_ATTESTATION_001",
+          "implementation_provenance_id": "CODEX_INDEPENDENT_GOVERNANCE_AUDITOR_20260817"
+        }
+      ],
+      "edges_in_root_to_leaf_order": [
+        {
+          "edge_index": 0,
+          "delegator_node_index": 0,
+          "delegate_node_index": 1,
+          "delegator_actor_id": "AGENT_ROOT_COORDINATOR",
+          "delegate_actor_id": "AGENT_CLEAN_GOVERNANCE_AUDITOR",
+          "delegator_process_principal_id": "CODEX_ROOT_AGENT",
+          "delegate_process_principal_id": "CODEX_CHILD_AGENT_CLEAN_GOVERNANCE_AUDIT",
+          "delegation_attestation_id": "ROOT_TASK_DELEGATION_TO_CLEAN_GOVERNANCE_AUDITOR_20260817",
+          "canonical_edge_key": "9A57DE7BDF533960EAD39467AA9039B35C20C8F8A7E4D254B9B6B666316AAC23"
+        }
+      ],
+      "node_count": 2,
+      "edge_count": 1,
+      "leaf_actor_id": "AGENT_CLEAN_GOVERNANCE_AUDITOR",
+      "canonical_chain_sha256": "1DABCEDFDD1DDFBB5C1DCD0B27EADA47764EE52630BB037E58DE8AD6CF1CFA36"
+    },
+    "delegation_chain_sha256": "1DABCEDFDD1DDFBB5C1DCD0B27EADA47764EE52630BB037E58DE8AD6CF1CFA36",
+    "public_attestation_id": "INDEPENDENT_V7_AUDIT_RECEIPT_PUBLIC_ATTESTATION_001",
+    "implementation_provenance_id": "CODEX_INDEPENDENT_GOVERNANCE_AUDITOR_20260817",
+    "identity_tuple_sha256": "D84F171D5F6D056EEE6196F15650F2E58EFBD9930E98173F4469E936FAD23034"
+  },
+  "v7_binding": {
+    "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V7_001",
+    "path_id": "static:v7",
+    "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V7.json",
+    "bytes": 183328,
+    "sha256": "83F1BB95FE30D3E02851D03B5478BF8EADF811E253A1E032FA1873F37A247670"
+  },
+  "v5_binding": {
+    "artifact_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V5",
+    "path_id": "static:v5",
+    "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V5.json",
+    "bytes": 112390,
+    "sha256": "E1E436A8E5F0FDF5CCE2BD12B9E712465879947DFF717DF0DC66A7AFCEBE2C85"
+  },
+  "v6_binding": {
+    "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V6_001",
+    "path_id": "static:v6",
+    "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V6.json",
+    "bytes": 167433,
+    "sha256": "E025C9F258478041E9735958F906DAD02553895C8453429D1661890807DB1C39"
+  },
+  "v6_fail_audit_binding": {
+    "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V6_AUDIT_001",
+    "path_id": "static:v6_audit",
+    "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V6_AUDIT.json",
+    "bytes": 26877,
+    "sha256": "2FEBC2CDAE5021DF10CE009356D56962ABFA850FDE144BF6B423A991A9FB5BD5"
+  },
+  "v4_source_binding": {
+    "artifact_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V4",
+    "path_id": "static:v4",
+    "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V4.json",
+    "bytes": 316217,
+    "sha256": "0C83B242A64575BF874DFA7BBB7CFEAA084E4D90D1B829C23D5629885BD37DEC"
+  },
+  "checks_in_exact_order": [
+    {
+      "check_id": "V7-CHK01-INPUT-HASHES-ACCESS-BOUNDARY",
+      "requirement": "Rehash and JSON-validate the exact V7, V6, V6 FAIL audit, and authorized transitive V5/V4 sources; prove no other read, listing, mutation, or execution.",
+      "observed": "PASS. Exact bytes/SHA-256: V7 183328/83F1BB95FE30D3E02851D03B5478BF8EADF811E253A1E032FA1873F37A247670; V6 167433/E025C9F258478041E9735958F906DAD02553895C8453429D1661890807DB1C39; V6 FAIL audit 26877/2FEBC2CDAE5021DF10CE009356D56962ABFA850FDE144BF6B423A991A9FB5BD5; V5 112390/E1E436A8E5F0FDF5CCE2BD12B9E712465879947DFF717DF0DC66A7AFCEBE2C85; V4 316217/0C83B242A64575BF874DFA7BBB7CFEAA084E4D90D1B829C23D5629885BD37DEC. All five parse as JSON. Only these exact inputs and this CREATE_NEW audit output were accessed; no directory enumeration, Candidate/compiler/CODE/PREFLIGHT/data/R4/outcome/STATE access, import, launcher, Python, preflight, model, or science execution occurred.",
+      "verdict": "PASS"
+    },
+    {
+      "check_id": "V7-CHK02-ATOMIC-ID-AND-SCALAR-CONDITIONALS",
+      "requirement": "Reconstruct all five corrected V6 patches and all successor replacements with exact atomic two-pointer IDs, scalar conditional-rule bytes, and guarded operations.",
+      "observed": "FAIL_BLOCKING. The five corrected V6 base-plus-patch results do satisfy the atomic two-pointer ID and scalar conditional rules, reproducing the unqualified 78-key diagnostic registry at 164043 bytes/SHA 4C4A92B49C970658F69BC1BB0A180BF7E0CD4E363C5E2C0AB9F784C42CCDDD18. However V7 replacement program 19 operation 5 applies REPLACE_FIELD_DESCRIPTOR_INLINE to root_access_attestation, which does not exist in the corrected effective TRANSACTION_AUTHORIZATION_V6 base. The fail-closed base guard discards the registry.",
+      "verdict": "FAIL_BLOCKING"
+    },
+    {
+      "check_id": "V7-CHK03-DOTTED-SOURCE-EXHAUSTIVE-ZERO-DANGLING",
+      "requirement": "Traverse the corrected/final registry, materialize every dotted-source row/count/hash, and require authorized resolution with zero dangling or ambiguous serialization.",
+      "observed": "FAIL_BLOCKING. Exactly 31 normative occurrences were reconstructed in required order: 30 STATIC and 1 INSTANCE; constraint 17, order 3, enum_source 7, exact_values_source 4; static origins V4=15, V5=4, V6=6, V7=5. All source pointers resolve and offsets match the original tokens. But V7 never selects whether qualification is an out-of-band binding that preserves descriptor bytes or an in-place qualified_token rewrite, nor freezes replacement/offset semantics. Both satisfy the prose and yield different canonical registry/projection hashes.",
+      "verdict": "FAIL_BLOCKING"
+    },
+    {
+      "check_id": "V7-CHK04-IDENTITY-1032-DERIVED-HASH-JOINS",
+      "requirement": "Verify six canonical identity-dimension domains and every one of 1032 assignment/auditor comparison rows and derived equality joins.",
+      "observed": "PASS. Six exact canonical scalar domains, value-to-hash derivation, tuple-field equality joins, and unequal-boolean derivation are frozen. Coverage arithmetic and pair identities are exact: 918 operational comparison rows plus 108 auditor-to-operational rows plus 6 Root-to-auditor rows equals 1032; the 18 assignments and 153 operational pairs remain intact.",
+      "verdict": "PASS"
+    },
+    {
+      "check_id": "V7-CHK05-FAILURE-FIVE-TOKEN-UNIQUE-STATE",
+      "requirement": "Reject success in failed ledgers; evaluate twenty predicates over joined evidence and require one unique state, trigger, and consumption result for every reachable mode.",
+      "observed": "FAIL_BLOCKING. Ordinary legal ledgers correctly use exactly five failure tokens, join twenty predicate evaluations, and prohibit caller-selected state/trigger. Yet the preauthorized ILLEGAL_SPLIT_STATE has no incident-presence row because every row requires one of the fourteen legal failure-adjacency records; closeout row 19 additionally requires illegal_partition_boolean=false. An independently proven illegal partition therefore cannot instantiate a valid incident or reach closeout.",
+      "verdict": "FAIL_BLOCKING"
+    },
+    {
+      "check_id": "V7-CHK06-TRANSACTION-JOINS-36-NEGATIVES",
+      "requirement": "Verify every enclosing ledger/authorization transaction equality join and rejection of all 36 cross-transaction substitutions.",
+      "observed": "PASS. Publication, P5, and incident holders bind the ledger transaction exactly; incident authorization content/binding joins are explicit; the frozen four-transaction matrix contains the exact 36 ordered negative substitutions and rejects every mismatch.",
+      "verdict": "PASS"
+    },
+    {
+      "check_id": "V7-CHK07-P4-SUCCESS-P5-NONCYCLE",
+      "requirement": "Verify P3 remains acyclic and P5 consumes exact typed P4 success/failure evidence without a P3/P4/P5 hash cycle.",
+      "observed": "PASS. P3 remains publication-attestation-only. The typed P4 success observation freezes the exact no-replace/write-through rename result, pre/post source and destination snapshots, and transaction/state joins; P5 consumes it without entering the P3 hash domain. Failure disposition variants remain separate.",
+      "verdict": "PASS"
+    },
+    {
+      "check_id": "V7-CHK08-FOUR-P5-CONSUMERS-EXTERNAL-EVIDENCE",
+      "requirement": "Verify four P5 paths/consumers/writers/conflicts/access attestations and durable typed external completion evidence with zero excess authority.",
+      "observed": "FAIL_BLOCKING. Four transaction-specific consumer roles, P5 reads, external paths, sole writers, and no-extra-authority grants are structurally exact. But each P5_EXTERNAL_VALIDATION_OBSERVATION_V7 expressly does not attest its own close/readback, each grant has zero read-after-write paths, and no distinct later role exact-opens, hashes, or canonically validates the finalized external observation. A partial or corrupt write cannot be distinguished from the claimed completion gate.",
+      "verdict": "FAIL_BLOCKING"
+    },
+    {
+      "check_id": "V7-CHK09-14-INCIDENT-EVIDENCE-QUARANTINE",
+      "requirement": "Verify all fourteen incident rows, pre-P1 no-plan behavior, selected flush-plan prefixes/completion, P4 evidence, and unavoidable quarantine disposition/flush joins.",
+      "observed": "FAIL_BLOCKING. The fourteen legal adjacency rows, pre-P1 NO_PLAN representation, quarantine disposition joins, and 9/7/8 flush plans are locally present. Two reachable incident classes remain unrepresentable: ILLEGAL_SPLIT has no legal adjacency-selected presence row; and a P2 terminal rename failure after all 8/6/7 pre-rename flushes succeed leaves a successful strict prefix stopped by the rename, while the schema permits only NOT_ENTERED, a prefix ending in failed flush, or COMPLETE_SUCCESS. A failed/uncertain quarantine rename is likewise outside the WITH_QUARANTINE selection rule.",
+      "verdict": "FAIL_BLOCKING"
+    },
+    {
+      "check_id": "V7-CHK10-STATIC-V5-STAGE-A-CONTROLS",
+      "requirement": "Verify static:v5 in the twelve controls and both literal-role read/metadata/typed-access unions, plus exact successor Stage-A authorization.",
+      "observed": "FAIL_BLOCKING. The static:v5 construction-source authority and twelve-control/header additions are correctly frozen without reinterpreting any FAIL receipt. However all four inherited Stage-A directory-intent objects, their container path, and the ROOT_CONTROLLER lookup still bind authorizing_gate_path_id=static:v6_role_assignment_freeze. V7's ROLE_ASSIGNMENT_FREEZE_V7 program preserves those objects unchanged while Stage A requires static:v7_role_assignment_freeze, making directory creation unreachable or authorized by a failed predecessor.",
+      "verdict": "FAIL_BLOCKING"
+    },
+    {
+      "check_id": "V7-CHK11-86-SCHEMA-REFERENCE-PROJECTION-CLOSURE",
+      "requirement": "Construct 86 unique effective schemas, close all refs/sources, and reconstruct exact literal two-member and Root nine-member physical bytes/hashes.",
+      "observed": "FAIL_BLOCKING. Arithmetic, key order, and static structure pass: 78-21+21+8=86, 17 typed schemas are internally valid, 20 of 21 programs execute, and the conditional reconstruction has 319 closed refs, 22 V7 header owners, and 8 retained ACCESS_ATTESTATION_V4 owners. No authoritative 86-key registry or physical projection exists because program 19 fails its field-existence guard and dotted-source qualification has two byte-distinct interpretations. Diagnostic hashes are non-authoritative and are not accepted as frozen outputs.",
+      "verdict": "FAIL_BLOCKING"
+    },
+    {
+      "check_id": "V7-CHK12-PRESERVED-V6-PASS-INVARIANTS-DENIALS",
+      "requirement": "Regression-check all V6 PASS gates, scientific invariants, run arithmetic, claim ceiling, no-evidence rules, and all release denials.",
+      "observed": "PASS. Preserved facts include exact 23 cases/order; 8 targets, 8 claims, 10 C2 gates; 50 Level-A conditions; 1800 plus at most 900 plus 456 equals maximum 3156; cap 3; 18 assignments/153 operational pairs; 37 directory intents partitioned 8/29/0; Phase2B N=0/minimum 3 NOT_ESTIMABLE; M1/C0/P0; zero simulations, learned outputs, evidence transfer, or automatic release. V7, Stage A, Candidate V6, implementation, preflight, models/science, Phase2A, cross-target, Phase2B, data, R4, outputs, outcomes, and STATE remain denied.",
+      "verdict": "PASS"
+    },
+    {
+      "check_id": "V7-CHK13-STALE-PLACEHOLDER-CONTRADICTION-SCAN",
+      "requirement": "Reject placeholders, dangling references, stale normative predecessor controls, inferred access, ambiguous serialization/state, favorable nulls, and temporal contradictions.",
+      "observed": "FAIL_BLOCKING. No TODO/TBD/FIXME/placeholder marker was found and ordinary ref closure passes conditionally. Material contradictions remain: one nonexistent-field replacement, non-unique source-qualification bytes, four stale V6 Stage-A gate IDs, unreachable ILLEGAL_SPLIT incident/closeout, missing successful-prefix rename-failure evidence, and an externally unwitnessed P5 completion artifact.",
+      "verdict": "FAIL_BLOCKING"
+    }
+  ],
+  "blocking_findings": [
+    {
+      "finding_id": "V7A7-AUD-B001",
+      "severity": "BLOCKING",
+      "title": "TRANSACTION_AUTHORIZATION_V7 replacement program targets a nonexistent effective-base field",
+      "evidence": "Replacement program 19 operation 5 invokes REPLACE_FIELD_DESCRIPTOR_INLINE for root_access_attestation. The exact corrected effective TRANSACTION_AUTHORIZATION_V6 base has 28 fields and no root_access_attestation; that name exists only in V6's explicitly non-effective typed descriptor-source body. The base guard requires one existing target and therefore discards the entire registry. Minimal successor repair: use a guarded ADD operation with exact absent precondition, anchor, placement, and displayed descriptor, or bind an exact existing access field; never source the field implicitly from the non-effective body.",
+      "affected_path_ids": [
+        "/effective_v7_schema_model/replacement_operation_language/base_guard",
+        "/effective_v7_schema_model/replacement_programs_in_target_key_raw_utf8_order/19/operations_in_exact_order/5",
+        "/effective_v7_schema_model/specialized_replacement_requirements/TRANSACTION_AUTHORIZATION_V7",
+        "/projection_materialization_v7"
+      ]
+    },
+    {
+      "finding_id": "V7A7-AUD-B002",
+      "severity": "BLOCKING",
+      "title": "Dotted-source qualification does not define unique canonical registry bytes",
+      "evidence": "The traversal and 31 source-resolution rows are mechanically complete, but the construction contract never says whether each descriptor preserves source_token with an out-of-band binding or replaces it in-place with qualified_token. It also freezes no replacement direction or pre/post offset domain. Both interpretations resolve every pointer yet produce different canonical registry and Root projection hashes. Minimal successor repair: explicitly choose byte-preserving out-of-band bindings, or freeze a complete in-place right-to-left replacement algorithm with pre/post pointer and offset semantics, then bind and independently recompute the final bytes.",
+      "affected_path_ids": [
+        "/corrected_v6_patch_materialization/repair_order/2",
+        "/dotted_source_resolution_contract/descriptor_traversal_order",
+        "/dotted_source_resolution_contract/materialization_rule",
+        "/dotted_source_resolution_contract/source_pointer_equation",
+        "/effective_v7_schema_model/construction_rule",
+        "/projection_materialization_v7"
+      ]
+    },
+    {
+      "finding_id": "V7A7-AUD-B003",
+      "severity": "BLOCKING",
+      "title": "Stage-A directory intents remain authorized by the failed V6 role freeze",
+      "evidence": "All four inherited intent templates, the intent container, and the ROOT_CONTROLLER gate lookup retain static:v6_role_assignment_freeze. V7 replacement program 14 preserves the embedded intent values and the global rewrite visits only ref/items_ref descriptors. Stage A instead requires static:v7_role_assignment_freeze, so the directory operations are either unreachable or would rely on a nonactivated predecessor. Minimal successor repair: construct exact successor copies of all four intent objects with authorizing_gate_path_id, container, and ROOT_CONTROLLER lookup rebound to the successor role freeze; regenerate every dependent snapshot/hash and replace the role-freeze field under guarded operations.",
+      "affected_path_ids": [
+        "/activation_state/stage_A",
+        "/effective_v7_schema_model/replacement_programs_in_target_key_raw_utf8_order/14",
+        "/governance_header_and_stage_a_controls/mandatory_stage_a_control_path_ids_in_exact_order/11",
+        "static:v6#/stage_a_directory_intent_rebinding/intent_container_path_id",
+        "static:v6#/stage_a_directory_intent_rebinding/lookup_replacement/parent_provenance_and_gate_lookup/ROOT_CONTROLLER/gate_path_id",
+        "static:v6#/stage_a_directory_intent_rebinding/static_field_templates_in_creation_order"
+      ]
+    },
+    {
+      "finding_id": "V7A7-AUD-B004",
+      "severity": "BLOCKING",
+      "title": "ILLEGAL_SPLIT_STATE cannot instantiate or close a schema-valid incident",
+      "evidence": "ILLEGAL_SPLIT_STATE remains preauthorized, but every incident-evidence presence row is keyed to one of fourteen legal failure adjacencies and INCIDENT_RECEIPT_V7 requires selection by the joined legal adjacency row. An illegal partition has no such row. The only closed-state predicate additionally requires illegal_partition_boolean=false, so closeout would erase the evidence that triggered the incident. Minimal successor repair: add typed illegal-partition incident presence modes independent of legal adjacency, deterministic conservative branch/flush/P4/quarantine evidence rules, and a closeout predicate that preserves and validates the illegal evidence rather than falsifying it.",
+      "affected_path_ids": [
+        "/incident_evidence_contract/row_join_rule",
+        "/incident_evidence_presence_by_failure_adjacency_row_in_exact_order",
+        "/terminal_state_predicate_registry_v7/rows_in_state_index_order/17",
+        "/terminal_state_predicate_registry_v7/rows_in_state_index_order/19",
+        "/typed_schema_registry_v7/INCIDENT_EVIDENCE_PRESENCE_ROW_V7/fields/first_failed_checkpoint",
+        "/typed_schema_registry_v7/INCIDENT_RECEIPT_V7/conditional_rule"
+      ]
+    },
+    {
+      "finding_id": "V7A7-AUD-B005",
+      "severity": "BLOCKING",
+      "title": "P2 rename and quarantine-rename failures lack a truthful flush-evidence mode",
+      "evidence": "After every pre-rename flush succeeds, a P2 terminal rename failure leaves a strict successful prefix stopped by a non-flush operation: 8 rows for SUCCESS, 6 for FAILURE_NO_QUARANTINE, or 7 for FAILURE_WITH_QUARANTINE. The inherited execution schema permits only NOT_ENTERED, FIRST_FAILURE_PREFIX ending in a non-successful flush observation, or COMPLETE_SUCCESS. Failed or uncertain quarantine rename is also excluded because WITH_QUARANTINE plan selection presumes successful quarantine rename. Minimal successor repair: add an exact SUCCESSFUL_PREFIX_STOPPED_BY_INTERVENING_OPERATION mode joined to the raw rename observation, attempted count and next index; define deterministic quarantine-rename failure selection/evidence and incident routing.",
+      "affected_path_ids": [
+        "/incident_evidence_contract/selected_plan_rule",
+        "/incident_evidence_presence_by_failure_adjacency_row_in_exact_order/6",
+        "/incident_evidence_presence_by_failure_adjacency_row_in_exact_order/7",
+        "/typed_schema_registry_v7/INCIDENT_FLUSH_EVIDENCE_V7",
+        "static:v6#/flush_plan_model/plans",
+        "static:v6#/typed_schema_registry/FLUSH_PLAN_EXECUTION_V6/conditional_rule"
+      ]
+    },
+    {
+      "finding_id": "V7A7-AUD-B006",
+      "severity": "BLOCKING",
+      "title": "P5 external completion artifact has no independent durable readback witness",
+      "evidence": "The external observation explicitly does not attest its own close/readback. Consumer grants give metadata and CREATE_NEW write authority but zero read-after-write paths, and no distinct downstream authority exact-opens, hashes, or canonically validates the finalized observation. A short, corrupt, or unclosed write can therefore be indistinguishable from the claimed P5 completion event. Minimal successor repair: grant a distinct preauthorized downstream authority exact read/readback of each external observation and require a typed post-write snapshot, byte/hash/canonical validation, and fail-closed incident route, or bind completion to an existing later independently validated artifact without a self-cycle.",
+      "affected_path_ids": [
+        "/p4_p5_evidence_and_consumer_access/consumer_access_rule",
+        "/p4_p5_evidence_and_consumer_access/external_completion_rule",
+        "/typed_schema_registry_v7/P5_CONSUMER_ACCESS_GRANT_V7/fields/read_after_write_path_ids_in_exact_order",
+        "/typed_schema_registry_v7/P5_EXTERNAL_VALIDATION_OBSERVATION_V7/conditional_rule",
+        "/writer_and_access_contract/p5_external_validation_writers_in_transaction_order"
+      ]
+    }
+  ],
+  "unresolved_findings": [],
+  "access_attestation": {
+    "auditor_role_id": "ROLE_V7_AMENDMENT_AUDITOR",
+    "read_path_ids_in_exact_order": [
+      "static:v4",
+      "static:v5",
+      "static:v6",
+      "static:v6_audit",
+      "static:v7"
+    ],
+    "write_path_ids_in_exact_order": [
+      "static:v7_audit"
+    ],
+    "read_after_write_path_ids_in_exact_order": [
+      "static:v7_audit"
+    ],
+    "metadata_path_ids_in_exact_order": [
+      "static:v4",
+      "static:v5",
+      "static:v6",
+      "static:v6_audit",
+      "static:v7",
+      "static:v7_audit"
+    ],
+    "output_prestate": {
+      "path_id": "static:v7_audit",
+      "normalized_absolute_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\PROTOCOL_V6_REAUDIT_ADDENDUM_V7_AUDIT.json",
+      "kind": "FILE",
+      "presence": "ABSENT",
+      "bytes_or_null": null,
+      "sha256_or_null": null,
+      "volume_serial_or_null": null,
+      "file_id_or_null": null,
+      "reparse_boolean_or_null": null,
+      "hardlink_count_or_null": null
+    },
+    "membership_list_path_ids": [],
+    "flush_path_ids": [],
+    "listing_path_ids": [],
+    "rename_pairs": [],
+    "delete_path_ids": [],
+    "runtime_dependency_path_ids": [],
+    "process_start_targets": [],
+    "candidate_access_boolean": false,
+    "compiler_or_code_access_boolean": false,
+    "science_execution_boolean": false
+  },
+  "verdict": "FAIL_BLOCKING",
+  "audit_payload_hash_envelope": {
+    "schema_id": "NONRECURSIVE_SHA256_ENVELOPE_V4",
+    "algorithm": "SHA-256",
+    "canonicalization_id": "CANONICAL_JSON_SHA256_V6",
+    "excluded_field": "audit_payload_hash_envelope",
+    "payload_byte_length": 21705,
+    "payload_sha256": "10145B76BB3C17F9BBC7151EC9F0B0F1360398051894BB90447137EEDAC321B7"
+  }
+}

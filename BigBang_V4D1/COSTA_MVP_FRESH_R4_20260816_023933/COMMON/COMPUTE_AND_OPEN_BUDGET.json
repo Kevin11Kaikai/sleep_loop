@@ -1,0 +1,45 @@
+{
+  "budget_id": "R4_FINAL_RETRY_BUDGET_V1",
+  "frozen_before_raw_access": true,
+  "total_cpu_hours": 2.0,
+  "total_gpu_hours": 0.0,
+  "verification_reserve_cpu_hours": 0.5,
+  "verification_fraction": 0.25,
+  "repair_reserve_minutes": 20,
+  "repair_cycles_maximum": 2,
+  "repair_scope": "outcome-blind deterministic infrastructure, schema, serialization, path, or documented API compatibility only",
+  "scientific_change_after_outcome": "PROHIBITED",
+  "stage_minutes": {
+    "builder_and_adapter_preflight": 20,
+    "provenance_hash_and_data_steward": 20,
+    "synthetic_and_fit_worker": 25,
+    "heldout_worker": 10,
+    "independent_verifier": 30,
+    "governance_and_closeout": 15
+  },
+  "logical_raw_open_budget": {
+    "data/sleep-edfx-cassette/SC4001E0-PSG.edf": {
+      "sha256_provenance_reads": 1,
+      "worker_mne_reads": 1,
+      "verifier_mne_reads": 1,
+      "total": 3
+    },
+    "data/sleep-edfx-cassette/SC4001EC-Hypnogram.edf": {
+      "sha256_provenance_reads": 1,
+      "worker_mne_reads": 1,
+      "verifier_mne_reads": 1,
+      "total": 3
+    }
+  },
+  "raw_open_count_at_freeze": {
+    "PSG": 0,
+    "Hypnogram": 0
+  },
+  "stop_rules": [
+    "no raw access until clean builder tests and code/protocol freeze pass",
+    "no retries that alter scientific code, split, operator, candidate bank, threshold, seed, or missingness",
+    "no third MNE raw read",
+    "no Night-2, protected-derived, sealed, or fresh-final access",
+    "if clean transitive closure or MNE adapter preflight fails after bounded repairs, close FAIL and do not create R5"
+  ]
+}

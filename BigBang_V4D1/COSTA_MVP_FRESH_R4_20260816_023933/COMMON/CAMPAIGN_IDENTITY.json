@@ -1,0 +1,16 @@
+{
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "parent_program": "BIGBANG V4D.1.2 DEVELOPMENT ONLY",
+  "scope": "M1/P0/INDEPENDENT_REPRODUCTION; C1 optional",
+  "root_mode": "fresh_execution_only",
+  "prior_campaign_state_recovery": false,
+  "authorized_empirical_bank": "Sleep-EDF Expanded cassette Night-1 only",
+  "authorized_subject": "SC4001",
+  "authorized_files": [
+    "data\\sleep-edfx-cassette\\SC4001E0-PSG.edf",
+    "data\\sleep-edfx-cassette\\SC4001EC-Hypnogram.edf"
+  ],
+  "protected_or_sealed_execution_authorized": false,
+  "created_at": "2026-08-16T02:39:33-04:00",
+  "status": "INITIALIZED"
+}

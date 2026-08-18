@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "environment_version": "NEUROLIB_ENV_V3",
+  "status": "FROZEN_PREFLIGHT_PASS_PENDING_FINAL_INDEPENDENT_REAUDIT",
+  "captured_at": "2026-08-16T12:11:13.9290393-04:00",
+  "conda": {
+    "launcher": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat",
+    "environment_name": "neurolib",
+    "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+    "python_version": "3.10.20 | packaged by conda-forge | (main, Mar 5 2026, 16:36:49) [MSC v.1944 64 bit (AMD64)]",
+    "conda_default_env_observed": "neurolib",
+    "platform": "Windows-10-10.0.19045-SP0"
+  },
+  "packages": {
+    "neurolib": "0.6.1",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.8",
+    "mne": "1.9.0",
+    "h5py": "3.15.1",
+    "numba": "0.64.0",
+    "joblib": "1.5.3",
+    "scikit_learn": "1.7.2",
+    "statsmodels": "0.14.6",
+    "psutil": "7.2.2",
+    "PyYAML": "6.0.3",
+    "brainmass": "NOT_INSTALLED",
+    "jax": "NOT_INSTALLED"
+  },
+  "hardware": {
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13600KF",
+    "logical_processors": 20,
+    "total_physical_memory_bytes_observed": 34055770112,
+    "available_physical_memory_bytes_observed": 10326532096,
+    "memory_observed_at": "2026-08-16T12:11:13.9290393-04:00",
+    "drive_d_free_bytes_observed": 1005084352512,
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+    "gpu_memory_total_mib": 16376,
+    "gpu_memory_free_mib_observed": 13914,
+    "nvidia_driver": "566.14",
+    "inventory_limitation": "Windows CIM queries were access-denied; CPU, logical processor, memory, disk, and GPU values were obtained from registry/nonprivileged runtime APIs, Get-PSDrive, and nvidia-smi."
+  },
+  "official_thread_contract": {
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "NUMEXPR_NUM_THREADS": "4",
+    "max_concurrent_scientific_processes": 3,
+    "current_memory_admitted_max_concurrent_processes": 1,
+    "enforcement_launcher": "PREFLIGHT/run_neurolib.ps1",
+    "enforcement_launcher_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+    "process_environment_assertion_required": true,
+    "oversubscription_prohibited": true,
+    "script_containment": "separator-bounded descendant of the resolved campaign root",
+    "reparse_points_in_script_ancestry": "PROHIBITED",
+    "official_powershell_policy": "process-scoped ExecutionPolicy Bypass only; machine and user policy unchanged"
+  },
+  "memory_admission_contract": {
+    "per_process_rss_soft_cap_bytes": 5368709120,
+    "minimum_available_bytes_for_1_process": 6442450944,
+    "minimum_available_bytes_for_2_processes": 10737418240,
+    "minimum_available_bytes_for_3_processes": 17179869184,
+    "stop_new_launches_below_bytes": 6442450944,
+    "admission_checked_by": "PREFLIGHT/run_neurolib.ps1",
+    "root_must_not_exceed_requested_concurrency": true,
+    "current_admission": "MAX_1_PROCESS_AT_CAPTURED_AVAILABLE_MEMORY"
+  },
+  "probe": {
+    "script": "PREFLIGHT/environment_probe.py",
+    "script_sha256": "64E225E0B768987BDD994CF24305036EDBF04189387A25552CC65F435B756D01",
+    "exact_command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\run_neurolib.ps1 -ScriptPath D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\environment_probe.py -RequestedConcurrentProcesses 1",
+    "neurolib_smoke_model": "neurolib.models.wc.WCModel",
+    "duration_ms": 20.0,
+    "output_shape": [1, 200],
+    "finite": true,
+    "thread_environment_observed": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "4",
+      "NUMEXPR_NUM_THREADS": "4"
+    },
+    "status": "PASS"
+  },
+  "outcome_blind_probe_repairs": [
+    {
+      "attempt": 1,
+      "issue": "conda command not on PATH",
+      "repair": "use exact installed conda.bat launcher",
+      "scientific_outcomes_visible": false
+    },
+    {
+      "attempt": 2,
+      "issue": "optional package import probe exceeded bounded wait",
+      "repair": "terminate only the launched probe processes and query distribution metadata without importing optional stacks",
+      "scientific_outcomes_visible": false
+    }
+  ],
+  "package_installations_performed": false,
+  "compute_audit_repair": {
+    "failed_receipt": "GOVERNANCE/COMPUTE_BUDGET_AUDIT.json",
+    "failed_receipt_sha256": "DC6ADD872FCA5271771895DE9A38AE38A31F18E1DC8D51E3D3B1AFC9E918271B",
+    "v2_failed_receipt": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V2.json",
+    "v2_failed_receipt_sha256": "0F4EF58130471BE9491EA6C88893C98FAC1A9BE65A32433037417D71B201F79D",
+    "repair_class": "OUTCOME_BLIND_INFRASTRUCTURE_CONTROL_REPAIR_FINAL_CYCLE",
+    "thread_contract_repaired": true,
+    "memory_label_repaired": true,
+    "memory_admission_rule_added": true,
+    "process_scoped_execution_policy_command_repaired": true,
+    "separator_bounded_path_containment_repaired": true,
+    "reparse_point_ancestry_rejected": true,
+    "bounded_repair_cycles_consumed": 2,
+    "further_repairs_permitted_before_new_environment_lineage": false,
+    "scientific_outcomes_visible": false
+  },
+  "scientific_evidence_generated_by_probe": false,
+  "responsible_role": "Root Orchestrator"
+}

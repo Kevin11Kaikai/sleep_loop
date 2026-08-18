@@ -1,0 +1,323 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "4.0.0",
+  "artifact_type": "CANDIDATE_V4_EXPECTED_SCHEMA_CATALOG",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "freeze_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+  "protocol_audit_sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+  "status": "EXPECTED_ONLY_NOT_EXECUTED_NOT_OBSERVED",
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "boundArtifact": {
+      "type": "object",
+      "required": ["freeze_sha256", "protocol_audit_sha256"],
+      "properties": {
+        "freeze_sha256": {"const": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996"},
+        "protocol_audit_sha256": {"const": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496"}
+      }
+    },
+    "fileReceipt": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "runIdentity": {
+      "type": "object",
+      "required": ["run_id", "stage", "target_id", "condition_id", "channel_id", "parameters", "parameter_draw_id", "seed", "paired_sham_run_id", "condition_index", "is_sham", "registry_index"],
+      "properties": {
+        "run_id": {"type": "string", "minLength": 1},
+        "stage": {"enum": ["LEVEL_A_WORKER", "LEVEL_B_SURFACE", "CROSS_TARGET_VERIFIER"]},
+        "target_id": {"type": "string", "minLength": 1},
+        "condition_id": {"type": "string", "minLength": 1},
+        "channel_id": {"type": "string", "minLength": 1},
+        "parameters": {"type": "object"},
+        "parameter_draw_id": {"enum": ["D00_NOMINAL", "D01", "D02", "D03", "D04", "D05"]},
+        "seed": {"type": "integer"},
+        "paired_sham_run_id": {"type": "string", "minLength": 1},
+        "condition_index": {"type": "integer", "minimum": 0},
+        "is_sham": {"type": "boolean"},
+        "registry_index": {"type": "integer", "minimum": 0}
+      }
+    },
+    "policy": {
+      "type": "object",
+      "required": ["target_id", "status", "conditions"],
+      "properties": {
+        "target_id": {"pattern": "^T[1-8]$"},
+        "status": {"enum": ["SELECTED", "NOT_ESTIMABLE"]},
+        "policy_type": {"enum": ["MAPPING", "SINGLE_CONDITION"]},
+        "score": {"type": ["number", "null"]},
+        "conditions": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "familyBands": {
+      "type": "object",
+      "required": ["family_id", "status"],
+      "properties": {
+        "family_id": {"type": "string"},
+        "status": {"enum": ["ESTIMABLE", "NOT_ESTIMABLE"]},
+        "replicates": {"const": 10000},
+        "members": {"type": "object"},
+        "omitted_members": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  },
+  "schemas": {
+    "IMPLEMENTATION_CONTRACT_CHECK": {
+      "type": "object",
+      "required": ["schema_version", "artifact_type", "status", "scientific_execution", "input_hashes", "implementation_manifest_sha256", "implementation_set_sha256", "authorization_effect"],
+      "properties": {
+        "artifact_type": {"const": "IMPLEMENTATION_CONTRACT_CHECK"},
+        "status": {"const": "PASS"},
+        "scientific_execution": {"const": "NONE"},
+        "implementation_manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "implementation_set_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "DATA_FREE_PREFLIGHT": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "test_count", "passed_count", "overall_status", "scientific_outcomes", "tests"],
+          "properties": {
+            "artifact_type": {"const": "DATA_FREE_PREFLIGHT"},
+            "test_count": {"const": 14},
+            "passed_count": {"type": "integer", "minimum": 0, "maximum": 14},
+            "overall_status": {"enum": ["PASS_ALL", "FAIL"]},
+            "scientific_outcomes": {"const": "NONE"},
+            "tests": {
+              "type": "array",
+              "minItems": 14,
+              "maxItems": 14,
+              "items": {
+                "type": "object",
+                "required": ["test_id", "status"],
+                "properties": {
+                  "test_id": {"type": "string"},
+                  "status": {"enum": ["PASS", "FAIL", "PF_T4_EVENT_ATTRIBUTION_FAIL"]}
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "RUN_REGISTRY": {
+      "type": "object",
+      "required": ["schema_version", "registry_id", "freeze_sha256", "run_count", "runs", "logical_reuse", "inactive_conditions", "registry_payload_sha256"],
+      "properties": {
+        "registry_id": {"enum": ["COSTA_V4_LEVEL_A_1800", "COSTA_V4_LEVEL_B_CONDITIONAL", "COSTA_V4_CROSS_TARGET_456"]},
+        "freeze_sha256": {"const": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996"},
+        "run_count": {"type": "integer", "minimum": 0, "maximum": 1800},
+        "runs": {"type": "array", "items": {"$ref": "#/$defs/runIdentity"}},
+        "logical_reuse": {"type": "array"},
+        "inactive_conditions": {"type": "array"},
+        "registry_payload_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "RUN_RESULT": {
+      "allOf": [
+        {"$ref": "#/$defs/runIdentity"},
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "parameter_draw_sha256", "innovation_sha256", "state_sha256", "metrics", "validity", "detector_artifacts", "scheduler_log", "packet_table", "t4_attribution", "execution_claim", "record_payload_sha256"],
+          "properties": {
+            "artifact_type": {"const": "RUN_RESULT"},
+            "parameter_draw_sha256": {"$ref": "#/$defs/sha256"},
+            "innovation_sha256": {"$ref": "#/$defs/sha256"},
+            "state_sha256": {"$ref": "#/$defs/sha256"},
+            "metrics": {"type": "object"},
+            "validity": {"type": "object"},
+            "detector_artifacts": {"type": "object"},
+            "scheduler_log": {"type": "array"},
+            "packet_table": {"type": "array"},
+            "t4_attribution": {"type": ["object", "null"]},
+            "record_payload_sha256": {"$ref": "#/$defs/sha256"}
+          }
+        }
+      ]
+    },
+    "IMMUTABLE_TARGET_SEED_DRAW_BLOCK": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "campaign_id", "candidate_identity", "registry_id", "stage", "target_id", "parameter_draw_id", "seed", "run_count", "files", "checkpoint_payload_sha256"],
+          "properties": {
+            "artifact_type": {"const": "IMMUTABLE_TARGET_SEED_DRAW_BLOCK"},
+            "run_count": {"type": "integer", "minimum": 1},
+            "files": {"type": "array", "items": {"$ref": "#/$defs/fileReceipt"}},
+            "checkpoint_payload_sha256": {"$ref": "#/$defs/sha256"}
+          }
+        }
+      ]
+    },
+    "WORKER_SHARD_MANIFEST": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "registry_id", "registry_payload_sha256", "shard_index", "shard_count", "selected_run_count", "completed_run_count", "files", "immutable_block_checkpoints", "cpu_hours_this_process"],
+          "properties": {
+            "artifact_type": {"const": "WORKER_SHARD_MANIFEST"},
+            "registry_payload_sha256": {"$ref": "#/$defs/sha256"},
+            "shard_index": {"type": "integer", "minimum": 0},
+            "shard_count": {"type": "integer", "minimum": 1},
+            "selected_run_count": {"type": "integer", "minimum": 0},
+            "completed_run_count": {"type": "integer", "minimum": 0},
+            "files": {"type": "array"},
+            "immutable_block_checkpoints": {"type": "array"},
+            "cpu_hours_this_process": {"type": "number", "minimum": 0}
+          }
+        }
+      ]
+    },
+    "PHASE2A_WORKER_RESULT": {
+      "type": "object",
+      "required": ["schema_version", "artifact_type", "stage", "registry", "shard"],
+      "properties": {
+        "artifact_type": {"const": "PHASE2A_WORKER_RESULT"},
+        "stage": {"enum": ["level-a", "level-b"]},
+        "registry": {"type": "object"},
+        "shard": {"type": "object"}
+      }
+    },
+    "CROSS_TARGET_VERIFIER_RESULT": {
+      "type": "object",
+      "required": ["schema_version", "artifact_type", "registry", "shard"],
+      "properties": {
+        "artifact_type": {"const": "CROSS_TARGET_VERIFIER_RESULT"},
+        "registry": {"type": "object"},
+        "shard": {"type": "object"}
+      }
+    },
+    "LEVEL_A_ANALYSIS": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "run_count", "target_summary", "selected_level_a_policies", "provisional_level_b_eligible_order_before_cross_target", "t4_attribution_pools", "F_TARGET_DECISIONS", "exact_tests", "holm", "phase2b"],
+          "properties": {
+            "artifact_type": {"const": "LEVEL_A_ANALYSIS"},
+            "run_count": {"const": 1800},
+            "target_summary": {"type": "object", "minProperties": 8, "maxProperties": 8},
+            "selected_level_a_policies": {"type": "object", "minProperties": 8, "maxProperties": 8},
+            "provisional_level_b_eligible_order_before_cross_target": {"type": "array", "maxItems": 3},
+            "F_TARGET_DECISIONS": {"$ref": "#/$defs/familyBands"}
+          }
+        }
+      ]
+    },
+    "LEVEL_A_FROZEN_POLICIES": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "policy_source", "policies"],
+          "properties": {
+            "artifact_type": {"const": "LEVEL_A_FROZEN_POLICIES"},
+            "policy_source": {"const": "LEVEL_A_WORKER_ONLY_FROZEN_BEFORE_VERIFIER_AND_LEVEL_B"},
+            "policies": {
+              "type": "object",
+              "minProperties": 8,
+              "maxProperties": 8,
+              "additionalProperties": {"$ref": "#/$defs/policy"}
+            }
+          }
+        }
+      ]
+    },
+    "CROSS_TARGET_8X8_ANALYSIS": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "unique_run_count", "point", "simultaneous_bands", "classifications", "hard_veto_reasons", "selected_t4_domain_row", "inactive_t4_rows", "finalized_target_summary", "conditional_level_b_selected_targets", "grade_ceiling"],
+          "properties": {
+            "artifact_type": {"const": "CROSS_TARGET_8X8_ANALYSIS"},
+            "unique_run_count": {"const": 456},
+            "point": {"type": "object"},
+            "simultaneous_bands": {"$ref": "#/$defs/familyBands"},
+            "classifications": {"type": "object", "minProperties": 8, "maxProperties": 8},
+            "hard_veto_reasons": {"type": "object"},
+            "finalized_target_summary": {"type": "object", "minProperties": 8, "maxProperties": 8},
+            "conditional_level_b_selected_targets": {"type": "array", "maxItems": 3},
+            "grade_ceiling": {"const": "C"}
+          }
+        }
+      ]
+    },
+    "CONDITIONAL_LEVEL_B_SELECTION": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "source_artifact_type", "selection_cap", "selected_targets", "target_eligibility", "level_b_independence"],
+          "properties": {
+            "artifact_type": {"const": "CONDITIONAL_LEVEL_B_SELECTION"},
+            "source_artifact_type": {"const": "CROSS_TARGET_8X8_ANALYSIS"},
+            "selection_cap": {"const": 3},
+            "selected_targets": {"type": "array", "maxItems": 3, "uniqueItems": true, "items": {"pattern": "^T[1-8]$"}},
+            "target_eligibility": {"type": "object", "minProperties": 8, "maxProperties": 8}
+          }
+        }
+      ]
+    },
+    "CONDITIONAL_LEVEL_B_ANALYSIS": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "selected_targets", "run_count", "selected_policies", "point_members", "simultaneous_bands", "t4_attribution_pools"],
+          "properties": {
+            "artifact_type": {"const": "CONDITIONAL_LEVEL_B_ANALYSIS"},
+            "selected_targets": {"type": "array", "maxItems": 3, "uniqueItems": true},
+            "run_count": {"type": "integer", "minimum": 0, "maximum": 900},
+            "selected_policies": {"type": "object"},
+            "point_members": {"type": "object"},
+            "simultaneous_bands": {"$ref": "#/$defs/familyBands"},
+            "t4_attribution_pools": {"type": "object"}
+          }
+        }
+      ]
+    },
+    "PHASE2B_DISPOSITION": {
+      "allOf": [
+        {"$ref": "#/$defs/boundArtifact"},
+        {
+          "type": "object",
+          "required": ["schema_version", "artifact_type", "campaign_id", "candidate_identity", "status", "eligible_certified_subjects", "minimum_certified_subjects", "same_candidate_executable_identity_available", "advancing_targets", "synthetic_substitution", "formal_execution", "claim"],
+          "properties": {
+            "artifact_type": {"const": "PHASE2B_DISPOSITION"},
+            "status": {"const": "NOT_ESTIMABLE"},
+            "eligible_certified_subjects": {"const": 0},
+            "minimum_certified_subjects": {"const": 3},
+            "same_candidate_executable_identity_available": {"const": false},
+            "advancing_targets": {"type": "array", "maxItems": 0},
+            "synthetic_substitution": {"const": "PROHIBITED"},
+            "formal_execution": {"const": "PROHIBITED_UNDER_CANDIDATE_V4"}
+          }
+        }
+      ]
+    },
+    "CANDIDATE_V4_CLI_FAILURE": {
+      "type": "object",
+      "required": ["artifact_type", "status", "exception_type", "message"],
+      "properties": {
+        "artifact_type": {"const": "CANDIDATE_V4_CLI_FAILURE"},
+        "status": {"const": "FAIL_CLOSED"},
+        "exception_type": {"type": "string"},
+        "message": {"type": "string"}
+      }
+    }
+  }
+}

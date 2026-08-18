@@ -1,0 +1,50 @@
+{
+  "freeze_id": "R4_M1_WORKER_OUTPUTS_V1",
+  "status": "FROZEN_PENDING_INDEPENDENT_VERIFICATION",
+  "candidate_id": "C006",
+  "claim_status": "PENDING_G7",
+  "attempts": {
+    "synthetic_m1": 1,
+    "fit_selection": 1,
+    "heldout_evaluation": 1,
+    "repairs_after_outcomes": 0
+  },
+  "timestamps_utc": {
+    "synthetic_report_write": "2026-08-16T07:20:04.1709374Z",
+    "fit_selection_freeze_write": "2026-08-16T07:20:15.0118422Z",
+    "heldout_result_write": "2026-08-16T07:21:10.7057394Z"
+  },
+  "artifacts": [
+    {"path":"RUNS/SYNTHETIC_WORKER/SYNTHETIC_M1_REPORT.json","sha256":"62C5CA3CEAAD4382A1B1ADA872E447C304C3593CB1B9120613C951DE86113024"},
+    {"path":"RUNS/SYNTHETIC_WORKER/MANIFEST.json","sha256":"1B89DB48F367C71C471446AB53EF9EDAA5E20F4904F32A7DDE0DDEF71C8EE01C"},
+    {"path":"RUNS/FIT_WORKER/SELECTION_FREEZE.json","sha256":"3D8C3D035F074CED2D608132864996D4AF9920C52889A11FE7C8E7DDA5DD8BBF"},
+    {"path":"RUNS/FIT_WORKER/MANIFEST.json","sha256":"B908287828DF16224BC04C35038E7315EC8788D8F7159971E17353F97871440D"},
+    {"path":"RUNS/HELDOUT_WORKER/HELDOUT_G6_RESULT.json","sha256":"E0AD4B1855E6BD570D068D4AC3B962397BAAEF5F21AC917E8C35E238B7004E95"},
+    {"path":"RUNS/HELDOUT_WORKER/MANIFEST.json","sha256":"880F3369D5862A8DAA46D88F1B7C076810358E03139C68BB19156F81457965D5"}
+  ],
+  "gate_status_worker": {
+    "M1-G1": "PASS",
+    "M1-G2": "PASS",
+    "M1-G3": "PASS",
+    "M1-G4": "PASS",
+    "M1-G5": "PASS",
+    "M1-G6": "PASS",
+    "M1-G7": "NOT_RUN"
+  },
+  "selected_candidate_and_empirical_summary": {
+    "fit_selected_candidate": "C006",
+    "fit_nrmse": 0.25461189482219504,
+    "matched_C000_fit_nrmse": 0.46256826111763194,
+    "heldout_personalized_nrmse": 0.24784525436798707,
+    "heldout_matched_C000_nrmse": 0.46377535006926635,
+    "heldout_relative_improvement": 0.46559200627853425,
+    "heldout_paired_epoch_bootstrap_n": 110,
+    "heldout_paired_epoch_bootstrap_repetitions": 1000,
+    "heldout_paired_epoch_bootstrap_ci95": [0.07980018864484562, 0.10146456173015034]
+  },
+  "heldout_binding": {
+    "selection_freeze_sha256_verified_before_heldout_open": "3D8C3D035F074CED2D608132864996D4AF9920C52889A11FE7C8E7DDA5DD8BBF",
+    "message_race": "nonmaterial: checkpoint was emitted before HELDOUT; frozen protocol did not require a Root ACK; command executed once with no change/retry"
+  },
+  "verifier_initial_information_policy": "Verifier receives frozen spec/code/input/env/commands/output schema only, not this outcome summary or worker narrative, until after PREINTERPRETATION.md is written and independent runs complete."
+}

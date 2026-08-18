@@ -1,0 +1,86 @@
+{
+  "schema": "COSTA_R4_FINAL_CLOSEOUT_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "closed_at": "2026-08-16T13:47:33.9322821Z",
+  "status": "CLOSED_COMPLETE",
+  "verdict": "COSTA_DISSERTATION_MVP=PASS",
+  "scope": {
+    "M": "M1",
+    "C": "C0",
+    "P": "P0",
+    "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION",
+    "C1": "NOT_ASSIGNED",
+    "qualification": "narrow M1/P0/INDEPENDENT_REPRODUCTION scope only; not dissertation sufficiency"
+  },
+  "gates": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS",
+    "G6": "PASS",
+    "G7": "PASS_INDEPENDENT_REPRODUCTION"
+  },
+  "independent_verification": {
+    "overall": "VERIFIED",
+    "numeric_reproduction": "PASS_EXACT",
+    "procedural_fidelity": "PASS",
+    "data_split_agreement": "PASS_EXACT",
+    "baseline_agreement": "PASS_EXACT",
+    "claim_agreement": "PASS",
+    "material_disagreement": false,
+    "report_json_sha256": "47D66031DA3A63476A76C254CA584F89471502FBA6C6BE0EC3FA30C608DB0339",
+    "report_md_sha256": "033C3409602979F8A45D391BE474F2DF30674735C4EB043CA7DBB072F222D2B2"
+  },
+  "adversarial_judgment": {
+    "material_findings": 0,
+    "material_disagreement": false,
+    "M1_eligible": true,
+    "final_judgment_json_sha256": "A46C6CB46449105762CA4F8489A416B36FB0D4DE184D02249E9EC03835FBBF48",
+    "final_judgment_md_sha256": "1F96A1727375755DB73A9ACC20D8BF75488CB61366DBEA2E5578B2F0E1AA1EA2",
+    "access_closeout_audit_sha256": "6A2072D54D02077D9506D227F50B8C1B186A7F4E67F380CAFDC269CA13D1D379"
+  },
+  "human_review_package": {
+    "path": "HUMAN_REVIEW",
+    "files_total": 24,
+    "manifest_entries": 23,
+    "manifest_excludes_only_itself": true,
+    "missing_files": 0,
+    "extra_files": 0,
+    "byte_mismatches": 0,
+    "sha256_mismatches": 0,
+    "json_validation": "PASS",
+    "verdict_validation": "PASS_EXACT",
+    "final_report_path": "HUMAN_REVIEW/FINAL_REPORT.md",
+    "final_report_sha256": "093E0644DA54445D65F0332A4147352FD35B791E24C53396840F46F1EE0C5E22",
+    "final_claim_matrix_sha256": "0ED307F6866660EA7E3AC2330DE07D1D8A6222C0E42941855FC1CDF8353FCC8E",
+    "final_verdict_sha256": "4C2666BF790A5D6DB00CA62E2601ACB011058CD228456CE63585EFCF23A6CF6C",
+    "artifact_manifest_sha256": "7724D06C468646F4E278548A2CC009DCCD51FB7CD7369012C606051A5E135B2B"
+  },
+  "access_closeout": {
+    "protected_access_verdict": "PASS_NONE",
+    "protected_access_entries": 0,
+    "night2_access_found": false,
+    "protected_derived_access_found": false,
+    "sealed_or_fresh_final_access_found": false,
+    "authorized_night1_raw_budget": "EXHAUSTED_CLOSED_3_OF_3_PER_FILE",
+    "further_raw_or_protected_access_authorized": false,
+    "roles_closed": true
+  },
+  "terminal_governance_hashes": {
+    "STATE/STAGE_STATE.json": "4A12EE2F54A6561D465EA8BA851F802D5F4FDDF3C0DA61521A845FBE65A910F6",
+    "STATE/ROUTE_STATUS.json": "8CAB399B96D48EA0A725AC46D99808121EFF8E64D7AFE6BC7B2B33CF647C1F47",
+    "STATE/COMPUTE_USAGE.json": "1D4FE8250DD53D35DFEFB3837F14EEF7E494D7D09ED4B776A51FDFFD64FD679C",
+    "STATE/ACCESS_LEDGER.json": "7389D7AC9F147F4DD4FE6A08EF49C6DE395D108357C8702AF0EBEDC7DF284C84",
+    "STATE/AGENT_ROLE_LEDGER.json": "7D57635C617BE4A729C3A57651A49D2DA490785663AA97D24CC828FD5F4CBAF8"
+  },
+  "audit_hash_binding_note": "The adversarial access closeout audit binds the pre-terminal ledger hashes; the terminal governance hashes above bind the normal closeout-only updates and do not alter scientific evidence.",
+  "compute_closeout": {
+    "budget_breach": false,
+    "exact_total_cpu_time_instrumented": false,
+    "scientific_change_after_outcome": false,
+    "repair_cycles_used": 1,
+    "repair_cycles_remaining": 1
+  },
+  "terminal_route": "CLOSED_NO_AUTOMATIC_R5_OR_V4S"
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "2.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "rule_id": "COSTA_PHASE2B_ADVANCEMENT_RULE_V2",
+  "parent_rule_id": "COSTA_PHASE2B_ADVANCEMENT_RULE_V1",
+  "repair_scope": ["PF-B001", "PF-B002", "PF-B003", "PF-B004", "PF-B005"],
+  "status": "FREEZE_CANDIDATE_PREOUTCOME",
+  "outcomes_used": false,
+  "maximum_advancing_targets": 3,
+  "target_priority_order": {
+    "tier_1_primary": ["T1", "T4", "T6"],
+    "tier_2_secondary": ["T2", "T3", "T5", "T7"],
+    "tier_3_exploratory": ["T8"]
+  },
+  "noncompensatory_entry_gates": [
+    {
+      "gate_id": "A0_EXACT_CANDIDATE_IDENTITY",
+      "rule": "An exact executable code/configuration/parameter hash binding to the same frozen M1-pass candidate must exist.",
+      "current_value": "NO_R4_EXECUTABLE_IDENTITY_IDENTIFIED",
+      "current_status": "NOT_ESTIMABLE"
+    },
+    {
+      "gate_id": "A1_SUBJECT_DENOMINATOR",
+      "rule": "At least 3 independently certified public/development Night-1 personalized models for the exact candidate must be available before any Phase2B outcome access.",
+      "minimum": 3,
+      "current_value": 0,
+      "current_status": "NOT_ESTIMABLE"
+    },
+    {
+      "gate_id": "A2_SAME_CANDIDATE_M1",
+      "rule": "The exact executable candidate must have M1_PASS, VERIFIED, MATERIAL_DISAGREEMENT=false, and matching hashes.",
+      "current_value": "CATEGORICAL_M1_ONLY_WITHOUT_EXECUTABLE_BINDING",
+      "current_status": "NOT_ESTIMABLE"
+    },
+    {
+      "gate_id": "A3_COMPARATOR_ESTIMABILITY",
+      "rule": "Sham, leave-one-subject-out matched non-personalized, and deterministic cyclic wrong-subject comparators must all be executable for every included subject.",
+      "current_value": "NO_ELIGIBLE_SUBJECT_MODELS",
+      "current_status": "NOT_ESTIMABLE"
+    },
+    {
+      "gate_id": "A4_SYNTHETIC_EXCLUSION",
+      "rule": "Synthetic draws, nominal bench variants, labels, or simulated pseudo-subjects cannot contribute to the formal subject denominator.",
+      "current_value": "ENFORCED",
+      "current_status": "PASS"
+    }
+  ],
+  "current_campaign_decision": {
+    "phase2b_status": "NOT_ESTIMABLE",
+    "advancing_targets": [],
+    "advancing_target_count": 0,
+    "decision_time_relation": "frozen before Phase2A scientific outcomes",
+    "reason": "Entry gates A0-A3 are not estimable under the certified current inputs. The target ranking algorithm is therefore not entered.",
+    "synthetic_substitution": "PROHIBITED",
+    "override_within_candidate_v2": "PROHIBITED"
+  },
+  "deterministic_ranking_algorithm_if_all_entry_gates_had_passed_before_outcomes": {
+    "eligibility_filter": [
+      "Target has valid complete Phase2A Level A evidence with at least 30 paired seed-draw blocks.",
+      "Target meets its registered practical margin and simultaneous uncertainty threshold.",
+      "Applicable multiplicity-adjusted test passes.",
+      "At least 95 percent of prescribed runs are stable.",
+      "No target-specific or global off-target hard veto fires.",
+      "Independent verifier status is VERIFIED and MATERIAL_DISAGREEMENT=false.",
+      "Target grade is C or better under the registered A/B/C/D/F definitions.",
+      "T8 is excluded because it is prospectively exploratory in Candidate V2."
+    ],
+    "score_components": {
+      "margin_slack": "max(0,minimum simultaneous F_TARGET_DECISIONS lower margin-slack bound for the target divided by its corresponding practical margin), capped at 3; use the exact max-deviation construction in phase2_protocol.json",
+      "reproducibility": "fraction of valid paired blocks with target-oriented effect in the registered direction",
+      "specificity": "1 minus the maximum normalized adverse off-target magnitude, clipped to [0,1]",
+      "stability": "fraction of prescribed runs passing all stability rules",
+      "mechanistic_directness": {"T1": 1.0, "T4": 1.0, "T6": 1.0, "T2": 0.75, "T3": 0.75, "T5": 0.75, "T7": 0.75, "T8": 0.0}
+    },
+    "score_formula": "0.35*margin_slack/3 + 0.25*reproducibility + 0.20*specificity + 0.15*stability + 0.05*mechanistic_directness",
+    "sort_keys": [
+      "priority tier ascending",
+      "score descending",
+      "lower simultaneous confidence-bound margin slack descending",
+      "target_id lexicographically ascending"
+    ],
+    "selection": "Take the first min(3,number_eligible) targets after sorting; do not fill unused slots.",
+    "policy_freeze": "For each selected target, the subject-specific policy is the smallest-absolute-dose maximizer of the registered training-seed benefit on the fixed grid; signed ties use the smaller numeric dose. Evaluation uses disjoint seeds.",
+    "no_manual_override": true
+  },
+  "required_new_version_for_future_eligibility": {
+    "condition": "A new exact governance-approved release supplies at least 3 eligible public/development Night-1 models and an exact same-candidate executable/hash binding before relevant outcomes are visible.",
+    "action": "Create and independently audit a new protocol version; Candidate V2 remains NOT_ESTIMABLE and its empty advancement decision remains immutable.",
+    "reuse_of_phase2a_outcomes_for_threshold_changes": "PROHIBITED"
+  }
+}

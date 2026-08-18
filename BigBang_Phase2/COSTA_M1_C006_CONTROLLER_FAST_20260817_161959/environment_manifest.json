@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-08-17T20:26:41.500540+00:00",
+  "conda_default_env": "neurolib",
+  "python_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+  "python_version": "3.10.20",
+  "versions": {
+    "neurolib": "0.6.1",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.8",
+    "numba": "0.64.0"
+  },
+  "evidence_ceiling": "EXPLORATORY_ONLY"
+}

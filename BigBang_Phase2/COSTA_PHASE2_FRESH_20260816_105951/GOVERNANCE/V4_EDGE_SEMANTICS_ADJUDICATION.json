@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0.0",
+  "adjudication_id": "V4_EDGE_SEMANTICS_ADJUDICATION",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version_reviewed": "4.0.0",
+  "adjudicated_at": "2026-08-16T16:10:32.2291055-04:00",
+  "adjudicator_role": "INDEPENDENT_OUTCOME_BLIND_GOVERNANCE_ADJUDICATOR",
+  "status": "IMMUTABLE_OUTCOME_BLIND_EDGE_SEMANTICS_ADJUDICATION",
+  "scientific_outcomes_visible": false,
+  "overall_verdict": "V4_CODE_FREEZE_BLOCKED_BY_UNDEFINED_RESCALE_ONLY_EVENT_VETO; GENERAL_UNDEFINED_BOOTSTRAP_FAILS_CLOSED_NOT_ESTIMABLE_WITHOUT_PROTOCOL_AMENDMENT",
+  "scope": {
+    "questions": [
+      "Whether the frozen off-target veto 'SO or spindle events appear only because the signal mean or variance is rescaled' is already executable, can be conservatively completed during implementation, or is a blocking protocol specification defect.",
+      "Whether the absence of a general all-missing-bootstrap numerical convention permits deterministic fail-closed NOT_ESTIMABLE propagation or requires a protocol amendment."
+    ],
+    "sources": "Only the exact hash-verified V4 protocol freeze, V4 protocol re-audit, corrected V4 implementation release and revalidation, and the eight exact freeze-bound V4 protocol artifacts.",
+    "implementation_code_opened_hashed_statted_or_enumerated": false,
+    "implementation_manifest_opened_hashed_statted_or_enumerated": false,
+    "expected_schema_manifest_opened_hashed_statted_or_enumerated": false,
+    "repository_code_opened": false,
+    "module_imported": false,
+    "python_launcher_preflight_or_scientific_execution": "NONE",
+    "data_or_outcomes_accessed": false
+  },
+  "input_integrity": {
+    "verdict": "PASS_12_OF_12_SHA256",
+    "files": [
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+        "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+        "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+        "sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json",
+        "sha256": "B3FBA1F63E2360A9C9D8CC9ADC7C18A1750EF6076EB4564F02D6FD884056B2C6"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/control_target_registry.json",
+        "sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/mechanistic_parameter_map.json",
+        "sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+        "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/advancement_rule.json",
+        "sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/c2_gate_protocol.json",
+        "sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/claim_registry.json",
+        "sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/PREOUTCOME_DESIGN_MEMO.md",
+        "sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+      }
+    ]
+  },
+  "exact_source_citations": [
+    {
+      "citation_id": "CIT-RESCALE-VETO",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/stability_and_plausibility/off_target_vetoes/2",
+      "line": 2171,
+      "exact_text": "SO or spindle events appear only because the signal mean or variance is rescaled"
+    },
+    {
+      "citation_id": "CIT-COMMON-CENTERING",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/observation_and_detector_contract/common_preprocessing/centering",
+      "line": 345,
+      "exact_text": "subtract the mean of the 180 s analysis interval separately for each run"
+    },
+    {
+      "citation_id": "CIT-SHAM-THRESHOLDS",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/observation_and_detector_contract/T4_T5_spindle_events/threshold_calibration",
+      "line": 396,
+      "exact_text": "For each seed-draw block, threshold constants are derived once from its sham: high=median+3*MAD and low=median+1.5*MAD, MAD=1.4826*median(abs(x-median(x))). The same constants are applied to every condition in that block."
+    },
+    {
+      "citation_id": "CIT-JOINT-MAX",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/uncertainty_and_statistics/simultaneous_95_construction/joint_statistic",
+      "line": 2006,
+      "exact_text": "M_b=max over all estimable k in the frozen family of abs(delta[b,k])/s_k."
+    },
+    {
+      "citation_id": "CIT-ZERO-VARIANCE-NOT-MISSING",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/uncertainty_and_statistics/simultaneous_95_construction/zero_variance",
+      "line": 2010,
+      "exact_text": "The registered scale floor is used; if all bootstrap values equal the point estimate, the simultaneous band has the resulting finite floor width rather than zero."
+    },
+    {
+      "citation_id": "CIT-TARGET-MISSING",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/uncertainty_and_statistics/simultaneous_families/F_TARGET_DECISIONS/missing_component_rule",
+      "line": 2060,
+      "exact_text": "If a point component is undefined under its frozen event/window denominator, that target is NOT_ESTIMABLE and cannot pass. The missing component is omitted from M_b for other targets, and the exact omitted member is logged; it is never imputed as zero. For T4 only, the formal attribution component resolves solely to domain row T4_LA_WORKER_D1P50_FC13. After that row's point denominator passes, a bootstrap resample with zero added events assigns F_auto=0 and F_replica=1 and logs ZERO_ADDED_BOOTSTRAP; no other attribution row can substitute."
+    },
+    {
+      "citation_id": "CIT-LEVEL-B-MISSING",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/uncertainty_and_statistics/simultaneous_families/F_LEVEL_B_SURFACES/missing_cell_rule",
+      "line": 2068,
+      "exact_text": "A missing executed cell remains NOT_ESTIMABLE and is omitted from M_b, but any missing required cell makes its entire surface and any dependent mapping policy NOT_ESTIMABLE for mechanistic support or Grade C. Other bands remain descriptive with the complete missingness map."
+    },
+    {
+      "citation_id": "CIT-GENERAL-NO-IMPUTATION",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/uncertainty_and_statistics/missingness",
+      "line": 2089,
+      "exact_text": "No imputation. Missing event-dependent metrics remain NOT_ESTIMABLE; invalid simulations remain INVALID."
+    },
+    {
+      "citation_id": "CIT-T4-ONLY-ZERO-ADDED",
+      "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+      "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+      "json_pointer": "/observation_and_detector_contract/T4_added_event_attribution/attribution_domain_contract/bootstrap_zero_added",
+      "line": 433,
+      "exact_text": "Only after the point-estimate base attribution minimum passes: within each registered hierarchical bootstrap replicate, re-pool events from that row's resampled blocks. If its resampled N_added=0, set F_auto=0 and F_replica=1 for that replicate and log ZERO_ADDED_BOOTSTRAP with domain_row_id, family_id, and replicate_index. Do not use this convention to rescue a failed point-estimate denominator."
+    },
+    {
+      "citation_id": "CIT-FROZEN-OFF-TARGET",
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+      "json_pointer": "/immutable_scientific_fields/6",
+      "line": 114,
+      "exact_text": "stability, off-target, failure, advancement, grading and claim rules"
+    },
+    {
+      "citation_id": "CIT-FROZEN-MISSINGNESS",
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+      "json_pointer": "/immutable_scientific_fields/7",
+      "line": 115,
+      "exact_text": "causal scheduler, event matching, attribution-domain table, fixture and missingness rules"
+    },
+    {
+      "citation_id": "CIT-NO-SCIENTIFIC-REPAIR",
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+      "json_pointer": "/change_control/outcome_blind_preflight_repairs",
+      "line": 120,
+      "exact_text": "One initial data-free synthetic preflight followed by at most two bounded implementation/schema/shape repairs; no scientific field may change."
+    },
+    {
+      "citation_id": "CIT-RELEASE-PROHIBITION",
+      "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+      "sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF",
+      "json_pointer": "/change_control/scientific_definition_changes",
+      "line": 75,
+      "exact_text": "PROHIBITED"
+    },
+    {
+      "citation_id": "CIT-PRIOR-AUDIT-OFF-TARGET-PASS",
+      "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+      "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+      "json_pointer": "/protocol_executability_checks/stability_broadband_off_target_and_artifact_vetoes",
+      "line": 508,
+      "exact_text": "PASS"
+    },
+    {
+      "citation_id": "CIT-PRIOR-AUDIT-NONE-IDENTIFIED",
+      "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+      "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+      "json_pointer": "/protocol_executability_checks/unimplementable_specifications",
+      "line": 511,
+      "exact_text": "NONE_IDENTIFIED"
+    }
+  ],
+  "rescale_only_event_veto_adjudication": {
+    "finding_id": "PV4-EDGE-B001",
+    "question_options": {
+      "A": "Already executable from exact frozen text",
+      "B": "Conservatively satisfiable in implementation without changing protocol",
+      "C": "Blocking protocol specification defect requiring prospective V5 and independent re-audit before implementation code freeze"
+    },
+    "verdict": "C",
+    "classification": "BLOCKING_SCIENTIFIC_PROTOCOL_SPECIFICATION_DEFECT",
+    "reasoning": [
+      "The V4 package contains the veto predicate but no exact operation that decides it. Across the eight exact artifacts, no field defines which signal is rescaled, which reference supplies target mean and variance, the direction and formula of normalization, the interval and event population, whether filters and sham-derived thresholds are recomputed, how events are matched before and after transformation, what 'only because' means numerically, or how the result aggregates across blocks, conditions, targets, surfaces, and verifier rows.",
+      "Common per-run mean subtraction does not resolve the veto. It removes each run's analysis mean before filtering but does not define a counterfactual mean/variance normalization or an event-causation comparison.",
+      "Fixed sham-derived spindle thresholds also do not resolve the veto. They define the official detector, not a mean/variance-rescale diagnostic and not a rule for assigning the off-target veto.",
+      "At least two reasonable algorithms can disagree: rescale intervention to sham mean/variance then redetect with fixed sham thresholds, or standardize both signals then recalibrate/redetect. Further choices about raw versus filtered signal, zero variance, matching, equality, and aggregation also change decisions. The frozen text selects none of them.",
+      "Choosing any such algorithm in implementation would create a new scientific detector/normalization, change the veto's operating characteristics, and potentially change F, Grade C, advancement, C2-G8, and claim eligibility. Off-target and failure rules are explicitly immutable scientific fields, and scientific-definition changes are prohibited under V4.",
+      "Treating the predicate as always false risks false passage. Treating every event change as automatically vetoed, INVALID, F, or NOT_ESTIMABLE is not an implementation of 'only because'; it replaces the registered predicate with a strictly broader rule and changes the prospective scientific decision surface. Conservatism therefore does not make option B faithful.",
+      "The prior V4 re-audit's generic PASS and NONE_IDENTIFIED conclusions provide no missing numerical rule and cannot convert an undefined predicate into an executable algorithm. This adjudication records a previously missed blocker without modifying the immutable V4 bytes."
+    ],
+    "minimum_prospective_v5_resolution": [
+      "Define the exact source signal(s), sample interval(s), and paired reference used for the diagnostic.",
+      "Define the exact float64 mean/variance estimator, normalization direction and formula, zero-variance and nonfinite handling, equality/tolerance convention, and operation order relative to centering, filtering, envelope/RMS construction, and sham threshold calibration.",
+      "Define whether and exactly how SO/spindle detection is rerun, how original and normalized events are matched, and the Boolean or scalar criterion for 'appear only because'.",
+      "Define the per-block, per-condition, target/surface/verifier aggregation, denominators, minimums, missingness, simultaneous-inference role if any, and exact consequence for stability, F, Grade C, advancement, C2 gates, and claims.",
+      "Add deterministic data-free fixtures covering pure mean shift, pure variance scale, genuine morphology/event addition, zero variance, threshold equality, edge events, and mixed effects, with exact expected outputs.",
+      "Propagate the rule across every affected V5 artifact, freeze new hashes, independently re-audit V5, and issue a new implementation release before any implementation hash freeze or code-audit PASS."
+    ],
+    "current_gate_effect": {
+      "v4_protocol_bytes": "REMAIN_IMMUTABLE_HISTORICAL_RECORD",
+      "v4_reaudit_pass_for_code_freeze": "INSUFFICIENT_DUE_TO_PV4_EDGE_B001",
+      "corrected_v4_static_implementation_release": "DOES_NOT_AUTHORIZE_INVENTING_THE_MISSING_RULE_AND_CANNOT_SUPPORT_A_CONFORMANT_IMPLEMENTATION_FREEZE",
+      "candidate_v4_implementation_hash_freeze": "BLOCKED",
+      "independent_v4_code_audit_pass": "BLOCKED",
+      "data_free_preflight": "DENIED",
+      "phase2a": "DENIED",
+      "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+      "required_next_scientific_version": "V5"
+    }
+  },
+  "all_missing_bootstrap_adjudication": {
+    "finding_id": "PV4-EDGE-A002",
+    "verdict": "DETERMINISTIC_FAIL_CLOSED_NOT_ESTIMABLE_IS_FAITHFUL_AND_REQUIRES_NO_PROTOCOL_AMENDMENT",
+    "classification": "EXISTING_MISSINGNESS_SEMANTICS_APPLY_NO_NUMERICAL_FALLBACK",
+    "reasoning": [
+      "V4 expressly forbids imputation and says missing event-dependent metrics remain NOT_ESTIMABLE. It also says an undefined point component makes its target NOT_ESTIMABLE and cannot pass, while other estimable targets retain their separately logged family members.",
+      "The simultaneous joint statistic requires a maximum over estimable members and the construction requires a complete numerical bootstrap distribution. If an affected component has no defined bootstrap distribution, or a family replicate has no estimable member so its maximum is over the empty set, no frozen numeric statistic exists.",
+      "Returning NOT_ESTIMABLE without a numerical band is direct propagation of the already frozen missingness status. It adds no threshold, estimator, pseudo-value, ordering, or pass opportunity and therefore is an implementation failure boundary rather than a scientific amendment.",
+      "Skipping missing replicates, redrawing them, replacing missing values with zero, infinity, a scale floor, a point estimate, or another component, reducing the registered replicate count, or using a shorter family would change the frozen bootstrap distribution and is prohibited.",
+      "The T4 ZERO_ADDED_BOOTSTRAP rule is the sole explicit numerical exception after its point denominator passes. It cannot be generalized to other metrics or used to rescue a failed point denominator.",
+      "All-equal finite bootstrap values are not missing: V4's exact zero-variance scale floor applies. T7's explicit -infinity convention applies only to its circular label randomization degeneracy and is not a general bootstrap convention."
+    ],
+    "deterministic_fail_closed_rule": {
+      "point_stage": "Apply every frozen denominator and validity rule first. An undefined point component receives NOT_ESTIMABLE or INVALID exactly as registered and cannot pass.",
+      "bootstrap_stage": "For a point-eligible component, if the required registered bootstrap slack/deviation array cannot be formed as a complete finite array under frozen rules, mark that component and every dependent target, surface, policy, cell, grade, gate, and claim NOT_ESTIMABLE; emit no numeric interval for it.",
+      "empty_family_replicate": "If any required M_b would be max over an empty estimable set, the affected family inference is NOT_ESTIMABLE; do not assign a numerical M_b, skip/redraw the replicate, or shorten the 10000-replicate construction.",
+      "remaining_members": "Where the frozen family-specific rule permits, fully defined members for other targets retain descriptive bands with the exact missing-member map and provenance. Missing members never reduce a required pass surface or policy to a smaller passing object.",
+      "t4_exception": "Only the exact row-specific T4 ZERO_ADDED_BOOTSTRAP convention may emit F_auto=0 and F_replica=1 after point-denominator passage.",
+      "finite_zero_variance": "A complete finite constant bootstrap array uses the registered scale floor and is not classified as all-missing.",
+      "logging": "Log family ID, component/member ID, replicate index or array scope, originating denominator/invalidity code, dependency statuses, and that no imputation, redraw, retry, or numerical band occurred."
+    },
+    "amendment_required": false,
+    "scope_limit": "This adjudication authorizes only fail-closed status propagation when the frozen numerical object is undefined. It does not authorize a new numeric convention, alternative resampling, partial-replicate estimator, or recovery rule. A desired numerical recovery convention would require a new prospective protocol version."
+  },
+  "joint_governance_conclusion": {
+    "rescale_veto": "C_BLOCKING_REQUIRES_V5",
+    "all_missing_bootstrap": "FAIL_CLOSED_NOT_ESTIMABLE_NO_AMENDMENT",
+    "why_the_results_differ": "The bootstrap case already has an explicit no-imputation and NOT_ESTIMABLE status contract, so undefined numerical objects can only fail closed. The rescale veto has no defined truth-evaluation operation; assigning either true or false requires a new scientific rule and can alter decisions.",
+    "outcome_blindness": "No implementation, manifest, preflight, data, or outcome was used to reach either conclusion.",
+    "repair_budget": "PV4-EDGE-B001 is not an implementation/schema/shape repair and cannot consume or use the V4 bounded repair budget. It is a prospective scientific-protocol repair."
+  },
+  "immutability": {
+    "this_adjudication_is_immutable": true,
+    "protocol_files_modified": false,
+    "release_files_modified": false,
+    "implementation_or_manifest_files_accessed_or_modified": false,
+    "execution_performed": false,
+    "self_hash_policy": "This adjudication's SHA-256 is computed and reported externally after final serialization; it is not recursively embedded."
+  }
+}

@@ -1,0 +1,1785 @@
+{
+  "schema_version": "3.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "protocol_id": "COSTA_PHASE2_PROTOCOL_CANDIDATE_V3",
+  "parent_protocol_id": "COSTA_PHASE2_PROTOCOL_CANDIDATE_V2",
+  "repair_scope": [
+    "PV2-B001",
+    "PV2-B002",
+    "PV2-B003",
+    "PV2-B004"
+  ],
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "status": "FREEZE_CANDIDATE_PREOUTCOME",
+  "outcome_visibility_at_design": "NONE",
+  "execution_authorized_by_this_artifact": false,
+  "purpose": "Prospectively specify a current-campaign clean-room diagnostic control bench and a compute-bounded Phase 2A assessment of T1-T8 without importing R4 execution artifacts or scientific outcomes.",
+  "claim_boundary": {
+    "r4_categorical_substrate": {
+      "mechanistic_level": "M1",
+      "control_level": "C0",
+      "predictive_level": "P0",
+      "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION"
+    },
+    "bench_relation_to_r4": "NO_EXECUTABLE_IDENTITY_LINK",
+    "maximum_bench_evidence": "NON_TRANSFERABLE_SYNTHETIC_DIAGNOSTIC",
+    "formal_c1_assignment": "PROHIBITED",
+    "formal_c2_assignment": "PROHIBITED",
+    "r4_substrate_change": "PROHIBITED",
+    "clinical_or_human_intervention_inference": "PROHIBITED"
+  },
+  "software_contract": {
+    "environment": "neurolib",
+    "environment_version": "NEUROLIB_ENV_V3",
+    "python": "3.10.20",
+    "required_packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "neurolib": "0.6.1"
+    },
+    "scientific_dependencies": [
+      "numpy",
+      "scipy"
+    ],
+    "neurolib_role": "environment compatibility and future adapter boundary only; no repository or historical neurolib model is imported",
+    "official_launcher": "PREFLIGHT/run_neurolib.ps1",
+    "threads": {
+      "OMP_NUM_THREADS": 4,
+      "MKL_NUM_THREADS": 4,
+      "OPENBLAS_NUM_THREADS": 4,
+      "NUMEXPR_NUM_THREADS": 4
+    },
+    "requested_concurrent_processes": 1,
+    "reason_for_single_process": "The frozen environment snapshot admits one process at captured available memory."
+  },
+  "bench": {
+    "bench_id": "PHASE2_CONTROL_BENCH_V1",
+    "bench_type": "clean-room reduced thalamocortical stochastic rate model",
+    "equations": {
+      "rates": "tau_i*dr_i/dt=-r_i+rmax_i/(1+exp(-beta*(h_i-theta))) for i=E,I,T,R",
+      "adaptation": "tau_a*da/dt=-a+r_E",
+      "h_E": "b_E+w_EE*r_E-w_EI*r_I+w_ET*r_T-g_a*a+eta_E+u_E(t)",
+      "h_I": "b_I+w_IE*r_E-w_II*r_I+w_IT*r_T+eta_I+u_I(t)",
+      "h_T": "b_T+w_TE*r_E-w_TR*r_R+eta_T+u_T(t)",
+      "h_R": "b_R+w_RE*r_E+w_RT*r_T-w_RR*r_R+eta_R+u_R(t)",
+      "ou_update": "eta_i[n+1]=rho*eta_i[n]+sigma_i*sqrt(1-rho^2)*epsilon_i[n], rho=exp(-dt/tau_eta), epsilon_i[n] iid N(0,1)",
+      "observation": "x(t)=(r_E(t)+0.25*r_T(t))/10 m.u."
+    },
+    "state_order": [
+      "r_E",
+      "r_I",
+      "r_T",
+      "r_R",
+      "a",
+      "eta_E",
+      "eta_I",
+      "eta_T",
+      "eta_R"
+    ],
+    "initial_state": [
+      8,
+      10,
+      6,
+      8,
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    "parameter_source": "mechanistic_parameter_map.json#parameter_defaults_and_bounds",
+    "parameter_values": {
+      "tau_E": 0.02,
+      "tau_I": 0.01,
+      "tau_T": 0.02,
+      "tau_R": 0.01,
+      "tau_a": 1,
+      "tau_eta": 0.05,
+      "rmax_E": 100,
+      "rmax_I": 100,
+      "rmax_T": 100,
+      "rmax_R": 100,
+      "beta": 0.18,
+      "theta": 15,
+      "b_E": 12,
+      "b_I": 8,
+      "b_T": 10,
+      "b_R": 8,
+      "g_a": 0.3,
+      "w_EE": 0.22,
+      "w_EI": 0.35,
+      "w_ET": 0.16,
+      "w_IE": 0.3,
+      "w_II": 0.1,
+      "w_IT": 0.1,
+      "w_TE": 0.12,
+      "w_TR": 0.4,
+      "w_RE": 0.08,
+      "w_RT": 0.35,
+      "w_RR": 0.08,
+      "sigma_E": 0.25,
+      "sigma_I": 0.2,
+      "sigma_T": 0.2,
+      "sigma_R": 0.2
+    },
+    "timebase": {
+      "internal_dt_seconds": 0.001,
+      "integrator": "fixed-step stochastic Heun for rate/adaptation states with exact discrete OU update",
+      "predictor_corrector_order": "Compute OU next state from the registered epsilon; Euler-predict r and a using current eta; recompute drift at predictor using next eta; set state_next=state+0.5*dt*(drift_current+drift_predictor).",
+      "clipping": "NONE",
+      "warmup_seconds": 30,
+      "analysis_seconds": 180,
+      "stored_sampling_rate_hz": 200,
+      "decimation_rule": "store every fifth internal sample after warmup; no antialias filter is needed for stored states because detector bands end at 30 Hz, but a fixed scipy.signal.decimate FIR zero-phase check must agree within 1 percent on preflight spectra",
+      "time_origin": "intervention starts after warmup at analysis t=0",
+      "floating_point": "IEEE-754 float64",
+      "input_evaluation": "For each internal solver interval m=0,...,209999 at global time t=m/1000 s, evaluate every additive input at the left endpoint and hold it constant over [m,m+1). Use the same held input in the current and Heun predictor drift. Analysis-relative index a=m-30000 is used below; all intervention inputs are exactly zero when a<0 or a>=180000."
+    },
+    "randomness": {
+      "bit_generator": "numpy.random.PCG64",
+      "worker_seeds": [
+        11003,
+        22007,
+        33013,
+        44017,
+        55021,
+        66029
+      ],
+      "independent_verification_seeds": [
+        77041,
+        88069,
+        99079,
+        111091
+      ],
+      "seed_pairing": "For a given parameter draw and seed, sham and every intervention condition reuse the identical four OU innovation streams.",
+      "stream_layout": "One Generator(seed) produces a float64 array in C order with columns E,I,T,R at each internal step.",
+      "parameter_draws": [
+        "D00_NOMINAL",
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05"
+      ],
+      "parameter_draw_rule": "mechanistic_parameter_map.json#synthetic_uncertainty_rule",
+      "interpretation": "seed and parameter draws quantify synthetic bench uncertainty only; they are not people and not personalization evidence"
+    },
+    "intervention_semantics": {
+      "name_requirement": "Every applied input is named GENERIC EXTERNAL FORCING.",
+      "auditory_like_label": "PROHIBITED",
+      "physiological_parameter_change_as_control": "PROHIBITED",
+      "parameter_perturbation_role": "SENSITIVITY_ONLY",
+      "channels": "mechanistic_parameter_map.json#intervention_channels",
+      "causal_phase_scheduler": {
+        "scope": "Exact scheduler for GF_T_PHASE_LOCKED_PACKET only. Offline T6/T7 measurement filters remain the separately frozen zero-phase filters.",
+        "scheduler_sampling_rate_hz": 200,
+        "scheduler_dt_seconds": 0.005,
+        "sample_origin": "Scheduler sample n=0 is simulation time -30.000 s; analysis begins at n=6000 and ends before n=42000.",
+        "input": "Raw online x[n]=(r_E[n]+0.25*r_T[n])/10 at every fifth 1 ms solver step; no future centering or zero-phase filtering.",
+        "causal_filter": {
+          "type": "one-pole high-pass at 0.3 Hz followed by one-pole low-pass at 1.5 Hz",
+          "tau_hp_seconds": 0.5305164769729844,
+          "alpha_hp": 0.990663219125838,
+          "tau_lp_seconds": 0.1061032953945969,
+          "alpha_lp": 0.04500316558786029,
+          "formula_hp": "hp[n]=alpha_hp*(hp[n-1]+x[n]-x[n-1])",
+          "formula_lp": "bp[n]=bp[n-1]+alpha_lp*(hp[n]-bp[n-1])",
+          "initialization": "At n=0 set x_prev=x[0], hp[0]=0, bp[0]=0. For n>=1 update hp first, then bp, then set x_prev=x[n].",
+          "delay_calibration": "NONE",
+          "delay_semantics": "The causal filtered upward crossing itself defines phase zero; no estimated or subtracted filter delay is permitted."
+        },
+        "warmup_and_history": {
+          "filter_warmup_samples": 6000,
+          "transient_excluded_samples": 4000,
+          "history_collection_samples": [
+            4000,
+            6000
+          ],
+          "packet_delivery_during_warmup": "PROHIBITED",
+          "history_rule": "Crossings during samples 4000 through 5999 may build period history. Only crossings n>=6000 may schedule packets."
+        },
+        "crossing_rule": {
+          "candidate": "bp[n-1]<0 and bp[n]>=0; equality at bp[n-1] is not a crossing; crossing time is integer sample n with no interpolation.",
+          "valid_period_samples_inclusive": [
+            134,
+            400
+          ],
+          "valid_period_seconds_inclusive": [
+            0.67,
+            2
+          ],
+          "valid_frequency_hz_approximate": [
+            0.5,
+            1.4925373134328357
+          ],
+          "invalid_interval_action": "Log PERIOD_OUT_OF_RANGE, replace the prior anchor with n, clear all period intervals, and do not schedule from this crossing.",
+          "valid_interval_action": "Append n-last_anchor to a FIFO containing at most the three most recent valid intervals, set last_anchor=n, and mark n accepted.",
+          "first_anchor_action": "Store n as last_anchor, clear interval history, log FIRST_ANCHOR, and do not schedule."
+        },
+        "period_estimation": {
+          "minimum_intervals": 3,
+          "estimator": "P_hat is the integer median of the three stored valid integer intervals; because there are exactly three, no fractional median occurs.",
+          "clamp_samples_inclusive": [
+            134,
+            400
+          ],
+          "clamp_formula": "P_use=min(400,max(134,P_hat))",
+          "insufficient_history_action": "Log INSUFFICIENT_PERIOD_HISTORY and do not schedule."
+        },
+        "phase_to_delay": {
+          "canonical_phase_domain": "[-pi,pi)",
+          "canonicalization": "phi_c=((phi+pi) mod (2*pi))-pi; an exact +pi input is prohibited and -pi is its sole representative.",
+          "forward_phase": "q=((phi_c mod (2*pi))+2*pi) mod (2*pi), so q is in [0,2*pi).",
+          "unquantized_delay_samples": "d_real=q*P_use/(2*pi)",
+          "quantization": "d_round=floor(d_real+0.5), a deterministic round-half-up for nonnegative d_real.",
+          "causal_minimum_latency": "d=max(1,d_round); the scheduler runs after x[n] is observed, so the earliest packet begins at n+1.",
+          "negative_offset_semantics": "Negative phi maps through q to the remaining fraction of the current estimated cycle and is therefore scheduled after the detected crossing; for example -pi/2 maps to 3*P_use/4. It never refers to an already elapsed phase.",
+          "next_cycle_semantics": "If q is numerically zero only phi_c=0 is allowed and the one-sample causal latency applies. No extra cycle is added. All negative offsets use the forward modulo delay within the cycle ending at the next predicted crossing."
+        },
+        "queue_and_overlap": {
+          "proposed_start_scheduler_sample": "s=n+d",
+          "proposed_start_internal_step": "j_start=5*s",
+          "packet_internal_steps": 500,
+          "interval_convention": "A packet occupies internal steps [j_start,j_start+500), equivalent to scheduler time [s,s+100 samples).",
+          "overlap_rule": "Before insertion, compare the half-open proposed interval with every active or queued interval. If max(start_a,start_b)<min(stop_a,stop_b), log OVERLAP_SKIP and discard the new packet; packets are never summed, truncated, merged, or replaced.",
+          "queue_order": "Nonoverlapping packets are stored by ascending start step; equal starts would overlap and the earlier-created packet remains.",
+          "maximum_queued_not_active": 2,
+          "queue_full_rule": "If two future packets are already queued, log QUEUE_FULL and discard the new packet even if it would not overlap.",
+          "analysis_boundary_rule": "Internal step zero is simulation start; warmup ends at j_analysis_start=30*1000=30000 and analysis ends at j_analysis_stop=210*1000=210000. If j_start<30000 or j_start+500>210000, log OUTSIDE_ANALYSIS_SKIP and discard the packet."
+        },
+        "packet_samples": {
+          "amplitude_parameter": "A_hz_equivalent",
+          "carrier_parameter_hz": "f_c_hz",
+          "allowed_amplitude_hz_equivalent": [
+            0,
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "allowed_carrier_hz": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "duration_seconds": 0.5,
+          "internal_sampling_rate_hz": 1000,
+          "indices": "k=0,...,499",
+          "hann": "w[k]=0.5*(1-cos(2*pi*k/499))",
+          "carrier": "c[k;f_c]=0.5*(1+sin(2*pi*f_c*k/1000))",
+          "injection": "u_T[j_start+k]=A*w[k]*c[k;f_c], with u_E=u_I=u_R=0 for this channel; endpoints w[0] and w[499] are exactly zero.",
+          "evaluation": "Compute float64 values at integer k in ascending order. No phase reset other than k=0 at each packet, no interpolation, normalization, clipping, or overlap summation."
+        },
+        "required_log_per_crossing": [
+          "crossing_sample",
+          "interval_samples",
+          "history_samples",
+          "P_use",
+          "phi_c",
+          "q",
+          "d_real",
+          "d_round",
+          "A_hz_equivalent",
+          "f_c_hz",
+          "scheduled_start",
+          "scheduled_stop",
+          "decision_code"
+        ],
+        "decision_codes": [
+          "FIRST_ANCHOR",
+          "PERIOD_OUT_OF_RANGE",
+          "INSUFFICIENT_PERIOD_HISTORY",
+          "WARMUP_ONLY",
+          "SCHEDULED",
+          "OVERLAP_SKIP",
+          "QUEUE_FULL",
+          "OUTSIDE_ANALYSIS_SKIP",
+          "ZERO_AMPLITUDE_SHAM"
+        ],
+        "missed_trigger_rule": "Every accepted or rejected crossing receives exactly one decision code; skipped triggers are retained in the run artifact and never silently retried.",
+        "parameterization": {
+          "allowed_parameter_tuple": [
+            "phi_c_radians",
+            "A_hz_equivalent",
+            "f_c_hz"
+          ],
+          "level_a": {
+            "phi_c": "one of the eight registered unique canonical phases",
+            "A_hz_equivalent": 1,
+            "f_c_hz": 13
+          },
+          "level_b_T6": {
+            "phi_c": "one of [-pi,-pi/2,0,pi/2]",
+            "A_hz_equivalent": "one of [0,0.25,0.50,0.75,1.00]",
+            "f_c_hz": 13
+          },
+          "level_b_T7": {
+            "phi_c": "one of [-pi,-pi/2,0,pi/2]",
+            "A_hz_equivalent": 1,
+            "f_c_hz": "one of [11,12,13,14,15]"
+          },
+          "bounds": {
+            "phi_c_radians": [
+              -3.141592653589793,
+              3.141592653589793
+            ],
+            "canonical_endpoint": "-pi included; +pi prohibited",
+            "A_hz_equivalent": [
+              0,
+              1
+            ],
+            "f_c_hz": [
+              11,
+              15
+            ]
+          },
+          "combination_rule": "T6 varies A only with f_c=13; T7 varies f_c only with A=1. No run varies both A and f_c, and no other forcing channel is combined with GF_T_PHASE_LOCKED_PACKET.",
+          "sham_rule": "A=0 is exact zero input: do not enqueue packets, but run the causal filter and crossing logger with decision code ZERO_AMPLITUDE_SHAM at every otherwise schedulable crossing.",
+          "scheduler_state_invariance": "Filter, crossing, period, phase-to-delay, latency, queue, overlap, and boundary rules are identical for every allowed A and f_c."
+        }
+      }
+    }
+  },
+  "observation_and_detector_contract": {
+    "common_preprocessing": {
+      "signal": "x(t)=(r_E+0.25*r_T)/10 m.u.",
+      "centering": "subtract the mean of the 180 s analysis interval separately for each run",
+      "filter_implementation": "For each registered band [lo,hi], call scipy.signal.butter(4,[lo,hi],btype='bandpass',analog=False,output='sos',fs=200.0), then scipy.signal.sosfiltfilt(sos,x,padtype='odd',padlen=None). Filter the full centered 180 s record once; metrics then apply the exact edge/window masks.",
+      "filter_order": 4,
+      "edge_exclusion_seconds_each_side": 10,
+      "condition_invariance": "All coefficients, thresholds, duration rules, and edge rules are fixed before non-sham outcomes and applied unchanged across the paired sham and intervention conditions."
+    },
+    "T1": {
+      "metric": "dominant slow-oscillation peak frequency plus frequency-lock validation",
+      "welch": {
+        "fs_hz": 200,
+        "window": "hann",
+        "nperseg": 12000,
+        "noverlap": 6000,
+        "nfft": 24000,
+        "detrend": "constant",
+        "scaling": "density",
+        "peak_band_hz": [
+          0.4,
+          1.5
+        ],
+        "tie_rule": "lowest-frequency maximum"
+      },
+      "peak_refinement": "three-bin parabolic interpolation in log power; use the discrete bin at either boundary",
+      "locking": "PLV=abs(mean(exp(i*(phase_SO-2*pi*f_drive*t)))) after the edge exclusion; phase_SO is the Hilbert phase of the 0.3-1.5 Hz filtered signal",
+      "validity": "Welch power finite and positive, peak not at 0.4 or 1.5 Hz, at least 30 valid SO cycles"
+    },
+    "T2_T3_SO_events": {
+      "band_hz": [
+        0.3,
+        1.5
+      ],
+      "cycle_boundary": "successive upward zero crossings",
+      "cycle_duration_seconds": [
+        0.4,
+        2.5
+      ],
+      "event_thresholds": {
+        "minimum_peak_to_peak_m_u": 0.1,
+        "maximum_negative_trough_m_u": -0.04
+      },
+      "event_containment": "both cycle boundaries and extrema must lie strictly inside the analysis interval after edge exclusion",
+      "T2_metric": "median(max-min) across valid SO events",
+      "T3_metric": "60*valid_event_count/retained_duration_seconds",
+      "zero_event_rule": "T3 density is zero if retained duration is valid; T2 is NOT_ESTIMABLE if fewer than 30 events"
+    },
+    "T4_T5_spindle_events": {
+      "band_hz": [
+        11,
+        16
+      ],
+      "envelope": "At stored fs=200 Hz, let y be the frozen 11-16 Hz signal and define rms[n]=sqrt(mean(y[k]^2 for k=n-19,...,n+20)), exactly 40 samples with 19 before and 20 after n. Samples lacking the full 40-sample support are invalid; they already lie outside the 10 s retained edge. No convolution-mode or alternate even-window centering is permitted.",
+      "threshold_calibration": "For each seed-draw block, threshold constants are derived once from its sham: high=median+3*MAD and low=median+1.5*MAD, MAD=1.4826*median(abs(x-median(x))). The same constants are applied to every condition in that block.",
+      "event_rule": "start on high-threshold crossing, extend to surrounding low-threshold crossings, merge gaps <=0.100 s, retain durations 0.300-2.000 s, enforce strict containment",
+      "T4_metric": "60*spindle_count/retained_duration_seconds",
+      "T5_metric": "median event RMS of the unthresholded 11-16 Hz signal",
+      "zero_event_rule": "T4 density is zero; T5 is NOT_ESTIMABLE if fewer than 10 retained events"
+    },
+    "T4_added_event_attribution": {
+      "comparison": "Primary formal attribution applies only to Level-A d=+1.5, repetition 0.85 Hz, carrier 13 Hz GF_TR_SIGMA_PACKET_BALANCE versus its exact paired sham in each of 36 worker seed-draw blocks. For a Level-B T4 cell with d>0, the identical classifier is descriptive and uses that cell's exact carrier f_c and the same 0.85 Hz packet-start schedule; d<=0 cells have no added-event attribution component.",
+      "event_time": "For each retained spindle event, peak_sample is the earliest stored 200 Hz sample attaining the maximum frozen RMS envelope inside the event. Event IDs are assigned by onset sample then offset sample.",
+      "candidate_match": "Create every sham/intervention event pair with abs(intervention_peak_sample-sham_peak_sample)<=50 samples (0.250 s).",
+      "one_to_one_algorithm": "Sort candidate pairs lexicographically by absolute peak difference, intervention peak sample, sham peak sample, intervention event ID, sham event ID. Traverse once; accept a pair only when neither event is already matched. This greedy result is final.",
+      "added_and_lost": "Every unmatched intervention event is ADDED. Every unmatched sham event is LOST. Matched events are PAIRED_EXISTING. No many-to-one matching, rematching, or amplitude-based matching is permitted.",
+      "packet_schedule_for_attribution": "Let f_rep=0.85 Hz. For p=0,1,... set stored analysis-relative start s_p=floor(p*200/f_rep+0.5), global internal start j_p=30000+5*s_p, and stop s_p+100. Retain exactly those p with j_p+500<=210000. The packet waveform is d*w[k]*0.5*(1+sin(2*pi*f_c*k/1000)); f_c=13 for Level A and equals the executed Level-B cell carrier. The emitted packet table, not an inferred delay, is the sole attribution input.",
+      "packet_association": "An ADDED event is associated with an actually emitted packet when packet_start_sample<=event_peak_sample<packet_stop_sample+50. If multiple qualify, select smallest abs(event_peak_sample-packet_stop_sample), then earlier packet_start_sample, then lexicographically smaller packet_id. Otherwise classify UNASSOCIATED_ADDED.",
+      "post_packet_autonomous_cycle": "On the frozen 11-16 Hz filtered signal, enumerate upward zero crossings z where sigma[z-1]<0 and sigma[z]>=0. A packet-associated ADDED event has an autonomous post-packet cycle only if two successive crossings z1,z2 satisfy packet_stop_sample<z1<z2<event_offset_sample and 13<=z2-z1<=19 samples. The crossings must both lie strictly inside that same event.",
+      "classes": [
+        "AUTONOMOUS_PACKET_ASSOCIATED_ADDED",
+        "PACKET_REPLICA_ADDED",
+        "UNASSOCIATED_ADDED"
+      ],
+      "class_rule": "Packet-associated with a qualifying post-offset cycle is AUTONOMOUS_PACKET_ASSOCIATED_ADDED; packet-associated without one is PACKET_REPLICA_ADDED; no packet association is UNASSOCIATED_ADDED.",
+      "denominator": "Pool all ADDED events from the +1.5 versus sham comparison across valid blocks. Require N_added>=30 and at least 10 distinct blocks containing one or more ADDED events. F_auto=N_autonomous/N_added and F_replica=N_packet_replica/N_added; unassociated events remain in the denominator.",
+      "simultaneous_inference": "F_auto-0.50 is a member of F_TARGET_DECISIONS. If the base denominator passes but a hierarchical bootstrap resample contains zero added events, use F_auto=0 for that bootstrap replicate and log ZERO_ADDED_BOOTSTRAP.",
+      "decision_and_grade": {
+        "PASS": "N_added and block minima pass, simultaneous lower 95% bound for F_auto-0.50 is >0, T4 density criteria pass, and no artifact/stability veto fires.",
+        "D": "Classifier and denominator are valid with F_replica<0.50, but the density margin fails, F_auto point estimate is <0.50, or its simultaneous lower bound is <=0.",
+        "F": "F_replica>=0.50, or matching/detector/packet-timing error, instability, threshold drift, or direct-forcing artifact materially generates the apparent density effect.",
+        "NOT_ESTIMABLE": "N_added<30, fewer than 10 blocks contain ADDED events, or required event/paired-sham data are undefined without an artifact finding."
+      },
+      "required_log": [
+        "block_id",
+        "dose_hz_equivalent",
+        "carrier_hz",
+        "packet IDs/start/stop",
+        "event IDs and onset/offset/peak samples",
+        "candidate pairs in sort order",
+        "accepted pairs in traversal order",
+        "added events",
+        "lost events",
+        "associated packet",
+        "post-offset crossings",
+        "class",
+        "N_added",
+        "F_auto numerator/denominator",
+        "F_replica numerator/denominator"
+      ],
+      "fixture_manifest": {
+        "path": "PROTOCOL/CANDIDATE_V3/t4_attribution_fixture_v3.json",
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "fixture_id": "PF_T4_EVENT_ATTRIBUTION_FIXTURE_V3",
+        "comparison": "Execute the classifier on only the manifest raw tables and apply comparison_contract exactly. Deep inequality, unconsumed input, exception, or type/order mismatch yields PF_T4_EVENT_ATTRIBUTION_FAIL and stops before Phase 2A.",
+        "evidence_role": "IMPLEMENTATION_PREFLIGHT_ONLY"
+      }
+    },
+    "T6": {
+      "metric": "surrogate-bias-corrected Tort modulation index",
+      "phase": "Hilbert angle of the 0.3-1.5 Hz filtered signal",
+      "amplitude": "absolute Hilbert transform of the 11-16 Hz filtered signal",
+      "phase_bins": 18,
+      "formula": "MI=(log(18)+sum_j(P_j*log(P_j)))/log(18), where P_j is mean sigma amplitude in bin j divided by the sum across bins; 0*log(0)=0",
+      "surrogate_rule": "Let lags=np.arange(2000,34001,dtype=int64), inclusive 10.000 through 170.000 s at 200 Hz. Instantiate Generator(PCG64(seed+600000)) once per run, draw choice(lags,size=200,replace=False), and in returned order compute each surrogate with np.roll(amplitude_envelope,+lag). Subtract the median of the 200 surrogate MI values; negative corrected values are retained.",
+      "validity": "all 18 phase bins populated, at least 30 SO cycles and at least 10 spindle events"
+    },
+    "T7": {
+      "metric": "circular mean SO phase of within-spindle sigma-envelope maxima",
+      "formula": "atan2(sum(sin(phi_e)),sum(cos(phi_e))) in [-pi,pi); ties in envelope maxima use earliest sample",
+      "concentration": "R=abs(mean(exp(i*phi_e)))",
+      "validity": "at least 10 spindle events, at least 30 SO cycles, and R>=0.20",
+      "exact_phase_response_statistics": {
+        "input_conditions": "Use all eight complete Level-A requested phases alpha_l in their registered order for formal T7. For Level-B policy scoring use the four complete canonical phases [-pi,-pi/2,0,pi/2] in that order.",
+        "observed_phase_per_block_condition": "beta_b,l=atan2(sum_e sin(phi_e),sum_e cos(phi_e)) in [-pi,pi), using all valid spindle events in block b and condition l. A condition is missing if fewer than 10 events, fewer than 30 SO cycles, concentration R<0.20, or resultant magnitude<=1e-12.",
+        "wrap": "wrap(x)=atan2(sin(x),cos(x)); exact +pi returned by atan2 is canonicalized to -pi.",
+        "rho_c_per_block": "Let P={(l,m):0<=l<m<L}. rho_b=sum_(l,m in P)[sin(alpha_l-alpha_m)*sin(beta_b,l-beta_b,m)]/sqrt(sum_P sin(alpha_l-alpha_m)^2 * sum_P sin(beta_b,l-beta_b,m)^2). Enumerate pairs lexicographically by l then m and accumulate float64 sums in that order.",
+        "rho_degeneracy": "If either pairwise squared-sine sum is <=1e-12, rho_b is missing; otherwise rho_b is dimensionless in [-1,1].",
+        "tracking_error_per_block_radians": "e_b=median_l(abs(wrap(beta_b,l-alpha_l))); for an even number of conditions median is the arithmetic mean of the two central sorted float64 values.",
+        "separation_per_block_radians": "s_b=abs(wrap(beta_b,+pi/2-beta_b,-pi/2)), in [0,pi].",
+        "aggregate": "For each context take rho_c=median_b(rho_b), tracking_error=median_b(e_b), and separation=median_b(s_b) over blocks complete for every required phase. Formal Level A requires >=30 blocks, >=5 seeds, >=5 draws; Level B requires >=10 of 12 blocks, >=3 seeds, all 3 draws; cross-target verification requires >=20 of 24 blocks, >=3 verifier seeds, >=5 draws.",
+        "units": {
+          "rho_c": "dimensionless",
+          "tracking_error": "radians",
+          "separation": "radians"
+        },
+        "target_score": "G7=min(rho_c/0.70,min(4,(pi/6)/max(tracking_error,1e-12)),separation/(pi/3)). Larger is better and G7=1 is the joint practical-margin boundary.",
+        "correlation_definition": "Fisher-Lee pairwise circular-circular correlation, which remains defined for the symmetric registered requested-phase grid without requiring a circular mean of alpha."
+      }
+    },
+    "T8": {
+      "metric": "mixed SO-spindle model-regime occupancy",
+      "retained_interval": "The common 10 s edge exclusion applies. The retained half-open interval is analysis time [10,170) s, stored samples [2000,34000) at 200 Hz.",
+      "windows": [
+        {
+          "window_id": "W1",
+          "time_seconds": [
+            15,
+            40
+          ],
+          "sample_indices_half_open": [
+            3000,
+            8000
+          ]
+        },
+        {
+          "window_id": "W2",
+          "time_seconds": [
+            40,
+            65
+          ],
+          "sample_indices_half_open": [
+            8000,
+            13000
+          ]
+        },
+        {
+          "window_id": "W3",
+          "time_seconds": [
+            65,
+            90
+          ],
+          "sample_indices_half_open": [
+            13000,
+            18000
+          ]
+        },
+        {
+          "window_id": "W4",
+          "time_seconds": [
+            90,
+            115
+          ],
+          "sample_indices_half_open": [
+            18000,
+            23000
+          ]
+        },
+        {
+          "window_id": "W5",
+          "time_seconds": [
+            115,
+            140
+          ],
+          "sample_indices_half_open": [
+            23000,
+            28000
+          ]
+        },
+        {
+          "window_id": "W6",
+          "time_seconds": [
+            140,
+            165
+          ],
+          "sample_indices_half_open": [
+            28000,
+            33000
+          ]
+        }
+      ],
+      "window_duration_seconds": 25,
+      "placement_rationale": "Six adjacent 25 s windows occupy the centered 150 s subinterval [15,165), leaving 5 s unused at each side of the already edge-retained [10,170) interval.",
+      "filter_and_threshold_scope": "Compute the registered zero-phase SO and sigma filters once on the complete 180 s analysis signal. Calibrate spindle high/low thresholds once from the paired sham over retained [10,170) s. Apply those unchanged filtered arrays and thresholds to all six windows and all paired intervention conditions.",
+      "strict_event_containment": "An SO or spindle event contributes to a window only if its onset, offset, and detector extrema/peak samples are all strictly greater than the window start sample and strictly less than the window stop sample. Boundary-touching and cross-window events contribute to no T8 window and are logged once as T8_BOUNDARY_REJECT.",
+      "per_window_welch": {
+        "fs_hz": 200,
+        "window": "hann",
+        "nperseg": 5000,
+        "noverlap": 0,
+        "nfft": 10000,
+        "detrend": "constant",
+        "scaling": "density",
+        "peak_band_hz": [
+          0.4,
+          1.5
+        ],
+        "tie_rule": "lowest-frequency maximum",
+        "peak_refinement": "three-bin parabolic interpolation in log power; use the discrete bin when the maximum is at either peak-band boundary"
+      },
+      "window_is_valid_regime": "all rates finite and their means in [0.5,60] Hz; dominant SO peak in [0.5,1.25] Hz; SO median peak-to-peak in [0.10,2.00] m.u.; SO density in [10,90] events/min; spindle density in [0.5,20] events/min; and 11-16 Hz power divided by 4-30 Hz power in [0.02,0.60]",
+      "metric_formula": "number of valid-regime windows/6",
+      "transition_persistence": "an intervention-induced regime requires at least two consecutive valid-regime windows",
+      "invalidity": "solver or state invalidity is never a regime transition",
+      "persistence_and_adjacency_decision": {
+        "per_block_persistence": "For condition u and block b, P_b(u)=1 iff at least one ordered adjacent window pair (W1,W2),(W2,W3),(W3,W4),(W4,W5),(W5,W6) has both windows valid-regime; otherwise P_b(u)=0. A boundary-rejected or invalid window is not valid.",
+        "aggregate_persistence": "P(u)=mean_b P_b(u) over complete paired blocks. The registered persistence boundary is 0.75; equality passes a point prerequisite, while a confirmatory simultaneous slack passes only with lower bound P-0.75>0.",
+        "level_a_high_occupancy_condition": "For each dose d compute O_hat(d)=median_b O_b(d). Let d_hi maximize O_hat over [-2,-1.25,-0.5,0,0.5,1.25,2]; exact ties choose smaller abs(d), then smaller signed d. Formal T8 requires P(d_hi)>=0.75 and the simultaneous lower bound for P(d_hi)-0.75>0.",
+        "level_a_oriented_support": "For each nonzero dose d define Q(d)=median_b[sign(d)*(O_b(d)-O_b(0))]. Dose d supports its registered direction iff Q(d)>0 with >=30 complete blocks, >=5 seeds, and >=5 draws; equality or missing fails.",
+        "level_a_ordered_adjacency_pairs": [
+          [
+            -2,
+            -1.25
+          ],
+          [
+            -1.25,
+            -0.5
+          ],
+          [
+            0.5,
+            1.25
+          ],
+          [
+            1.25,
+            2
+          ]
+        ],
+        "level_a_adjacency_pass": "PASS iff at least one listed pair (d1,d2) has Q(d1)>0 and Q(d2)>0. Negative and positive sides are never treated as adjacent across zero.",
+        "level_b_oriented_support": "At each fixed exposure fraction f, Q_f(d)=median_b[sign(d)*(O_b(d,f)-O_b(0,f))] over >=10 of 12 blocks, >=3 seeds, and all 3 draws.",
+        "level_b_ordered_adjacency_pairs_by_fraction": "At each f independently the only pairs are (-2,-1) and (1,2). A Level-B T8 condition (d,f) is policy-eligible only if d belongs to a pair for which both Q_f values are strictly >0.",
+        "tie_and_missing": "All comparisons use raw float64 values with no tolerance. Equality Q=0 is not support. Any missing dose, paired sham, persistence value, or required denominator makes that pair fail; it is never skipped to create adjacency."
+      }
+    }
+  },
+  "detector_preflight": {
+    "status_required_before_phase2a": "PASS_ALL",
+    "tests": [
+      {
+        "test_id": "PF_NUMERIC_ZERO",
+        "fixture": "180 s all-zero signal",
+        "expected": "T3=0 events/min, T4=0 spindles/min, T2/T5/T6/T7 NOT_ESTIMABLE; no exception"
+      },
+      {
+        "test_id": "PF_T1_FREQUENCY",
+        "fixture": "x=sin(2*pi*0.80*t)",
+        "expected": "T1 peak within 0.02 Hz of 0.80 and PLV>=0.99 at a 0.80 Hz reference"
+      },
+      {
+        "test_id": "PF_SO_EVENTS",
+        "fixture": "x=0.20*sin(2*pi*0.80*t)",
+        "expected": "T3 within 1 event/min of 48 and T2 within 0.01 m.u. of 0.40 after edge handling"
+      },
+      {
+        "test_id": "PF_SPINDLE_EVENTS",
+        "fixture": "thirteen nonoverlapping 1.0 s 13 Hz Hann bursts placed inside a 180 s signal",
+        "expected": "exactly 13 retained spindle events and median duration within 0.05 s of 1.0"
+      },
+      {
+        "test_id": "PF_COUPLING_POSITIVE",
+        "fixture": "0.8 Hz carrier phase with 13 Hz burst envelope centered at phase 0 each cycle",
+        "expected": "bias-corrected T6 MI greater than 0.01 and T7 absolute phase error <=pi/12"
+      },
+      {
+        "test_id": "PF_COUPLING_NULL",
+        "fixture": "same slow carrier with sigma envelope circularly shifted independently each cycle by PCG64(900001)",
+        "expected": "absolute bias-corrected T6 MI <=0.01"
+      },
+      {
+        "test_id": "PF_EDGE_CONTAINMENT",
+        "fixture": "events straddling both analysis boundaries plus one interior event",
+        "expected": "only the interior event is retained"
+      },
+      {
+        "test_id": "PF_BROADBAND_VETO",
+        "fixture": "broadband variance doubled without changing the isolated 13 Hz burst",
+        "expected": "T5 specificity veto is triggered if 4-30 Hz power rises more than 25 percent while sigma fraction fails to rise"
+      },
+      {
+        "test_id": "PF_SOLVER_REPEAT",
+        "fixture": "10 s nominal bench simulation repeated with seed 123457",
+        "expected": "state arrays are byte-identical, finite, unclipped, and within [-1e-6,rmax+1e-6]"
+      },
+      {
+        "test_id": "PF_CAUSAL_PHASE_SCHEDULER",
+        "fixture": "Feed the exact causal scheduler 30 s warmup plus 12 s analysis of x[n]=sin(2*pi*0.8*n/200) for every canonical Level-A phase; disable model dynamics.",
+        "expected": "Accepted period history equals 250 samples after transient; phi=0 starts one sample after its crossing, +pi/2 starts 63 samples after crossing, -pi/2 starts 188 samples after crossing, and -pi starts 125 samples after crossing under round-half-up; every crossing has one decision log and +pi is rejected as noncanonical."
+      },
+      {
+        "test_id": "PF_CAUSAL_QUEUE",
+        "fixture": "Synthetic accepted crossing schedule with proposed packet intervals that overlap, exactly touch, exceed queue length two, and cross the analysis stop.",
+        "expected": "Overlap is skipped, half-open exact touching is accepted, third future packet is QUEUE_FULL, boundary-crossing packet is OUTSIDE_ANALYSIS_SKIP, and no packet samples are summed or truncated."
+      },
+      {
+        "test_id": "PF_T8_WINDOWS",
+        "fixture": "A 180 s analytic mixed signal with events at every T8 window boundary and interior plus a known 0.8 Hz spectral peak.",
+        "expected": "Window sample pairs exactly equal [3000,8000),[8000,13000),[13000,18000),[18000,23000),[23000,28000),[28000,33000); boundary-touching events are rejected; each Welch call uses nperseg=5000 and returns a peak within 0.02 Hz of 0.8."
+      },
+      {
+        "test_id": "PF_T4_EVENT_ATTRIBUTION",
+        "fixture_path": "PROTOCOL/CANDIDATE_V3/t4_attribution_fixture_v3.json",
+        "fixture_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "input": "Read only the fixture's raw sham-event, intervention-event, packet, and sigma-upward-crossing tables.",
+        "expected": "Produce every field named in comparison_contract.exact_fields and deep-compare after the manifest normalization.",
+        "pass_rule": "Exact deep equality and complete raw-row consumption.",
+        "failure_rule": "Any difference or exception emits PF_T4_EVENT_ATTRIBUTION_FAIL with a path-indexed diff and stops before scientific Phase 2A."
+      },
+      {
+        "test_id": "PF_DETECTOR_PERTURB",
+        "fixture": "repeat analytic fixtures at fs 199.999 and 200.001 Hz and filter order 3 and 5 as sensitivity only",
+        "expected": "event counts differ by at most one and continuous metrics differ by at most 5 percent; registered order 4 remains the official metric"
+      }
+    ],
+    "failure_action": "Stop before scientific Phase 2A. An outcome-blind implementation repair may use the remaining campaign repair authority only if separately authorized; this protocol itself does not authorize a repair."
+  },
+  "phase2a": {
+    "status": "DESIGNED_NOT_EXECUTED",
+    "evidence_label": "SYNTHETIC",
+    "mandatory_targets": [
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "T8"
+    ],
+    "priority_classes": {
+      "primary": [
+        "T1",
+        "T4",
+        "T6"
+      ],
+      "secondary": [
+        "T2",
+        "T3",
+        "T5",
+        "T7"
+      ],
+      "exploratory": [
+        "T8"
+      ]
+    },
+    "level_a_single_channel_grids": {
+      "T1": {
+        "channel": "GF_E_SLOW_SINE",
+        "amplitude_hz_equivalent": 0.8,
+        "drive_frequencies_hz": [
+          0.55,
+          0.7,
+          0.85,
+          1,
+          1.15
+        ],
+        "sham": "all u channels zero"
+      },
+      "T2": {
+        "channel": "GF_E_DC",
+        "dose_hz_equivalent": [
+          -1.5,
+          -1,
+          -0.5,
+          0,
+          0.5,
+          1,
+          1.5
+        ]
+      },
+      "T3": {
+        "channel": "GF_E_SO_PULSE",
+        "dose_hz_equivalent": [
+          -2,
+          -1.25,
+          -0.5,
+          0,
+          0.5,
+          1.25,
+          2
+        ]
+      },
+      "T4": {
+        "channel": "GF_TR_SIGMA_PACKET_BALANCE",
+        "dose_hz_equivalent": [
+          -1.5,
+          -1,
+          -0.5,
+          0,
+          0.5,
+          1,
+          1.5
+        ]
+      },
+      "T5": {
+        "channel": "GF_TR_SIGMA_CONTINUOUS_BALANCE",
+        "dose_hz_equivalent": [
+          -1.2,
+          -0.8,
+          -0.4,
+          0,
+          0.4,
+          0.8,
+          1.2
+        ]
+      },
+      "T6_T7_SHARED": {
+        "channel": "GF_T_PHASE_LOCKED_PACKET",
+        "phase_offsets_radians_canonical_unique": [
+          -3.141592653589793,
+          -2.0943951023931953,
+          -1.5707963267948966,
+          -1.0471975511965976,
+          0,
+          1.0471975511965976,
+          1.5707963267948966,
+          2.0943951023931953
+        ],
+        "fixed_amplitude_hz_equivalent": 1,
+        "sham": "amplitude zero",
+        "endpoint_rule": "-pi is the sole representative of the circular pi endpoint; +pi is not executed"
+      },
+      "T8": {
+        "channel": "GF_BALANCED_DC",
+        "dose_hz_equivalent": [
+          -2,
+          -1.25,
+          -0.5,
+          0,
+          0.5,
+          1.25,
+          2
+        ]
+      }
+    },
+    "replication": {
+      "worker_seeds": 6,
+      "parameter_draws": 6,
+      "paired_seed_draw_blocks_per_condition": 36,
+      "minimum_valid_paired_blocks_per_registered contrast": 30,
+      "minimum_distinct_seeds": 5,
+      "minimum_distinct_parameter_draws": 5
+    },
+    "unique_simulation_count": {
+      "level_a_condition_sets_per_seed_draw": 50,
+      "seed_draw_blocks": 36,
+      "maximum_level_a_runs": 1800,
+      "deduplication": "T6 and T7 reuse the same trajectories; every run supplies all eight metrics for the cross-target matrix."
+    },
+    "analysis_order": [
+      "detector preflight",
+      "all sham blocks",
+      "T1",
+      "T2",
+      "T3",
+      "T4",
+      "T5",
+      "shared T6/T7",
+      "T8",
+      "cross-target matrix",
+      "conditional Level B"
+    ],
+    "blinding": "Only implementation/schema/validity flags may be inspected until all Level A trajectories, metrics, and immutable per-target checkpoints are complete.",
+    "negative_result_rule": "Every valid null, adverse, nonmonotonic, or practically negligible result is retained. No target, dose, seed, or draw may be silently removed.",
+    "invalid_run_rule": "Nonfinite state, rate outside [-1e-6,rmax+1e-6], solver/schema failure, detector contradiction, or missing paired sham marks the pair INVALID; instability is not efficacy.",
+    "conditional_level_b": {
+      "purpose": "Prospectively bounded, fully parameterized two-coordinate response surfaces for mechanistic diagnosis, not formal C2.",
+      "eligibility": "A target is eligible only if Level A has at least 30 valid paired blocks, at least 95 percent stable runs, meets every registered practical margin with its simultaneous 95 percent interval, has no hard off-target veto, and passes its exact target-specific level_a_shape_consistency rule in at least 4 of 6 draws.",
+      "selection_cap": 3,
+      "deterministic_order": "Sort eligible targets by priority class primary before secondary before exploratory, then descending Level-A lower-confidence-bound margin slack normalized by that target practical margin, then target_id ascending. T8 remains ineligible for advancement but may be selected for diagnostic Level B only after all eligible primary/secondary targets and within the cap.",
+      "canonical_phase_domain": "[-pi,pi), with -pi the sole circular endpoint; +pi is never enumerated.",
+      "grids": {
+        "T1": {
+          "row_parameter": "drive_frequency_hz",
+          "rows": [
+            0.55,
+            0.7,
+            0.85,
+            1,
+            1.15
+          ],
+          "column_parameter": "amplitude_hz_equivalent",
+          "columns": [
+            0.4,
+            0.6,
+            0.8,
+            1,
+            1.2
+          ],
+          "cells": 25
+        },
+        "T2": {
+          "row_parameter": "GF_E_DC_dose_hz_equivalent",
+          "rows": [
+            -1.5,
+            -0.75,
+            0,
+            0.75,
+            1.5
+          ],
+          "column_parameter": "GF_E_SLOW_SINE_amplitude_hz_equivalent",
+          "columns": [
+            0,
+            0.3,
+            0.6,
+            0.9,
+            1.2
+          ],
+          "fixed_sine_frequency_hz": 0.85,
+          "cells": 25
+        },
+        "T3": {
+          "row_parameter": "pulse_dose_hz_equivalent",
+          "rows": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "column_parameter": "pulse_repetition_frequency_hz",
+          "columns": [
+            0.55,
+            0.7,
+            0.85,
+            1,
+            1.15
+          ],
+          "pulse_width_internal_steps": 80,
+          "cells": 25
+        },
+        "T4": {
+          "row_parameter": "packet_balance_dose_hz_equivalent",
+          "rows": [
+            -1.5,
+            -0.75,
+            0,
+            0.75,
+            1.5
+          ],
+          "column_parameter": "carrier_frequency_hz",
+          "columns": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "fixed_repetition_frequency_hz": 0.85,
+          "cells": 25
+        },
+        "T5": {
+          "row_parameter": "continuous_balance_dose_hz_equivalent",
+          "rows": [
+            -1.2,
+            -0.6,
+            0,
+            0.6,
+            1.2
+          ],
+          "column_parameter": "carrier_frequency_hz",
+          "columns": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "cells": 25
+        },
+        "T6": {
+          "row_parameter": "canonical_phase_offset_radians",
+          "rows": [
+            -3.141592653589793,
+            -1.5707963267948966,
+            0,
+            1.5707963267948966
+          ],
+          "column_parameter": "amplitude_hz_equivalent",
+          "columns": [
+            0,
+            0.25,
+            0.5,
+            0.75,
+            1
+          ],
+          "fixed_carrier_frequency_hz": 13,
+          "cells": 20
+        },
+        "T7": {
+          "row_parameter": "canonical_phase_offset_radians",
+          "rows": [
+            -3.141592653589793,
+            -1.5707963267948966,
+            0,
+            1.5707963267948966
+          ],
+          "column_parameter": "carrier_frequency_hz",
+          "columns": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "fixed_amplitude_hz_equivalent": 1,
+          "cells": 20
+        },
+        "T8": {
+          "row_parameter": "balanced_dose_hz_equivalent",
+          "rows": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "column_parameter": "within_window_exposure_fraction",
+          "columns": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "cells": 25
+        }
+      },
+      "executable_condition_schedule": {
+        "common": {
+          "internal_fs_hz": 1000,
+          "stored_fs_hz": 200,
+          "analysis_internal_indices": "[a=0,180000), with global solver step j=30000+a",
+          "warmup": "Every Level-B forcing is exactly zero for j<30000.",
+          "sample_rule": "Evaluate at integer analysis-relative a at the left endpoint and hold through the 1 ms solver interval; use the same value in both Heun drifts.",
+          "channel_combination": "Only the channels and coordinates stated for that target are nonzero. Add components algebraically when T2 explicitly combines DC and sine; no other cross-channel summation is allowed.",
+          "row_column_order": "Rows and columns are enumerated in the array order above, zero-based.",
+          "condition_id": "LB3_{target_id}_R{rr}_C{cc}, where rr and cc are two-digit zero-based indices.",
+          "run_id": "LB3__{target_id}__R{rr}__C{cc}__{draw_id}__S{seed}, with literal separators, two-digit indices, and seed in base-10 without padding.",
+          "no_cell_deduplication": "Every enumerated cell receives all 12 run identities even when its waveform is exactly zero or duplicates another cell; policy aggregation never creates extra trajectories.",
+          "sham": "The paired sham has all u channels exactly zero and reuses the same draw, seed, initial state, and OU innovations."
+        },
+        "T1": {
+          "variables": "f=rows[rr], A=columns[cc]",
+          "formula": "For a=0,...,179999 set u_E[30000+a]=A*sin(2*pi*f*a/1000); u_I=u_T=u_R=0.",
+          "bounds": {
+            "A_hz_equivalent": [
+              0.4,
+              1.2
+            ],
+            "f_hz": [
+              0.55,
+              1.15
+            ]
+          }
+        },
+        "T2": {
+          "variables": "d=rows[rr], A=columns[cc], f=0.85",
+          "formula": "For a=0,...,179999 set u_E[30000+a]=d+A*sin(2*pi*0.85*a/1000); u_I=u_T=u_R=0.",
+          "bounds": {
+            "d_hz_equivalent": [
+              -1.5,
+              1.5
+            ],
+            "A_hz_equivalent": [
+              0,
+              1.2
+            ]
+          },
+          "combination": "DC and sine are evaluated independently in float64 and added once; d=0,A=0 is exact zero sham."
+        },
+        "T3": {
+          "variables": "d=rows[rr], f_rep=columns[cc]",
+          "onset_formula": "For p=0,1,... compute a_p=floor(p*1000/f_rep+0.5); retain p iff a_p+80<=180000.",
+          "formula": "u_E[30000+a]=d exactly when a_p<=a<a_p+80 for one retained p, otherwise zero; u_I=u_T=u_R=0.",
+          "overlap": "At f_rep<=1.15 the 80-step pulses cannot overlap. If an implementation nevertheless detects overlap, sum is prohibited and preflight fails.",
+          "endpoint": "The interval is half-open and a pulse whose stop exceeds 180000 is omitted, not truncated."
+        },
+        "T4": {
+          "variables": "d=rows[rr], f_c=columns[cc], f_rep=0.85",
+          "onset_formula": "For p=0,1,... compute stored s_p=floor(p*200/0.85+0.5), a_p=5*s_p; retain p iff a_p+500<=180000.",
+          "packet": "For k=0,...,499 let q[k;f_c]=0.5*(1-cos(2*pi*k/499))*0.5*(1+sin(2*pi*f_c*k/1000)).",
+          "formula": "If d>=0 set u_T[30000+a_p+k]=d*q[k;f_c],u_R=0; if d<0 set u_R[30000+a_p+k]=(-d)*q[k;f_c],u_T=0; u_E=u_I=0.",
+          "overlap": "Scheduled packets do not overlap at 0.85 Hz. No normalization or clipping; d=0 is exact zero.",
+          "attribution": "Emit the exact s_p,s_p+100 packet table with d and f_c and apply observation_and_detector_contract.T4_added_event_attribution."
+        },
+        "T5": {
+          "variables": "d=rows[rr], f_c=columns[cc]",
+          "carrier": "q[a;f_c]=0.5*(1+sin(2*pi*f_c*a/1000)).",
+          "formula": "If d>=0 set u_T[30000+a]=d*q[a;f_c],u_R=0; if d<0 set u_R[30000+a]=(-d)*q[a;f_c],u_T=0; u_E=u_I=0.",
+          "endpoint": "Evaluate for every a=0,...,179999; d=0 is exact zero."
+        },
+        "T6": {
+          "variables": "phi=rows[rr], A=columns[cc], f_c=13",
+          "formula": "Use the exact causal scheduler with parameter tuple (phi,A,13). Each emitted packet is u_T[j_start+k]=A*w[k]*c[k;13].",
+          "zero_amplitude": "A=0 produces no queued or emitted packet and exact zero forcing while retaining crossing logs with ZERO_AMPLITUDE_SHAM."
+        },
+        "T7": {
+          "variables": "phi=rows[rr], A=1, f_c=columns[cc]",
+          "formula": "Use the exact causal scheduler with parameter tuple (phi,1,f_c). Each emitted packet is u_T[j_start+k]=w[k]*c[k;f_c].",
+          "required_phase_rows": "Both -pi/2 and +pi/2 are executed for every carrier; +pi is absent."
+        },
+        "T8": {
+          "variables": "d=rows[rr], fraction=columns[cc]",
+          "windows_internal_analysis_relative": [
+            [
+              15000,
+              40000
+            ],
+            [
+              40000,
+              65000
+            ],
+            [
+              65000,
+              90000
+            ],
+            [
+              90000,
+              115000
+            ],
+            [
+              115000,
+              140000
+            ],
+            [
+              140000,
+              165000
+            ]
+          ],
+          "length_formula": "L=floor(25000*fraction+0.5), giving [5000,10000,15000,20000,25000] internal steps.",
+          "placement_formula": "For each window [a0,a1), exposure_start=a0+floor((25000-L)/2), exposure_stop=exposure_start+L. Apply forcing on the half-open [exposure_start,exposure_stop) only.",
+          "exposure_intervals_by_fraction": {
+            "0.2": [
+              [
+                25000,
+                30000
+              ],
+              [
+                50000,
+                55000
+              ],
+              [
+                75000,
+                80000
+              ],
+              [
+                100000,
+                105000
+              ],
+              [
+                125000,
+                130000
+              ],
+              [
+                150000,
+                155000
+              ]
+            ],
+            "0.4": [
+              [
+                22500,
+                32500
+              ],
+              [
+                47500,
+                57500
+              ],
+              [
+                72500,
+                82500
+              ],
+              [
+                97500,
+                107500
+              ],
+              [
+                122500,
+                132500
+              ],
+              [
+                147500,
+                157500
+              ]
+            ],
+            "0.6": [
+              [
+                20000,
+                35000
+              ],
+              [
+                45000,
+                60000
+              ],
+              [
+                70000,
+                85000
+              ],
+              [
+                95000,
+                110000
+              ],
+              [
+                120000,
+                135000
+              ],
+              [
+                145000,
+                160000
+              ]
+            ],
+            "0.8": [
+              [
+                17500,
+                37500
+              ],
+              [
+                42500,
+                62500
+              ],
+              [
+                67500,
+                87500
+              ],
+              [
+                92500,
+                112500
+              ],
+              [
+                117500,
+                137500
+              ],
+              [
+                142500,
+                162500
+              ]
+            ],
+            "1.0": [
+              [
+                15000,
+                40000
+              ],
+              [
+                40000,
+                65000
+              ],
+              [
+                65000,
+                90000
+              ],
+              [
+                90000,
+                115000
+              ],
+              [
+                115000,
+                140000
+              ],
+              [
+                140000,
+                165000
+              ]
+            ]
+          },
+          "formula": "Inside an exposure interval, if d>=0 set u_E=d,u_T=0.5*d,u_I=u_R=0; if d<0 set u_I=-d,u_R=-0.5*d,u_E=u_T=0. Outside all exposure intervals all channels are zero.",
+          "detector_binding": "T8 metrics retain the six stored 25 s windows [3000,8000),[8000,13000),[13000,18000),[18000,23000),[23000,28000),[28000,33000); exposure boundaries do not change global sham thresholds, filtering, Welch parameters, or strict event containment."
+        }
+      },
+      "replication": {
+        "worker_seed_values": [
+          11003,
+          33013,
+          55021,
+          66029
+        ],
+        "parameter_draw_values": [
+          "D00_NOMINAL",
+          "D02",
+          "D04"
+        ],
+        "paired_blocks_per_cell": 12,
+        "pairing": "Each cell and its exact sham reuse the same draw, seed, initial state, and OU innovations."
+      },
+      "exact_run_arithmetic": {
+        "cell_count_by_target": {
+          "T1": 25,
+          "T2": 25,
+          "T3": 25,
+          "T4": 25,
+          "T5": 25,
+          "T6": 20,
+          "T7": 20,
+          "T8": 25
+        },
+        "selected_set_formula": "Let n25 be selected targets among {T1,T2,T3,T4,T5,T8} and n20 among {T6,T7}, with n25+n20<=3. Level-B runs=12*(25*n25+20*n20).",
+        "examples": {
+          "three_25_cell_targets": 900,
+          "two_25_plus_one_20": 840,
+          "one_25_plus_two_20": 780
+        },
+        "maximum_runs": 900,
+        "mapping_policy_extra_runs": 0,
+        "no_deduplication": true
+      },
+      "no_level_c": "No PID, adaptive, reinforcement-learning, or model-predictive controller is included in V3. The causal phase-triggered packet is a fixed event-triggered policy, not an optimized controller."
+    },
+    "cross_target_matrix": {
+      "shape": [
+        8,
+        8
+      ],
+      "row_definition": "For each T1-T8, use the exact all-target Level-A worker-selected policy object: a five-condition requested-frequency mapping for T1, an eight-condition requested-phase mapping for T7, and one Level-A condition for every other target. Freeze before verifier outcomes and before conditional Level B.",
+      "column_definition": "On six draws and four disjoint verifier seeds, compute the exact normalized BENEFIT and ADVERSE scalar for every T1-T8 column using the frozen Level-A row-policy expansion.",
+      "labels": {
+        "intended_improvement": "diagonal simultaneous benefit LCB>1 and adverse UCB<1",
+        "beneficial_secondary_effect": "off-diagonal simultaneous benefit LCB>1 and adverse UCB<1",
+        "negligible": "both simultaneous benefit and adverse UCB<=1",
+        "trade_off": "every other estimable non-veto cell",
+        "unacceptable_collateral_effect": "any hard stability, plausibility, broadband, detector, silence, saturation, or regime-collapse veto"
+      },
+      "missing_rule": "If any expanded condition lacks a frozen column primitive, both scalar members are NOT_ESTIMABLE; never impute. Any missing member prevents its policy row from complete off-target passage, Grade C, advancement, or C2-G8.",
+      "verifier_execution": {
+        "draws": [
+          "D00_NOMINAL",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05"
+        ],
+        "seeds": [
+          77041,
+          88069,
+          99079,
+          111091
+        ],
+        "paired_blocks_per_condition": 24,
+        "logical_policy_conditions": "5 T1 mapping + 8 T7 mapping + 6 single-condition rows =19; the selected T6 phase is necessarily one of the T7 mapping conditions and is byte-identically reused.",
+        "unique_intervention_conditions_per_block": 18,
+        "shared_sham_conditions_per_block": 1,
+        "unique_runs": "24*(18+1)=456",
+        "simulated_seconds": 95760,
+        "internal_solver_intervals": 95760000,
+        "minimum_complete_blocks_per_cell": 20,
+        "minimum_distinct_seeds": 3,
+        "minimum_distinct_draws": 5,
+        "run_id": "X3__T{row}__K{kk}__{draw_id}__S{seed}; T6 reuse points to the matching T7 run ID, and sham uses X3__SHAM__{draw_id}__S{seed}.",
+        "ordering": "Rows T1 through T8; mapping condition index kk follows the Level-A grid; then draw ID and seed numeric. Deduplicate only the exact T6/T7 phase tuple and shared sham."
+      },
+      "level_b_independence": "Conditional Level-B surfaces occur after the 8x8 matrix and cannot select, alter, or replace any cross-target row policy."
+    },
+    "evidence_grading": {
+      "A": "Reserved for robust subject-dependent mechanistic control with eligible human-subject model denominators; impossible for this bench package.",
+      "B": "Reserved for a transferable, robust in-silico control claim on the exact eligible candidate; impossible because R4 executable identity is absent.",
+      "C": "Maximum bench grade: all registered diagnostic response, uncertainty, stability, specificity, detector, and off-target criteria pass, but transfer and personalization remain unsupported.",
+      "D": "Valid execution does not meet the frozen diagnostic efficacy or robustness criteria.",
+      "F": "Apparent effect is invalid/artifactual because of instability, detector failure, broadband confounding, leakage, or protocol violation."
+    },
+    "policy_selection_and_cross_target_scalars": {
+      "notation": {
+        "block": "b is a paired draw-seed block; med_b is the float64 median over valid paired blocks in draw_id then seed-numeric order.",
+        "wrap": "wrap(x)=atan2(sin(x),cos(x)), with exact +pi canonicalized to -pi.",
+        "missing": "A division denominator <=1e-12, nonfinite primitive, failed frozen detector denominator, invalid simulation, or absent required mapped condition makes that score missing. Missing values are never zero, worst-case values, or imputed.",
+        "threshold": "Every C_i and G_i score is dimensionless and oriented larger-is-better; value 1 is its frozen practical-margin boundary."
+      },
+      "cell_scores": {
+        "T1": "For cell u=(f,A), per block e_b=abs(f_sham,b-f)-abs(f_u,b-f), p_b=PLV_u,b, m_b=1[e_b>0]. C1(u)=min(med_b(e_b)/0.05,med_b(p_b)/0.50,mean_b(m_b)/0.80).",
+        "T2": "For u=(d,A), if d=0 set C2(u)=0. Otherwise require A_sham,b>0.10 and set C2(u)=med_b(sign(d)*(A_u,b-A_sham,b)/(0.05*A_sham,b)).",
+        "T3": "For u=(d,f_rep), if d=0 set C3(u)=0; otherwise C3(u)=med_b(sign(d)*(D_u,b-D_sham,b)/1.5).",
+        "T4": "For u=(d,f_c), if d=0 set C4(u)=0. If d<0, C4(u)=med_b((S_sham,b-S_u,b)/0.5). If d>0, C4(u)=min(med_b((S_u,b-S_sham,b)/0.5),F_auto(u)/0.50); the d>0 score is missing unless N_added>=30 and at least 10 blocks contain ADDED events.",
+        "T5": "For u=(d,f_c), if d=0 set C5(u)=0. Otherwise require R_sham,b>1e-12 and set C5(u)=med_b(sign(d)*(R_u,b-R_sham,b)/(0.05*R_sham,b)).",
+        "T6": "For u=(phi,A), set delta_b=bMI_u,b-bMI_sham,b and C6(u)=min(med_b(delta_b)/0.010,mean_b(1[delta_b>0])/0.75). A=0 is retained and normally yields zero, subject to exact numerical-identity checks.",
+        "T7": "For u=(phi,f_c), C7(u)=med_b(2-abs(wrap(beta_u,b-phi))/(pi/6)); this is the cell tracking scalar. Formal carrier-policy G7 additionally uses rho_c and separation.",
+        "T8": "For u=(d,fraction), if d=0 set C8(u)=0. Otherwise let q=median_b(sign(d)*(O_u,b-O_sham,b))/(1/6) and p=mean_b(P_b(u))/0.75, where P_b is the exact consecutive-window persistence indicator. Set C8(u)=min(q,p). Missing q or p makes C8 missing."
+      },
+      "policy_objects": {
+        "T1": {
+          "type": "MAPPING",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "Exactly one policy P1_LA maps each requested f in [0.55,0.70,0.85,1.00,1.15] to its Level-A GF_E_SLOW_SINE cell at A=0.8.",
+          "score": "G1(P1_LA)=min_f C1(f,0.8); all five cells and Level-A denominators must be estimable.",
+          "tie_break": "No policy tie is possible because there is one registered mapping."
+        },
+        "T2": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The six nonzero Level-A GF_E_DC doses [-1.5,-1.0,-0.5,0.5,1.0,1.5].",
+          "score": "G2(u)=C2(u).",
+          "tie_break": "Maximize G2, then minimize abs(d), then choose smaller signed d."
+        },
+        "T3": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The six nonzero Level-A GF_E_SO_PULSE doses [-2.0,-1.25,-0.5,0.5,1.25,2.0] at f_rep=0.85.",
+          "score": "G3(u)=C3(u).",
+          "tie_break": "Maximize G3, then minimize abs(d), then choose smaller signed d."
+        },
+        "T4": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The three positive Level-A GF_TR_SIGMA_PACKET_BALANCE doses [0.5,1.0,1.5] at f_rep=0.85 and f_c=13.",
+          "score": "G4(u)=C4(u), including the exact added-event attribution denominator and F_auto component.",
+          "tie_break": "Maximize G4, then choose smaller positive d."
+        },
+        "T5": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The three positive Level-A GF_TR_SIGMA_CONTINUOUS_BALANCE doses [0.4,0.8,1.2] at f_c=13.",
+          "score": "G5(u)=C5(u).",
+          "tie_break": "Maximize G5, then choose smaller positive d."
+        },
+        "T6": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "All eight unique Level-A GF_T_PHASE_LOCKED_PACKET phases at A=1 and f_c=13.",
+          "score": "G6(u)=C6(u).",
+          "tie_break": "Maximize G6, then minimize abs(wrap(phi)), then choose numerically smaller canonical phi."
+        },
+        "T7": {
+          "type": "MAPPING",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "Exactly one policy P7_LA maps every one of the eight unique Level-A requested phases to its GF_T_PHASE_LOCKED_PACKET cell at A=1,f_c=13.",
+          "score": "G7(P7_LA)=min(rho_c/0.70,min(4,(pi/6)/max(tracking_error,1e-12)),separation/(pi/3)); all eight cells and Level-A denominators must be estimable.",
+          "tie_break": "No policy tie is possible because there is one registered mapping."
+        },
+        "T8": {
+          "type": "SINGLE_CONDITION",
+          "source": "LEVEL_A_WORKER",
+          "candidates": "The six nonzero full-exposure Level-A doses. A dose is eligible only if it belongs to one of the exact passing adjacency pairs (-2,-1.25),(-1.25,-0.5),(0.5,1.25),(1.25,2) under T8.persistence_and_adjacency_decision and meets persistence.",
+          "score": "G8(u)=C8(u) with fraction=1.",
+          "tie_break": "Maximize G8, then minimize abs(d), then choose smaller signed d."
+        }
+      },
+      "selected_policy_rule": "For every T1-T8 row, select from policy_objects using only completed Level-A worker trajectories and the target-specific maximum/tie rule. T1/T7 are complete requested-value mappings; all others are one condition. Exclude missing candidates; if none remains, that row is NOT_ESTIMABLE. Freeze all eight row policies before any verifier trajectory or conditional Level-B result is visible.",
+      "level_b_family_enumeration": {
+        "cell_member_id": "LB3/{target_id}/R{rr}/C{cc}/C_MINUS_1 for every executed cell, row-major.",
+        "mapping_member_id": "LB3/T1/POLICY/A{cc}/G_MINUS_1 for five T1 amplitudes and LB3/T7/POLICY/FC{cc}/G_MINUS_1 for five T7 carriers, when that target is selected.",
+        "member_count_formula": "K=25*n25+20*n20+5*nmap, where nmap counts selected targets among {T1,T7}; maximum K=80.",
+        "ties": "Family IDs are unique strings and sorted lexicographically only for reporting; bootstrap uses this complete frozen member set."
+      },
+      "column_primitives_for_cross_target": {
+        "common_aggregation": "For each expanded policy condition k, column j, and complete verifier block b, first compute n_k,j,b below. Then nHat_k,j=median_b(n_k,j,b) over the frozen complete verifier blocks. Only after that median set B_k,j=max(0,nHat_k,j) and A_k,j=max(0,-nHat_k,j). Every hierarchical bootstrap replicate repeats the block median first and the max operations second.",
+        "T1": "For a non-T1 requested-frequency condition, n_k,1,b=-abs(f_k,b-f_sham,b)/0.05. The diagonal T1 mapping uses G1 recomputed across its five verifier conditions instead of this off-row primitive.",
+        "T2": "n_k,2,b=(A_k,b-A_sham,b)/(0.05*A_sham,b), requiring A_sham,b>0.10.",
+        "T3": "n_k,3,b=(D_k,b-D_sham,b)/1.5.",
+        "T4": "n_k,4,b=(S_k,b-S_sham,b)/0.5. If condition k emits registered T4 packets, its pooled verifier attribution must meet N_added>=30 and >=10 contributing blocks; otherwise both T4 scalar members are missing. When estimable define r_k,4=F_replica,k/0.50. For a condition with no emitted T4 packets, replica attribution is not applicable and r_k,4=0.",
+        "T5": "n_k,5,b=(R_k,b-R_sham,b)/(0.05*R_sham,b), requiring R_sham,b>1e-12.",
+        "T6": "n_k,6,b=(bMI_k,b-bMI_sham,b)/0.010.",
+        "T7": "For a non-T7 requested-phase condition, n_k,7,b=-abs(wrap(beta_k,b-beta_sham,b))/(pi/6). The diagonal T7 mapping uses G7 recomputed across its eight verifier conditions instead of this off-row primitive.",
+        "T8": "n_k,8,b=(O_k,b-O_sham,b)/(1/6)."
+      },
+      "cross_target_cell_construction": {
+        "policy_expansion": "A SINGLE_CONDITION row has K=1. The T1 Level-A mapping has K=5 requested-frequency conditions; the T7 Level-A mapping has K=8 requested-phase conditions. Expand in the registered Level-A order.",
+        "per_condition": "For each k,j compute nHat, B_k,j, and A_k,j in column_primitives_for_cross_target.common_aggregation. Then set A_k,4=max(A_k,4,r_k,4). No max, clipping, replica term, or policy aggregation occurs before the registered block median except the event pooling that defines F_replica.",
+        "aggregate": "For policy row i, B_i,j=min_k B_k,j and A_i,j=max_k A_k,j across its expanded conditions. On the diagonal set B_i,i=max(0,G_i evaluated on verifier blocks) and A_i,i=max(A_i,i,max(0,-G_i)). Thus T4 replica adverse is retained on the diagonal. Every bootstrap replicate recomputes condition medians, B/A transforms, mapping min/max, G_i, and the diagonal rule in this order.",
+        "family_ids": "Enumerate exactly X3/T{i}/T{j}/BENEFIT and X3/T{i}/T{j}/ADVERSE for i=1,...,8 outer and j=1,...,8 inner, 128 members total.",
+        "missing": "If any primitive needed by an expanded condition is missing, both B_i,j and A_i,j are missing. Any missing cell prevents the complete row from Grade C or advancement.",
+        "classification": "First, any hard veto is UNACCEPTABLE_COLLATERAL_EFFECT. Otherwise, if i=j, simultaneous LCB(B_i,i)>1 and UCB(A_i,i)<1 is INTENDED_IMPROVEMENT. If i!=j, LCB(B_i,j)>1 and UCB(A_i,j)<1 is BENEFICIAL_SECONDARY_EFFECT. If UCB(B_i,j)<=1 and UCB(A_i,j)<=1 it is NEGLIGIBLE. Every other estimable cell is TRADE_OFF.",
+        "ties": "No classification tie is broken: strict inequalities are required; equality to 1 follows the NEGLIGIBLE test if both upper bounds are <=1, otherwise TRADE_OFF."
+      },
+      "score_denominators": {
+        "level_a_worker": "For formal Level-A G_i require at least 30 of 36 complete paired blocks, at least five of six seeds, and at least five of six draws, plus every target-specific event denominator.",
+        "level_b_surface": "For a Level-B C_i or mapping G_i require at least 10 of 12 complete paired blocks, at least three of four seeds, and all three registered draws, plus every target-specific event denominator.",
+        "cross_target_verifier": "For a verifier B_i,j/A_i,j require at least 20 of 24 complete paired blocks, at least three of four verifier seeds, and at least five of six draws. This matrix denominator is diagnostic specificity, not a substitute for the >=30 Level-A target decision."
+      },
+      "level_b_policy_objects": {
+        "T1": {
+          "type": "MAPPING",
+          "candidates": "Five policies P1_A, one for each A in [0.4,0.6,0.8,1.0,1.2]. P1_A maps every requested f in [0.55,0.70,0.85,1.00,1.15] to executed cell (f,A).",
+          "score": "G1(P1_A)=min_f C1(f,A); all five cells must be estimable.",
+          "tie_break": "Maximize raw float64 G1; exact ties choose smaller A."
+        },
+        "T2": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "All 20 cells with d!=0.",
+          "score": "G2(u)=C2(u).",
+          "tie_break": "Maximize G2, then minimize |d|/1.5+A/1.2, then row index, then column index."
+        },
+        "T3": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "All 20 cells with d!=0.",
+          "score": "G3(u)=C3(u).",
+          "tie_break": "Maximize G3, then minimize |d|/2+abs(f_rep-0.85)/0.30, then row index, then column index."
+        },
+        "T4": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "The 10 d>0 cells; negative and zero cells remain in the surface but cannot define the forward diagnostic policy.",
+          "score": "G4(u)=C4(u).",
+          "tie_break": "Maximize G4, then minimize d/1.5+abs(f_c-13)/2, then row index, then column index."
+        },
+        "T5": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "The 10 d>0 cells; negative and zero cells remain in the surface.",
+          "score": "G5(u)=C5(u).",
+          "tie_break": "Maximize G5, then minimize d/1.2+abs(f_c-13)/2, then row index, then column index."
+        },
+        "T6": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "The 16 cells with A>0.",
+          "score": "G6(u)=C6(u).",
+          "tie_break": "Maximize G6, then minimize A+abs(wrap(phi))/pi, then row index, then column index."
+        },
+        "T7": {
+          "type": "MAPPING",
+          "candidates": "Five policies P7_fc, one for each carrier in [11,12,13,14,15]. P7_fc maps every requested phi in [-pi,-pi/2,0,pi/2] to executed cell (phi,f_c).",
+          "score": "Using exact_phase_response_statistics across the four mapped cells, G7(P7_fc)=min(rho_c/0.70,min(4,(pi/6)/max(tracking_error,1e-12)),separation/(pi/3)); all four cells must be estimable.",
+          "tie_break": "Maximize raw float64 G7; exact ties minimize abs(f_c-13), then choose smaller f_c."
+        },
+        "T8": {
+          "type": "SINGLE_CONDITION",
+          "candidates": "At each exposure fraction, the four nonzero cells. Cell (d,f) is eligible only if it belongs to a passing same-fraction pair (-2,-1) or (1,2), has C8 estimable, and meets the exact persistence component.",
+          "score": "G8(u)=C8(u).",
+          "tie_break": "Maximize G8, then minimize |d|/2+fraction, then row index, then column index."
+        }
+      },
+      "level_b_selected_policy_rule": "For a selected conditional Level-B surface, exclude missing candidate scores, apply level_b_policy_objects maximum/tie rule, and return NOT_ESTIMABLE if none remains. This surface policy is descriptive and does not define an 8x8 row or formal advancement."
+    },
+    "level_a_shape_consistency": {
+      "purpose": "Replace the previously underdefined generic dose-order phrase with an exact target-specific Level-A structural-response rule. A target passes this noncompensatory prerequisite only when at least 4 of 6 parameter draws pass its rule.",
+      "common": "Within draw g and condition u, aggregate the six worker seeds by float64 median in seed-numeric order; require at least 5 valid paired seeds for every required condition. A missing required condition makes that draw fail. Across draws, equality 4/6 passes; no draw is dropped or imputed.",
+      "T1": "Draw passes iff median-seed closeness improvement is strictly >0 at both requested endpoint drives 0.55 and 1.15 Hz and median-seed PLV is >=0.50 at both endpoints.",
+      "T2": "Let y_r be median-seed SO amplitude at the seven ascending doses [-1.5,-1,-0.5,0,0.5,1,1.5]. Draw passes iff y_6>y_0 and at least 5 of the 6 adjacent differences y_(r+1)-y_r are >=0. Equality counts ordered; the strict endpoint prevents an all-tie pass.",
+      "T3": "Use SO-event density y_r at ascending doses [-2,-1.25,-0.5,0,0.5,1.25,2]. Draw passes iff y_6>y_0 and at least 5 of 6 adjacent differences are >=0.",
+      "T4": "Use spindle-event density y_r at ascending doses [-1.5,-1,-0.5,0,0.5,1,1.5]. Draw passes iff y_6>y_0 and at least 5 of 6 adjacent differences are >=0.",
+      "T5": "Use sigma-event RMS y_r at ascending doses [-1.2,-0.8,-0.4,0,0.4,0.8,1.2]. Draw passes iff y_6>y_0 and at least 5 of 6 adjacent differences are >=0.",
+      "T6": "Draw passes iff the median-seed bMI(phi=0)-bMI(sham) is strictly >0.",
+      "T7": "For every requested Level-A phase, take the circular mean of valid seed-level beta values; resultant magnitude must exceed 1e-12. Draw passes iff the exact Fisher-Lee rho across eight phases is strictly >0 and the wrapped +/-pi/2 output separation is strictly >0 radians.",
+      "T8": "Using full-exposure Level-A doses, define Q_g(d)=median_seed sign(d)*(O_d-O_0). Draw passes iff at least one exact adjacency pair has both Q_g values strictly >0 and, at the draw-level d_hi chosen by median-seed O with the frozen tie rule, at least 75% of valid seeds have P_b=1.",
+      "ties_and_reporting": "All strict and non-strict comparisons are as written on raw float64 values. Report the six draw booleans, required condition medians, adjacent-difference count or phase statistic, and final pass count. This rule is distinct from effect-size bands and Holm tests."
+    }
+  },
+  "phase2b": {
+    "formal_status": "NOT_ESTIMABLE",
+    "eligible_public_development_night1_subjects": 0,
+    "eligible_public_development_night1_personalized_models": 0,
+    "minimum_subjects": 3,
+    "same_candidate_r4_executable_identity_available": false,
+    "synthetic_substitution": "PROHIBITED",
+    "reason": "The frozen data-feasibility receipt certifies zero eligible Night-1 personalized models and no exact R4 executable identity. This was decided before any Phase 2A outcomes and cannot be reversed within Candidate V3.",
+    "future_resolution": "A new governance-approved exact release would require a new prospectively frozen protocol version before any affected outcome is viewed.",
+    "formal_execution_under_v3": "PROHIBITED"
+  },
+  "uncertainty_and_statistics": {
+    "primary_effect_interval": "paired hierarchical percentile bootstrap with 10000 resamples using PCG64(860216): resample parameter draws, then paired seeds within selected draws; compute the registered estimand; report two-sided 95 percent interval",
+    "sensitivity_interval": "studentized paired mean interval is reported only as a secondary sensitivity check",
+    "simultaneous_95_construction": {
+      "method": "studentized max-absolute-deviation paired hierarchical bootstrap",
+      "bootstrap_replicates": 10000,
+      "pairing": "A single hierarchical resample index is applied jointly to sham, every intervention condition, every target component, and every off-target outcome in the applicable family.",
+      "phase2a_resampling_unit": "Draw six parameter-draw indices with replacement from D00-D05. For each selected draw occurrence, draw six worker-seed indices with replacement from the six paired seeds. Repeated draw occurrences receive independent seed resamples.",
+      "point_statistic_orientation": "Express each registered numeric requirement as a scalar margin slack z_k with PASS direction z_k>0. For upper-limit requirements use limit-estimate; for lower-limit requirements use estimate-limit. Proportions and correlations are treated on their registered scales.",
+      "bootstrap_deviation": "For noncircular scalar slack k, delta[b,k]=z_boot[b,k]-z_hat[k]. For a raw circular angle, delta[b,k]=atan2(sin(theta_boot-theta_hat),cos(theta_boot-theta_hat)); target rules based on circular distance first convert the wrapped angle to the registered scalar distance and then orient the margin slack.",
+      "scale": "s_k=max(std(delta[:,k],ddof=1),1e-12*max(1,abs(z_hat[k]))).",
+      "joint_statistic": "M_b=max over all estimable k in the frozen family of abs(delta[b,k])/s_k.",
+      "quantile": "Sort M_1 through M_10000 ascending and use the 9501st order statistic (one-based), equivalently numpy.partition(M,9500)[9500].",
+      "band": "Simultaneous two-sided 95 percent band for slack k is [z_hat[k]-q*s_k,z_hat[k]+q*s_k]. A required benefit passes only when its simultaneous lower bound is strictly greater than zero.",
+      "circular_width_failure": "If a raw circular tangent-scale half-width q*s_k is >=pi, mark that component NOT_ESTIMABLE; it cannot pass and is not converted to a linear interval.",
+      "zero_variance": "The registered scale floor is used; if all bootstrap values equal the point estimate, the simultaneous band has the resulting finite floor width rather than zero.",
+      "distinction_from_holm": "These bands control joint effect-size uncertainty. Holm step-down tests remain the separately frozen across-target hypothesis-test multiplicity rule and cannot replace the simultaneous bands."
+    },
+    "simultaneous_families": {
+      "F_TARGET_DECISIONS": {
+        "seed": 860218,
+        "resampling": "six draws by six worker seeds as specified above",
+        "family_members": {
+          "T1": [
+            "E1-0.05",
+            "PLV_low-0.50",
+            "PLV_high-0.50",
+            "move_fraction_low-0.80",
+            "move_fraction_high-0.80"
+          ],
+          "T2": [
+            "E2-0.15",
+            "fractional_positive_endpoint_gain-0.05",
+            "fractional_negative_endpoint_reduction-0.05"
+          ],
+          "T3": [
+            "E3-3.0",
+            "positive_endpoint_gain_events_per_min-1.5",
+            "negative_endpoint_reduction_events_per_min-1.5"
+          ],
+          "T4": [
+            "E4-1.0",
+            "positive_endpoint_gain_spindles_per_min-0.5",
+            "negative_endpoint_reduction_spindles_per_min-0.5",
+            "autonomous_added_event_fraction-0.50"
+          ],
+          "T5": [
+            "E5-0.15",
+            "fractional_positive_endpoint_gain-0.05",
+            "fractional_negative_endpoint_reduction-0.05"
+          ],
+          "T6": [
+            "E6-0.010",
+            "positive_block_fraction-0.75"
+          ],
+          "T7": [
+            "circular_correlation-0.70",
+            "pi_over_6-median_absolute_tracking_error",
+            "observed_phase_separation-pi_over_3"
+          ],
+          "T8": [
+            "E8-one_third",
+            "persistent_block_fraction_at_d_hi-0.75"
+          ]
+        },
+        "missing_component_rule": "If a point component is undefined under its frozen event/window denominator, that target is NOT_ESTIMABLE and cannot pass. The missing component is omitted from M_b for other targets, and the exact omitted member is logged; it is never imputed as zero. For T4 only, a bootstrap resample with zero added events after the base denominator passed assigns autonomous fraction zero in that bootstrap replicate.",
+        "decision_use": "Every scalar target margin listed above must have simultaneous lower bound>0, in addition to the exact target-specific level_a_shape_consistency prerequisite, frozen Holm test when applicable, binary stability/persistence, and hard-veto rules."
+      },
+      "F_LEVEL_B_SURFACES": {
+        "seed": 860220,
+        "resampling": "For each selected surface jointly draw three registered Level-B parameter draws with replacement and, within each selected draw occurrence, four registered Level-B seeds with replacement. Reuse one index tensor jointly for every executed cell and mapping score.",
+        "family_members": "Enumerate exact cell C_i(u)-1 members plus five mapping G_i(P)-1 members for selected T1 and/or T7. K=25*n25+20*n20+5*nmap and K<=80; one family spans all selected targets.",
+        "statistic": "Use the common max-absolute-deviation construction across every estimable enumerated member.",
+        "missing_cell_rule": "A missing executed cell remains NOT_ESTIMABLE and is omitted from M_b, but any missing required cell makes its entire surface and any dependent mapping policy NOT_ESTIMABLE for mechanistic support or Grade C. Other bands remain descriptive with the complete missingness map.",
+        "eligibility_use": "Level-B launch eligibility remains based only on completed Level-A F_TARGET_DECISIONS bands; Level-B outcomes cannot retroactively alter eligibility."
+      },
+      "F_CROSS_TARGET_8X8": {
+        "seed": 860221,
+        "resampling": "Jointly resample six parameter draws and, within each selected draw occurrence, the four disjoint verifier seeds; keep every row policy fixed from worker selection and reuse one index tensor for all 128 members.",
+        "family_members": "Exactly X3/T{i}/T{j}/BENEFIT and X3/T{i}/T{j}/ADVERSE for i=1,...,8 outer and j=1,...,8 inner: 128 dimensionless members.",
+        "statistic": "In every joint verifier bootstrap replicate recompute block-level n, block medians, condition BENEFIT/ADVERSE, T4 replica adverse, mapping min/max, and diagonal G overrides in the frozen order, then apply the common studentized max-absolute-deviation construction to all estimable 128 members.",
+        "circular_handling": "T1/T7 mapping primitives and T7 off-row phase changes use the frozen wrap and pairwise Fisher-Lee circular statistics before normalization; bootstrap event-phase means are recomputed by complex resultant, converted to G or adverse distance, and only then studentized.",
+        "classification": "Use phase2a.policy_selection_and_cross_target_scalars.cross_target_cell_construction exactly; benefit and adverse bands are both required.",
+        "missing_cell_rule": "If any expanded-condition primitive is missing, both members for that row-column cell are NOT_ESTIMABLE. Any missing cell in a policy row prevents complete off-target passage, Grade C, advancement, or C2-G8; remaining bands retain exact 128-member provenance."
+      },
+      "F_FORMAL_C2_INTERACTIONS": {
+        "seed": 860222,
+        "resampling": "If a future protocol is eligible, jointly resample subjects, then within-subject model/posterior draws and paired evaluation seeds.",
+        "family_members": "I_pop-0.25, I_wrong-0.25, and R_between-1.5 for every formally selected target in one family.",
+        "current_status": "NOT_ESTIMABLE"
+      }
+    },
+    "familywise_multiplicity": "Use exact_hypothesis_tests.holm: primary T1,T4,T6; gate-opened secondary T2,T3,T5,T7; T8 descriptive. Simultaneous effect-size bands are distinct and cannot substitute for Holm.",
+    "dose_selection": "For the all-target 8x8 matrix use phase2a.policy_selection_and_cross_target_scalars.policy_objects on Level-A worker data. For a selected conditional Level-B surface use level_b_policy_objects. T1/T7 are requested-value mappings in both contexts; all other targets are single conditions. Missing scores are excluded and each context uses its exact frozen tie rule.",
+    "missingness": "No imputation. Missing event-dependent metrics remain NOT_ESTIMABLE; invalid simulations remain INVALID.",
+    "attempt_budget": "One frozen scientific execution per run identity; infrastructure reruns require byte-identical inputs and must not follow scientific outcome inspection.",
+    "exact_hypothesis_tests": {
+      "valid_block_order": "After applying frozen validity rules, order complete paired blocks by parameter_draw_id lexicographically then seed numerically. Require the registered minimum denominator before any test.",
+      "sign_flip_targets": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T8"
+      ],
+      "block_statistics": {
+        "T1": "h_b=E1_b/0.05, where E1_b is the registered mean of low- and high-endpoint closeness improvements.",
+        "T2": "h_b=E2_b/0.15.",
+        "T3": "h_b=(D_b(+2)-D_b(-2))/3.0.",
+        "T4": "h_b=(S_b(+1.5)-S_b(-1.5))/1.0.",
+        "T5": "h_b=E5_b/0.15.",
+        "T6": "h_b=(bMI_b(phi=0)-bMI_b(sham))/0.010.",
+        "T8": "h_b=(max_d O_b(d)-min_d O_b(d))/(1/3), using the registered dose tie rule."
+      },
+      "sign_flip_algorithm": {
+        "statistic": "T_obs=mean_b(h_b), dimensionless; alternative is greater than the sign-exchangeable null.",
+        "seeds": {
+          "T1": 860231,
+          "T2": 860232,
+          "T3": 860233,
+          "T4": 860234,
+          "T5": 860235,
+          "T6": 860236,
+          "T8": 860238
+        },
+        "rng_lifecycle": "For target Ti instantiate Generator(PCG64(seed_i)) exactly once after valid blocks are fixed. Call rng.integers(0,2,size=(100000,n_blocks),dtype=np.int8) once in C order; signs=2*bits-1. Row m defines one sign vector. Do not reset, split, advance, or reuse a generator across targets.",
+        "zero_and_ties": "Keep h_b=0; it contributes zero under both signs. For each random row compute T_m=mean(signs_m*h). Count an equality T_m==T_obs as at least as extreme.",
+        "observed_assignment": "Evaluate the all-plus observed assignment once as T_obs. It is represented by the +1 numerator and +1 denominator correction and is not forcibly inserted into the 100000 RNG rows; a coincidentally drawn all-plus row remains counted.",
+        "p_value": "Let M=100000 and B=sum_m 1[T_m>=T_obs]. The exact Monte Carlo p=(B+1)/(M+1).",
+        "missing": "Any nonfinite h_b is excluded only by the frozen complete-pair rule before RNG creation. If fewer than the target minimum complete blocks remain, p is NOT_ESTIMABLE; no generator is instantiated."
+      },
+      "T7_circular_label_permutation": {
+        "source": "Use the exact eight-condition Level-A alpha_l and beta_b,l arrays defined in observation_and_detector_contract.T7.exact_phase_response_statistics.",
+        "statistic": "For each assignment compute Fisher-Lee pairwise rho_c, tracking_error, and separation by the exact formulas across complete blocks; H=min(rho_c/0.70,min(4,(pi/6)/max(tracking_error,1e-12)),separation/(pi/3)). T_obs=H for unpermuted labels. Units are dimensionless; alternative is larger.",
+        "randomization": "M=100000. Instantiate Generator(PCG64(860217)) exactly once. For m=0,...,99999 and, inside it, blocks in frozen order, call rng.permutation(8) exactly once and assign beta_perm[b,l]=beta[b,perm[l]] while alpha labels remain fixed. Recompute all block and aggregate statistics.",
+        "lifecycle": "The generator is not reset between permutations or blocks, not shared with bootstrap or other targets, and receives no calls other than the nested sequence of permutation(8).",
+        "degeneracy": "If a permuted rho denominator is <=1e-12 or another component is nonfinite, set H_m=-infinity. Observed degeneracy makes T7 NOT_ESTIMABLE before RNG creation.",
+        "tails_ties_p": "Use the one-sided greater alternative. Count B=sum_m 1[H_m>=T_obs], including exact ties. The observed assignment is included exactly through p=(B+1)/(100000+1), not forcibly inserted into RNG draws.",
+        "missing": "Require at least 30 blocks complete at all eight phases, five seeds, and five draws. Missing conditions are not permuted or imputed."
+      },
+      "holm": {
+        "alpha": 0.05,
+        "primary_family": [
+          "T1",
+          "T4",
+          "T6"
+        ],
+        "secondary_family": [
+          "T2",
+          "T3",
+          "T5",
+          "T7"
+        ],
+        "primary_order": "Sort raw p ascending; exact p ties sort target_id lexicographically. For ordered rank k=1,...,m compute adjusted p_k=max_{l<=k} min(1,(m-l+1)*p_l). A target rejects only if adjusted p<0.05.",
+        "secondary_gate": "Open the secondary Holm family only if at least one primary target passes its complete effect-size, stability, veto, denominator, and primary-Holm decision. Otherwise report all secondary raw p values as descriptive with rejection=false.",
+        "secondary_order": "When open, use the identical ascending-p, lexical-tie, max-prefix adjusted-p formula and strict adjusted p<0.05 rule.",
+        "missing_p": "A NOT_ESTIMABLE p never rejects and is placed after all finite p values, then target_id lexicographically; it does not reduce family size.",
+        "T8": "T8 p is descriptive only and is never included in either Holm family."
+      }
+    }
+  },
+  "stability_and_plausibility": {
+    "hard_rules": [
+      "all stored states and metrics finite",
+      "all rates within [-1e-6,rmax+1e-6] without clipping",
+      "mean rate of every population between 0.5 and 60 Hz for a valid model-level physiological window",
+      "no more than 1 percent of samples below 0.01 Hz or above 95 Hz",
+      "4-30 Hz total power no more than four times paired sham",
+      "detector retained-duration fraction at least 0.85",
+      "at least 95 percent of all prescribed dose-seed-draw runs stable"
+    ],
+    "off_target_vetoes": [
+      "broadband 4-30 Hz power increases by more than 25 percent without an increased target-band fraction",
+      "SO or spindle detector threshold changes between paired conditions",
+      "SO or spindle events appear only because the signal mean or variance is rescaled",
+      "silence, saturation, solver divergence, clipping, or T8 regime invalidity",
+      "any non-target primary metric crosses its adverse practical margin with a simultaneous interval"
+    ]
+  },
+  "compute_envelope": {
+    "campaign_total_cpu_hours": 180,
+    "phase2a_worker_cpu_hour_cap": 60,
+    "independent_verification_cpu_hours_reserved": 50,
+    "verification_reserve_worker_use": "PROHIBITED",
+    "level_a_maximum_runs": 1800,
+    "conditional_level_b_maximum_runs": 900,
+    "per_run_simulated_seconds": 210,
+    "storage_hard_stop_gib": 45,
+    "wall_clock_deadline": "2026-08-18T23:59:59-04:00",
+    "budget_stop": "Complete all eight Level A targets before any Level B surface; if 52 Phase2A worker CPU-hours are consumed, prohibit new Level B launches and reserve the remaining 8 hours for completion/checkpointing.",
+    "checkpoint": "Write an immutable result block after every target and seed-draw block; resume only byte-identical incomplete run identities; preserve valid negatives.",
+    "level_b_cell_count_by_target": {
+      "T1": 25,
+      "T2": 25,
+      "T3": 25,
+      "T4": 25,
+      "T5": 25,
+      "T6": 20,
+      "T7": 20,
+      "T8": 25
+    },
+    "conditional_level_b_run_formula": "12*(25*n25+20*n20), n25+n20<=3",
+    "phase2a_total_maximum_runs": 2700,
+    "maximum_simulated_seconds": 567000,
+    "maximum_internal_solver_intervals": 567000000,
+    "level_b_launch_budget_rule": "Before each selected target, reserve 12*cells(target) runs and projected CPU time. Launch only if the whole surface fits below the 60-hour Phase2A cap and 52-hour new-launch stop. Partial surfaces may complete after the stop but cannot be newly initiated.",
+    "cross_target_verifier_unique_runs": 456,
+    "cross_target_verifier_simulated_seconds": 95760,
+    "cross_target_verifier_internal_solver_intervals": 95760000,
+    "cross_target_verifier_cpu_budget": "Charged only to the independently reserved 50 verifier CPU-hours, never the 60 Phase2A worker-hour cap; launch only if all 456 unique runs fit the reserve.",
+    "maximum_registered_runs_including_cross_verifier": 3156,
+    "maximum_simulated_seconds_including_cross_verifier": 662760,
+    "maximum_internal_solver_intervals_including_cross_verifier": 662760000,
+    "cpu_cap_partition": "Phase2A worker execution including conditional Level B is capped at 60 CPU-hours; cross-target verification is capped by its separate 50 CPU-hour reserve; combined authorized compute under these partitions is <=110 CPU-hours and therefore <=180 campaign CPU-hours. No partition borrowing is allowed."
+  },
+  "verification": {
+    "required_for_any_reportable_diagnostic_support": true,
+    "verifier_inputs": [
+      "frozen protocol",
+      "immutable implementation hash",
+      "environment hash",
+      "seed list",
+      "parameter-draw manifest",
+      "metric definitions",
+      "expected schema"
+    ],
+    "verifier_seeds": [
+      77041,
+      88069,
+      99079,
+      111091
+    ],
+    "required_outputs": [
+      "NUMERIC_REPRODUCTION",
+      "PROCEDURAL_FIDELITY",
+      "SEED_PAIRING_AGREEMENT",
+      "DETECTOR_AGREEMENT",
+      "CLAIM_AGREEMENT",
+      "MATERIAL_DISAGREEMENT"
+    ],
+    "pass_rule": "VERIFIED and MATERIAL_DISAGREEMENT=false with exact protocol/input hashes; this can support only the non-transferable diagnostic ceiling."
+  },
+  "prohibited_actions": [
+    "access any R4 file or referenced artifact",
+    "access repository data, fitted parameters, scientific configuration, historical code, outputs, protected-derived, Night-2, sealed, fresh-final, or confirmatory material",
+    "tune equations, thresholds, grids, target priority, margins, or detectors after target outcomes are visible",
+    "call a fitted parameter perturbation an intervention",
+    "call generic forcing auditory-like stimulation",
+    "replace missing eligible subjects with synthetic draws",
+    "assign C1 or C2 to PHASE2_CONTROL_BENCH_V1",
+    "change the categorical R4 M1/C0/P0 substrate"
+  ],
+  "preserved_v2_repairs": [
+    "PF-B001",
+    "PF-B002",
+    "PF-B003",
+    "PF-B004",
+    "PF-B005"
+  ],
+  "parent_freeze_binding": {
+    "path": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+    "sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8"
+  },
+  "audit_receipt_binding": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+    "sha256": "E61465D6357C411DB032AC8989695E1BE73CF04742E3467DBA1246E698975358"
+  },
+  "protocol_route_version": "3.0.0"
+}

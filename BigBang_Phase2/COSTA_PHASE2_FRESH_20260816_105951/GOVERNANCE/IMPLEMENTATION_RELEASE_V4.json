@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "release_id": "OUTCOME_BLIND_IMPLEMENTATION_RELEASE_V4",
+  "issued_at": "2026-08-16T15:12:36-04:00",
+  "issued_by": "Root Orchestrator",
+  "scientific_outcomes_visible": false,
+  "protocol_freeze": {
+    "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+    "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996"
+  },
+  "independent_protocol_audit": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+    "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+    "verdict": "PASS"
+  },
+  "environment": {
+    "version": "NEUROLIB_ENV_V3",
+    "launcher": "PREFLIGHT/run_neurolib.ps1",
+    "launcher_sha256": "E47B3632862CBB885ED422505256DB6199007268786CA6D8F71BE3AFEA334867",
+    "compute_audit": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+    "compute_audit_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A"
+  },
+  "authorized_role": "Fresh Isolated Scientific Implementation Worker",
+  "allowed_reads": [
+    "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+    "the eight exact artifacts bound by that freeze",
+    "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+    "STATE/ENVIRONMENT_SNAPSHOT.json",
+    "STATE/COMPUTE_BUDGET.json",
+    "PREFLIGHT/run_neurolib.ps1",
+    "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json"
+  ],
+  "allowed_writes": [
+    "CODE/CANDIDATE_V4/**",
+    "PREFLIGHT/CANDIDATE_V4_EXPECTED_SCHEMA.json",
+    "PREFLIGHT/CANDIDATE_V4_IMPLEMENTATION_MANIFEST.json"
+  ],
+  "implementation_requirements": [
+    "Implement the exact V4 clean-room stochastic bench, intervention channels, causal scheduler, detectors, T4 fixture comparator, metrics, statistics, policies, grids, run identities, checkpointing, outputs and CLI.",
+    "Use only numpy and scipy scientific dependencies under the frozen neurolib environment.",
+    "Make all run orders, RNG streams, hashes, pairing, logging, invalidity, missingness and failure boundaries explicit and deterministic.",
+    "Implement all eight Level-A targets, conditional Level-B surfaces, 8x8 cross-target verification, Phase2B NOT_ESTIMABLE disposal, and all required output schemas.",
+    "Keep analysis and execution commands separate so data-free preflight, Phase2A worker execution and verifier execution require distinct explicit modes.",
+    "Write a complete implementation manifest listing every file, SHA-256, static entrypoint, exact future commands and expected output schemas."
+  ],
+  "execution_permissions": {
+    "file_creation_and_editing": "ALLOWED_WITHIN_EXACT_WRITE_SCOPE",
+    "static_text_or_ast_validation": "ALLOWED",
+    "module_import": "DENIED",
+    "python_execution": "DENIED",
+    "synthetic_preflight": "DENIED_PENDING_HASH_FREEZE_AND_INDEPENDENT_CODE_AUDIT",
+    "phase2a": "DENIED",
+    "phase2b": "DENIED_NOT_ESTIMABLE"
+  },
+  "prohibited_reads": [
+    "all repository code outside the exact current-campaign V4 protocol and infrastructure controls",
+    "CODE/phase2_control_bench.py and every partial/stale V1 implementation",
+    "all R4 files and referenced artifacts",
+    "all repository data, parameters, configuration, outputs and validation outputs",
+    "Night-2, Sealed Bank, protected-derived, fresh-final, ambiguous, quarantined or historical material"
+  ],
+  "change_control": {
+    "scientific_definition_changes": "PROHIBITED",
+    "preflight_repair_budget_consumed": 0,
+    "preflight_repair_budget_maximum": 2,
+    "outcome_access": "NONE"
+  },
+  "next_gate": "HASH_FREEZE_IMPLEMENTATION_THEN_INDEPENDENT_CODE_AUDIT",
+  "status": "IMPLEMENTATION_RELEASED_PREFLIGHT_AND_OUTCOMES_CLOSED"
+}

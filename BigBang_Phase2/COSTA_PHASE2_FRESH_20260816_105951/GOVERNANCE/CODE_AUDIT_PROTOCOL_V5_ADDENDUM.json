@@ -1,0 +1,436 @@
+{
+  "schema_version": "5.0.0",
+  "protocol_id": "INDEPENDENT_PROSPECTIVE_STATIC_CODE_AUDIT_PROTOCOL_V5_ADDENDUM",
+  "status": "IMMUTABLE_PROSPECTIVE_ADDENDUM_AWAITING_ACTIVATION",
+  "purpose": "Add the exact V5 identity, rescale-only-event-veto, fixture, failure-schema, and all-missing-bootstrap checks to the immutable V4 prospective static-code-audit protocol before any V5 implementation byte is inspected or reconciled.",
+  "authoring_boundary": {
+    "outcome_blind": true,
+    "implementation_blind": true,
+    "read_inputs_limited_to": [
+      "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+      "the nine exact V5 artifacts bound by that freeze",
+      "GOVERNANCE/CODE_AUDIT_PROTOCOL_V4.json",
+      "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json"
+    ],
+    "not_accessed": [
+      "CODE/CANDIDATE_V4",
+      "CODE/CANDIDATE_V5",
+      "PREFLIGHT implementation manifests",
+      "implementation bytes",
+      "repository data",
+      "R4 artifacts",
+      "outcome artifacts"
+    ],
+    "execution_performed": false,
+    "prospective_rule": "This addendum is closed before any V5 implementation reconciliation. It grants no permission to inspect, execute, repair, preflight, or scientifically run an implementation."
+  },
+  "authoritative_inputs": {
+    "base_static_code_audit_protocol": {
+      "path": "GOVERNANCE/CODE_AUDIT_PROTOCOL_V4.json",
+      "sha256": "FBBEFACE9BB9038F139017220DC7A30217726A7DFBC429B573485A4D264A1FBE"
+    },
+    "edge_semantics_adjudication": {
+      "path": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+      "sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A",
+      "binding": "PV4-EDGE-B001 required a prospective exact rescale-only-event-veto repair; the general all-missing-bootstrap convention was adjudicated as fail-closed NOT_ESTIMABLE with no imputation, redraw, shortening, or fabricated interval."
+    },
+    "v5_protocol_freeze": {
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+      "sha256": "4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA",
+      "freeze_id": "PHASE2_PROTOCOL_FREEZE_V5",
+      "schema_version": "5.0.0"
+    },
+    "v5_bound_artifacts": [
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/control_target_registry.json",
+        "sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/mechanistic_parameter_map.json",
+        "sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/phase2_protocol.json",
+        "sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/advancement_rule.json",
+        "sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/c2_gate_protocol.json",
+        "sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/claim_registry.json",
+        "sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/PREOUTCOME_DESIGN_MEMO.md",
+        "sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/t4_attribution_fixture_v3.json",
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/rescale_event_veto_fixture_v5.json",
+        "sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "fixture_id": "PF_RESCALE_EVENT_VETO_FIXTURE_V5"
+      }
+    ]
+  },
+  "inheritance_and_precedence": {
+    "base_rule": "Every integrity, forbidden-path/import, traceability, model, OU, Heun, update-order, RNG, forcing, scheduler, detector, metric, T4, bootstrap, randomization, Holm, policy, verifier, schema, checkpoint-resume, CLI, hash-guard, compute, failure, claim, and bounded-repair requirement in CODE_AUDIT_PROTOCOL_V4.json remains mandatory unless this addendum states an exact V5 substitution.",
+    "route_substitution": "For the future V5 audit only, references to the V4 protocol route are replaced by the exact V5 freeze and its nine bound artifacts above. No semantic relaxation follows from a route substitution.",
+    "v5_overrides": [
+      "The previously underdefined mean/variance-rescale-only concept is replaced only by RESCALE_ONLY_EVENT_VETO_V5 and its exact fixture oracle.",
+      "The Level-A run-identity and paired-sham registries are mandatory executable identities, including T6/T7 physical reuse and context-specific sham aliases.",
+      "The V5 preflight registry contains fifteen required tests, adding PF_RESCALE_EVENT_VETO_V5 to the fourteen inherited V4 tests.",
+      "The all-missing-bootstrap convention is made explicitly fail-closed without changing any bootstrap family, RNG seed, resample tensor, quantile, or Holm rule."
+    ],
+    "conflict_rule": "An exact V5 statement governs only the repaired field. Every unrelated V4 semantic remains byte-semantic invariant. Ambiguity, inability to prove inheritance, or an unclassified delta is blocking rather than auditor-resolved.",
+    "no_release_inheritance": "No V4 implementation release or revalidation authorizes V5 code, V5 preflight, or V5 science."
+  },
+  "immutability": {
+    "closed_before_v5_code_inspection": true,
+    "amendment_rule": "Do not edit this file after its SHA-256 is reported. Any correction requires a new prospectively authored version with lineage and a new hash before implementation inspection resumes.",
+    "self_hash_rule": "This file contains no self-hash. Its uppercase SHA-256 is computed only after final byte closure and is cited externally to avoid a recursive hash domain."
+  },
+  "activation_gate": {
+    "default_state": "NOT_AUTHORIZED",
+    "all_required_before_static_code_read": [
+      "The exact SHA-256 of this addendum is independently recorded.",
+      "The V5 freeze and all nine artifact hashes above reverify exactly.",
+      "An independent V5 protocol-freeze re-audit reports PASS and binds these exact bytes.",
+      "A future authorized V5 implementation-release control and its independent revalidation bind an exact implementation root, exact source allowlist, exact manifest/schema allowlist, exact file sizes, and uppercase SHA-256 values.",
+      "Root explicitly activates one implementation-blind static audit against those bindings."
+    ],
+    "forbidden_before_activation": [
+      "opening, hashing, stating, enumerating, or diffing any CODE/CANDIDATE_V4 byte",
+      "opening, hashing, stating, enumerating, or diffing any CODE/CANDIDATE_V5 byte",
+      "opening, hashing, stating, or enumerating any implementation or PREFLIGHT candidate manifest",
+      "importing implementation modules",
+      "executing Python, a launcher, preflight, simulator, model, detector, fixture, or scientific workflow"
+    ],
+    "missing_binding_rule": "A missing or mismatched prerequisite returns NOT_AUTHORIZED_INPUT_INTEGRITY; it is not repaired, guessed, searched for, or bypassed."
+  },
+  "future_static_audit_boundary": {
+    "permitted_only_after_activation": [
+      "read the exact authorized implementation manifest and bound source bytes",
+      "verify metadata, file sizes, and hashes against the future Root binding",
+      "use a nonexecuting parser or AST over only those exact source bytes",
+      "produce the required static audit receipt"
+    ],
+    "still_forbidden_during_static_audit": [
+      "module import",
+      "Python or launcher execution",
+      "fixture or preflight execution",
+      "simulation or scientific execution",
+      "reading data, R4, outcomes, caches, checkpoints, or unbound files",
+      "network, subprocess, shell, dynamic import, arbitrary deserialization, or runtime discovery from audited code"
+    ],
+    "proof_rule": "If a mandatory behavior cannot be proved statically from the authorized bytes and bindings, return BLOCKED_INSUFFICIENT_STATIC_PROOF; do not execute code to resolve it."
+  },
+  "inherited_static_check_matrix": [
+    {
+      "v5_check_id": "CA5_I01",
+      "inherits": "CA4_I01",
+      "requirement": "Exact manifest membership, path, size, SHA-256, duplicate, omission, and extra-file integrity, using only the future authorized V5 binding."
+    },
+    {
+      "v5_check_id": "CA5_I02",
+      "inherits": "CA4_I02",
+      "requirement": "Forbidden paths, imports, capabilities, dynamic loading, subprocess, network, repository/R4/outcome access, unsafe deserialization, and undeclared dependency checks remain exact."
+    },
+    {
+      "v5_check_id": "CA5_S01",
+      "inherits": "CA4_S01",
+      "requirement": "Every protocol constant, branch, ordering rule, failure state, and output must trace to the exact V5 freeze/artifact field; no silent default, inference, convenience fallback, or scientific drift."
+    },
+    {
+      "v5_check_id": "CA5_M01",
+      "inherits": "CA4_M01",
+      "requirement": "Model equations, state layout, OU construction, Heun stages, forcing placement, update order, storage timing, RNG construction, stream separation, paired initial states, and paired innovations are unchanged."
+    },
+    {
+      "v5_check_id": "CA5_F01",
+      "inherits": "CA4_F01",
+      "requirement": "Forcing waveforms, packet scheduler, half-open boundaries, rounding, clipping prohibition, sham zeros, and condition-specific schedules are unchanged."
+    },
+    {
+      "v5_check_id": "CA5_D01",
+      "inherits": "CA4_D01",
+      "requirement": "Common preprocessing, all official detectors/metrics, edge rules, exact thresholds, validity, and the original fourteen fixture checks remain exact; V5 adds the fifteenth fixture check defined below."
+    },
+    {
+      "v5_check_id": "CA5_T401",
+      "inherits": "CA4_T401",
+      "requirement": "The sixteen-row T4 attribution domain, exact matching/classification, pooling, sole formal +1.5/13 use, logging, and unchanged T4 fixture hash remain exact."
+    },
+    {
+      "v5_check_id": "CA5_U01",
+      "inherits": "CA4_U01",
+      "requirement": "Bootstrap families, block construction, randomization tests, PCG64 lifecycles, shared resample tensors, T7 Fisher-Lee procedure, equality handling, and Holm families/order remain exact."
+    },
+    {
+      "v5_check_id": "CA5_R01",
+      "inherits": "CA4_R01",
+      "requirement": "Level-A, conditional Level-B, policy, cross-target verifier registries, inactive alternatives, unique grids, and run arithmetic remain exact, subject only to the V5 identity aliases below."
+    },
+    {
+      "v5_check_id": "CA5_O01",
+      "inherits": "CA4_O01",
+      "requirement": "Schemas, deterministic serialization, checkpoints, resume exactness, atomicity, provenance, and no scientific rerun after outcome inspection remain exact."
+    },
+    {
+      "v5_check_id": "CA5_CLI01",
+      "inherits": "CA4_CLI01",
+      "requirement": "CLI modes, hash guards, preflight-only separation, no science on failed/missing preflight, and fail-closed exit behavior remain exact."
+    },
+    {
+      "v5_check_id": "CA5_C01",
+      "inherits": "CA4_C01",
+      "requirement": "Compute accounting, launch caps, one-run-per-identity, no hidden extra simulation, and audit-only overhead classification remain exact."
+    },
+    {
+      "v5_check_id": "CA5_G01",
+      "inherits": "CA4_G01",
+      "requirement": "Failures, NOT_ESTIMABLE propagation, claims ceiling, closed gates, advancement, and no claim from diagnostics or preflight remain exact."
+    }
+  ],
+  "mandatory_v5_addendum_checks": [
+    {
+      "check_id": "CA5_V501_IDENTITY_AND_SHAM_REGISTRIES",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "The implementation materializes LEVEL_A_RUN_IDENTITY_REGISTRY_V5 by exact deep equality to phase2a.level_a_run_identity_registry, preserving group order T1,T2,T3,T4,T5,T6_T7_SHARED,T8 and group counts 6,7,7,7,7,9,7 for exactly 50 unique physical Level-A conditions.",
+        "The condition array is crossed with draws D00_NOMINAL,D01,D02,D03,D04,D05 and seeds 11003,22007,33013,44017,55021,66029, using LA__{condition_id}__{draw_id}__S{seed}, producing exactly 50*6*6=1800 unique physical Level-A run IDs without search, deduplication, omission, or addition.",
+        "PAIRED_SHAM_IDENTITY_REGISTRY_V5 is implemented by exact deep equality. Each Level-A condition maps to its group sham. Exactly seven registered Level-A condition identities self-pair, and no other self-pair is permitted.",
+        "For T4 Level-A records, LEVEL_A_SHARED_SHAM::{draw_id}::S{seed} resolves to physical LA__LEVEL_A_T4_DOSE_INDEX_03__{draw_id}__S{seed}.",
+        "Every Level-B cell uses LEVEL_B_SHARED_SHAM::{draw_id}::S{seed}, resolving to the frozen cached physical LA__LEVEL_A_T4_DOSE_INDEX_03__{draw_id}__S{seed}; this alias adds zero simulations, and zero or waveform-duplicate Level-B cells are neither self-paired nor deduplicated.",
+        "Every verifier intervention resolves to X3__SHAM__{draw_id}__S{seed}; per block there are nineteen logical policy conditions, exactly eighteen unique intervention trajectories after the one T6/T7 reuse, and one shared physical sham.",
+        "Identity resolution has exact zero-match, multi-match, duplicate-ID, forbidden-self-pair, missing-record, and mismatch failures; waveform or nearest-value search is absent."
+      ],
+      "future_preflight_assertions": [
+        "Deep-compare both registries and all ordered arrays to the frozen artifacts.",
+        "Enumerate exactly 50 Level-A condition IDs and 1800 unique run IDs and compare exact ordered sets.",
+        "Resolve every LA, launched LB, and launched verifier intervention to exactly one physical sham; verify alias strings and self-pair membership exactly.",
+        "Fail with PF_RESCALE_VETO_DOMAIN_FAIL on any set difference, duplicate diagnostic, unbound record, or zero/multiple sham resolution."
+      ]
+    },
+    {
+      "check_id": "CA5_V502_T6_T7_PHYSICAL_REUSE",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "A reused T6/T7 trajectory creates one rescale-veto block record with canonical source target_id T7; T6 is a downstream consumer and creates no duplicate simulation or diagnostic record.",
+        "In Level A, phase ii=00,...,07 uses condition LEVEL_A_T7_PHASE_INDEX_{ii} and run LA__LEVEL_A_T7_PHASE_INDEX_{ii}__{draw_id}__S{seed}; formal T6 phi=0 is ii=04.",
+        "In the verifier, selected logical X3__T6__K00 references canonical X3__T7__K{ii} and its exact run for the selected Level-A phase; the pre-existing phi=0 case is ii=04.",
+        "Level-B T6 and T7 cells remain distinct even for waveform equality under the frozen no_cell_deduplication rule.",
+        "Condition-level T6 decisions may consume canonical T7 records while retaining T6 as the decision target."
+      ],
+      "future_preflight_assertions": [
+        "Enumerate shared identities and prove exactly one physical record per reused trajectory/event type.",
+        "Reject a duplicated T6 record, missing T6 consumer reference, wrong ii mapping, or Level-B deduplication."
+      ]
+    },
+    {
+      "check_id": "CA5_V503_RESCALE_INPUT_MOMENTS_AND_AFFINE_TRANSFORM",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "For LEVEL_A_WORKER, LEVEL_B_SURFACE, and CROSS_TARGET_VERIFIER and both SO and SPINDLE, the input is exactly the stored post-warmup arrays r_E_stored[n],r_T_stored[n], n=0,...,35999, sampled every fifth internal step, before centering and filtering.",
+        "x_raw[n]=float64((r_E_stored[n]+float64(0.25*r_T_stored[n]))/10.0) is evaluated as multiplication, addition, division in that order.",
+        "Both paired arrays must already be C-contiguous, one-dimensional numpy dtype <f8, shape (36000,), little-endian; no conversion is allowed. Their exact 288000-byte buffers are hashed with uppercase SHA-256 before moments.",
+        "Validation order is exact: expected intervention identity; alias and physical sham resolution; draw/seed/initial-state/duration/solver/OU/all-zero-sham checks; dtype/rank/shape/length/endianness/contiguity; raw hashes; sham-then-intervention ascending finite scan; moments only after all pass.",
+        "Means and population variances use sequential IEEE-754 binary64 accumulation in ascending index order, round-to-nearest ties-to-even, ddof=0, and no FMA, reassociation, extended precision, parallel or compensated reduction.",
+        "For positive finite variances, ratio=float64(v_sham/v_intervention), a=float64(sqrt(ratio)), then for each n d=float64(x_intervention[n]-mu_intervention), z=float64(a*d), x_rescaled[n]=float64(mu_sham+z), in that order.",
+        "No epsilon, floor, alternate normalization, post-correction, forced moment equality, clipping, detrending, interpolation, standardization, truncation, or filtered substitute exists.",
+        "Exact finite zero variance in either role is NOT_ESTIMABLE_ZERO_VARIANCE. Negative or nonfinite arithmetic is INVALID_NUMERIC. A nonfinite raw input is INVALID_NONFINITE_INPUT with the first failing role/index. A schema mismatch is INVALID_INPUT_SCHEMA. Pairing disagreement is INVALID_PAIRING. A uniquely prescribed absent or unreadable input is NOT_ESTIMABLE_INPUT.",
+        "All 36000 rescaled samples must be finite; their exact <f8 bytes are hashed, and audit-only sequential mu_rescaled/v_rescaled are logged without a tolerance-based correction or branch."
+      ],
+      "future_preflight_assertions": [
+        "Run the normalization fixture primitives only in the authorized preflight mode and require exact oracle equality, including binary64 hexadecimal values, statuses, nulls, and hashes.",
+        "Prove no vectorized reduction, implicit dtype conversion, alternate signal, reordered arithmetic, or variance floor is reachable."
+      ]
+    },
+    {
+      "check_id": "CA5_V504_DETECTOR_RERUN_EVENT_MATCHING_AND_POOLING",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "Sham, intervention, and rescaled arrays independently reuse the unchanged full-length common preprocessing; sequential rescale moments do not replace the official 180-second centering.",
+        "Rerun sham and intervention SO/spindle event tables must deep-equal the official V5 tables. Missing tables, alternate detector versions, threshold drift, or table differences are veto-equivalent INVALID_DETECTOR_DRIFT.",
+        "SO thresholds remain duration 80..500 samples inclusive, peak-to-peak >=0.10, trough <=-0.04, upward crossing y[c-1]<0 and y[c]>=0 with equality accepted, earliest tied extrema, and strict retained bounds 2000<c0<c1<34000 with extrema strictly inside.",
+        "Spindle RMS remains the registered 40-sample support. High crossing is rms[h-1]<high and rms[h]>=high; extension uses the maximal contiguous rms>=low run; gaps <=20 merge; duration 60..400 samples is inclusive; 2000<a<b<34000 is strict. The exact paired-sham high/low binary64 constants are reused unchanged for all three runs and never recalibrated.",
+        "Threshold provenance has exactly the registered fields and Python-float-hex encodings, deterministic JSON serialization, and one identical uppercase SHA-256 for all three reruns.",
+        "SO and spindle canonical event schemas, ordering, earliest-anchor ties, IDs, and half-open versus inclusive boundary meanings match the frozen text exactly.",
+        "Exactly three independent matches run per event type/block: intervention-to-sham, rescaled-to-sham, then original-added-to-rescaled-added. Eligibility is absolute anchor distance <=50. Candidate sorting is absolute difference, left anchor, right anchor, left ID, right ID; one greedy traversal accepts only unused endpoints and never rematches or uses amplitudes/overlap/randomness.",
+        "Block counts N_sham,N_intervention,N_rescaled,N_added_original,N_added_rescaled,N_persistent,N_rescale_only and density transforms are exact. F_rescale_only is null with NO_ADDED_EVENTS iff the original-added denominator is zero; otherwise it is N_rescale_only/N_added_original.",
+        "block_rescale_only is true exactly when N_added_original>0, N_added_rescaled=0, N_persistent=0, and F_rescale_only=1 by integer identity.",
+        "Pooling is only over (execution_context,target_id,condition_id,event_type), draw-major then seed-minor. Minima are Level A 30/36 plus >=5 seeds and >=5 draws; Level B 10/12 plus >=3 seeds and all three draws; verifier 20/24 plus >=3 verifier seeds and >=5 draws.",
+        "The condition hard veto is exact all-added-events-vanish: pooled original added >0, pooled rescaled added=0, pooled persistent=0, and pooled fraction=1. No tolerance, majority vote, interval, offset, or multiplicity adjustment applies. Invalid is veto-equivalent; NOT_ESTIMABLE cannot pass."
+      ],
+      "future_preflight_assertions": [
+        "Require exact oracle equality for comparator boundaries, tied matching, 50-sample equality, event survival/vanishing/no-added/mixed cases, pooling minima, and fail-closed zero/nonfinite cases.",
+        "Compare official and rerun sham/intervention event tables and provenance hashes before accepting any rescaled diagnostic.",
+        "Verify every launched condition and both event types are covered; inactive verifier alternatives remain NOT_LAUNCHED_BY_POLICY."
+      ]
+    },
+    {
+      "check_id": "CA5_V505_FAILURE_NULL_LOG_AND_HASH_SCHEMA",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "Every block record ID is RV5B::{execution_context}::{target_id}::{condition_id}::{event_type}::{parameter_draw_id}::S{seed}; every condition record ID is RV5C::{execution_context}::{target_id}::{condition_id}::{event_type}.",
+        "The implementation emits exactly all required block and condition fields in stability_and_plausibility.rescale_only_event_veto.required_logs_and_artifact_schema, with no unregistered field.",
+        "downstream_consumer_ids is always exactly [T1,T2,T3,T4,T5,T6,T7,T8] in that order for every block and condition record.",
+        "When matching completes, unmatched_event_id_arrays is exactly one object with six registered keys and source-table ordering. Before matching it is null; a fabricated object of empty arrays is forbidden.",
+        "Identity fields, downstream consumers, status, reason, and first failing field are always populated. Every downstream uncomputed scalar, object, or array is JSON null; zero, false, {}, or [] cannot impersonate uncomputed state. A valid detector with zero events emits a genuine [] and calculated zero counts.",
+        "VALID has null reason and null first-failing field. Nonvalid blocks have one exact nonnull reason and first failing field/sample. Condition status copies the first INVALID_* block in expected block order; otherwise only NOT_ESTIMABLE blocks are excluded, minima are applied, then exact veto/clear statuses are selected.",
+        "hard_veto_boolean_or_null is true only for HARD_VETO_RESCALE_ONLY, false only for the two clear statuses, and null for INVALID_* or NOT_ESTIMABLE_INSUFFICIENT_BLOCKS. Invalid remains veto-equivalent and is never encoded as a Boolean.",
+        "IDs/reasons are strings; seeds/counts/indices are integers; binary64 values are lowercase C99 float.hex strings; hashes are uppercase. Serialization is UTF-8 with sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False.",
+        "Block payload SHA-256 excludes only block_record_payload_sha256; condition payload SHA-256 excludes only condition_record_payload_sha256. All other required fields are in the hash domain, while the enclosing filename/envelope and hash field itself are excluded."
+      ],
+      "future_preflight_assertions": [
+        "Deep-compare success and every early-failure oracle record, including null placement, first failure, reason, Boolean, array ordering, field membership, and nonrecursive payload hashes.",
+        "Reject silent skip, fabricated empties/zeros/false, recursive hashing, extra fields, lowercase hashes, noncanonical floats, or nondeterministic ordering."
+      ]
+    },
+    {
+      "check_id": "CA5_V506_RESCALE_FIXTURE_AND_PREFLIGHT_MODE",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "The implementation binds only PROTOCOL/CANDIDATE_V5/rescale_event_veto_fixture_v5.json at SHA-256 DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC and fixture ID PF_RESCALE_EVENT_VETO_FIXTURE_V5.",
+        "All eighteen ordered cases are present: MV_MEAN_SHIFT, MV_VARIANCE_SCALE, MV_ZERO_INTERVENTION_VARIANCE, MV_NONFINITE_INPUT, SO_THRESHOLD_EQUALITY_ACCEPTED, SO_LEFT_EDGE_STRICTLY_REJECTED, SPINDLE_THRESHOLD_EQUALITY_ACCEPTED, SPINDLE_RIGHT_EDGE_STRICTLY_REJECTED, MATCH_TIES_AND_TOLERANCE_BOUNDARY, EVENT_NONZERO_SURVIVAL, EVENT_ALL_ADDED_VANISH, EVENT_NO_ADDED_EVENTS, EVENT_MIXED_SURVIVAL, POOL_LEVEL_A_ALL_ADDED_VANISH, POOL_LEVEL_A_NONZERO_SURVIVAL, POOL_LEVEL_A_NO_ADDED_EVENTS, POOL_ZERO_VARIANCE_FAIL_CLOSED, POOL_NONFINITE_FAIL_CLOSED.",
+        "Fixture-only normalization may use only the registered length/shape primitive override. Detector comparator rows use only the registered detector-summary projection. Matching/count rows use only the exact registered two-key event projections. Pooling IDs B001..B030 form the complete local Level-A fixture universe.",
+        "The fixture bypasses only its expressly named production ID/shape/full-event-schema/hash gates. All Level-A minima, ordering, status, null, veto-equivalence, Boolean, and oracle rules still apply. Fixture bytes or fixture modes are absolutely prohibited from production or scientific use.",
+        "The preflight registry is exactly the fourteen inherited tests plus PF_RESCALE_EVENT_VETO_V5, for fifteen unique ordered tests. Failure emits PF_RESCALE_EVENT_VETO_FAIL and stops before scientific Phase 2A."
+      ],
+      "future_preflight_assertions": [
+        "Verify the fixture hash before parsing and execute every primitive/oracle in registered order only after a future release authorizes preflight.",
+        "Require exact deep equality for all expected values and records; aggregate pass is false on any missing, extra, reordered, skipped, or unequal case.",
+        "Prove fixture-only projection/bypass branches cannot be reached by production/science modes."
+      ]
+    },
+    {
+      "check_id": "CA5_V507_ALL_MISSING_BOOTSTRAP_NO_IMPUTATION",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "For every general bootstrap statistic, if all registered contributions in a replicate are missing, invalid, or nonfinite after the frozen eligibility rule, the replicate is NOT_ESTIMABLE.",
+        "The code contains no skip-and-redraw, repeated RNG draw, imputation, zero substitution, denominator substitution, family shortening, array compression that changes registered indices, or fabricated interval.",
+        "A family with an all-missing required component is propagated fail-closed to the dependent band, policy, verifier cell/row, grade, advancement, claim, and C2 gate under the exact V5 rules.",
+        "The sole T4 ZERO_ADDED_BOOTSTRAP convention remains exactly scoped to its frozen zero-added attribution denominator and is not generalized to other all-missing statistics or to RESCALE_ONLY_EVENT_VETO_V5.",
+        "The rescale veto is deterministic and outside every bootstrap, simultaneous family, randomization test, and Holm family; its missing or invalid status is resolved before family construction and cannot be cleared by favorable inference."
+      ],
+      "future_preflight_assertions": [
+        "Use static branch tracing and exact preflight oracles to demonstrate deterministic NOT_ESTIMABLE without any additional RNG call.",
+        "Compare RNG call counts and family member counts to the frozen values under ordinary, partial-missing, and all-missing fixture modes."
+      ]
+    },
+    {
+      "check_id": "CA5_V508_RUN_ARITHMETIC_COMPUTE_AND_CLOSED_GATES",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "Level A is exactly 1800 simulations. Conditional Level B is at most 900 additional simulations. The cross-target verifier is exactly 456 simulations. Total worst-case scientific simulations are 1800+900+456=3156, with at most three launched Level-B targets.",
+        "Identity aliases, T6/T7 diagnostic reuse, and cached shared shams add zero simulations; the rescale diagnostic operates on stored arrays and adds zero model simulations.",
+        "The compute envelope remains 662760 simulated seconds and 662760000 internal intervals under the frozen 180 CPU-hour campaign cap and inherited accounting rules.",
+        "Targets remain exactly T1..T8, claims exactly eight, and C2 gates exactly ten. Phase 2B remains N=0 now, minimum N=3 later, and NOT_ESTIMABLE now.",
+        "The claim ceiling remains M1/C0/P0. No fixture, preflight, rescale diagnostic, static audit, missingness convention, or implementation conformance evidence can raise it or open advancement/C1/C2."
+      ],
+      "future_preflight_assertions": [
+        "Mechanically enumerate identities and recompute 1800, <=900, 456, <=3156, 662760 seconds, and 662760000 intervals before science.",
+        "Reject hidden diagnostic simulations, alias duplication, retries based on scientific outcomes, or cap-exceeding launch plans."
+      ]
+    },
+    {
+      "check_id": "CA5_V509_ZERO_UNRELATED_DRIFT",
+      "severity": "NONCOMPENSATORY_BLOCKING",
+      "static_proof": [
+        "Every future implementation delta relative to the exact independently authorized V4 implementation baseline must be mapped to one and only one V5 repair obligation: route/binding update, Level-A identity registry, paired-sham aliases, T6/T7 record reuse, RESCALE_ONLY_EVENT_VETO_V5, its schema/fixture/preflight integration, or explicit all-missing fail-closed handling.",
+        "No delta may alter model science, solver, OU, RNG, forcing, scheduler, detector science, official metrics, T4 attribution, bootstrap tensors, randomization, Holm, target grids, policy rules, verifier scalars, advancement, claims, C2, run counts, compute cap, Phase 2B, or M1/C0/P0.",
+        "Exact V4 baseline bytes may be used only if a future Root authorization supplies their hash-frozen allowlist for this comparison. This addendum neither discovers nor authorizes those bytes.",
+        "If no exact authorized baseline exists, or any implementation delta is unclassified, semantically mixed, or broader than necessary, verdict is BLOCKED_INSUFFICIENT_STATIC_PROOF or FAIL_BLOCKING; the auditor must not infer equivalence."
+      ],
+      "future_preflight_assertions": [
+        "Preflight verifies all unchanged frozen hashes, counts, arrays, seeds, and registry invariants before the new V5 fixture.",
+        "A passing new fixture cannot compensate for unrelated regression or drift."
+      ]
+    }
+  ],
+  "future_preflight_protocol": {
+    "authorization_state": "NOT_AUTHORIZED_AT_AUTHORING",
+    "mode": "DATA_FREE_NONSCIENTIFIC_PREFLIGHT_ONLY",
+    "required_order": [
+      "verify implementation release, revalidation, addendum, V5 freeze, and all artifact hashes",
+      "verify CLI mode is preflight-only and science launch is unreachable",
+      "run the fourteen inherited preflight tests in their frozen order",
+      "run PF_RESCALE_EVENT_VETO_V5 in its registered primitive/oracle order",
+      "verify exact identity coverage, alias resolution, T6/T7 reuse, record schemas, nulls, payload hashes, and no production reachability of fixture modes",
+      "emit one deterministic preflight receipt and stop without science"
+    ],
+    "pass_rule": "Every one of the fifteen registered tests and every integrity/domain/schema assertion must pass exactly. No partial pass, warning downgrade, skipped test, cached unbound result, or compensatory aggregate is allowed.",
+    "failure_rule": "Any hash mismatch, missing/extra/reordered case, oracle inequality, unexpected exception, identity set difference, schema difference, forbidden access, or nonzero unrelated drift fails closed before Phase 2A.",
+    "evidence_limit": "Preflight establishes implementation conformance only. It is not scientific evidence, cannot populate claims, cannot change M1/C0/P0, and cannot authorize execution."
+  },
+  "bounded_repair_classification": {
+    "inherits_v4_classes": true,
+    "classes": {
+      "R0": "No defect; no byte change.",
+      "R1": "Purely documentary or audit-receipt correction with no implementation/protocol semantic effect.",
+      "R2": "Bounded implementation wiring, schema, shape, serialization, hash-guard, or fail-closed correction that implements an already exact frozen requirement without altering science.",
+      "R3": "Implementation semantic change affecting scientific computation, identity cardinality, RNG, detector output, policy, gate, claim, or compute; requires a new prospective implementation release and full independent re-audit, and may require protocol governance.",
+      "R4": "Protocol ambiguity, contradiction, missing executable rule, or attempted post-outcome change; blocking and requires prospective protocol repair/re-freeze/re-audit before code work."
+    },
+    "v5_specific_examples": {
+      "R2_possible_only_after_authorization": [
+        "correct an alias lookup to the already exact paired-sham registry",
+        "correct null placement or nonrecursive hash-domain wiring to the exact frozen schema",
+        "correct a fixture-only branch guard without altering production semantics"
+      ],
+      "R3_or_R4_blocking": [
+        "change an affine equation, reduction order, threshold, comparator, match tie rule, denominator, hard-veto predicate, identity count, run count, RNG call, or scientific consumer",
+        "invent behavior where frozen text is not executable",
+        "broaden fixture bypasses into production",
+        "resolve all-missing bootstrap by imputation, redraw, shortened family, or fabricated value"
+      ]
+    },
+    "current_authority": "NONE. This addendum authorizes no repair and consumes no repair allowance.",
+    "future_limit": "Any future bounded repair must be independently authorized under the governing release controls, remain within the frozen allowance, be hash-bound, and be re-audited before preflight."
+  },
+  "verdict_logic": {
+    "PASS_STATIC_CODE_AUDIT": "All activation inputs match and every inherited and V5-specific check is statically proved with no forbidden access and no unrelated drift.",
+    "FAIL_BLOCKING": "At least one mandatory check has a concrete contradiction, forbidden behavior, mismatch, omission, extra behavior, or drift.",
+    "NOT_AUTHORIZED_INPUT_INTEGRITY": "A prerequisite authorization, path, hash, size, allowlist, release, revalidation, or independent protocol audit is absent or mismatched.",
+    "BLOCKED_INSUFFICIENT_STATIC_PROOF": "Required behavior cannot be proved from authorized static bytes without execution or an unauthorized baseline.",
+    "noncompensation": "Checks are conjunctive. A fixture pass, code quality, plausible output, local validation, or another passing check cannot offset one failure or missing proof."
+  },
+  "required_future_audit_receipt": {
+    "path": "GOVERNANCE/CODE_AUDIT_RECEIPT_V5.json",
+    "required_fields": [
+      "schema_version",
+      "audit_protocol_v4_path_and_sha256",
+      "audit_protocol_v5_addendum_path_and_sha256",
+      "v5_freeze_path_and_sha256",
+      "nine_artifact_paths_sizes_and_sha256",
+      "future_release_and_revalidation_paths_and_sha256",
+      "implementation_manifest_path_size_and_sha256",
+      "authorized_source_paths_sizes_and_sha256",
+      "forbidden_access_attestation",
+      "per_check_id_verdict_and_static_evidence",
+      "identity_and_run_arithmetic_recomputation",
+      "unrelated_drift_classification",
+      "repair_class_and_authorization_or_null",
+      "overall_verdict",
+      "blocking_findings"
+    ],
+    "receipt_rule": "A receipt is valid only when it binds exact closed bytes and reports every check independently. It cannot self-authorize preflight, execution, or science."
+  },
+  "release_state_after_authoring": {
+    "static_v5_code_inspection_authorized": false,
+    "v5_implementation_reconciliation_authorized": false,
+    "v5_preflight_authorized": false,
+    "v5_simulation_authorized": false,
+    "v5_scientific_execution_authorized": false,
+    "outcome_access_authorized": false,
+    "claim_change_authorized": false,
+    "repair_authorized": false
+  }
+}

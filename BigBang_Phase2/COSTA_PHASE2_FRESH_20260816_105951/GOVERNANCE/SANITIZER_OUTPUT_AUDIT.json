@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "IMMUTABLE_EVIDENCE_SANITIZER_OUTPUT_AUDIT",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "auditor_identity": "/root/clean_governance_audit",
+  "auditor_role": "Clean Governance Auditor",
+  "audited_at": "2026-08-16T11:35:21.2904684-04:00",
+  "review_boundary": {
+    "reviewed_only_named_current_campaign_outputs_and_controls": true,
+    "r4_source_files_opened": false,
+    "scientific_repository_files_opened": false,
+    "directory_enumeration_performed": false,
+    "protected_content_opened": false,
+    "state_modified": false,
+    "other_files_modified": false
+  },
+  "reviewed_artifacts": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\COMMON\\R4_SANITIZED_SUBSTRATE.json",
+      "artifact_role": "MACHINE_READABLE_VALUE_FREE_CATEGORICAL_SUBSTRATE",
+      "expected_sha256": "2DF7A61074E30B04142A8470C95433D651292D1C8F716B4B213D568D380BC26F",
+      "observed_sha256": "2DF7A61074E30B04142A8470C95433D651292D1C8F716B4B213D568D380BC26F",
+      "hash_verdict": "MATCH"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\COMMON\\R4_SANITIZED_SUBSTRATE.md",
+      "artifact_role": "HUMAN_READABLE_VALUE_FREE_CATEGORICAL_SUBSTRATE",
+      "expected_sha256": "7C03B45DFF066F2073A8BE3F89D9E03281EA1C0BABF396B7824DAE40A9C39FBD",
+      "observed_sha256": "7C03B45DFF066F2073A8BE3F89D9E03281EA1C0BABF396B7824DAE40A9C39FBD",
+      "hash_verdict": "MATCH"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\R4_EXECUTION_IMPORT_CANDIDATES.json",
+      "artifact_role": "FAIL_CLOSED_EXECUTION_IMPORT_CANDIDATE_REGISTRY",
+      "expected_sha256": "B3772745CD5A369BDA8282DF46A1E32E9EEFB89FFDA8E1B8CBB58A996FF4868A",
+      "observed_sha256": "B3772745CD5A369BDA8282DF46A1E32E9EEFB89FFDA8E1B8CBB58A996FF4868A",
+      "hash_verdict": "MATCH"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\SANITIZER_PERMISSION_AMENDMENT.json",
+      "artifact_role": "SANITIZER_SCOPE_CONTROL",
+      "observed_sha256": "0EFAFC537841F22D3023EC93B5965DF97033A7AB88F1C6E4D494FB42A655BCCA"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\OFFICIAL_ALLOWLIST_V5_REVALIDATION.json",
+      "artifact_role": "IMMUTABLE_ALLOWLIST_V5_REVALIDATION_CONTROL",
+      "observed_sha256": "67BE97B5D8305B2EC96C80F11EA57AA81AB7CC11C70E103ABAA3A8F1E045C291"
+    }
+  ],
+  "findings": {
+    "hash_integrity": {
+      "verdict": "PASS",
+      "all_three_output_hashes_match": true
+    },
+    "value_free_categorical_scope": {
+      "verdict": "PASS",
+      "machine_readable_status": "VALUE_FREE_CATEGORICAL_PROVENANCE_ONLY",
+      "allowed_content_only": [
+        "categorical M/C/P/evidence and reproduction-tier assignment",
+        "development-only categorical candidate identity",
+        "categorical raw/protected access-closeout status",
+        "categorical scope limitations",
+        "authorization, integrity, and provenance bindings"
+      ],
+      "numeric_scientific_measurements_scores_metrics_thresholds_intervals_denominators_parameter_values_or_counts_transferred": false,
+      "categorical_tier_labels_and_sha256_integrity_values_are_not_scientific_outcome_transfer": true,
+      "json_and_markdown_semantics_consistent": true
+    },
+    "strict_provenance_inheritance": {
+      "verdict": "PASS",
+      "policy_id": "R4_SANITIZED_STRICTEST_PROVENANCE_V1",
+      "effective_provenance": "CLOSED_HISTORICAL_R4_VALUE_FREE_CATEGORICAL_AND_INTEGRITY_METADATA_ONLY",
+      "closed_development_only_provenance_preserved": true,
+      "not_confirmatory_not_fresh_final_not_phase2_evidence_preserved": true,
+      "manifest_and_closeout_referents_remain_unreviewed": true,
+      "scientific_evidentiary_use_prohibited": true,
+      "authorization_to_open_referenced_artifacts_prohibited": true,
+      "cleanliness_inheritance_prohibited": true
+    },
+    "execution_candidate_registry": {
+      "verdict": "PASS",
+      "status": "PENDING_INDEPENDENT_AUDIT",
+      "manifest_derived_candidate_count": 0,
+      "manifest_derived_candidates_empty": true,
+      "manifest_assessment": "NO_EXACT_REQUIRED_EXECUTION_OR_IDENTITY_PATH_ESTABLISHED_FROM_CLEAN_METADATA",
+      "required_class_count": 6,
+      "required_classes": [
+        "EXECUTABLE_CODE",
+        "EXECUTION_CONFIGURATION",
+        "PARAMETER_OR_MODEL_ARTIFACT",
+        "DETECTOR_OR_METRIC_DEFINITION",
+        "ENVIRONMENT_MANIFEST",
+        "INPUT_MANIFEST"
+      ],
+      "all_required_classes_identification_status": "NOT_IDENTIFIED_FROM_CLEAN_METADATA",
+      "all_required_classes_audit_status": "PENDING_INDEPENDENT_AUDIT",
+      "all_required_classes_access_inheritance": "NONE",
+      "all_required_classes_cleanliness_inheritance": "NONE",
+      "authorization_to_open_any_r4_execution_artifact": "NONE",
+      "execution_before_independent_audit_prohibited": true
+    },
+    "amendment_fidelity": {
+      "verdict": "PASS",
+      "value_free_categorical_output_within_approved_fields": true,
+      "manifest_derived_candidate_ambiguity_rule_applied_fail_closed": true,
+      "no_candidate_emitted_without_unambiguous_exact_path_and_expected_hash": true,
+      "no_access_or_cleanliness_inheritance": true,
+      "no_scientific_interpretation_or_result_import": true
+    },
+    "v5_revalidation_binding": {
+      "verdict": "PASS",
+      "output_authorization_binding_matches_allowlist_v5_sha256": "3ABAD00A85C1210A02041F32D0CF15AB1F7B555EE2729B713BEA0016562742B5",
+      "output_revalidation_binding_matches_receipt_sha256": "67BE97B5D8305B2EC96C80F11EA57AA81AB7CC11C70E103ABAA3A8F1E045C291"
+    }
+  },
+  "verdicts": {
+    "SANITIZER_OUTPUT_AUDIT": "PASS",
+    "HASH_INTEGRITY": "PASS",
+    "VALUE_FREE_CATEGORICAL_ONLY": "PASS",
+    "STRICT_PROVENANCE_INHERITANCE": "PASS",
+    "NUMERIC_SCIENTIFIC_OUTCOME_TRANSFER": "NONE_DETECTED",
+    "EXECUTION_IMPORT_CANDIDATE_LIST": "EMPTY",
+    "ACCESS_INHERITANCE": "NONE",
+    "CLEANLINESS_INHERITANCE": "NONE",
+    "R4_EXECUTION_IMPORTS": "DENIED_ALL",
+    "CONSTRAINED_NONHISTORICAL_REPOSITORY_METADATA_INSPECTION": "ELIGIBLE_FOR_EXPLICIT_ROOT_ORCHESTRATOR_RELEASE_WITH_CONSTRAINTS",
+    "SCIENTIFIC_REPOSITORY_CONTENT_INSPECTION": "NOT_AUTHORIZED_BY_THIS_AUDIT"
+  },
+  "nonhistorical_metadata_release_gate": {
+    "may_root_release": true,
+    "release_authority": "Root Orchestrator",
+    "scope_type": "CONSTRAINED_NONHISTORICAL_REPOSITORY_METADATA_ONLY",
+    "required_constraints": [
+      "Name exact nonhistorical repository roots and allowed metadata fields in the release brief",
+      "Exclude every R4 and other historical campaign tree and every protected denylist class",
+      "Permit no scientific file-content read, preview, transform, execution, or import",
+      "Permit no access to any path named only by historical R4 metadata",
+      "Register any discovered candidate as PENDING_INDEPENDENT_AUDIT with no access or cleanliness inheritance",
+      "Require a separate exact-path and exact-hash independent audit before any candidate file is opened or used scientifically"
+    ],
+    "r4_execution_imports_remain_denied": true,
+    "r4_execution_candidate_count": 0,
+    "this_gate_does_not_release_scientific_inspection": true
+  },
+  "final_status": "PASS_IMMUTABLE_SANITIZER_OUTPUT_AUDIT",
+  "immutability_instruction": "Do not append to or modify this audit. Record its completed-file SHA-256 externally if a later ledger binding is required."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "COSTA_C006_PV_CONTROLLER_MVP_V1",
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "candidate_id": "C006",
+  "actuator": "dimensionless additive u_ctrl -> cortical u_E",
+  "actuator_bounds": [0.0, 0.05],
+  "duration": {"burn_s": 5.0, "baseline_s": 10.0, "control_s": 60.0},
+  "development_seeds": [44017, 55021, 66029],
+  "evaluation_seeds": [77131, 88141, 99149],
+  "score": "R=0.50*dT2+0.25*dT5+0.25*dT6",
+  "epsilon": {"T2": 1e-9, "T5": 1e-12, "T6": 0.0001},
+  "phase_screen_rad": [-3.141592653589793, -1.5707963267948966, 0.0, 1.5707963267948966],
+  "pulse": {"amplitude": 0.035, "width_s": 0.11, "refractory_s": 0.8, "max_train": 3, "quiet_s": 2.5},
+  "phase_gate": {"frequency_hz": [0.5, 1.25], "confidence_min": 0.6, "baseline_envelope_fraction": 0.5},
+  "phase_vocoder": {"window_s": 4.0, "update_s": 0.1, "window": "hann"},
+  "adaptive": {"update_s": 10.0, "minimum_pulses": 5, "amplitude_step_gain": 0.005, "integral_gain": 0.001, "amplitude_step_limit": 0.005, "integral_limit": 4.0},
+  "T8_name": "T8_MVP_cortical_state_crossing_rate",
+  "T8_classification": "SAFETY_PROXY_ONLY — NOT a validated dynamical-regime-transition metric",
+  "pid_baseline": "NO_VALID_R4_PID_BASELINE",
+  "planned_runs": 24,
+  "hard_stop_seconds": 900
+}

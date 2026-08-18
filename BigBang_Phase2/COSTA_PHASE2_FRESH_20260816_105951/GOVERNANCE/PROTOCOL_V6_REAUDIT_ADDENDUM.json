@@ -1,0 +1,846 @@
+{
+  "schema_version": "1.0.0",
+  "addendum_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "planned_protocol_route_version": "6.0.0",
+  "status": "IMMUTABLE_BEFORE_ANY_CANDIDATE_V6_DISCLOSURE",
+  "scientific_outcomes_visible": false,
+  "purpose": "Freeze a noncompensatory independent V6 protocol re-audit that can pass only if PV5-B001 through PV5-B005 are closed exactly and every unaffected V5/V4 scientific and governance semantic remains unchanged.",
+  "authoring_boundary": {
+    "candidate_v6_file_opened": false,
+    "candidate_v6_file_hashed_or_statted": false,
+    "candidate_v6_directory_enumerated": false,
+    "code_opened_hashed_statted_or_enumerated": false,
+    "preflight_or_implementation_manifest_opened_hashed_statted_or_enumerated": false,
+    "repository_data_r4_or_outcomes_accessed": false,
+    "python_launcher_preflight_or_scientific_execution": "NONE",
+    "authorized_sources_only": [
+      "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+      "GOVERNANCE/PROTOCOL_V5_REAUDIT_PLAN.json",
+      "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+      "GOVERNANCE/PROTOCOL_V5_STALE_DECLARATION.json",
+      "the exact governing-control bindings cited by those records"
+    ],
+    "file_written": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json"
+  },
+  "authoritative_inputs": {
+    "v5_freeze": {
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+      "sha256": "4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA"
+    },
+    "prospective_v5_reaudit_plan": {
+      "path": "GOVERNANCE/PROTOCOL_V5_REAUDIT_PLAN.json",
+      "sha256": "F84EBEAD585F0A773A092D3912413FE8319818777262024510FB49D6594C9EC6"
+    },
+    "v5_fail_receipt": {
+      "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+      "sha256": "485E664B663BBC2E3A13A5FE05C86684B1295490FEB703EFFE77AB5CEB7EA1CA",
+      "verdict": "FAIL_BLOCKING",
+      "blocking_findings_in_exact_order": [
+        "PV5-B001",
+        "PV5-B002",
+        "PV5-B003",
+        "PV5-B004",
+        "PV5-B005"
+      ]
+    },
+    "v5_stale_declaration": {
+      "path": "GOVERNANCE/PROTOCOL_V5_STALE_DECLARATION.json",
+      "sha256": "3CB110644DDE677E57F67D0B4D769BA0F9C7FEB7CBC76755B721138A7C24D503",
+      "authorized_successor_scope": "PV5-B001_THROUGH_PV5-B005_ONLY"
+    },
+    "governing_controls": [
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+        "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+        "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496"
+      },
+      {
+        "path": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+        "sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V4_EDGE_STALE_DECLARATION.json",
+        "sha256": "FD507A2ED6E04B8C3D1588A415EE54A7B86F20C7BB796DC834C4E58215719A1F"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+        "sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json",
+        "sha256": "B3FBA1F63E2360A9C9D8CC9ADC7C18A1750EF6076EB4564F02D6FD884056B2C6"
+      }
+    ],
+    "v5_artifact_regression_baseline_from_freeze": [
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/control_target_registry.json",
+        "bytes": 69556,
+        "sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/mechanistic_parameter_map.json",
+        "bytes": 35159,
+        "sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/phase2_protocol.json",
+        "bytes": 170784,
+        "sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/advancement_rule.json",
+        "bytes": 10332,
+        "sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/c2_gate_protocol.json",
+        "bytes": 16307,
+        "sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/claim_registry.json",
+        "bytes": 44070,
+        "sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/PREOUTCOME_DESIGN_MEMO.md",
+        "bytes": 30084,
+        "sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/t4_attribution_fixture_v3.json",
+        "bytes": 7903,
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/rescale_event_veto_fixture_v5.json",
+        "bytes": 13765,
+        "sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC"
+      }
+    ]
+  },
+  "immutability_and_activation": {
+    "self_hash_policy": "The final uppercase SHA-256 is reported externally after this file is closed and is not recursively embedded.",
+    "change_rule": "Any later byte change requires a separately named prospective addendum version authored before further Candidate V6 disclosure.",
+    "future_activation_requires": [
+      "this addendum exact path and SHA-256",
+      "a stable-byte signal for one exact V6 freeze and its complete explicit artifact path/byte/hash ledger",
+      "a V6 freeze that binds this addendum and every authoritative input above",
+      "an outcome-blind assignment limited to those exact V6 bytes"
+    ],
+    "fail_closed_before_activation": "Do not open, hash, stat, enumerate, parse, or compare Candidate V6. Missing, mutable, duplicate, path-escaping, case-colliding, or mismatched inputs return NOT_AUTHORIZED_TO_AUDIT.",
+    "no_self_release": "This addendum authorizes no Candidate V6 access, code access, implementation, manifest, preflight, data, R4, outcome, repair, or scientific execution."
+  },
+  "verdict_model": {
+    "allowed_verdicts": [
+      "PASS_V6_PROTOCOL_FREEZE_REAUDIT",
+      "FAIL_BLOCKING",
+      "NOT_AUTHORIZED_INPUT_INTEGRITY",
+      "BLOCKED_UNIMPLEMENTABLE_OR_AMBIGUOUS_SPECIFICATION"
+    ],
+    "noncompensatory": "Every PV5-B001 through PV5-B005 closure check and every unaffected-semantics regression check must independently pass. No fixture value, local validation, plausible prose, or passing family compensates for one defect.",
+    "auditor_no_choice": "The auditor supplies no missing field, type, enum, unit, null rule, evaluation order, event class, hash domain, fixture value, tolerance, denominator, bootstrap recovery, route, or binding.",
+    "pass_ceiling": "A PASS makes V6 eligible only for Root to consider a new outcome-blind static implementation release; it authorizes nothing else."
+  },
+  "exact_successor_identity_and_bidirectional_binding": {
+    "required_route": "PROTOCOL/CANDIDATE_V6",
+    "required_route_version": "6.0.0",
+    "required_freeze_path": "PROTOCOL/PROTOCOL_FREEZE_V6.json",
+    "required_freeze_id": "PHASE2_PROTOCOL_FREEZE_V6",
+    "scientific_origin_finding_id": "PV4-EDGE-B001",
+    "closure_finding_ids_in_exact_order": [
+      "PV5-B001",
+      "PV5-B002",
+      "PV5-B003",
+      "PV5-B004",
+      "PV5-B005"
+    ],
+    "administrative_alias_rule": "PROT-002 may appear only as an explicitly non-scientific administrative alias mapped to PV4-EDGE-B001; it cannot replace or obscure the exact scientific-origin or closure-finding IDs.",
+    "required_lineage_bindings": [
+      "PROTOCOL/PROTOCOL_FREEZE_V5.json@4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA",
+      "GOVERNANCE/PROTOCOL_V5_REAUDIT_PLAN.json@F84EBEAD585F0A773A092D3912413FE8319818777262024510FB49D6594C9EC6",
+      "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json@485E664B663BBC2E3A13A5FE05C86684B1295490FEB703EFFE77AB5CEB7EA1CA",
+      "GOVERNANCE/PROTOCOL_V5_STALE_DECLARATION.json@3CB110644DDE677E57F67D0B4D769BA0F9C7FEB7CBC76755B721138A7C24D503",
+      "PROTOCOL/PROTOCOL_FREEZE_V4.json@F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+      "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json@227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A"
+    ],
+    "freeze_to_artifact_binding": "The V6 freeze must enumerate the complete exact V6 artifact set with normalized relative path, byte count, uppercase SHA-256, purpose, schema/route version, and artifact ID. Omission, extra artifact, duplicate normalized path, or hash/size mismatch is blocking.",
+    "artifact_to_freeze_binding": "Every V6 artifact must back-bind exact freeze path PROTOCOL/PROTOCOL_FREEZE_V6.json, freeze ID PHASE2_PROTOCOL_FREEZE_V6, route PROTOCOL/CANDIDATE_V6, route version 6.0.0, scientific origin PV4-EDGE-B001, the exact ordered five closure findings, and this addendum path plus externally supplied SHA-256. The final V6 freeze SHA is not embedded in an artifact hashed by that freeze; bidirectionality is closed nonrecursively by freeze ID/path/route in artifacts and exact artifact hashes in the freeze.",
+    "cross_artifact_binding": "Every core JSON, memo normative reference, and rescale fixture must resolve the same veto ID, block schema ID, condition schema ID, ledger schema IDs, fixture ID/path/hash, context array, denominator table, failure/status arrays, and bootstrap convention ID. Repeated arrays require exact type, value, order, spelling, and cardinality equality.",
+    "stale_route_rule": "V5 remains immutable stale history. No normative execution or current-candidate path may point to Candidate V5; historical parent citations must remain explicitly historical."
+  },
+  "closure_checks": {
+    "PV5_B001_FINDING_ROUTE_AND_BINDING": {
+      "required": [
+        "The V6 freeze and every artifact carrying repair metadata name scientific origin PV4-EDGE-B001 and closure findings PV5-B001 through PV5-B005 exactly.",
+        "The rescale fixture internally carries all exact route, parent-freeze, edge-adjudication, V5-fail-receipt, stale-declaration, addendum, and finding bindings.",
+        "The freeze-to-artifact and artifact-to-freeze contracts above are complete and mechanically checkable without a recursive hash.",
+        "No stale current-route reference, unresolved pointer, unfilled marker, alternative repair identity, or contradictory status remains."
+      ],
+      "blocking_codes": [
+        "PV6-RA-B001-FINDING-IDENTITY-DEFECT",
+        "PV6-RA-B002-ROUTE-OR-LINEAGE-DEFECT",
+        "PV6-RA-B003-BIDIRECTIONAL-BINDING-DEFECT"
+      ]
+    },
+    "PV5_B002_AFFINE_TERMS_RAW_PAIR_AND_ROLE_STATUS": {
+      "raw_pair_key_formula": "RV6P::{execution_context}::{target_id}::{condition_id}::{parameter_draw_id}::S{seed}, using canonical T7 target/condition identity for frozen T6/T7 physical reuse and base-10 unpadded seed.",
+      "required_evaluation": [
+        "Use exactly x_q[n]=float64((r_E_stored_q[n]+float64(0.25*r_T_stored_q[n]))/10.0), multiplication then addition then division, for q in {sham,intervention}, n=0..35999.",
+        "For each q, accumulate mu_q and population variance v_q sequentially in ascending n with binary64 round-to-nearest ties-to-even, ddof=0, and no FMA, reassociation, extended precision, parallel or compensated reduction.",
+        "For strictly positive finite v_q, sigma_q=float64(sqrt(v_q)) using correctly rounded binary64 square root.",
+        "Set a=float64(sigma_sham/sigma_intervention); p_b=float64(a*mu_intervention); b=float64(mu_sham-p_b), in that order.",
+        "For n=0..35999 set p_n=float64(a*x_intervention[n]); x_rescaled[n]=float64(p_n+b), in that order. The canonical evaluation ID is AFFINE_AX_PLUS_B_BINARY64_V6. No centered-form substitution is accepted unless V6 separately freezes and the raw fixture proves byte equality for every case; the canonical production output remains the a*x+b result.",
+        "No epsilon, variance floor, clipping, winsorization, alternate direction, post-correction, recentering before hashing, or detector-derived input is allowed."
+      ],
+      "required_terms": [
+        "mu_sham",
+        "v_sham",
+        "sigma_sham",
+        "mu_intervention",
+        "v_intervention",
+        "sigma_intervention",
+        "affine_a",
+        "affine_b"
+      ],
+      "required_pair_evidence": [
+        "raw_pair_key",
+        "both exact physical run IDs and any logical sham alias",
+        "execution context, canonical target and condition, draw, seed, initial-state identity, duration, solver identity, storage schedule, and complete OU-innovation identity",
+        "per-role validity and finite status",
+        "all-four-channel exact-zero sham forcing status",
+        "per-role shape, dtype, endianness, contiguity, sample count, raw byte hash, and first failing field/index"
+      ],
+      "blocking_codes": [
+        "PV6-RA-B004-RAW-PAIR-OR-ROLE-STATUS-GAP",
+        "PV6-RA-B005-MU-SIGMA-A-B-EVALUATION-GAP",
+        "PV6-RA-B006-AFFINE-HASH-OR-NULL-RULE-GAP"
+      ]
+    },
+    "PV5_B003_TYPED_SCHEMA_AND_EXHAUSTIVE_LEDGERS": {
+      "canonical_ids": {
+        "block_schema_id": "RESCALE_EVENT_VETO_BLOCK_RECORD_V6",
+        "condition_schema_id": "RESCALE_EVENT_VETO_CONDITION_RECORD_V6",
+        "candidate_ledger_schema_id": "RESCALE_EVENT_MATCH_CANDIDATE_LEDGER_V6",
+        "accepted_ledger_schema_id": "RESCALE_EVENT_MATCH_ACCEPTED_LEDGER_V6",
+        "event_class_ledger_schema_id": "RESCALE_EVENT_CLASS_LEDGER_V6",
+        "row_consumption_ledger_schema_id": "RESCALE_EVENT_ROW_CONSUMPTION_LEDGER_V6",
+        "serialization_id": "CANONICAL_JSON_SHA256_V6"
+      },
+      "required": [
+        "Exactly one canonical typed block schema and one canonical typed condition schema are normative; all other files reference their IDs rather than restating weaker prose.",
+        "All three match stages record every eligible candidate in total sort order and every accepted pair in traversal order.",
+        "Every official sham/intervention event has exactly one mutually exclusive class row, and every raw E_S, E_I, and E_A event row has exactly one consumption row.",
+        "All candidate, accepted, class, consumption, block, and condition payloads have explicit nonrecursive hash envelopes."
+      ],
+      "blocking_codes": [
+        "PV6-RA-B007-CANONICAL-SCHEMA-GAP",
+        "PV6-RA-B008-CANDIDATE-OR-ACCEPTED-LEDGER-GAP",
+        "PV6-RA-B009-CLASS-OR-CONSUMPTION-GAP",
+        "PV6-RA-B010-NONRECURSIVE-HASH-GAP"
+      ]
+    },
+    "PV5_B004_COMPLETE_SELF_CONTAINED_RAW_ORACLE": {
+      "required": [
+        "One exact freeze-bound data-free V6 fixture is self-contained and needs no external array, generator, code, data, R4 object, or hidden projection.",
+        "It preserves every passing V5 oracle and adds the exact missing zero-sham, both-zero, T8/window-boundary, cross-context-pooling, and end-to-end production-route cases.",
+        "Raw stored r_E/r_T inputs, exact x_raw construction, all intermediates, hashes, detector provenance/events, ledgers, pooled decisions, and final canonical payload hashes are present or carry an exact branch-specific NOT_APPLICABLE reason after an earlier terminal status.",
+        "At least one case exercises the full production-shape observation, filter, sham-threshold, official-table, three-match, class/consumption, block-record, condition-record, and payload-hash route with no fixture-only schema/identity/hash bypass.",
+        "Fixture-only modes are unreachable from production and science and are explicitly prohibited as scientific evidence."
+      ],
+      "blocking_codes": [
+        "PV6-RA-B011-FIXTURE-CASE-COVERAGE-GAP",
+        "PV6-RA-B012-RAW-ORACLE-OR-INTERMEDIATE-GAP",
+        "PV6-RA-B013-END-TO-END-ROUTE-GAP",
+        "PV6-RA-B014-FIXTURE-HASH-OR-BINDING-GAP"
+      ]
+    },
+    "PV5_B005_EXACT_BOOTSTRAP_INCOMPLETENESS": {
+      "convention_id": "FAIL_CLOSED_COMPLETE_ARRAY_AND_NONEMPTY_MB_V6",
+      "exact_rules": [
+        "Apply all frozen point denominators and validity rules first. An undefined point component is NOT_ESTIMABLE or INVALID exactly as registered and cannot enter bootstrap as a numeric value.",
+        "For every point-eligible component, its required registered bootstrap slack/deviation array must contain a finite value at every one of the 10000 registered replicate indices. If any required index is absent, null, nonfinite, invalid, or otherwise unformable, the entire component array is incomplete: mark that component and every dependent target, surface, mapping policy, cross-target cell/row, grade, gate, advancement, and claim NOT_ESTIMABLE and emit no numeric interval.",
+        "For each family replicate b=0..9999, form the frozen estimable-member set after applying only the family-specific missing-member rules. If any required M_b would be max over an empty estimable set, mark the affected family inference NOT_ESTIMABLE, store no numeric M_b for that index, emit no family quantile/band, and retain the registered 10000-index construction without skipping, redrawing, retrying, compressing, replacing, or shortening it.",
+        "A missing component may be omitted from M_b for other descriptive members only where the frozen family-specific rule expressly permits it, with the complete missing-member map. Such omission never reduces a required surface or policy into a smaller passing object.",
+        "No missing value is replaced by zero, infinity, a point estimate, another member, a scale floor, or an imputed statistic. Family/member count, RNG state, resample tensor, and replicate indices remain unchanged.",
+        "Only T4 row T4_LA_WORKER_D1P50_FC13 may use ZERO_ADDED_BOOTSTRAP, and only after its point-estimate denominator passes; that replicate sets F_auto=0 and F_replica=1 with the registered log. It cannot rescue a failed point denominator or apply elsewhere.",
+        "A complete finite constant bootstrap array is not missing and uses the unchanged registered finite scale floor. T7's -infinity randomization-degeneracy convention is not a bootstrap recovery rule."
+      ],
+      "required_logs": [
+        "family_id",
+        "component_or_member_id",
+        "array_scope_or_replicate_index",
+        "originating_denominator_or_invalidity_code",
+        "complete_array_boolean",
+        "empty_estimable_set_boolean",
+        "dependent_statuses",
+        "no_imputation_redraw_retry_or_numeric_band_boolean"
+      ],
+      "blocking_codes": [
+        "PV6-RA-B015-PARTIAL-ARRAY-FAILS-OPEN",
+        "PV6-RA-B016-EMPTY-MB-UNRESOLVED",
+        "PV6-RA-B017-BOOTSTRAP-RECOVERY-OR-RNG-DRIFT"
+      ]
+    }
+  },
+  "canonical_typed_schema_contract": {
+    "type_system": {
+      "STRING": "JSON string",
+      "INTEGER": "JSON integer; no decimal or string coercion",
+      "BOOLEAN": "JSON true or false",
+      "NULL": "JSON null",
+      "FLOAT64_HEX": "lowercase C99 hexadecimal string produced by Python float.hex from one finite binary64 value",
+      "SHA256": "64-character uppercase hexadecimal string",
+      "ARRAY<T>": "JSON array of T in the specified normative order",
+      "OBJECT<S>": "JSON object conforming exactly to schema S with no extra key",
+      "NULLABLE<T>": "either T or JSON null only"
+    },
+    "canonical_serialization": "UTF-8 bytes of json.dumps(object,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False). Arrays retain normative order; object serialization is lexical by key. No NaN or Infinity JSON number is permitted.",
+    "shared_enums": {
+      "execution_context": ["LEVEL_A_WORKER", "LEVEL_B_SURFACE", "CROSS_TARGET_VERIFIER"],
+      "target_id": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+      "event_type": ["SO", "SPINDLE"],
+      "match_stage": ["INTERVENTION_TO_SHAM", "RESCALED_TO_SHAM", "ORIGINAL_ADDED_TO_RESCALED_ADDED"],
+      "input_validity_status": ["VALID", "INVALID_EXISTING_RUN", "NOT_ESTIMABLE_INPUT", "INVALID_PAIRING", "INVALID_INPUT_SCHEMA", "NOT_CHECKED_DUE_TO_PRIOR_FAILURE"],
+      "finite_status": ["FINITE", "NONFINITE", "NOT_CHECKED_DUE_TO_PRIOR_FAILURE"],
+      "sham_forcing_status": ["ALL_FOUR_CHANNELS_EXACT_ZERO", "NONZERO_INVALID", "UNAVAILABLE_NOT_ESTIMABLE", "NOT_CHECKED_DUE_TO_PRIOR_FAILURE"],
+      "candidate_disposition": ["ACCEPTED", "REJECTED_LEFT_ALREADY_CONSUMED", "REJECTED_RIGHT_ALREADY_CONSUMED", "REJECTED_BOTH_ALREADY_CONSUMED"],
+      "event_class": ["RESCALE_ONLY", "PERSISTENT", "PRE_EXISTING", "LOST", "UNMATCHED_OR_AMBIGUOUS_INVALID"],
+      "block_status": ["VALID", "NOT_ESTIMABLE_INPUT", "NOT_ESTIMABLE_ZERO_VARIANCE", "INVALID_PAIRING", "INVALID_INPUT_SCHEMA", "INVALID_NONFINITE_INPUT", "INVALID_NUMERIC", "INVALID_THRESHOLD_DRIFT", "INVALID_DETECTOR", "INVALID_DETECTOR_DRIFT", "INVALID_EVENT_LEDGER"],
+      "condition_status": ["HARD_VETO_RESCALE_ONLY", "NO_VETO_NO_ADDED_EVENTS", "NO_VETO_PERSISTENT_OR_MIXED", "NOT_ESTIMABLE_INSUFFICIENT_BLOCKS", "INVALID_PAIRING", "INVALID_INPUT_SCHEMA", "INVALID_NONFINITE_INPUT", "INVALID_NUMERIC", "INVALID_THRESHOLD_DRIFT", "INVALID_DETECTOR", "INVALID_DETECTOR_DRIFT", "INVALID_EVENT_LEDGER"]
+    },
+    "event_row_schemas": {
+      "SO_EVENT_ROW_V6": {
+        "field_order": ["event_id", "event_type", "left_upcross_sample", "right_upcross_sample", "anchor_sample", "amplitude_float64_hex"],
+        "types": ["STRING", "event_type enum fixed SO", "INTEGER samples", "INTEGER samples", "INTEGER samples", "FLOAT64_HEX model units"],
+        "nullable": false
+      },
+      "SPINDLE_EVENT_ROW_V6": {
+        "field_order": ["event_id", "event_type", "onset_sample", "offset_sample_exclusive", "anchor_sample", "amplitude_float64_hex"],
+        "types": ["STRING", "event_type enum fixed SPINDLE", "INTEGER samples", "INTEGER samples", "INTEGER samples", "FLOAT64_HEX RMS model units"],
+        "nullable": false
+      }
+    },
+    "candidate_ledger": {
+      "schema_id": "RESCALE_EVENT_MATCH_CANDIDATE_LEDGER_V6",
+      "wrapper_field_order": ["schema_id", "match_stage", "rows", "candidate_ledger_payload_sha256"],
+      "row_field_order": ["candidate_rank", "left_event_id", "right_event_id", "left_anchor_sample", "right_anchor_sample", "absolute_anchor_difference_samples", "left_consumed_before", "right_consumed_before", "disposition"],
+      "row_types": ["INTEGER zero-based", "STRING", "STRING", "INTEGER samples", "INTEGER samples", "INTEGER samples", "BOOLEAN", "BOOLEAN", "candidate_disposition enum"],
+      "row_nullable": false,
+      "ordering": "Every eligible pair with absolute anchor difference <=50 appears once, sorted by absolute difference, left anchor, right anchor, left event ID, right event ID. candidate_rank is contiguous 0..N-1. Ineligible pairs never appear.",
+      "hash_domain": "Hash the wrapper containing schema_id, match_stage and rows, excluding only candidate_ledger_payload_sha256."
+    },
+    "accepted_ledger": {
+      "schema_id": "RESCALE_EVENT_MATCH_ACCEPTED_LEDGER_V6",
+      "wrapper_field_order": ["schema_id", "match_stage", "rows", "accepted_ledger_payload_sha256"],
+      "row_field_order": ["accepted_rank", "candidate_rank", "left_event_id", "right_event_id", "left_anchor_sample", "right_anchor_sample", "absolute_anchor_difference_samples"],
+      "row_types": ["INTEGER zero-based", "INTEGER zero-based", "STRING", "STRING", "INTEGER samples", "INTEGER samples", "INTEGER samples"],
+      "row_nullable": false,
+      "ordering": "Accepted rows preserve one-pass candidate traversal order; accepted_rank is contiguous 0..K-1 and references an ACCEPTED candidate_rank exactly once.",
+      "hash_domain": "Hash the wrapper containing schema_id, match_stage and rows, excluding only accepted_ledger_payload_sha256."
+    },
+    "event_class_ledger": {
+      "schema_id": "RESCALE_EVENT_CLASS_LEDGER_V6",
+      "wrapper_field_order": ["schema_id", "rows", "event_class_ledger_payload_sha256"],
+      "row_field_order": ["source_set", "source_row_index", "event_id", "event_class", "intervention_to_sham_accepted_rank_or_null", "original_added_to_rescaled_added_accepted_rank_or_null", "reason_code_or_null"],
+      "row_types": ["enum E_S or E_I", "INTEGER zero-based", "STRING", "event_class enum", "NULLABLE<INTEGER>", "NULLABLE<INTEGER>", "NULLABLE<STRING>"],
+      "coverage": "Every official E_S and E_I event row appears exactly once in source-table order. E_I matched to E_S is PRE_EXISTING; an original-added E_I matched to a rescaled-added E_A is PERSISTENT; an original-added E_I not so matched is RESCALE_ONLY; an E_S unmatched to E_I is LOST. UNMATCHED_OR_AMBIGUOUS_INVALID is permitted only for a malformed, duplicate, cross-type, or otherwise nonconsumable official row and makes the block INVALID_EVENT_LEDGER.",
+      "hash_domain": "Hash schema_id and rows, excluding only event_class_ledger_payload_sha256."
+    },
+    "row_consumption_ledger": {
+      "schema_id": "RESCALE_EVENT_ROW_CONSUMPTION_LEDGER_V6",
+      "wrapper_field_order": ["schema_id", "rows", "row_consumption_ledger_payload_sha256"],
+      "row_field_order": ["source_set", "source_row_index", "event_id", "intervention_to_sham_accepted_rank_or_null", "rescaled_to_sham_accepted_rank_or_null", "original_added_to_rescaled_added_accepted_rank_or_null", "consumption_disposition", "consumed_exactly_once_boolean"],
+      "row_types": ["enum E_S,E_I,E_A", "INTEGER zero-based", "STRING", "NULLABLE<INTEGER>", "NULLABLE<INTEGER>", "NULLABLE<INTEGER>", "STRING from exact V6 disposition registry", "BOOLEAN"],
+      "coverage": "Concatenate E_S, E_I and E_A source-table order. Every source row appears exactly once. References must agree bidirectionally with accepted ledgers; consumed_exactly_once_boolean is true exactly when all applicable stage references are internally consistent. A missing, duplicate, dangling or cross-event-type reference makes the block INVALID_EVENT_LEDGER.",
+      "hash_domain": "Hash schema_id and rows, excluding only row_consumption_ledger_payload_sha256."
+    },
+    "unmatched_event_id_arrays": {
+      "field_order": ["intervention_to_sham_left_intervention_ids", "intervention_to_sham_right_sham_ids", "rescaled_to_sham_left_rescaled_ids", "rescaled_to_sham_right_sham_ids", "original_added_to_rescaled_added_left_original_added_ids", "original_added_to_rescaled_added_right_rescaled_added_ids"],
+      "type": "OBJECT with exactly six ARRAY<STRING> values in corresponding source-table order",
+      "null_rule": "The entire object is null if all three matches did not validly complete; a computed empty side is []."
+    },
+    "block_record": {
+      "schema_id": "RESCALE_EVENT_VETO_BLOCK_RECORD_V6",
+      "required_fields_in_order": [
+        "schema_version",
+        "canonical_block_schema_id",
+        "veto_id",
+        "block_id",
+        "raw_pair_key",
+        "run_id_intervention",
+        "run_id_sham",
+        "sham_logical_alias_or_null",
+        "paired_sham_registry_id",
+        "self_pair_boolean",
+        "execution_context",
+        "target_id",
+        "condition_id",
+        "downstream_consumer_ids",
+        "event_type",
+        "parameter_draw_id",
+        "seed",
+        "intervention_input_validity_status",
+        "sham_input_validity_status",
+        "intervention_finite_status",
+        "sham_finite_status",
+        "sham_forcing_status",
+        "raw_shape",
+        "raw_dtype",
+        "raw_endianness",
+        "raw_c_contiguous",
+        "sample_count",
+        "sample_domain_half_open",
+        "observation_formula_id",
+        "sham_raw_sha256",
+        "intervention_raw_sha256",
+        "mu_sham_float64_hex_or_null",
+        "v_sham_float64_hex_or_null",
+        "sigma_sham_float64_hex_or_null",
+        "mu_intervention_float64_hex_or_null",
+        "v_intervention_float64_hex_or_null",
+        "sigma_intervention_float64_hex_or_null",
+        "affine_a_float64_hex_or_null",
+        "affine_b_float64_hex_or_null",
+        "affine_evaluation_id_or_null",
+        "rescaled_raw_sha256_or_null",
+        "mu_rescaled_float64_hex_or_null",
+        "v_rescaled_float64_hex_or_null",
+        "threshold_provenance_object_or_null",
+        "threshold_provenance_sha256_or_null",
+        "sham_event_table_or_null",
+        "intervention_event_table_or_null",
+        "rescaled_event_table_or_null",
+        "candidate_match_ledgers_or_null",
+        "accepted_match_ledgers_or_null",
+        "event_class_ledger_or_null",
+        "row_consumption_ledger_or_null",
+        "unmatched_event_id_arrays_or_null",
+        "integer_counts_or_null",
+        "density_contrasts_events_per_min_or_null",
+        "F_rescale_only_or_null",
+        "F_rescale_only_null_reason_or_null",
+        "block_rescale_only_or_null",
+        "status",
+        "reason_code_or_null",
+        "first_failing_field_or_null",
+        "block_record_payload_sha256"
+      ],
+      "field_contracts": {
+        "schema_version": {"type": "STRING", "unit": "none", "nullable": false, "value": "6.0.0"},
+        "canonical_block_schema_id": {"type": "STRING", "unit": "none", "nullable": false, "value": "RESCALE_EVENT_VETO_BLOCK_RECORD_V6"},
+        "veto_id": {"type": "STRING", "unit": "none", "nullable": false, "value": "RESCALE_ONLY_EVENT_VETO_V6"},
+        "block_id": {"type": "STRING", "unit": "none", "nullable": false, "formula": "RV6B::{execution_context}::{target_id}::{condition_id}::{event_type}::{parameter_draw_id}::S{seed}"},
+        "raw_pair_key": {"type": "STRING", "unit": "none", "nullable": false, "formula": "closure_checks.PV5_B002_AFFINE_TERMS_RAW_PAIR_AND_ROLE_STATUS.raw_pair_key_formula"},
+        "run_id_intervention": {"type": "STRING", "unit": "none", "nullable": false},
+        "run_id_sham": {"type": "STRING", "unit": "none", "nullable": false},
+        "sham_logical_alias_or_null": {"type": "NULLABLE<STRING>", "unit": "none", "nullable": true},
+        "paired_sham_registry_id": {"type": "STRING", "unit": "none", "nullable": false, "value": "PAIRED_SHAM_IDENTITY_REGISTRY_V6", "semantic_regression": "ordered mappings are byte-semantic V5 carry-forward"},
+        "self_pair_boolean": {"type": "BOOLEAN", "unit": "none", "nullable": false},
+        "execution_context": {"type": "execution_context enum", "unit": "none", "nullable": false},
+        "target_id": {"type": "target_id enum", "unit": "none", "nullable": false},
+        "condition_id": {"type": "STRING", "unit": "none", "nullable": false},
+        "downstream_consumer_ids": {"type": "ARRAY<target_id enum>", "unit": "none", "nullable": false, "exact_value": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"]},
+        "event_type": {"type": "event_type enum", "unit": "none", "nullable": false},
+        "parameter_draw_id": {"type": "STRING", "unit": "none", "nullable": false},
+        "seed": {"type": "INTEGER", "unit": "seed", "nullable": false},
+        "intervention_input_validity_status": {"type": "input_validity_status enum", "unit": "none", "nullable": false},
+        "sham_input_validity_status": {"type": "input_validity_status enum", "unit": "none", "nullable": false},
+        "intervention_finite_status": {"type": "finite_status enum", "unit": "none", "nullable": false},
+        "sham_finite_status": {"type": "finite_status enum", "unit": "none", "nullable": false},
+        "sham_forcing_status": {"type": "sham_forcing_status enum", "unit": "none", "nullable": false},
+        "raw_shape": {"type": "ARRAY<INTEGER>", "unit": "samples", "nullable": false, "exact_value": [36000]},
+        "raw_dtype": {"type": "STRING", "unit": "none", "nullable": false, "value": "<f8"},
+        "raw_endianness": {"type": "STRING enum LITTLE_ENDIAN", "unit": "none", "nullable": false},
+        "raw_c_contiguous": {"type": "BOOLEAN", "unit": "none", "nullable": false},
+        "sample_count": {"type": "INTEGER", "unit": "stored samples", "nullable": false, "value": 36000},
+        "sample_domain_half_open": {"type": "ARRAY<INTEGER>", "unit": "stored sample indices", "nullable": false, "exact_value": [0, 36000]},
+        "observation_formula_id": {"type": "STRING", "unit": "none", "nullable": false, "value": "RAW_RE_PLUS_QUARTER_RT_DIV10_V6"},
+        "sham_raw_sha256": {"type": "NULLABLE<SHA256>", "unit": "exact 288000-byte x_raw buffer", "nullable": true},
+        "intervention_raw_sha256": {"type": "NULLABLE<SHA256>", "unit": "exact 288000-byte x_raw buffer", "nullable": true},
+        "mu_sham_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "model observation units", "nullable": true},
+        "v_sham_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "squared model observation units", "nullable": true},
+        "sigma_sham_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "model observation units", "nullable": true},
+        "mu_intervention_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "model observation units", "nullable": true},
+        "v_intervention_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "squared model observation units", "nullable": true},
+        "sigma_intervention_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "model observation units", "nullable": true},
+        "affine_a_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "dimensionless", "nullable": true},
+        "affine_b_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "model observation units", "nullable": true},
+        "affine_evaluation_id_or_null": {"type": "NULLABLE<STRING>", "unit": "none", "nullable": true, "non_null_value": "AFFINE_AX_PLUS_B_BINARY64_V6"},
+        "rescaled_raw_sha256_or_null": {"type": "NULLABLE<SHA256>", "unit": "exact 288000-byte rescaled buffer", "nullable": true},
+        "mu_rescaled_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "model observation units", "nullable": true},
+        "v_rescaled_float64_hex_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "squared model observation units", "nullable": true},
+        "threshold_provenance_object_or_null": {"type": "NULLABLE<OBJECT<unchanged V5 threshold provenance schema>>", "unit": "mixed registered units", "nullable": true},
+        "threshold_provenance_sha256_or_null": {"type": "NULLABLE<SHA256>", "unit": "canonical provenance bytes", "nullable": true},
+        "sham_event_table_or_null": {"type": "NULLABLE<ARRAY<SO_EVENT_ROW_V6 or SPINDLE_EVENT_ROW_V6>>", "unit": "registered event units", "nullable": true},
+        "intervention_event_table_or_null": {"type": "NULLABLE<ARRAY<SO_EVENT_ROW_V6 or SPINDLE_EVENT_ROW_V6>>", "unit": "registered event units", "nullable": true},
+        "rescaled_event_table_or_null": {"type": "NULLABLE<ARRAY<SO_EVENT_ROW_V6 or SPINDLE_EVENT_ROW_V6>>", "unit": "registered event units", "nullable": true},
+        "candidate_match_ledgers_or_null": {"type": "NULLABLE<OBJECT with exactly three match_stage keys, each RESCALE_EVENT_MATCH_CANDIDATE_LEDGER_V6>", "unit": "samples", "nullable": true},
+        "accepted_match_ledgers_or_null": {"type": "NULLABLE<OBJECT with exactly three match_stage keys, each RESCALE_EVENT_MATCH_ACCEPTED_LEDGER_V6>", "unit": "samples", "nullable": true},
+        "event_class_ledger_or_null": {"type": "NULLABLE<OBJECT<RESCALE_EVENT_CLASS_LEDGER_V6>>", "unit": "none", "nullable": true},
+        "row_consumption_ledger_or_null": {"type": "NULLABLE<OBJECT<RESCALE_EVENT_ROW_CONSUMPTION_LEDGER_V6>>", "unit": "none", "nullable": true},
+        "unmatched_event_id_arrays_or_null": {"type": "NULLABLE<OBJECT<unmatched_event_id_arrays>>", "unit": "none", "nullable": true},
+        "integer_counts_or_null": {"type": "NULLABLE<OBJECT with exactly N_sham,N_intervention,N_rescaled,N_added_original,N_added_rescaled,N_persistent,N_rescale_only as INTEGER>", "unit": "events", "nullable": true},
+        "density_contrasts_events_per_min_or_null": {"type": "NULLABLE<OBJECT with exact original and rescaled FLOAT64_HEX contrasts>", "unit": "events/minute", "nullable": true},
+        "F_rescale_only_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "fraction", "nullable": true},
+        "F_rescale_only_null_reason_or_null": {"type": "NULLABLE<STRING enum NO_ADDED_EVENTS>", "unit": "none", "nullable": true},
+        "block_rescale_only_or_null": {"type": "NULLABLE<BOOLEAN>", "unit": "none", "nullable": true},
+        "status": {"type": "block_status enum", "unit": "none", "nullable": false},
+        "reason_code_or_null": {"type": "NULLABLE<STRING>", "unit": "none", "nullable": true},
+        "first_failing_field_or_null": {"type": "NULLABLE<STRING>", "unit": "field or role:index", "nullable": true},
+        "block_record_payload_sha256": {"type": "SHA256", "unit": "canonical block payload bytes", "nullable": false}
+      },
+      "early_failure_rule": "Identity, pair, role-status, sham-status, status, reason, first-failing field, and downstream-consumer fields are always populated. Any downstream uncomputed field is JSON null, never zero, false, {}, or []. A valid computed zero-event table is [] and is distinct from null.",
+      "hash_domain": "Create exactly the required-field object excluding only block_record_payload_sha256; all nested ledger hashes and every other required field remain included. Serialize canonically and take uppercase SHA-256. No enclosing filename/envelope or extra key is included."
+    },
+    "condition_record": {
+      "schema_id": "RESCALE_EVENT_VETO_CONDITION_RECORD_V6",
+      "required_fields_in_order": [
+        "schema_version",
+        "canonical_condition_schema_id",
+        "veto_id",
+        "condition_record_id",
+        "execution_context",
+        "target_id",
+        "condition_id",
+        "event_type",
+        "ordered_block_ids",
+        "valid_complete_blocks",
+        "distinct_seed_count",
+        "distinct_draw_count",
+        "missing_block_ids_and_reasons",
+        "invalid_block_ids_and_reasons",
+        "pooled_integer_counts_or_null",
+        "pooled_F_rescale_only_or_null",
+        "pooled_F_rescale_only_null_reason_or_null",
+        "block_rescale_only_fraction_or_null",
+        "minimum_denominator_rule",
+        "minimum_denominator_pass",
+        "status",
+        "hard_veto_boolean_or_null",
+        "downstream_consumer_ids",
+        "condition_record_payload_sha256"
+      ],
+      "field_contracts": {
+        "schema_version": {"type": "STRING", "unit": "none", "nullable": false, "value": "6.0.0"},
+        "canonical_condition_schema_id": {"type": "STRING", "unit": "none", "nullable": false, "value": "RESCALE_EVENT_VETO_CONDITION_RECORD_V6"},
+        "veto_id": {"type": "STRING", "unit": "none", "nullable": false, "value": "RESCALE_ONLY_EVENT_VETO_V6"},
+        "condition_record_id": {"type": "STRING", "unit": "none", "nullable": false, "formula": "RV6C::{execution_context}::{target_id}::{condition_id}::{event_type}"},
+        "execution_context": {"type": "execution_context enum", "unit": "none", "nullable": false},
+        "target_id": {"type": "target_id enum", "unit": "none", "nullable": false},
+        "condition_id": {"type": "STRING", "unit": "none", "nullable": false},
+        "event_type": {"type": "event_type enum", "unit": "none", "nullable": false},
+        "ordered_block_ids": {"type": "ARRAY<STRING>", "unit": "none", "nullable": false, "order": "frozen draw-major then seed-minor complete expected universe"},
+        "valid_complete_blocks": {"type": "INTEGER", "unit": "blocks", "nullable": false},
+        "distinct_seed_count": {"type": "INTEGER", "unit": "seeds", "nullable": false},
+        "distinct_draw_count": {"type": "INTEGER", "unit": "draws", "nullable": false},
+        "missing_block_ids_and_reasons": {"type": "ARRAY<OBJECT with exactly block_id STRING and reason_code STRING>", "unit": "none", "nullable": false, "order": "ordered_block_ids order"},
+        "invalid_block_ids_and_reasons": {"type": "ARRAY<OBJECT with exactly block_id STRING and reason_code STRING>", "unit": "none", "nullable": false, "order": "ordered_block_ids order"},
+        "pooled_integer_counts_or_null": {"type": "NULLABLE<OBJECT with exactly the seven registered INTEGER count keys>", "unit": "events", "nullable": true},
+        "pooled_F_rescale_only_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "fraction", "nullable": true},
+        "pooled_F_rescale_only_null_reason_or_null": {"type": "NULLABLE<STRING enum NO_ADDED_EVENTS>", "unit": "none", "nullable": true},
+        "block_rescale_only_fraction_or_null": {"type": "NULLABLE<FLOAT64_HEX>", "unit": "fraction", "nullable": true},
+        "minimum_denominator_rule": {"type": "STRING enum exact context rule", "unit": "none", "nullable": false},
+        "minimum_denominator_pass": {"type": "BOOLEAN", "unit": "none", "nullable": false},
+        "status": {"type": "condition_status enum", "unit": "none", "nullable": false},
+        "hard_veto_boolean_or_null": {"type": "NULLABLE<BOOLEAN>", "unit": "none", "nullable": true},
+        "downstream_consumer_ids": {"type": "ARRAY<target_id enum>", "unit": "none", "nullable": false, "exact_value": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"]},
+        "condition_record_payload_sha256": {"type": "SHA256", "unit": "canonical condition payload bytes", "nullable": false}
+      },
+      "partition_rule": "Each expected block is classified exactly once as valid, missing, or invalid; counts sum to expected context total. Any INVALID_* copies the first invalid status in ordered_block_ids order and yields null hard-veto Boolean. Otherwise exclude only NOT_ESTIMABLE blocks, apply exact unchanged context minima, then pool.",
+      "boolean_rule": "true only for HARD_VETO_RESCALE_ONLY; false only for NO_VETO_NO_ADDED_EVENTS or NO_VETO_PERSISTENT_OR_MIXED; null for INVALID_* or NOT_ESTIMABLE_INSUFFICIENT_BLOCKS.",
+      "hash_domain": "Create exactly the required-field object excluding only condition_record_payload_sha256, serialize canonically, and take uppercase SHA-256."
+    }
+  },
+  "fixture_reaudit_contract": {
+    "required_fixture_path": "PROTOCOL/CANDIDATE_V6/rescale_event_veto_fixture_v6.json",
+    "required_fixture_id": "PF_RESCALE_EVENT_VETO_FIXTURE_V6",
+    "evidence_role": "IMPLEMENTATION_PREFLIGHT_ONLY_NOT_SCIENTIFIC_EVIDENCE",
+    "required_case_ids_in_exact_order": [
+      "MV_MEAN_SHIFT",
+      "MV_VARIANCE_SCALE",
+      "MV_ZERO_INTERVENTION_VARIANCE",
+      "MV_NONFINITE_INPUT",
+      "SO_THRESHOLD_EQUALITY_ACCEPTED",
+      "SO_LEFT_EDGE_STRICTLY_REJECTED",
+      "SPINDLE_THRESHOLD_EQUALITY_ACCEPTED",
+      "SPINDLE_RIGHT_EDGE_STRICTLY_REJECTED",
+      "MATCH_TIES_AND_TOLERANCE_BOUNDARY",
+      "EVENT_NONZERO_SURVIVAL",
+      "EVENT_ALL_ADDED_VANISH",
+      "EVENT_NO_ADDED_EVENTS",
+      "EVENT_MIXED_SURVIVAL",
+      "POOL_LEVEL_A_ALL_ADDED_VANISH",
+      "POOL_LEVEL_A_NONZERO_SURVIVAL",
+      "POOL_LEVEL_A_NO_ADDED_EVENTS",
+      "POOL_ZERO_VARIANCE_FAIL_CLOSED",
+      "POOL_NONFINITE_FAIL_CLOSED",
+      "MV_ZERO_SHAM_VARIANCE",
+      "MV_BOTH_ZERO_VARIANCES",
+      "T8_WINDOW_BOUNDARY_TOUCH",
+      "POOL_CROSS_CONTEXT_PROHIBITION",
+      "RAW_END_TO_END_CANONICAL_RECORD_HASH"
+    ],
+    "raw_input_encoding": "Every raw-route case embeds each required sham/intervention r_E_stored and r_T_stored buffer as RFC4648 base64 with no whitespace over the complete exact little-endian <f8 bytes plus shape and uppercase SHA-256. No external file, procedural generator, seed expansion, projection, RLE with unspecified decoder, or implementation-produced input is permitted.",
+    "required_oracle_fields_per_case": [
+      "case_id and tested_branch",
+      "route_mode and exact permitted early-terminal NOT_APPLICABLE fields",
+      "four raw source-array encodings, shapes, dtypes and hashes when the branch reaches raw input",
+      "expected sham and intervention x_raw hashes",
+      "mu_sham, v_sham, sigma_sham, mu_intervention, v_intervention, sigma_intervention, affine_a and affine_b as FLOAT64_HEX or exact branch null",
+      "expected rescaled buffer hash, audit mean and audit variance or exact branch null",
+      "unchanged filter/threshold provenance object and hash",
+      "canonical sham, intervention and rescaled event tables",
+      "all three complete candidate ledgers and their hashes",
+      "all three accepted ledgers and their hashes",
+      "complete event-class and row-consumption ledgers and their hashes",
+      "unmatched arrays, integer counts, fractions, Boolean and block status",
+      "expected complete typed block record and nonrecursive payload SHA-256",
+      "expected pooling universe, condition record, status and nonrecursive payload SHA-256 where applicable"
+    ],
+    "branch_completeness": "A field may be null only when the exact production status priority terminates before it is computed, and the fixture must name the first failing field and reason. No empty array, zero, false, or omitted field substitutes for null.",
+    "production_route_requirement": "RAW_END_TO_END_CANONICAL_RECORD_HASH uses exact production shape (36000,), observation construction, common filtering, sham threshold derivation, official event-table validation, all three matches, all ledgers, context pooling, and record hashing. It permits no fixture-only identity, detector-summary, event-schema, hash, or pooling bypass.",
+    "specific_new_case_requirements": {
+      "MV_ZERO_SHAM_VARIANCE": "Finite intervention variance >0 and exact finite sham variance ==0 produce NOT_ESTIMABLE_ZERO_VARIANCE before affine or detector fields.",
+      "MV_BOTH_ZERO_VARIANCES": "Both exact finite variances ==0 produce NOT_ESTIMABLE_ZERO_VARIANCE before affine or detector fields under the same priority.",
+      "T8_WINDOW_BOUNDARY_TOUCH": "Raw production route creates events touching the exact frozen T8/window boundary; rejection, tables, ledgers, counts and status are fully oracle-bound.",
+      "POOL_CROSS_CONTEXT_PROHIBITION": "Separately insufficient Level-A and Level-B or verifier pools would pass only if illegally combined; expected records remain separately NOT_ESTIMABLE_INSUFFICIENT_BLOCKS.",
+      "RAW_END_TO_END_CANONICAL_RECORD_HASH": "Every intermediate and final payload hash is independently derivable from embedded bytes and canonical schema."
+    },
+    "t4_fixture_regression": {
+      "path": "PROTOCOL/CANDIDATE_V6/t4_attribution_fixture_v3.json",
+      "required_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+      "byte_identical_to_v5": true
+    },
+    "audit_method": "The independent auditor reads only freeze-authorized bytes and recomputes every raw decode, byte hash, sequential moment, sigma/a/b operation, rescaled byte hash, detector table, candidate order, greedy acceptance, event class, row consumption, count, pool/status, canonical serialization, and payload hash using a separately documented transparent calculation. Implementation code is not imported or executed.",
+    "failure_rule": "Any missing/extra/reordered case, external dependency, projection-only substitute, hash mismatch, unconsumed row, class ambiguity, null mismatch, or expected-value mismatch is blocking."
+  },
+  "unaffected_v5_v4_regression_checks": {
+    "semantic_diff_method": "After activation, hash exact V6 bytes first, parse them, and compare each same-purpose artifact against the exact V5 baseline from the V5 freeze by path-indexed typed semantic diff. Classify every change into route/lineage propagation or one exact PV5-B001..B005 closure surface. Any other difference is UNAUTHORIZED_SCIENTIFIC_DRIFT.",
+    "allowed_changes_only": [
+      "route/schema/version and immutable V5-parent/V5-fail/V5-stale/V6-addendum bindings",
+      "exact PV4-EDGE-B001 plus PV5-B001..B005 finding identity propagation",
+      "raw_pair_key, per-role input/finite status and sham-forcing status",
+      "sigma_sham, sigma_intervention, affine a and b exact evaluation and logging",
+      "canonical typed schema IDs and descriptors",
+      "complete candidate, accepted, event-class and row-consumption ledgers with nonrecursive hashes",
+      "expanded self-contained raw V6 fixture and its hash bindings",
+      "exact complete-array and empty-M_b NOT_ESTIMABLE restatement"
+    ],
+    "model_rng_forcing_scheduler_detector_regression": [
+      "candidate identity, clean-room/R4 separation, all equations, state order, initial values, 32 parameter defaults/bounds/units and 17 uncertainty coordinates",
+      "float64 timebase, exact OU update, stochastic Heun order, left-endpoint forcing, warmup, analysis, storage, no clipping, seeds, PCG64 lifecycles and pairing",
+      "all forcing channels, schedules, signs, formulas, causal scheduler and sham definitions",
+      "all official T1-T8 preprocessing, filters, detectors, metrics, thresholds, edge/window rules, validity and denominators",
+      "the sixteen-row T4 attribution domain, sole formal +1.5/13 row, matching/classification/pooling and unchanged T4 fixture"
+    ],
+    "targets_policies_statistics_regression": [
+      "exact targets T1..T8 and priority split primary T1/T4/T6, secondary T2/T3/T5/T7, exploratory T8",
+      "all estimands, directions, margins, C_i/G_i scores, ties, shapes, worker Level-A and conditional Level-B policies",
+      "Level-A grids 6,7,7,7,7,9,7 with unique shared T6/T7 phase grid and all Level-B grids/cell counts/at-most-three rule",
+      "F_TARGET_DECISIONS, F_LEVEL_B_SURFACES, F_CROSS_TARGET_8X8 and F_FORMAL_C2_INTERACTIONS seeds, resampling, member arrays/counts, quantiles and missingness except the exact clarified fail-closed branch",
+      "sign-flip tests, T7 Fisher-Lee permutation, 100000 randomizations, greater tails, equality, corrections and Holm families/order",
+      "cross-target 64 BENEFIT plus 64 ADVERSE members, block-normalize then block-median order, mapping min/max, diagonal G and selected T4 replica adverse"
+    ],
+    "exact_counts_and_compute": {
+      "targets": 8,
+      "claims": 8,
+      "c2_gates": 10,
+      "level_a_condition_ids": 50,
+      "level_a_runs": 1800,
+      "conditional_level_b_maximum_runs": 900,
+      "cross_target_verifier_unique_runs": 456,
+      "maximum_registered_runs": 3156,
+      "run_identity": "1800+900+456=3156",
+      "maximum_simulated_seconds": 662760,
+      "maximum_internal_solver_intervals": 662760000,
+      "phase2a_worker_cpu_hour_cap": 60,
+      "verifier_cpu_hours_reserved": 50,
+      "campaign_total_cpu_hours": 180,
+      "cross_partition_borrowing": "PROHIBITED",
+      "repair_additional_simulations": 0
+    },
+    "advancement_claims_phase2b": {
+      "maximum_advancing_targets": 3,
+      "current_advancing_targets": [],
+      "c2_gate_ids": ["C2-G1", "C2-G2", "C2-G3", "C2-G4", "C2-G5", "C2-G6", "C2-G7", "C2-G8", "C2-G9", "C2-G10"],
+      "claim_status": "DESIGNED_NOT_EXECUTED",
+      "phase2b_status": "NOT_ESTIMABLE",
+      "eligible_certified_subjects": 0,
+      "minimum_certified_subjects": 3,
+      "synthetic_substitution": "PROHIBITED",
+      "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER"
+    },
+    "no_drift_rule": "The repair adds no target, metric, favorable scalar, p-value, confidence family/member, RNG call, simulation identity, dose, policy, verifier condition, grade, advancement path, C2 gate, claim, human transfer, or compute borrowing."
+  },
+  "prospective_one_time_fixture_compiler_governance": {
+    "status_at_addendum_authoring": "NOT_YET_FROZEN_NOT_AUTHORIZED_NOT_EXECUTED",
+    "purpose_limit": "A separately frozen and independently audited one-time data-free compiler may construct only the self-contained V6 rescale-event-veto fixture required to close PV5-B004. It is not protocol implementation, model execution, preflight, simulation, or scientific evidence.",
+    "required_sequence": [
+      "author an immutable compiler specification and exact source before any compiler execution",
+      "freeze one exact compiler source/launcher/dependency/environment/input/output manifest with paths, sizes and uppercase SHA-256 values",
+      "perform an independent static compiler audit without import or execution",
+      "Root issues one explicit single-invocation data-free compiler authorization only after static PASS",
+      "execute once in the exact frozen environment and bounded filesystem scope",
+      "hash and independently audit the output fixture and compiler receipt before binding the fixture into Candidate V6",
+      "mark the compiler authorization spent; any rerun or byte change requires a new prospective compiler release and audit"
+    ],
+    "future_compiler_freeze_required_fields": [
+      "compiler_release_id and one-shot invocation_id",
+      "compiler specification path/size/SHA-256",
+      "compiler source path/size/SHA-256",
+      "launcher path/size/SHA-256",
+      "complete read allowlist and write allowlist as normalized absolute paths",
+      "expected output fixture path and temporary sibling path",
+      "expected canonical fixture ID and schema version",
+      "operating-system build, architecture, machine, byte order and locale",
+      "Python implementation/version/executable path/executable SHA-256",
+      "numpy version/package path/package or distribution SHA-256",
+      "scipy version/package path/package or distribution SHA-256",
+      "BLAS/LAPACK provider and thread-count environment",
+      "complete standard-library import allowlist",
+      "complete third-party import allowlist",
+      "forbidden import/capability list",
+      "exact input recipe registry and expected 36000-sample array hashes",
+      "exact filter coefficient/provenance hashes and detector contract IDs",
+      "expected output size/SHA-256 if prospectively derivable, otherwise an explicit post-run external-binding rule",
+      "failure receipt path/schema and spent-authorization declaration path"
+    ],
+    "dependency_and_environment_rule": {
+      "permitted_scientific_dependencies": ["numpy", "scipy"],
+      "standard_library": "Only the exact future compiler-release allowlist may be imported; it must be limited to deterministic parsing, binary encoding, hashing, math, path validation and atomic file creation needed by the compiler.",
+      "forbidden": [
+        "neurolib or any model package",
+        "any repository-local model, simulator, scheduler, production detector, metric, policy, launcher or preflight module",
+        "dynamic import, importlib loading, exec, eval or plugin discovery",
+        "network, subprocess, shell, notebook, database, cloud or IPC access",
+        "pickle, joblib or arbitrary object deserialization",
+        "data, R4, outcome, checkpoint, cache, CODE, PREFLIGHT or implementation-manifest reads",
+        "unfrozen environment-variable behavior or multithreaded nondeterministic reduction"
+      ],
+      "exact_match": "Any interpreter, executable hash, package version/hash, platform, byteorder, locale, BLAS/LAPACK provider, thread count, import set or environment mismatch fails before output creation."
+    },
+    "deterministic_input_construction": {
+      "length": 36000,
+      "dtype": "<f8",
+      "rank": 1,
+      "contiguity": "C_CONTIGUOUS",
+      "required_roles": ["sham_r_E_stored", "sham_r_T_stored", "intervention_r_E_stored", "intervention_r_T_stored"],
+      "recipe_rule": "Every case uses one exact in-source declarative recipe with fixed operation order, explicit binary64 constants or bit patterns, exact index ranges, no RNG, no clock, no host-dependent transcendental generation unless exact expected output bytes are prebound, and no external input. Each constructed array is checked against its prospectively frozen uppercase SHA-256 before any observation or detector calculation.",
+      "nonfinite_encoding": "A nonfinite test value is introduced only from an exact frozen IEEE-754 64-bit word at an exact role/index; it is never serialized as a JSON NaN/Infinity number.",
+      "output_embedding": "The compiler embeds complete raw buffers as whitespace-free RFC4648 base64 over exact little-endian <f8 bytes, with shape, dtype and uppercase SHA-256, so the final fixture is self-contained and independently decodable without the compiler."
+    },
+    "filter_detector_and_oracle_exactness": [
+      "Construct x_raw with the exact multiply-add-divide order, then mu/v/sigma/a/b and a*x+b order frozen in this addendum.",
+      "Use the exact unchanged V5 common centering, scipy SOS coefficient construction/ordering, full-length zero-phase filtering, padding/edge contract, SO detector, spindle 40-sample RMS support, paired-sham threshold derivation, strict retained boundaries, canonical event IDs and tables.",
+      "Do not import a production detector. The compiler contains or consumes only the independently audited literal algorithm required for oracle construction, and its constants/branches trace field-for-field to the frozen V5 semantics plus the five V6 closure rules.",
+      "Require official sham/intervention table checks, all three complete candidate and accepted ledgers, event-class and raw-row-consumption ledgers, condition pooling, null/status priority and canonical nonrecursive hashes.",
+      "Emit every intermediate listed in fixture_reaudit_contract.required_oracle_fields_per_case and verify its expected type, order, invariant and hash before serialization."
+    ],
+    "bounded_filesystem_and_output": {
+      "read_scope": "Only exact files in the future compiler release read allowlist; no directory enumeration, globbing, recursive walk, symlink following or path discovery.",
+      "write_scope": "Only one exact temporary sibling and one exact final fixture path plus one exact compiler receipt/failure receipt path. Resolve and verify every absolute path lies within the single future release-designated staging directory before opening it.",
+      "existing_output_rule": "If the temporary or final output already exists, fail before write. No overwrite, append, in-place edit, merge or cleanup of unrelated bytes is authorized.",
+      "atomicity": "Write the complete temporary fixture, flush/close, parse and validate it, hash it, then perform one atomic same-directory rename to the final path. On failure, do not publish a final fixture; preserve only the exact bounded failure receipt allowed by the release.",
+      "output_membership": "The final fixture contains exactly the canonical top-level fields, exact ordered case registry, embedded raw buffers, expected intermediates/ledgers/records/hashes and lineage bindings frozen by the compiler specification; no timestamp, hostname, absolute path, random nonce or environment-dependent value enters its hash domain."
+    },
+    "fail_closed_conditions": [
+      "input/control/source/environment/dependency hash mismatch",
+      "forbidden import, read, write, path, symlink, network, subprocess or dynamic capability",
+      "unexpected array shape/dtype/contiguity/hash or recipe mismatch",
+      "filter coefficient, detector provenance, event, ledger, row-conservation, schema, null/status or payload-hash mismatch",
+      "missing, extra, duplicate or reordered fixture case/field",
+      "temporary/final output pre-existence or attempted second invocation",
+      "any exception or inability to prove deterministic exactness"
+    ],
+    "one_shot_receipt_required_fields": [
+      "compiler_release_path_and_sha256",
+      "static_compiler_audit_path_and_sha256",
+      "invocation_id and authorization path/SHA-256",
+      "exact environment/dependency verification ledger",
+      "exact read and write path ledger",
+      "case-by-case construction and invariant verdicts",
+      "expected and actual intermediate/hash ledger",
+      "output fixture path/size/SHA-256",
+      "forbidden-access attestation",
+      "model_preflight_science_execution flags all false",
+      "authorization_spent true",
+      "overall PASS or FAIL_CLOSED"
+    ],
+    "reaudit_checks": [
+      "The V6 re-auditor verifies the compiler release, static audit, one-shot authorization, execution receipt, spent declaration and final fixture hashes before reading the fixture.",
+      "The auditor independently decodes and recomputes the final fixture; a compiler PASS cannot substitute for raw-oracle equality.",
+      "The compiler and its receipt never become a V6 scientific artifact, never change run/compute counts, and never authorize implementation or preflight."
+    ],
+    "authority_after_success": "Only the exact output fixture may be proposed for inclusion in a still-unfrozen Candidate V6 package. No code, preflight, model, simulation, data, R4, outcomes, scientific execution or claim access is authorized."
+  },
+  "required_v6_reaudit_procedure": {
+    "ordered_steps": [
+      "verify this addendum, all authoritative inputs, V6 freeze, and complete V6 artifact ledger by exact size and hash before content read",
+      "verify exact successor route, findings, nonrecursive bidirectional bindings, lineage, staleness and no placeholders",
+      "parse all V6 JSON and validate every canonical schema descriptor, required field, type, unit, nullability, enum, ordering and hash domain",
+      "independently recompute the raw fixture and every intermediate/hash/ledger/status without implementation execution",
+      "audit exact complete-array and empty-M_b bootstrap semantics in every cross-file consumer",
+      "perform typed path-indexed V5-to-V6 semantic diff and classify every change",
+      "recompute all targets, grids, families, run counts, compute, gates, claims and Phase2B invariants",
+      "issue one immutable V6 receipt with per-check evidence and zero unresolved findings"
+    ],
+    "forbidden": [
+      "directory enumeration",
+      "CODE or implementation/PREFLIGHT manifest access",
+      "module import or Python/launcher/preflight/scientific execution",
+      "data, R4, checkpoint, output or outcome access",
+      "auditor-selected repair, tolerance, fallback, fixture value or semantic equivalence"
+    ]
+  },
+  "required_v6_reaudit_receipt": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V6.json",
+    "receipt_type": "INDEPENDENT_IMMUTABLE_PREOUTCOME_PROTOCOL_FREEZE_REAUDIT_V6",
+    "required_sections": [
+      "zero-access and zero-execution audit boundary",
+      "this addendum path and externally reported SHA-256",
+      "complete authoritative-input and V6 input size/hash ledger",
+      "exact route/finding/lineage/bidirectional-binding verdict",
+      "separate closure verdict for PV5-B001, PV5-B002, PV5-B003, PV5-B004 and PV5-B005",
+      "typed schema field-by-field validation",
+      "independent raw fixture calculation with every intermediate and hash",
+      "candidate/accepted/class/consumption ledger comparison and row conservation proof",
+      "complete-array and empty-M_b bootstrap branch audit",
+      "path-indexed V5-to-V6 diff ledger",
+      "all unaffected V5/V4 regression and arithmetic verdicts",
+      "blocking, nonblocking and unresolved findings",
+      "release-gate verdict and immutable self-hash policy"
+    ],
+    "pass_requirements": [
+      "zero blocking and zero unresolved findings",
+      "all five closure families pass independently",
+      "the fixture is complete, raw, self-contained and exact",
+      "all unaffected V5/V4 semantics and counts pass exact regression",
+      "no forbidden access or execution occurred"
+    ]
+  },
+  "current_gate_state": {
+    "candidate_v6_access": "DENIED_UNTIL_ACTIVATION_GATE",
+    "v5_status": "IMMUTABLE_HISTORY_STALE_FOR_IMPLEMENTATION_PREFLIGHT_AND_SCIENTIFIC_EXECUTION",
+    "v6_static_implementation_release": "DENIED_PENDING_V6_FREEZE_AND_INDEPENDENT_REAUDIT_PASS",
+    "code_or_manifest_access": "DENIED",
+    "data_free_preflight": "DENIED",
+    "phase2a_worker": "DENIED",
+    "cross_target_verifier": "DENIED",
+    "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+    "protected_access": "NONE",
+    "scientific_outcomes": "NONE"
+  },
+  "immutability": {
+    "this_addendum_is_immutable": true,
+    "candidate_v6_accessed": false,
+    "code_or_manifest_accessed": false,
+    "execution_performed": false,
+    "self_hash_policy": "Compute and report uppercase SHA-256 over exact final bytes externally; do not embed it recursively."
+  }
+}

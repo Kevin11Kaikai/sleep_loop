@@ -1,0 +1,240 @@
+{
+  "schema_version": "3.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "protocol_id": "COSTA_C2_GATE_PROTOCOL_CANDIDATE_V3",
+  "parent_protocol_id": "COSTA_C2_GATE_PROTOCOL_CANDIDATE_V2",
+  "repair_scope": [
+    "PV2-B001",
+    "PV2-B002",
+    "PV2-B003",
+    "PV2-B004"
+  ],
+  "status": "FREEZE_CANDIDATE_PREOUTCOME_NOT_ESTIMABLE",
+  "outcomes_used": false,
+  "formal_candidate_required": "Exact executable/hash-bound R4 M1-pass candidate",
+  "diagnostic_bench": "PHASE2_CONTROL_BENCH_V1",
+  "bench_may_satisfy_formal_c2": false,
+  "current_eligibility": {
+    "eligible_subjects": 0,
+    "minimum_subjects": 3,
+    "eligible_personalized_model_artifacts": 0,
+    "exact_r4_executable_identity": false,
+    "phase2b": "NOT_ESTIMABLE",
+    "formal_c2": "NOT_ESTIMABLE",
+    "synthetic_substitution": "PROHIBITED"
+  },
+  "formal_design_if_eligibility_existed_in_a_new_preoutcome_version": {
+    "unit_of_analysis": "certified public/development Night-1 personalized subject model",
+    "minimum_subjects": 3,
+    "randomness_pairing": "Same seed, posterior/nearby draw, initial state, duration, and OU innovations across sham, personalized policy, non-personalized policy, and wrong-subject policy.",
+    "training_seeds": [
+      11003,
+      22007,
+      33013,
+      44017,
+      55021,
+      66029
+    ],
+    "evaluation_seeds": [
+      77041,
+      88069,
+      99079,
+      111091
+    ],
+    "policy_selection": "For the all-target specificity matrix use Level-A policy_objects: mapping policies for T1/T7 and one condition for other targets, frozen before verifier outcomes. Conditional Level-B policies are separate and cannot alter 8x8 rows. A future formal subject policy requires a new prospectively frozen exact analogue; current N=0 remains NOT_ESTIMABLE.",
+    "matched_nonpersonalized": "For each subject, construct an exact leave-one-subject-out componentwise-median parameter model from the other eligible models and apply the same policy-selection rule.",
+    "wrong_subject": "Sort subject IDs by SHA256(campaign_id+'|'+subject_id), cyclically shift policies by one, and apply the shifted policy to each recipient's own model.",
+    "uncertainty": "Use F_FORMAL_C2_INTERACTIONS from phase2_protocol.json: 10000 joint nested paired resamples from PCG64(860222), resampling subjects then within-subject model/posterior draws and paired evaluation seeds; orient every margin as slack>0; studentize; take the maximum absolute deviation over all selected-target interaction slacks; use the 9501st of 10000 ordered maxima for simultaneous two-sided 95% bands.",
+    "interaction_estimands": "For the exact policy object G_s, I_pop=median_s[G_s(P_s)-G_s(P_pop)] and I_wrong=median_s[G_s(P_s)-G_s(P_wrong(s))]; R_between is the registered response-surface separation ratio. This remains NOT_ESTIMABLE at N=0 and cannot use synthetic bench blocks.",
+    "interaction_threshold": "Lower simultaneous 95% bounds for I_pop and I_wrong each exceed 0.25 sham-SD units and lower 95% bound for R_between exceeds 1.5.",
+    "multiplicity": "Target family and per-target rules in control_target_registry.json apply without modification."
+  },
+  "gates": [
+    {
+      "gate_id": "C2-G1",
+      "name": "Frozen M1-pass candidate",
+      "current_status": "NOT_ESTIMABLE",
+      "current_reason": "Only value-free categorical M1 provenance exists; no exact R4 executable code/configuration/parameter identity is available.",
+      "required_inputs": [
+        "candidate ID",
+        "code hash",
+        "configuration hash",
+        "parameter hash",
+        "environment hash",
+        "M1 gate scorecard",
+        "independent M1 verification"
+      ],
+      "pass_rule": "Every identity/hash matches; M1_PASS; verifier VERIFIED; MATERIAL_DISAGREEMENT=false; no outcome-guided candidate switch.",
+      "failure_rule": "Any mismatch, lower M level, partial verification, disagreement, stale artifact, or missing binding prevents C2."
+    },
+    {
+      "gate_id": "C2-G2",
+      "name": "Sham or no-control comparator",
+      "current_status": "NOT_RUN",
+      "current_reason": "Formal stage is not estimable.",
+      "required_inputs": [
+        "paired sham trajectories",
+        "target baseline estimand",
+        "seed/draw manifest",
+        "fixed detector"
+      ],
+      "pass_rule": "Every target decision component has simultaneous lower slack bound>0 under F_TARGET_DECISIONS or the exact future subject analogue; the exact target-specific level_a_shape_consistency rule passes in >=4/6 draws; target-specific Monte Carlo p and Holm pass; and >=30 valid paired blocks are present. T8 additionally requires its exact persistence slack and enumerated adjacency pair.",
+      "failure_rule": "Natural variability explains the effect, pairing is broken, sham differs in anything except intervention, or denominator fails."
+    },
+    {
+      "gate_id": "C2-G3",
+      "name": "Matched non-personalized comparator",
+      "current_status": "NOT_ESTIMABLE",
+      "current_reason": "N=0 eligible models; a leave-one-subject-out template cannot be constructed.",
+      "required_inputs": [
+        "N>=3 eligible subject models",
+        "leave-one-subject-out median-model hashes",
+        "identical intervention grid",
+        "paired evaluation seeds"
+      ],
+      "pass_rule": "I_pop lower simultaneous 95% bound exceeds 0.25 sham-SD units for the target and the matched comparator passes all fairness/hash checks.",
+      "failure_rule": "Comparator unavailable, not leave-one-subject-out, uses a weaker grid/information budget, or personalized gain does not exceed the practical threshold."
+    },
+    {
+      "gate_id": "C2-G4",
+      "name": "Paired randomness",
+      "current_status": "NOT_RUN",
+      "current_reason": "Formal stage is not estimable.",
+      "required_inputs": [
+        "seed manifest",
+        "draw manifest",
+        "OU innovation hashes",
+        "initial-state hashes"
+      ],
+      "pass_rule": "Every sham/intervention/non-personalized/wrong-subject comparison reuses identical seed, model-draw index, initial state, duration, and innovation stream; no unpaired substitution.",
+      "failure_rule": "Any comparison lacks an exact pair or pairing cannot be independently reproduced."
+    },
+    {
+      "gate_id": "C2-G5",
+      "name": "Dose, frequency, phase, or timing response",
+      "current_status": "NOT_RUN",
+      "current_reason": "Formal stage is not estimable.",
+      "required_inputs": [
+        "complete target-specific fixed grid",
+        "all grid outcomes including negatives",
+        "training/evaluation separation"
+      ],
+      "pass_rule": "Report the complete registered Level-A curve and, when launched, every exact conditional Level-B cell: 25 cells for T1-T5/T8 and 20 unique canonical cells for T6/T7. F_LEVEL_B_SURFACES contains all C_i(u)-1 and applicable mapping G_i(P)-1 members (K<=80). Select a conditional Level-B mapping or single condition only by level_b_policy_objects; it cannot alter the all-target 8x8 policy rows. Generic 'dose ordered' judgment is prohibited; only the exact per-target shape rule may satisfy launch eligibility.",
+      "failure_rule": "Missing grid points, post-outcome grid change, single-point success, boundary-only optimum without robustness, or hidden negative doses."
+    },
+    {
+      "gate_id": "C2-G6",
+      "name": "Numerical stability",
+      "current_status": "NOT_RUN",
+      "current_reason": "Formal stage is not estimable.",
+      "required_inputs": [
+        "state validity flags",
+        "solver diagnostics",
+        "rate bounds",
+        "clipping audit",
+        "repeat runs"
+      ],
+      "pass_rule": "At least 95% of every prescribed target-dose-subject-seed-draw run is stable; all reportable pairs are finite, unclipped, within registered rate bounds, and reproducible.",
+      "failure_rule": "Divergence, clipping, solver failure, schema failure, nonfinite metrics, saturation, or instability generates or materially changes the effect."
+    },
+    {
+      "gate_id": "C2-G7",
+      "name": "Model-level plausibility",
+      "current_status": "NOT_RUN",
+      "current_reason": "Formal stage is not estimable.",
+      "required_inputs": [
+        "population rates",
+        "spectra",
+        "SO/spindle event validity",
+        "registered model-operating bounds"
+      ],
+      "pass_rule": "Every reportable condition satisfies mean rates 0.5-60 Hz, <=1% samples below 0.01 or above 95 Hz, finite spectra, detector retained-duration >=0.85, target-specific plausibility rules, and all applicable simultaneous numeric plausibility slacks under the frozen max-deviation family. Any packet-attribution implementation must first exactly pass the bound T4 fixture manifest; fixture passage is preflight only and never physiological evidence.",
+      "failure_rule": "Silent/dead network, saturation, pathological broadband power, invalid detector, regime collapse, or proxy presented as scalp voltage."
+    },
+    {
+      "gate_id": "C2-G8",
+      "name": "Off-target analysis",
+      "current_status": "NOT_RUN",
+      "current_reason": "Formal stage is not estimable.",
+      "required_inputs": [
+        "complete 8x8 cross-target matrix",
+        "all registered rate and spectral vetoes",
+        "simultaneous intervals"
+      ],
+      "pass_rule": "Freeze all eight row policies from Level-A worker data before verifier outcomes and conditional Level B. Use exactly 456 unique verifier runs. For each of 128 BENEFIT/ADVERSE members, take the verifier-block median before B/A transforms, mapping min/max, and diagonal G; retain T4 replica adverse on its diagonal. No row may have a missing member, hard veto, or unacceptable collateral effect.",
+      "failure_rule": "Missing off-target cells, target gain driven by broadband/global excitation, any hard veto, or suppression of adverse results."
+    },
+    {
+      "gate_id": "C2-G9",
+      "name": "Personalized intervention interaction above uncertainty",
+      "current_status": "NOT_ESTIMABLE",
+      "current_reason": "Zero eligible subjects/models; minimum denominator is 3 and synthetic draws cannot substitute.",
+      "required_inputs": [
+        "N>=3 certified subjects",
+        "subject-specific curves",
+        "within-subject uncertainty",
+        "matched non-personalized curves",
+        "wrong-subject curves"
+      ],
+      "pass_rule": "Under F_FORMAL_C2_INTERACTIONS, simultaneous lower slack bounds for I_pop-0.25, I_wrong-0.25, and R_between-1.5 are all >0 for every selected target; each target's minimum events and separate Holm rule pass.",
+      "failure_rule": "Only baseline differences are shown, personalization contrasts are within uncertainty, either comparator fails, N<3, or synthetic variants are counted as subjects."
+    },
+    {
+      "gate_id": "C2-G10",
+      "name": "Independent reproduction",
+      "current_status": "NOT_RUN",
+      "current_reason": "Formal stage is not estimable and no formal result exists to reproduce.",
+      "required_inputs": [
+        "immutable frozen snapshot",
+        "input manifest",
+        "environment manifest",
+        "run command",
+        "metric and comparator definitions",
+        "claim registry"
+      ],
+      "pass_rule": "Clean verifier independently reproduces the key response curve, personalization interaction, stability, and off-target matrix; NUMERIC_REPRODUCTION=PASS; PROCEDURAL_FIDELITY=PASS; verifier VERIFIED; MATERIAL_DISAGREEMENT=false; hashes match.",
+      "failure_rule": "Partial/failed verification, material disagreement, protocol deviation, hash mismatch, or narrative-only review."
+    }
+  ],
+  "universal_assignment_rule": "C2 may be assigned only when all C2-G1 through C2-G10 are PASS for the same exact eligible candidate under one prospectively frozen version. Candidate V3 has N=0, no R4 executable binding, Phase2B NOT_ESTIMABLE, and cannot assign C1 or C2 regardless of bench diagnostics.",
+  "allowed_wording_if_a_future_exact_candidate_passed_all_gates": "Robust subject-dependent bounded in-silico intervention-response profiles were independently reproduced across eligible personalized mechanistic models, with the preregistered interaction exceeding within-model uncertainty and matched non-personalized and wrong-subject responses.",
+  "prohibited_wording": [
+    "clinical control",
+    "treatment efficacy",
+    "individualized stimulation validity",
+    "patient-specific medical decision",
+    "human causal intervention efficacy",
+    "reliable clinical digital twin"
+  ],
+  "preserved_v2_repairs": [
+    "PF-B001",
+    "PF-B002",
+    "PF-B003",
+    "PF-B004",
+    "PF-B005"
+  ],
+  "parent_freeze_binding": {
+    "path": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+    "sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8"
+  },
+  "audit_receipt_binding": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+    "sha256": "E61465D6357C411DB032AC8989695E1BE73CF04742E3467DBA1246E698975358"
+  },
+  "v3_machine_bindings": {
+    "policy_and_scalars": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars",
+    "level_b_schedules": "phase2_protocol.json#phase2a/conditional_level_b",
+    "exact_tests": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+    "simultaneous_families": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+    "T4_fixture": {
+      "path": "PROTOCOL/CANDIDATE_V3/t4_attribution_fixture_v3.json",
+      "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+    },
+    "cross_target_level_a_policies": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/policy_objects",
+    "conditional_level_b_policies": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects",
+    "level_a_shape_consistency": "phase2_protocol.json#phase2a/level_a_shape_consistency",
+    "T8_persistence_and_adjacency": "phase2_protocol.json#observation_and_detector_contract/T8/persistence_and_adjacency_decision"
+  },
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "3.0.0"
+}

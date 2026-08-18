@@ -1,0 +1,751 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "entries": [
+    {
+      "artifact": "COMMON/CAMPAIGN_IDENTITY.json",
+      "sha256": "29DAD8795AD9B2A12298627F7BAFD2EB2022C0C1F03C031ED1428ED0FCE5B266",
+      "freeze_type": "CAMPAIGN_IDENTITY",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "COMMON/CONTEXT_OF_USE.md",
+      "sha256": "44E3185D67DE0C4DB592B95EE28ED61ABD98BB7D1F1D96E46DB2944D268081EA",
+      "freeze_type": "CONTEXT_OF_USE",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "GOVERNANCE/PROTECTED_DENYLIST.json",
+      "sha256": "453BC357609EFFC88ECD1C653F7AE1F728067750EDE67341AB0C60EDFE669FBF",
+      "freeze_type": "PROTECTED_DENYLIST",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "GOVERNANCE/INCIDENT_001_GOVERNANCE_STATEMENT.md",
+      "sha256": "B02929E5A9595E597DD563320BC4C395BF2FCB979489A180378F3212759100FC",
+      "freeze_type": "INCIDENT_001_STATEMENT",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/V4D1_IMPORT_ALLOWLIST.json",
+      "sha256": "92FD0B483751B2BEFFEAA161853B180671E669283B60004E37E2E41F3BACF84C",
+      "freeze_type": "EMPTY_DEFAULT_DENY_IMPORT_ALLOWLIST",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/IMPORT_CANDIDATES.json",
+      "sha256": "D706685F051FBBD63C6C6BB57E7D7B7DD44371F510F50C24E9293A5ABB396EB8",
+      "freeze_type": "EXACT_IMPORT_CANDIDATE_LIST",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "STATE/ACCESS_LEDGER.json",
+      "sha256": "6A749B0FD1249C038AAC8DCC334EEFE8161DB97E0B3B69C95C87DCD717F0DDD2",
+      "freeze_type": "ACCESS_LEDGER_INITIALIZATION_V1",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "STATE/AGENT_ROLE_LEDGER.json",
+      "sha256": "CF46CC8F4CD095048E2C55F980961BE3449D93F97BCC4E4D23370856F744DD70",
+      "freeze_type": "AGENT_ROLE_LEDGER_INITIALIZATION_V1",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "STATE/STAGE_STATE.json",
+      "sha256": "5F0D28910017750CDCC2B12D14EE912345FA4B9394AA176A53B0AF5EBEEAA2B3",
+      "freeze_type": "INITIAL_STAGE_STATE",
+      "timestamp": "2026-08-16T11:02:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "STATE/AGENT_ROLE_LEDGER.json",
+      "sha256": "929039687954902010CC288B84568F0C8E1112361ADAB4474C6827E44425A75F",
+      "freeze_type": "AGENT_ROLE_LEDGER_V2_GOVERNANCE_AUDITOR_ACTIVATED",
+      "timestamp": "2026-08-16T11:03:17.1534543-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "CF46CC8F4CD095048E2C55F980961BE3449D93F97BCC4E4D23370856F744DD70"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTECTED_DENYLIST.json",
+      "sha256": "AF3AA8AC66775885B09F47C425DE1BE3F515B877FD7DDDC44DCA32F1824EA060",
+      "freeze_type": "PROTECTED_DENYLIST_V2_OUTCOME_BLIND_GOVERNANCE_REPAIR",
+      "timestamp": "2026-08-16T11:05:06.1434416-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "453BC357609EFFC88ECD1C653F7AE1F728067750EDE67341AB0C60EDFE669FBF",
+      "repair_reference": "CLEAN_ROOT_AUDIT D-001"
+    },
+    {
+      "artifact": "GOVERNANCE/CLEAN_ROOT_AUDIT.md",
+      "sha256": "D097353C680A3E1FED4A33F0D64EF65419827A6060CFF0004C967E10C60ABE09",
+      "freeze_type": "INDEPENDENT_CLEAN_ROOT_RECEIPT",
+      "timestamp": "2026-08-16T11:06:44.4894731-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "STATE/STAGE_STATE.json",
+      "sha256": "DC4CD486E63DC54895400E98579B87B35F9EB7C935DA6968A885B91EEDF128A0",
+      "freeze_type": "STAGE_STATE_V2_CLEAN_ROOT_ACCEPTED",
+      "timestamp": "2026-08-16T11:06:44.4894731-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "5F0D28910017750CDCC2B12D14EE912345FA4B9394AA176A53B0AF5EBEEAA2B3"
+    },
+    {
+      "artifact": "STATE/ACCESS_LEDGER.json",
+      "sha256": "C9DF2AB7B1E5AB1AB661E7741DE5FC0A461341E6C66CB372C8A70FD113D36CA8",
+      "freeze_type": "ACCESS_LEDGER_V2_CLEAN_ROOT_ACCEPTED",
+      "timestamp": "2026-08-16T11:06:44.4894731-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "6A749B0FD1249C038AAC8DCC334EEFE8161DB97E0B3B69C95C87DCD717F0DDD2"
+    },
+    {
+      "artifact": "STATE/AGENT_ROLE_LEDGER.json",
+      "sha256": "2A9FD58363AA6F14B924E2B9E81B0B4C9AB5AE18403AD15575EE5596F49747EC",
+      "freeze_type": "AGENT_ROLE_LEDGER_V3_CLEAN_AUDITOR_CLOSED",
+      "timestamp": "2026-08-16T11:06:44.4894731-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "929039687954902010CC288B84568F0C8E1112361ADAB4474C6827E44425A75F"
+    },
+    {
+      "artifact": "STATE/AGENT_ROLE_LEDGER.json",
+      "sha256": "B349621EBB24BC939671F4AF4168938FE9E79D749F00D986BDE0F4047EE3D5FB",
+      "freeze_type": "AGENT_ROLE_LEDGER_V4_IMPORT_AUDITOR_ACTIVATED",
+      "timestamp": "2026-08-16T11:08:00.5462104-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "2A9FD58363AA6F14B924E2B9E81B0B4C9AB5AE18403AD15575EE5596F49747EC"
+    },
+    {
+      "artifact": "GOVERNANCE/HISTORICAL_IMPORT_AUDIT.md",
+      "sha256": "53B8D020052CE68DB0CED72CFC1BB0AB456D4693BB0F6260018D5902FD7C5DBA",
+      "freeze_type": "INDEPENDENT_HISTORICAL_IMPORT_AUDIT",
+      "timestamp": "2026-08-16T11:12:08.9747343-04:00",
+      "responsible_role": "Historical Import Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/AUDIT_DECISIONS.json",
+      "sha256": "DA50B67A50118A6BBB6BD6F65D141EB75A5B1A7931DAF5FF1D4B13458C94C3E7",
+      "freeze_type": "HISTORICAL_IMPORT_DECISIONS",
+      "timestamp": "2026-08-16T11:12:08.9747343-04:00",
+      "responsible_role": "Historical Import Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/V4D1_IMPORT_ALLOWLIST.json",
+      "sha256": "4BF2D608227F590D1BAC0DC9E8CB1F078CED92CE84398102C575AC131FA32B69",
+      "freeze_type": "AUDITED_DEFAULT_DENY_IMPORT_ALLOWLIST_V2",
+      "timestamp": "2026-08-16T11:13:04.9893727-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "92FD0B483751B2BEFFEAA161853B180671E669283B60004E37E2E41F3BACF84C"
+    },
+    {
+      "artifact": "STATE/AGENT_ROLE_LEDGER.json",
+      "sha256": "1C4A99326918CEA85A0279DC777F5BA58E1F0A4D9ECE8ACFF0A99485542AF07F",
+      "freeze_type": "AGENT_ROLE_LEDGER_V5_IMPORT_AUDITOR_CLOSED_SANITIZER_ACTIVATED",
+      "timestamp": "2026-08-16T11:13:04.9893727-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "B349621EBB24BC939671F4AF4168938FE9E79D749F00D986BDE0F4047EE3D5FB"
+    },
+    {
+      "artifact": "STATE/ACCESS_LEDGER.json",
+      "sha256": "2F03F2D21B21B3CB99165B81DE3C9260D9CC6134E82598598180C497D9032F14",
+      "freeze_type": "ACCESS_LEDGER_V3_IMPORT_AUDIT_ACCEPTED",
+      "timestamp": "2026-08-16T11:13:04.9893727-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "C9DF2AB7B1E5AB1AB661E7741DE5FC0A461341E6C66CB372C8A70FD113D36CA8"
+    },
+    {
+      "artifact": "GOVERNANCE/HISTORICAL_IMPORT_AUDIT.md",
+      "sha256": "94644C28CFC7AA27B1D7A359B729AED95C009BAB55CDA018E549488987F6B7CB",
+      "freeze_type": "HISTORICAL_IMPORT_AUDIT_FINAL_WITH_ALLOWLIST_VALIDATION",
+      "timestamp": "2026-08-16T11:22:14.7933948-04:00",
+      "responsible_role": "Historical Import Auditor",
+      "supersedes": "53B8D020052CE68DB0CED72CFC1BB0AB456D4693BB0F6260018D5902FD7C5DBA"
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/SANITIZER_PERMISSION_AMENDMENT.json",
+      "sha256": "0EFAFC537841F22D3023EC93B5965DF97033A7AB88F1C6E4D494FB42A655BCCA",
+      "freeze_type": "INDEPENDENT_SANITIZER_PERMISSION_AMENDMENT",
+      "timestamp": "2026-08-16T11:16:02.2991229-04:00",
+      "responsible_role": "Historical Import Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "GOVERNANCE/OAV_001_ACCESS_FIDELITY_INCIDENT.md",
+      "sha256": "AC9E549F717FA2B93F717FF2A318386B5B6B8CE2111330D6A43B7084CA4E3E55",
+      "freeze_type": "OAV_001_INCIDENT_RECORD",
+      "timestamp": "2026-08-16T11:17:55.7201963-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/V4D1_IMPORT_ALLOWLIST.json",
+      "sha256": "0C3A627C7CBA306C40A1846317FD72CA043EB62F6E6E9157E6399DC3B1D5321F",
+      "freeze_type": "IMPORT_ALLOWLIST_V3_FAILED_STALE_RECEIPT",
+      "timestamp": "2026-08-16T11:17:55.7201963-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "4BF2D608227F590D1BAC0DC9E8CB1F078CED92CE84398102C575AC131FA32B69",
+      "gate_status": "FAIL"
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/V4D1_IMPORT_ALLOWLIST.json",
+      "sha256": "9995DE5822BEECE79FA8ECA2C2FF18B11E3DA6EAF7B0915B3E349FE310CE4926",
+      "freeze_type": "IMPORT_ALLOWLIST_V4_TRANSIENT_REVALIDATED_SUPERSEDED_FOR_EXTERNAL_RECEIPT_DESIGN",
+      "timestamp": "2026-08-16T11:22:14.7933948-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "0C3A627C7CBA306C40A1846317FD72CA043EB62F6E6E9157E6399DC3B1D5321F",
+      "gate_status": "SUPERSEDED"
+    },
+    {
+      "artifact": "GOVERNANCE/OAV_001_ADJUDICATION.md",
+      "sha256": "6E9AB419186811ED7FFE7432DEDFA981199FC7CDFA2474DE53124C3EBD6D53E3",
+      "freeze_type": "OAV_001_FINAL_ADJUDICATION_AND_REVALIDATION_NARRATIVE",
+      "timestamp": "2026-08-16T11:25:10.1639152-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": "951C9456DBE90D4BD2A6EE1479062E8978990DF0A19BE49C8B1FC72AF49452D0"
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/V4D1_IMPORT_ALLOWLIST.json",
+      "sha256": "3ABAD00A85C1210A02041F32D0CF15AB1F7B555EE2729B713BEA0016562742B5",
+      "freeze_type": "IMPORT_ALLOWLIST_V5_FINAL_EXTERNAL_REVALIDATION_DESIGN",
+      "timestamp": "2026-08-16T11:25:10.1639152-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "9995DE5822BEECE79FA8ECA2C2FF18B11E3DA6EAF7B0915B3E349FE310CE4926",
+      "gate_status": "PASS"
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/OFFICIAL_ALLOWLIST_V5_REVALIDATION.json",
+      "sha256": "67BE97B5D8305B2EC96C80F11EA57AA81AB7CC11C70E103ABAA3A8F1E045C291",
+      "freeze_type": "IMMUTABLE_EXTERNAL_IMPORT_ALLOWLIST_REVALIDATION_RECEIPT",
+      "timestamp": "2026-08-16T11:25:53.9649449-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": null,
+      "gate_status": "PASS"
+    },
+    {
+      "artifact": "GOVERNANCE/REPAIR_LEDGER.json",
+      "sha256": "4E1DE81A3A9A5BF083DADFA8B76505953F96554F64CC7285FFF6B00F4D3E541D",
+      "freeze_type": "GOVERNANCE_REPAIR_LEDGER_V2_OAV_CLOSED",
+      "timestamp": "2026-08-16T11:27:38.3085296-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "CAF1F7BE4E714221B832B7951486520A37BF4D8BBAAFEE4988D5D153995B5FAC"
+    },
+    {
+      "artifact": "STATE/STAGE_STATE.json",
+      "sha256": "905249A5821C7B55360943FFC3732105ABCF13866BAA62EBBBB1DB949C578197",
+      "freeze_type": "STAGE_STATE_V3_SANITIZER_AUTHORIZED_IMPORT_PASS",
+      "timestamp": "2026-08-16T11:27:38.3085296-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "DC4CD486E63DC54895400E98579B87B35F9EB7C935DA6968A885B91EEDF128A0"
+    },
+    {
+      "artifact": "STATE/AGENT_ROLE_LEDGER.json",
+      "sha256": "88EAFDCF9E971AF3D64029413F0200D2BEA91C5A306D75670C50434375CA6702",
+      "freeze_type": "AGENT_ROLE_LEDGER_V6_GOVERNANCE_CLOSED_SANITIZER_RELEASED",
+      "timestamp": "2026-08-16T11:27:38.3085296-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "A1D150517B2DC2DB14D5EE8F7D37ABF97938F7C8D652B7AA7D0445EDC5475FDD"
+    },
+    {
+      "artifact": "STATE/ACCESS_LEDGER.json",
+      "sha256": "808761562061A52FD32A1CD3A6094433D8D872F85A057BD74BA6424A5DBF1928",
+      "freeze_type": "ACCESS_LEDGER_V4_IMPORT_GATE_RELEASED",
+      "timestamp": "2026-08-16T11:27:38.3085296-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "D33CE9005691023F062B93C6FA71FD8EEAE48BB54679A54CB0F44754AAEFFC45"
+    },
+    {
+      "artifact": "GOVERNANCE/REPOSITORY_INPUT_AUDIT.md",
+      "sha256": "21A179114AB783D9C42AAA9C6E6DDE554B3E6A26695E05E3234121C871487BD3",
+      "freeze_type": "INDEPENDENT_NONHISTORICAL_REPOSITORY_INPUT_AUDIT",
+      "timestamp": "2026-08-16T12:00:26.4244668-04:00",
+      "responsible_role": "Nonhistorical Repository Input Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/REPOSITORY_CODE_AUDIT_DECISIONS.json",
+      "sha256": "9E993DFFC656B9A6C1619E0B6BAA946C2F7A1576E263F2C7D1BFEFF1B4D0D9E7",
+      "freeze_type": "EXACT_REPOSITORY_CODE_AUDIT_DECISIONS",
+      "timestamp": "2026-08-16T12:00:26.4244668-04:00",
+      "responsible_role": "Nonhistorical Repository Input Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "COMMON/VALUE_FREE_REPOSITORY_CAPABILITY_INVENTORY.json",
+      "sha256": "E89DDECF6ED40D566EFFBDCD9CDFCE3E9AC8AA9B12600F2C46E4F8CBF93B5D2E",
+      "freeze_type": "VALUE_FREE_REPOSITORY_CAPABILITY_INVENTORY",
+      "timestamp": "2026-08-16T12:00:26.4244668-04:00",
+      "responsible_role": "Nonhistorical Repository Input Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "IMPORT_ALLOWLIST/DATA_AUDIT_DECISIONS.json",
+      "sha256": "19E052B2BBEFA9246D90C1D1CE0D0469C0BFEF05B2409D5C9A7CA013FAC9E688",
+      "freeze_type": "EXACT_DATA_FEASIBILITY_AUDIT_DECISIONS",
+      "timestamp": "2026-08-16T12:05:10.1030343-04:00",
+      "responsible_role": "Data Feasibility Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "COMMON/DATA_FEASIBILITY_RECEIPT.md",
+      "sha256": "B85E5A3A21D10C523BAD707D6F034E3BEFD63EB5573FAC95FE9D1DDCDF855D2C",
+      "freeze_type": "INDEPENDENT_DATA_FEASIBILITY_RECEIPT",
+      "timestamp": "2026-08-16T12:05:10.1030343-04:00",
+      "responsible_role": "Data Feasibility Auditor",
+      "supersedes": null,
+      "gate_status": "PHASE2B_NOT_FEASIBLE"
+    },
+    {
+      "artifact": "COMMON/SUBJECT_MODEL_AVAILABILITY.json",
+      "sha256": "08FF47A8EF93A08C032091F1314AA31BD959ADB320D8206E2E0BDADC4001BD88",
+      "freeze_type": "SANITIZED_SUBJECT_MODEL_AVAILABILITY",
+      "timestamp": "2026-08-16T12:05:10.1030343-04:00",
+      "responsible_role": "Data Feasibility Auditor",
+      "supersedes": null
+    },
+    {
+      "artifact": "PREFLIGHT/run_neurolib.ps1",
+      "sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+      "freeze_type": "NEUROLIB_ENV_V3_OFFICIAL_SCIENTIFIC_LAUNCHER",
+      "timestamp": "2026-08-16T12:11:13.9290393-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "D0BB9960723B3BEC7809DE6467B66FF43D9824AC5A14C449B4D1392CEFA5EAF6"
+    },
+    {
+      "artifact": "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+      "freeze_type": "NEUROLIB_ENV_V3_ENVIRONMENT_SNAPSHOT",
+      "timestamp": "2026-08-16T12:11:13.9290393-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "4CBF0B3DE2F0377C62585F1AE3BA3A16596F57E3CBBAEE6123DBEF384A3BEE72"
+    },
+    {
+      "artifact": "COMMON/COMPUTE_BUDGET.json",
+      "sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+      "freeze_type": "COMPUTE_BUDGET_V3_FINAL",
+      "timestamp": "2026-08-16T12:11:13.9290393-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "40BC4729BDB92F20D47524B7E1D35720091C07A993F71EDC343A3E57ABE51C03"
+    },
+    {
+      "artifact": "GOVERNANCE/REPAIR_LEDGER.json",
+      "sha256": "0E4B7BC3118FA60628AE43D8521C832C5A39FC10D00A6FA8B46811373E9140C5",
+      "freeze_type": "REPAIR_LEDGER_ENV_001_FINAL_CYCLE_RECORDED",
+      "timestamp": "2026-08-16T12:11:13.9290393-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "CF6D183F79C7ED578D50606FB178050CDF039D58BDDC3E0B74D28BE9F47C10E0"
+    },
+    {
+      "artifact": "GOVERNANCE/COMPUTE_BUDGET_AUDIT.json",
+      "sha256": "DC6ADD872FCA5271771895DE9A38AE38A31F18E1DC8D51E3D3B1AFC9E918271B",
+      "freeze_type": "INDEPENDENT_COMPUTE_AUDIT_V1_FAIL",
+      "timestamp": "2026-08-16T12:02:00-04:00",
+      "responsible_role": "Compute Budget Auditor",
+      "supersedes": null,
+      "gate_status": "FAIL_SUPERSEDED_BY_BOUNDED_REPAIR"
+    },
+    {
+      "artifact": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V2.json",
+      "sha256": "0F4EF58130471BE9491EA6C88893C98FAC1A9BE65A32433037417D71B201F79D",
+      "freeze_type": "INDEPENDENT_COMPUTE_REAUDIT_V2_FAIL",
+      "timestamp": "2026-08-16T12:10:00-04:00",
+      "responsible_role": "Compute Budget Auditor",
+      "supersedes": null,
+      "gate_status": "FAIL_SUPERSEDED_BY_FINAL_BOUNDED_REPAIR"
+    },
+    {
+      "artifact": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+      "sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+      "freeze_type": "INDEPENDENT_COMPUTE_REAUDIT_V3_FINAL",
+      "timestamp": "2026-08-16T12:19:30-04:00",
+      "responsible_role": "Compute Budget Auditor",
+      "supersedes": null,
+      "gate_status": "PASS"
+    },
+    {
+      "artifact": "GOVERNANCE/COMPUTE_GATE_RELEASE.json",
+      "sha256": "46184CDE4A22947706C3C7FEECB0818E15AB8931105881D0C1531CE05BFAFFA2",
+      "freeze_type": "COMPUTE_GATE_RELEASE",
+      "timestamp": "2026-08-16T12:19:30-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "gate_status": "PASS_PREFLIGHT_ONLY"
+    },
+    {
+      "artifact": "STATE/ACCESS_LEDGER.json",
+      "sha256": "0BDBCC3FB91EF73D3EFCDEA52882664E86F5181EBF9545BE648E71AEEB2B8E62",
+      "freeze_type": "ACCESS_LEDGER_PREOUTCOME_PROTOCOL_STAGE",
+      "timestamp": "2026-08-16T12:20:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "808761562061A52FD32A1CD3A6094433D8D872F85A057BD74BA6424A5DBF1928"
+    },
+    {
+      "artifact": "STATE/AGENT_ROLE_LEDGER.json",
+      "sha256": "6125B65E2923E5472532599F00D9AA9ADD6AAA29697F238EE69EA55548596E25",
+      "freeze_type": "AGENT_ROLE_LEDGER_PROTOCOL_ARCHITECT_ACTIVE",
+      "timestamp": "2026-08-16T12:20:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "STATE/STAGE_STATE.json",
+      "sha256": "947E738A53CFCAA55E5D9388D266C4DAE74BFDB37B69DD97D7C28165D7071890",
+      "freeze_type": "STAGE_STATE_PREOUTCOME_PROTOCOL_ARCHITECTURE",
+      "timestamp": "2026-08-16T12:20:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V1/control_target_registry.json",
+      "sha256": "5DD2CBC3FB4EE0BA3F980F063B9A87056359A94A387286B3C1FFFB2040E68CEA",
+      "freeze_type": "EIGHT_TARGET_CONTROL_REGISTRY_V1_PREOUTCOME",
+      "timestamp": "2026-08-16T12:34:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V1/mechanistic_parameter_map.json",
+      "sha256": "FCAD91DA91B8B3957D215DF7340097FF1F4006E4F5A18DF04FAC4310F4BF2ECA",
+      "freeze_type": "MECHANISTIC_PARAMETER_AND_INTERVENTION_MAP_V1_PREOUTCOME",
+      "timestamp": "2026-08-16T12:34:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V1/phase2_protocol.json",
+      "sha256": "0FE4136754B52EB5D516C26F80FE3991F4F9B09207A9B7D8418E10B2D45C6C10",
+      "freeze_type": "PHASE2_EXECUTION_AND_STATISTICAL_PROTOCOL_V1_PREOUTCOME",
+      "timestamp": "2026-08-16T12:34:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V1/advancement_rule.json",
+      "sha256": "B391622DFC308B53108080958DD01973CDC2B4CF02903F30E05B157104F4B643",
+      "freeze_type": "PHASE2A_TO_PHASE2B_ADVANCEMENT_RULE_V1_PREOUTCOME",
+      "timestamp": "2026-08-16T12:34:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "maximum_advancing_targets": 3,
+      "current_advancing_targets": []
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V1/c2_gate_protocol.json",
+      "sha256": "41CDE3295F0761524BA4ED2B0C3FF60126A6D56287F1D513DE9AABA825D49388",
+      "freeze_type": "C2_G1_THROUGH_G10_PROTOCOL_V1_PREOUTCOME",
+      "timestamp": "2026-08-16T12:34:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "gate_status": "PHASE2B_NOT_ESTIMABLE"
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V1/claim_registry.json",
+      "sha256": "6DEBABFF5A48B1B36B3D073D602667B88DE8FDE2163291DCE65F4B4C9AFD42A8",
+      "freeze_type": "CONTROL_CLAIM_REGISTRY_V1_PREOUTCOME",
+      "timestamp": "2026-08-16T12:34:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "formal_claim_ceiling": "M1_C0_P0_UNCHANGED"
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V1/PREOUTCOME_DESIGN_MEMO.md",
+      "sha256": "72EFFF7265EB969CB30B255716D79E37B883EF8FF98CF5B620F5B2214BA3BF77",
+      "freeze_type": "PREOUTCOME_DESIGN_MEMO_V1",
+      "timestamp": "2026-08-16T12:34:00-04:00",
+      "responsible_role": "Prospective Control Protocol Architect",
+      "supersedes": null
+    },
+    {
+      "artifact": "PROTOCOL/PROTOCOL_FREEZE_V1.json",
+      "sha256": "1A27094D05DD24848E7F8D9643936D69078464B864EFA18621E022A04410F3F0",
+      "freeze_type": "PROTOCOL_FREEZE_RECEIPT_V1_PREOUTCOME",
+      "timestamp": "2026-08-16T12:34:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "gate_status": "FROZEN_PREFLIGHT_ONLY"
+    },
+    {
+      "artifact": "STATE/ACCESS_LEDGER.json",
+      "sha256": "41CB6E9A5EFC51C442D2C368938AFAC0096F118B338C82A944B1CF0CA94C8897",
+      "freeze_type": "ACCESS_LEDGER_PREFLIGHT_WORKER_ACTIVATED",
+      "timestamp": "2026-08-16T12:35:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "0BDBCC3FB91EF73D3EFCDEA52882664E86F5181EBF9545BE648E71AEEB2B8E62"
+    },
+    {
+      "artifact": "STATE/AGENT_ROLE_LEDGER.json",
+      "sha256": "16C92AF0027DEE15C12FC6F3CE2829C63D5115D25A6B117D27E496FC157F32C3",
+      "freeze_type": "AGENT_ROLE_LEDGER_PREFLIGHT_WORKER_ACTIVATED",
+      "timestamp": "2026-08-16T12:35:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "6125B65E2923E5472532599F00D9AA9ADD6AAA29697F238EE69EA55548596E25"
+    },
+    {
+      "artifact": "STATE/STAGE_STATE.json",
+      "sha256": "BCDCCF35A22B1FB795BBD4C330CD644FE42C71C0E0919879D15FE607D669CB00",
+      "freeze_type": "STAGE_STATE_DATA_FREE_PREFLIGHT_ONLY",
+      "timestamp": "2026-08-16T12:35:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "947E738A53CFCAA55E5D9388D266C4DAE74BFDB37B69DD97D7C28165D7071890"
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V2/control_target_registry.json",
+      "sha256": "2B4A0ABA6D2FBE0C4D05CF1E1C1889238835A0CEE37C8DD5F6686C716FA94D57",
+      "freeze_type": "EIGHT_TARGET_CONTROL_REGISTRY_V2_PREOUTCOME",
+      "timestamp": "2026-08-16T13:08:35-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "5DD2CBC3FB4EE0BA3F980F063B9A87056359A94A387286B3C1FFFB2040E68CEA"
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V2/mechanistic_parameter_map.json",
+      "sha256": "271DA1188C6F7F3DA3A6F90553F0B6E6B99ED7BCB20AC4B5B1D1CB4584B83760",
+      "freeze_type": "MECHANISTIC_PARAMETER_AND_INTERVENTION_MAP_V2_PREOUTCOME",
+      "timestamp": "2026-08-16T13:08:35-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "FCAD91DA91B8B3957D215DF7340097FF1F4006E4F5A18DF04FAC4310F4BF2ECA"
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V2/phase2_protocol.json",
+      "sha256": "9A3CC8BB37D33844DD884267028657918CB9525B11AF5F1874727FE6ACA05B35",
+      "freeze_type": "PHASE2_EXECUTION_AND_STATISTICAL_PROTOCOL_V2_PREOUTCOME",
+      "timestamp": "2026-08-16T13:08:35-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "0FE4136754B52EB5D516C26F80FE3991F4F9B09207A9B7D8418E10B2D45C6C10"
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V2/advancement_rule.json",
+      "sha256": "5DDB6A09DE73977BEEB16F653E0595946F98B3C5F8CB06948797DDA0A8543BD7",
+      "freeze_type": "PHASE2A_TO_PHASE2B_ADVANCEMENT_RULE_V2_PREOUTCOME",
+      "timestamp": "2026-08-16T13:08:35-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "B391622DFC308B53108080958DD01973CDC2B4CF02903F30E05B157104F4B643",
+      "maximum_advancing_targets": 3,
+      "current_advancing_targets": []
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V2/c2_gate_protocol.json",
+      "sha256": "8790C827E61702C52AB84CBF37C27E28AF2EA195C48DBA685E8985375B67550A",
+      "freeze_type": "C2_G1_THROUGH_G10_PROTOCOL_V2_PREOUTCOME",
+      "timestamp": "2026-08-16T13:08:35-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "41CDE3295F0761524BA4ED2B0C3FF60126A6D56287F1D513DE9AABA825D49388",
+      "gate_status": "PHASE2B_NOT_ESTIMABLE"
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V2/claim_registry.json",
+      "sha256": "74AE0888DBB02A1AE1F006AB430EB2C04CA740552096DFCDE57DB40B3CF3B7A7",
+      "freeze_type": "CONTROL_CLAIM_REGISTRY_V2_PREOUTCOME",
+      "timestamp": "2026-08-16T13:08:35-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "6DEBABFF5A48B1B36B3D073D602667B88DE8FDE2163291DCE65F4B4C9AFD42A8",
+      "formal_claim_ceiling": "M1_C0_P0_UNCHANGED"
+    },
+    {
+      "artifact": "PROTOCOL/CANDIDATE_V2/PREOUTCOME_DESIGN_MEMO.md",
+      "sha256": "54CB9E40EE8C7E22C7A0D65922636AE5D9973102A046C71DBBE79029E98AF550",
+      "freeze_type": "PREOUTCOME_DESIGN_MEMO_V2",
+      "timestamp": "2026-08-16T13:08:35-04:00",
+      "responsible_role": "Prospective Control Protocol Architect",
+      "supersedes": "72EFFF7265EB969CB30B255716D79E37B883EF8FF98CF5B620F5B2214BA3BF77"
+    },
+    {
+      "artifact": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+      "sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8",
+      "freeze_type": "PROTOCOL_FREEZE_RECEIPT_V2_PREOUTCOME",
+      "timestamp": "2026-08-16T13:08:35-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "1A27094D05DD24848E7F8D9643936D69078464B864EFA18621E022A04410F3F0",
+      "gate_status": "FROZEN_REAUDIT_PENDING_IMPLEMENTATION_AND_OUTCOMES_CLOSED"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+      "sha256": "E61465D6357C411DB032AC8989695E1BE73CF04742E3467DBA1246E698975358",
+      "freeze_type": "INDEPENDENT_PROTOCOL_V2_REAUDIT_RECEIPT",
+      "timestamp": "2026-08-16T13:21:25-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": "053ED3636CD1F40597524DB2C5369F87B5FC52696EB62C12895917BF9749BE14",
+      "gate_status": "FAIL_IMPLEMENTATION_DENIED"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_V2_STALE_DECLARATION.json",
+      "sha256": "ADD7B82FAB3198D7757159DD4F01516B0F238357C341A7A7D4E49DECBBED28B2",
+      "freeze_type": "PROTOCOL_V2_STALE_DECLARATION_PREOUTCOME",
+      "timestamp": "2026-08-16T13:22:31-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "gate_status": "V3_REPAIR_ONLY_OUTCOMES_CLOSED"
+    },
+    {
+      "artifact": "PROTOCOL/PROTOCOL_FREEZE_V3.json",
+      "sha256": "0FF4B771925FF942B10515384E923EB06649507EC4EE6FDB538C556FCB952412",
+      "freeze_type": "PROTOCOL_FREEZE_RECEIPT_V3_PREOUTCOME",
+      "timestamp": "2026-08-16T14:07:55-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8",
+      "gate_status": "FROZEN_REAUDIT_PENDING_IMPLEMENTATION_AND_OUTCOMES_CLOSED"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V3.json",
+      "sha256": "7730B0DF0B5B87B7A6B49FD1DE2F02F7FE1A2D3C6413CD3DEDA78F9B72420C0D",
+      "freeze_type": "INDEPENDENT_PROTOCOL_V3_REAUDIT_RECEIPT",
+      "timestamp": "2026-08-16T14:24:30-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": "E61465D6357C411DB032AC8989695E1BE73CF04742E3467DBA1246E698975358",
+      "gate_status": "FAIL_IMPLEMENTATION_DENIED"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_V3_STALE_DECLARATION.json",
+      "sha256": "CD7D09A492197A9CC921A9025F8C73E3AF675526F6D67D99A0C10ADABBA21ECC",
+      "freeze_type": "PROTOCOL_V3_STALE_DECLARATION_PREOUTCOME",
+      "timestamp": "2026-08-16T14:26:01-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "gate_status": "V4_REPAIR_ONLY_OUTCOMES_CLOSED"
+    },
+    {
+      "artifact": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+      "freeze_type": "PROTOCOL_FREEZE_RECEIPT_V4_PREOUTCOME",
+      "timestamp": "2026-08-16T14:56:23-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "0FF4B771925FF942B10515384E923EB06649507EC4EE6FDB538C556FCB952412",
+      "gate_status": "FROZEN_REAUDIT_PENDING_IMPLEMENTATION_AND_OUTCOMES_CLOSED"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+      "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+      "freeze_type": "INDEPENDENT_PROTOCOL_V4_REAUDIT_RECEIPT",
+      "timestamp": "2026-08-16T15:10:30-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": "7730B0DF0B5B87B7A6B49FD1DE2F02F7FE1A2D3C6413CD3DEDA78F9B72420C0D",
+      "gate_status": "PASS_IMPLEMENTATION_ELIGIBLE"
+    },
+    {
+      "artifact": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4.json",
+      "sha256": "A5B2BF7BF2EEBDA4CD32DCFE037D3FD2760966C75FE2E75AD3BE42A5587542AF",
+      "freeze_type": "OUTCOME_BLIND_IMPLEMENTATION_RELEASE_V4",
+      "timestamp": "2026-08-16T15:12:36-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "gate_status": "STALE_IRB_001_ZERO_CODE_WRITES"
+    },
+    {
+      "artifact": "GOVERNANCE/IMPLEMENTATION_RELEASE_BINDING_INCIDENT.json",
+      "sha256": "3B6AD51C5C6D93453C38CD511D016257E8E9FD8B1FD686FBC08144B9B5B5904B",
+      "freeze_type": "IMPLEMENTATION_RELEASE_BINDING_INCIDENT_RECEIPT",
+      "timestamp": "2026-08-16T15:15:00-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "gate_status": "CONTAINED_ZERO_CODE_WRITES"
+    },
+    {
+      "artifact": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+      "sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF",
+      "freeze_type": "CORRECTED_OUTCOME_BLIND_IMPLEMENTATION_RELEASE_V4_V2",
+      "timestamp": "2026-08-16T15:15:45-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "A5B2BF7BF2EEBDA4CD32DCFE037D3FD2760966C75FE2E75AD3BE42A5587542AF",
+      "gate_status": "INDEPENDENT_REVALIDATION_PASS_STATIC_IMPLEMENTATION_ONLY"
+    },
+    {
+      "artifact": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json",
+      "sha256": "B3FBA1F63E2360A9C9D8CC9ADC7C18A1750EF6076EB4564F02D6FD884056B2C6",
+      "freeze_type": "CORRECTED_IMPLEMENTATION_RELEASE_REVALIDATION_RECEIPT",
+      "timestamp": "2026-08-16T15:25:30-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": null,
+      "gate_status": "PASS_STATIC_IMPLEMENTATION_RESUME"
+    },
+    {
+      "artifact": "GOVERNANCE/CODE_AUDIT_PROTOCOL_V4.json",
+      "sha256": "FBBEFACE9BB9038F139017220DC7A30217726A7DFBC429B573485A4D264A1FBE",
+      "freeze_type": "PROSPECTIVE_STATIC_CODE_AUDIT_PROTOCOL_BEFORE_CODE_VISIBILITY",
+      "timestamp": "2026-08-16T15:31:00-04:00",
+      "responsible_role": "Independent Prospective Code Audit Protocol Author",
+      "supersedes": null,
+      "gate_status": "FROZEN_NO_IMPLEMENTATION_ACCESS"
+    },
+    {
+      "artifact": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+      "sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A",
+      "freeze_type": "OUTCOME_BLIND_PROTOCOL_EDGE_SEMANTICS_ADJUDICATION",
+      "timestamp": "2026-08-16T16:08:00-04:00",
+      "responsible_role": "Independent Protocol Governance Adjudicator",
+      "supersedes": null,
+      "gate_status": "V4_STALE_V5_REPAIR_REQUIRED_IMPLEMENTATION_AND_OUTCOMES_CLOSED"
+    },
+    {
+      "artifact": "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+      "sha256": "4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA",
+      "freeze_type": "PROTOCOL_FREEZE_RECEIPT_V5_PREOUTCOME",
+      "timestamp": "2026-08-16T17:33:34-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+      "gate_status": "STALE_AFTER_INDEPENDENT_REAUDIT_FAIL"
+    },
+    {
+      "artifact": "GOVERNANCE/CODE_AUDIT_PROTOCOL_V5_ADDENDUM.json",
+      "sha256": "57AF7958504C3419DF4122BBCB4342EC5BF0AD8E548310BE136A94C2A4BC5E48",
+      "freeze_type": "PROSPECTIVE_V5_CODE_AUDIT_ADDENDUM_BEFORE_CODE_VISIBILITY",
+      "timestamp": "2026-08-16T17:38:00-04:00",
+      "responsible_role": "Independent Prospective Code Audit Protocol Author",
+      "supersedes": null,
+      "gate_status": "NO_IMPLEMENTATION_AUTHORITY_AFTER_V5_FAIL"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+      "sha256": "485E664B663BBC2E3A13A5FE05C86684B1295490FEB703EFFE77AB5CEB7EA1CA",
+      "freeze_type": "INDEPENDENT_PROTOCOL_V5_REAUDIT_RECEIPT",
+      "timestamp": "2026-08-16T20:02:00-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+      "gate_status": "FAIL_IMPLEMENTATION_DENIED"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_V5_STALE_DECLARATION.json",
+      "sha256": "3CB110644DDE677E57F67D0B4D769BA0F9C7FEB7CBC76755B721138A7C24D503",
+      "freeze_type": "PROTOCOL_V5_STALE_DECLARATION_PREOUTCOME",
+      "timestamp": "2026-08-16T20:03:44-04:00",
+      "responsible_role": "Root Orchestrator",
+      "supersedes": null,
+      "gate_status": "V6_REPAIR_ONLY_OUTCOMES_CLOSED"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+      "sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+      "freeze_type": "PROSPECTIVE_V6_REAUDIT_ADDENDUM_BEFORE_V6_VISIBILITY",
+      "timestamp": "2026-08-16T20:45:00-04:00",
+      "responsible_role": "Independent Prospective V6 Reaudit Addendum Author",
+      "supersedes": null,
+      "gate_status": "RESTORED_BYTE_IDENTICAL_INCIDENT_CLOSEOUT_PASS"
+    },
+    {
+      "artifact": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_INCIDENT_CLOSEOUT.json",
+      "sha256": "35ED66C434905C6DE75F9BA80B2B2F6E54F5A1CB91FA6939066EA67D0163EFB7",
+      "freeze_type": "V6_ADDENDUM_DELETION_INCIDENT_CLOSEOUT",
+      "timestamp": "2026-08-16T20:49:00-04:00",
+      "responsible_role": "Clean Governance Auditor",
+      "supersedes": null,
+      "gate_status": "PASS_NARROWED_V6_REAUTHORIZATION_ELIGIBLE"
+    }
+  ],
+  "created_at": "2026-08-16T11:02:00-04:00",
+  "last_updated_at": "2026-08-16T20:50:01-04:00"
+}

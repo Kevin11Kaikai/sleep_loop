@@ -1,0 +1,61 @@
+{
+  "schema": "COSTA_R4_ACCESS_CLOSEOUT_AUDIT_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "auditor_role": "/root/costa_campaign_root_r4/r4_adversarial_judge",
+  "audited_at": "2026-08-16T03:43:58.4124667-04:00",
+  "verdict": "PASS_CLOSED",
+  "protected_access_verdict": "PASS_NONE",
+  "protected_access_entries": 0,
+  "denylist_breach_found": false,
+  "night2_access_found": false,
+  "protected_derived_access_found": false,
+  "sealed_or_fresh_final_access_found": false,
+  "prior_outcome_access_in_execution_closure_found": false,
+  "authorized_night1_raw_open_budget": {
+    "data/sleep-edfx-cassette/SC4001E0-PSG.edf": {
+      "provenance_sha256_reads": 1,
+      "worker_steward_mne_logical_reads": 1,
+      "independent_verifier_mne_logical_reads": 1,
+      "total": 3,
+      "budget": 3,
+      "remaining": 0,
+      "status": "EXHAUSTED_CLOSED"
+    },
+    "data/sleep-edfx-cassette/SC4001EC-Hypnogram.edf": {
+      "provenance_sha256_reads": 1,
+      "worker_steward_mne_logical_reads": 1,
+      "independent_verifier_mne_logical_reads": 1,
+      "total": 3,
+      "budget": 3,
+      "remaining": 0,
+      "status": "EXHAUSTED_CLOSED"
+    }
+  },
+  "adversarial_auditor_access": {
+    "original_edf_reads_or_hashes": 0,
+    "protected_or_night2_reads_lists_previews_hashes": 0,
+    "prior_campaign_path_reads": 0,
+    "scratch_root_draft_reads": 0
+  },
+  "role_closeout": {
+    "builder_data_access": "NONE",
+    "partition_steward": "AUTHORIZED_NIGHT1_ONLY",
+    "scientific_worker_original_edf_access": "NONE",
+    "independent_verifier": "ONE_RESERVED_MNE_LOGICAL_READ_PER_AUTHORIZED_EDF",
+    "adversarial_judge": "STANDARDIZED_EVIDENCE_ONLY"
+  },
+  "current_ledger_hashes": {
+    "STATE/ACCESS_LEDGER.json": "33701EC079B400B3EB6E0332A719BD91E188286A721895A49228FC281CAD337D",
+    "STATE/AGENT_ROLE_LEDGER.json": "70FD79D1398906C958AA6DF5941FA02CB0D818C028D8A55A4959B893B69869F5",
+    "COMMON/PROTECTED_DENYLIST.json": "503A3DB11654DB6934AACEFD8B4C679B07DC7D725C2B803B714CE05024C00525",
+    "STATE/PRE_RAW_EXECUTION_FREEZE.json": "89CA8649AB1383F6EFC8BD467ECF7EDC872FA099F945A70AE73735EF3C624A5B",
+    "STATE/DATA_PARTITION_FREEZE.json": "FB4216DEC7C2EC2F1AD4F91BED94961302592E5CEF0F58EF673FB973CC3B3F89",
+    "VERIFICATION/VERIFIER_OUTPUT_FREEZE.json": "60593BEFE0601AD2B4A5AA69FF868527F190697B3B2EC9E361B36E47A6454E25"
+  },
+  "limitations": [
+    "Raw-open accounting is the prospectively defined logical-operation budget, not an OS-handle count.",
+    "The access and role ledgers are append-only by policy but are not per-entry cryptographically chained.",
+    "The initial denylist outer-path hash label was corrected outcome-blind by the later exact import allowlist; the stale denylist text should not be treated as the execution import authority."
+  ],
+  "further_raw_or_protected_access_authorized": false
+}

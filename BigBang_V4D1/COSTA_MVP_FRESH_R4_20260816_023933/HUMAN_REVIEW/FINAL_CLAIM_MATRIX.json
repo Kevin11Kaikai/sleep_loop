@@ -1,0 +1,46 @@
+{
+  "schema": "COSTA_R4_FINAL_CLAIM_MATRIX_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "COSTA_DISSERTATION_MVP": "PASS",
+  "scope_qualifier": "PASS applies only to narrow M1/P0/INDEPENDENT_REPRODUCTION scope; this is not a dissertation-sufficiency judgment.",
+  "final_assignment": {
+    "M": "M1",
+    "C": "C0",
+    "P": "P0",
+    "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION",
+    "reproduction_tier": "INDEPENDENT_REPRODUCTION"
+  },
+  "claims": {
+    "M1": "ELIGIBLE",
+    "C0": "ASSIGNED",
+    "P0": "ASSIGNED",
+    "C1": "NOT_ASSIGNED",
+    "M2": "NOT_ELIGIBLE/NOT_AUTHORIZED",
+    "C2": "NOT_ELIGIBLE/NOT_AUTHORIZED",
+    "P1": "NOT_ELIGIBLE/NOT_AUTHORIZED",
+    "P2": "NOT_ELIGIBLE/NOT_AUTHORIZED"
+  },
+  "mandatory_gates": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS",
+    "G6": "PASS",
+    "G7": "PASS_INDEPENDENT_REPRODUCTION"
+  },
+  "MATERIAL_DISAGREEMENT": false,
+  "protected_access_verdict": "PASS_NONE",
+  "raw_open_budget": "EXHAUSTED_CLOSED",
+  "maximum_supported_claim": "Model-internal personalized mechanistic consistency was independently reproduced for a frozen proxy-level one-subject Night-1 discovery analysis.",
+  "prohibited_conclusions": [
+    "dissertation sufficiency",
+    "M2, C2, P1, or P2 assignment",
+    "C1 assignment",
+    "validated human mechanism or human causality",
+    "population generalization",
+    "scalp-voltage validity",
+    "Night-2 prediction or sealed/fresh-final validation",
+    "clinical, treatment, stimulation, or medical-decision efficacy"
+  ]
+}

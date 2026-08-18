@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "environment_version": "NEUROLIB_ENV_V3",
+  "frozen_at": "2026-08-16T11:45:39.9317380-04:00",
+  "wall_clock_deadline": "2026-08-18T23:59:59-04:00",
+  "resources": {
+    "total_cpu_hours": 180,
+    "total_gpu_hours": 4,
+    "gpu_hours_required_for_valid_completion": 0,
+    "storage_limit_gib": 50,
+    "logical_processors_available": 20,
+    "max_concurrent_scientific_processes": 3,
+    "threads_per_process": 4,
+    "current_memory_admitted_concurrent_processes": 1,
+    "memory_admission_contract": "STATE/ENVIRONMENT_SNAPSHOT.json#memory_admission_contract",
+    "official_launcher": "PREFLIGHT/run_neurolib.ps1"
+  },
+  "stage_cpu_hour_budget": {
+    "governance_environment_and_data_audit": 10,
+    "data_free_and_synthetic_preflight": 10,
+    "phase2a_worker_execution": 60,
+    "phase2b_worker_execution_if_eligible": 35,
+    "independent_verification_reserve": 50,
+    "outcome_blind_repair_reserve": 10,
+    "adversarial_final_judgment_and_packaging": 5
+  },
+  "verification_reserve": {
+    "cpu_hours": 50,
+    "fraction_of_total": 0.2777777778,
+    "minimum_required_fraction": 0.25,
+    "status": "PASS_RESERVED",
+    "protected_from_worker_use": true
+  },
+  "repair_reserve": {
+    "cpu_hours": 10,
+    "maximum_cycles_per_scientific_lineage": 2,
+    "maximum_wall_clock_hours_per_lineage": 2,
+    "maximum_fraction_of_lineage_budget": 0.10,
+    "outcome_guided_scientific_repairs_permitted": false
+  },
+  "checkpoint_policy": [
+    "write an atomic machine-readable checkpoint after every target and every subject-target block",
+    "preserve completed valid target evidence across interruption",
+    "resume only from hash-verified current-campaign checkpoints",
+    "never resume from R1-R4 working state"
+  ],
+  "budget_stop_rules": [
+    "stop a target after a valid frozen failure boundary rather than repeatedly tuning",
+    "do not consume independent verification reserve for worker exploration",
+    "do not exceed 125 percent of any worker-stage allocation without a new outcome-blind budget version and independent audit",
+    "stop Phase 2B if the frozen subject denominator or data-eligibility gate is not met",
+    "stop any run on repeated numerical instability, solver failure, or disk usage above 45 GiB"
+  ],
+  "degradation_priority": [
+    "complete valid Phase 2A assessment of all eight targets",
+    "preserve required seed and nearby-parameter robustness",
+    "execute eligible Phase 2B selected targets",
+    "retain independent verification reserve",
+    "reduce optional dose density or optional two-parameter surfaces",
+    "reduce nonessential figure variants"
+  ],
+  "status": "FROZEN_V3_PENDING_FINAL_INDEPENDENT_COMPUTE_REAUDIT",
+  "responsible_role": "Root Orchestrator"
+}

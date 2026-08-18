@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "INDEPENDENT_IMMUTABLE_PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT",
+  "audit_id": "PROTOCOL-V6-READUDIT-ADDENDUM-V2-AUDIT-001",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "created_at": "2026-08-16T21:53:51-04:00",
+  "auditor_role": "independent outcome-blind governance amendment auditor",
+  "audit_mode": "STATIC_NONCOMPENSATORY_NO_EXECUTION",
+  "immutability": {
+    "status": "IMMUTABLE_ON_CREATION",
+    "amendment_policy": "Do not edit this receipt. Any correction or successor audit must be a separately named artifact binding this receipt by its externally reported SHA-256.",
+    "receipt_hash_policy": "The complete receipt SHA-256 is reported externally after creation and is not recursively embedded."
+  },
+  "scope": {
+    "campaign_root": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951",
+    "exact_inputs_only": [
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json",
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+      "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json",
+      "GOVERNANCE/V6_COMPILER_BOOTSTRAP_ADJUDICATION.json"
+    ],
+    "prohibited": [
+      "Candidate V6 access, stat, hash, read, or enumeration",
+      "fixture compiler package or other code access",
+      "PREFLIGHT access",
+      "data, R4, checkpoints, outputs, or outcomes",
+      "Python, compiler, launcher, preflight, model, or scientific execution",
+      "directory enumeration",
+      "STATE modification"
+    ],
+    "scope_compliance": "PASS"
+  },
+  "input_integrity": {
+    "verdict": "PASS",
+    "hash_algorithm": "SHA-256",
+    "sealed_rehash_at": "2026-08-16T21:53:51-04:00",
+    "files": [
+      {
+        "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2.json",
+        "expected_bytes": 62447,
+        "observed_bytes": 62447,
+        "expected_sha256": "ABF4E15ABCC08A6BD6CED113D0E21349E2067A7587EE8A2B230FAB31D3EF4B32",
+        "observed_sha256": "ABF4E15ABCC08A6BD6CED113D0E21349E2067A7587EE8A2B230FAB31D3EF4B32",
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+        "expected_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+        "observed_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+        "observed_bytes": 64268,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json",
+        "expected_sha256": "F0D0B8C2511AE4DEB2447E54D95313280BCFC0BA33060DD2AAC8A1E89D070409",
+        "observed_sha256": "F0D0B8C2511AE4DEB2447E54D95313280BCFC0BA33060DD2AAC8A1E89D070409",
+        "observed_bytes": 25872,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/V6_COMPILER_BOOTSTRAP_ADJUDICATION.json",
+        "expected_sha256": "9B287254D2E25FF7D8588674A9F151DDF3C6DFE7313CEDE9D804E7E6B20771EF",
+        "observed_sha256": "9B287254D2E25FF7D8588674A9F151DDF3C6DFE7313CEDE9D804E7E6B20771EF",
+        "observed_bytes": 15352,
+        "json_valid": true,
+        "verdict": "PASS"
+      }
+    ]
+  },
+  "audit_method": {
+    "full_v2_scan": "PASS_634_LINES",
+    "v1_semantic_preservation_method": "Compared every V2 incorporation declaration and repeated invariant to the exact V1 parent, then treated the V1 full-file hash binding as the immutable source for incorporated scientific, closure, schema, fixture, regression, re-audit, and gate sections.",
+    "compiler_fail_closure_method": "Mapped V6FC-SA-B001 through V6FC-SA-B008 to the V2 staged requirements without treating a future package or static audit as evidence that the amendment itself is complete.",
+    "bootstrap_adjudication_method": "Traced the required A then amended-B then independent lockfile audit/freeze then C then D route, including non-authority, no-learning, role, path, transaction, and release barriers.",
+    "path_registry_checks": {
+      "registered_path_ids": 42,
+      "explicit_path_id_references_checked": 97,
+      "missing_path_ids": 0,
+      "duplicate_relative_paths": 0,
+      "duplicate_absolute_paths": 0,
+      "relative_absolute_mismatches": 0,
+      "verdict": "PASS"
+    }
+  },
+  "verdicts": {
+    "OVERALL": "FAIL_BLOCKING",
+    "INPUT_INTEGRITY": "PASS",
+    "V1_SCIENTIFIC_SEMANTICS_PRESERVED": "PASS",
+    "PV5_B001_THROUGH_PV5_B005_PRESERVED": "PASS",
+    "V5_V4_REGRESSION_SCOPE_PRESERVED": "PASS",
+    "CASE_REGISTRY_AND_CANONICAL_IDS_PRESERVED": "PASS",
+    "COUNTS_PHASE2B_AND_CLAIM_CEILING_PRESERVED": "PASS",
+    "NO_OUTCOME_LEAKAGE": "PASS",
+    "BOOTSTRAP_CIRCULARITY_CLOSED_IN_PRINCIPLE": "PASS",
+    "NO_RETROACTIVE_RESULT_SELECTION_WITHIN_A_RELEASE": "PASS",
+    "A_B_LOCKFILE_FREEZE_C_D_ORDER_AND_BARRIERS": "PASS",
+    "PATH_REGISTRY_IDENTITY": "PASS",
+    "COMPLETE_ROLE_SPECIFIC_ALLOWLISTS": "FAIL_BLOCKING",
+    "MECHANICALLY_COMPLETE_TYPED_SCHEMAS": "FAIL_BLOCKING",
+    "ATOMIC_SUCCESS_FAILURE_TRANSACTION": "FAIL_BLOCKING",
+    "CROSS_STAGE_ROLE_ISOLATION": "FAIL_BLOCKING",
+    "FAILURE_AND_SPENT_INTENT": "PASS",
+    "FAILURE_AND_SPENT_IMPLEMENTABILITY": "FAIL_BLOCKING",
+    "NO_EVIDENCE_OR_SCIENTIFIC_AUTHORITY": "PASS",
+    "SUPERSESSION_CONTRACT": "PASS",
+    "RELEASE_GATES_AS_STATED": "PASS",
+    "STAGE_A_ELIGIBILITY_UNDER_THIS_EXACT_V2": "DENIED_BY_AUDIT",
+    "STAGE_B_BOOTSTRAP_RELEASE": "DENIED",
+    "STAGE_C_AUTHORING_RELEASE": "DENIED_PENDING_AMENDMENT_REPAIR",
+    "STAGE_D_EXECUTION_RELEASE": "DENIED"
+  },
+  "passing_findings": [
+    {
+      "finding_id": "V6A2-AUD-P001",
+      "finding": "V2 binds the exact V1 parent, compiler static FAIL, and bootstrap adjudication paths, byte sizes, and hashes, and declares an explicit narrow supersession limited to the compiler-bootstrap transaction. The stricter-rule and ambiguity-fails-closed clauses are clear."
+    },
+    {
+      "finding_id": "V6A2-AUD-P002",
+      "finding": "The exact scientific origin PV4-EDGE-B001, ordered closures PV5-B001 through PV5-B005, all seventeen V1 blocker codes, and all eight compiler static-audit blockers are carried forward noncompensatorily."
+    },
+    {
+      "finding_id": "V6A2-AUD-P003",
+      "finding": "The canonical veto, block, condition, candidate, accepted, class, consumption, serialization, affine, observation, bootstrap, and fixture IDs match V1. The exact 23 case IDs are byte-for-byte equal and in the same order."
+    },
+    {
+      "finding_id": "V6A2-AUD-P004",
+      "finding": "Targets 8, claims 8, C2 gates 10, Level-A condition IDs 50, runs 1800+900+456=3156, maximum advancing targets 3, Phase2B NOT_ESTIMABLE with N=0/minimum 3, zero synthetic substitution, zero repair simulations, and M1/C0/P0 remain unchanged. All more detailed V1 regression sections remain incorporated through the exact immutable parent hash."
+    },
+    {
+      "finding_id": "V6A2-AUD-P005",
+      "finding": "The conceptual noncircular route is correct: literal primitive bytes freeze before derivation; Stage B is expressly non-authoritative and data-free; its candidate lockfile needs independent result audit and Root freeze; Stage C rebuilds a distinct official package; Stage D recomputes and compares without learning, fallback, or lockfile mutation."
+    },
+    {
+      "finding_id": "V6A2-AUD-P006",
+      "finding": "Within one release, immutable stage barriers, exact IDs, pre-run freezes, no in-run repair, no favorable substitution, and new-version requirements prevent retroactive acceptance or adjustment of derived values. A failure has no evidence or rerun authority."
+    },
+    {
+      "finding_id": "V6A2-AUD-P007",
+      "finding": "All 42 registered path IDs are unique, every checked path reference resolves, all relative paths map exactly to their registered campaign-root absolute paths, and the old DDB61398... fixture prestate is recognized without authorizing overwrite or removal."
+    },
+    {
+      "finding_id": "V6A2-AUD-P008",
+      "finding": "Path normalization, no-link/no-reparse/no-hardlink intent, stable-handle hashing, exclusive temporary creation, same-volume no-replace rename, environment hashing, dependency limitation, one-shot spending, no retry, and immutable receipt intent are materially stronger than the failed compiler package."
+    },
+    {
+      "finding_id": "V6A2-AUD-P009",
+      "finding": "The amendment repeatedly and consistently denies model, production implementation, preflight, simulation, data, R4, outcome, claim, gate, advancement, run-count, and scientific-evidence authority. No scientific result or outcome-derived value is present."
+    },
+    {
+      "finding_id": "V6A2-AUD-P010",
+      "finding": "The declared release gates are sequenced and nonautomatic: V2 alone is not an execution release; Stage B needs package freeze, independent static PASS, and Root one-shot authorization; Stage D additionally needs the frozen lockfile, rebuilt package static PASS, Root authorization, and absent output paths."
+    }
+  ],
+  "blocking_findings": [
+    {
+      "finding_id": "V6A2-AUD-B001",
+      "severity": "BLOCKING",
+      "title": "Stage B and Stage D cannot guarantee their mandated final-output-absent failure state after the final rename",
+      "affected_json_paths": [
+        "stage_B_nonauthoritative_lockfile_derivation.atomic_transaction[3..6]",
+        "stage_D_one_shot_official_recomputation_and_atomic_publish.execution_rules[4..7]",
+        "receipt_and_authorization_schemas.success_failure_exclusivity",
+        "fail_closed_semantics.transaction_failures"
+      ],
+      "evidence": "Each stage first renames the validated temporary output to its final output path and only afterward atomically publishes the success receipt. If success-receipt creation, flush, validation, or rename then fails, the final output already exists. The same rule simultaneously requires failure publication with the final output absent and authorizes removal only of the temporary file. No deletion, quarantine, rollback, atomic directory commit, or explicit orphan-final state is authorized. Atomicity of two independent final path publications is not provided by a single-file rename.",
+      "impact": "A permitted crash or receipt failure creates a filesystem state that violates every allowed success/failure branch. The invocation is spent, but neither the mandated failure state nor an independently acceptable success trail can be produced. This is an internal contradiction and an unimplementable transaction specification.",
+      "minimal_versioned_repair": [
+        "Define one exact commit state machine for both Stage B and Stage D with every interruption point enumerated.",
+        "Either atomically publish output plus success metadata as one transactionally renamed container, or explicitly permit and schema-bind an UNCOMMITTED_ORPHAN_FINAL state after output rename but before success-receipt commit.",
+        "If an orphan may exist, bind its exact path/hash, deny it all authority, publish a failure or incident receipt, and require a separate Root-controlled quarantine/removal and independent closeout before any new release.",
+        "Do not require final_output_absent=true on branches where the specification cannot guarantee it; freeze exact allowed values and recovery authority prospectively."
+      ]
+    },
+    {
+      "finding_id": "V6A2-AUD-B002",
+      "severity": "BLOCKING",
+      "title": "The stated read/write allowlists are not complete and are not role-specific across the full route",
+      "affected_json_paths": [
+        "stage_A_literal_primitive_freeze.allowed_writes",
+        "stage_B_nonauthoritative_lockfile_derivation.exact_read_allowlist_path_ids",
+        "stage_B_nonauthoritative_lockfile_derivation.exact_write_allowlist_path_ids",
+        "stage_B_nonauthoritative_lockfile_derivation.atomic_transaction[3]",
+        "stage_B_independent_result_audit_and_root_freeze",
+        "stage_C_official_compiler_rebuild_and_static_pass",
+        "stage_D_one_shot_official_recomputation_and_atomic_publish.exact_read_allowlist_path_ids",
+        "stage_D_one_shot_official_recomputation_and_atomic_publish.exact_write_allowlist_path_ids",
+        "stage_D_one_shot_official_recomputation_and_atomic_publish.execution_rules[5]"
+      ],
+      "evidence": [
+        "Stage B requires reopening candidate_lockfile_temp for parse/schema/hash validation, but candidate_lockfile_temp appears only in the write allowlist, not the exact read allowlist. Stage D has the same contradiction for official_fixture_temp.",
+        "Python startup, imports, NumPy/SciPy/native-library loading, and permitted Win32 calls necessarily read executable, standard-library, distribution, and native binary paths. The environment lock records a file ledger, but the exact runtime read allowlists neither enumerate those paths nor state that the frozen environment ledger is an allowed expansion. Thus either legitimate runtime reads violate the exact allowlist or the allowlist is not complete.",
+        "Stage A gives one aggregate write list containing literal_bundle, literal_static_audit, and literal_root_freeze rather than disjoint writer scopes. The literal Root freezer lacks an explicit read/write scope. Derivation and official authors/static auditors, the lockfile freezer, and the official postrun auditor do not all have complete per-role read and write allowlists. Several audit/freeze outputs are only implied by path names.",
+        "The independent lockfile result audit mandates recomputation or transparent verification of every 36k-derived value but binds no exact verifier/tool execution boundary, dependency/environment ledger, or write scope for that calculation."
+      ],
+      "impact": "The amendment cannot mechanically distinguish a compliant read-back or runtime dependency load from forbidden access, and it permits ambiguous role ownership of governance artifacts. This fails the V1 no-auditor-choice rule and the bootstrap adjudication's complete normalized allowlist requirement.",
+      "minimal_versioned_repair": [
+        "Define separate exact read, read-after-write, metadata-check, and write/delete/rename permissions for every named role and substage: literal author/auditor/freezer; derivation author/static auditor/operator/result auditor/freezer; official author/static auditor/operator/postrun auditor.",
+        "Add each temporary output to the exact read-after-write allowlist required by its reopen validation.",
+        "State mechanically that the runtime dependency read set equals the exact frozen environment-lock file ledger plus the explicitly registered governance/package paths, and bind all interpreter, launcher, standard-library, package, native DLL, and OS-loader exceptions by normalized path, size, and hash.",
+        "Freeze the independent recomputation method and its access/execution boundary, or narrow result audit to checks that do not require ungoverned numerical execution and reserve full independent recomputation to a separately audited verifier."
+      ]
+    },
+    {
+      "finding_id": "V6A2-AUD-B003",
+      "severity": "BLOCKING",
+      "title": "Stage A, authorization, freeze, and transaction receipt schemas are not mechanically complete",
+      "affected_json_paths": [
+        "stage_A_literal_primitive_freeze",
+        "derived_lockfile_schema",
+        "stage_B_independent_result_audit_and_root_freeze.root_freeze_required_fields_in_order",
+        "receipt_and_authorization_schemas"
+      ],
+      "evidence": [
+        "Stage A declares a literal bundle schema ID and ordered field-name lists but does not freeze the type, cardinality, ordering, nullability, enum, key grammar, canonicalization, or nonrecursive hash domain for case_registry, source_arrays_by_sha256, coefficient_arrays_by_sha256, semantic_roles, scientific_parameter_binding, primitive provenance, or literal_bundle_payload_hash_envelope. No exact literal-bundle schema file path is registered.",
+        "No exact typed schema or required-field contract is supplied for literal_static_audit or literal_root_freeze even though their PASS and hash are mandatory Stage B inputs.",
+        "The common authorization field list omits a frozen authorization_schema_id and does not fix the Stage B and Stage D authorization_id values. Receipt fields such as consumption_state, overall_status, partial_write_state, forbidden_access_attestation, case_by_case_verdicts, and expected_actual_intermediate_hash_ledger lack exact types, enums, null rules, and nested schemas.",
+        "The derived lockfile schema identifies all major semantic categories and future derivation_schema path, which is a sound package-stage direction, but multiple nested structures remain prose or field labels. The future schema could close those before execution; Stage A cannot proceed because its own immediate bundle/audit/freeze schema has no such deferred exact schema artifact."
+      ],
+      "impact": "Different authors and auditors can serialize materially different but superficially compliant governance artifacts, while V1 expressly forbids the auditor from supplying a missing type, enum, null rule, ordering, or hash domain. Stage A is therefore not eligible under this exact V2 despite the activation text.",
+      "minimal_versioned_repair": [
+        "Register and fully freeze an exact canonical typed literal-bundle schema, literal static-audit schema, and literal Root-freeze schema before Stage A authoring.",
+        "Freeze distinct Stage B and Stage D authorization schema IDs and exact authorization IDs.",
+        "Define every authorization/success/failure/spent/audit/freeze field's type, enum, nullability, ordering, nested object schema, canonicalization, and nonrecursive hash domain, including exact PASS, FAIL_CLOSED, consumption, and partial-write states.",
+        "Require the future derivation and official package schemas to refine only representational details already fixed by the amendment and V1, never select an unstated semantic after bootstrap values exist."
+      ]
+    },
+    {
+      "finding_id": "V6A2-AUD-B004",
+      "severity": "BLOCKING",
+      "title": "Cross-stage role constraints do not guarantee an independent derivation-to-official verification",
+      "affected_json_paths": [
+        "stage_B_independent_result_audit_and_root_freeze.role_isolation",
+        "stage_C_official_compiler_rebuild_and_static_pass.package_requirements[2]",
+        "role_separation.roles_in_order",
+        "role_separation.disjointness"
+      ],
+      "evidence": "V2 requires pairwise separation within the derivation group and within the official group and prevents the lockfile result auditor/freezer from operating the official compiler. It does not prohibit derivation_author from also being official_compiler_author, derivation_static_auditor from serving as official_static_auditor, or other cross-stage author/auditor combinations that can make the supposedly independent official implementation and postrun confirmation share the lockfile derivation's design and review lineage. A distinct path and distinct file hash do not establish independent implementation.",
+      "impact": "A common implementation error can be reproduced in both the candidate lockfile and official verifier without an independent role boundary, weakening the central noncircular assurance for which V2 exists.",
+      "minimal_versioned_repair": [
+        "Freeze an explicit cross-stage disjointness matrix, at minimum derivation_author != official_compiler_author, derivation_static_auditor != official_static_auditor, and official_postrun_auditor distinct from every derivation author/operator/result-auditor role whose work it validates.",
+        "Keep Root governance coordination separate from derivation and official operation and bind every stable role ID in releases, authorizations, receipts, audits, and freezes.",
+        "Define independent implementation as both source independence and role/provenance independence; require the static audits to compare algorithm structure and reject copied or lockfile-special-cased logic, not merely byte-identical files."
+      ]
+    }
+  ],
+  "nonblocking_findings": [],
+  "noncompensatory_decision": {
+    "rule": "Every governance requirement is mandatory. Scientific preservation and a sound conceptual bootstrap route cannot compensate for an unimplementable commit state, incomplete access boundary, nonmechanical schema, or insufficient independence.",
+    "blocking_finding_count": 4,
+    "unresolved_blocking_finding_count": 4,
+    "result": "FAIL_BLOCKING"
+  },
+  "release_decision": {
+    "v2_amendment_activation_for_stage_A": "DENIED",
+    "literal_bundle_authoring": "DENIED_PENDING_VERSIONED_REPAIR",
+    "lockfile_derivation_package_authoring": "DENIED_PENDING_VERSIONED_REPAIR",
+    "lockfile_derivation_execution": "DENIED",
+    "official_compiler_authoring": "DENIED_PENDING_VERSIONED_REPAIR_AND_PRIOR_STAGE_COMPLETION",
+    "official_compiler_execution": "DENIED",
+    "Candidate_V6_access": "DENIED",
+    "implementation": "DENIED",
+    "preflight": "DENIED",
+    "scientific_execution": "DENIED",
+    "data_R4_outcome_access": "DENIED",
+    "automatic_release": false,
+    "next_permitted_action": "Outcome-blind authoring and independent audit of a separately named immutable amendment version repairing V6A2-AUD-B001 through V6A2-AUD-B004 without changing any passing scientific, regression, case, count, no-evidence, supersession, or gate invariant."
+  },
+  "access_and_mutation_attestation": {
+    "Candidate_V6_access": "NONE",
+    "compiler_or_CODE_access": "NONE",
+    "PREFLIGHT_access": "NONE",
+    "data_access": "NONE",
+    "R4_access": "NONE",
+    "outcome_access": "NONE",
+    "protected_access": "NONE",
+    "Python_or_launcher_execution": "NONE",
+    "scientific_execution": "NONE",
+    "STATE_modified": false,
+    "source_or_governing_controls_modified": false,
+    "only_created_artifact": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V2_AUDIT.json"
+  },
+  "final_verdict": "FAIL_BLOCKING"
+}

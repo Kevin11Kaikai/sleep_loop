@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_COMPUTE_BUDGET_AUDIT",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "environment_version": "NEUROLIB_ENV_V1",
+  "audited_at": "2026-08-16T11:57:58.2027193-04:00",
+  "auditor_role": "Independent Compute Budget Auditor",
+  "immutability": {
+    "write_once": true,
+    "supersession_requires_new_receipt_path": true,
+    "state_budget_and_environment_modified": false
+  },
+  "scope": {
+    "authorized_files_read": [
+      "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "STATE/ENVIRONMENT_LOG.md",
+      "COMMON/COMPUTE_BUDGET.json",
+      "STATE/COMPUTE_USAGE.json",
+      "PREFLIGHT/environment_probe.py",
+      "COMMON/CAMPAIGN_IDENTITY.json",
+      "COMMON/CONTEXT_OF_USE.md"
+    ],
+    "repository_scientific_content_inspected": false,
+    "campaign_outcome_code_executed": false,
+    "bounded_preflight_smoke_probe_reproduced": true,
+    "scientific_outcomes_inspected": false
+  },
+  "input_integrity": {
+    "hash_algorithm": "SHA-256",
+    "canonical_input_set_encoding": "UTF-8 lines in listed order, each relative_path=uppercase_sha256 followed by LF",
+    "canonical_input_set_sha256": "D3960D6B69C3EA1AEF9F2E2A94D095FAECB87B4B3088D0937414E01A0B35E21A",
+    "files": [
+      {
+        "path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+        "bytes": 3044,
+        "sha256": "E7C7CCC9A9DD8B122480FB9A7C55B32F326D0B01AAF6921FB2C4AA856DEF4B23"
+      },
+      {
+        "path": "STATE/ENVIRONMENT_LOG.md",
+        "bytes": 778,
+        "sha256": "A17B8790FF07EBA83CBE4FD11ADDF2BF60168CC3E902AB589AFEE2EF428117FD"
+      },
+      {
+        "path": "COMMON/COMPUTE_BUDGET.json",
+        "bytes": 2593,
+        "sha256": "17A3BC17E9374D254773852B0B6DE2680464239D8C12044F1A24B5FAB6C7BF42"
+      },
+      {
+        "path": "STATE/COMPUTE_USAGE.json",
+        "bytes": 573,
+        "sha256": "EE55A89E3725AD251C2081A95B1D32086F6CDF32B3D42A58436D130F0A1502CA"
+      },
+      {
+        "path": "PREFLIGHT/environment_probe.py",
+        "bytes": 2373,
+        "sha256": "64E225E0B768987BDD994CF24305036EDBF04189387A25552CC65F435B756D01"
+      },
+      {
+        "path": "COMMON/CAMPAIGN_IDENTITY.json",
+        "bytes": 2644,
+        "sha256": "29DAD8795AD9B2A12298627F7BAFD2EB2022C0C1F03C031ED1428ED0FCE5B266"
+      },
+      {
+        "path": "COMMON/CONTEXT_OF_USE.md",
+        "bytes": 1027,
+        "sha256": "44E3185D67DE0C4DB592B95EE28ED61ABD98BB7D1F1D96E46DB2944D268081EA"
+      }
+    ],
+    "status": "PASS"
+  },
+  "independent_environment_evidence": {
+    "launcher": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat",
+    "probe_command": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat run -n neurolib python D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\environment_probe.py",
+    "probe_exit_code": 0,
+    "observed_interpreter": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+    "observed_conda_environment": "neurolib",
+    "observed_python_version": "3.10.20",
+    "observed_platform": "Windows-10-10.0.19045-SP0",
+    "observed_packages": {
+      "neurolib": "0.6.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "pandas": "2.3.3",
+      "matplotlib": "3.10.8",
+      "mne": "1.9.0",
+      "h5py": "3.15.1",
+      "numba": "0.64.0",
+      "joblib": "1.5.3",
+      "scikit_learn": "1.7.2",
+      "statsmodels": "0.14.6",
+      "psutil": "7.2.2",
+      "PyYAML": "6.0.3",
+      "brainmass": "NOT_INSTALLED",
+      "jax": "NOT_INSTALLED"
+    },
+    "smoke_test": {
+      "model": "neurolib.models.wc.WCModel",
+      "duration_ms": 20.0,
+      "output_shape": [
+        1,
+        200
+      ],
+      "finite": true,
+      "status": "PASS"
+    },
+    "package_and_environment_consistency_status": "PASS",
+    "smoke_test_evidence_status": "PASS"
+  },
+  "independent_hardware_observation": {
+    "command_environment": "neurolib via the exact frozen Conda launcher",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13600KF",
+    "physical_cores": 14,
+    "logical_processors": 20,
+    "total_memory_bytes": 34055770112,
+    "available_memory_bytes_at_audit": 9964457984,
+    "drive_d_total_bytes": 1363148795904,
+    "drive_d_free_bytes_at_audit": 1005083459584,
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+    "gpu_memory_total_mib": 16376,
+    "gpu_memory_free_mib_at_audit": 13585,
+    "nvidia_driver": "566.14",
+    "dynamic_free_memory_and_storage_values_expected_to_vary": true
+  },
+  "budget_arithmetic": {
+    "total_cpu_hours": 180,
+    "stage_cpu_hours": {
+      "governance_environment_and_data_audit": 10,
+      "data_free_and_synthetic_preflight": 10,
+      "phase2a_worker_execution": 60,
+      "phase2b_worker_execution_if_eligible": 35,
+      "independent_verification_reserve": 50,
+      "outcome_blind_repair_reserve": 10,
+      "adversarial_final_judgment_and_packaging": 5
+    },
+    "stage_sum_cpu_hours": 180,
+    "stage_sum_matches_total": true,
+    "verification_reserve_cpu_hours": 50,
+    "verification_reserve_fraction_recomputed": 0.2777777777777778,
+    "verification_reserve_minimum_fraction": 0.25,
+    "verification_reserve_protected_from_worker_use": true,
+    "repair_reserve_cpu_hours": 10,
+    "repair_reserve_fraction_of_total": 0.05555555555555555,
+    "repair_maximum_cycles_per_lineage": 2,
+    "repair_maximum_wall_clock_hours_per_lineage": 2,
+    "repair_maximum_fraction_of_lineage_budget": 0.1,
+    "outcome_guided_repairs_permitted": false,
+    "status": "PASS"
+  },
+  "capacity_and_feasibility": {
+    "budget_window_hours": 60.23863007277778,
+    "logical_processors_available": 20,
+    "threads_per_process": 4,
+    "maximum_concurrent_scientific_processes": 3,
+    "maximum_contracted_logical_threads": 12,
+    "logical_thread_headroom": 8,
+    "cpu_budget_wall_hours_at_full_contracted_parallelism": 15.0,
+    "theoretical_window_capacity_cpu_hours_at_contracted_parallelism": 722.8635608733334,
+    "gpu_budget_hours": 4,
+    "gpu_required_for_valid_completion_hours": 0,
+    "storage_limit_gib": 50,
+    "storage_stop_threshold_gib": 45,
+    "drive_d_free_gib_at_audit": 936.0569152832031,
+    "cpu_wall_clock_feasibility_status": "PASS",
+    "gpu_feasibility_status": "PASS",
+    "storage_feasibility_status": "PASS"
+  },
+  "governance_rule_checks": {
+    "campaign_identity_and_context_alignment": "PASS",
+    "compute_usage_zero_baseline_consistency": "PASS",
+    "stage_sum": "PASS",
+    "verification_reserve_at_least_25_percent": "PASS",
+    "verification_reserve_worker_protection": "PASS",
+    "repair_reserve_limits": "PASS",
+    "concurrency_arithmetic_avoids_oversubscription_if_enforced": "PASS",
+    "runtime_thread_limit_enforcement_evidence": "FAIL",
+    "hardware_cpu_gpu_storage_inventory_plausibility": "PASS",
+    "frozen_available_memory_inventory_accuracy": "FAIL",
+    "wall_clock_feasibility": "PASS",
+    "storage_feasibility_and_headroom": "PASS",
+    "budget_stop_rules": "PASS",
+    "degradation_and_checkpoint_rules": "PASS"
+  },
+  "blocking_findings": [
+    {
+      "finding_id": "CB-AUDIT-001",
+      "severity": "BLOCKING",
+      "category": "THREAD_OVERSUBSCRIPTION_PROTECTION",
+      "status": "FAIL",
+      "evidence": {
+        "frozen_contract": {
+          "OMP_NUM_THREADS": "4",
+          "MKL_NUM_THREADS": "4",
+          "OPENBLAS_NUM_THREADS": "4",
+          "NUMEXPR_NUM_THREADS": "4"
+        },
+        "independent_exact_launcher_observation": {
+          "OMP_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "NUMEXPR_NUM_THREADS": null
+        }
+      },
+      "determination": "The frozen 3-process by 4-thread arithmetic is safe, but the exact official launcher does not apply any of the four required runtime thread limits. The authorized evidence contains a declared contract, not evidence of enforcement. Oversubscription protection is therefore not verified for outcome-bearing launches.",
+      "required_resolution": "Before outcome-bearing execution, create a new outcome-blind environment or launcher-control version that sets and asserts all four variables at 4 for every scientific process, then obtain a new independent compute audit receipt."
+    },
+    {
+      "finding_id": "CB-AUDIT-002",
+      "severity": "BLOCKING",
+      "category": "MEMORY_INVENTORY_ACCURACY",
+      "status": "FAIL",
+      "evidence": {
+        "snapshot_available_memory_bytes_observed": 34055770112,
+        "independently_observed_total_memory_bytes": 34055770112,
+        "independently_observed_available_memory_bytes_at_audit": 9964457984
+      },
+      "determination": "The frozen field labeled available memory is byte-for-byte equal to independently measured total physical memory, while independently measured currently available memory is materially lower. The frozen inventory therefore conflates total and available RAM and cannot support an accurate concurrent-memory feasibility assertion.",
+      "required_resolution": "Issue a new outcome-blind environment snapshot version that records total and available memory as separate fields and states a bounded memory/concurrency rule, then obtain a new independent compute audit receipt."
+    }
+  ],
+  "nonblocking_observations": [
+    "CPU model, 20 logical processors, GPU identity and total VRAM, driver version, and D-drive capacity/free-space evidence independently agree with the frozen inventory within expected dynamic variation.",
+    "All frozen package versions and NOT_INSTALLED declarations were reproduced exactly.",
+    "The independent smoke probe reproduced status PASS, finite output, and shape [1, 200] without inspecting campaign outcomes.",
+    "The 45 GiB disk stop threshold preserves 5 GiB of headroom below the 50 GiB storage limit.",
+    "The 4 GPU-hour budget is optional for valid completion because the required GPU allocation is zero."
+  ],
+  "overall_status": "FAIL",
+  "authorization_effect": "OUTCOME_BEARING_EXECUTION_NOT_AUTHORIZED_BY_THIS_RECEIPT",
+  "final_determination": "The environment identity, package set, bounded smoke test, budget sums, reserves, checkpoint/stop/degradation rules, and nominal CPU/GPU/storage feasibility pass. The audit fails because runtime thread-limit enforcement is absent from the exact launcher evidence and the frozen available-memory inventory is mislabeled. These are outcome-blind repairable governance defects; this receipt must not be overwritten."
+}

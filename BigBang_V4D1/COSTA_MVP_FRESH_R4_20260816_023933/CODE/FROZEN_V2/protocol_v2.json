@@ -1,0 +1,217 @@
+{
+  "protocol_id": "COSTA_CLEANROOM_THALAMOCORTICAL_V2_PHASE1",
+  "route": "COSTA_CLEANROOM_THALAMOCORTICAL_V2",
+  "version": "2.0.0",
+  "status": "PROSPECTIVELY_FROZEN_BEFORE_FIRST_NUMERICAL_RUN",
+  "frozen_at_utc": "2026-08-16T05:20:00Z",
+  "phase": 1,
+  "target": {
+    "claim_id": "M1",
+    "population_id": "P0",
+    "reproduction_tier": "INDEPENDENT_REPRODUCTION",
+    "optional_claim_id": "C1"
+  },
+  "scope": {
+    "empirical_data_permitted": false,
+    "synthetic_only": true,
+    "night_2_permitted": false,
+    "outcome_guided_scientific_changes_permitted": false,
+    "eventual_empirical_scope": "exactly one official public Night-1 subject pair, restricted to upstream-labeled N3 epochs",
+    "minimum_discovery_subjects": 1,
+    "single_subject_limitation": "No cross-subject, population-generalization, or empirical wrong-subject specificity claim is identifiable from one subject."
+  },
+  "runtime": {
+    "required_launcher": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat run -n neurolib python",
+    "required_python": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+    "required_neurolib_version": "0.6.1",
+    "required_neurolib_commit": "9b6b2b8f082c0cfa212f05576ead55bf23046d6f",
+    "allowed_scientific_dependencies": ["neurolib-public", "numpy", "scipy", "python-standard-library"]
+  },
+  "model": {
+    "state_order": ["cortical_excitatory", "cortical_inhibitory", "thalamic_relay", "thalamic_reticular"],
+    "state_units": "dimensionless population activity fraction in [0,1]",
+    "dt_ms": 2.0,
+    "integration": "explicit forward Euler with post-step clipping to [0,1]",
+    "tau_ms_E_I_T_R": [18.0, 12.0, 28.0, 16.0],
+    "initial_state_E_I_T_R": [0.18, 0.16, 0.14, 0.12],
+    "sigmoid_slope": 3.0,
+    "fixed_weights": {
+      "E_from_E": 2.8,
+      "E_from_I": 2.2,
+      "E_from_T": 1.8,
+      "E_threshold": 0.8,
+      "I_from_E": 2.2,
+      "I_from_I": 0.6,
+      "I_from_T": 0.7,
+      "I_drive_fraction": 0.7,
+      "I_threshold": 0.65,
+      "T_from_E": 1.6,
+      "T_threshold": 0.4,
+      "R_from_E": 1.0,
+      "R_from_T": 1.8,
+      "R_self_inhibition": 0.3,
+      "R_drive_fraction": 0.5,
+      "R_threshold": 0.55
+    },
+    "equations": {
+      "E": "tau_E*dE/dt=-E+S(cortical_gain*(2.8E-2.2I)+g_TC*1.8T+u_E-0.8)",
+      "I": "tau_I*dI/dt=-I+S(cortical_gain*(2.2E-0.6I)+g_TC*0.7T+0.7u_E-0.65)",
+      "T": "tau_T*dT/dt=-T+S(g_CT*1.6E-w_TR*R+u_T-0.4)",
+      "R": "tau_R*dR/dt=-R+S(g_CT*1.0E+1.8T-0.3R+0.5u_T-0.55)",
+      "S": "S(x)=1/(1+exp(-3x))"
+    },
+    "bidirectional_coupling_commitment": {
+      "cortex_to_thalamus_symbol": "g_CT",
+      "thalamus_to_cortex_symbol": "g_TC",
+      "both_nonzero_in_every_mechanistic_candidate": true,
+      "zero_coupling_used_only_as_registered_null_and_ablation": true
+    }
+  },
+  "observation_mapping": {
+    "mapping_id": "G5_LINEAR_SOURCE_CAUSAL_BASELINE_V2",
+    "source_weights_E_I_T_R": [1.0, -0.55, 0.35, -0.2],
+    "baseline_filter": "causal first-order low-pass subtracted from source",
+    "baseline_tau_ms": 160.0,
+    "proxy_scale_model_units": 100.0,
+    "proxy_unit": "model-amplitude unit (mau; arbitrary model unit)",
+    "operator_order": ["four latent population states", "fixed weighted source current", "fixed causal baseline subtraction", "mau proxy"],
+    "limits": [
+      "The proxy is a model-space observable, not volts or microvolts.",
+      "No volume conductor, electrode montage, reference, skull, or scalp forward model is present.",
+      "Agreement with the proxy cannot establish scalp EEG causality.",
+      "Any later empirical adapter must document its transformation into a dimensionless comparison feature without relabeling mau as a physical unit."
+    ]
+  },
+  "candidate_bank": [
+    {"candidate_id": "C000", "cortical_gain": 0.82, "cortex_to_thalamus": 0.45, "thalamus_to_cortex": 0.5, "relay_reticular_inhibition": 1.25},
+    {"candidate_id": "C001", "cortical_gain": 0.82, "cortex_to_thalamus": 0.45, "thalamus_to_cortex": 0.5, "relay_reticular_inhibition": 1.85},
+    {"candidate_id": "C002", "cortical_gain": 0.82, "cortex_to_thalamus": 0.45, "thalamus_to_cortex": 1.1, "relay_reticular_inhibition": 1.25},
+    {"candidate_id": "C003", "cortical_gain": 0.82, "cortex_to_thalamus": 0.45, "thalamus_to_cortex": 1.1, "relay_reticular_inhibition": 1.85},
+    {"candidate_id": "C004", "cortical_gain": 0.82, "cortex_to_thalamus": 0.95, "thalamus_to_cortex": 0.5, "relay_reticular_inhibition": 1.25},
+    {"candidate_id": "C005", "cortical_gain": 0.82, "cortex_to_thalamus": 0.95, "thalamus_to_cortex": 0.5, "relay_reticular_inhibition": 1.85},
+    {"candidate_id": "C006", "cortical_gain": 0.82, "cortex_to_thalamus": 0.95, "thalamus_to_cortex": 1.1, "relay_reticular_inhibition": 1.25},
+    {"candidate_id": "C007", "cortical_gain": 0.82, "cortex_to_thalamus": 0.95, "thalamus_to_cortex": 1.1, "relay_reticular_inhibition": 1.85},
+    {"candidate_id": "C008", "cortical_gain": 1.18, "cortex_to_thalamus": 0.45, "thalamus_to_cortex": 0.5, "relay_reticular_inhibition": 1.25},
+    {"candidate_id": "C009", "cortical_gain": 1.18, "cortex_to_thalamus": 0.45, "thalamus_to_cortex": 0.5, "relay_reticular_inhibition": 1.85},
+    {"candidate_id": "C010", "cortical_gain": 1.18, "cortex_to_thalamus": 0.45, "thalamus_to_cortex": 1.1, "relay_reticular_inhibition": 1.25},
+    {"candidate_id": "C011", "cortical_gain": 1.18, "cortex_to_thalamus": 0.45, "thalamus_to_cortex": 1.1, "relay_reticular_inhibition": 1.85},
+    {"candidate_id": "C012", "cortical_gain": 1.18, "cortex_to_thalamus": 0.95, "thalamus_to_cortex": 0.5, "relay_reticular_inhibition": 1.25},
+    {"candidate_id": "C013", "cortical_gain": 1.18, "cortex_to_thalamus": 0.95, "thalamus_to_cortex": 0.5, "relay_reticular_inhibition": 1.85},
+    {"candidate_id": "C014", "cortical_gain": 1.18, "cortex_to_thalamus": 0.95, "thalamus_to_cortex": 1.1, "relay_reticular_inhibition": 1.25},
+    {"candidate_id": "C015", "cortical_gain": 1.18, "cortex_to_thalamus": 0.95, "thalamus_to_cortex": 1.1, "relay_reticular_inhibition": 1.85}
+  ],
+  "selection": {
+    "maximum_candidates": 16,
+    "candidate_count": 16,
+    "population_candidate_id": "C000",
+    "training_rule": "minimum train NRMSE after a train-only affine calibration; ties broken by candidate_id",
+    "heldout_rule": "apply frozen train affine coefficients to heldout prediction",
+    "nrmse_denominator": "heldout observed sample standard deviation plus 1e-12",
+    "no_candidate_addition_after_freeze": true
+  },
+  "synthetic_fixture": {
+    "dt_ms": 2.0,
+    "duration_s_per_split": 4.096,
+    "subjects": [
+      {"subject_pseudonym": "SYN_A", "truth_candidate_id": "C003"},
+      {"subject_pseudonym": "SYN_B", "truth_candidate_id": "C005"},
+      {"subject_pseudonym": "SYN_C", "truth_candidate_id": "C010"},
+      {"subject_pseudonym": "SYN_D", "truth_candidate_id": "C014"}
+    ],
+    "wrong_subject_cycle": {"SYN_A": "SYN_B", "SYN_B": "SYN_C", "SYN_C": "SYN_D", "SYN_D": "SYN_A"},
+    "noise_sd_mau": 0.0015,
+    "drive": {
+      "e_bias": 0.34,
+      "e_slow_amplitude": 0.18,
+      "e_slow_hz": 0.73,
+      "e_pulse_amplitude": 0.32,
+      "e_pulse_period_s": 0.91,
+      "e_pulse_width_s": 0.11,
+      "t_bias": 0.23,
+      "t_slow_amplitude": 0.13,
+      "t_slow_hz": 1.17,
+      "t_burst_amplitude": 0.2,
+      "t_burst_carrier_hz": 11.0,
+      "t_burst_period_s": 1.37,
+      "t_burst_width_s": 0.42
+    },
+    "nonisomorphic_world": "externally generated amplitude-modulated two-frequency oscillator plus registered noise; no E/I/T/R states"
+  },
+  "seeds": {
+    "partition_seed": 26081601,
+    "fixture_seed": 26081602,
+    "noise_seed": 26081603,
+    "bootstrap_seed": 26081604
+  },
+  "partitions": {
+    "eventual_empirical_subject_count": 1,
+    "eventual_empirical_night": "Night-1 only",
+    "eligible_stage": "N3",
+    "roles": ["FIT", "HELDOUT"],
+    "fit_fraction": 0.5,
+    "minimum_n3_epochs": 4,
+    "minimum_discovery_subjects": 1,
+    "assignment_hash": "SHA-256",
+    "assignment_inputs": ["partition_seed", "subject_pseudonym", "night", "epoch_id"],
+    "assignment_excludes": ["proxy values", "features", "model scores", "outcomes"],
+    "disjointness": "each eligible N3 epoch appears exactly once in FIT or HELDOUT"
+  },
+  "gates": {
+    "G1": {
+      "bitwise_core_repetitions": 2,
+      "require_identical_core_digest": true,
+      "require_exact_python": true,
+      "require_neurolib_version_and_commit": true,
+      "require_clean_tracked_neurolib_diff": true,
+      "permitted_untracked_neurolib_paths": ["environment.yml"],
+      "require_environment_yml_outside_module_open_and_config_closures": true,
+      "fail_closed": true
+    },
+    "G2": {
+      "truth_recovery_fraction_min": 1.0,
+      "truth_heldout_nrmse_max": 0.12,
+      "truth_vs_zero_coupling_relative_improvement_min": 0.15,
+      "null_model_nrmse_advantage_min": 0.03,
+      "nonisomorphic_best_mechanistic_nrmse_min": 0.55
+    },
+    "G3": {
+      "all_subject_personalized_improvement_min": 0.05,
+      "median_vs_population_improvement_min": 0.15,
+      "median_vs_wrong_subject_improvement_min": 0.15
+    },
+    "G4": {
+      "bootstrap_repetitions": 256,
+      "block_samples": 64,
+      "confidence_level": 0.95,
+      "paired_mse_advantage_ci_lower_min": 0.0,
+      "require_truth_in_training_minimizer_set": true
+    },
+    "G5": {"require_complete_mapping_and_limits": true},
+    "G6": {"require_deterministic_disjoint_single_subject_n3_fit_heldout_partition_and_adapter_contract": true},
+    "G7": {"require_hash_locked_independent_reproduction_packet": true}
+  },
+  "future_empirical_runtime_plan": {
+    "planning_subjects": 1,
+    "planning_nights": 1,
+    "night": "Night-1",
+    "eligible_stage": "N3",
+    "epoch_duration_s": 30.0,
+    "fit_heldout_roles": 2,
+    "candidate_count": 16,
+    "serial_overhead_multiplier": 1.5,
+    "parallel_workers_assumed": 1,
+    "empirical_n3_epoch_count": "unknown in Phase 1 because empirical metadata are not opened",
+    "estimate_method": "report measured serial seconds per 30-second N3 epoch across all 16 candidates and formula T=N_N3*per_epoch_seconds*1.5; do not invent N_N3",
+    "synthetic_verification_benchmark_equivalent_epochs": 8
+  },
+  "interfaces": {
+    "G6_epoch_metadata_exact_fields": ["subject_pseudonym", "epoch_id", "stage", "night"],
+    "G6_forbidden_fields": ["proxy_value", "feature", "score", "outcome", "raw_path"],
+    "G7_required_packet_fields": ["packet_id", "mode", "launcher", "frozen_input_hashes", "core_digest", "gate_status", "runtime_estimate", "limitations"]
+  },
+  "change_control": {
+    "deterministic_infrastructure_repair_cycles_available_at_freeze": 1,
+    "scientific_parameters_thresholds_seeds_and_bank_locked": true,
+    "repair_may_not_change_scientific_parameters_thresholds_seeds_bank_or_claims": true
+  }
+}

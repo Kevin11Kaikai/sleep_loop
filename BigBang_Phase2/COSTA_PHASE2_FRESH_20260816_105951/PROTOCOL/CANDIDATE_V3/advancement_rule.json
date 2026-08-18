@@ -1,0 +1,153 @@
+{
+  "schema_version": "3.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "rule_id": "COSTA_PHASE2B_ADVANCEMENT_RULE_V3",
+  "parent_rule_id": "COSTA_PHASE2B_ADVANCEMENT_RULE_V2",
+  "repair_scope": [
+    "PV2-B001",
+    "PV2-B002",
+    "PV2-B003",
+    "PV2-B004"
+  ],
+  "status": "FREEZE_CANDIDATE_PREOUTCOME",
+  "outcomes_used": false,
+  "maximum_advancing_targets": 3,
+  "target_priority_order": {
+    "tier_1_primary": [
+      "T1",
+      "T4",
+      "T6"
+    ],
+    "tier_2_secondary": [
+      "T2",
+      "T3",
+      "T5",
+      "T7"
+    ],
+    "tier_3_exploratory": [
+      "T8"
+    ]
+  },
+  "noncompensatory_entry_gates": [
+    {
+      "gate_id": "A0_EXACT_CANDIDATE_IDENTITY",
+      "rule": "An exact executable code/configuration/parameter hash binding to the same frozen M1-pass candidate must exist.",
+      "current_value": "NO_R4_EXECUTABLE_IDENTITY_IDENTIFIED",
+      "current_status": "NOT_ESTIMABLE"
+    },
+    {
+      "gate_id": "A1_SUBJECT_DENOMINATOR",
+      "rule": "At least 3 independently certified public/development Night-1 personalized models for the exact candidate must be available before any Phase2B outcome access.",
+      "minimum": 3,
+      "current_value": 0,
+      "current_status": "NOT_ESTIMABLE"
+    },
+    {
+      "gate_id": "A2_SAME_CANDIDATE_M1",
+      "rule": "The exact executable candidate must have M1_PASS, VERIFIED, MATERIAL_DISAGREEMENT=false, and matching hashes.",
+      "current_value": "CATEGORICAL_M1_ONLY_WITHOUT_EXECUTABLE_BINDING",
+      "current_status": "NOT_ESTIMABLE"
+    },
+    {
+      "gate_id": "A3_COMPARATOR_ESTIMABILITY",
+      "rule": "Sham, leave-one-subject-out matched non-personalized, and deterministic cyclic wrong-subject comparators must all be executable for every included subject.",
+      "current_value": "NO_ELIGIBLE_SUBJECT_MODELS",
+      "current_status": "NOT_ESTIMABLE"
+    },
+    {
+      "gate_id": "A4_SYNTHETIC_EXCLUSION",
+      "rule": "Synthetic draws, nominal bench variants, labels, or simulated pseudo-subjects cannot contribute to the formal subject denominator.",
+      "current_value": "ENFORCED",
+      "current_status": "PASS"
+    }
+  ],
+  "current_campaign_decision": {
+    "phase2b_status": "NOT_ESTIMABLE",
+    "advancing_targets": [],
+    "advancing_target_count": 0,
+    "decision_time_relation": "frozen before Phase2A scientific outcomes",
+    "reason": "Entry gates A0-A3 are not estimable under the certified current inputs. The target ranking algorithm is therefore not entered.",
+    "synthetic_substitution": "PROHIBITED",
+    "override_within_candidate_v3": "PROHIBITED"
+  },
+  "deterministic_ranking_algorithm_if_all_entry_gates_had_passed_before_outcomes": {
+    "eligibility_filter": [
+      "Target has valid complete Phase2A Level A evidence with at least 30 paired seed-draw blocks.",
+      "Target meets its registered practical margin and simultaneous uncertainty threshold.",
+      "Applicable multiplicity-adjusted test passes.",
+      "Target passes its exact level_a_shape_consistency rule in at least 4 of 6 draws; each draw requires the frozen target-specific metric/order/mapping/adjacency rule and missing draws fail.",
+      "At least 95 percent of prescribed runs are stable.",
+      "No target-specific or global off-target hard veto fires.",
+      "Independent verifier status is VERIFIED and MATERIAL_DISAGREEMENT=false.",
+      "Target grade is C or better under the registered A/B/C/D/F definitions.",
+      "T8 is excluded because it is prospectively exploratory in Candidate V3."
+    ],
+    "score_components": {
+      "margin_slack": "Let each target requirement be its F_TARGET_DECISIONS normalized slack (estimate-threshold for lower requirements, threshold-estimate for upper requirements) divided by the positive practical-margin magnitude. Take the minimum simultaneous lower bound across that target's required components, clamp to [0,3].",
+      "reproducibility": "fraction of valid paired blocks with target-oriented effect in the registered direction",
+      "specificity": "Require all 16 cross-target members in the policy row estimable. specificity=max(0,1-min(1,max_{j!=i} simultaneous UCB(A_i,j))); any hard veto or missing member makes the target ineligible.",
+      "stability": "fraction of prescribed runs passing all stability rules",
+      "mechanistic_directness": {
+        "T1": 1,
+        "T4": 1,
+        "T6": 1,
+        "T2": 0.75,
+        "T3": 0.75,
+        "T5": 0.75,
+        "T7": 0.75,
+        "T8": 0
+      }
+    },
+    "score_formula": "score=0.35*(margin_slack/3)+0.25*reproducibility+0.20*specificity+0.15*stability+0.05*mechanistic_directness, evaluated in IEEE-754 float64 without rounding.",
+    "sort_keys": [
+      "priority tier ascending",
+      "score descending",
+      "lower simultaneous confidence-bound margin slack descending",
+      "target_id lexicographically ascending"
+    ],
+    "selection": "Take the first min(3,number_eligible) targets after sorting; do not fill unused slots.",
+    "policy_freeze": "For the all-target specificity matrix, use the exact Level-A worker policy_objects: T1's five-frequency mapping, T7's eight-phase mapping, and one Level-A condition for every other target. Conditional Level-B policy optimization is separate and cannot alter the 8x8 rows. Missing scores and exact ties follow the frozen rules; evaluation uses disjoint verifier seeds.",
+    "no_manual_override": true,
+    "policy_and_scalar_binding": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars",
+    "hypothesis_test_binding": "phase2_protocol.json#uncertainty_and_statistics/exact_hypothesis_tests",
+    "simultaneous_family_binding": "phase2_protocol.json#uncertainty_and_statistics/simultaneous_families",
+    "level_b_run_constraint": "For a selected diagnostic set let n25 count T1,T2,T3,T4,T5,T8 and n20 count T6,T7. Execute exactly 12*(25*n25+20*n20) Level-B run identities, n25+n20<=3, maximum 900. Policy aggregation adds zero runs.",
+    "shape_binding": "phase2_protocol.json#phase2a/level_a_shape_consistency"
+  },
+  "required_new_version_for_future_eligibility": {
+    "condition": "A new exact governance-approved release supplies at least 3 eligible public/development Night-1 models and an exact same-candidate executable/hash binding before relevant outcomes are visible.",
+    "action": "Create and independently audit a new protocol version; Candidate V3 remains NOT_ESTIMABLE and its empty advancement decision remains immutable.",
+    "reuse_of_phase2a_outcomes_for_threshold_changes": "PROHIBITED"
+  },
+  "preserved_v2_repairs": [
+    "PF-B001",
+    "PF-B002",
+    "PF-B003",
+    "PF-B004",
+    "PF-B005"
+  ],
+  "parent_freeze_binding": {
+    "path": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+    "sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8"
+  },
+  "audit_receipt_binding": {
+    "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+    "sha256": "E61465D6357C411DB032AC8989695E1BE73CF04742E3467DBA1246E698975358"
+  },
+  "level_b_diagnostic_selection": {
+    "scope": "This is diagnostic Level-B selection only and cannot change current formal Phase2B NOT_ESTIMABLE.",
+    "selection_cap": 3,
+    "eligibility_and_order": "phase2_protocol.json#phase2a/conditional_level_b, including the exact target-specific >=4/6 Level-A shape prerequisite",
+    "exact_policies": "phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars/level_b_policy_objects",
+    "run_formula": "12*(25*n25+20*n20), n25+n20<=3; maximum 900",
+    "T4_fixture": {
+      "path": "PROTOCOL/CANDIDATE_V3/t4_attribution_fixture_v3.json",
+      "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+    },
+    "no_outcome_override": true,
+    "cross_target_independence": "All eight 8x8 row policies are frozen from Level A before conditional Level B; no Level-B selection or result changes formal ranking specificity.",
+    "verifier_runs": "The all-target 8x8 matrix uses 456 unique verifier runs in the separate 50 CPU-hour reserve."
+  },
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "3.0.0"
+}

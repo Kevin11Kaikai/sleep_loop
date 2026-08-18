@@ -1,0 +1,719 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "INDEPENDENT_PROSPECTIVE_STATIC_CODE_AUDIT_PROTOCOL_V4",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "4.0.0",
+  "authored_at": "2026-08-16T15:28:00.3203273-04:00",
+  "author_role": "INDEPENDENT_PROSPECTIVE_IMPLEMENTATION_CODE_AUDIT_PROTOCOL_AUTHOR",
+  "status": "IMMUTABLE_PREIMPLEMENTATION_DISCLOSURE_STATIC_AUDIT_PROTOCOL",
+  "scientific_outcomes_visible": false,
+  "purpose": "Freeze the deterministic, outcome-blind, static-only audit that a separately authorized independent auditor must apply to the future hash-frozen Candidate V4 implementation before any import, Python execution, launcher invocation, synthetic preflight, Phase2A execution, verifier execution, data access, or outcome access.",
+  "authoring_boundary": {
+    "code_candidate_opened": false,
+    "code_candidate_hashed_or_statted": false,
+    "code_candidate_directory_enumerated": false,
+    "implementation_manifest_opened_hashed_or_statted": false,
+    "expected_schema_manifest_opened_hashed_or_statted": false,
+    "repository_code_opened": false,
+    "module_imported": false,
+    "python_or_launcher_executed": false,
+    "synthetic_preflight_executed": false,
+    "scientific_execution": "NONE",
+    "protected_data_or_outcomes_accessed": false,
+    "authoring_inputs": "Only the four exact current-campaign controls below and their eight exact hash-bound V4 protocol artifacts were used."
+  },
+  "authoritative_inputs": {
+    "direct_controls": [
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+        "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+        "role": "immutable scientific freeze and transitive artifact manifest"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+        "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+        "role": "independent PASS receipt and executable-interpretation boundary"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+        "sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF",
+        "role": "corrected static-implementation authority and exact read/write prohibitions"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json",
+        "sha256": "B3FBA1F63E2360A9C9D8CC9ADC7C18A1750EF6076EB4564F02D6FD884056B2C6",
+        "role": "independent validation of corrected bindings, static-only authority, and closed execution gates"
+      }
+    ],
+    "transitively_bound_protocol_artifacts": [
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/control_target_registry.json",
+        "sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/mechanistic_parameter_map.json",
+        "sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+        "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/advancement_rule.json",
+        "sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/c2_gate_protocol.json",
+        "sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/claim_registry.json",
+        "sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/PREOUTCOME_DESIGN_MEMO.md",
+        "sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+      }
+    ],
+    "infrastructure_bindings_inherited_from_corrected_release": {
+      "environment_version": "NEUROLIB_ENV_V3",
+      "official_launcher": {
+        "path": "PREFLIGHT/run_neurolib.ps1",
+        "sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867"
+      },
+      "environment_snapshot": {
+        "path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+        "sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6"
+      },
+      "compute_budget": {
+        "path": "COMMON/COMPUTE_BUDGET.json",
+        "sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF"
+      },
+      "compute_audit": {
+        "path": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+        "sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A"
+      }
+    },
+    "precedence": [
+      "Exact bytes and JSON values in PROTOCOL/PROTOCOL_FREEZE_V4.json and its eight bound artifacts",
+      "Clarifications and PASS invariants in GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+      "Execution and access boundaries in the corrected release and its revalidation"
+    ],
+    "unlisted_source_rule": "No historical protocol, repository implementation, R4 material, data, parameter, configuration, output, validation output, or outcome may supply or resolve a code-audit expectation."
+  },
+  "immutability": {
+    "prospective_freeze": "This protocol becomes immutable at its externally reported SHA-256 before any Candidate V4 implementation or implementation manifest is disclosed to its author or auditor.",
+    "self_hash_policy": "The SHA-256 of this file is computed and reported externally after final serialization and is not recursively embedded.",
+    "change_rule": "Any later change requires a separately named protocol version and makes any audit started under this file ineligible for combination with the changed audit.",
+    "scientific_change_authority": "NONE"
+  },
+  "audit_activation_gate": {
+    "required_before_any_implementation_content_read": [
+      "Verify this protocol's externally reported SHA-256.",
+      "Reverify all four direct-control hashes and the eight V4 protocol-artifact hashes.",
+      "Receive a separately issued immutable Root implementation hash-freeze binding that supplies the exact Candidate V4 implementation-manifest hash, expected-schema hash, and complete relative-path plus SHA-256 allowlist for implementation files.",
+      "Hash the two exact PREFLIGHT manifests and every exact allowlisted implementation file without importing or executing them; all hashes must match before content is parsed.",
+      "If any binding is absent, mismatched, duplicated, case-colliding, path-escaping, or unresolved, stop with NOT_AUTHORIZED_INPUT_INTEGRITY and do not open implementation source."
+    ],
+    "future_unknown_hash_rule": "No future implementation hash is guessed or left as an editable field in this protocol. It must arrive only through the later immutable Root hash-freeze binding.",
+    "no_self_release": "This protocol does not authorize code access, manifest access, static audit, repair, preflight, Phase2A, verifier execution, or Phase2B by itself."
+  },
+  "static_audit_boundary": {
+    "permitted_after_activation": [
+      "Read the exact hash-matched implementation manifest and expected-schema manifest.",
+      "Perform a metadata-only recursive enumeration of CODE/CANDIDATE_V4 solely to prove exact manifest coverage; do not open unmanifested files.",
+      "Read only exact hash-matched manifest-listed text files under CODE/CANDIDATE_V4.",
+      "Parse JSON and Python source with a nonexecuting parser and inspect tokens, AST, literals, imports, call sites, control flow, schemas, and path construction.",
+      "Compare static source registries and manifest declarations with the exact canonical protocol JSON values."
+    ],
+    "always_denied": [
+      "Import any Candidate V4 module or any repository module.",
+      "Execute Python, a module, a console entrypoint, the official launcher, a future command, a test, a fixture comparator, a simulator, a detector, a preflight, a worker, or a verifier.",
+      "Read any repository code outside the exact activated Candidate V4 allowlist.",
+      "Read any R4 file or referenced artifact, data, fitted parameter, scientific configuration, output, validation output, protected-derived, Night-2, Sealed Bank, fresh-final, ambiguous, quarantined, or historical material.",
+      "Create, edit, normalize, format, repair, or otherwise change implementation or manifest bytes during the audit.",
+      "Infer runtime correctness from import, execution, generated arrays, timing, memory, or scientific outputs."
+    ],
+    "static_proof_rule": "A mandatory requirement that cannot be proven from the hash-matched manifest, expected schema, and static source is a blocking INSUFFICIENT_STATIC_PROOF finding; absence of execution authority cannot be used to waive it."
+  },
+  "verdict_contract": {
+    "allowed_overall_verdicts": [
+      "PASS_STATIC_CODE_AUDIT",
+      "FAIL_BLOCKING",
+      "NOT_AUTHORIZED_INPUT_INTEGRITY",
+      "BLOCKED_INSUFFICIENT_STATIC_PROOF"
+    ],
+    "pass_rule": "PASS_STATIC_CODE_AUDIT requires every mandatory check below to be PASS, zero blocking findings, zero unresolved findings, exact audit-input hashes, and an explicit record of zero imports and zero executions.",
+    "no_partial_pass": "A section PASS cannot compensate for a failure elsewhere. Scientific fidelity, governance containment, manifest integrity, schema completeness, and fail-closed gates are all noncompensatory.",
+    "authorization_effect_of_pass": "Eligibility for Root to consider a separately hash-bound release of exactly one data-free synthetic preflight only. PASS does not itself authorize preflight, repair, Phase2A, verifier execution, Phase2B, data, or outcomes."
+  },
+  "mandatory_checks": {
+    "CA4_I01_manifest_and_byte_integrity": {
+      "objective": "Prove exact identity, complete manifest coverage, safe paths, and immutable static inputs before scientific conformance review.",
+      "requirements": [
+        "The Root implementation hash freeze, implementation manifest, expected-schema manifest, and every implementation file must match its expected SHA-256 byte-for-byte.",
+        "Normalize separators to '/', reject absolute paths, drive-qualified paths, UNC paths, empty segments, '.', '..', percent-encoded traversal, NUL, symlinks, junctions, reparse points, hard-link aliases, and case-insensitive duplicate paths.",
+        "Manifest implementation paths must be regular text files strictly below CODE/CANDIDATE_V4/. The only non-CODE package inputs are PREFLIGHT/CANDIDATE_V4_EXPECTED_SCHEMA.json and PREFLIGHT/CANDIDATE_V4_IMPLEMENTATION_MANIFEST.json.",
+        "The metadata-only CODE/CANDIDATE_V4 enumeration must equal the manifest file set exactly. Extra, missing, hidden, temporary, bytecode, cache, archive, binary, generated, or backup files are blocking; unmanifested content is not opened.",
+        "Allowed implementation-file suffixes are .py, .json, and .md encoded as UTF-8 text. Executable binaries, serialized objects, notebooks, archives, shared libraries, and bytecode are prohibited.",
+        "The implementation manifest must identify campaign, candidate, route 4.0.0, protocol freeze path/hash, protocol audit path/hash, corrected release path/hash, release revalidation path/hash, expected-schema path/hash, every source path/hash, one static entrypoint, exact future commands, CLI-mode mapping, output-schema mapping, and protocol traceability mapping.",
+        "The manifest must state scientific_outcomes_used=false, module_imported=false, python_executed=false, preflight_executed=false, phase2a_executed=false, verifier_executed=false, and phase2b_status=NOT_ESTIMABLE.",
+        "Manifest and expected-schema JSON must parse without duplicate object keys, NaN, Infinity, comments, or trailing data. Every declared SHA-256 is exactly 64 uppercase hexadecimal characters.",
+        "A manifest cannot authenticate its own bytes recursively; its hash must be supplied by the later Root freeze. All other declared file hashes must agree in both the Root freeze and manifest."
+      ],
+      "failure_codes": [
+        "CA4_MANIFEST_HASH_MISMATCH",
+        "CA4_MANIFEST_COVERAGE_MISMATCH",
+        "CA4_PATH_ESCAPE_OR_ALIAS",
+        "CA4_UNSAFE_FILE_TYPE",
+        "CA4_MANIFEST_SCHEMA_OR_BINDING_DEFECT"
+      ]
+    },
+    "CA4_I02_forbidden_paths_imports_and_capabilities": {
+      "objective": "Prove clean-room isolation and absence of hidden execution or protected-input capability.",
+      "import_rules": {
+        "allowed_third_party_roots": [
+          "numpy",
+          "scipy"
+        ],
+        "local_import_rule": "A relative or package-local import is allowed only when it resolves statically to one exact hash-matched manifest-listed file under CODE/CANDIDATE_V4.",
+        "stdlib_rule": "Standard-library imports are allowed only for deterministic math, typing, data structures, JSON/CSV/text handling, hashing, argument parsing, timestamps, and contained path/file operations required by the manifest. They do not grant broader read, process, network, dynamic-code, or deserialization authority.",
+        "explicitly_forbidden_import_or_call_roots": [
+          "neurolib",
+          "importlib",
+          "runpy",
+          "pkgutil",
+          "subprocess",
+          "multiprocessing",
+          "socket",
+          "http",
+          "urllib",
+          "requests",
+          "ftplib",
+          "ctypes",
+          "pickle",
+          "shelve",
+          "marshal",
+          "joblib",
+          "dill",
+          "cloudpickle"
+        ],
+        "forbidden_dynamic_features": [
+          "eval",
+          "exec",
+          "compile",
+          "__import__",
+          "dynamic import by string",
+          "sys.path mutation",
+          "module discovery",
+          "shell invocation",
+          "process creation",
+          "network access",
+          "unsafe object deserialization"
+        ]
+      },
+      "path_and_read_rules": [
+        "Statically trace every open/read/load/glob/walk/path-resolution call and every path-like string. Any possible read outside the exact future runtime allowlists and exact manifest-listed controls is blocking.",
+        "No source may reference repository R4, historical model or script paths, data, fitted parameters, scientific configs, outputs, validation outputs, protected-derived, Night-2, Sealed Bank, fresh-final, quarantined, or ambiguous stores.",
+        "No source may discover the repository, user home, parent directories, environment-wide package tree, or arbitrary files. Campaign-relative paths must be containment-checked after resolve and reparse-point rejected.",
+        "Write paths must be explicit future run-output or checkpoint destinations declared by the expected schema and Root execution release; no write may target protocol, governance, state, common, preflight controls, repository code, or historical outputs.",
+        "No network endpoint, telemetry, subprocess, external executable, notebook hook, plugin hook, or environment-dependent dynamic extension is permitted."
+      ],
+      "scientific_dependency_rule": "numpy 2.2.6 and scipy 1.15.2 are the only scientific dependencies. neurolib 0.6.1 is environment compatibility only and must not be imported as a scientific model or adapter by Candidate V4.",
+      "failure_codes": [
+        "CA4_FORBIDDEN_IMPORT",
+        "CA4_DYNAMIC_EXECUTION_CAPABILITY",
+        "CA4_FORBIDDEN_READ_OR_WRITE_PATH",
+        "CA4_PROTECTED_OR_HISTORICAL_REFERENCE"
+      ]
+    },
+    "CA4_S01_protocol_traceability_and_no_scientific_drift": {
+      "objective": "Prove that every scientific object is implemented from, and only from, the frozen V4 package.",
+      "required_canonical_objects": [
+        "control_target_registry.json#targets and global/common contracts",
+        "mechanistic_parameter_map.json#model_equations,state_variables,parameter_defaults_and_bounds,synthetic_uncertainty_rule,intervention_channels",
+        "phase2_protocol.json#software_contract,bench,observation_and_detector_contract,detector_preflight,phase2a,phase2b,uncertainty_and_statistics,stability_and_plausibility,compute_envelope,verification,prohibited_actions",
+        "advancement_rule.json#maximum_advancing_targets,entry gates,current decision,ranking and Level-B diagnostic selection",
+        "c2_gate_protocol.json#gates and current ineligibility",
+        "claim_registry.json#current claim matrix, eight claims and formal C2 nonclaim",
+        "t4_attribution_fixture_v3.json#raw fixture, expected result and comparison contract"
+      ],
+      "requirements": [
+        "The manifest traceability matrix maps every canonical object above to exact source file, symbol or literal registry, applicable CLI mode, preflight test, output schema, and failure code.",
+        "Every target T1-T8, gate C2-G1 through C2-G10, claim P2A_DIAG_T1 through P2A_DIAG_T8, seven intervention channels, four uncertainty families, eight Level-A policies, eight conditional Level-B policies, and 128 cross-target members must be traceable with no duplicate or dangling IDs.",
+        "Each scientific numeric literal, category, threshold, grid, seed, denominator, formula, ordering, tie rule, missingness rule, status, and evidence ceiling must resolve to an exact V4 JSON pointer or be a documented non-scientific programming constant. Untraced scientific literals are blocking.",
+        "Static source registry objects must be semantically deep-equal to their canonical JSON objects after only JSON number normalization; no rounding, tolerance, alias, inferred default, abbreviated table, or source-order change is allowed where order is frozen.",
+        "No code may broaden M1/C0/P0, identify the clean-room bench with R4, call forcing auditory-like, treat parameter perturbation as intervention, use synthetic draws as subjects, or make a human/personalization claim."
+      ],
+      "failure_codes": [
+        "CA4_TRACEABILITY_GAP",
+        "CA4_UNTRACED_SCIENTIFIC_LITERAL",
+        "CA4_PROTOCOL_REGISTRY_MISMATCH",
+        "CA4_CLAIM_CEILING_BREACH"
+      ]
+    },
+    "CA4_M01_model_timebase_heun_ou_and_pairing": {
+      "objective": "Prove exact stochastic bench dynamics and order of operations.",
+      "exact_core": {
+        "state_order": [
+          "r_E",
+          "r_I",
+          "r_T",
+          "r_R",
+          "a",
+          "eta_E",
+          "eta_I",
+          "eta_T",
+          "eta_R"
+        ],
+        "initial_state": [
+          8,
+          10,
+          6,
+          8,
+          8,
+          0,
+          0,
+          0,
+          0
+        ],
+        "rate_equation": "tau_i*dr_i/dt=-r_i+rmax_i/(1+exp(-beta*(h_i-theta))) for i=E,I,T,R",
+        "adaptation_equation": "tau_a*da/dt=-a+r_E",
+        "observation": "x=(r_E+0.25*r_T)/10",
+        "internal_dt_seconds": 0.001,
+        "internal_intervals_per_run": 210000,
+        "warmup_intervals": 30000,
+        "analysis_intervals": 180000,
+        "stored_sampling_rate_hz": 200,
+        "decimation_stride": 5,
+        "dtype": "IEEE-754 float64",
+        "clipping": "NONE"
+      },
+      "requirements": [
+        "All four h_i equations, 32 parameter defaults/bounds/units, state meanings, parameter-draw arrays, and observation operator are exact deep-equality matches to mechanistic_parameter_map.json and phase2_protocol.json.",
+        "At each interval, first compute eta_next=rho*eta+sigma*sqrt(1-rho^2)*epsilon with rho=exp(-dt/tau_eta); compute the Euler predictor for r and a with current eta; recompute predictor drift with eta_next; then apply state_next=state+0.5*dt*(drift_current+drift_predictor).",
+        "Evaluate each additive input at the left endpoint once and hold the identical float64 input in both current and predictor drifts. Inputs are zero before analysis and outside a=0..179999.",
+        "No adaptive solver, alternate SDE convention, extra noise term, clipping, saturation clamp, state reordering, antialias mutation, hidden calibration, or condition-dependent solver branch is permitted.",
+        "Store every fifth internal sample after warmup. The registered scipy.signal.decimate FIR zero-phase comparison exists only as the exact preflight check and cannot replace official stored samples.",
+        "D00 uses defaults. D01-D05 use scipy.stats.qmc.LatinHypercube(d=17,scramble=true,seed=271828).random(n=5), scipy.stats.norm.ppf, the exact 17-coordinate order, multiplicative exp(0.05*z) rule for positive parameters, additive bias rule, and clipping to registered bounds; the 15 fixed parameters never vary.",
+        "For every draw-seed block, one Generator(PCG64(seed)) generates the complete float64 C-order epsilon array with E,I,T,R columns and no branch-dependent calls. Sham and all paired intervention conditions reuse byte-identical epsilon arrays, initial state, duration, and solver settings.",
+        "Worker seeds are exactly 11003,22007,33013,44017,55021,66029. Verifier seeds are exactly 77041,88069,99079,111091 and are disjoint. A seed namespace cannot be reset, split, advanced, silently substituted, or shared with bootstrap/randomization RNGs."
+      ],
+      "failure_codes": [
+        "CA4_MODEL_EQUATION_OR_PARAMETER_DRIFT",
+        "CA4_HEUN_OR_OU_ORDER_DEFECT",
+        "CA4_TIMEBASE_OR_STORAGE_DEFECT",
+        "CA4_RNG_STREAM_OR_PAIRING_DEFECT"
+      ]
+    },
+    "CA4_F01_forcing_and_causal_scheduler": {
+      "objective": "Prove exact seven-channel forcing registry and causal event-triggered scheduler.",
+      "required_channel_ids": [
+        "GF_E_DC",
+        "GF_E_SLOW_SINE",
+        "GF_E_SO_PULSE",
+        "GF_TR_SIGMA_PACKET_BALANCE",
+        "GF_TR_SIGMA_CONTINUOUS_BALANCE",
+        "GF_T_PHASE_LOCKED_PACKET",
+        "GF_BALANCED_DC"
+      ],
+      "requirements": [
+        "The implemented channel registry, bounds, signs, populations, formulas, half-open intervals, pulse/packet widths, carrier forms, dose arrays, frequency arrays, exposure arrays, warmup behavior, endpoint behavior, and prohibited combinations are deep-equal to mechanistic_parameter_map.json#intervention_channels and the executable schedules.",
+        "All applied inputs are logged as GENERIC EXTERNAL FORCING; auditory-like labels and physiological-parameter control labels are prohibited.",
+        "The GF_T_PHASE_LOCKED_PACKET scheduler uses 200 Hz samples with n=0 at -30 s, exact hp/lp one-pole coefficients and update order, history samples 4000..5999, accepted crossings bp[n-1]<0 and bp[n]>=0, valid periods 134..400, three-interval integer median, canonical phase [-pi,pi), forward modulo, floor(d_real+0.5), and minimum latency one sample.",
+        "The scheduler implements FIFO period history reset on invalid interval, at most two future queued packets, half-open overlap, exact-touch acceptance, earlier-created equal-start retention, no retry, no sum/truncate/merge/replace, and exact analysis-boundary rejection.",
+        "Each packet has 500 internal samples with Hann denominator 499 and carrier 0.5*(1+sin(2*pi*f_c*k/1000)); endpoints are zero and input is u_T only. A=0 runs filter/logger but enqueues no packet and emits ZERO_AMPLITUDE_SHAM for each otherwise schedulable crossing.",
+        "Every crossing emits exactly one of FIRST_ANCHOR, PERIOD_OUT_OF_RANGE, INSUFFICIENT_PERIOD_HISTORY, WARMUP_ONLY, SCHEDULED, OVERLAP_SKIP, QUEUE_FULL, OUTSIDE_ANALYSIS_SKIP, ZERO_AMPLITUDE_SHAM and all 13 required log fields.",
+        "The static preflight registry contains the exact PF_CAUSAL_PHASE_SCHEDULER oracle: period 250; delays phi=0 ->1, +pi/2 ->63, -pi/2 ->188, -pi ->125; +pi rejected. It also contains the exact PF_CAUSAL_QUEUE oracle."
+      ],
+      "failure_codes": [
+        "CA4_FORCING_REGISTRY_MISMATCH",
+        "CA4_CAUSAL_FILTER_OR_PHASE_DEFECT",
+        "CA4_QUEUE_OVERLAP_OR_BOUNDARY_DEFECT",
+        "CA4_SCHEDULER_LOG_OR_PREFLIGHT_ORACLE_DEFECT"
+      ]
+    },
+    "CA4_D01_detectors_metrics_and_preflight_registry": {
+      "objective": "Prove all T1-T8 observation, detector, metric, validity, denominator, and synthetic fixture contracts without executing them.",
+      "required_preflight_test_ids": [
+        "PF_NUMERIC_ZERO",
+        "PF_T1_FREQUENCY",
+        "PF_SO_EVENTS",
+        "PF_SPINDLE_EVENTS",
+        "PF_COUPLING_POSITIVE",
+        "PF_COUPLING_NULL",
+        "PF_EDGE_CONTAINMENT",
+        "PF_BROADBAND_VETO",
+        "PF_SOLVER_REPEAT",
+        "PF_CAUSAL_PHASE_SCHEDULER",
+        "PF_CAUSAL_QUEUE",
+        "PF_T8_WINDOWS",
+        "PF_T4_EVENT_ATTRIBUTION",
+        "PF_DETECTOR_PERTURB"
+      ],
+      "requirements": [
+        "Common preprocessing is exact: per-run 180 s centering; scipy.signal.butter order 4 SOS at fs=200; scipy.signal.sosfiltfilt with padtype='odd', padlen=None; full-record filtering once; 10 s edge exclusion; invariant sham-derived thresholds.",
+        "T1 Welch, log-power parabolic peak refinement, lowest-frequency tie, PLV, boundary and 30-cycle validity are exact.",
+        "T2/T3 0.3-1.5 Hz upward-crossing cycles, 0.4-2.5 s durations, 0.10 m.u. peak-to-peak, -0.04 trough, strict containment, median amplitude, density, zero-event, and >=30-event rules are exact.",
+        "T4/T5 11-16 Hz order-4 filter, exact 40-sample RMS support n-19..n+20, sham median/MAD thresholds, gap <=0.100 s, duration 0.300-2.000 s, strict containment, density, event RMS, zero-event, and >=10-event rules are exact.",
+        "T6 uses 18-bin Tort MI, 0*log(0)=0, lags np.arange(2000,34001,dtype=int64), Generator(PCG64(seed+600000)) once, choice size 200 without replacement, +lag roll in returned order, median surrogate subtraction, retained negative values, and exact validity.",
+        "T7 uses earliest within-spindle sigma-envelope maximum, circular mean in [-pi,pi), R>=0.20, Fisher-Lee pairwise rho in lexicographic pair order, wrapped tracking error, -pi/2 versus +pi/2 separation, exact denominators, degeneracy, aggregate medians, and G7 normalization.",
+        "T8 uses exactly six adjacent 25 s half-open windows [15,40),[40,65),[65,90),[90,115),[115,140),[140,165), sample pairs [3000,8000),[8000,13000),[13000,18000),[18000,23000),[23000,28000),[28000,33000), the exact 5000-sample Welch contract, strict event containment, six regime predicates, occupancy/6, and adjacent persistence.",
+        "The 14 preflight definitions and expected results are present exactly and are callable only from the separately gated data-free-preflight mode. Static audit verifies their registry and call graph but never runs them.",
+        "All zero, invalid, NOT_ESTIMABLE, missing, edge, threshold-calibration, stability, broadband, artifact, and no-imputation rules are implemented before any score, grade, advancement, or claim branch."
+      ],
+      "failure_codes": [
+        "CA4_DETECTOR_OR_METRIC_DRIFT",
+        "CA4_DENOMINATOR_OR_MISSINGNESS_DEFECT",
+        "CA4_T7_OR_T8_SPECIAL_RULE_DEFECT",
+        "CA4_PREFLIGHT_REGISTRY_DEFECT"
+      ]
+    },
+    "CA4_T401_attribution_domain_and_fixture": {
+      "objective": "Prove complete context-indexed T4 attribution, exact fixture binding, and sole formal scope.",
+      "domain_identity": {
+        "table_id": "T4_ATTRIBUTION_DOMAIN_V4",
+        "row_contract_id": "T4_ATTRIBUTION_ROW_CONTRACT_V4",
+        "join_key": [
+          "execution_context",
+          "dose_hz_equivalent",
+          "carrier_hz",
+          "repetition_hz"
+        ],
+        "level_a_worker_rows": [
+          ["T4_LA_WORKER_D0P50_FC13", "LA_T4_D0P50", "LEVEL_A_T4_DOSE_INDEX_04", 0.5, 13, 0.85],
+          ["T4_LA_WORKER_D1P00_FC13", "LA_T4_D1P00", "LEVEL_A_T4_DOSE_INDEX_05", 1.0, 13, 0.85],
+          ["T4_LA_WORKER_D1P50_FC13", "LA_T4_D1P50", "LEVEL_A_T4_DOSE_INDEX_06", 1.5, 13, 0.85]
+        ],
+        "conditional_level_b_rows": [
+          ["T4_LB_D0P75_FC11", "LB3_T4_R03_C00", 0.75, 11, 0.85],
+          ["T4_LB_D0P75_FC12", "LB3_T4_R03_C01", 0.75, 12, 0.85],
+          ["T4_LB_D0P75_FC13", "LB3_T4_R03_C02", 0.75, 13, 0.85],
+          ["T4_LB_D0P75_FC14", "LB3_T4_R03_C03", 0.75, 14, 0.85],
+          ["T4_LB_D0P75_FC15", "LB3_T4_R03_C04", 0.75, 15, 0.85],
+          ["T4_LB_D1P50_FC11", "LB3_T4_R04_C00", 1.5, 11, 0.85],
+          ["T4_LB_D1P50_FC12", "LB3_T4_R04_C01", 1.5, 12, 0.85],
+          ["T4_LB_D1P50_FC13", "LB3_T4_R04_C02", 1.5, 13, 0.85],
+          ["T4_LB_D1P50_FC14", "LB3_T4_R04_C03", 1.5, 14, 0.85],
+          ["T4_LB_D1P50_FC15", "LB3_T4_R04_C04", 1.5, 15, 0.85]
+        ],
+        "possible_verifier_rows": [
+          ["T4_XV_D0P50_FC13", "LA_T4_D0P50", "X3_T4_SELECTED_D0P50_FC13", 0.5, 13, 0.85],
+          ["T4_XV_D1P00_FC13", "LA_T4_D1P00", "X3_T4_SELECTED_D1P00_FC13", 1.0, 13, 0.85],
+          ["T4_XV_D1P50_FC13", "LA_T4_D1P50", "X3_T4_SELECTED_D1P50_FC13", 1.5, 13, 0.85]
+        ],
+        "counts": {
+          "level_a_worker": 3,
+          "conditional_level_b": 10,
+          "possible_verifier": 3,
+          "total": 16
+        },
+        "sole_formal_row": "T4_LA_WORKER_D1P50_FC13"
+      },
+      "requirements": [
+        "All 16 rows, row fields, row order, row IDs, policy/condition IDs, contexts, four-field joins, block universes, sham IDs, minima, family IDs, use labels, and formal booleans are deep-equal to the V4 table. Row IDs and join keys are unique; each candidate-array projection is exact.",
+        "Level-A rows require >=30 complete pairs, >=5 seeds, >=5 draws; Level-B rows require >=10 complete pairs, >=3 seeds, all 3 draws; selected verifier row requires >=20 complete pairs, >=3 seeds, >=5 draws. Every row also requires N_added>=30 from >=10 distinct contributing blocks.",
+        "Packet starts, internal starts, stops, retention, carrier, paired-sham identity, one-intervention/one-sham blocks, per-row pooling, event counts, F_auto, F_replica, no borrowing, missingness, and all 28 required log fields are exact.",
+        "Peak time is earliest RMS maximum; candidate pairs are all <=50 samples and sorted lexicographically; greedy one-to-one matching never rematches; added/lost/paired classes, emitted-packet association, packet tie rules, strict post-stop two-crossing 13..19-sample autonomous test, and three final classes are exact.",
+        "Only after a point denominator passes, a bootstrap replicate with N_added=0 sets F_auto=0 and F_replica=1 and logs ZERO_ADDED_BOOTSTRAP with row, family, and replicate. This never rescues a point denominator.",
+        "Exactly one possible verifier row is active by the frozen worker-selected Level-A policy; the other two are NOT_LAUNCHED_BY_POLICY, are not scientific missingness, and are never resampled.",
+        "Only T4_LA_WORKER_D1P50_FC13 supplies F_auto-0.50 to F_TARGET_DECISIONS. Other Level-A rows are policy diagnostics, all 10 Level-B rows are surface/policy diagnostics, and the selected verifier row is verifier-only. No diagnostic row alters formal T4 attribution."
+      ],
+      "fixture_contract": {
+        "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "fixture_id": "PF_T4_EVENT_ATTRIBUTION_FIXTURE_V3",
+        "expected_candidate_pair_count": 5,
+        "expected_accepted_pair_count": 4,
+        "expected_added_events": ["I3", "I5", "I7"],
+        "expected_lost_events": ["S5"],
+        "expected_N_autonomous": 1,
+        "expected_N_packet_replica": 1,
+        "expected_F_auto": "1/3",
+        "expected_F_replica": "1/3",
+        "expected_denominator_status": "NOT_ESTIMABLE",
+        "static_audit_requirement": "Prove that the exact path/hash, raw-only input selection, complete row-consumption ledger, manifest normalization, exact type/order/value deep comparison, path-indexed diff, PF_T4_EVENT_ATTRIBUTION_FAIL stop, and no-scientific-evidence role are wired into preflight. Do not execute the comparator during code audit."
+      },
+      "failure_codes": [
+        "CA4_T4_DOMAIN_CARDINALITY_OR_JOIN_DEFECT",
+        "CA4_T4_CLASSIFIER_OR_DENOMINATOR_DEFECT",
+        "CA4_T4_FORMAL_SCOPE_LEAK",
+        "CA4_T4_FIXTURE_BINDING_OR_COMPARATOR_DEFECT"
+      ]
+    },
+    "CA4_U01_bootstrap_randomization_and_holm": {
+      "objective": "Prove exact uncertainty families, RNG lifecycles, tests, tails, ties, and multiplicity.",
+      "simultaneous_families": {
+        "F_TARGET_DECISIONS": {
+          "seed": 860218,
+          "expected_member_count_by_target": {"T1": 5, "T2": 3, "T3": 3, "T4": 4, "T5": 3, "T6": 2, "T7": 3, "T8": 2}
+        },
+        "F_LEVEL_B_SURFACES": {
+          "seed": 860220,
+          "member_formula": "K=25*n25+20*n20+5*nmap",
+          "maximum_members": 80
+        },
+        "F_CROSS_TARGET_8X8": {
+          "seed": 860221,
+          "benefit_members": 64,
+          "adverse_members": 64,
+          "total_members": 128
+        },
+        "F_FORMAL_C2_INTERACTIONS": {
+          "seed": 860222,
+          "status": "NOT_ESTIMABLE"
+        }
+      },
+      "requirements": [
+        "Primary percentile bootstrap uses 10000 paired hierarchical resamples and PCG64(860216). Each simultaneous family uses 10000 replicates, one shared hierarchical index tensor, exact draw-then-seed nesting, and its own exact PCG64 seed.",
+        "Each requirement is oriented as slack z>0; delta, circular wrap, scale floor max(std(ddof=1),1e-12*max(1,abs(z_hat))), max absolute studentization, 9501st one-based order statistic via partition index 9500, two-sided band, strict lower bound >0, circular width >=pi failure, and zero-variance rule are exact.",
+        "F_TARGET_DECISIONS member arrays and missing-component rules are exact, including sole formal T4 row and target-specific shape/Holm prerequisites.",
+        "F_LEVEL_B_SURFACES enumerates exact C_i(u)-1 and mapping G_i(P)-1 members, jointly resamples all selected surfaces, recomputes row-specific positive T4 fractions, preserves missing cells, and never alters Level-B launch eligibility retroactively.",
+        "F_CROSS_TARGET_8X8 recomputes in each replicate: block-level n, block medians, condition benefit/adverse, selected-row T4 F_auto/F_replica, mapping min/max, and diagonal G overrides in frozen order. Inactive T4 verifier rows are excluded.",
+        "Sign-flip targets are T1,T2,T3,T4,T5,T6,T8 with seeds 860231,860232,860233,860234,860235,860236,860238. After exact block ordering and denominator checks, instantiate once, draw integers(0,2,size=(100000,n_blocks),dtype=int8) once in C order, keep zeros, count >= ties, and compute (B+1)/(100001).",
+        "T7 uses exactly PCG64(860217), 100000 outer permutations, one permutation(8) per block in frozen nested order, Fisher-Lee/track/separation H, -infinity for permuted degeneracy, no reset/share, >= ties, and (B+1)/100001. Observed degeneracy stops before RNG creation.",
+        "Holm primary family is T1,T4,T6 and secondary family T2,T3,T5,T7. Sort finite raw p ascending with lexical target tie, retain full family size including NOT_ESTIMABLE values placed last, use max-prefix min(1,(m-l+1)*p_l), and require adjusted p<0.05 strictly. Secondary opens only after a complete primary pass. T8 remains descriptive."
+      ],
+      "failure_codes": [
+        "CA4_BOOTSTRAP_FAMILY_OR_ORDER_DEFECT",
+        "CA4_RANDOMIZATION_RNG_OR_TAIL_DEFECT",
+        "CA4_T7_PERMUTATION_DEFECT",
+        "CA4_HOLM_DEFECT"
+      ]
+    },
+    "CA4_R01_level_a_level_b_policy_cross_target_and_runs": {
+      "objective": "Prove exact registered condition universes, policies, cross-target construction, and arithmetic.",
+      "level_a": {
+        "targets": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+        "worker_seeds": 6,
+        "parameter_draws": 6,
+        "paired_blocks_per_condition": 36,
+        "minimum_complete_blocks": 30,
+        "minimum_distinct_seeds": 5,
+        "minimum_distinct_draws": 5,
+        "condition_sets_per_seed_draw": 50,
+        "maximum_runs": 1800,
+        "phase_grid_T6_T7": [-3.141592653589793, -2.0943951023931953, -1.5707963267948966, -1.0471975511965976, 0, 1.0471975511965976, 1.5707963267948966, 2.0943951023931953],
+        "endpoint_rule": "-pi included and +pi prohibited"
+      },
+      "conditional_level_b": {
+        "selected_target_cap": 3,
+        "seeds": [11003, 33013, 55021, 66029],
+        "draws": ["D00_NOMINAL", "D02", "D04"],
+        "paired_blocks_per_cell": 12,
+        "cell_counts": {"T1": 25, "T2": 25, "T3": 25, "T4": 25, "T5": 25, "T6": 20, "T7": 20, "T8": 25},
+        "phase_grid_T6_T7": [-3.141592653589793, -1.5707963267948966, 0, 1.5707963267948966],
+        "run_formula": "12*(25*n25+20*n20), n25+n20<=3",
+        "maximum_runs": 900,
+        "mapping_extra_runs": 0,
+        "deduplication": "NONE"
+      },
+      "cross_target_verifier": {
+        "matrix_shape": [8, 8],
+        "level_a_policy_objects": 8,
+        "benefit_members": 64,
+        "adverse_members": 64,
+        "total_members": 128,
+        "draws": 6,
+        "verifier_seeds": 4,
+        "paired_blocks_per_condition": 24,
+        "logical_policy_conditions": 19,
+        "unique_intervention_conditions_per_block": 18,
+        "shared_sham_conditions_per_block": 1,
+        "unique_runs": 456,
+        "run_identity": "24*(18+1)=456",
+        "minimum_complete_blocks": 20,
+        "minimum_distinct_seeds": 3,
+        "minimum_distinct_draws": 5
+      },
+      "requirements": [
+        "All Level-A grid arrays, shams, run IDs, analysis order, T6/T7 shared-trajectory reuse, and exact 50-by-36 registry are deep-equal to the protocol. Every run produces all eight metrics where defined.",
+        "All eight conditional Level-B row/column arrays, 25/20 cell IDs, executable forcing schedules, half-open intervals, formulas, shams, run IDs, bounds, canonical phases, replication, and no-deduplication rule are exact.",
+        "The implementation exposes exactly eight worker-only Level-A policy objects and eight separately identified conditional Level-B policy objects. Conditional Level-B never selects or alters a Level-A cross-target policy.",
+        "cell_scores C_i/G_i, policy candidate arrays, missing/tie rules, block-normalize then block-median aggregation, selected-policy rule, Level-B family enumeration, column primitives, benefit/adverse construction, score denominators, diagonal G overrides, and target-specific T8 shape rules are semantically deep-equal to phase2_protocol.json#phase2a/policy_selection_and_cross_target_scalars and #level_a_shape_consistency.",
+        "T1 selected policy is a five-condition requested-frequency mapping; T7 is an eight-condition requested-phase mapping; other targets select one condition. Policies freeze from worker data before verifier outcomes and before conditional Level B.",
+        "Verifier ordering, run IDs, sham reuse, exact T6/T7 tuple deduplication, selected T4 verifier-row mapping, no cross-partition borrowing, no missing-value imputation/renormalization, and all 128 family-member IDs are exact.",
+        "Run arithmetic is 1800 Level A + at most 900 conditional Level B + exactly 456 verifier = at most 3156 registered runs, 662760 simulated seconds, and 662760000 internal intervals.",
+        "Advancement cap is 3, current advancing set is empty, Level B is conditional only, Phase2B is NOT_ESTIMABLE with N=0 and minimum 3, synthetic substitution is prohibited, and M1/C0/P0 cannot change."
+      ],
+      "failure_codes": [
+        "CA4_LEVEL_A_REGISTRY_OR_POLICY_DEFECT",
+        "CA4_LEVEL_B_REGISTRY_OR_POLICY_DEFECT",
+        "CA4_CROSS_TARGET_REGISTRY_OR_AGGREGATION_DEFECT",
+        "CA4_RUN_ARITHMETIC_OR_PHASE2B_DEFECT"
+      ]
+    },
+    "CA4_O01_schemas_checkpoints_and_resume": {
+      "objective": "Prove closed output contracts and deterministic, non-destructive restart behavior.",
+      "requirements": [
+        "PREFLIGHT/CANDIDATE_V4_EXPECTED_SCHEMA.json is hash-bound by the Root implementation freeze and the implementation manifest. It defines every preflight, run, block, detector, T4, policy, family, matrix, grade, claim, checkpoint, resume, verification, failure, and resource-ledger artifact produced by any mode.",
+        "Every schema fixes required fields, types, array ranks/shapes or variable-length rules, units, enums, nullability, missing/invalid/not-launched semantics, run and block IDs, ordering, protocol/source/environment/schema hashes, RNG provenance, pairing provenance, and additional-field policy. NaN and Infinity are never valid JSON outputs.",
+        "Each source writer and reader maps to exactly one schema ID. Static call-flow inspection proves no unschematized output and no schema bypass or permissive catch-all path.",
+        "Run identity is a pure function of frozen context, target, condition/policy index, draw ID, seed, and shared-reuse identity. Duplicate identities with unequal payload or provenance fail closed.",
+        "After each target and seed-draw block, checkpointing writes one complete immutable result block. A completed destination is never overwritten: identical hash is reused, different hash aborts. Temporary files stay in the contained output directory and become visible atomically only after validation and hash computation.",
+        "Resume first revalidates all governing, implementation, schema, fixture, input, block, and checkpoint hashes; reconstructs the full frozen run registry; schedules only absent incomplete identities; preserves valid negative results; and refuses a changed protocol, source, environment, seed, draw, condition, schema, or completed block.",
+        "No infrastructure retry may follow scientific outcome inspection. A run identity is attempted once scientifically; a separately authorized infrastructure rerun must be byte-identical and explicitly logged.",
+        "Checkpoint/resume cannot launch a partial new Level-B surface. It may finish only a surface already atomically admitted under the exact 12*cells reservation rule."
+      ],
+      "failure_codes": [
+        "CA4_OUTPUT_SCHEMA_GAP",
+        "CA4_UNSCHEMATIZED_OR_NONFINITE_OUTPUT",
+        "CA4_CHECKPOINT_MUTABILITY_DEFECT",
+        "CA4_RESUME_IDENTITY_OR_RETRY_DEFECT"
+      ]
+    },
+    "CA4_CLI01_fail_closed_modes_and_hash_guards": {
+      "objective": "Prove strict separation of static information, future preflight, Phase2A worker, and verifier capabilities with no current execution authority.",
+      "required_semantic_modes": [
+        "IMPLEMENTATION_STATIC_INFORMATION",
+        "DATA_FREE_SYNTHETIC_PREFLIGHT",
+        "PHASE2A_WORKER",
+        "CROSS_TARGET_VERIFIER"
+      ],
+      "requirements": [
+        "The manifest maps each required semantic mode to exactly one explicit CLI command and no alias, default, environment-triggered, import-time, or fall-through execution path. No-argument and unknown-mode invocations perform no scientific work and no writes.",
+        "All future commands are text declarations only during implementation and code audit, use the exact official launcher path/hash, use one process, and identify exact mode, manifest, expected schema, Root authorization receipt, output root, and any bounded run selection.",
+        "Before any RNG allocation, input read beyond the control set, output creation, simulation, detector, fixture comparator, checkpoint mutation, or resource reservation, each executable mode validates the Root execution authorization and its exact allowed purpose plus protocol freeze, protocol audit, corrected release, revalidation, code-audit protocol, implementation freeze, implementation manifest, source files, expected schema, environment snapshot, launcher, compute budget/audit, and T4 fixture hashes applicable to that mode.",
+        "Missing, stale, malformed, mismatched, extra, wrong-purpose, wrong-campaign, wrong-candidate, wrong-route, expired, already-consumed, or broader-than-requested authorization fails closed before scientific work.",
+        "IMPLEMENTATION_STATIC_INFORMATION can report version/hash/schema metadata only and never simulates or evaluates fixtures. DATA_FREE_SYNTHETIC_PREFLIGHT can later use only the 14 frozen synthetic fixtures and cannot access data or outcomes. PHASE2A_WORKER cannot use verifier seeds/reserve. CROSS_TARGET_VERIFIER cannot use worker seeds/cap or alter worker-selected policies.",
+        "Phase2B has no executable mode under V4, or any exposed Phase2B branch unconditionally emits NOT_ESTIMABLE_N0_MIN3 and exits before RNG, reads, or writes. Synthetic substitution is impossible.",
+        "The present embedded authorization state is static implementation only: module import, Python/launcher execution, preflight, Phase2A, verifier, and Phase2B are all denied. Code cannot treat the implementation release, protocol PASS, or code-audit PASS as self-executing authority."
+      ],
+      "failure_codes": [
+        "CA4_CLI_MODE_ALIAS_OR_FALLTHROUGH",
+        "CA4_HASH_GUARD_INCOMPLETE_OR_LATE",
+        "CA4_AUTHORIZATION_SCOPE_BYPASS",
+        "CA4_PHASE2B_EXECUTION_PATH"
+      ]
+    },
+    "CA4_C01_compute_and_resource_compliance": {
+      "objective": "Prove static enforcement of all compute partitions and stops without measuring or consuming compute.",
+      "frozen_limits": {
+        "OMP_NUM_THREADS": 4,
+        "MKL_NUM_THREADS": 4,
+        "OPENBLAS_NUM_THREADS": 4,
+        "NUMEXPR_NUM_THREADS": 4,
+        "requested_concurrent_processes": 1,
+        "campaign_total_cpu_hours": 180,
+        "phase2a_worker_cpu_hour_cap": 60,
+        "level_b_new_launch_stop_worker_cpu_hours": 52,
+        "completion_checkpoint_reserve_worker_cpu_hours": 8,
+        "verifier_cpu_hours_reserved": 50,
+        "combined_authorized_partition_cap_cpu_hours": 110,
+        "storage_hard_stop_gib": 45,
+        "wall_clock_deadline": "2026-08-18T23:59:59-04:00",
+        "cross_partition_borrowing": "PROHIBITED"
+      },
+      "requirements": [
+        "Static source and commands honor one admitted process and four thread variables, use only the official launcher, and cannot spawn child processes or bypass launcher containment, reparse rejection, memory admission, or thread enforcement.",
+        "All Level A completes before any Level B launch. Before each selected Level-B target, the code atomically reserves the full 12*cells(target) registry and projected CPU time and refuses admission beyond 60 hours or after the 52-hour new-launch stop.",
+        "Verifier admits only if all 456 unique runs fit its separate 50-hour reserve. Worker and verifier accounting are separate and borrowing in either direction is impossible.",
+        "The implementation maintains monotone CPU-time, run, simulated-second, internal-interval, storage, and wall-clock ledgers and checks hard stops before each new run or write. A stop preserves completed immutable blocks and cannot be converted into a pass or missing-value imputation.",
+        "Static audit confirms the arithmetic and guard placement only. It performs no runtime/memory benchmark and cannot claim that the future implementation fits measured resources."
+      ],
+      "failure_codes": [
+        "CA4_COMPUTE_PARTITION_OR_THREAD_DEFECT",
+        "CA4_LEVEL_B_ATOMIC_ADMISSION_DEFECT",
+        "CA4_RESOURCE_LEDGER_OR_HARD_STOP_DEFECT",
+        "CA4_UNSUPPORTED_RUNTIME_COMPLIANCE_CLAIM"
+      ]
+    },
+    "CA4_G01_failures_claims_and_current_closed_gates": {
+      "objective": "Prove that failures, grades, advancement, claims, and releases remain noncompensatory and outcome-blind.",
+      "requirements": [
+        "All protocol failure codes, invalidity rules, stability/plausibility/off-target vetoes, D/F/NOT_ESTIMABLE rules, Grade C ceiling, advancement rules, C2-G1..C2-G10, and eight claim records are statically reachable and mapped to schemas.",
+        "Exceptions cannot be swallowed, converted to zero, retried silently, or replaced by defaults. Broad exception handlers, warning-only hash mismatches, and continue-on-invalid scientific branches are blocking.",
+        "No code path promotes an invalid/missing component, partial surface, incomplete policy row, threshold drift, T4 diagnostic row, or failed fixture into a passing target, Grade C, advancement, C2 gate, or claim.",
+        "Current claim status remains DESIGNED_NOT_EXECUTED; formal C2 remains NOT_ESTIMABLE; report wording remains non-transferable diagnostic only; R4 M1/C0/P0 is unchanged."
+      ],
+      "failure_codes": [
+        "CA4_EXCEPTION_OR_FAILURE_FAIL_OPEN",
+        "CA4_GRADE_ADVANCEMENT_OR_GATE_BYPASS",
+        "CA4_CLAIM_STATUS_OR_WORDING_BREACH"
+      ]
+    }
+  },
+  "bounded_repair_classification": {
+    "audit_does_not_authorize_repairs": true,
+    "current_preflight_repair_budget_consumed": 0,
+    "maximum_preflight_repairs": 2,
+    "budget_currently_usable": false,
+    "classes": [
+      {
+        "class_id": "R0_NONMATERIAL_PRESENTATION",
+        "definition": "A spelling or manifest-presentation issue with no effect on hashes, code paths, schema meaning, scientific values, authorization, or execution.",
+        "audit_effect": "May be recorded nonblocking only when the audited bytes remain fully interpretable and every mandatory check passes; changing bytes still requires a new hash freeze and re-audit."
+      },
+      {
+        "class_id": "R1_OUTCOME_BLIND_IMPLEMENTATION_CONFORMANCE",
+        "definition": "A localized static implementation, schema, shape, logging, or deterministic engineering mismatch whose only valid correction is uniquely dictated by existing V4 bytes and changes no scientific definition.",
+        "audit_effect": "Blocking. This audit grants no edit authority. Root may separately authorize correction, after which all changed implementation/manifests require new hashes and a complete fresh static code audit. A code-audit correction before any preflight is not silently charged or exempted; its governance accounting must be explicit in the new release."
+      },
+      {
+        "class_id": "R2_SCIENTIFIC_DEFINITION_CHANGE",
+        "definition": "Any change to equations, parameters, uncertainty, forcing, scheduler, detector, metric, threshold, grid, denominator, seed/RNG, statistic, policy, run registry, grade, gate, advancement, or claim boundary.",
+        "audit_effect": "Blocking and ineligible for the bounded implementation repair budget. Requires a new prospective scientific protocol version before affected outcomes are viewed."
+      },
+      {
+        "class_id": "R3_GOVERNANCE_OR_CONTAMINATION_INCIDENT",
+        "definition": "Forbidden read/import/execute capability, protected or historical dependency, path escape, hash bypass, unauthorized execution, data/outcome access, or false authoring/execution declaration.",
+        "audit_effect": "Material blocking incident. Stop, preserve evidence, deny preflight and science, and require independent containment plus separately versioned Root remediation; the ordinary repair budget cannot self-cure it."
+      },
+      {
+        "class_id": "R4_INSUFFICIENT_STATIC_PROOF",
+        "definition": "Required fidelity cannot be established without import or execution, or source indirection prevents exact static resolution.",
+        "audit_effect": "Blocking. Refactor may be considered only under separate outcome-blind Root authority and new implementation hashes; the auditor must not execute to resolve uncertainty."
+      }
+    ],
+    "post_preflight_rule": "Only after a separately released single data-free preflight may at most two outcome-blind implementation/schema/shape repairs be considered under the frozen campaign rule. Each requires Root authorization, immutable before/after hashes, no scientific-field change, repeated static audit, and repeated preflight as separately released."
+  },
+  "required_audit_receipt": {
+    "path": "GOVERNANCE/CODE_AUDIT_RECEIPT_V4.json",
+    "receipt_type": "INDEPENDENT_OUTCOME_BLIND_STATIC_CODE_AUDIT_RECEIPT_V4",
+    "required_fields": [
+      "schema_version",
+      "campaign_id",
+      "candidate_identity",
+      "audit_protocol_path_and_sha256",
+      "root_implementation_freeze_path_and_sha256",
+      "all_direct_control_and_protocol_artifact_hashes",
+      "implementation_manifest_path_and_sha256",
+      "expected_schema_path_and_sha256",
+      "complete_source_path_size_sha256_ledger",
+      "manifest_coverage_and_reparse_verdict",
+      "exact_files_read",
+      "directory_metadata_enumeration_scope",
+      "imports_executions_launcher_preflight_science_all_zero",
+      "per_mandatory_check_verdict_and_evidence",
+      "findings_with_failure_code_repair_class_and_exact_source_location",
+      "unresolved_findings",
+      "overall_verdict",
+      "authorization_effect",
+      "immutability_and_external_self_hash_policy"
+    ],
+    "receipt_rules": [
+      "The receipt is written once after static inspection, contains no implementation or protocol changes, and is externally SHA-256 hashed after serialization.",
+      "PASS requires a complete evidence statement for every mandatory check and zero unresolved or blocking findings.",
+      "A failure receipt preserves exact hashes and locations but does not include repaired bytes or authorize changes.",
+      "The receipt explicitly states that runtime behavior, memory fit, synthetic fixtures, and scientific outcomes were not executed or observed."
+    ]
+  },
+  "release_state_after_protocol_authoring": {
+    "static_implementation": "AUTHORIZED_ONLY_UNDER_CORRECTED_V2_RELEASE_FOR_THE_WORKER_ROLE",
+    "implementation_or_manifest_disclosure_to_this_author": "NOT_OCCURRED",
+    "independent_static_code_audit": "DENIED_UNTIL_ROOT_IMPLEMENTATION_HASH_FREEZE_AND_EXACT_AUDITOR_ASSIGNMENT",
+    "module_import": "DENIED",
+    "python_or_launcher_execution": "DENIED",
+    "data_free_synthetic_preflight": "DENIED_PENDING_HASH_FROZEN_IMPLEMENTATION_AND_INDEPENDENT_STATIC_CODE_AUDIT_PASS_AND_ROOT_RELEASE",
+    "phase2a_worker_execution": "DENIED",
+    "cross_target_verifier_execution": "DENIED",
+    "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+    "protected_access": "NONE",
+    "scientific_outcomes": "NONE"
+  }
+}

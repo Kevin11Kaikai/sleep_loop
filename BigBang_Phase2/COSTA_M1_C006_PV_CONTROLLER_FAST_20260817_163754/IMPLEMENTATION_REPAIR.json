@@ -1,0 +1,9 @@
+{
+  "repair_number": 1,
+  "maximum_repairs": 1,
+  "reason": "All 24 simulations completed, but final JSON serialization rejected numpy.bool_ gate values.",
+  "change": "Convert NumPy scalar values to their Python scalar equivalents during JSON serialization.",
+  "scientific_parameters_changed": false,
+  "controller_logic_changed": false,
+  "seeds_or_gates_changed": false
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "decision": "PROCEED_TO_EXPLORATORY_PHASE2B",
+  "numerically_stable_simulations": 9,
+  "core_targets_passed": 3,
+  "core_gate": {
+    "T5": {
+      "consistent_seeds": 3,
+      "median_relative_effect": -0.8785216793098863,
+      "passed": true
+    },
+    "T6": {
+      "consistent_seeds": 3,
+      "median_relative_effect": -0.5096235716379224,
+      "passed": true
+    },
+    "T8": {
+      "consistent_seeds": 3,
+      "median_relative_effect": 2.3870967741935485,
+      "passed": true
+    }
+  },
+  "selected_pid_target": "T2",
+  "selected_target_detail": {
+    "effects": [
+      0.11312440618265292,
+      0.30952975440823355,
+      0.266755200526516
+    ],
+    "median": 0.266755200526516
+  },
+  "phase2b_formal_or_confirmatory_authorized": false,
+  "prohibited_payloads_used": false,
+  "decided_utc": "2026-08-17T15:29:56.811788+00:00"
+}

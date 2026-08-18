@@ -1,0 +1,67 @@
+{
+  "checks": [
+    {
+      "pulse_count_source": 28,
+      "pulse_count_shifted": 28,
+      "amplitude_multiset_equal": true,
+      "nonzero_samples_equal": true,
+      "source_energy": 0.0034649802933969243,
+      "shifted_energy": 0.0034649802933969243,
+      "energy_abs_error": 0.0,
+      "passed": true,
+      "seed": 77131,
+      "half_cycle_samples": 333,
+      "sham_T1_hz": 0.75
+    },
+    {
+      "pulse_count_source": 25,
+      "pulse_count_shifted": 25,
+      "amplitude_multiset_equal": true,
+      "nonzero_samples_equal": true,
+      "source_energy": 0.0033541986091346746,
+      "shifted_energy": 0.0033541986091346746,
+      "energy_abs_error": 0.0,
+      "passed": true,
+      "seed": 88141,
+      "half_cycle_samples": 333,
+      "sham_T1_hz": 0.75
+    },
+    {
+      "pulse_count_source": 28,
+      "pulse_count_shifted": 28,
+      "amplitude_multiset_equal": true,
+      "nonzero_samples_equal": true,
+      "source_energy": 0.003608949038699326,
+      "shifted_energy": 0.003608949038699326,
+      "energy_abs_error": 0.0,
+      "passed": true,
+      "seed": 99149,
+      "half_cycle_samples": 333,
+      "sham_T1_hz": 0.75
+    }
+  ],
+  "phase_pairs": [
+    {
+      "seed": 77131,
+      "adaptive_phase_rad": -2.681054353915056,
+      "shifted_phase_rad": 0.8338252728493634,
+      "separation_deg": 158.61223188988075,
+      "phase_separation_valid": true
+    },
+    {
+      "seed": 88141,
+      "adaptive_phase_rad": 2.9799108792265,
+      "shifted_phase_rad": 0.5625056331777648,
+      "separation_deg": 138.50711797137686,
+      "phase_separation_valid": true
+    },
+    {
+      "seed": 99149,
+      "adaptive_phase_rad": -3.050601217104577,
+      "shifted_phase_rad": 0.375635153415131,
+      "separation_deg": 163.69111635499942,
+      "phase_separation_valid": true
+    }
+  ],
+  "all_passed": true
+}

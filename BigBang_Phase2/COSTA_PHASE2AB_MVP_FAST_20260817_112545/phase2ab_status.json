@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "status": "COMPLETE",
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "pid": 68392,
+  "started_utc": "2026-08-17T15:29:06.534069+00:00",
+  "hard_stop_minutes": 15.0,
+  "phase2a_planned": 9,
+  "phase2a_completed": 9,
+  "phase2b_planned_maximum": 3,
+  "phase2b_completed": 3,
+  "prohibited_payloads_used": false,
+  "selected_pid_target": "T2",
+  "completed_utc": "2026-08-17T15:30:07.905443+00:00",
+  "pid_decision": "PID_MVP_DEMONSTRATED",
+  "elapsed_seconds": 61.375
+}

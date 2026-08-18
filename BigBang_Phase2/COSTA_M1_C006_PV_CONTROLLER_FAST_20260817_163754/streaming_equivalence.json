@@ -1,0 +1,6 @@
+{
+  "state_max_abs_error": 5.551115123125783e-16,
+  "proxy_max_abs_error": 3.197442310920451e-14,
+  "threshold": 1e-12,
+  "passed": true
+}

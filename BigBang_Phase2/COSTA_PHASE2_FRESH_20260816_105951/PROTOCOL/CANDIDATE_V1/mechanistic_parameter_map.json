@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "artifact_id": "PHASE2_CONTROL_BENCH_V1_MECHANISTIC_PARAMETER_MAP",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "freeze_candidate_status": "PREOUTCOME_COMPLETE",
+  "scientific_outcomes_used": false,
+  "scope": "Self-contained clean-room diagnostic thalamocortical rate bench; not the R4 candidate and not transferable to the R4 M1/C0/P0 substrate.",
+  "model_equations": {
+    "rate_equation": "tau_i * dr_i/dt = -r_i + rmax_i*S(h_i), for i in {E,I,T,R}",
+    "adaptation_equation": "tau_a * da/dt = -a + r_E",
+    "sigmoid": "S(h)=1/(1+exp(-beta*(h-theta)))",
+    "inputs": {
+      "h_E": "b_E + w_EE*r_E - w_EI*r_I + w_ET*r_T - g_a*a + eta_E + u_E(t)",
+      "h_I": "b_I + w_IE*r_E - w_II*r_I + w_IT*r_T + eta_I + u_I(t)",
+      "h_T": "b_T + w_TE*r_E - w_TR*r_R + eta_T + u_T(t)",
+      "h_R": "b_R + w_RE*r_E + w_RT*r_T - w_RR*r_R + eta_R + u_R(t)"
+    },
+    "ou_noise": "eta_i[n+1]=exp(-dt/tau_eta)*eta_i[n]+sigma_i*sqrt(1-exp(-2*dt/tau_eta))*Normal_i[n]",
+    "observation_operator": "x(t)=(r_E(t)+0.25*r_T(t))/10; x is a dimensionless model-output unit (m.u.) proxy, not scalp voltage."
+  },
+  "state_variables": [
+    {"name": "r_E", "interpretation": "cortical excitatory population rate", "unit": "Hz", "initial_value": 8.0},
+    {"name": "r_I", "interpretation": "cortical inhibitory population rate", "unit": "Hz", "initial_value": 10.0},
+    {"name": "r_T", "interpretation": "thalamic relay population rate", "unit": "Hz", "initial_value": 6.0},
+    {"name": "r_R", "interpretation": "thalamic reticular population rate", "unit": "Hz", "initial_value": 8.0},
+    {"name": "a", "interpretation": "slow cortical excitatory adaptation state", "unit": "Hz-equivalent", "initial_value": 8.0},
+    {"name": "eta_E", "interpretation": "cortical excitatory Ornstein-Uhlenbeck input", "unit": "Hz-equivalent", "initial_value": 0.0},
+    {"name": "eta_I", "interpretation": "cortical inhibitory Ornstein-Uhlenbeck input", "unit": "Hz-equivalent", "initial_value": 0.0},
+    {"name": "eta_T", "interpretation": "thalamic relay Ornstein-Uhlenbeck input", "unit": "Hz-equivalent", "initial_value": 0.0},
+    {"name": "eta_R", "interpretation": "thalamic reticular Ornstein-Uhlenbeck input", "unit": "Hz-equivalent", "initial_value": 0.0}
+  ],
+  "parameter_defaults_and_bounds": [
+    {"parameter": "tau_E", "default": 0.020, "bound": [0.015, 0.030], "unit": "s", "role": "cortical excitatory rate time constant"},
+    {"parameter": "tau_I", "default": 0.010, "bound": [0.0075, 0.015], "unit": "s", "role": "cortical inhibitory rate time constant"},
+    {"parameter": "tau_T", "default": 0.020, "bound": [0.015, 0.030], "unit": "s", "role": "thalamic relay rate time constant"},
+    {"parameter": "tau_R", "default": 0.010, "bound": [0.0075, 0.015], "unit": "s", "role": "reticular rate time constant"},
+    {"parameter": "tau_a", "default": 1.000, "bound": [0.600, 1.800], "unit": "s", "role": "slow cortical adaptation time constant"},
+    {"parameter": "tau_eta", "default": 0.050, "bound": [0.025, 0.100], "unit": "s", "role": "input-noise correlation time"},
+    {"parameter": "rmax_E", "default": 100.0, "bound": [80.0, 120.0], "unit": "Hz", "role": "cortical excitatory saturation rate"},
+    {"parameter": "rmax_I", "default": 100.0, "bound": [80.0, 120.0], "unit": "Hz", "role": "cortical inhibitory saturation rate"},
+    {"parameter": "rmax_T", "default": 100.0, "bound": [80.0, 120.0], "unit": "Hz", "role": "relay saturation rate"},
+    {"parameter": "rmax_R", "default": 100.0, "bound": [80.0, 120.0], "unit": "Hz", "role": "reticular saturation rate"},
+    {"parameter": "beta", "default": 0.18, "bound": [0.12, 0.24], "unit": "per Hz-equivalent", "role": "shared sigmoid slope"},
+    {"parameter": "theta", "default": 15.0, "bound": [12.0, 18.0], "unit": "Hz-equivalent", "role": "shared sigmoid midpoint"},
+    {"parameter": "b_E", "default": 12.0, "bound": [8.0, 16.0], "unit": "Hz-equivalent", "role": "cortical excitatory bias"},
+    {"parameter": "b_I", "default": 8.0, "bound": [5.0, 12.0], "unit": "Hz-equivalent", "role": "cortical inhibitory bias"},
+    {"parameter": "b_T", "default": 10.0, "bound": [6.0, 14.0], "unit": "Hz-equivalent", "role": "relay bias"},
+    {"parameter": "b_R", "default": 8.0, "bound": [5.0, 12.0], "unit": "Hz-equivalent", "role": "reticular bias"},
+    {"parameter": "g_a", "default": 0.30, "bound": [0.15, 0.45], "unit": "dimensionless", "role": "adaptation feedback onto cortical excitation"},
+    {"parameter": "w_EE", "default": 0.22, "bound": [0.12, 0.32], "unit": "dimensionless", "role": "cortical recurrent excitation"},
+    {"parameter": "w_EI", "default": 0.35, "bound": [0.22, 0.50], "unit": "dimensionless", "role": "inhibitory input to cortical excitation"},
+    {"parameter": "w_ET", "default": 0.16, "bound": [0.08, 0.25], "unit": "dimensionless", "role": "relay input to cortical excitation"},
+    {"parameter": "w_IE", "default": 0.30, "bound": [0.18, 0.42], "unit": "dimensionless", "role": "cortical excitation to inhibition"},
+    {"parameter": "w_II", "default": 0.10, "bound": [0.04, 0.18], "unit": "dimensionless", "role": "cortical inhibitory self-feedback"},
+    {"parameter": "w_IT", "default": 0.10, "bound": [0.04, 0.18], "unit": "dimensionless", "role": "relay drive to cortical inhibition"},
+    {"parameter": "w_TE", "default": 0.12, "bound": [0.05, 0.22], "unit": "dimensionless", "role": "corticothalamic drive to relay"},
+    {"parameter": "w_TR", "default": 0.40, "bound": [0.25, 0.55], "unit": "dimensionless", "role": "reticular inhibition of relay"},
+    {"parameter": "w_RE", "default": 0.08, "bound": [0.03, 0.16], "unit": "dimensionless", "role": "cortical excitation to reticular"},
+    {"parameter": "w_RT", "default": 0.35, "bound": [0.22, 0.50], "unit": "dimensionless", "role": "relay excitation of reticular"},
+    {"parameter": "w_RR", "default": 0.08, "bound": [0.03, 0.16], "unit": "dimensionless", "role": "reticular self-inhibition"},
+    {"parameter": "sigma_E", "default": 0.25, "bound": [0.10, 0.50], "unit": "Hz-equivalent", "role": "cortical excitatory OU scale"},
+    {"parameter": "sigma_I", "default": 0.20, "bound": [0.08, 0.40], "unit": "Hz-equivalent", "role": "cortical inhibitory OU scale"},
+    {"parameter": "sigma_T", "default": 0.20, "bound": [0.08, 0.40], "unit": "Hz-equivalent", "role": "relay OU scale"},
+    {"parameter": "sigma_R", "default": 0.20, "bound": [0.08, 0.40], "unit": "Hz-equivalent", "role": "reticular OU scale"}
+  ],
+  "bound_interpretation": "These are prospectively frozen bench-operating bounds, not estimated human physiological intervals and not reusable fitted-parameter bounds.",
+  "synthetic_uncertainty_rule": {
+    "status": "SYNTHETIC_ONLY_NOT_PERSONALIZATION",
+    "draw_ids": ["D00_NOMINAL", "D01", "D02", "D03", "D04", "D05"],
+    "generation": "D00 uses defaults. D01-D05 use scipy.stats.qmc.LatinHypercube(d=17, scramble=true, seed=271828).random(n=5); transform each coordinate with scipy.stats.norm.ppf; multiply positive parameters by exp(0.05*z), then clip to the registered bound. Biases use b=b0+0.05*(upper-lower)*z before clipping.",
+    "varied_parameters_in_coordinate_order": ["tau_E", "tau_I", "tau_T", "tau_R", "tau_a", "beta", "theta", "b_E", "b_T", "g_a", "w_EE", "w_EI", "w_ET", "w_TE", "w_TR", "w_RT", "w_RR"],
+    "fixed_across_draws": ["tau_eta", "rmax_E", "rmax_I", "rmax_T", "rmax_R", "b_I", "b_R", "w_IE", "w_II", "w_IT", "w_RE", "sigma_E", "sigma_I", "sigma_T", "sigma_R"],
+    "substitution_for_human_subjects": "PROHIBITED"
+  },
+  "intervention_channels": [
+    {"channel_id": "GF_E_DC", "name": "GENERIC EXTERNAL FORCING", "mapping": "u_E(t)=d", "dose_unit": "Hz-equivalent", "bounds": [-1.5, 1.5], "actionability": "bounded additive input port only"},
+    {"channel_id": "GF_E_SLOW_SINE", "name": "GENERIC EXTERNAL FORCING", "mapping": "u_E(t)=0.8*sin(2*pi*f_d*t)", "dose_unit": "Hz-equivalent", "frequency_bounds_hz": [0.55, 1.15], "actionability": "bounded periodic additive input port only"},
+    {"channel_id": "GF_E_SO_PULSE", "name": "GENERIC EXTERNAL FORCING", "mapping": "u_E(t)=d during each 80 ms rectangular pulse beginning every 1/0.85 s and 0 otherwise", "dose_unit": "Hz-equivalent", "bounds": [-2.0, 2.0], "actionability": "bounded periodic pulse input port only"},
+    {"channel_id": "GF_TR_SIGMA_PACKET_BALANCE", "name": "GENERIC EXTERNAL FORCING", "mapping": "p(t)=Hann_500ms(t)*0.5*(1+sin(2*pi*13*t)); packets recur at 0.85 Hz; if d>=0 set u_T=d*p,u_R=0; if d<0 set u_T=0,u_R=(-d)*p", "dose_unit": "Hz-equivalent", "bounds": [-1.5, 1.5], "actionability": "bounded relay-versus-reticular packet input port only"},
+    {"channel_id": "GF_TR_SIGMA_CONTINUOUS_BALANCE", "name": "GENERIC EXTERNAL FORCING", "mapping": "q(t)=0.5*(1+sin(2*pi*13*t)); if d>=0 set u_T=d*q,u_R=0; if d<0 set u_T=0,u_R=(-d)*q", "dose_unit": "Hz-equivalent", "bounds": [-1.2, 1.2], "actionability": "bounded relay-versus-reticular periodic input port only"},
+    {"channel_id": "GF_T_PHASE_LOCKED_PACKET", "name": "GENERIC EXTERNAL FORCING", "mapping": "after each causal upward zero-crossing of the 0.3-1.5 Hz filtered x signal, deliver one 500 ms 13 Hz nonnegative Hann packet to u_T at registered phase offset phi; calibrated causal filter delay is subtracted; amplitude=1.0", "dose_unit": "radians for phase; Hz-equivalent for fixed amplitude", "bounds": [-3.141592653589793, 3.141592653589793], "actionability": "bounded event-triggered additive input port only"},
+    {"channel_id": "GF_BALANCED_DC", "name": "GENERIC EXTERNAL FORCING", "mapping": "if d>=0 set u_E=d,u_T=0.5*d,u_I=u_R=0; if d<0 set u_I=-d,u_R=-0.5*d,u_E=u_T=0", "dose_unit": "Hz-equivalent", "bounds": [-2.0, 2.0], "actionability": "bounded population-balance input port only"}
+  ],
+  "parameter_target_relationships": [
+    {"target_id": "T1", "control_channel": "GF_E_SLOW_SINE", "sensitivity_parameters": ["tau_a", "g_a", "w_EE", "w_EI"], "classification": "strong candidate", "basis": "The registered drive frequency directly supplies a periodic cortical input; adaptation and recurrent cortical balance structurally set endogenous slow frequency.", "use_of_parameter_changes": "SENSITIVITY_ONLY"},
+    {"target_id": "T2", "control_channel": "GF_E_DC", "sensitivity_parameters": ["g_a", "w_EE", "w_EI", "w_ET"], "classification": "nonlinear/context-dependent", "basis": "Cortical bias changes distance from the adaptation-driven cycle, while amplitude can collapse near saturation; sign is therefore tested rather than presumed.", "use_of_parameter_changes": "SENSITIVITY_ONLY"},
+    {"target_id": "T3", "control_channel": "GF_E_SO_PULSE", "sensitivity_parameters": ["tau_a", "g_a", "b_E", "w_EE"], "classification": "nonlinear/context-dependent", "basis": "Pulse timing can recruit or suppress adaptation-mediated cycles, but event density may change through threshold or regime effects that are hard failures.", "use_of_parameter_changes": "SENSITIVITY_ONLY"},
+    {"target_id": "T4", "control_channel": "GF_TR_SIGMA_PACKET_BALANCE", "sensitivity_parameters": ["tau_T", "tau_R", "w_TR", "w_RT", "b_T"], "classification": "strong candidate", "basis": "The signed relay-versus-reticular packet channel acts directly on the reciprocal thalamic loop expected to gate sigma events.", "use_of_parameter_changes": "SENSITIVITY_ONLY"},
+    {"target_id": "T5", "control_channel": "GF_TR_SIGMA_CONTINUOUS_BALANCE", "sensitivity_parameters": ["w_TR", "w_RT", "w_ET", "b_T"], "classification": "strong candidate", "basis": "The thalamic loop and thalamocortical projection structurally determine sigma-band energy, with a preregistered broadband-specificity veto.", "use_of_parameter_changes": "SENSITIVITY_ONLY"},
+    {"target_id": "T6", "control_channel": "GF_T_PHASE_LOCKED_PACKET", "sensitivity_parameters": ["w_TE", "w_ET", "w_TR", "w_RT", "g_a"], "classification": "strong candidate", "basis": "Causal slow-phase triggering connects cortical slow phase to relay sigma packets and tests whether cross-frequency coordination survives uncertainty and sham correction.", "use_of_parameter_changes": "SENSITIVITY_ONLY"},
+    {"target_id": "T7", "control_channel": "GF_T_PHASE_LOCKED_PACKET", "sensitivity_parameters": ["w_TE", "w_ET", "tau_T", "tau_R"], "classification": "strong candidate", "basis": "A registered trigger offset should translate into a circular timing shift if thalamocortical timing is controllable rather than merely stronger.", "use_of_parameter_changes": "SENSITIVITY_ONLY"},
+    {"target_id": "T8", "control_channel": "GF_BALANCED_DC", "sensitivity_parameters": ["b_E", "b_T", "g_a", "w_EE", "w_TR", "w_RT"], "classification": "nonlinear/context-dependent", "basis": "Balanced population forcing can cross model-defined attractor boundaries, but broad excitation, silence, or instability is explicitly invalid rather than a transition success.", "use_of_parameter_changes": "SENSITIVITY_ONLY"}
+  ],
+  "unsupported_or_nonidentifiable_relationships": [
+    {"relationship": "Any fitted physiological parameter change as a therapeutic or actionable intervention", "classification": "unsupported", "reason": "No scientifically actionable intervention-to-parameter mapping is available; parameter changes are sensitivity-only."},
+    {"relationship": "PHASE2_CONTROL_BENCH_V1 response as evidence about the unidentified R4 executable", "classification": "non-identifiable", "reason": "The clean metadata supplies no R4 code/configuration/parameter identity to bind the bench to the certified categorical substrate."},
+    {"relationship": "Synthetic uncertainty draws as subject-specific models", "classification": "unsupported", "reason": "The draws quantify local bench robustness only and cannot substitute for independently certified subjects."}
+  ]
+}

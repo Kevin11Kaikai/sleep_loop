@@ -1,0 +1,1432 @@
+{
+  "schema_version": "7.0.0",
+  "schema_id": "V6_REAUDIT_ADDENDUM_SCHEMA_V7",
+  "amendment_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V7_001",
+  "created_at": "2026-08-17T07:18:00-04:00",
+  "status": "PROSPECTIVE_IMMUTABLE_PENDING_INDEPENDENT_V7_AUDIT",
+  "purpose": "Repair exactly V6A6-AUD-B001 through V6A6-AUD-B010 before Stage A or any Candidate V6, compiler, code, preflight, data, R4, outcome or scientific access, while preserving every passing V6/V5/V4 governance and scientific invariant.",
+  "source_bindings": {
+    "v6": {
+      "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V6_001",
+      "path_id": "static:v6",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V6.json",
+      "bytes": 167433,
+      "sha256": "E025C9F258478041E9735958F906DAD02553895C8453429D1661890807DB1C39"
+    },
+    "v6_fail_audit": {
+      "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V6_AUDIT_001",
+      "path_id": "static:v6_audit",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V6_AUDIT.json",
+      "bytes": 26877,
+      "sha256": "2FEBC2CDAE5021DF10CE009356D56962ABFA850FDE144BF6B423A991A9FB5BD5",
+      "verdict": "FAIL_BLOCKING"
+    },
+    "v4_exact_extract_source": {
+      "artifact_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V4",
+      "path_id": "static:v4",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V4.json",
+      "bytes": 316217,
+      "sha256": "0C83B242A64575BF874DFA7BBB7CFEAA084E4D90D1B829C23D5629885BD37DEC",
+      "authority": "Exact extraction only for the inherited four Stage-A directory-intent templates, twenty governance-header owner identities, thirteen Root flush path keys and schema values explicitly inherited by V5. This source is not an activation gate."
+    }
+  },
+  "authority_boundary": {
+    "authoring_inputs_in_exact_order": ["static:v6", "static:v6_audit"],
+    "future_independent_audit_reconstruction_sources_in_exact_order": ["static:v4", "static:v5", "static:v6", "static:v6_audit", "static:v7"],
+    "source_boundary_rule": "The V7 author may use only authoring_inputs_in_exact_order. The future independent auditor may use the separately enumerated exact hash-bound reconstruction sources solely to reconstruct corrected V6 source-effective schemas/dotted values and audit static:v7; this does not reinterpret any historical FAIL as PASS or authorize Stage A.",
+    "audit_finding_ids_in_exact_order": [
+      "V6A6-AUD-B001",
+      "V6A6-AUD-B002",
+      "V6A6-AUD-B003",
+      "V6A6-AUD-B004",
+      "V6A6-AUD-B005",
+      "V6A6-AUD-B006",
+      "V6A6-AUD-B007",
+      "V6A6-AUD-B008",
+      "V6A6-AUD-B009",
+      "V6A6-AUD-B010"
+    ],
+    "finding_count": 10,
+    "no_other_repair_rule": "Only the ten displayed failures may change. Every V6 PASS check, source-effective schema field not named by a V7 operation, scientific invariant, role conflict, path, case, target, claim, gate, run count, no-evidence rule and denial remains byte-semantic unchanged.",
+    "automatic_release": false,
+    "scientific_authority_boolean": false
+  },
+  "preserved_invariants": {
+    "fixture_oracle_case_count": 23,
+    "targets": 8,
+    "claims": 8,
+    "c2_gates": 10,
+    "level_a_conditions": 50,
+    "phase2a_runs": 1800,
+    "conditional_level_b_runs": 900,
+    "verifier_runs": 456,
+    "total_runs": 3156,
+    "concurrent_worker_cap": 3,
+    "phase2b": "N0_MIN3_NOT_ESTIMABLE",
+    "transfer_ceiling": "M1_C0_P0",
+    "repair_simulations": 0,
+    "directory_intents": 37,
+    "directory_intent_partition": "8_29_0",
+    "operational_roles": 18,
+    "operational_role_pairs": 153,
+    "no_evidence_rule": "This amendment and every artifact it specifies have zero claim, grade, gate, advancement, outcome, evidence or human-transfer authority."
+  },
+  "path_registry_extension": {
+    "static:v7": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V7.json",
+    "static:v7_audit": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V7_AUDIT.json",
+    "static:v7_activation": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V7_ACTIVATION.json",
+    "static:v7_role_assignment_freeze": "GOVERNANCE/V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_V7.json",
+    "p5_external_validation_paths_by_transaction": {
+      "B_DERIVATION": {
+        "path_id": "tx:B_DERIVATION:p5_external_validation",
+        "relative_path": "GOVERNANCE/V6_BOOTSTRAP_V4/DERIVATION/p5_external_validation_v7.json",
+        "parent_path_id": "tx:B_DERIVATION:parent_dir"
+      },
+      "B_LOCKFILE_VERIFIER": {
+        "path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation",
+        "relative_path": "GOVERNANCE/V6_BOOTSTRAP_V4/LOCKFILE_VERIFIER/p5_external_validation_v7.json",
+        "parent_path_id": "tx:B_LOCKFILE_VERIFIER:parent_dir"
+      },
+      "D_OFFICIAL_COMPILER": {
+        "path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation",
+        "relative_path": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V4/p5_external_validation_v7.json",
+        "parent_path_id": "tx:D_OFFICIAL_COMPILER:parent_dir"
+      },
+      "D_FIXTURE_VERIFIER": {
+        "path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation",
+        "relative_path": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V4/p5_external_validation_v7.json",
+        "parent_path_id": "tx:D_FIXTURE_VERIFIER:parent_dir"
+      }
+    },
+    "prestate_and_mutation_rule": "All eight inherited P5 receipt/parent paths retain V6 bindings. Every new external-validation file is ABSENT before CREATE_NEW, is a direct child of its already-existing registered parent, has one exact writer, and may never be overwritten, appended, renamed, deleted, reused or included in terminal bundle membership."
+  },
+  "route": {
+    "route_id": "V6_DATA_FREE_BOOTSTRAP_ROUTE_V7",
+    "ordered_gates": [
+      "V7_INDEPENDENT_AUDIT_PASS",
+      "ROOT_V7_ACTIVATION",
+      "ROOT_V7_PRESTAGE_ROLE_FREEZE",
+      "A_LITERAL_AND_ROOT_CONTROLLER_FREEZE",
+      "B_DERIVATION_TRANSACTION",
+      "B_INDEPENDENT_LOCKFILE_VERIFIER_TRANSACTION",
+      "ROOT_LOCKFILE_FREEZE",
+      "C_INDEPENDENT_OFFICIAL_COMPILER_STATIC_PASS",
+      "D_OFFICIAL_FIXTURE_TRANSACTION",
+      "D_INDEPENDENT_FIXTURE_VERIFIER_TRANSACTION",
+      "OFFICIAL_RESULT_ACCEPTANCE_FOR_PROPOSAL_ONLY"
+    ],
+    "prestage_rule": "Only a PASS_ZERO_BLOCKING_ZERO_UNRESOLVED V7 audit of exact static:v7, followed by a distinct Root V7 activation and V7 role freeze, makes Stage A reachable. The V6 FAIL audit remains immutable historical failure and is never interpreted as PASS.",
+    "no_retroactive_selection": true,
+    "automatic_release": false
+  },
+  "canonical_model": {
+    "canonicalization_id": "CANONICAL_JSON_SHA256_V7",
+    "canonical_json_equation": "UTF8(json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False))",
+    "array_rule": "Arrays retain displayed order. Objects reject duplicate keys. Required fields cannot be omitted. NaN and Infinity are invalid.",
+    "hash_equation": "UPPERCASE_HEX(SHA256(canonical_json_bytes(value)))",
+    "unknown_rule": "Any unknown operation, unresolved source, ambiguous join, missing field, mismatched prior, extra occurrence, multiple predicate match, inferred path authority or alternate serialization is FAIL_BLOCKING."
+  },
+  "corrected_v6_patch_materialization": {
+    "source_program_pointer": "static:v6#/effective_base_plus_patch_schema_registry",
+    "repair_order": ["ATOMIC_SCHEMA_ID_PAIR", "EXACT_SCALAR_CONDITIONAL_RULE", "DOTTED_SOURCE_QUALIFICATION", "V7_TYPED_SCHEMA_OVERLAY", "REFERENCE_REWRITE", "PROJECTION_RECONSTRUCTION"],
+    "atomic_schema_id_operation": {
+      "operation_id": "ATOMIC_REPLACE_SCHEMA_ID_PAIR_V7",
+      "target_pointers_in_exact_order": ["/schema_id", "/fields/schema_id/const"],
+      "required_prior_type": "STRING",
+      "required_match_count": 2,
+      "atomic_boolean": true,
+      "reject_missing_mismatch_or_extra_occurrence_boolean": true,
+      "algorithm": "Before mutation, both target pointers must exist exactly once, be JSON strings, be byte-equal to each other and equal the source base schema ID. The prior schema-ID string must occur as a scalar value exactly twice in the complete base schema, at those pointers. Replace both values in one in-memory transaction with the exact successor value. If either replacement cannot be applied, discard the entire object. After mutation, the successor occurs at both pointers, the prior occurs zero times, and no other value changes."
+    },
+    "atomic_schema_id_rows_in_patch_order": [
+      {"patch_key": "INCIDENT_AUTHORIZATION_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/INCIDENT_AUTHORIZATION_V6/operations_in_exact_order/1", "replacement_value": "INCIDENT_AUTHORIZATION_SCHEMA_V6"},
+      {"patch_key": "TRANSACTION_AUTHORIZATION_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/TRANSACTION_AUTHORIZATION_V6/operations_in_exact_order/1", "replacement_value": "TRANSACTION_AUTHORIZATION_SCHEMA_V6"},
+      {"patch_key": "PUBLICATION_ATTESTATION_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/PUBLICATION_ATTESTATION_V6/operations_in_exact_order/1", "replacement_value": "PUBLICATION_ATTESTATION_SCHEMA_V6"},
+      {"patch_key": "INCIDENT_RECEIPT_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/INCIDENT_RECEIPT_V6/operations_in_exact_order/1", "replacement_value": "INCIDENT_RECEIPT_SCHEMA_V6"},
+      {"patch_key": "SCHEMA_BUNDLE_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/SCHEMA_BUNDLE_V6/operations_in_exact_order/2", "replacement_value": "SCHEMA_BUNDLE_SCHEMA_V6"}
+    ],
+    "atomic_schema_id_row_count": 5,
+    "conditional_rule_operation": {
+      "operation_id": "ADD_EXACT_SCALAR_CONDITIONAL_RULE_V7",
+      "target_member": "conditional_rule",
+      "target_json_type": "STRING",
+      "required_prior_state": "MEMBER_ABSENT",
+      "insertion_position": "IMMEDIATELY_BEFORE_ADDITIONAL_FIELDS_IN_SCHEMA_MEMBER_ORDER",
+      "value_source": "The exact /value string from the sole source V6 CONJOIN_CONDITIONAL_RULE operation for that patch key.",
+      "combiner": "SINGLE_CONJUNCT_IDENTITY",
+      "canonical_value_equation": "canonical_json(source_operation.value)",
+      "output_object_equation": "Deep-copy the post-ID/post-field-operation schema; insert one member named conditional_rule with the exact scalar string immediately before additional_fields; retain every other member/value; canonicalize the entire object by canonical_model.",
+      "forbidden_representations": ["ARRAY", "OBJECT", "duplicate conditional_rule", "conditional_rules_in_exact_order", "concatenated prose", "alternate member name", "alternate source string"]
+    },
+    "conditional_rule_rows_in_patch_order": [
+      {"patch_key": "INCIDENT_AUTHORIZATION_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/INCIDENT_AUTHORIZATION_V6/operations_in_exact_order/5"},
+      {"patch_key": "TRANSACTION_AUTHORIZATION_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/TRANSACTION_AUTHORIZATION_V6/operations_in_exact_order/6"},
+      {"patch_key": "PUBLICATION_ATTESTATION_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/PUBLICATION_ATTESTATION_V6/operations_in_exact_order/8"},
+      {"patch_key": "INCIDENT_RECEIPT_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/INCIDENT_RECEIPT_V6/operations_in_exact_order/9"},
+      {"patch_key": "SCHEMA_BUNDLE_V6", "source_operation_pointer": "static:v6#/effective_base_plus_patch_schema_registry/patches_by_effective_key/SCHEMA_BUNDLE_V6/operations_in_exact_order/8"}
+    ],
+    "conditional_rule_row_count": 5,
+    "corrected_patch_algorithm": "For each patch key, reconstruct its exact V6-declared base and apply source operations in order, except REPLACE_SCHEMA_ID is replaced by ATOMIC_REPLACE_SCHEMA_ID_PAIR_V7 and CONJOIN_CONDITIONAL_RULE is replaced by ADD_EXACT_SCALAR_CONDITIONAL_RULE_V7. Every other V6 operation retains its exact guard, target, descriptor and position. Missing prior, duplicate target or unlisted change rejects the patch.",
+    "materialization_output_rule": "The corrected five outputs, their field orders, canonical bytes and SHA-256 values are computed before the V7 typed overlay. No audit-candidate ambiguity hash in the V6 FAIL receipt is an expected output hash."
+  },
+  "dotted_source_resolution_contract": {
+    "reason_for_derived_count": "The two authorized inputs expose the exact construction algorithm and lower bounds but not the complete inherited descriptor inventory. Therefore V7 freezes an exhaustive deterministic traversal and materialized row array after corrected reconstruction; it does not guess a count of fifteen.",
+    "descriptor_traversal_order": "Effective schema keys in raw UTF-8 order; within each schema, recursive object members in raw UTF-8 order and arrays by index; inspect scalar members named enum_source, exact_values_source, constraint and order.",
+    "token_grammar": "Inspect every maximal ASCII dotted token matching [A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)+. In enum_source/exact_values_source every dotted token is normative. In constraint/order a token is normative when its first segment is an exact top-level key of its construction-trace origin or when it byte-equals the sole instance-relative rewrite row. Every normative token is recorded; no NON_SOURCE_LITERAL escape exists. An already-qualified literal matching instance:<schema_key>#/<RFC6901 segments> is validated directly against its named final schema instance and is not counted as an unqualified rewrite row. Other constraint/order prose is not a source and is never accepted in enum_source/exact_values_source.",
+    "origin_rule": "Every final descriptor carries the exact construction-trace origin artifact ID, origin artifact SHA-256 and origin JSON pointer. A STATIC_ARTIFACT_VALUE introduced by V7 resolves within static:v7; a retained static token resolves against the immutable artifact from which that exact scalar originated. INSTANCE_RELATIVE_VALUE tokens resolve only against the named validated instance and never against the authoring artifact.",
+    "source_pointer_equation": "For STATIC_ARTIFACT_VALUE, static_source_json_pointer_or_null='/' + join('/', source_token.split('.')); resolved_source_path_id_or_null and resolved_source_artifact_sha256_or_null equal the construction-trace origin binding; resolve the exact JSON value and hash its canonical bytes. For INSTANCE_RELATIVE_VALUE, instance_base_schema_key_or_null and instance_relative_json_pointer_or_null equal the frozen rewrite row, all static/resolved-value fields are null, and the enclosing schema's conditional rule equality-joins the runtime instance value.",
+    "instance_relative_rewrite_rows_in_exact_order": [
+      {"owner_schema_key": "IDENTITY_TUPLE_V6", "descriptor_json_pointer": "/IDENTITY_TUPLE_V6/fields/delegation_chain_sha256/constraint", "source_token": "delegation_chain.canonical_chain_sha256", "qualified_token": "instance:IDENTITY_TUPLE_V6#/delegation_chain/canonical_chain_sha256", "instance_base_schema_key": "IDENTITY_TUPLE_V6", "instance_relative_json_pointer": "/delegation_chain/canonical_chain_sha256"}
+    ],
+    "instance_relative_rewrite_count": 1,
+    "materialization_rule": "SCHEMA_BUNDLE_V7 stores every SOURCE_QUALIFIED_DOTTED_BINDING_V7 row in traversal order, the derived static/instance/constraint/order/total counts, and dangling_source_count=0. The independent V7 audit repeats traversal and byte-compares all rows, counts, resolved static values/hashes and runtime-instance rewrite definitions. A missing path, unauthorized source read, duplicate occurrence or unrecorded normative token is blocking.",
+    "minimum_audit_lower_bounds": {"constraint_source_count_minimum": 12, "order_source_count_minimum": 3},
+    "allowed_source_path_ids": ["static:v4", "static:v5", "static:v6", "static:v7"],
+    "no_favorable_fallback": true
+  },
+  "governance_header_and_stage_a_controls": {
+    "mandatory_stage_a_control_path_ids_in_exact_order": [
+      "static:v1",
+      "static:v2",
+      "static:v2_audit",
+      "static:v3",
+      "static:v3_audit",
+      "static:compiler_fail",
+      "static:bootstrap_adjudication",
+      "static:v5",
+      "static:v7",
+      "static:v7_audit",
+      "static:v7_activation",
+      "static:v7_role_assignment_freeze"
+    ],
+    "control_count": 12,
+    "static_v5_semantics": "static:v5 is a hash-bound construction input and mandatory read, not a PASS audit, activation or scientific authority. static:v5_audit remains immutable FAIL provenance and is not a Stage-A PASS control.",
+    "literal_role_rows": [
+      {
+        "role_id": "ROLE_LITERAL_AUTHOR_V4",
+        "phase_id": "A_SCHEMA_AND_PROJECTION_CONSTRUCTION_V7",
+        "required_read_path_ids": ["static:v5", "static:v6", "static:v7", "static:v7_audit", "static:v7_activation", "static:v7_role_assignment_freeze"],
+        "required_metadata_path_ids": ["static:v5", "static:v6", "static:v7", "static:v7_audit", "static:v7_activation", "static:v7_role_assignment_freeze"],
+        "newly_granted_path_ids_exact": ["static:v5"],
+        "purpose": "Corrected source-effective registry and physical projection construction only"
+      },
+      {
+        "role_id": "ROLE_LITERAL_AUDITOR_V4",
+        "phase_id": "A_SCHEMA_AND_PROJECTION_INDEPENDENT_VERIFICATION_V7",
+        "required_read_path_ids": ["static:v5", "static:v6", "static:v7", "static:v7_audit", "static:v7_activation", "static:v7_role_assignment_freeze"],
+        "required_metadata_path_ids": ["static:v5", "static:v6", "static:v7", "static:v7_audit", "static:v7_activation", "static:v7_role_assignment_freeze"],
+        "newly_granted_path_ids_exact": ["static:v5"],
+        "purpose": "Independent reconstruction, source resolution and byte/hash verification only"
+      }
+    ],
+    "literal_role_row_count": 2,
+    "union_rule": "For each row, final read and metadata arrays are the stable-first-occurrence union of the inherited exact role row, mandatory_stage_a_control_path_ids_in_exact_order and required_* arrays. Typed ACCESS_ATTESTATION_V7 records the complete final arrays. No write, listing, flush, rename, delete or process authority is implied.",
+    "header_owner_rows_in_raw_utf8_schema_key_order": [
+      {"owner_schema_key": "BUNDLE_MANIFEST_V4", "field": "governance_header"},
+      {"owner_schema_key": "CLAIM_HANDOFF_V4", "field": "governance_header"},
+      {"owner_schema_key": "DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "field": "governance_header"},
+      {"owner_schema_key": "FAILURE_RECEIPT_V4", "field": "governance_header"},
+      {"owner_schema_key": "GOVERNANCE_DECISION_V4", "field": "governance_header"},
+      {"owner_schema_key": "INCIDENT_AUTHORIZATION_V7", "field": "governance_header"},
+      {"owner_schema_key": "INCIDENT_CLOSEOUT_V4", "field": "governance_header"},
+      {"owner_schema_key": "INCIDENT_MANIFEST_V4", "field": "governance_header"},
+      {"owner_schema_key": "INCIDENT_RECEIPT_V7", "field": "governance_header"},
+      {"owner_schema_key": "LITERAL_BUNDLE_WRAPPER_V4", "field": "governance_header"},
+      {"owner_schema_key": "LITERAL_FREEZE_V4", "field": "governance_header"},
+      {"owner_schema_key": "P5_EXTERNAL_VALIDATION_OBSERVATION_V7", "field": "governance_header"},
+      {"owner_schema_key": "P5_VALIDATION_RECEIPT_V7", "field": "governance_header"},
+      {"owner_schema_key": "PACKAGE_MANIFEST_V4", "field": "governance_header"},
+      {"owner_schema_key": "PUBLICATION_ATTESTATION_V7", "field": "governance_header"},
+      {"owner_schema_key": "RESULT_AUDIT_V4", "field": "governance_header"},
+      {"owner_schema_key": "RUNTIME_DEPENDENCY_MANIFEST_V4", "field": "governance_header"},
+      {"owner_schema_key": "SCHEMA_BUNDLE_V7", "field": "governance_header"},
+      {"owner_schema_key": "SPENT_RECEIPT_V4", "field": "governance_header"},
+      {"owner_schema_key": "STATIC_AUDIT_RECEIPT_V4", "field": "governance_header"},
+      {"owner_schema_key": "SUCCESS_RECEIPT_V4", "field": "governance_header"},
+      {"owner_schema_key": "TRANSACTION_AUTHORIZATION_V7", "field": "governance_header"}
+    ],
+    "header_owner_count": 22,
+    "header_owner_rewrite_rule": "The exact mapped inherited set is obtained by removing the two rows whose owner_schema_key values are P5_EXTERNAL_VALIDATION_OBSERVATION_V7 and P5_VALIDATION_RECEIPT_V7 from header_owner_rows_in_raw_utf8_schema_key_order; the remaining twenty rows byte-equal the exact V6 inherited 20-owner set after applying reference_rewrite_map to owner keys and GOVERNANCE_HEADER_V7 to each ref. The two removed rows are respectively the sole new V7 external-observation owner and the preserved V6-only P5-receipt owner. The union of that mapped twenty-row set and those exact two P5 rows is sorted once by raw UTF-8 owner_schema_key to produce the displayed 22-row array; no positional prefix defines inheritance. Each named field descriptor is exactly OBJECT/ref GOVERNANCE_HEADER_V7/nullable false. Require these 22 occurrences exactly once and zero GOVERNANCE_HEADER_V6/V5/V4 refs in any future-effective owner."
+  },
+  "access_attestation_reference_closure_v7": {
+    "retained_access_attestation_v4_owner_keys_in_raw_utf8_order": ["DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "FAILURE_RECEIPT_V4", "INCIDENT_CLOSEOUT_V4", "RESULT_AUDIT_V4", "SPENT_RECEIPT_V4", "STATIC_AUDIT_RECEIPT_V4", "SUCCESS_RECEIPT_V4", "V4_AUDIT_RECEIPT_V4"],
+    "retained_owner_count": 8,
+    "historical_owner_key": "V4_AUDIT_RECEIPT_V4",
+    "future_owner_keys_in_raw_utf8_order": ["DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "FAILURE_RECEIPT_V4", "INCIDENT_CLOSEOUT_V4", "RESULT_AUDIT_V4", "SPENT_RECEIPT_V4", "STATIC_AUDIT_RECEIPT_V4", "SUCCESS_RECEIPT_V4"],
+    "future_owner_count": 7,
+    "future_union_rule": "ACCESS_ATTESTATION_V4 remains byte-for-byte at all eight refs. V4_AUDIT_RECEIPT_V4 is historical and never re-instantiated. Every future instance of the other seven owner schemas stable-first-occurrence-unions the exact twelve governance_header_and_stage_a_controls mandatory path IDs into inherited access_attestation.read_path_ids before validation; the resulting array is hash-bound in that owner. No schema ref rewrite or V4 audit mutation occurs.",
+    "v7_access_rule": "Only refs that targeted ACCESS_ATTESTATION_V6 are globally rewritten to ACCESS_ATTESTATION_V7. The V7 auditor alone uses GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7. Final reference counts and owner rows are enumerated by SCHEMA_BUNDLE_V7 and no inferred owner exists."
+  },
+  "identity_dimension_hash_repair": {
+    "dimensions_in_exact_order": [
+      {"dimension_index": 0, "dimension_name": "actor_id", "identity_tuple_pointer": "/actor_id"},
+      {"dimension_index": 1, "dimension_name": "session_id", "identity_tuple_pointer": "/session_id"},
+      {"dimension_index": 2, "dimension_name": "process_principal_id", "identity_tuple_pointer": "/process_principal_id"},
+      {"dimension_index": 3, "dimension_name": "delegation_chain_sha256", "identity_tuple_pointer": "/delegation_chain_sha256"},
+      {"dimension_index": 4, "dimension_name": "public_attestation_id", "identity_tuple_pointer": "/public_attestation_id"},
+      {"dimension_index": 5, "dimension_name": "implementation_provenance_id", "identity_tuple_pointer": "/implementation_provenance_id"}
+    ],
+    "value_domain_equation": "canonical_json(exact scalar at identity_tuple_pointer)",
+    "hash_equation": "UPPERCASE_HEX(SHA256(value_domain_bytes))",
+    "join_rule": "Each comparison embeds or is equality-joined to exact left/right IDENTITY_TUPLE_V6 objects. left_value and right_value byte-equal their indexed scalar values; their canonical bytes and SHA values equal the equations; equal_boolean equals byte equality; unequal_boolean is logical NOT equal_boolean and must be true. Dimension index/name/pointer equal the table row. Only index 3 has a nonnull delegation-disjointness proof, byte-equal to the joined chains.",
+    "coverage": {"operational_pair_dimension_rows": 918, "auditor_role_dimension_rows": 108, "auditor_root_dimension_rows": 6, "total_dimension_rows": 1032},
+    "coverage_rule": "Every one of the 1032 rows is validated; arbitrary, salted, caller-provided or unjoined hashes are invalid."
+  },
+  "checkpoint_terminal_resolution_repair": {
+    "ordinary_failure_tokens_in_exact_order": [
+      "EXPLICIT_FAILURE_PROVEN_NO_MUTATION",
+      "PARTIAL_OR_MUTATING_FAILURE",
+      "CALL_ENTERED_NO_DURABLE_RETURN_OBSERVATION",
+      "POSTCONDITION_UNCERTAIN",
+      "CONTROLLER_INTERRUPTED"
+    ],
+    "failure_token_count": 5,
+    "forbidden_failure_token": "EXPLICIT_SUCCESS_POSTCONDITIONS_PROVEN",
+    "state_keys_source": "static:v6#/process_and_checkpoint_model/state_keys_in_exact_order",
+    "state_predicates_source": "static:v6#/process_and_checkpoint_model/state_predicates_exact",
+    "state_count": 20,
+    "predicate_evaluation_rule": "CHECKPOINT_LEDGER_V7 contains exactly twenty TERMINAL_STATE_PREDICATE_EVALUATION_V7 rows in state-key order. Each row binds the exact predicate source string/hash and a complete typed evidence projection from the same ledger and its referenced raw/process/P4/quarantine evidence. The V7 audit applies the exact predicate, records satisfied_boolean, and requires exactly one true row.",
+    "selection_join_rule": "TERMINAL_STATE_RESOLUTION_V7.selected_state_index and selected_state_key byte-equal state_index and state_key of the sole evaluation row whose satisfied_boolean=true. CHECKPOINT_LEDGER_V7.terminal_state byte-equals selected_state_key; incident_trigger_id_or_null byte-equals selected_trigger_id_or_null and that row.derived_trigger_id_or_null; authorization_consumption_state byte-equals selected_authorization_consumption_state and that row.derived_authorization_consumption_state. Zero or multiple true rows, a trigger mismatch or a success token on any failed ledger is FAIL_BLOCKING.",
+    "trigger_derivation_rule": "The selected row derives its trigger from the exact V6 trigger_lookup_by_failure_class and the ledger adjacency/process/P4 evidence. Only C2 explicit unchanged READY selects null trigger and UNSPENT; every other failure selects one preauthorized trigger and SPENT. A no-failure successful-prefix ledger has null failure token and null trigger."
+  },
+  "terminal_state_predicate_registry_v7": {
+    "expression_language": {
+      "field_root": "TERMINAL_STATE_EVIDENCE_PROJECTION_V7",
+      "operators": ["ALL", "ANY", "NOT", "EQ", "IN", "IS_NULL", "IS_NOT_NULL", "NOT_ANY_PRIOR"],
+      "canonical_ast_rule": "An AST is a JSON object with members in raw UTF-8 order. Leaf EQ/IN/IS_NULL/IS_NOT_NULL nodes contain an RFC6901 field pointer into the evidence projection and the exact value/values when applicable. ALL/ANY args retain displayed order. NOT has exactly one arg. NOT_ANY_PRIOR means every earlier effective AST evaluated false against the same byte-equal evidence object. Unknown operators, implicit coercion and missing fields are blocking.",
+      "effective_ast_equation": "For state_index 0 through 18, effective_ast=ALL([EQ('/incident_closeout_state','NONE'),displayed predicate_ast]) with that exact member/array order. For state_index 19, effective_ast=displayed predicate_ast. This makes the closed-incident row disjoint from every pre-closeout row without relying on evaluation priority.",
+      "evaluation_rule": "Evaluate effective_ast rows in state_index order over one canonical evidence projection. Each TERMINAL_STATE_PREDICATE_EVALUATION_V7.satisfied_boolean equals its effective AST result. Require exactly one true row; a catch-all row is legal only through explicit NOT_ANY_PRIOR. That evaluation's derived_trigger_id_or_null is derived from the row.trigger_mode and the exact preauthorized V6 trigger lookup, and its derived_authorization_consumption_state byte-equals row.consumption_state."
+    },
+    "rows_in_state_index_order": [
+      {"state_index": 0, "state_key": "READY_DURABLE_UNCLAIMED", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/incident_closeout_state", "value": "NONE"}, {"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "IN", "field": "/last_completed_checkpoint_or_none", "values": ["NONE", "C1"]}, {"op": "EQ", "field": "/ready_unchanged_proven_boolean", "value": true}]}, "trigger_mode": "NULL", "consumption_state": "UNSPENT_READY_PROVEN_UNCHANGED"},
+      {"state_index": 1, "state_key": "CLAIM_EXPLICIT_FAILURE_UNCHANGED_READY_UNSPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "EQ", "field": "/first_failed_checkpoint_or_null", "value": "C2"}, {"op": "EQ", "field": "/normalized_failure_outcome_or_null", "value": "EXPLICIT_FAILURE_PROVEN_NO_MUTATION"}, {"op": "EQ", "field": "/ready_unchanged_proven_boolean", "value": true}]}, "trigger_mode": "NULL", "consumption_state": "UNSPENT_READY_PROVEN_UNCHANGED"},
+      {"state_index": 2, "state_key": "CLAIM_OUTCOME_UNKNOWN_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "ANY", "args": [{"op": "ALL", "args": [{"op": "EQ", "field": "/first_failed_checkpoint_or_null", "value": "C2"}, {"op": "IN", "field": "/normalized_failure_outcome_or_null", "values": ["PARTIAL_OR_MUTATING_FAILURE", "CALL_ENTERED_NO_DURABLE_RETURN_OBSERVATION", "POSTCONDITION_UNCERTAIN", "CONTROLLER_INTERRUPTED"]}]}, {"op": "ALL", "args": [{"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "C2"}]}]}]}, "trigger_mode": "FROM_FAILURE_LOOKUP_OR_NULL_FOR_SUCCESS_PREFIX", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 3, "state_key": "CLAIMED_DURABLE_HANDOFF_ABSENT_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "C3"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 4, "state_key": "CLAIMED_HANDOFF_DURABLE_PRESTART_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "C4"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 5, "state_key": "PROCESS_START_NOT_STARTED_PROVEN_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "EQ", "field": "/first_failed_checkpoint_or_null", "value": "C5"}, {"op": "EQ", "field": "/process_start_state", "value": "NOT_STARTED_PROVEN"}]}, "trigger_mode": "FROM_FAILURE_LOOKUP", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 6, "state_key": "PROCESS_START_UNKNOWN_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "EQ", "field": "/first_failed_checkpoint_or_null", "value": "C5"}, {"op": "EQ", "field": "/process_start_state", "value": "UNKNOWN_CONSERVATIVELY_SPENT"}]}, "trigger_mode": "FROM_FAILURE_LOOKUP", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 7, "state_key": "WORKER_STARTED_PROVEN_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "C5"}, {"op": "EQ", "field": "/process_start_state", "value": "STARTED_PROVEN"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 8, "state_key": "STAGED_SUCCESS_SELECTED_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "P1"}, {"op": "EQ", "field": "/selected_branch", "value": "SUCCESS"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 9, "state_key": "STAGED_FAILURE_SELECTED_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "P1"}, {"op": "EQ", "field": "/selected_branch", "value": "FAILURE"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 10, "state_key": "TERMINAL_RENAME_OUTCOME_UNKNOWN_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "ANY", "args": [{"op": "IN", "field": "/first_failed_checkpoint_or_null", "values": ["P2S", "P2F"]}, {"op": "ALL", "args": [{"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "IN", "field": "/last_completed_checkpoint_or_none", "values": ["P2S", "P2F"]}]}]}]}, "trigger_mode": "FROM_FAILURE_LOOKUP_OR_NULL_FOR_SUCCESS_PREFIX", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 11, "state_key": "TERMINAL_RENAMED_ATTESTATION_ABSENT_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "P3"}, {"op": "EQ", "field": "/publication_attestation_state", "value": "ABSENT_PROVEN"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 12, "state_key": "PUBLICATION_ATTESTATION_PRESENT_PENDING_FINAL_VALIDATION", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "P4"}, {"op": "EQ", "field": "/p4_disposition_state_or_null", "value": "PUBLICATION_ATTESTATION_PRESENT_PENDING_FINAL_VALIDATION"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 13, "state_key": "PUBLICATION_ATTESTATION_EXPLICIT_FAILURE_UNCHANGED_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "EQ", "field": "/first_failed_checkpoint_or_null", "value": "P4"}, {"op": "EQ", "field": "/normalized_failure_outcome_or_null", "value": "EXPLICIT_FAILURE_PROVEN_NO_MUTATION"}, {"op": "EQ", "field": "/p4_disposition_state_or_null", "value": "PUBLICATION_ATTESTATION_EXPLICIT_FAILURE_UNCHANGED_SPENT"}]}, "trigger_mode": "FROM_FAILURE_LOOKUP", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 14, "state_key": "PUBLICATION_ATTESTATION_RENAME_OUTCOME_UNKNOWN_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "EQ", "field": "/first_failed_checkpoint_or_null", "value": "P4"}, {"op": "IN", "field": "/normalized_failure_outcome_or_null", "values": ["PARTIAL_OR_MUTATING_FAILURE", "CALL_ENTERED_NO_DURABLE_RETURN_OBSERVATION", "POSTCONDITION_UNCERTAIN", "CONTROLLER_INTERRUPTED"]}, {"op": "EQ", "field": "/p4_disposition_state_or_null", "value": "PUBLICATION_ATTESTATION_RENAME_OUTCOME_UNKNOWN_SPENT"}]}, "trigger_mode": "FROM_FAILURE_LOOKUP", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 15, "state_key": "COMMITTED_SUCCESS_DURABLE_PENDING_AUDIT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "P5"}, {"op": "EQ", "field": "/selected_branch", "value": "SUCCESS"}, {"op": "EQ", "field": "/p5_receipt_state_or_null", "value": "VALID_CLOSED_EXACT_OPEN"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 16, "state_key": "COMMITTED_FAILURE_DURABLE", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "EQ", "field": "/last_completed_checkpoint_or_none", "value": "P5"}, {"op": "EQ", "field": "/selected_branch", "value": "FAILURE"}, {"op": "EQ", "field": "/p5_receipt_state_or_null", "value": "VALID_CLOSED_EXACT_OPEN"}]}, "trigger_mode": "NULL", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 17, "state_key": "ILLEGAL_SPLIT_STATE", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/incident_closeout_state", "value": "NONE"}, {"op": "EQ", "field": "/illegal_partition_boolean", "value": true}]}, "trigger_mode": "ILLEGAL_SPLIT", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 18, "state_key": "INCIDENT_REQUIRED_SPENT", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/incident_closeout_state", "value": "NONE"}, {"op": "EQ", "field": "/illegal_partition_boolean", "value": false}, {"op": "IS_NOT_NULL", "field": "/first_failed_checkpoint_or_null"}, {"op": "NOT_ANY_PRIOR"}]}, "trigger_mode": "FROM_FAILURE_LOOKUP", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"},
+      {"state_index": 19, "state_key": "INCIDENT_CLOSED_REJECTED", "predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/incident_closeout_state", "value": "VALIDATED_CLOSED_REJECTED"}, {"op": "EQ", "field": "/illegal_partition_boolean", "value": false}]}, "trigger_mode": "FROM_EVIDENCE_INCIDENT_TRIGGER", "consumption_state": "SPENT_CLAIMED_OR_UNCERTAIN"}
+    ],
+    "row_count": 20,
+    "v6_semantic_rewrite_rule": "These twenty AST rows fully supersede the V6 predicate prose for selection only. They preserve the same state-key order while replacing stale P4_PUBLICATION_DISPOSITION_V6 and P5_VALIDATION_RECEIPT_V6 names with exact V7 evidence fields. predicate_source_pointer identifies the displayed predicate_ast input. The exact canonical JSON/SHA stored by TERMINAL_STATE_PREDICATE_EVALUATION_V7 is the effective_ast produced by expression_language.effective_ast_equation, including the added closeout guard for rows 0 through 18; V6 predicate prose is retained as lineage, not executable selection text.",
+    "coverage_rule": "Every schema-valid evidence projection must satisfy exactly one row. A projection that satisfies zero or multiple rows is ILLEGAL_INPUT and cannot itself select row 17; row 17 requires the independently proven illegal_partition_boolean. The independent audit enumerates legal adjacency/branch/process/P4/P5/incident modes and proves exclusivity and totality."
+  },
+  "terminal_evidence_holder_source_rows_in_exact_order": [
+    {
+      "holder_schema_key": "PUBLICATION_ATTESTATION_V7",
+      "ledger_field": "prior_checkpoint_ledger",
+      "allowed_last_checkpoint": "P3",
+      "publication_attestation_state_source": "Exact TRANSACTION_AUTHORIZATION_V7.required_prestates_in_path_id_order entry for tx:<T>:publication_attestation is ABSENT, joined to CHECKPOINT_ADJACENCY_ROW_V6 last=P3/later_checkpoint_entered=false and the exact operation prefix proving neither P4 staging creation nor final rename has entered.",
+      "p4_disposition_state_source": "NULL_NOT_REACHED",
+      "p5_receipt_state_source": "NULL_NOT_REACHED",
+      "incident_closeout_state_source": "NONE",
+      "join_rule": "transaction/branch/checkpoints byte-equal the holder; no self staging/final snapshot or later P4/P5 object is read."
+    },
+    {
+      "holder_schema_key": "P5_VALIDATION_RECEIPT_V7",
+      "ledger_field": "prevalidation_checkpoint_ledger",
+      "allowed_last_checkpoint": "P4",
+      "publication_attestation_state_source": "PRESENT_PROVEN from p4_success_disposition.final_after_snapshot_or_null and publication_attestation_binding/snapshot byte identity",
+      "p4_disposition_state_source": "byte-equal p4_success_disposition.derived_state",
+      "p5_receipt_state_source": "NULL_NOT_YET_CREATED",
+      "incident_closeout_state_source": "NONE",
+      "join_rule": "Ledger, P4 disposition, publication binding/snapshot and transaction are byte-equal; the receipt does not validate itself."
+    },
+    {
+      "holder_schema_key": "INCIDENT_RECEIPT_V7",
+      "ledger_field": "checkpoint_ledger",
+      "allowed_last_checkpoint": "exact joined failure-adjacency predecessor",
+      "publication_attestation_state_source": "NOT_REACHED/ABSENT_PROVEN/PRESENT_PROVEN as selected by the exact adjacency row and existing publication snapshot evidence",
+      "p4_disposition_state_source": "NULL before P4; byte-equal p4_publication_disposition_or_null.derived_state for P4/P5 rows",
+      "p5_receipt_state_source": "NULL because this holder represents first failure, including P5 materialization/validation failure",
+      "incident_closeout_state_source": "NONE because closeout is later",
+      "join_rule": "Evidence nullability and source are exactly the 14-row incident table; transaction/raw normalization/P4/failure/quarantine fields are equality-joined."
+    },
+    {
+      "holder_schema_key": "P5_EXTERNAL_VALIDATION_OBSERVATION_V7",
+      "ledger_field": "postvalidation_checkpoint_ledger",
+      "allowed_last_checkpoint": "P5",
+      "publication_attestation_state_source": "PRESENT_PROVEN from parsed finalized P5 receipt publication binding/snapshot",
+      "p4_disposition_state_source": "byte-equal parsed finalized P5 receipt p4_success_disposition.derived_state",
+      "p5_receipt_state_source": "VALID_CLOSED_EXACT_OPEN from p5_receipt_binding and p5_receipt_exact_open_snapshot",
+      "incident_closeout_state_source": "NONE",
+      "join_rule": "Transaction and selected branch byte-equal parsed P5 receipt; the external observation never reads its own output."
+    },
+    {
+      "holder_schema_key": "INCIDENT_CLOSEOUT_V4",
+      "ledger_field": null,
+      "allowed_last_checkpoint": "NO_NEW_LEDGER_INSTANCE",
+      "publication_attestation_state_source": "preserved incident content",
+      "p4_disposition_state_source": "preserved incident content",
+      "p5_receipt_state_source": "preserved incident content",
+      "incident_closeout_state_source": "VALIDATED_CLOSED_REJECTED from the existing exact-open validated incident bundle",
+      "join_rule": "State row 19 is the semantic terminal result of the existing closeout schema; V7 does not add or mutate an inherited ledger field. Any separate resolution record must use the exact validated closeout binding and trigger."
+    }
+  ],
+  "terminal_evidence_holder_source_row_count": 5,
+  "terminal_evidence_source_rule": "Every TERMINAL_STATE_EVIDENCE_PROJECTION_V7 instance occurs only through one of the first four ledger-holder rows and equality-joins each scalar to its named source. The fifth row freezes the preserved no-new-field closeout semantics. A missing sibling, alternate path, future self-reference or generic 'when exists' inference is blocking.",
+  "p4_p5_evidence_and_consumer_access": {
+    "p4_noncycle_rule": "PUBLICATION_ATTESTATION_V7 remains finalized at P3 and contains no P4 observation. P4_PUBLICATION_DISPOSITION_V7 is created only after the P4 call. The SUCCESS variant is embedded in the later P5 receipt or a P5 incident; the FAILURE variant is embedded in a P4 incident. No P4/P5 artifact is inside the hash domain it validates.",
+    "p4_path_rows_in_transaction_order": [
+      {"transaction_id": "B_DERIVATION", "staging_path_id": "tx:B_DERIVATION:publication_attestation_staging", "final_path_id": "tx:B_DERIVATION:publication_attestation", "transaction_parent_path_id": "tx:B_DERIVATION:parent_dir"},
+      {"transaction_id": "B_LOCKFILE_VERIFIER", "staging_path_id": "tx:B_LOCKFILE_VERIFIER:publication_attestation_staging", "final_path_id": "tx:B_LOCKFILE_VERIFIER:publication_attestation", "transaction_parent_path_id": "tx:B_LOCKFILE_VERIFIER:parent_dir"},
+      {"transaction_id": "D_OFFICIAL_COMPILER", "staging_path_id": "tx:D_OFFICIAL_COMPILER:publication_attestation_staging", "final_path_id": "tx:D_OFFICIAL_COMPILER:publication_attestation", "transaction_parent_path_id": "tx:D_OFFICIAL_COMPILER:parent_dir"},
+      {"transaction_id": "D_FIXTURE_VERIFIER", "staging_path_id": "tx:D_FIXTURE_VERIFIER:publication_attestation_staging", "final_path_id": "tx:D_FIXTURE_VERIFIER:publication_attestation", "transaction_parent_path_id": "tx:D_FIXTURE_VERIFIER:parent_dir"}
+    ],
+    "p4_path_row_count": 4,
+    "p5_path_rows_in_transaction_order": [
+      {"transaction_id": "B_DERIVATION", "p5_receipt_path_id": "tx:B_DERIVATION:p5_validation_receipt", "publication_attestation_path_id": "tx:B_DERIVATION:publication_attestation", "success_terminal_manifest_path_id": "tx:B_DERIVATION:committed_manifest", "failure_terminal_manifest_path_id": "tx:B_DERIVATION:failed_manifest", "external_validation_path_id": "tx:B_DERIVATION:p5_external_validation"},
+      {"transaction_id": "B_LOCKFILE_VERIFIER", "p5_receipt_path_id": "tx:B_LOCKFILE_VERIFIER:p5_validation_receipt", "publication_attestation_path_id": "tx:B_LOCKFILE_VERIFIER:publication_attestation", "success_terminal_manifest_path_id": "tx:B_LOCKFILE_VERIFIER:committed_manifest", "failure_terminal_manifest_path_id": "tx:B_LOCKFILE_VERIFIER:failed_manifest", "external_validation_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation"},
+      {"transaction_id": "D_OFFICIAL_COMPILER", "p5_receipt_path_id": "tx:D_OFFICIAL_COMPILER:p5_validation_receipt", "publication_attestation_path_id": "tx:D_OFFICIAL_COMPILER:publication_attestation", "success_terminal_manifest_path_id": "tx:D_OFFICIAL_COMPILER:committed_manifest", "failure_terminal_manifest_path_id": "tx:D_OFFICIAL_COMPILER:failed_manifest", "external_validation_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation"},
+      {"transaction_id": "D_FIXTURE_VERIFIER", "p5_receipt_path_id": "tx:D_FIXTURE_VERIFIER:p5_validation_receipt", "publication_attestation_path_id": "tx:D_FIXTURE_VERIFIER:publication_attestation", "success_terminal_manifest_path_id": "tx:D_FIXTURE_VERIFIER:committed_manifest", "failure_terminal_manifest_path_id": "tx:D_FIXTURE_VERIFIER:failed_manifest", "external_validation_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation"}
+    ],
+    "p5_path_row_count": 4,
+    "p5_binding_join_rule": "P5_VALIDATION_RECEIPT_V7.transaction_id selects exactly one P5 path row. publication_attestation_binding and its snapshot use publication_attestation_path_id. terminal_bundle_post_open_binding uses success_terminal_manifest_path_id iff terminal_bundle_kind=SUCCESS and failure_terminal_manifest_path_id iff FAILURE. The enclosing output path is p5_receipt_path_id. The external consumer observation uses the same row's receipt and external path. Every binding bytes/SHA and post-open path identity is exact; no directory or sibling inference exists.",
+    "consumer_rows_in_transaction_order": [
+      {"transaction_id": "B_DERIVATION", "p5_receipt_path_id": "tx:B_DERIVATION:p5_validation_receipt", "consumer_role_id": "ROLE_LOCKFILE_VERIFIER_STATIC_AUDITOR_V4", "external_validation_path_id": "tx:B_DERIVATION:p5_external_validation"},
+      {"transaction_id": "B_LOCKFILE_VERIFIER", "p5_receipt_path_id": "tx:B_LOCKFILE_VERIFIER:p5_validation_receipt", "consumer_role_id": "ROLE_LOCKFILE_RESULT_JUDGE_V4", "external_validation_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation"},
+      {"transaction_id": "D_OFFICIAL_COMPILER", "p5_receipt_path_id": "tx:D_OFFICIAL_COMPILER:p5_validation_receipt", "consumer_role_id": "ROLE_FIXTURE_VERIFIER_STATIC_AUDITOR_V4", "external_validation_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation"},
+      {"transaction_id": "D_FIXTURE_VERIFIER", "p5_receipt_path_id": "tx:D_FIXTURE_VERIFIER:p5_validation_receipt", "consumer_role_id": "ROLE_OFFICIAL_RESULT_JUDGE_V4", "external_validation_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation"}
+    ],
+    "consumer_row_count": 4,
+    "consumer_access_rule": "Each consumer may exact-open/read/hash/deep-canonical-validate only its row's P5 receipt plus the twelve mandatory controls; it does not open any transitive binding named by that receipt. It may query metadata only for that receipt, its registered transaction parent and its own absent external-validation output, and may CREATE_NEW only its external-validation output. Membership listing, flush, rename, delete, overwrite, append, process start, Candidate access and science execution are exact empty/prohibited.",
+    "identity_rule": "Each consumer identity tuple is byte-equal to its V7 role-freeze assignment and has all six dimensions unequal to the Root tuple, including the canonical delegation proof required by V7 identity comparison rules.",
+    "external_completion_rule": "P5 is externally complete only when the exact designated consumer writes a valid P5_EXTERNAL_VALIDATION_OBSERVATION_V7. That record validates the already-finalized P5 receipt and never validates its own bytes. A missing/failed external observation leaves P5 incomplete and blocks the downstream gate; it is never favorable evidence."
+  },
+  "transaction_equality_joins": {
+    "joins_in_exact_order": [
+      {"holder_schema_key": "PUBLICATION_ATTESTATION_V7", "holder_transaction_pointer": "/transaction_id", "ledger_pointer": "/prior_checkpoint_ledger/transaction_id"},
+      {"holder_schema_key": "P5_VALIDATION_RECEIPT_V7", "holder_transaction_pointer": "/transaction_id", "ledger_pointer": "/prevalidation_checkpoint_ledger/transaction_id"},
+      {"holder_schema_key": "INCIDENT_RECEIPT_V7", "holder_transaction_pointer": "/transaction_id", "ledger_pointer": "/checkpoint_ledger/transaction_id"}
+    ],
+    "join_count": 3,
+    "incident_authorization_join": "INCIDENT_RECEIPT_V7.incident_authorization_content.transaction_id, checkpoint_ledger.transaction_id and enclosing transaction_id are byte-equal. incident_authorization_binding bytes/SHA are canonical-byte equal to incident_authorization_content and its path is the exact registered incident-authorization path for that transaction; BINDING_V4 is never dereferenced as content.",
+    "negative_test_count": 36,
+    "negative_test_rule": "For each of three holders and four legal enclosing transactions, substitute each of the other three transaction IDs; all 36 objects must fail."
+  },
+  "incident_evidence_presence_by_failure_adjacency_row_in_exact_order": [
+    {"row_index": 0, "selected_branch": "NONE", "first_failed_checkpoint": "C1", "branch_read_requirement": "NULL", "flush_evidence_requirement": "NO_PLAN_NOT_ENTERED", "failure_disposition_requirement": "NULL", "p4_disposition_requirement": "NULL"},
+    {"row_index": 1, "selected_branch": "NONE", "first_failed_checkpoint": "C2", "branch_read_requirement": "NULL", "flush_evidence_requirement": "NO_PLAN_NOT_ENTERED", "failure_disposition_requirement": "NULL", "p4_disposition_requirement": "NULL"},
+    {"row_index": 2, "selected_branch": "NONE", "first_failed_checkpoint": "C3", "branch_read_requirement": "NULL", "flush_evidence_requirement": "NO_PLAN_NOT_ENTERED", "failure_disposition_requirement": "NULL", "p4_disposition_requirement": "NULL"},
+    {"row_index": 3, "selected_branch": "NONE", "first_failed_checkpoint": "C4", "branch_read_requirement": "NULL", "flush_evidence_requirement": "NO_PLAN_NOT_ENTERED", "failure_disposition_requirement": "NULL", "p4_disposition_requirement": "NULL"},
+    {"row_index": 4, "selected_branch": "NONE", "first_failed_checkpoint": "C5", "branch_read_requirement": "NULL", "flush_evidence_requirement": "NO_PLAN_NOT_ENTERED", "failure_disposition_requirement": "NULL", "p4_disposition_requirement": "NULL"},
+    {"row_index": 5, "selected_branch": "NONE", "first_failed_checkpoint": "P1", "branch_read_requirement": "NULL", "flush_evidence_requirement": "NO_PLAN_NOT_ENTERED", "failure_disposition_requirement": "NULL", "p4_disposition_requirement": "NULL"},
+    {"row_index": 6, "selected_branch": "SUCCESS", "first_failed_checkpoint": "P2S", "branch_read_requirement": "PREFIX_OR_COMPLETE_REQUIRED", "flush_evidence_requirement": "SELECTED_PLAN_NOT_ENTERED_OR_FIRST_FAILURE_PREFIX", "failure_disposition_requirement": "NULL", "p4_disposition_requirement": "NULL"},
+    {"row_index": 7, "selected_branch": "FAILURE", "first_failed_checkpoint": "P2F", "branch_read_requirement": "PREFIX_OR_COMPLETE_REQUIRED", "flush_evidence_requirement": "SELECTED_PLAN_NOT_ENTERED_OR_FIRST_FAILURE_PREFIX", "failure_disposition_requirement": "PRETERMINAL_QUARANTINE_REQUIRED_IFF_FAILURE_WITH_QUARANTINE", "p4_disposition_requirement": "NULL"},
+    {"row_index": 8, "selected_branch": "SUCCESS", "first_failed_checkpoint": "P3", "branch_read_requirement": "COMPLETE_REQUIRED", "flush_evidence_requirement": "COMPLETE_SUCCESS_REQUIRED", "failure_disposition_requirement": "NULL", "p4_disposition_requirement": "NULL"},
+    {"row_index": 9, "selected_branch": "FAILURE", "first_failed_checkpoint": "P3", "branch_read_requirement": "COMPLETE_REQUIRED", "flush_evidence_requirement": "COMPLETE_SUCCESS_REQUIRED", "failure_disposition_requirement": "FAILURE_TERMINAL_PUBLISHED_REQUIRED", "p4_disposition_requirement": "NULL"},
+    {"row_index": 10, "selected_branch": "SUCCESS", "first_failed_checkpoint": "P4", "branch_read_requirement": "COMPLETE_REQUIRED", "flush_evidence_requirement": "COMPLETE_SUCCESS_REQUIRED", "failure_disposition_requirement": "SUCCESS_REQUIRED", "p4_disposition_requirement": "FAILURE_VARIANT_REQUIRED"},
+    {"row_index": 11, "selected_branch": "FAILURE", "first_failed_checkpoint": "P4", "branch_read_requirement": "COMPLETE_REQUIRED", "flush_evidence_requirement": "COMPLETE_SUCCESS_REQUIRED", "failure_disposition_requirement": "FAILURE_TERMINAL_PUBLISHED_REQUIRED", "p4_disposition_requirement": "FAILURE_VARIANT_REQUIRED"},
+    {"row_index": 12, "selected_branch": "SUCCESS", "first_failed_checkpoint": "P5", "branch_read_requirement": "COMPLETE_REQUIRED", "flush_evidence_requirement": "COMPLETE_SUCCESS_REQUIRED", "failure_disposition_requirement": "SUCCESS_REQUIRED", "p4_disposition_requirement": "SUCCESS_VARIANT_REQUIRED"},
+    {"row_index": 13, "selected_branch": "FAILURE", "first_failed_checkpoint": "P5", "branch_read_requirement": "COMPLETE_REQUIRED", "flush_evidence_requirement": "COMPLETE_SUCCESS_REQUIRED", "failure_disposition_requirement": "FAILURE_TERMINAL_PUBLISHED_REQUIRED", "p4_disposition_requirement": "SUCCESS_VARIANT_REQUIRED"}
+  ],
+  "incident_evidence_contract": {
+    "row_count": 14,
+    "row_join_rule": "INCIDENT_RECEIPT_V7.evidence_presence_row byte-equals the sole row indexed by its checkpoint ledger's joined_failure_adjacency_row. Every optional/nonoptional field is present or null exactly as that row requires; no caller-selected presence is legal.",
+    "failure_disposition_requirement_to_variant_map": {
+      "NULL": {"presence": "NULL", "allowed_variants": []},
+      "PRETERMINAL_QUARANTINE_REQUIRED_IFF_FAILURE_WITH_QUARANTINE": {"presence": "NONNULL_IFF_PLAN_ID_FAILURE_WITH_QUARANTINE", "allowed_variants": ["FAILURE_PRETERMINAL_QUARANTINE_ONLY"]},
+      "SUCCESS_REQUIRED": {"presence": "NONNULL", "allowed_variants": ["SUCCESS"]},
+      "FAILURE_TERMINAL_PUBLISHED_REQUIRED": {"presence": "NONNULL", "allowed_variants": ["FAILURE_TERMINAL_PUBLISHED"]}
+    },
+    "no_plan_rule": "NO_PLAN_NOT_ENTERED is a nonnull INCIDENT_FLUSH_EVIDENCE_V7 object with plan_or_null=null, execution_or_null=null, attempted_count=0, all indices null and complete_success=false. It is legal only for rows 0 through 5 and is distinct from selected-plan NOT_ENTERED.",
+    "selected_plan_rule": "Rows 6 through 13 require a nonnull selected plan and execution. P2 rows permit selected-plan NOT_ENTERED or an exact first-failure prefix. P3-P5 rows require COMPLETE_SUCCESS because the failure occurs later. No operation after the first non-success may be present.",
+    "quarantine_rule": "Whenever selected plan_id is FAILURE_WITH_QUARANTINE, failure_prepublication_disposition is mandatory regardless of row shorthand; at first_failed_checkpoint=P2F it is FAILURE_PRETERMINAL_QUARANTINE_ONLY and may truthfully have null not-yet-created terminal failure receipt/binding snapshots, while P3-P5 failure rows require FAILURE_TERMINAL_PUBLISHED. Its quarantine rename pair and four quarantine snapshots are nonnull and exact; its parent-flush observation byte-equals unique execution plan_index 0. The derived scalar equals that observation's durability_state, including EXPLICIT_FAILURE or DURABILITY_UNCERTAIN; it may never default to SUCCESS_DURABLE, and requirement_satisfied_boolean is false for either non-success. Every non-quarantine plan requires all quarantine fields null.",
+    "p4_rule": "A P4 incident carries exactly a FAILURE P4 disposition with transaction_id byte-equal the incident and raw_p4_failure_observation_or_null byte-equal checkpoint_ledger.raw_failure_observation_or_null; disposition.normalized_outcome byte-equals ledger.normalized_failure_outcome_or_null and raw.normalized_outcome. A P5 incident carries exactly the prior SUCCESS P4 disposition with null raw failure observation and byte-equal transaction. Earlier incidents carry null."
+  },
+  "typed_schema_registry_v7": {
+    "SOURCE_QUALIFIED_DOTTED_BINDING_V7": {
+      "schema_id": "SOURCE_QUALIFIED_DOTTED_BINDING_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["row_index", "owner_schema_key", "descriptor_json_pointer", "descriptor_member_kind", "token_utf8_start", "token_utf8_end", "source_token", "qualified_token", "resolution_domain", "origin_path_id", "origin_artifact_sha256", "resolved_source_path_id_or_null", "resolved_source_artifact_sha256_or_null", "static_source_json_pointer_or_null", "instance_base_schema_key_or_null", "instance_relative_json_pointer_or_null", "resolved_json_type_or_null", "resolved_canonical_bytes_or_null", "resolved_sha256_or_null", "authorized_reader_role_ids_in_exact_order", "resolved_boolean"],
+      "fields": {
+        "row_index": {"type": "INTEGER", "minimum": 0, "nullable": false},
+        "owner_schema_key": {"type": "NONEMPTY_STRING", "nullable": false},
+        "descriptor_json_pointer": {"type": "NONEMPTY_STRING", "nullable": false},
+        "descriptor_member_kind": {"type": "STRING", "enum": ["enum_source", "exact_values_source", "constraint", "order"], "nullable": false},
+        "token_utf8_start": {"type": "INTEGER", "minimum": 0, "nullable": false},
+        "token_utf8_end": {"type": "INTEGER", "minimum": 1, "nullable": false},
+        "source_token": {"type": "NONEMPTY_STRING", "nullable": false},
+        "qualified_token": {"type": "NONEMPTY_STRING", "nullable": false},
+        "resolution_domain": {"type": "STRING", "enum": ["STATIC_ARTIFACT_VALUE", "INSTANCE_RELATIVE_VALUE"], "nullable": false},
+        "origin_path_id": {"type": "PATH_ID", "enum": ["static:v4", "static:v5", "static:v6", "static:v7"], "nullable": false},
+        "origin_artifact_sha256": {"type": "SHA256", "nullable": false},
+        "resolved_source_path_id_or_null": {"type": ["PATH_ID", "NULL"], "nullable": true},
+        "resolved_source_artifact_sha256_or_null": {"type": ["SHA256", "NULL"], "nullable": true},
+        "static_source_json_pointer_or_null": {"type": ["NONEMPTY_STRING", "NULL"], "nullable": true},
+        "instance_base_schema_key_or_null": {"type": ["NONEMPTY_STRING", "NULL"], "nullable": true},
+        "instance_relative_json_pointer_or_null": {"type": ["NONEMPTY_STRING", "NULL"], "nullable": true},
+        "resolved_json_type_or_null": {"type": ["STRING", "NULL"], "enum": ["ARRAY", "OBJECT", "STRING", "INTEGER", "BOOLEAN", "NULL", null], "nullable": true},
+        "resolved_canonical_bytes_or_null": {"type": ["INTEGER", "NULL"], "minimum": 1, "nullable": true},
+        "resolved_sha256_or_null": {"type": ["SHA256", "NULL"], "nullable": true},
+        "authorized_reader_role_ids_in_exact_order": {"type": "ARRAY", "items": "NONEMPTY_STRING", "exact_values": ["ROLE_LITERAL_AUTHOR_V4", "ROLE_LITERAL_AUDITOR_V4"], "nullable": false},
+        "resolved_boolean": {"type": "BOOLEAN", "const": true, "nullable": false}
+      },
+      "conditional_rule": "The complete row equals the dotted_source_resolution_contract traversal occurrence. token_utf8_end is exclusive and greater than start. STATIC_ARTIFACT_VALUE requires qualified_token=<resolved_source_path_id_or_null>#<static_source_json_pointer_or_null>, nonnull resolved-source/static-pointer/value-type/bytes/SHA fields, null instance fields, authorized exact source read, and resolved_boolean=true. INSTANCE_RELATIVE_VALUE byte-equals the sole frozen rewrite row, requires qualified_token=instance:<instance_base_schema_key_or_null>#<instance_relative_json_pointer_or_null>, null resolved-source/static/value fields, nonnull instance fields, and resolved_boolean=true only because the owning final schema carries the exact runtime equality join. Already-qualified instance literals are validated directly under token_grammar and do not create another rewrite row. origin binding and descriptor pointer remain nonnull for both. No inferred or alternate source is valid.",
+      "additional_fields": false
+    },
+    "IDENTITY_DIMENSION_COMPARISON_V7": {
+      "schema_id": "IDENTITY_DIMENSION_COMPARISON_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["dimension_index", "dimension_name", "identity_tuple_pointer", "left_value", "right_value", "left_value_canonical_bytes", "right_value_canonical_bytes", "left_value_sha256", "right_value_sha256", "equal_boolean", "unequal_boolean", "delegation_disjointness_proof_or_null"],
+      "fields": {
+        "dimension_index": {"type": "INTEGER", "minimum": 0, "maximum": 5, "nullable": false},
+        "dimension_name": {"type": "NONEMPTY_STRING", "nullable": false},
+        "identity_tuple_pointer": {"type": "NONEMPTY_STRING", "nullable": false},
+        "left_value": {"type": "NONEMPTY_STRING", "nullable": false},
+        "right_value": {"type": "NONEMPTY_STRING", "nullable": false},
+        "left_value_canonical_bytes": {"type": "INTEGER", "minimum": 2, "nullable": false},
+        "right_value_canonical_bytes": {"type": "INTEGER", "minimum": 2, "nullable": false},
+        "left_value_sha256": {"type": "SHA256", "nullable": false},
+        "right_value_sha256": {"type": "SHA256", "nullable": false},
+        "equal_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "unequal_boolean": {"type": "BOOLEAN", "const": true, "nullable": false},
+        "delegation_disjointness_proof_or_null": {"type": ["OBJECT", "NULL"], "ref": "DELEGATION_DISJOINTNESS_PROOF_V6", "nullable": true}
+      },
+      "conditional_rule": "All fields satisfy identity_dimension_hash_repair. left/right values are exact indexed tuple scalars; bytes and hashes are derived, not supplied independently. Index 3 alone has the exact joined proof; all other rows have null proof.",
+      "additional_fields": false
+    },
+    "TERMINAL_STATE_EVIDENCE_PROJECTION_V7": {
+      "schema_id": "TERMINAL_STATE_EVIDENCE_PROJECTION_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "selected_branch", "last_completed_checkpoint_or_none", "first_failed_checkpoint_or_null", "normalized_failure_outcome_or_null", "process_start_state", "ready_unchanged_proven_boolean", "publication_attestation_state", "p4_disposition_state_or_null", "p5_receipt_state_or_null", "incident_closeout_state", "incident_trigger_id_or_null", "illegal_partition_boolean"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "selected_branch": {"type": "STRING", "enum": ["NONE", "SUCCESS", "FAILURE"], "nullable": false},
+        "last_completed_checkpoint_or_none": {"type": "STRING", "enum": ["NONE", "C1", "C2", "C3", "C4", "C5", "P1", "P2S", "P2F", "P3", "P4", "P5"], "nullable": false},
+        "first_failed_checkpoint_or_null": {"type": ["STRING", "NULL"], "enum": ["C1", "C2", "C3", "C4", "C5", "P1", "P2S", "P2F", "P3", "P4", "P5", null], "nullable": true},
+        "normalized_failure_outcome_or_null": {"type": ["STRING", "NULL"], "enum": ["EXPLICIT_FAILURE_PROVEN_NO_MUTATION", "PARTIAL_OR_MUTATING_FAILURE", "CALL_ENTERED_NO_DURABLE_RETURN_OBSERVATION", "POSTCONDITION_UNCERTAIN", "CONTROLLER_INTERRUPTED", null], "nullable": true},
+        "process_start_state": {"type": "STRING", "enum": ["NOT_APPLICABLE", "NOT_STARTED_PROVEN", "UNKNOWN_CONSERVATIVELY_SPENT", "STARTED_PROVEN"], "nullable": false},
+        "ready_unchanged_proven_boolean": {"type": "BOOLEAN", "nullable": false},
+        "publication_attestation_state": {"type": "STRING", "enum": ["NOT_REACHED", "ABSENT_PROVEN", "PRESENT_PROVEN"], "nullable": false},
+        "p4_disposition_state_or_null": {"type": ["STRING", "NULL"], "enum": ["PUBLICATION_ATTESTATION_PRESENT_PENDING_FINAL_VALIDATION", "PUBLICATION_ATTESTATION_EXPLICIT_FAILURE_UNCHANGED_SPENT", "PUBLICATION_ATTESTATION_RENAME_OUTCOME_UNKNOWN_SPENT", null], "nullable": true},
+        "p5_receipt_state_or_null": {"type": ["STRING", "NULL"], "enum": ["VALID_CLOSED_EXACT_OPEN", null], "nullable": true},
+        "incident_closeout_state": {"type": "STRING", "enum": ["NONE", "VALIDATED_CLOSED_REJECTED"], "nullable": false},
+        "incident_trigger_id_or_null": {"type": ["NONEMPTY_STRING", "NULL"], "nullable": true},
+        "illegal_partition_boolean": {"type": "BOOLEAN", "nullable": false}
+      },
+      "conditional_rule": "transaction/branch/checkpoint/failure values byte-equal the enclosing CHECKPOINT_LEDGER_V7. normalized failure is null iff first failure is null. process_start_state is the exact projection of process_start_outcome_or_null and phase. ready_unchanged_proven_boolean is true only for the V6 exact READY unchanged proof. publication/P4/P5/incident values are equality-joined to the exact enclosing typed sibling when that sibling exists and otherwise take the displayed not-reached/null value. incident_trigger_id_or_null byte-equals the enclosing ledger trigger and, for incident closeout, the independently validated incident content trigger; it is never read back from the selected evaluation. illegal_partition_boolean is true only when the independently validated tuple violates the legal adjacency/branch/process/evidence grammar; it is never caller-selected to force row 17.",
+      "additional_fields": false
+    },
+    "TERMINAL_STATE_PREDICATE_EVALUATION_V7": {
+      "schema_id": "TERMINAL_STATE_PREDICATE_EVALUATION_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["state_index", "state_key", "predicate_source_pointer", "predicate_source_text", "predicate_source_sha256", "evidence_projection", "evidence_projection_canonical_json", "evidence_projection_sha256", "derived_trigger_id_or_null", "derived_authorization_consumption_state", "satisfied_boolean"],
+      "fields": {
+        "state_index": {"type": "INTEGER", "minimum": 0, "maximum": 19, "nullable": false},
+        "state_key": {"type": "NONEMPTY_STRING", "nullable": false},
+        "predicate_source_pointer": {"type": "NONEMPTY_STRING", "nullable": false},
+        "predicate_source_text": {"type": "NONEMPTY_STRING", "nullable": false},
+        "predicate_source_sha256": {"type": "SHA256", "nullable": false},
+        "evidence_projection": {"type": "OBJECT", "ref": "TERMINAL_STATE_EVIDENCE_PROJECTION_V7", "nullable": false},
+        "evidence_projection_canonical_json": {"type": "NONEMPTY_STRING", "nullable": false},
+        "evidence_projection_sha256": {"type": "SHA256", "nullable": false},
+        "derived_trigger_id_or_null": {"type": ["NONEMPTY_STRING", "NULL"], "nullable": true},
+        "derived_authorization_consumption_state": {"type": "STRING", "enum": ["UNSPENT_READY_PROVEN_UNCHANGED", "SPENT_CLAIMED_OR_UNCERTAIN"], "nullable": false},
+        "satisfied_boolean": {"type": "BOOLEAN", "nullable": false}
+      },
+      "conditional_rule": "state_index selects exactly one terminal_state_predicate_registry_v7 row; state_key byte-equals that row.state_key and predicate_source_pointer equals '/terminal_state_predicate_registry_v7/rows_in_state_index_order/'+decimal(state_index)+'/predicate_ast'. predicate_source_text byte-equals canonical_model serialization of that row's effective_ast defined by expression_language.effective_ast_equation and predicate_source_sha256 equals UPPERCASE_HEX(SHA256(UTF8(predicate_source_text))). evidence_projection_canonical_json byte-equals canonical_model serialization of evidence_projection; evidence_projection_sha256 equals UPPERCASE_HEX(SHA256(UTF8(evidence_projection_canonical_json))). derived_trigger_id_or_null is derived from that row.trigger_mode and the exact V6 trigger lookup; FROM_EVIDENCE_INCIDENT_TRIGGER byte-equals evidence_projection.incident_trigger_id_or_null. derived_authorization_consumption_state byte-equals that row.consumption_state. satisfied_boolean equals exact effective-AST evaluation over evidence_projection. No caller-provided hash without its joined value is valid.",
+      "additional_fields": false
+    },
+    "TERMINAL_STATE_RESOLUTION_V7": {
+      "schema_id": "TERMINAL_STATE_RESOLUTION_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["evaluations_in_state_order", "evaluation_count", "satisfied_count", "selected_state_index", "selected_state_key", "selected_trigger_id_or_null", "selected_authorization_consumption_state", "unique_selection_boolean"],
+      "fields": {
+        "evaluations_in_state_order": {"type": "ARRAY", "items_ref": "TERMINAL_STATE_PREDICATE_EVALUATION_V7", "exact_count": 20, "unique_key": "state_index,state_key", "nullable": false},
+        "evaluation_count": {"type": "INTEGER", "const": 20, "nullable": false},
+        "satisfied_count": {"type": "INTEGER", "const": 1, "nullable": false},
+        "selected_state_index": {"type": "INTEGER", "minimum": 0, "maximum": 19, "nullable": false},
+        "selected_state_key": {"type": "NONEMPTY_STRING", "nullable": false},
+        "selected_trigger_id_or_null": {"type": ["NONEMPTY_STRING", "NULL"], "nullable": true},
+        "selected_authorization_consumption_state": {"type": "STRING", "enum": ["UNSPENT_READY_PROVEN_UNCHANGED", "SPENT_CLAIMED_OR_UNCERTAIN"], "nullable": false},
+        "unique_selection_boolean": {"type": "BOOLEAN", "const": true, "nullable": false}
+      },
+      "conditional_rule": "All twenty evaluation.evidence_projection objects are byte-equal. Exactly one evaluation has satisfied_boolean=true; all selected fields byte-equal that row. No caller-supplied state or trigger can override the selected row.",
+      "additional_fields": false
+    },
+    "CHECKPOINT_LEDGER_V7": {
+      "schema_id": "CHECKPOINT_LEDGER_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "selected_branch", "last_completed_checkpoint_or_none", "first_failed_checkpoint_or_null", "joined_failure_adjacency_row_or_null", "raw_failure_observation_or_null", "normalized_failure_outcome_or_null", "process_outcome_phase", "process_start_outcome_or_null", "terminal_state_resolution", "incident_trigger_id_or_null", "terminal_state", "authorization_consumption_state", "later_checkpoint_entered_boolean"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "selected_branch": {"type": "STRING", "enum": ["NONE", "SUCCESS", "FAILURE"], "nullable": false},
+        "last_completed_checkpoint_or_none": {"type": "STRING", "enum": ["NONE", "C1", "C2", "C3", "C4", "C5", "P1", "P2S", "P2F", "P3", "P4", "P5"], "nullable": false},
+        "first_failed_checkpoint_or_null": {"type": ["STRING", "NULL"], "enum": ["C1", "C2", "C3", "C4", "C5", "P1", "P2S", "P2F", "P3", "P4", "P5", null], "nullable": true},
+        "joined_failure_adjacency_row_or_null": {"type": ["OBJECT", "NULL"], "ref": "CHECKPOINT_ADJACENCY_ROW_V6", "nullable": true},
+        "raw_failure_observation_or_null": {"type": ["OBJECT", "NULL"], "ref": "RAW_CHECKPOINT_OBSERVATION_V5", "nullable": true},
+        "normalized_failure_outcome_or_null": {"type": ["STRING", "NULL"], "enum": ["EXPLICIT_FAILURE_PROVEN_NO_MUTATION", "PARTIAL_OR_MUTATING_FAILURE", "CALL_ENTERED_NO_DURABLE_RETURN_OBSERVATION", "POSTCONDITION_UNCERTAIN", "CONTROLLER_INTERRUPTED", null], "nullable": true},
+        "process_outcome_phase": {"type": "STRING", "enum": ["BEFORE_C5_NOT_CALLED", "C5_OR_LATER_AUTHORITATIVE"], "nullable": false},
+        "process_start_outcome_or_null": {"type": ["OBJECT", "NULL"], "ref": "PROCESS_START_OUTCOME_V5", "nullable": true},
+        "terminal_state_resolution": {"type": "OBJECT", "ref": "TERMINAL_STATE_RESOLUTION_V7", "nullable": false},
+        "incident_trigger_id_or_null": {"type": ["NONEMPTY_STRING", "NULL"], "nullable": true},
+        "terminal_state": {"type": "NONEMPTY_STRING", "nullable": false},
+        "authorization_consumption_state": {"type": "STRING", "enum": ["UNSPENT_READY_PROVEN_UNCHANGED", "SPENT_CLAIMED_OR_UNCERTAIN"], "nullable": false},
+        "later_checkpoint_entered_boolean": {"type": "BOOLEAN", "const": false, "nullable": false}
+      },
+      "conditional_rule": "All V6 adjacency/raw/process singleton rules remain exact. A failed ledger requires one of exactly five failure normalizations and may never contain success; a no-failure ledger requires null raw/failure normalization. All twenty terminal_state_resolution.evaluations_in_state_order[*].evidence_projection objects are byte-equal and their transaction/branch/checkpoint/failure/process fields byte-equal this ledger and its raw/process objects. terminal_state byte-equals terminal_state_resolution.selected_state_key; incident_trigger_id_or_null byte-equals terminal_state_resolution.selected_trigger_id_or_null; authorization_consumption_state byte-equals terminal_state_resolution.selected_authorization_consumption_state. Those three selected resolution fields byte-equal respectively state_key, derived_trigger_id_or_null and derived_authorization_consumption_state of the sole evaluation row whose satisfied_boolean=true. P4/P5/incident projection fields are equality-joined by the enclosing artifact rules and cannot be asserted without the sibling typed evidence. transaction_id is authoritative for every enclosing join.",
+      "additional_fields": false
+    },
+    "P4_PUBLICATION_DISPOSITION_V7": {
+      "schema_id": "P4_PUBLICATION_DISPOSITION_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "variant", "p4_suboperation", "normalized_outcome", "raw_p4_failure_observation_or_null", "observed_snapshot_roles_in_exact_order", "rename_pair_or_null", "rename_api_or_null", "rename_flags_in_exact_order", "rename_api_return_or_null", "write_through_state", "staging_before_snapshot_or_null", "staging_after_snapshot_or_null", "final_before_snapshot_or_null", "final_after_snapshot_or_null", "explicit_failure_relation_or_null", "derived_state", "predicate_proven_boolean"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "variant": {"type": "STRING", "enum": ["SUCCESS", "FAILURE"], "nullable": false},
+        "p4_suboperation": {"type": "STRING", "enum": ["CREATE_STAGING", "CLOSE_AND_EXACT_OPEN_STAGING", "NO_REPLACE_RENAME", "EXACT_OPEN_FINAL"], "nullable": false},
+        "normalized_outcome": {"type": "STRING", "enum": ["EXPLICIT_SUCCESS_POSTCONDITIONS_PROVEN", "EXPLICIT_FAILURE_PROVEN_NO_MUTATION", "PARTIAL_OR_MUTATING_FAILURE", "CALL_ENTERED_NO_DURABLE_RETURN_OBSERVATION", "POSTCONDITION_UNCERTAIN", "CONTROLLER_INTERRUPTED"], "nullable": false},
+        "raw_p4_failure_observation_or_null": {"type": ["OBJECT", "NULL"], "ref": "RAW_CHECKPOINT_OBSERVATION_V5", "nullable": true},
+        "observed_snapshot_roles_in_exact_order": {"type": "ARRAY", "items": "NONEMPTY_STRING", "unique": true, "order": "subset of STAGING_BEFORE,STAGING_AFTER,FINAL_BEFORE,FINAL_AFTER in that preserved V6 order", "nullable": false},
+        "rename_pair_or_null": {"type": ["OBJECT", "NULL"], "ref": "RENAME_PAIR_V4", "nullable": true},
+        "rename_api_or_null": {"type": ["STRING", "NULL"], "enum": ["MoveFileExW", null], "nullable": true},
+        "rename_flags_in_exact_order": {"type": "ARRAY", "items": "NONEMPTY_STRING", "maximum_items": 1, "nullable": false},
+        "rename_api_return_or_null": {"type": ["BOOLEAN", "NULL"], "nullable": true},
+        "write_through_state": {"type": "STRING", "enum": ["REQUESTED_AND_SUCCESS_PROVEN", "NOT_SUCCESS_OR_UNCERTAIN"], "nullable": false},
+        "staging_before_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "staging_after_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "final_before_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "final_after_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "explicit_failure_relation_or_null": {"type": ["STRING", "NULL"], "enum": ["NO_STAGING_CREATED_BOTH_PATHS_ABSENT", "STAGING_COMPLETE_UNCHANGED_FINAL_ABSENT", "NOT_APPLICABLE_UNCERTAIN", null], "nullable": true},
+        "derived_state": {"type": "STRING", "enum": ["PUBLICATION_ATTESTATION_PRESENT_PENDING_FINAL_VALIDATION", "PUBLICATION_ATTESTATION_EXPLICIT_FAILURE_UNCHANGED_SPENT", "PUBLICATION_ATTESTATION_RENAME_OUTCOME_UNKNOWN_SPENT"], "nullable": false},
+        "predicate_proven_boolean": {"type": "BOOLEAN", "const": true, "nullable": false}
+      },
+      "conditional_rule": "transaction_id selects exactly one p4_p5_evidence_and_consumer_access.p4_path_rows_in_transaction_order row; rename_pair_or_null.source_path_id and staging_before_snapshot_or_null/staging_after_snapshot_or_null.path_id equal row.staging_path_id when nonnull, while rename_pair_or_null.destination_path_id and final_before_snapshot_or_null/final_after_snapshot_or_null.path_id equal row.final_path_id when nonnull. A snapshot is nonnull exactly when its role token occurs, in preserved V6 role order. SUCCESS requires p4_suboperation=EXACT_OPEN_FINAL, raw_p4_failure_observation_or_null=null, all four roles, a nonnull exact staging-to-final rename pair, rename_api_or_null=MoveFileExW, rename_flags_in_exact_order=[MOVEFILE_WRITE_THROUGH], NO_REPLACE_RENAME, normalized_outcome=EXPLICIT_SUCCESS_POSTCONDITIONS_PROVEN, rename_api_return_or_null=true, write_through_state=REQUESTED_AND_SUCCESS_PROVEN, staging PRESENT to ABSENT, final ABSENT to PRESENT, same volume/no reparse/hardlink-one and byte/file-ID/SHA identity preserved; explicit_failure_relation_or_null=null and derived_state=PUBLICATION_ATTESTATION_PRESENT_PENDING_FINAL_VALIDATION. FAILURE requires a nonnull raw observation whose checkpoint_id=P4 and normalized_outcome byte-equals this normalized_outcome; the enclosing incident checkpoint_ledger.raw_failure_observation_or_null is byte-equal to this object. FAILURE preserves every V6 P4 failure tuple: rename/API/flags and snapshots are present only when p4_suboperation reached them. normalized_outcome=EXPLICIT_FAILURE_PROVEN_NO_MUTATION selects one exact unchanged relation and derived_state=PUBLICATION_ATTESTATION_EXPLICIT_FAILURE_UNCHANGED_SPENT; each of PARTIAL_OR_MUTATING_FAILURE, CALL_ENTERED_NO_DURABLE_RETURN_OBSERVATION, POSTCONDITION_UNCERTAIN and CONTROLLER_INTERRUPTED selects explicit_failure_relation_or_null=NOT_APPLICABLE_UNCERTAIN and derived_state=PUBLICATION_ATTESTATION_RENAME_OUTCOME_UNKNOWN_SPENT. Variants are disjoint/exhaustive and every displayed relation is proven, never inferred.",
+      "additional_fields": false
+    },
+    "FAILURE_PREPUBLICATION_DISPOSITION_V7": {
+      "schema_id": "FAILURE_PREPUBLICATION_DISPOSITION_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "variant", "failure_receipt_binding_or_null", "failure_receipt_pre_rename_snapshot_or_null", "failure_receipt_post_rename_snapshot_or_null", "worker_commit_staging_state", "worker_quarantine_state", "root_disposition", "quarantine_rename_pair_or_null", "quarantine_source_before_snapshot_or_null", "quarantine_destination_before_snapshot_or_null", "quarantine_source_after_snapshot_or_null", "quarantine_destination_after_snapshot_or_null", "transaction_parent_post_quarantine_flush_observation_or_null", "transaction_parent_post_quarantine_flush_state_or_null", "requirement_satisfied_boolean"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "variant": {"type": "STRING", "enum": ["SUCCESS", "FAILURE_TERMINAL_PUBLISHED", "FAILURE_PRETERMINAL_QUARANTINE_ONLY"], "nullable": false},
+        "failure_receipt_binding_or_null": {"type": ["OBJECT", "NULL"], "ref": "BINDING_V4", "constraint": "SUCCESS null; FAILURE exact tx:<transaction_id>:failed_failure after terminal directory publication", "nullable": true},
+        "failure_receipt_pre_rename_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "constraint": "SUCCESS null; FAILURE PRESENT FILE tx:<transaction_id>:failed_staging_failure immediately before terminal rename", "nullable": true},
+        "failure_receipt_post_rename_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "constraint": "SUCCESS null; FAILURE PRESENT FILE tx:<transaction_id>:failed_failure immediately after terminal rename and parent flush", "nullable": true},
+        "worker_commit_staging_state": {"type": "STRING", "enum": ["NOT_APPLICABLE_SUCCESS", "NEVER_CREATED", "INCOMPLETE_PARTIAL_PRESENT_PENDING_ROOT_QUARANTINE"], "nullable": false},
+        "worker_quarantine_state": {"type": "STRING", "enum": ["NOT_APPLICABLE_SUCCESS", "NOT_REQUIRED", "PENDING_ROOT_QUARANTINE"], "nullable": false},
+        "root_disposition": {"type": "STRING", "enum": ["NOT_APPLICABLE_SUCCESS", "NONE_REQUIRED_FAILURE", "QUARANTINED_UNCHANGED_FAILURE"], "nullable": false},
+        "quarantine_rename_pair_or_null": {"type": ["OBJECT", "NULL"], "ref": "RENAME_PAIR_V4", "nullable": true},
+        "quarantine_source_before_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "quarantine_destination_before_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "quarantine_source_after_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "quarantine_destination_after_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "transaction_parent_post_quarantine_flush_observation_or_null": {"type": ["OBJECT", "NULL"], "ref": "FLUSH_HANDLE_OBSERVATION_V6", "nullable": true},
+        "transaction_parent_post_quarantine_flush_state_or_null": {"type": ["STRING", "NULL"], "enum": ["SUCCESS_DURABLE", "EXPLICIT_FAILURE", "DURABILITY_UNCERTAIN", null], "nullable": true},
+        "requirement_satisfied_boolean": {"type": "BOOLEAN", "nullable": false}
+      },
+      "conditional_rule": "transaction_id byte-equals every referenced tx path. SUCCESS requires variant SUCCESS, null failure receipt/pre/post snapshots, both NOT_APPLICABLE_SUCCESS worker states, NOT_APPLICABLE_SUCCESS root disposition, all quarantine rename/snapshot/flush fields null and requirement_satisfied_boolean=true. FAILURE_TERMINAL_PUBLISHED requires final binding at failed_failure, pre snapshot at failed_staging_failure, post snapshot at failed_failure, both PRESENT FILE/no-reparse/hardlink-one on the same volume with byte-equal bytes/SHA/file-ID, and final binding byte-equal to the post snapshot. Its NEVER_CREATED case requires NOT_REQUIRED, NONE_REQUIRED_FAILURE, every quarantine field null and requirement_satisfied_boolean=true. Its quarantine case requires the exact rename/snapshot tuple below, transaction_parent_post_quarantine_flush_state_or_null=SUCCESS_DURABLE and requirement_satisfied_boolean=true; a non-success plan-index-0 observation cannot reach terminal publication. FAILURE_PRETERMINAL_QUARANTINE_ONLY is legal only for first_failed_checkpoint=P2F before terminal failure publication: all three failure receipt/binding snapshots are null; worker states are INCOMPLETE_PARTIAL_PRESENT_PENDING_ROOT_QUARANTINE and PENDING_ROOT_QUARANTINE; root disposition is QUARANTINED_UNCHANGED_FAILURE; and the exact quarantine rename/snapshot tuple is mandatory. That tuple is the commit_staging_dir-to-quarantine_dir rename pair, PRESENT source-before, ABSENT destination-before, ABSENT source-after, PRESENT destination-after with identical directory file-ID and volume to source-before, plus a nonnull flush observation byte-equal to the unique selected FAILURE_WITH_QUARANTINE execution row whose plan_index is 0. transaction_parent_post_quarantine_flush_state_or_null byte-equals that observation.durability_state and is never defaulted or inferred; SUCCESS_DURABLE, EXPLICIT_FAILURE and DURABILITY_UNCERTAIN are all representable only in this preterminal variant. requirement_satisfied_boolean equals true only for SUCCESS_DURABLE and false for either non-success state. No other combination exists.",
+      "additional_fields": false
+    },
+    "INCIDENT_FLUSH_EVIDENCE_V7": {
+      "schema_id": "INCIDENT_FLUSH_EVIDENCE_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["mode", "plan_or_null", "execution_or_null", "attempted_count", "first_non_success_index_or_null", "next_unattempted_index_or_null", "complete_success_boolean"],
+      "fields": {
+        "mode": {"type": "STRING", "enum": ["NO_PLAN_NOT_ENTERED", "SELECTED_PLAN_NOT_ENTERED", "FIRST_FAILURE_PREFIX", "COMPLETE_SUCCESS"], "nullable": false},
+        "plan_or_null": {"type": ["OBJECT", "NULL"], "ref": "FLUSH_PLAN_V6", "nullable": true},
+        "execution_or_null": {"type": ["OBJECT", "NULL"], "ref": "FLUSH_PLAN_EXECUTION_V6", "nullable": true},
+        "attempted_count": {"type": "INTEGER", "minimum": 0, "maximum": 9, "nullable": false},
+        "first_non_success_index_or_null": {"type": ["INTEGER", "NULL"], "minimum": 0, "maximum": 8, "nullable": true},
+        "next_unattempted_index_or_null": {"type": ["INTEGER", "NULL"], "minimum": 0, "maximum": 8, "nullable": true},
+        "complete_success_boolean": {"type": "BOOLEAN", "nullable": false}
+      },
+      "conditional_rule": "NO_PLAN_NOT_ENTERED has both objects null, zero count, null indices and false. Every other mode has a nonnull exact selected plan and execution; scalars byte-equal execution. SELECTED_PLAN_NOT_ENTERED maps exact V6 NOT_ENTERED; FIRST_FAILURE_PREFIX and COMPLETE_SUCCESS map their exact V6 modes. No alternate combination exists.",
+      "additional_fields": false
+    },
+    "INCIDENT_EVIDENCE_PRESENCE_ROW_V7": {
+      "schema_id": "INCIDENT_EVIDENCE_PRESENCE_ROW_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["row_index", "selected_branch", "first_failed_checkpoint", "branch_read_requirement", "flush_evidence_requirement", "failure_disposition_requirement", "p4_disposition_requirement"],
+      "fields": {
+        "row_index": {"type": "INTEGER", "minimum": 0, "maximum": 13, "nullable": false},
+        "selected_branch": {"type": "STRING", "enum": ["NONE", "SUCCESS", "FAILURE"], "nullable": false},
+        "first_failed_checkpoint": {"type": "STRING", "enum": ["C1", "C2", "C3", "C4", "C5", "P1", "P2S", "P2F", "P3", "P4", "P5"], "nullable": false},
+        "branch_read_requirement": {"type": "STRING", "enum": ["NULL", "PREFIX_OR_COMPLETE_REQUIRED", "COMPLETE_REQUIRED"], "nullable": false},
+        "flush_evidence_requirement": {"type": "STRING", "enum": ["NO_PLAN_NOT_ENTERED", "SELECTED_PLAN_NOT_ENTERED_OR_FIRST_FAILURE_PREFIX", "COMPLETE_SUCCESS_REQUIRED"], "nullable": false},
+        "failure_disposition_requirement": {"type": "STRING", "enum": ["NULL", "PRETERMINAL_QUARANTINE_REQUIRED_IFF_FAILURE_WITH_QUARANTINE", "SUCCESS_REQUIRED", "FAILURE_TERMINAL_PUBLISHED_REQUIRED"], "nullable": false},
+        "p4_disposition_requirement": {"type": "STRING", "enum": ["NULL", "SUCCESS_VARIANT_REQUIRED", "FAILURE_VARIANT_REQUIRED"], "nullable": false}
+      },
+      "conditional_rule": "The complete row byte-equals incident_evidence_presence_by_failure_adjacency_row_in_exact_order[row_index].",
+      "additional_fields": false
+    },
+    "P5_VALIDATION_RECEIPT_V7": {
+      "schema_id": "P5_VALIDATION_RECEIPT_SCHEMA_V7",
+      "classification": "ARTIFACT_RECORD",
+      "field_order": ["schema_version", "schema_id", "validation_id", "created_at", "governance_header", "transaction_id", "terminal_bundle_kind", "prevalidation_checkpoint_ledger", "p4_success_disposition", "publication_attestation_binding", "publication_attestation_post_open_snapshot", "terminal_bundle_post_open_binding", "p5_raw_validation_outcome", "validation_checks_in_exact_order", "all_checks_pass_boolean", "access_attestation", "scientific_authority_boolean", "validation_payload_hash_envelope"],
+      "fields": {
+        "schema_version": {"type": "STRING", "const": "7.0.0", "nullable": false},
+        "schema_id": {"type": "STRING", "const": "P5_VALIDATION_RECEIPT_SCHEMA_V7", "nullable": false},
+        "validation_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "created_at": {"type": "RFC3339", "nullable": false},
+        "governance_header": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false},
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "terminal_bundle_kind": {"type": "STRING", "enum": ["SUCCESS", "FAILURE"], "nullable": false},
+        "prevalidation_checkpoint_ledger": {"type": "OBJECT", "ref": "CHECKPOINT_LEDGER_V7", "nullable": false},
+        "p4_success_disposition": {"type": "OBJECT", "ref": "P4_PUBLICATION_DISPOSITION_V7", "constraint": "variant SUCCESS", "nullable": false},
+        "publication_attestation_binding": {"type": "OBJECT", "ref": "BINDING_V4", "nullable": false},
+        "publication_attestation_post_open_snapshot": {"type": "OBJECT", "ref": "PATH_SNAPSHOT_V4", "nullable": false},
+        "terminal_bundle_post_open_binding": {"type": "OBJECT", "ref": "BINDING_V4", "nullable": false},
+        "p5_raw_validation_outcome": {"type": "STRING", "const": "EXPLICIT_SUCCESS_POSTCONDITIONS_PROVEN", "nullable": false},
+        "validation_checks_in_exact_order": {"type": "ARRAY", "items_ref": "CHECK_RESULT_V4", "exact_count": 8, "nullable": false},
+        "all_checks_pass_boolean": {"type": "BOOLEAN", "const": true, "nullable": false},
+        "access_attestation": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false},
+        "scientific_authority_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "validation_payload_hash_envelope": {"type": "OBJECT", "ref": "HASH_ENVELOPE_V4", "nullable": false}
+      },
+      "conditional_rule": "transaction_id selects exactly one p4_p5_evidence_and_consumer_access.p5_path_rows_in_transaction_order row. prevalidation_checkpoint_ledger.transaction_id, p4_success_disposition.transaction_id and every binding/snapshot transaction path byte-equal transaction_id and that row; the receipt is CREATE_NEW only at row.p5_receipt_path_id. publication_attestation_binding and publication_attestation_post_open_snapshot use row.publication_attestation_path_id and are byte/file-ID/SHA equal. terminal_bundle_post_open_binding uses row.success_terminal_manifest_path_id iff terminal_bundle_kind=SUCCESS and row.failure_terminal_manifest_path_id iff terminal_bundle_kind=FAILURE. prevalidation_checkpoint_ledger has last_completed_checkpoint_or_none=P4, first_failed_checkpoint_or_null=null and selected_branch byte-equal terminal_bundle_kind. p4_success_disposition.variant=SUCCESS, p4_suboperation=EXACT_OPEN_FINAL, derived_state=PUBLICATION_ATTESTATION_PRESENT_PENDING_FINAL_VALIDATION and carries the exact no-replace/write-through staging-to-final rename evidence for this transaction. validation_checks_in_exact_order contains exactly eight PASS rows in this order: P4 success transition, schema, header, publication bytes/hash/path identity, terminal bundle identity/membership/hashes, complete selected flush plan, selected-branch read proof, and transaction/path equality joins; all_checks_pass_boolean=true. The receipt validates only prior immutable objects, never itself, and its hash envelope excludes only validation_payload_hash_envelope. This receipt alone never makes P5 externally complete: the exact designated consumer must later CREATE_NEW and validate the separate P5_EXTERNAL_VALIDATION_OBSERVATION_V7 for this transaction; a missing or failed external observation blocks every downstream gate.",
+      "additional_fields": false,
+      "hash_domain": "All fields except validation_payload_hash_envelope."
+    },
+    "P5_EXTERNAL_VALIDATION_OBSERVATION_V7": {
+      "schema_id": "P5_EXTERNAL_VALIDATION_OBSERVATION_SCHEMA_V7",
+      "classification": "ARTIFACT_RECORD",
+      "field_order": ["schema_version", "schema_id", "observation_id", "created_at", "governance_header", "transaction_id", "consumer_role_id", "consumer_identity_tuple", "root_identity_tuple", "consumer_root_dimension_comparisons_in_exact_order", "p5_receipt_binding", "p5_receipt_exact_open_snapshot", "postvalidation_checkpoint_ledger", "external_validation_path_id", "external_validation_output_prestate", "checks_in_exact_order", "all_checks_pass_boolean", "access_attestation", "candidate_access_boolean", "scientific_authority_boolean", "observation_payload_hash_envelope"],
+      "fields": {
+        "schema_version": {"type": "STRING", "const": "7.0.0", "nullable": false},
+        "schema_id": {"type": "STRING", "const": "P5_EXTERNAL_VALIDATION_OBSERVATION_SCHEMA_V7", "nullable": false},
+        "observation_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "created_at": {"type": "RFC3339", "nullable": false},
+        "governance_header": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false},
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "consumer_role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "consumer_identity_tuple": {"type": "OBJECT", "ref": "IDENTITY_TUPLE_V6", "nullable": false},
+        "root_identity_tuple": {"type": "OBJECT", "ref": "IDENTITY_TUPLE_V6", "nullable": false},
+        "consumer_root_dimension_comparisons_in_exact_order": {"type": "ARRAY", "items_ref": "IDENTITY_DIMENSION_COMPARISON_V7", "exact_count": 6, "nullable": false},
+        "p5_receipt_binding": {"type": "OBJECT", "ref": "BINDING_V4", "nullable": false},
+        "p5_receipt_exact_open_snapshot": {"type": "OBJECT", "ref": "PATH_SNAPSHOT_V4", "nullable": false},
+        "postvalidation_checkpoint_ledger": {"type": "OBJECT", "ref": "CHECKPOINT_LEDGER_V7", "constraint": "same transaction; last P5; first failure null; P5 receipt state VALID_CLOSED_EXACT_OPEN", "nullable": false},
+        "external_validation_path_id": {"type": "PATH_ID", "nullable": false},
+        "external_validation_output_prestate": {"type": "OBJECT", "ref": "PATH_SNAPSHOT_V4", "constraint": "external_validation_path_id ABSENT before CREATE_NEW", "nullable": false},
+        "checks_in_exact_order": {"type": "ARRAY", "items_ref": "CHECK_RESULT_V4", "exact_count": 6, "nullable": false},
+        "all_checks_pass_boolean": {"type": "BOOLEAN", "const": true, "nullable": false},
+        "access_attestation": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false},
+        "candidate_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "scientific_authority_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "observation_payload_hash_envelope": {"type": "OBJECT", "ref": "HASH_ENVELOPE_V4", "nullable": false}
+      },
+      "conditional_rule": "Transaction, consumer, P5 path and external_validation_path_id byte-equal the sole p4_p5_evidence_and_consumer_access.consumer_rows_in_transaction_order row selected by transaction_id and consumer_role_id. external_validation_output_prestate is ABSENT FILE for that exact path before CREATE_NEW. P5 snapshot is PRESENT FILE/no-reparse/hardlink-one and byte/file-ID/SHA equal binding. postvalidation_checkpoint_ledger.transaction_id byte-equals transaction_id, selected branch byte-equals the parsed P5 receipt terminal_bundle_kind, last=P5, first failure null, and every terminal-state evidence projection has p5_receipt_state_or_null=VALID_CLOSED_EXACT_OPEN with P4 state equality-joined to the parsed receipt's p4_success_disposition. Six checks are exact path, canonical JSON/schema, header, transaction join, P4-success evidence and P5 check completeness. Consumer/Root tuples join the V7 role freeze and all six comparisons are derived unequal. The access attestation contains only exact mandatory controls, the selected consumer row's P5 receipt read, the output prestate metadata and output write; no transitive binding read is inferred. The record never asserts its own close/readback.",
+      "additional_fields": false,
+      "hash_domain": "All fields except observation_payload_hash_envelope."
+    },
+    "P5_CONSUMER_ACCESS_GRANT_V7": {
+      "schema_id": "P5_CONSUMER_ACCESS_GRANT_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "consumer_role_id", "mandatory_control_read_path_ids_in_exact_order", "additional_read_path_ids_in_exact_order", "metadata_path_ids_in_exact_order", "write_path_ids_in_exact_order", "read_after_write_path_ids_in_exact_order", "membership_list_path_ids", "flush_path_ids", "rename_pairs", "delete_path_ids", "runtime_dependency_path_ids", "process_start_targets", "candidate_access_boolean", "science_execution_boolean"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "consumer_role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "mandatory_control_read_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_values_source": "governance_header_and_stage_a_controls.mandatory_stage_a_control_path_ids_in_exact_order", "exact_count": 12, "nullable": false},
+        "additional_read_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 1, "nullable": false},
+        "metadata_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 3, "nullable": false},
+        "write_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 1, "nullable": false},
+        "read_after_write_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "membership_list_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "flush_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "rename_pairs": {"type": "ARRAY", "items_ref": "RENAME_PAIR_V4", "exact_count": 0, "nullable": false},
+        "delete_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "runtime_dependency_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "process_start_targets": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "candidate_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "science_execution_boolean": {"type": "BOOLEAN", "const": false, "nullable": false}
+      },
+      "conditional_rule": "transaction_id and consumer_role_id select exactly one p4_p5_evidence_and_consumer_access.consumer_rows_in_transaction_order row. additional_read_path_ids equals [row.p5_receipt_path_id]. metadata_path_ids equals [row.p5_receipt_path_id,tx:<transaction_id>:parent_dir,row.external_validation_path_id] in that order. write_path_ids equals [row.external_validation_path_id]. Every other authority array is exact empty; mandatory controls are exact twelve; both denial booleans are false. This grant is byte-equal in TRANSACTION_AUTHORIZATION_V7, ROLE_ASSIGNMENT_FREEZE_V7 and the consumer's ACCESS_ATTESTATION_V7 projection.",
+      "additional_fields": false
+    },
+    "INCIDENT_RECEIPT_V7": {
+      "schema_id": "INCIDENT_RECEIPT_SCHEMA_V7",
+      "classification": "ARTIFACT_RECORD",
+      "field_order": ["schema_version", "schema_id", "incident_id", "created_at", "governance_header", "transaction_id", "trigger_state", "incident_authorization_binding", "incident_authorization_content", "checkpoint_ledger", "evidence_presence_row", "selected_branch_read_attestation_or_null", "incident_flush_evidence", "failure_prepublication_disposition_or_null", "p4_publication_disposition_or_null", "incident_state", "access_attestation", "permanent_rejection_boolean", "scientific_authority_boolean", "incident_payload_hash_envelope"],
+      "fields": {
+        "schema_version": {"type": "STRING", "const": "7.0.0", "nullable": false},
+        "schema_id": {"type": "STRING", "const": "INCIDENT_RECEIPT_SCHEMA_V7", "nullable": false},
+        "incident_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "created_at": {"type": "RFC3339", "nullable": false},
+        "governance_header": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false},
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "trigger_state": {"type": "NONEMPTY_STRING", "nullable": false},
+        "incident_authorization_binding": {"type": "OBJECT", "ref": "BINDING_V4", "nullable": false},
+        "incident_authorization_content": {"type": "OBJECT", "ref": "INCIDENT_AUTHORIZATION_V7", "nullable": false},
+        "checkpoint_ledger": {"type": "OBJECT", "ref": "CHECKPOINT_LEDGER_V7", "nullable": false},
+        "evidence_presence_row": {"type": "OBJECT", "ref": "INCIDENT_EVIDENCE_PRESENCE_ROW_V7", "nullable": false},
+        "selected_branch_read_attestation_or_null": {"type": ["OBJECT", "NULL"], "ref": "BRANCH_STAGING_READ_ATTESTATION_V5", "nullable": true},
+        "incident_flush_evidence": {"type": "OBJECT", "ref": "INCIDENT_FLUSH_EVIDENCE_V7", "nullable": false},
+        "failure_prepublication_disposition_or_null": {"type": ["OBJECT", "NULL"], "ref": "FAILURE_PREPUBLICATION_DISPOSITION_V7", "nullable": true},
+        "p4_publication_disposition_or_null": {"type": ["OBJECT", "NULL"], "ref": "P4_PUBLICATION_DISPOSITION_V7", "nullable": true},
+        "incident_state": {"type": "NONEMPTY_STRING", "nullable": false},
+        "access_attestation": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false},
+        "permanent_rejection_boolean": {"type": "BOOLEAN", "const": true, "nullable": false},
+        "scientific_authority_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "incident_payload_hash_envelope": {"type": "OBJECT", "ref": "HASH_ENVELOPE_V4", "nullable": false}
+      },
+      "conditional_rule": "incident_authorization_binding bytes/SHA equal canonical bytes/SHA of incident_authorization_content, and its path is the exact transaction incident-authorization path. transaction_id byte-equals incident_authorization_content.transaction_id and checkpoint_ledger.transaction_id. trigger_state occurs exactly once in incident_authorization_content.authorized_trigger_states_in_exact_order and byte-equals checkpoint_ledger.incident_trigger_id_or_null and checkpoint_ledger.terminal_state_resolution.selected_trigger_id_or_null; it is nonnull for every incident. incident_state byte-equals checkpoint_ledger.terminal_state and checkpoint_ledger.terminal_state_resolution.selected_state_key. evidence_presence_row byte-equals the sole incident_evidence_presence_by_failure_adjacency_row_in_exact_order row selected by checkpoint_ledger.joined_failure_adjacency_row_or_null and governs exact presence/nullability of selected_branch_read_attestation_or_null, incident_flush_evidence, failure_prepublication_disposition_or_null and p4_publication_disposition_or_null. incident_flush_evidence and every quarantine field satisfy incident_evidence_contract, including NO_PLAN_NOT_ENTERED before P2, exact operation prefixes, mandatory quarantine proof and its plan-index-0 parent-flush join. A P4 incident has the exact FAILURE P4 disposition and raw/normalized/transaction joins; a P5 incident has the exact prior SUCCESS P4 disposition and transaction join; earlier incidents have null P4 disposition. Every unaffected source-effective V6 incident snapshot, fallback, bounded membership, first-uncertain-operation, invocation, authorization-consumption and denial field remains governed by its retained descriptor and source-effective constraint. permanent_rejection_boolean=true, scientific_authority_boolean=false, and no future checkpoint or unattempted operation is asserted.",
+      "additional_fields": false,
+      "hash_domain": "All fields except incident_payload_hash_envelope."
+    },
+    "ACCESS_ATTESTATION_V7": {
+      "schema_id": "ACCESS_ATTESTATION_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["role_id", "phase_id", "mandatory_control_reads_in_exact_order", "read_path_ids", "read_after_write_path_ids", "metadata_path_ids", "runtime_dependency_path_snapshots", "membership_list_path_ids", "membership_observations", "write_path_ids", "directory_creation_records_in_creation_order", "flush_path_ids", "flush_observations", "rename_pairs", "delete_path_ids", "runtime_dependency_manifest_binding_or_null", "observed_runtime_load_path_sha256_pairs", "worker_process_start_targets", "forbidden_access_boolean", "unbounded_directory_enumeration_boolean", "candidate_access_boolean", "scientific_execution_boolean"],
+      "fields": {
+        "role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "phase_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "mandatory_control_reads_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_values_source": "governance_header_and_stage_a_controls.mandatory_stage_a_control_path_ids_in_exact_order", "exact_count": 12, "nullable": false},
+        "read_path_ids": {"type": "ARRAY", "items": "PATH_ID", "unique": true, "order": "exact effective role/phase row with stable-first-occurrence mandatory-control union", "nullable": false},
+        "read_after_write_path_ids": {"type": "ARRAY", "items": "PATH_ID", "unique": true, "order": "exact effective role/phase row", "nullable": false},
+        "metadata_path_ids": {"type": "ARRAY", "items": "PATH_ID", "unique": true, "order": "effective registered-path metadata expansion in raw path-ID order", "nullable": false},
+        "runtime_dependency_path_snapshots": {"type": "ARRAY", "items_ref": "DEPENDENCY_FILE_ENTRY_V4", "constraint": "exact selected role-profile entries; empty iff runtime manifest binding null", "order": "load_order", "nullable": false},
+        "membership_list_path_ids": {"type": "ARRAY", "items": "PATH_ID", "unique": true, "order": "exact effective role/phase row", "nullable": false},
+        "membership_observations": {"type": "ARRAY", "items_ref": "MEMBERSHIP_OBSERVATION_V4", "constraint": "one per actually listed registered membership path and none otherwise", "nullable": false},
+        "write_path_ids": {"type": "ARRAY", "items": "PATH_ID", "unique": true, "order": "exact effective role/phase row", "nullable": false},
+        "directory_creation_records_in_creation_order": {"type": "ARRAY", "items_ref": "DIRECTORY_CREATION_PRESTATE_V4", "unique_key": "created_directory_path_id", "constraint": "exact successful directory creates by this role in this governed phase", "nullable": false},
+        "flush_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "constraint": "V6 FLUSH_PLAN_EXECUTION_V6 is the sole Root postworker flush scope/evidence; no legacy access-attestation flush scope", "nullable": false},
+        "flush_observations": {"type": "ARRAY", "items_ref": "FLUSH_OBSERVATION_V4", "exact_count": 0, "constraint": "V6 FLUSH_PLAN_EXECUTION_V6 is the sole flush evidence", "nullable": false},
+        "rename_pairs": {"type": "ARRAY", "items_ref": "RENAME_PAIR_V4", "unique_key": "source_path_id,destination_path_id", "order": "exact effective role/phase row", "nullable": false},
+        "delete_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "runtime_dependency_manifest_binding_or_null": {"type": ["OBJECT", "NULL"], "ref": "BINDING_V4", "nullable": true},
+        "observed_runtime_load_path_sha256_pairs": {"type": "ARRAY", "items_ref": "PATH_SHA256_PAIR_V4", "order": "load order", "nullable": false},
+        "worker_process_start_targets": {"type": "ARRAY", "items": "PATH_ID", "unique": true, "order": "exact effective role/phase row", "nullable": false},
+        "forbidden_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "unbounded_directory_enumeration_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "candidate_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "scientific_execution_boolean": {"type": "BOOLEAN", "const": false, "nullable": false}
+      },
+      "conditional_rule": "This is an exact semantic superset of the V6 source-effective ACCESS_ATTESTATION_V6 and therefore of V5-effective ACCESS_ATTESTATION_V5: every V4 runtime dependency, membership, load, rename, delete, process-start and explicit denial field remains. All arrays byte-equal the effective V7 role/phase allowlist. The twelve V7 controls appear in mandatory_control_reads_in_exact_order and read_path_ids. GENERIC_WRITE flush capability appears only in FLUSH_PLAN_EXECUTION_V6 and never write_path_ids. Literal roles additionally include static:v5 and every source-qualified read; P5 consumers include only their row's P5 receipt and output scope. No inferred ancestor, sibling or transitive path authority exists.",
+      "additional_fields": false
+    },
+    "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7": {
+      "schema_id": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["auditor_role_id", "read_path_ids_in_exact_order", "write_path_ids_in_exact_order", "read_after_write_path_ids_in_exact_order", "metadata_path_ids_in_exact_order", "output_prestate", "membership_list_path_ids", "flush_path_ids", "listing_path_ids", "rename_pairs", "delete_path_ids", "runtime_dependency_path_ids", "process_start_targets", "candidate_access_boolean", "compiler_or_code_access_boolean", "science_execution_boolean"],
+      "fields": {
+        "auditor_role_id": {"type": "STRING", "const": "ROLE_V7_AMENDMENT_AUDITOR", "nullable": false},
+        "read_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_values": ["static:v4", "static:v5", "static:v6", "static:v6_audit", "static:v7"], "nullable": false},
+        "write_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_values": ["static:v7_audit"], "nullable": false},
+        "read_after_write_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_values": ["static:v7_audit"], "nullable": false},
+        "metadata_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_values": ["static:v4", "static:v5", "static:v6", "static:v6_audit", "static:v7", "static:v7_audit"], "nullable": false},
+        "output_prestate": {"type": "OBJECT", "ref": "PATH_SNAPSHOT_V4", "constraint": "static:v7_audit ABSENT before CREATE_NEW", "nullable": false},
+        "membership_list_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "flush_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "listing_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "rename_pairs": {"type": "ARRAY", "items_ref": "RENAME_PAIR_V4", "exact_count": 0, "nullable": false},
+        "delete_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "runtime_dependency_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "process_start_targets": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "candidate_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "compiler_or_code_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "science_execution_boolean": {"type": "BOOLEAN", "const": false, "nullable": false}
+      },
+      "conditional_rule": "This is the only typed access-evidence value inside V7_AUDIT_RECEIPT_V7. auditor_role_id byte-equals writer_role_id of the static:v7_audit writer row; read_path_ids_in_exact_order byte-equals that row.reads_exact; write_path_ids_in_exact_order byte-equals writes_exact; read_after_write_path_ids_in_exact_order equals [static:v7_audit]; metadata_path_ids_in_exact_order is the displayed stable union of reads plus static:v7_audit; and output_prestate.path_id=static:v7_audit with ABSENT before CREATE_NEW. Every actual operation is within those projections, every nonlisted dimension is empty, and all three prohibited booleans are false. static:v4 and static:v5 are exact hash-bound construction sources only and neither FAIL history nor any source artifact is reinterpreted as PASS. It attests the audit only and grants no Stage-A or operational authority.",
+      "additional_fields": false
+    },
+    "GOVERNANCE_HEADER_V7": {
+      "schema_id": "GOVERNANCE_BINDING_HEADER_SCHEMA_V7",
+      "classification": "COMPONENT",
+      "field_order": ["v7_amendment_binding", "v7_independent_pass_audit_binding", "v7_root_activation_binding", "v7_role_assignment_freeze_binding"],
+      "fields": {
+        "v7_amendment_binding": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "path static:v7 exact audit-target bytes/SHA", "nullable": false},
+        "v7_independent_pass_audit_binding": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "path static:v7_audit PASS_ZERO_BLOCKING_ZERO_UNRESOLVED", "nullable": false},
+        "v7_root_activation_binding": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "path static:v7_activation ACTIVATED_FOR_STAGE_A_ONLY", "nullable": false},
+        "v7_role_assignment_freeze_binding": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "path static:v7_role_assignment_freeze FROZEN_BEFORE_STAGE_A", "nullable": false}
+      },
+      "additional_fields": false
+    }
+  },
+  "effective_v7_schema_model": {
+    "base": "The exact corrected 78-key V6 effective registry produced by corrected_v6_patch_materialization and zero-dangling dotted-source qualification.",
+    "replaced_keys_in_raw_utf8_order": [
+      "ACCESS_ATTESTATION_V6",
+      "AUDITOR_ROLE_COMPARISON_V6",
+      "CHECKPOINT_LEDGER_V6",
+      "FAILURE_PREPUBLICATION_DISPOSITION_V6",
+      "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V6",
+      "GOVERNANCE_HEADER_V6",
+      "IDENTITY_DIMENSION_COMPARISON_V6",
+      "INCIDENT_AUTHORIZATION_V6",
+      "INCIDENT_RECEIPT_V6",
+      "P4_PUBLICATION_DISPOSITION_V6",
+      "P5_VALIDATION_RECEIPT_V6",
+      "PHYSICAL_PROJECTION_RECORD_V6",
+      "PROJECTION_MEMBER_V6",
+      "PUBLICATION_ATTESTATION_V6",
+      "ROLE_ASSIGNMENT_FREEZE_V6",
+      "ROLE_CONFLICT_JOIN_ROW_V6",
+      "ROOT_ACTIVATION_V6",
+      "SCHEMA_BUNDLE_V6",
+      "SOURCE_POINTER_V6",
+      "TRANSACTION_AUTHORIZATION_V6",
+      "V6_AUDIT_RECEIPT_V6"
+    ],
+    "replacement_keys_in_raw_utf8_order": [
+      "ACCESS_ATTESTATION_V7",
+      "AUDITOR_ROLE_COMPARISON_V7",
+      "CHECKPOINT_LEDGER_V7",
+      "FAILURE_PREPUBLICATION_DISPOSITION_V7",
+      "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7",
+      "GOVERNANCE_HEADER_V7",
+      "IDENTITY_DIMENSION_COMPARISON_V7",
+      "INCIDENT_AUTHORIZATION_V7",
+      "INCIDENT_RECEIPT_V7",
+      "P4_PUBLICATION_DISPOSITION_V7",
+      "P5_VALIDATION_RECEIPT_V7",
+      "PHYSICAL_PROJECTION_RECORD_V7",
+      "PROJECTION_MEMBER_V7",
+      "PUBLICATION_ATTESTATION_V7",
+      "ROLE_ASSIGNMENT_FREEZE_V7",
+      "ROLE_CONFLICT_JOIN_ROW_V7",
+      "ROOT_ACTIVATION_V7",
+      "SCHEMA_BUNDLE_V7",
+      "SOURCE_POINTER_V7",
+      "TRANSACTION_AUTHORIZATION_V7",
+      "V7_AUDIT_RECEIPT_V7"
+    ],
+    "new_keys_in_raw_utf8_order": [
+      "INCIDENT_EVIDENCE_PRESENCE_ROW_V7",
+      "INCIDENT_FLUSH_EVIDENCE_V7",
+      "P5_CONSUMER_ACCESS_GRANT_V7",
+      "P5_EXTERNAL_VALIDATION_OBSERVATION_V7",
+      "SOURCE_QUALIFIED_DOTTED_BINDING_V7",
+      "TERMINAL_STATE_EVIDENCE_PROJECTION_V7",
+      "TERMINAL_STATE_PREDICATE_EVALUATION_V7",
+      "TERMINAL_STATE_RESOLUTION_V7"
+    ],
+    "removed_count": 21,
+    "replacement_count": 21,
+    "new_count": 8,
+    "effective_schema_count": 86,
+    "final_effective_schema_keys_in_raw_utf8_order": [
+      "ACCESS_ATTESTATION_V4",
+      "ACCESS_ATTESTATION_V7",
+      "AUDITOR_ROLE_COMPARISON_V7",
+      "BINDING_V4",
+      "BRANCH_STAGING_READ_ATTESTATION_V5",
+      "BRANCH_STAGING_READ_GRANT_V5",
+      "BUNDLE_MANIFEST_V4",
+      "BUNDLE_MEMBER_V4",
+      "CHECKPOINT_ADJACENCY_ROW_V6",
+      "CHECKPOINT_LEDGER_V7",
+      "CHECK_RESULT_V4",
+      "CLAIM_HANDOFF_V4",
+      "DELEGATION_CHAIN_V6",
+      "DELEGATION_DISJOINTNESS_PROOF_V6",
+      "DELEGATION_EDGE_V6",
+      "DELEGATION_NODE_V6",
+      "DEPENDENCY_EDGE_V4",
+      "DEPENDENCY_FILE_ENTRY_V4",
+      "DIRECTORY_CREATION_FALLBACK_V4",
+      "DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4",
+      "DIRECTORY_CREATION_INTENT_V4",
+      "DIRECTORY_CREATION_PRESTATE_V4",
+      "EFFECTIVE_REFERENCE_REWRITE_ROW_V6",
+      "ENVIRONMENT_ENTRY_V4",
+      "EXPECTED_ACTUAL_HASH_V4",
+      "FAILURE_PREPUBLICATION_DISPOSITION_V7",
+      "FAILURE_RECEIPT_V4",
+      "FINDING_V4",
+      "FLUSH_HANDLE_OBSERVATION_V6",
+      "FLUSH_OBSERVATION_V4",
+      "FLUSH_PLAN_ENTRY_V6",
+      "FLUSH_PLAN_EXECUTION_V6",
+      "FLUSH_PLAN_V6",
+      "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7",
+      "GOVERNANCE_DECISION_V4",
+      "GOVERNANCE_HEADER_V7",
+      "HASH_ENVELOPE_V4",
+      "IDENTITY_DIMENSION_COMPARISON_V7",
+      "IDENTITY_TUPLE_V6",
+      "INCIDENT_AUTHORIZATION_V7",
+      "INCIDENT_CLOSEOUT_V4",
+      "INCIDENT_EVIDENCE_PRESENCE_ROW_V7",
+      "INCIDENT_FLUSH_EVIDENCE_V7",
+      "INCIDENT_MANIFEST_V4",
+      "INCIDENT_RECEIPT_V7",
+      "LITERAL_BUNDLE_WRAPPER_V4",
+      "LITERAL_FREEZE_V4",
+      "MEMBERSHIP_ENTRY_V4",
+      "MEMBERSHIP_OBSERVATION_V4",
+      "P4_PUBLICATION_DISPOSITION_V7",
+      "P5_CONSUMER_ACCESS_GRANT_V7",
+      "P5_EXTERNAL_VALIDATION_OBSERVATION_V7",
+      "P5_VALIDATION_RECEIPT_V7",
+      "PACKAGE_MANIFEST_V4",
+      "PATH_SHA256_PAIR_V4",
+      "PATH_SNAPSHOT_V4",
+      "PHYSICAL_PROJECTION_RECORD_V7",
+      "PROCESS_START_OUTCOME_V5",
+      "PROJECTION_MEMBER_V7",
+      "PUBLICATION_ATTESTATION_V7",
+      "RAW_CHECKPOINT_OBSERVATION_V5",
+      "RENAME_PAIR_V4",
+      "RESULT_AUDIT_V4",
+      "ROLE_ASSIGNMENT_FREEZE_V4",
+      "ROLE_ASSIGNMENT_FREEZE_V7",
+      "ROLE_ASSIGNMENT_V4",
+      "ROLE_ASSIGNMENT_V6",
+      "ROLE_CONFLICT_JOIN_ROW_V7",
+      "ROLE_CONFLICT_ROW_V4",
+      "ROOT_ACTIVATION_V4",
+      "ROOT_ACTIVATION_V7",
+      "RUNTIME_DEPENDENCY_MANIFEST_V4",
+      "SCHEMA_BUNDLE_V7",
+      "SCHEMA_MATERIALIZATION_ENTRY_V4",
+      "SOURCE_POINTER_V7",
+      "SOURCE_QUALIFIED_DOTTED_BINDING_V7",
+      "SPENT_RECEIPT_V4",
+      "STAGING_FILE_READ_OBSERVATION_V5",
+      "STATIC_AUDIT_RECEIPT_V4",
+      "SUCCESS_RECEIPT_V4",
+      "TERMINAL_STATE_EVIDENCE_PROJECTION_V7",
+      "TERMINAL_STATE_PREDICATE_EVALUATION_V7",
+      "TERMINAL_STATE_RESOLUTION_V7",
+      "TRANSACTION_AUTHORIZATION_V7",
+      "V4_AUDIT_RECEIPT_V4",
+      "V7_AUDIT_RECEIPT_V7"
+    ],
+    "reference_rewrite_map": {
+      "ACCESS_ATTESTATION_V6": "ACCESS_ATTESTATION_V7",
+      "AUDITOR_ROLE_COMPARISON_V6": "AUDITOR_ROLE_COMPARISON_V7",
+      "CHECKPOINT_LEDGER_V6": "CHECKPOINT_LEDGER_V7",
+      "FAILURE_PREPUBLICATION_DISPOSITION_V6": "FAILURE_PREPUBLICATION_DISPOSITION_V7",
+      "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V6": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7",
+      "GOVERNANCE_HEADER_V6": "GOVERNANCE_HEADER_V7",
+      "IDENTITY_DIMENSION_COMPARISON_V6": "IDENTITY_DIMENSION_COMPARISON_V7",
+      "INCIDENT_AUTHORIZATION_V6": "INCIDENT_AUTHORIZATION_V7",
+      "INCIDENT_RECEIPT_V6": "INCIDENT_RECEIPT_V7",
+      "P4_PUBLICATION_DISPOSITION_V6": "P4_PUBLICATION_DISPOSITION_V7",
+      "P5_VALIDATION_RECEIPT_V6": "P5_VALIDATION_RECEIPT_V7",
+      "PHYSICAL_PROJECTION_RECORD_V6": "PHYSICAL_PROJECTION_RECORD_V7",
+      "PROJECTION_MEMBER_V6": "PROJECTION_MEMBER_V7",
+      "PUBLICATION_ATTESTATION_V6": "PUBLICATION_ATTESTATION_V7",
+      "ROLE_ASSIGNMENT_FREEZE_V6": "ROLE_ASSIGNMENT_FREEZE_V7",
+      "ROLE_CONFLICT_JOIN_ROW_V6": "ROLE_CONFLICT_JOIN_ROW_V7",
+      "ROOT_ACTIVATION_V6": "ROOT_ACTIVATION_V7",
+      "SCHEMA_BUNDLE_V6": "SCHEMA_BUNDLE_V7",
+      "SOURCE_POINTER_V6": "SOURCE_POINTER_V7",
+      "TRANSACTION_AUTHORIZATION_V6": "TRANSACTION_AUTHORIZATION_V7",
+      "V6_AUDIT_RECEIPT_V6": "V7_AUDIT_RECEIPT_V7"
+    },
+    "replacement_program_rule": "Each replacement is generated only by replacement_operation_language and its sole row in replacement_programs_in_target_key_raw_utf8_order. Deep-copy the corrected V6 effective value at base_pointer, execute every guarded operation in order, preserve every unmentioned member/field byte-for-byte and in place, apply the global structured ref/items_ref rewrite once after all 21 programs, require the displayed target key/schema IDs, then canonicalize. No prose requirement or typed template silently replaces an inherited superset.",
+    "replacement_operation_language": {
+      "base_guard": "base_pointer resolves exactly once in the corrected 78-key V6 effective registry. classification and source_schema_id byte-equal the row. Every named target/anchor exists exactly once with the required prior descriptor; every new field is absent. A guard failure discards the whole registry.",
+      "pointer_operand_rule": "Every operation member whose name ends in _pointer is an RFC6901 pointer prefixed exactly static:v7# and resolves exactly once within this immutable V7 artifact. template_pointer resolves to the complete schema or field-descriptor object required by its operation; conjunct_pointer and value_pointer resolve to STRING. An operation permits exactly one of its displayed inline operand or pointer operand, never both or neither. Unknown pointer domains, missing values, coercion and inferred defaults are blocking.",
+      "REPLACE_COMPONENT_SCHEMA_ID": "Require COMPONENT, /schema_id=source_schema_id and no /fields/schema_id. Replace only /schema_id with target_schema_id.",
+      "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR": "Require ARTIFACT_RECORD, /schema_id and /fields/schema_id/const both equal source_schema_id, exactly two scalar occurrences at those pointers. Atomically replace both with target_schema_id; reject mismatch, missing or extra occurrence.",
+      "REPLACE_FIELD_CONST": "Replace only /fields/<field>/const after exact prior descriptor guard; field_order is unchanged.",
+      "REPLACE_FIELD_DESCRIPTOR_FROM_TEMPLATE": "Replace only /fields/<field> with the exact object at template_pointer; field_order is unchanged.",
+      "REPLACE_FIELD_DESCRIPTOR_INLINE": "Replace only /fields/<field> with descriptor; field_order is unchanged.",
+      "ADD_FIELD_BEFORE_OR_AFTER": "Require field absent and anchor present once. Insert field name immediately before/after anchor in both fields member order and field_order and insert the exact descriptor supplied by exactly one of descriptor or template_pointer.",
+      "RENAME_AND_REPLACE_FIELD": "Require old field once/new absent. Replace name in place in fields and field_order and set the exact descriptor supplied by exactly one of descriptor or template_pointer.",
+      "REMOVE_FIELD": "Require field once and exact prior descriptor/ref guard. Remove from fields and field_order.",
+      "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE": "After the outer-ID guard, require COMPONENT and replace classification, field_order, fields, conditional_rule, additional_fields and any hash_domain with byte-equal values from template_pointer; template outer schema_id must equal target_schema_id. No unlisted top-level schema member may remain.",
+      "APPEND_CONDITIONAL_CONJUNCT": "Require existing conditional_rule STRING. Resolve the appended STRING from exactly one of conjunct or conjunct_pointer. Output is prior UTF-8 string + exact separator '\nAND_V7:\n' + appended STRING. No whitespace normalization.",
+      "SET_CONDITIONAL_RULE": "Require the declared prior state ABSENT or STRING and set the exact STRING supplied by exactly one of value or value_pointer.",
+      "PRESERVE_UNMENTIONED": "Every schema member, field descriptor/order position, additional_fields flag, hash_domain and source-effective denial not named by an operation remains byte-for-byte. Arrays retain order.",
+      "final_structured_rewrite": "After all programs, visit schema keys in raw UTF-8 order and object members in raw UTF-8 order; rewrite ref/items_ref scalar values only by reference_rewrite_map. Do not rewrite prose, V4 retained refs, or source strings. Require zero old mapped targets and every new target present exactly once."
+    },
+    "replacement_programs_in_target_key_raw_utf8_order": [
+      {
+        "source_key": "ACCESS_ATTESTATION_V6", "target_key": "ACCESS_ATTESTATION_V7", "base_pointer": "generated:corrected_v6_effective_registry#/ACCESS_ATTESTATION_V6", "classification": "COMPONENT", "source_schema_id": "ACCESS_ATTESTATION_SCHEMA_V6", "target_schema_id": "ACCESS_ATTESTATION_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE", "template_pointer": "static:v7#/typed_schema_registry_v7/ACCESS_ATTESTATION_V7"}
+        ]
+      },
+      {
+        "source_key": "AUDITOR_ROLE_COMPARISON_V6", "target_key": "AUDITOR_ROLE_COMPARISON_V7", "base_pointer": "generated:corrected_v6_effective_registry#/AUDITOR_ROLE_COMPARISON_V6", "classification": "COMPONENT", "source_schema_id": "AUDITOR_ROLE_COMPARISON_SCHEMA_V6", "target_schema_id": "AUDITOR_ROLE_COMPARISON_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "dimension_comparisons_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "IDENTITY_DIMENSION_COMPARISON_V7", "exact_count": 6, "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value": "role_index selects exactly one ROLE_ASSIGNMENT_V6 row in the V7 role freeze; role_id and role_identity_tuple byte-equal that assignment. auditor_identity_tuple byte-equals V7_AUDIT_RECEIPT_V7.auditor_identity_tuple. dimension_comparisons_in_exact_order contains exactly six IDENTITY_DIMENSION_COMPARISON_V7 rows in identity_dimension_hash_repair.dimensions_in_exact_order; every left/right scalar, canonical bytes and SHA-256 is derived from the exact auditor/role tuples, every equal_boolean=false and unequal_boolean=true, dimension_index=3 alone carries the byte-equal delegation_disjointness_proof and every other proof is null. all_conflicts_absent_boolean=true. No supplied hash, stale V6 auditor tuple or alternate role join is accepted."}
+        ]
+      },
+      {
+        "source_key": "CHECKPOINT_LEDGER_V6", "target_key": "CHECKPOINT_LEDGER_V7", "base_pointer": "generated:corrected_v6_effective_registry#/CHECKPOINT_LEDGER_V6", "classification": "COMPONENT", "source_schema_id": "CHECKPOINT_LEDGER_SCHEMA_V6", "target_schema_id": "CHECKPOINT_LEDGER_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_FROM_TEMPLATE", "field": "normalized_failure_outcome_or_null", "template_pointer": "static:v7#/typed_schema_registry_v7/CHECKPOINT_LEDGER_V7/fields/normalized_failure_outcome_or_null"},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "process_start_outcome_or_null", "field": "terminal_state_resolution", "template_pointer": "static:v7#/typed_schema_registry_v7/CHECKPOINT_LEDGER_V7/fields/terminal_state_resolution"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_FROM_TEMPLATE", "field": "incident_trigger_id_or_null", "template_pointer": "static:v7#/typed_schema_registry_v7/CHECKPOINT_LEDGER_V7/fields/incident_trigger_id_or_null"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_FROM_TEMPLATE", "field": "terminal_state", "template_pointer": "static:v7#/typed_schema_registry_v7/CHECKPOINT_LEDGER_V7/fields/terminal_state"},
+          {"op": "APPEND_CONDITIONAL_CONJUNCT", "conjunct_pointer": "static:v7#/typed_schema_registry_v7/CHECKPOINT_LEDGER_V7/conditional_rule"}
+        ]
+      },
+      {
+        "source_key": "FAILURE_PREPUBLICATION_DISPOSITION_V6", "target_key": "FAILURE_PREPUBLICATION_DISPOSITION_V7", "base_pointer": "generated:corrected_v6_effective_registry#/FAILURE_PREPUBLICATION_DISPOSITION_V6", "classification": "COMPONENT", "source_schema_id": "FAILURE_PREPUBLICATION_DISPOSITION_SCHEMA_V6", "target_schema_id": "FAILURE_PREPUBLICATION_DISPOSITION_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE", "template_pointer": "static:v7#/typed_schema_registry_v7/FAILURE_PREPUBLICATION_DISPOSITION_V7"}
+        ]
+      },
+      {
+        "source_key": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V6", "target_key": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7", "base_pointer": "generated:corrected_v6_effective_registry#/GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V6", "classification": "COMPONENT", "source_schema_id": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_SCHEMA_V6", "target_schema_id": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE", "template_pointer": "static:v7#/typed_schema_registry_v7/GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7"}
+        ]
+      },
+      {
+        "source_key": "GOVERNANCE_HEADER_V6", "target_key": "GOVERNANCE_HEADER_V7", "base_pointer": "generated:corrected_v6_effective_registry#/GOVERNANCE_HEADER_V6", "classification": "COMPONENT", "source_schema_id": "GOVERNANCE_BINDING_HEADER_SCHEMA_V6", "target_schema_id": "GOVERNANCE_BINDING_HEADER_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE", "template_pointer": "static:v7#/typed_schema_registry_v7/GOVERNANCE_HEADER_V7"}
+        ]
+      },
+      {
+        "source_key": "IDENTITY_DIMENSION_COMPARISON_V6", "target_key": "IDENTITY_DIMENSION_COMPARISON_V7", "base_pointer": "generated:corrected_v6_effective_registry#/IDENTITY_DIMENSION_COMPARISON_V6", "classification": "COMPONENT", "source_schema_id": "IDENTITY_DIMENSION_COMPARISON_SCHEMA_V6", "target_schema_id": "IDENTITY_DIMENSION_COMPARISON_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE", "template_pointer": "static:v7#/typed_schema_registry_v7/IDENTITY_DIMENSION_COMPARISON_V7"}
+        ]
+      },
+      {
+        "source_key": "INCIDENT_AUTHORIZATION_V6", "target_key": "INCIDENT_AUTHORIZATION_V7", "base_pointer": "generated:corrected_v6_effective_registry#/INCIDENT_AUTHORIZATION_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "INCIDENT_AUTHORIZATION_SCHEMA_V6", "target_schema_id": "INCIDENT_AUTHORIZATION_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "governance_header", "descriptor": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "access_attestation", "descriptor": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false}},
+          {"op": "APPEND_CONDITIONAL_CONJUNCT", "conjunct": "The exact fourteen inherited trigger values and all V6 preserved invocation/controller/directory/path/quarantine/bundle/promotion/science fields remain. transaction_id is the authoritative join for every consuming TRANSACTION_AUTHORIZATION_V7 and INCIDENT_RECEIPT_V7."}
+        ]
+      },
+      {
+        "source_key": "INCIDENT_RECEIPT_V6", "target_key": "INCIDENT_RECEIPT_V7", "base_pointer": "generated:corrected_v6_effective_registry#/INCIDENT_RECEIPT_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "INCIDENT_RECEIPT_SCHEMA_V6", "target_schema_id": "INCIDENT_RECEIPT_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "governance_header", "descriptor": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "checkpoint_ledger", "descriptor": {"type": "OBJECT", "ref": "CHECKPOINT_LEDGER_V7", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "incident_authorization_binding", "field": "incident_authorization_content", "template_pointer": "static:v7#/typed_schema_registry_v7/INCIDENT_RECEIPT_V7/fields/incident_authorization_content"},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "checkpoint_ledger", "field": "evidence_presence_row", "template_pointer": "static:v7#/typed_schema_registry_v7/INCIDENT_RECEIPT_V7/fields/evidence_presence_row"},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "flush_plan_execution_or_null", "new_field": "incident_flush_evidence", "template_pointer": "static:v7#/typed_schema_registry_v7/INCIDENT_RECEIPT_V7/fields/incident_flush_evidence"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_FROM_TEMPLATE", "field": "failure_prepublication_disposition_or_null", "template_pointer": "static:v7#/typed_schema_registry_v7/INCIDENT_RECEIPT_V7/fields/failure_prepublication_disposition_or_null"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_FROM_TEMPLATE", "field": "p4_publication_disposition_or_null", "template_pointer": "static:v7#/typed_schema_registry_v7/INCIDENT_RECEIPT_V7/fields/p4_publication_disposition_or_null"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "access_attestation", "descriptor": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value_pointer": "static:v7#/typed_schema_registry_v7/INCIDENT_RECEIPT_V7/conditional_rule"}
+        ]
+      },
+      {
+        "source_key": "P4_PUBLICATION_DISPOSITION_V6", "target_key": "P4_PUBLICATION_DISPOSITION_V7", "base_pointer": "generated:corrected_v6_effective_registry#/P4_PUBLICATION_DISPOSITION_V6", "classification": "COMPONENT", "source_schema_id": "P4_PUBLICATION_DISPOSITION_SCHEMA_V6", "target_schema_id": "P4_PUBLICATION_DISPOSITION_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE", "template_pointer": "static:v7#/typed_schema_registry_v7/P4_PUBLICATION_DISPOSITION_V7"}
+        ]
+      },
+      {
+        "source_key": "P5_VALIDATION_RECEIPT_V6", "target_key": "P5_VALIDATION_RECEIPT_V7", "base_pointer": "generated:corrected_v6_effective_registry#/P5_VALIDATION_RECEIPT_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "P5_VALIDATION_RECEIPT_SCHEMA_V6", "target_schema_id": "P5_VALIDATION_RECEIPT_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "governance_header", "descriptor": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_FROM_TEMPLATE", "field": "prevalidation_checkpoint_ledger", "template_pointer": "static:v7#/typed_schema_registry_v7/P5_VALIDATION_RECEIPT_V7/fields/prevalidation_checkpoint_ledger"},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "prevalidation_checkpoint_ledger", "field": "p4_success_disposition", "template_pointer": "static:v7#/typed_schema_registry_v7/P5_VALIDATION_RECEIPT_V7/fields/p4_success_disposition"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_FROM_TEMPLATE", "field": "validation_checks_in_exact_order", "template_pointer": "static:v7#/typed_schema_registry_v7/P5_VALIDATION_RECEIPT_V7/fields/validation_checks_in_exact_order"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "access_attestation", "descriptor": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value_pointer": "static:v7#/typed_schema_registry_v7/P5_VALIDATION_RECEIPT_V7/conditional_rule"}
+        ]
+      },
+      {
+        "source_key": "PHYSICAL_PROJECTION_RECORD_V6", "target_key": "PHYSICAL_PROJECTION_RECORD_V7", "base_pointer": "generated:corrected_v6_effective_registry#/PHYSICAL_PROJECTION_RECORD_V6", "classification": "COMPONENT", "source_schema_id": "PHYSICAL_PROJECTION_RECORD_SCHEMA_V6", "target_schema_id": "PHYSICAL_PROJECTION_RECORD_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "projection_members_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "PROJECTION_MEMBER_V7", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value_pointer": "static:v7#/projection_materialization_v7/physical_record_conditional_rule"}
+        ]
+      },
+      {
+        "source_key": "PROJECTION_MEMBER_V6", "target_key": "PROJECTION_MEMBER_V7", "base_pointer": "generated:corrected_v6_effective_registry#/PROJECTION_MEMBER_V6", "classification": "COMPONENT", "source_schema_id": "PROJECTION_MEMBER_SCHEMA_V6", "target_schema_id": "PROJECTION_MEMBER_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "source_pointer_record", "descriptor": {"type": "OBJECT", "ref": "SOURCE_POINTER_V7", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value_pointer": "static:v7#/projection_materialization_v7/member_conditional_rule"}
+        ]
+      },
+      {
+        "source_key": "PUBLICATION_ATTESTATION_V6", "target_key": "PUBLICATION_ATTESTATION_V7", "base_pointer": "generated:corrected_v6_effective_registry#/PUBLICATION_ATTESTATION_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "PUBLICATION_ATTESTATION_SCHEMA_V6", "target_schema_id": "PUBLICATION_ATTESTATION_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "governance_header", "descriptor": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "prior_checkpoint_ledger", "descriptor": {"type": "OBJECT", "ref": "CHECKPOINT_LEDGER_V7", "constraint": "same transaction; selected branch equals terminal kind; last completed P3; first failure null; evidence projection publication_attestation_state=ABSENT_PROVEN and P4/P5/closeout fields null/NONE", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "failure_prepublication_disposition", "descriptor": {"type": "OBJECT", "ref": "FAILURE_PREPUBLICATION_DISPOSITION_V7", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "access_attestation", "descriptor": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false}},
+          {"op": "APPEND_CONDITIONAL_CONJUNCT", "conjunct": "transaction_id byte-equals prior_checkpoint_ledger.transaction_id and every referenced selected-plan/read/failure object. The P3 holder-to-evidence source is its inherited exact terminal destination snapshot/membership/member bindings plus inherited proof that publication_attestation final path is ABSENT before these bytes; no P4 self snapshot or later artifact is read."}
+        ]
+      },
+      {
+        "source_key": "ROLE_ASSIGNMENT_FREEZE_V6", "target_key": "ROLE_ASSIGNMENT_FREEZE_V7", "base_pointer": "generated:corrected_v6_effective_registry#/ROLE_ASSIGNMENT_FREEZE_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "ROLE_ASSIGNMENT_FREEZE_SCHEMA_V6", "target_schema_id": "ROLE_ASSIGNMENT_FREEZE_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_CONST", "field": "freeze_id", "required_prior_const": "V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_V6", "value": "V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_V7"},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v6_pass_audit_binding", "new_field": "v6_fail_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v6_audit FAIL_BLOCKING bytes/SHA", "nullable": false}},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v6_activation_binding", "new_field": "v7_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7 audit-target bytes/SHA", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v7_binding", "field": "v7_pass_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7_audit PASS_ZERO_BLOCKING_ZERO_UNRESOLVED", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v7_pass_audit_binding", "field": "v7_activation_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7_activation ACTIVATED_FOR_STAGE_A_ONLY", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "auditor_role_comparisons_in_role_order", "field": "p5_consumer_access_grants_in_transaction_order", "descriptor": {"type": "ARRAY", "items_ref": "P5_CONSUMER_ACCESS_GRANT_V7", "exact_count": 4, "unique_key": "transaction_id,consumer_role_id", "nullable": false}},
+          {"op": "APPEND_CONDITIONAL_CONJUNCT", "conjunct": "The four P5 consumer grants byte-equal the transaction rows and each consumer assignment; all 18 assignments, 153 conflict rows, 18 auditor comparisons and four rebound Stage-A intents remain exact. V6 FAIL is lineage only; V7 PASS and Root activation are mandatory before this CREATE_NEW freeze."}
+        ]
+      },
+      {
+        "source_key": "ROLE_CONFLICT_JOIN_ROW_V6", "target_key": "ROLE_CONFLICT_JOIN_ROW_V7", "base_pointer": "generated:corrected_v6_effective_registry#/ROLE_CONFLICT_JOIN_ROW_V6", "classification": "COMPONENT", "source_schema_id": "ROLE_CONFLICT_JOIN_ROW_SCHEMA_V6", "target_schema_id": "ROLE_CONFLICT_JOIN_ROW_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "dimension_comparisons_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "IDENTITY_DIMENSION_COMPARISON_V7", "exact_count": 6, "nullable": false}},
+          {"op": "APPEND_CONDITIONAL_CONJUNCT", "conjunct": "Every dimension row derives from the two assignment tuples joined by this exact pair; pair_index/role indices/IDs are unique and formula-complete across all 153 rows."}
+        ]
+      },
+      {
+        "source_key": "ROOT_ACTIVATION_V6", "target_key": "ROOT_ACTIVATION_V7", "base_pointer": "generated:corrected_v6_effective_registry#/ROOT_ACTIVATION_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "ROOT_ACTIVATION_SCHEMA_V6", "target_schema_id": "ROOT_ACTIVATION_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_CONST", "field": "activation_id", "required_prior_const": "V6_ROOT_ACTIVATION_001", "value": "V7_ROOT_ACTIVATION_001"},
+          {"op": "REPLACE_FIELD_CONST", "field": "activated_scope", "required_prior_const": "V6_ROLE_FREEZE_AND_STAGE_A_ONLY", "value": "V7_ROLE_FREEZE_AND_STAGE_A_ONLY"},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v6_pass_audit_binding", "new_field": "v6_fail_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v6_audit FAIL_BLOCKING bytes/SHA", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v6_fail_audit_binding", "field": "v7_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7 bytes/SHA", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v7_binding", "field": "v7_pass_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7_audit PASS_ZERO_BLOCKING_ZERO_UNRESOLVED", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "auditor_root_dimension_comparisons_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "IDENTITY_DIMENSION_COMPARISON_V7", "exact_count": 6, "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value": "v5_binding and v5_fail_audit_binding retain their exact immutable source identities; v6_binding is exact static:v6; v6_fail_audit_binding is exact static:v6_audit with verdict FAIL_BLOCKING; v7_binding is exact static:v7; v7_pass_audit_binding is exact static:v7_audit with verdict PASS_ZERO_BLOCKING_ZERO_UNRESOLVED. auditor_identity_tuple byte-equals the bound V7_AUDIT_RECEIPT_V7 auditor tuple. root_role_id=ROLE_ROOT_GOVERNANCE_JUDGE_V4 and root_identity_tuple is the exact registered Root tuple. auditor_root_dimension_comparisons_in_exact_order contains exactly six derived IDENTITY_DIMENSION_COMPARISON_V7 rows, all unequal, with the exact delegation-disjointness proof at dimension 3; all_dimensions_distinct_boolean=true. Root writes this artifact CREATE_NEW only after the bound V7 PASS. activation_id=V7_ROOT_ACTIVATION_001, activated_scope=V7_ROLE_FREEZE_AND_STAGE_A_ONLY, activation_verdict=ACTIVATED_FOR_STAGE_A_ONLY and stage_a_only_boolean=true. The historical V6 FAIL is lineage only and is never treated as PASS or activation."}
+        ]
+      },
+      {
+        "source_key": "SCHEMA_BUNDLE_V6", "target_key": "SCHEMA_BUNDLE_V7", "base_pointer": "generated:corrected_v6_effective_registry#/SCHEMA_BUNDLE_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "SCHEMA_BUNDLE_SCHEMA_V6", "target_schema_id": "SCHEMA_BUNDLE_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_bundle_id", "required_prior_const": "V6_BOOTSTRAP_GOVERNANCE_SCHEMA_BUNDLE_V6", "value": "V7_BOOTSTRAP_GOVERNANCE_SCHEMA_BUNDLE_V7"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "governance_header", "descriptor": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v6_source_binding", "field": "v7_source_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7 audit-target bytes/SHA", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "effective_schema_key_count", "descriptor": {"type": "INTEGER", "const": 86, "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "effective_schema_keys_in_utf8_lexical_order", "descriptor": {"type": "ARRAY", "items": "NONEMPTY_STRING", "exact_values_source": "effective_v7_schema_model.final_effective_schema_keys_in_raw_utf8_order", "exact_count": 86, "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "governance_header_rewrite_rows_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "EFFECTIVE_REFERENCE_REWRITE_ROW_V6", "exact_count": 22, "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "BEFORE", "anchor": "materialized_schema_entries_in_schema_id_order", "field": "qualified_dotted_source_rows_in_traversal_order", "descriptor": {"type": "ARRAY", "items_ref": "SOURCE_QUALIFIED_DOTTED_BINDING_V7", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "qualified_dotted_source_rows_in_traversal_order", "field": "qualified_dotted_source_counts", "descriptor": {"type": "OBJECT", "constraint": "exact derived static/instance/constraint/order/total counts and dangling_source_count=0", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "composite_physical_projection_records_in_path_id_order", "descriptor": {"type": "ARRAY", "items_ref": "PHYSICAL_PROJECTION_RECORD_V7", "exact_count": 2, "unique_key": "physical_path_id", "order": "literal then Root", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value": "schema_bundle_id=V7_BOOTSTRAP_GOVERNANCE_SCHEMA_BUNDLE_V7. governance_header is an exact GOVERNANCE_HEADER_V7. Every inherited V4/V5/V6 source binding remains exact and v7_source_binding is exact static:v7. The corrected five-patch attestations byte-equal corrected_v6_patch_materialization outputs. effective_schema_key_count=86 and effective_schema_keys_in_utf8_lexical_order byte-equals effective_v7_schema_model.final_effective_schema_keys_in_raw_utf8_order; effective_schema_registry_canonical_bytes and effective_schema_registry_sha256 bind canonical JSON of those 86 values after all 21 guarded replacements, eight insertions, structured reference rewrites and source qualifications. governance_header_rewrite_rows_in_exact_order byte-equals the 22 exact header owner rows. qualified_dotted_source_rows_in_traversal_order and qualified_dotted_source_counts byte-equal the exhaustive traversal with dangling_source_count=0. materialized_schema_entries_in_schema_id_order retains exactly the inherited literal-freeze and literal-bundle single-file entries. composite_physical_projection_records_in_path_id_order contains exactly the literal then Root records and byte-equals projection_materialization_v7, including instantiated source pointers and whole-file equations. unique_schema_id_boolean=true across outer and inner IDs. Every source-registry/effective-registry bytes/hash assertion and bundle hash-envelope rule is exact, and no 78-key or stale V6 projection assertion remains."}
+        ]
+      },
+      {
+        "source_key": "SOURCE_POINTER_V6", "target_key": "SOURCE_POINTER_V7", "base_pointer": "generated:corrected_v6_effective_registry#/SOURCE_POINTER_V6", "classification": "COMPONENT", "source_schema_id": "SOURCE_POINTER_SCHEMA_V6", "target_schema_id": "SOURCE_POINTER_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "source_artifact_id", "descriptor": {"type": "STRING", "enum": ["source:v4", "generated:v7_effective_registry"], "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "source_artifact_sha256", "descriptor": {"type": "SHA256", "constraint": "source:v4 equals source_bindings.v4_exact_extract_source.sha256; generated:v7_effective_registry equals instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value_pointer": "static:v7#/projection_materialization_v7/source_pointer_conditional_rule"}
+        ]
+      },
+      {
+        "source_key": "TRANSACTION_AUTHORIZATION_V6", "target_key": "TRANSACTION_AUTHORIZATION_V7", "base_pointer": "generated:corrected_v6_effective_registry#/TRANSACTION_AUTHORIZATION_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "TRANSACTION_AUTHORIZATION_SCHEMA_V6", "target_schema_id": "TRANSACTION_AUTHORIZATION_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "governance_header", "descriptor": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V7", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "incident_authorization_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact same-transaction INCIDENT_AUTHORIZATION_V7 with all fourteen triggers", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "incident_authorization_binding", "field": "p5_consumer_access_grant", "descriptor": {"type": "OBJECT", "ref": "P5_CONSUMER_ACCESS_GRANT_V7", "constraint": "exact p4_p5_evidence_and_consumer_access.consumer_rows_in_transaction_order row for transaction_id", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "root_access_attestation", "descriptor": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value": "transaction_id and worker_role_id select the exact frozen transaction/role row. root_postworker_branch_read_grant is the exact transaction-specific grant. success_flush_plan, failure_no_quarantine_flush_plan and failure_with_quarantine_flush_plan share transaction_id and byte-equal the three exact flush_plan_model plans; no plan grants worker flush or Root content mutation. incident_authorization_binding is the exact same-transaction INCIDENT_AUTHORIZATION_V7 and freezes all fourteen triggers before claim. worker_access_contract.read_path_ids is the stable-first-occurrence union of its inherited exact values with governance_header_and_stage_a_controls.mandatory_stage_a_control_path_ids_in_exact_order, exactly twelve controls including static:v5; every other worker_access_contract member remains byte-equal to its inherited exact allowlist/denial value. p5_consumer_access_grant byte-equals the sole p4_p5_evidence_and_consumer_access.consumer_rows_in_transaction_order row selected by transaction_id, the V7 role freeze grant and the designated consumer assignment before any claim. root_access_attestation byte-equals the exact effective Root transaction phase allowlist. Every preserved release, invocation, controller, worker, package, dependency, static/input binding, directory intent/prestate, READY membership, launcher, process-start, one-shot, scientific denial and hash-envelope field remains governed by its retained descriptor and exact source-effective constraint. No old eleven-control equality remains."}
+        ]
+      },
+      {
+        "source_key": "V6_AUDIT_RECEIPT_V6", "target_key": "V7_AUDIT_RECEIPT_V7", "base_pointer": "generated:corrected_v6_effective_registry#/V6_AUDIT_RECEIPT_V6", "classification": "ARTIFACT_RECORD", "source_schema_id": "V6_AUDIT_RECEIPT_SCHEMA_V6", "target_schema_id": "V7_AUDIT_RECEIPT_SCHEMA_V7",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "6.0.0", "value": "7.0.0"},
+          {"op": "REPLACE_FIELD_CONST", "field": "audit_id", "required_prior_const": "PROTOCOL_V6_REAUDIT_ADDENDUM_V6_AUDIT_001", "value": "PROTOCOL_V6_REAUDIT_ADDENDUM_V7_AUDIT_001"},
+          {"op": "REPLACE_FIELD_CONST", "field": "auditor_role_id", "required_prior_const": "ROLE_V6_AMENDMENT_AUDITOR", "value": "ROLE_V7_AMENDMENT_AUDITOR"},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v6_binding", "new_field": "v7_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7 audit-target bytes/SHA", "nullable": false}},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v5_fail_audit_binding", "new_field": "v6_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v6 bytes/SHA", "nullable": false}},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v4_extract_source_binding", "new_field": "v6_fail_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v6_audit FAIL_BLOCKING bytes/SHA", "nullable": false}},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v4_extract_audit_binding", "new_field": "v4_source_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v4 reconstruction-source bytes/SHA", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "checks_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "CHECK_RESULT_V4", "exact_count": 13, "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "access_attestation", "descriptor": {"type": "OBJECT", "ref": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "required_prior_state": "STRING", "value": "PASS requires all thirteen prospective_v7_audit_contract checks PASS, blocking_findings and unresolved_findings exact empty, and access_attestation field projections equal the exact V7 auditor writer row. static:v4/static:v5 are reconstruction sources only; static:v6_audit remains FAIL lineage. Root and future operational roles are not compared or activated by this audit."}
+        ]
+      }
+    ],
+    "replacement_program_count": 21,
+    "specialized_replacement_requirements_role": "The following entries are human-readable coverage summaries only. The sole normative bytes and operation order are the corresponding guarded replacement-program rows; no operation, field, descriptor, ordering or serialization may be inferred from these summaries.",
+    "specialized_replacement_requirements": {
+      "IDENTITY_DIMENSION_COMPARISON_V7": "Exact complete typed_schema_registry_v7 body.",
+      "CHECKPOINT_LEDGER_V7": "Exact complete typed_schema_registry_v7 body plus all unaffected V6 ledger rules.",
+      "FAILURE_PREPUBLICATION_DISPOSITION_V7": "Source-effective V6 quarantine proof with exact transaction/variant joins and an exhaustive nonfavorable parent-flush state derived from the unique execution observation.",
+      "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7": "Exact complete typed_schema_registry_v7 body with five reads, one write/readback, six metadata paths and all mutation/runtime/science dimensions empty or false.",
+      "P5_VALIDATION_RECEIPT_V7": "Exact complete typed_schema_registry_v7 body; retain V6 no-self-validation hash domain.",
+      "P4_PUBLICATION_DISPOSITION_V7": "Source-effective V6 failure semantics plus the disjoint exact success transition; all pre/post/API/write-through evidence is typed and joined.",
+      "INCIDENT_RECEIPT_V7": "Exact complete typed_schema_registry_v7 fields over the source-effective V6 incident superset; retain invocation, snapshots, fallbacks, membership and denials.",
+      "ACCESS_ATTESTATION_V7": "Exact typed body preserving every V6 runtime/membership/load/denial field.",
+      "PUBLICATION_ATTESTATION_V7": "Source-effective V6 publication schema with header/ref/schema-ID updates and exact transaction join only; remains P3-only.",
+      "TRANSACTION_AUTHORIZATION_V7": "Source-effective V6 authorization with V7 header/access, twelve controls, exact incident transaction join, P5 consumer access rows bound before route use, and every package/input/prestate/launcher/one-shot/science field retained.",
+      "ROLE_ASSIGNMENT_FREEZE_V7": "Source-effective V6 freeze with V7 bindings, all 18 assignments/153 pairs/18 auditor comparisons/four intents and exact four P5 consumer rows; no role or conflict is removed.",
+      "AUDITOR_ROLE_COMPARISON_V7": "Source-effective V6 row with six IDENTITY_DIMENSION_COMPARISON_V7 rows.",
+      "ROLE_CONFLICT_JOIN_ROW_V7": "Source-effective V6 row with six derived V7 comparisons.",
+      "INCIDENT_AUTHORIZATION_V7": "Source-effective V6 authorization with V7 header/access and unchanged fourteen triggers.",
+      "ROOT_ACTIVATION_V7": "Source-effective V6 activation with V7/V7-audit bindings and derived identity comparisons.",
+      "V7_AUDIT_RECEIPT_V7": "Source-effective V6 audit receipt with V7/V6/V6-FAIL bindings, typed V7 audit access and thirteen-check PASS requirement.",
+      "SOURCE_POINTER_V7": "V6 source-pointer semantics with generated:v7_effective_registry hash source and exact static:v6/static:v7 provenance.",
+      "PROJECTION_MEMBER_V7": "V6 member schema with SOURCE_POINTER_V7 and exact V7 specs.",
+      "PHYSICAL_PROJECTION_RECORD_V7": "V6 physical schema with V7 members/containers/equations.",
+      "SCHEMA_BUNDLE_V7": "Source-effective V6 bundle with 86 keys, dotted binding rows/counts/dangling zero, corrected five-patch attestations and V7 projections."
+    },
+    "construction_rule": "Remove exactly 21 keys, insert exactly 21 replacement outputs and eight complete new typed schemas, globally rewrite every ref/items_ref token by reference_rewrite_map, require zero old replacement-token refs, apply source qualification, order all 86 keys by raw UTF-8, require globally unique outer/inner schema IDs, and canonicalize.",
+    "projection_rule": "Literal projection remains two members: V7-header-rewritten STATIC_AUDIT_RECEIPT_V4 and exact V4 literal specialization. Root projection remains nine members in the V6 order, replacing transaction authorization, incident authorization, publication, incident and P5 members with V7 outputs. Source pointers use the generated 86-key registry SHA. Whole-object equations and per-member/whole-file byte/hash joins remain exact and nonrecursive.",
+    "zero_unresolved_rule": "Every ref/items_ref and every source-qualified dotted occurrence resolves exactly once; dangling_source_count=0; no removed key, stale header, success failure-token or inferred path survives."
+  },
+  "projection_materialization_v7": {
+    "source_hash_lookup": {
+      "source:v4": "source_bindings.v4_exact_extract_source.sha256 inherited through static:v6 exact provenance",
+      "generated:v7_effective_registry": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256",
+      "nonrecursive_rule": "Compute/canonicalize/hash all 86 final schema values before any SCHEMA_BUNDLE_V7 artifact instance, projection record, member hash or physical binding. Projection members consume that frozen hash and never contribute to it."
+    },
+    "source_pointer_template_instantiation_rule": "For each source_pointer_record_template, copy its six displayed members in displayed order. At member position 1 only, require the meta-key source_artifact_sha256_source exactly once, resolve its scalar expression through source_hash_lookup, and replace that key in place with source_artifact_sha256 whose value is the resolved 64-uppercase-hex SHA-256. Remove the meta-key by that same replacement, add or remove no other member, and preserve the other five keys and values byte-for-byte in their displayed order. The result therefore has exactly [source_artifact_id,source_artifact_sha256,json_pointer,resolution_mode,base_schema_pointer_or_null,overlay_pointer_or_null], validates as SOURCE_POINTER_V7 with additional_fields=false, and is the only object used for byte equality, member hashing or whole-object reconstruction.",
+    "source_pointer_conditional_rule": "DIRECT_VALUE requires source_artifact_id=source:v4, source_artifact_sha256 equal the exact V4 extract-source binding, json_pointer='/schema_system/specialization_registry/LITERAL_BUNDLE_STATIC_AUDIT_V4', and both optional pointers null. EFFECTIVE_REGISTRY_VALUE requires source_artifact_id=generated:v7_effective_registry, source_artifact_sha256 equality-joined at runtime to the enclosing SCHEMA_BUNDLE_V7 effective-registry SHA, json_pointer exactly '/'+logical_schema_key, that key present once in the materialized 86-key registry, and both optional pointers null. No alternate tuple or pointer is valid.",
+    "member_conditional_rule": "member_index, container_member_key and logical_schema_key_or_null byte-equal the applicable physical_projection_specs_in_path_order member. source_pointer_record byte-equals the exact six-field SOURCE_POINTER_V7 object produced from that member's source_pointer_record_template by source_pointer_template_instantiation_rule; it is never compared to the uninstantiated meta-template. source_value bytes/SHA cover the exact resolved canonical source value and byte-equal the value inserted into the whole-object equation.",
+    "physical_record_conditional_rule": "physical_path_id selects exactly one physical_projection_specs_in_path_order row and equality-joins container_id, kind, exact members, field order and equation. reconstructed bytes/hash equal canonical JSON of that exact object, equal physical_file_binding bytes/SHA/path, and path_unique is true across both records. No metadata or omitted member is legal.",
+    "physical_projection_specs_in_path_order": [
+      {
+        "physical_path_id": "static:literal_audit_schema",
+        "container_id": "LITERAL_AUDIT_SCHEMA_COMPOSITE_V7",
+        "container_kind": "BASE_SCHEMA_WITH_SPECIALIZATIONS",
+        "member_count": 2,
+        "physical_object_field_order": ["schema_body", "specializations"],
+        "members_in_exact_order": [
+          {"member_index": 0, "container_member_key": "schema_body", "logical_schema_key_or_null": "STATIC_AUDIT_RECEIPT_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/STATIC_AUDIT_RECEIPT_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 1, "container_member_key": "specializations/0", "logical_schema_key_or_null": null, "source_pointer_record_template": {"source_artifact_id": "source:v4", "source_artifact_sha256_source": "source_bindings.v4_exact_extract_source.sha256", "json_pointer": "/schema_system/specialization_registry/LITERAL_BUNDLE_STATIC_AUDIT_V4", "resolution_mode": "DIRECT_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}}
+        ],
+        "physical_object_equation": "canonical_json({'schema_body':resolved_member_value[0],'specializations':[resolved_member_value[1]]})"
+      },
+      {
+        "physical_path_id": "static:root_controller_schema",
+        "container_id": "ROOT_CONTROLLER_SCHEMA_SET_V7",
+        "container_kind": "SCHEMA_SET",
+        "member_count": 9,
+        "physical_object_field_order": ["schemas"],
+        "members_in_exact_order": [
+          {"member_index": 0, "container_member_key": "schemas/0", "logical_schema_key_or_null": "DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 1, "container_member_key": "schemas/1", "logical_schema_key_or_null": "TRANSACTION_AUTHORIZATION_V7", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/TRANSACTION_AUTHORIZATION_V7", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 2, "container_member_key": "schemas/2", "logical_schema_key_or_null": "CLAIM_HANDOFF_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/CLAIM_HANDOFF_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 3, "container_member_key": "schemas/3", "logical_schema_key_or_null": "INCIDENT_AUTHORIZATION_V7", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/INCIDENT_AUTHORIZATION_V7", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 4, "container_member_key": "schemas/4", "logical_schema_key_or_null": "PUBLICATION_ATTESTATION_V7", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/PUBLICATION_ATTESTATION_V7", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 5, "container_member_key": "schemas/5", "logical_schema_key_or_null": "INCIDENT_RECEIPT_V7", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/INCIDENT_RECEIPT_V7", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 6, "container_member_key": "schemas/6", "logical_schema_key_or_null": "INCIDENT_CLOSEOUT_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/INCIDENT_CLOSEOUT_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 7, "container_member_key": "schemas/7", "logical_schema_key_or_null": "INCIDENT_MANIFEST_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/INCIDENT_MANIFEST_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 8, "container_member_key": "schemas/8", "logical_schema_key_or_null": "P5_VALIDATION_RECEIPT_V7", "source_pointer_record_template": {"source_artifact_id": "generated:v7_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V7#/effective_schema_registry_sha256", "json_pointer": "/P5_VALIDATION_RECEIPT_V7", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}}
+        ],
+        "physical_object_equation": "canonical_json({'schemas':[resolved_member_value[0],resolved_member_value[1],resolved_member_value[2],resolved_member_value[3],resolved_member_value[4],resolved_member_value[5],resolved_member_value[6],resolved_member_value[7],resolved_member_value[8]]})"
+      }
+    ],
+    "projection_count": 2,
+    "literal_member_count": 2,
+    "root_member_count": 9,
+    "spec_uniqueness_rule": "The two physical_path_id and container_id values are each unique. Member indices are contiguous, member keys unique within a spec, and every generated-registry pointer is exactly '/'+logical_schema_key. No unlisted source, member, field, order or equation is permitted.",
+    "bounded_change_rule": "Literal stays exactly two members. Root stays exactly nine in V6 positions, with only the five V7 successor keys substituted. No tenth member or physical path exists.",
+    "physical_hash_rule": "Resolve every member against the final 86-key registry or exact V4 specialization, canonicalize the complete physical object, and bind whole-file bytes/SHA and every member bytes/SHA. Per-member hashes never substitute for whole-file equality."
+  },
+  "writer_and_access_contract": {
+    "governance_writers_in_route_order": [
+      {"path_id": "static:v7", "writer_role_id": "ROLE_V7_AMENDMENT_AUTHOR", "reads_exact": ["static:v6", "static:v6_audit"], "writes_exact": ["static:v7"]},
+      {"path_id": "static:v7_audit", "writer_role_id": "ROLE_V7_AMENDMENT_AUDITOR", "reads_exact": ["static:v4", "static:v5", "static:v6", "static:v6_audit", "static:v7"], "writes_exact": ["static:v7_audit"]},
+      {"path_id": "static:v7_activation", "writer_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "reads_exact": ["static:v6", "static:v6_audit", "static:v7", "static:v7_audit"], "writes_exact": ["static:v7_activation"]},
+      {"path_id": "static:v7_role_assignment_freeze", "writer_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "reads_exact": ["static:v6", "static:v6_audit", "static:v7", "static:v7_audit", "static:v7_activation"], "writes_exact": ["static:v7_role_assignment_freeze"]}
+    ],
+    "p5_external_validation_writers_in_transaction_order": [
+      {"path_id": "tx:B_DERIVATION:p5_external_validation", "writer_role_id": "ROLE_LOCKFILE_VERIFIER_STATIC_AUDITOR_V4", "sole_new_read_path_id": "tx:B_DERIVATION:p5_validation_receipt"},
+      {"path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation", "writer_role_id": "ROLE_LOCKFILE_RESULT_JUDGE_V4", "sole_new_read_path_id": "tx:B_LOCKFILE_VERIFIER:p5_validation_receipt"},
+      {"path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation", "writer_role_id": "ROLE_FIXTURE_VERIFIER_STATIC_AUDITOR_V4", "sole_new_read_path_id": "tx:D_OFFICIAL_COMPILER:p5_validation_receipt"},
+      {"path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation", "writer_role_id": "ROLE_OFFICIAL_RESULT_JUDGE_V4", "sole_new_read_path_id": "tx:D_FIXTURE_VERIFIER:p5_validation_receipt"}
+    ],
+    "unique_writer_rule": "Every displayed path has exactly one content writer. External P5 consumers have no P5 receipt write or mutation authority; Root remains the sole P5 receipt writer. No new membership listing, flush, rename, delete, process or Candidate authority is granted.",
+    "typed_attestation_rule": "The eight inherited ACCESS_ATTESTATION_V4 owners remain byte-for-byte refs as preserved by V6. Every V6/V7 operational owner that previously used ACCESS_ATTESTATION_V6 is globally rewritten to ACCESS_ATTESTATION_V7; no V4 ref is rewritten by inference. The V7 auditor uses a separate exact GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7 record with five reads, one write, one readback, six metadata paths and all listing/membership/flush/rename/delete/runtime/process dimensions empty and prohibited booleans false."
+  },
+  "supersession_and_closure": {
+    "V6A6-AUD-B001": "Five atomic two-pointer schema-ID replacements with exact prior/extra guards.",
+    "V6A6-AUD-B002": "Five exact scalar conditional_rule insertions before additional_fields with one canonical serialization.",
+    "V6A6-AUD-B003": "Exhaustive post-reconstruction source-qualified rows/counts/hashes and dangling zero.",
+    "V6A6-AUD-B004": "All 1032 dimension hashes derive from equality-joined canonical tuple fields.",
+    "V6A6-AUD-B005": "Failure enum has exactly five tokens and terminal state/trigger/consumption select the sole true predicate row.",
+    "V6A6-AUD-B006": "Three enclosing ledger transaction joins plus incident authorization join and 36 negative substitutions.",
+    "V6A6-AUD-B007": "Typed disjoint P4 success/failure disposition; P5 carries prior success without P3 self-reference.",
+    "V6A6-AUD-B008": "Four exact independent P5 consumers, read grants and separate typed external validation artifacts.",
+    "V6A6-AUD-B009": "Fourteen exact evidence rows, nonnull NO_PLAN pre-P1 representation and mandatory quarantine disposition/observation/scalar join.",
+    "V6A6-AUD-B010": "static:v5 is mandatory for Stage A and explicit in both literal-role read/metadata/access rows.",
+    "no_other_supersession_rule": "No eleventh repair or unrelated schema/science/path/role/run/evidence change is authorized."
+  },
+  "prospective_v7_audit_contract": {
+    "auditor_role_id": "ROLE_V7_AMENDMENT_AUDITOR",
+    "required_check_ids_in_exact_order": [
+      "V7-CHK01-INPUT-HASHES-ACCESS-BOUNDARY",
+      "V7-CHK02-ATOMIC-ID-AND-SCALAR-CONDITIONALS",
+      "V7-CHK03-DOTTED-SOURCE-EXHAUSTIVE-ZERO-DANGLING",
+      "V7-CHK04-IDENTITY-1032-DERIVED-HASH-JOINS",
+      "V7-CHK05-FAILURE-FIVE-TOKEN-UNIQUE-STATE",
+      "V7-CHK06-TRANSACTION-JOINS-36-NEGATIVES",
+      "V7-CHK07-P4-SUCCESS-P5-NONCYCLE",
+      "V7-CHK08-FOUR-P5-CONSUMERS-EXTERNAL-EVIDENCE",
+      "V7-CHK09-14-INCIDENT-EVIDENCE-QUARANTINE",
+      "V7-CHK10-STATIC-V5-STAGE-A-CONTROLS",
+      "V7-CHK11-86-SCHEMA-REFERENCE-PROJECTION-CLOSURE",
+      "V7-CHK12-PRESERVED-V6-PASS-INVARIANTS-DENIALS",
+      "V7-CHK13-STALE-PLACEHOLDER-CONTRADICTION-SCAN"
+    ],
+    "required_checks_in_exact_order": [
+      "Rehash/JSON-validate exact V7, V6 and V6 FAIL audit; prove no other read/list/write/execution.",
+      "Reconstruct all five corrected patches; verify exact two-pointer ID guards and scalar conditional_rule bytes.",
+      "Traverse the corrected/final registry; materialize every source row/count/hash and require dangling zero with authorized reads.",
+      "Verify exact six canonical dimension domains and all 1032 joined comparison rows/proofs.",
+      "Reject success in failed ledgers; evaluate twenty predicates and require exactly one joined state/trigger/consumption.",
+      "Verify three exact transaction joins and reject all 36 cross-transaction substitutions.",
+      "Verify P3 publication remains acyclic and every P5 success/failure route has the exact typed P4 disposition variant/snapshots/API/write-through/state.",
+      "Verify four P5 paths/consumers/writers/identity conflicts/access attestations and typed external observations with zero excess authority.",
+      "Verify all fourteen evidence rows, pre-P1 NO_PLAN, selected-plan prefix/complete modes and unavoidable quarantine join/scalar.",
+      "Verify static:v5 occurs once in the twelve controls and in both literal-role read/metadata/typed access arrays; FAIL audit is not PASS.",
+      "Construct 86 unique schema keys/IDs; close all refs/sources; reconstruct literal 2-member and Root 9-member whole-file bytes/hashes.",
+      "Regression-check exact 23 cases, 8/8/10, 50, 1800+900+456=3156, cap3, N0/min3, M1/C0/P0, 37=8/29/0, 18/153 and zero evidence/simulation/automatic release.",
+      "Reject placeholder, unresolved source/ref, stale normative V6 header/access/ledger ref, inferred access, ambiguous serialization/state, favorable null or temporal contradiction."
+    ],
+    "pass_condition": "All thirteen checks PASS with zero blocking and zero unresolved findings; exact start/end hashes stable. Only then may a distinct Root create V7 activation and role freeze.",
+    "output_path_id": "static:v7_audit"
+  },
+  "activation_state": {
+    "v7_independent_audit": "REQUIRED_NOT_CREATED_BY_THIS_ADDENDUM",
+    "v7_root_activation": "DENIED_PENDING_INDEPENDENT_V7_PASS",
+    "v7_role_assignment_freeze": "DENIED_PENDING_V7_ACTIVATION",
+    "stage_A": "DENIED_PENDING_V7_ROLE_FREEZE",
+    "stage_B": "DENIED_PENDING_UNCHANGED_GATES",
+    "stage_C": "DENIED_PENDING_UNCHANGED_GATES",
+    "stage_D": "DENIED_PENDING_UNCHANGED_GATES",
+    "candidate_v6": "DENIED",
+    "compiler": "DENIED",
+    "implementation": "DENIED",
+    "preflight": "DENIED",
+    "phase2a_worker": "DENIED",
+    "cross_target_verifier": "DENIED",
+    "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+    "data_r4_outcomes": "DENIED",
+    "automatic_release": false
+  },
+  "prohibited_actions": {
+    "access": ["PROTOCOL/CANDIDATE_V6", "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER", "CODE", "PREFLIGHT", "implementation manifests", "data", "R4", "checkpoints", "outputs", "outcomes", "STATE"],
+    "execution": ["Python", "compiler", "launcher", "preflight", "model", "simulation", "bootstrap", "science run"],
+    "mutation": ["static:v6", "static:v6_audit", "STATE", "Candidate", "compiler", "code", "preflight", "data", "R4", "outcomes"],
+    "repair_scope": "No eleventh repair, scientific choice, threshold, case, target, claim, gate, run, evidence use or destination is authorized."
+  },
+  "immutability": {
+    "rule": "After authoring validation, report external byte length and uppercase SHA-256 of static:v7. Those exact bytes are the sole V7 audit target. Any byte change requires a new version and fresh independent audit.",
+    "self_hash_field_prohibited_boolean": true,
+    "no_state_write_boolean": true,
+    "no_scientific_authority_boolean": true
+  }
+}

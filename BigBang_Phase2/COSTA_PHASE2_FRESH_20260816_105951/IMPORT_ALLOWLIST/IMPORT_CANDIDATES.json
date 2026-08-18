@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "purpose": "Exact user-authorized R4 scientific-summary candidates for governance audit only; listing does not authorize scientific use.",
+  "directory_enumeration_permitted": false,
+  "candidate_opening_permitted_roles": [
+    "Clean Governance Auditor",
+    "Historical Import Auditor"
+  ],
+  "candidates": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\FINAL_REPORT.md",
+      "status": "PENDING_INDEPENDENT_AUDIT"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\FINAL_CLAIM_MATRIX.json",
+      "status": "PENDING_INDEPENDENT_AUDIT"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\HUMAN_REVIEW\\ARTIFACT_MANIFEST.json",
+      "status": "PENDING_INDEPENDENT_AUDIT"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\STATE\\FINAL_CLOSEOUT.json",
+      "status": "PENDING_INDEPENDENT_AUDIT"
+    }
+  ],
+  "created_at": "2026-08-16T11:01:00-04:00",
+  "responsible_role": "Root Orchestrator"
+}

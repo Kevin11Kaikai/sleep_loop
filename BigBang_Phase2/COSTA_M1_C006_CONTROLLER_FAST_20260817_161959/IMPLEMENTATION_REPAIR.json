@@ -1,0 +1,9 @@
+{
+  "repair_number": 1,
+  "maximum_repairs": 1,
+  "reason": "The initial phase-shift replay clipped a terminal pulse, so total control energy was not exactly matched.",
+  "change": "Use a circular +pi-equivalent time shift within the control window and freeze amplitude for each pulse width; assert equal pulse count, identical amplitude multiset (order may rotate at the window boundary), width by construction, and total energy within 1e-12.",
+  "scientific_parameters_changed": false,
+  "seeds_changed": false,
+  "score_or_gates_changed": false
+}

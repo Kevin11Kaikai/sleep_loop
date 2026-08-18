@@ -1,0 +1,24 @@
+{
+  "pll_fixed_sine_error_deg": 14.100753623226518,
+  "pv_fixed_sine_error_deg": 1.1797176021157485,
+  "pv_chirp_median_error_deg": 16.976620937627747,
+  "pv_low_amplitude_valid_ratio": 1.0,
+  "scheduler_boundary_test": {
+    "pulse_count_source": 2,
+    "pulse_count_shifted": 2,
+    "amplitude_multiset_equal": true,
+    "nonzero_samples_equal": true,
+    "source_energy": 0.00023518,
+    "shifted_energy": 0.00023518,
+    "energy_abs_error": 0.0,
+    "passed": true
+  },
+  "limits": {
+    "fixed_sine_deg": 15,
+    "pv_chirp_median_deg": 20,
+    "low_amplitude_valid_ratio": 0.9
+  },
+  "pll_passed": true,
+  "pv_passed": true,
+  "scheduler_passed": true
+}

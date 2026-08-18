@@ -1,0 +1,43 @@
+{
+  "schema": "COSTA_R4_ROUTE_STATUS_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "closed_at": "2026-08-16T13:47:33.9322821Z",
+  "workflow_status": "CLOSED",
+  "execution_validity": "VALID",
+  "scientific_status": "VALID_PASS",
+  "gate_status": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS",
+    "G6": "PASS",
+    "G7": "PASS_INDEPENDENT_REPRODUCTION"
+  },
+  "independent_verification": {
+    "overall": "VERIFIED",
+    "numeric_reproduction": "PASS_EXACT",
+    "procedural_fidelity": "PASS",
+    "data_split_agreement": "PASS_EXACT",
+    "baseline_agreement": "PASS_EXACT",
+    "claim_agreement": "PASS",
+    "material_disagreement": false
+  },
+  "adversarial_review": {
+    "material_findings": 0,
+    "material_disagreement": false,
+    "M1_eligible": true
+  },
+  "final_assignment": {
+    "M": "M1",
+    "C": "C0",
+    "P": "P0",
+    "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION",
+    "C1": "NOT_ASSIGNED"
+  },
+  "final_verdict": "COSTA_DISSERTATION_MVP=PASS",
+  "scope_qualification": "narrow M1/P0/INDEPENDENT_REPRODUCTION scope only; not dissertation sufficiency",
+  "human_review_status": "COMPLETE",
+  "v4s_eligibility": "NOT_ELIGIBLE_P1_ABSENT",
+  "next_route": "CLOSED_NO_AUTOMATIC_R5_OR_V4S"
+}

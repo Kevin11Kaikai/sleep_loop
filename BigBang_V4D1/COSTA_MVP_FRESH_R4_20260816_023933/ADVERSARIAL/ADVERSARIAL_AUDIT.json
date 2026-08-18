@@ -1,0 +1,140 @@
+{
+  "schema": "COSTA_R4_ADVERSARIAL_AUDIT_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "auditor_role": "/root/costa_campaign_root_r4/r4_adversarial_judge",
+  "audited_at": "2026-08-16T03:43:58.4124667-04:00",
+  "review_mode": "fresh independent adversarial review; no repair or scientific mutation",
+  "access_boundary": {
+    "permitted_evidence_only": true,
+    "original_edf_opened_or_hashed_by_auditor": false,
+    "night2_or_protected_or_sealed_opened": false,
+    "prior_campaign_outcome_or_scratch_draft_opened": false,
+    "input_rehash_manifest": {
+      "path": "ADVERSARIAL/INPUT_REHASH_MANIFEST.json",
+      "sha256": "6BACBED61060CAD07CC2357F29A14EF22C51F0E5A9EB6548A1EBE1258694BAA6",
+      "file_count": 44
+    }
+  },
+  "overall": {
+    "MATERIAL_DISAGREEMENT": false,
+    "material_finding_count": 0,
+    "formal_gate_result": "M1-G1_THROUGH_M1-G7_PASS",
+    "M1_ELIGIBLE": true,
+    "protected_access_verdict": "PASS_NONE",
+    "recommended_COSTA_DISSERTATION_MVP": "PASS"
+  },
+  "governance_and_leakage": {
+    "verdict": "PASS_WITH_NONMATERIAL_DOCUMENTATION_LIMITATIONS",
+    "role_isolation": "PASS",
+    "outcome_guided_change_found": false,
+    "scientific_retry_after_outcome_found": false,
+    "protected_or_night2_leakage_found": false,
+    "import_correction": {
+      "classification": "NONMATERIAL_OUTCOME_BLIND_GOVERNANCE_CORRECTION",
+      "finding": "The initial denylist paired the intended outer-manifest path with the inner-manifest hash. The historical import audit documented the actual outer hash, rejected the outer execution bundle, and froze a seven-file exact allowlist before builder/raw/outcome execution.",
+      "scientific_effect": "NONE; the seven R4-local imports rehash exactly and no historical outcome/report/state/run artifact entered the execution closure."
+    }
+  },
+  "gates": {
+    "M1-G1": {
+      "decision": "PASS",
+      "evidence": "Exact Python 3.10.20 executable, neurolib 0.6.1 module origin and commit 9b6b2b8f..., clean tracked diff, MNE 1.9.0, NumPy 2.2.6, SciPy 1.15.2, single-thread/cache variables, frozen code/protocol hashes, and repeated core digest A3CE6D2D... all agree.",
+      "environment_yml_classification": "The untracked environment.yml was attested unread and absent from the declared command/runtime/environment-variable/module-path closure. This is not represented as a literal exhaustive forensic proof of every OS file handle; the runtime check label is broader than the evidence it computes. Exact executable/package/module/commit identities provide the material scientific closure.",
+      "material_disagreement": false
+    },
+    "M1-G2": {
+      "decision": "PASS",
+      "evidence": "Truth recovery 4/4; maximum truth heldout NRMSE 0.0005789053 <= 0.12; minimum truth-versus-zero-coupling improvement 0.9961873 >= 0.15; registered-null advantage 0.0999633 >= 0.03; non-isomorphic best mechanistic heldout NRMSE 1.0039146 >= 0.55.",
+      "material_disagreement": false
+    },
+    "M1-G3": {
+      "decision": "PASS",
+      "evidence": "All 4/4 synthetic subjects beat frozen C000 and the frozen wrong-subject-cycle candidate; all individual improvements and both medians exceed frozen margins. Empirical C000 used identical calibration/scoring.",
+      "material_disagreement": false
+    },
+    "M1-G4": {
+      "decision": "PASS",
+      "evidence": "Synthetic 256-draw block bootstrap CI [4.5245189, 27.0191273] and empirical 1000-draw paired epoch-bootstrap CI [0.07980019, 0.10146456] both have strictly positive lower bounds; empirical denominator n=110.",
+      "material_disagreement": false
+    },
+    "M1-G5": {
+      "decision": "PASS",
+      "evidence": "The four-state Euler simulator, bidirectional coupling, fixed weighted source, causal low-pass baseline subtraction, arbitrary mau scale, and shared detrend/Welch/log10-relative-band-power comparison operator are mathematically and dimensionally coherent at proxy level.",
+      "claim_ceiling": "No voltage, scalp forward-model, causal-human, clinical, or population interpretation.",
+      "material_disagreement": false
+    },
+    "M1-G6": {
+      "decision": "PASS",
+      "evidence": "A-priori seed-26081601 Night-1 N3 split digest D9D093B9... reproduced exactly: 110 FIT and 110 HELDOUT, zero excluded. FIT selected C006; selection freeze 3D8C3D03... was verified before HELDOUT open. Heldout NRMSE 0.2478453 versus matched C000 0.4637754, relative improvement 0.4655920 >= 0.05, bootstrap lower bound 0.07980019 > 0.",
+      "role_isolation": "PASS",
+      "missingness_accounting": "PASS_220_ASSIGNED_220_VALID_0_EXCLUDED",
+      "material_disagreement": false
+    },
+    "M1-G7": {
+      "decision": "PASS_INDEPENDENT_REPRODUCTION",
+      "evidence": "Blind preinterpretation was frozen before worker outcomes; verifier then reproduced raw-derived payloads, split, all six worker outputs, candidate/calibrations, baseline, denominators, metrics, intervals, and decisions byte-exactly. Six artifact mismatches: 0.",
+      "message_race": "NONMATERIAL; checkpoint preceded the one HELDOUT command, the frozen protocol required no root ACK, and no retry or scientific change occurred.",
+      "material_disagreement": false
+    }
+  },
+  "material_findings": [],
+  "nonmaterial_findings": [
+    {
+      "id": "R4-NM-01",
+      "domain": "governance",
+      "finding": "COMMON/PROTECTED_DENYLIST.json retains the original outer-path/inner-hash mismatch after the documented import correction.",
+      "impact": "Documentation inconsistency only; later exact allowlist and pre-raw closure control execution inputs."
+    },
+    {
+      "id": "R4-NM-02",
+      "domain": "state",
+      "finding": "STATE/STAGE_STATE.json and COMMON/CAMPAIGN_IDENTITY.json remain initialization-era status records despite completed execution and verification.",
+      "impact": "Operational closeout state is stale; frozen scientific evidence and gate outcomes are unaffected."
+    },
+    {
+      "id": "R4-NM-03",
+      "domain": "G1",
+      "finding": "The environment.yml closure check name overstates what its implementation directly observes; it does not enumerate every OS-level open handle.",
+      "impact": "Assurance wording must remain limited to unread attestation plus declared runtime/config/module-path closure; exact environment and module identities still close the material runtime."
+    },
+    {
+      "id": "R4-NM-04",
+      "domain": "provenance",
+      "finding": "ACCESS_LEDGER and AGENT_ROLE_LEDGER are append-only by policy but are not entry-chained cryptographic logs.",
+      "impact": "Independent assurance relies on freeze hashes, sidecars, role attestations, and exact reproduction rather than a tamper-evident entry chain."
+    },
+    {
+      "id": "R4-NM-05",
+      "domain": "G7",
+      "finding": "Root registered the candidate checkpoint after the already-started/completed no-ACK HELDOUT command.",
+      "impact": "No protocol violation: the checkpoint itself preceded HELDOUT, exact freeze binding occurred before payload open, and there was one command with no retry/change."
+    }
+  ],
+  "scientific_limitations": [
+    "Synthetic truth is generated by the same frozen model family with small noise; G2-G4 synthetic passes establish execution/identifiability plausibility, not biological truth.",
+    "C000 is a frozen generic matched comparator, not a population-estimated model; population wording must not be inferred from the internal variable label.",
+    "The empirical predictor is a candidate-specific four-band vector from one generic 4.096-second drive, repeated across epochs; the result concerns average spectral-feature consistency, not epoch-specific dynamic prediction.",
+    "The empirical bootstrap resamples epochs as exchangeable and does not model within-night serial dependence; the interval is valid only under the prospectively frozen epoch-bootstrap estimand.",
+    "Independent reproduction is blind role/process independence using the same frozen code, data, and environment, not an independent implementation or cross-platform replication.",
+    "One public subject and one Night-1 recording cannot identify population generalization or empirical wrong-subject specificity."
+  ],
+  "claim_recommendation": {
+    "M": "M1",
+    "C": "C0",
+    "P": "P0",
+    "evidence_label": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION",
+    "reproduction_tier": "INDEPENDENT_REPRODUCTION",
+    "M1_ELIGIBLE": true,
+    "C1_reason": "NOT_ASSIGNED; synthetic coupling specificity is gate evidence, and no separate optional C1 claim adjudication was requested or executed.",
+    "maximum_wording": "Model-internal personalized mechanistic consistency was independently reproduced for a frozen proxy-level one-subject Night-1 discovery analysis."
+  },
+  "prohibited_conclusions": [
+    "dissertation sufficiency",
+    "M2, P1, P2, C1, or C2 assignment",
+    "validated human mechanism or human causality",
+    "population-general personalization",
+    "scalp EEG forward-model validity",
+    "Night-2 prediction or sealed/fresh-final validation",
+    "clinical, treatment, stimulation, or medical-decision efficacy"
+  ]
+}
