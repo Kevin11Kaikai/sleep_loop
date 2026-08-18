@@ -1,0 +1,70 @@
+{
+  "decision": "NO_CONTROLLER_MET_MVP_GATE",
+  "winner": null,
+  "eligible_controllers": [],
+  "controller_gates": {
+    "FIXED": {
+      "stable_3of3": true,
+      "T2": false,
+      "T5_T6": true,
+      "R": false,
+      "T1": true,
+      "T8": true
+    },
+    "PLL_PHASE_LOCKED": {
+      "stable_3of3": true,
+      "T2": false,
+      "T5_T6": true,
+      "R": false,
+      "T1": true,
+      "T8": true
+    },
+    "PV_PHASE_LOCKED": {
+      "stable_3of3": true,
+      "T2": false,
+      "T5_T6": true,
+      "R": false,
+      "T1": true,
+      "T8": true
+    },
+    "PV_PHASE_LOCKED_ADAPTIVE": {
+      "stable_3of3": true,
+      "T2": false,
+      "T5_T6": true,
+      "R": false,
+      "T1": true,
+      "T8": true,
+      "saturation": true
+    },
+    "PV_PHASE_SHIFTED_YOKED": {
+      "stable_3of3": true,
+      "T2": false,
+      "T5_T6": false,
+      "R": false,
+      "T1": true,
+      "T8": true
+    }
+  },
+  "median_R": {
+    "FIXED": -0.03359727716687952,
+    "PLL_PHASE_LOCKED": 0.0026182876229168817,
+    "PV_PHASE_LOCKED": -0.010975994536963761,
+    "PV_PHASE_LOCKED_ADAPTIVE": -0.01031994404770819,
+    "PV_PHASE_SHIFTED_YOKED": -0.0013685563704731178
+  },
+  "median_energy": {
+    "FIXED": 0.0735,
+    "PLL_PHASE_LOCKED": 0.004312000000000002,
+    "PV_PHASE_LOCKED": 0.003773000000000001,
+    "PV_PHASE_LOCKED_ADAPTIVE": 0.0034649802933969243,
+    "PV_PHASE_SHIFTED_YOKED": 0.0034649802933969243
+  },
+  "phase_adaptive_vs_yoked_R_advantage": -0.008951387677235073,
+  "phase_separation_valid_2of3": true,
+  "phase_specific_advantage_claim_allowed": false,
+  "pid_baseline": "NO_VALID_R4_PID_BASELINE",
+  "pid_comparison_limitation": "本MVP未获得有效PID baseline，因此无法完成与有效PID的正式性能比较。",
+  "run_count": 24,
+  "planned_runs": 24,
+  "evidence_ceiling": "EXPLORATORY_ONLY"
+}

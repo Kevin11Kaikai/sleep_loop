@@ -1,0 +1,9 @@
+{
+  "decision": "LEGACY_TRANSFER_PID",
+  "same_R4_C006_four_state_plant": false,
+  "same_dimensionless_u_ctrl_to_u_E_actuator": false,
+  "evidence": "Prior frozen gains are located in Phase2AB neurolib/V1 ext_exc_current implementation; no R4/C006 provenance found in authorized code scope.",
+  "action": "ONE_LIGHTWEIGHT_COARSE_TUNING_ONLY",
+  "final_decision": "NO_VALID_R4_PID_BASELINE",
+  "pid_excluded_from_winner_competition": true
+}

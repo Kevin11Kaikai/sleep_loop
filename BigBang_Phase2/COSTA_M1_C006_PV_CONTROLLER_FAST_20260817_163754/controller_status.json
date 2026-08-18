@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "execution_started": true,
+  "pid": 68992,
+  "started_utc": "2026-08-17T20:43:48.325587+00:00",
+  "planned_runs": 24,
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "decision": "NO_CONTROLLER_MET_MVP_GATE",
+  "run_count": 24,
+  "elapsed_seconds": 17.266000000294298
+}

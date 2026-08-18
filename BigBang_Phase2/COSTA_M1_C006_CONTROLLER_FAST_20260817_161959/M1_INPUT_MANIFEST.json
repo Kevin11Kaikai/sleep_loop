@@ -1,0 +1,25 @@
+{
+  "candidate_id": "C006",
+  "candidate": {
+    "candidate_id": "C006",
+    "cortical_gain": 0.82,
+    "cortex_to_thalamus": 0.95,
+    "thalamus_to_cortex": 1.1,
+    "relay_reticular_inhibition": 1.25
+  },
+  "selected_calibration": {
+    "fit_nrmse": 0.25461189482219504,
+    "intercept": -0.05360488354161275,
+    "slope": 0.8754979793652278
+  },
+  "calibration_use": "diagnostic metadata only; not used in dynamics or feedback",
+  "frozen_hashes": {
+    "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\CODE\\FROZEN_V2\\protocol_v2.json": "338366593A2A4C8626349D70AA38306C5931F0FF4D22FD96DB546DD41505E3C3",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\CODE\\MECHANISTIC_V2\\model.py": "775A3961093C386A1E7DF8F0D033963EAB684F2566AE206E5BB6DB4A6CD03869",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1\\COSTA_MVP_FRESH_R4_20260816_023933\\RUNS\\FIT_WORKER\\SELECTION_FREEZE.json": "3D8C3D035F074CED2D608132864996D4AF9920C52889A11FE7C8E7DDA5DD8BBF"
+  },
+  "actuator": "dimensionless additive u_ctrl -> u_E",
+  "raw_data_opened": false,
+  "T8_name": "T8_MVP_cortical_state_crossing_rate",
+  "T8_classification": "SAFETY_PROXY_ONLY — NOT a validated dynamical-regime-transition metric"
+}

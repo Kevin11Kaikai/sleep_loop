@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-08-17T16:13:01.558404+00:00",
+  "conda_default_env": "neurolib",
+  "conda_prefix": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib",
+  "python_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+  "where_python": "C:\\Python313\\python.EXE",
+  "python_version": "3.10.20",
+  "versions": {
+    "neurolib": "0.6.1",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.8",
+    "numba": "0.64.0"
+  },
+  "science_source": "D:\\Year3_Mao_Projects\\sleep_loop\\S4_sbi\\DE_holdout_audit\\scripts\\run_frozen_validation.py",
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "claim_level": "EXPLORATORY_C1_PROXY_ONLY"
+}

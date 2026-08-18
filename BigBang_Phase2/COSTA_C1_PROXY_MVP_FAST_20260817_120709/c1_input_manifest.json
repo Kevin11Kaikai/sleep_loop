@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-08-17T16:13:02.087857+00:00",
+  "evidence_ceiling": "EXPLORATORY_ONLY",
+  "claim_level": "EXPLORATORY_C1_PROXY_ONLY",
+  "participant": "SC4001_PUBLIC_DEVELOPMENT",
+  "patient_params": {
+    "mue": 2.5543399414050265,
+    "mui": 4.638376924416662,
+    "b": 39.7650205359397,
+    "tauA": 4305.440791463454,
+    "g_LK": 0.051187832154447256,
+    "g_h": 0.15302235700635436,
+    "c_th2ctx": 0.09928570402727765,
+    "c_ctx2th": 0.05873748566621345
+  },
+  "generic_params": {
+    "mue": 3.2,
+    "mui": 3.5,
+    "b": 19.5,
+    "tauA": 1040.0,
+    "g_LK": 0.1,
+    "g_h": 0.1,
+    "c_th2ctx": 0.02,
+    "c_ctx2th": 0.15
+  },
+  "development_seeds": [
+    44017,
+    55021,
+    66029
+  ],
+  "evaluation_seeds": [
+    77131,
+    88141,
+    99149
+  ],
+  "patient_T2_setpoint": 1.1310055082,
+  "generic_T2_setpoint": 8.804183915475525,
+  "planned_simulations": 18,
+  "bounded_implementation_repair": "flatten_neurolib_nested_state_variable_names_after_preflight_shape_failure",
+  "target_psd_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_psd_SC4001.npy",
+  "target_freqs_path": "D:\\Year3_Mao_Projects\\sleep_loop\\data\\target_freqs_SC4001.npy",
+  "pid": {
+    "Kp": 0.05,
+    "Ki": 0.005,
+    "Kd": 0.001,
+    "command_bounds": [
+      0.0,
+      0.05
+    ],
+    "update_s": 2.0,
+    "feedback_window_s": 10.0,
+    "integral_bounds": [
+      -4.0,
+      4.0
+    ],
+    "derivative_smoothing_alpha": 0.8
+  },
+  "prohibited_payloads_used": false,
+  "formal_c1_authorized": false,
+  "generic_setpoint_frozen_utc": "2026-08-17T16:13:35.022087+00:00"
+}

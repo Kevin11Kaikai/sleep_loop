@@ -1,0 +1,5 @@
+{
+  "decision": "STOPPED",
+  "single_blocker": "PHASE_CONTROL_MATCH_FAILED",
+  "evidence_ceiling": "EXPLORATORY_ONLY"
+}
