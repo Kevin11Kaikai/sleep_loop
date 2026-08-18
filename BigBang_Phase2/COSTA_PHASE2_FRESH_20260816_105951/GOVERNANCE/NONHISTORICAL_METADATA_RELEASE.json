@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "release_type": "CONSTRAINED_NONHISTORICAL_REPOSITORY_METADATA_ONLY",
+  "authorization_basis": {
+    "clean_root": "PASS",
+    "import_allowlist": "PASS_VERSION_5_INDEPENDENTLY_REVALIDATED",
+    "protected_access": "NONE",
+    "role_isolation": "PASS",
+    "sanitizer_output_audit": {
+      "path": "GOVERNANCE/SANITIZER_OUTPUT_AUDIT.json",
+      "sha256": "A3513B6E4003368834BD132C7EB4746E95CA14212CD47B25BDDB134B6CAE44D9",
+      "verdict": "PASS"
+    }
+  },
+  "exact_candidate_roots_for_existence_and_path_metadata": [
+    "D:\\Year3_Mao_Projects\\sleep_loop\\AGENTS.md",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\.agents\\AGENTS.md",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\README.md",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\pyproject.toml",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\requirements.txt",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\environment.yml",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\models",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\src",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\scripts",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\tests",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\config",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\configs",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\data",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\datasets",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\inputs"
+  ],
+  "allowed_metadata_fields": [
+    "exact_path",
+    "exists",
+    "file_or_directory",
+    "filename",
+    "extension",
+    "size_bytes",
+    "last_write_time",
+    "relative_path"
+  ],
+  "allowed_operations": [
+    "exact-path existence check",
+    "non-content file-path enumeration within an existing named candidate root using deny-pattern pruning",
+    "metadata-field collection",
+    "registration as PENDING_INDEPENDENT_AUDIT"
+  ],
+  "prohibited_operations": [
+    "file-content read or preview",
+    "file hash before independent exact-file audit",
+    "execution or import",
+    "scientific interpretation",
+    "raw-data access",
+    "directory enumeration outside named roots",
+    "historical campaign inspection",
+    "R4 path discovery or inference"
+  ],
+  "excluded_roots": [
+    "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1",
+    "all R1, R2, R3, and R4 campaign trees",
+    "all sibling runs under D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\docs",
+    "D:\\Year3_Mao_Projects\\sleep_loop\\outputs"
+  ],
+  "deny_name_patterns": [
+    "night[ _.-]*2",
+    "sealed",
+    "seal[ _.-]*bank",
+    "protected",
+    "fresh[ _.-]*final",
+    "final[ _.-]*fresh",
+    "fresh[ _.-]*confirm",
+    "confirmatory.*(payload|prediction|outcome|bank)",
+    "incident[ _.-]*001",
+    "cross[ _.-]*night",
+    "quarantin",
+    "ambiguous"
+  ],
+  "discovered_candidate_status": "PENDING_INDEPENDENT_AUDIT",
+  "access_inheritance": "NONE",
+  "cleanliness_inheritance": "NONE",
+  "scientific_content_inspection_authorized": false,
+  "r4_execution_imports_authorized": false,
+  "released_by": "Root Orchestrator",
+  "released_at": "2026-08-16T11:36:58.6887987-04:00",
+  "status": "FROZEN_RELEASE"
+}

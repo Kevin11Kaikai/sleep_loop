@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "repository_root": "D:\\Year3_Mao_Projects\\sleep_loop",
+  "matching": {
+    "case_sensitive": false,
+    "recursive": true,
+    "applies_to_files_and_directories": true,
+    "operations_denied": [
+      "recursive_enumeration",
+      "preview",
+      "open",
+      "read",
+      "hash",
+      "copy",
+      "transform",
+      "summarize",
+      "scientific_use"
+    ]
+  },
+  "evaluation_order": [
+    "exact_governance_control_exceptions",
+    "historical_campaign_boundaries",
+    "denied_path_or_name_patterns",
+    "content_classes_denied",
+    "default_deny"
+  ],
+  "exact_governance_control_exceptions": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\PROTECTED_DENYLIST.json",
+      "permitted_roles": ["Root Orchestrator", "Clean Governance Auditor"],
+      "permitted_operations": ["read", "hash", "audit"],
+      "scientific_use_permitted": false,
+      "reason": "The denylist must remain readable and hash-verifiable as a governance control."
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\INCIDENT_001_GOVERNANCE_STATEMENT.md",
+      "permitted_roles": ["Root Orchestrator", "Clean Governance Auditor", "Historical Import Auditor", "Final Claim Judge"],
+      "permitted_operations": ["read", "hash", "audit"],
+      "scientific_use_permitted": false,
+      "reason": "This value-free governance statement is required by the governing prompt and is not an Incident-001 scientific payload."
+    }
+  ],
+  "denied_path_or_name_patterns": [
+    "night[ _.-]*2",
+    "sealed",
+    "seal[ _.-]*bank",
+    "protected",
+    "protected[ _.-]*derived",
+    "fresh[ _.-]*final",
+    "final[ _.-]*fresh",
+    "fresh[ _.-]*confirm",
+    "confirmatory.*(payload|prediction|outcome|bank)",
+    "incident[ _.-]*001",
+    "cross[ _.-]*night",
+    "quarantin",
+    "ambiguous"
+  ],
+  "historical_campaign_boundaries": [
+    {
+      "root": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_V4D1",
+      "policy": "RECURSIVE_DEFAULT_DENY",
+      "exception_policy": "Only the four exact governance-audit candidates listed in IMPORT_ALLOWLIST/IMPORT_CANDIDATES.json may be opened by governance auditors before CLEAN_ALLOWLISTED status; no directory enumeration is permitted."
+    },
+    {
+      "scope": "R1, R2, R3, and R4 campaign trees",
+      "policy": "NO_RECURSIVE_ENUMERATION"
+    },
+    {
+      "scope": "Any sibling campaign below D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2 other than COSTA_PHASE2_FRESH_20260816_105951",
+      "policy": "DEFAULT_DENY"
+    }
+  ],
+  "content_classes_denied": [
+    "Night-2",
+    "Sealed Bank",
+    "protected-derived evidence",
+    "fresh-final validation payloads",
+    "confirmatory prediction payloads",
+    "Incident-001 exact values or value-dependent derivatives",
+    "ambiguous or quarantined scientific payloads"
+  ],
+  "fail_closed_rule": "A path or content class is denied unless it is explicitly permitted by campaign scope and, for historical material, has exact-path CLEAN_ALLOWLISTED status. A filename, path, or differing hash does not prove independence.",
+  "protected_access_authorized": false,
+  "version": 2,
+  "change_class": "OUTCOME_BLIND_GOVERNANCE_REPAIR",
+  "change_reason": "Resolve clean-root audit defect D-001 by defining exact control-file exceptions before pattern evaluation.",
+  "freeze_status": "FROZEN",
+  "frozen_at": "2026-08-16T11:05:06.1434416-04:00",
+  "responsible_role": "Root Orchestrator"
+}

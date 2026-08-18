@@ -1,0 +1,844 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_IMMUTABLE_PREOUTCOME_PROTOCOL_FREEZE_REAUDIT_V5",
+  "receipt_id": "PROTOCOL_FREEZE_REAUDIT_V5",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "audited_protocol_route_version": "5.0.0",
+  "audited_at": "2026-08-16T19:57:13.6686459-04:00",
+  "auditor_role": "Independent outcome-blind Protocol Freeze Auditor",
+  "audit_basis": "Prospectively frozen noncompensatory V5 re-audit plan",
+  "overall_verdict": "FAIL_BLOCKING",
+  "verdict_reason": "Five independently material, noncompensatory specification defects remain. Hash integrity, outcome blindness, the independently recalculated fixture values that are present, and all unchanged V4 scientific regressions outside the stated defects pass; those passes cannot compensate for a failed mandatory repair check.",
+  "audit_boundary": {
+    "campaign_root": "D:/Year3_Mao_Projects/sleep_loop/BigBang_Phase2/COSTA_PHASE2_FRESH_20260816_105951",
+    "authorized_reads": "Only the six exact governance/freeze inputs, the eight exact V4 artifacts bound by PROTOCOL/PROTOCOL_FREEZE_V4.json, and the nine exact V5 artifacts bound by PROTOCOL/PROTOCOL_FREEZE_V5.json.",
+    "directory_enumeration": false,
+    "code_access": "NONE",
+    "implementation_manifest_access": "NONE",
+    "preflight_manifest_access": "NONE",
+    "r4_access": "NONE",
+    "data_access": "NONE",
+    "scientific_outcome_access": "NONE",
+    "python_or_launcher_execution": false,
+    "preflight_execution": false,
+    "scientific_execution": false,
+    "protected_access": "NONE",
+    "files_modified_before_receipt": 0,
+    "shared_state_modified": false
+  },
+  "input_integrity": {
+    "verdict": "PASS",
+    "files_checked": 23,
+    "hashes_matching": 23,
+    "hashes_mismatching": 0,
+    "json_files_checked": 21,
+    "json_files_valid": 21,
+    "non_json_files_checked": 2,
+    "ledger": [
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+        "bytes": 6924,
+        "expected_sha256": "4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA",
+        "actual_sha256": "4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V5_REAUDIT_PLAN.json",
+        "bytes": 37712,
+        "expected_sha256": "F84EBEAD585F0A773A092D3912413FE8319818777262024510FB49D6594C9EC6",
+        "actual_sha256": "F84EBEAD585F0A773A092D3912413FE8319818777262024510FB49D6594C9EC6",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+        "bytes": 20966,
+        "expected_sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A",
+        "actual_sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V4_EDGE_STALE_DECLARATION.json",
+        "bytes": 2181,
+        "expected_sha256": "FD507A2ED6E04B8C3D1588A415EE54A7B86F20C7BB796DC834C4E58215719A1F",
+        "actual_sha256": "FD507A2ED6E04B8C3D1588A415EE54A7B86F20C7BB796DC834C4E58215719A1F",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+        "bytes": 5841,
+        "expected_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+        "actual_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+        "bytes": 30135,
+        "expected_sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+        "actual_sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/control_target_registry.json",
+        "bytes": 68113,
+        "expected_sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058",
+        "actual_sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/mechanistic_parameter_map.json",
+        "bytes": 32658,
+        "expected_sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013",
+        "actual_sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+        "bytes": 125576,
+        "expected_sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+        "actual_sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/advancement_rule.json",
+        "bytes": 8814,
+        "expected_sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086",
+        "actual_sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/c2_gate_protocol.json",
+        "bytes": 14927,
+        "expected_sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D",
+        "actual_sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/claim_registry.json",
+        "bytes": 42819,
+        "expected_sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F",
+        "actual_sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/PREOUTCOME_DESIGN_MEMO.md",
+        "bytes": 19794,
+        "expected_sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B",
+        "actual_sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B",
+        "hash_verdict": "PASS",
+        "json_verdict": "NOT_APPLICABLE"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+        "bytes": 7903,
+        "expected_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "actual_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/control_target_registry.json",
+        "bytes": 69556,
+        "expected_sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC",
+        "actual_sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/mechanistic_parameter_map.json",
+        "bytes": 35159,
+        "expected_sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11",
+        "actual_sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/phase2_protocol.json",
+        "bytes": 170784,
+        "expected_sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C",
+        "actual_sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/advancement_rule.json",
+        "bytes": 10332,
+        "expected_sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204",
+        "actual_sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/c2_gate_protocol.json",
+        "bytes": 16307,
+        "expected_sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E",
+        "actual_sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/claim_registry.json",
+        "bytes": 44070,
+        "expected_sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E",
+        "actual_sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/PREOUTCOME_DESIGN_MEMO.md",
+        "bytes": 30084,
+        "expected_sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514",
+        "actual_sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514",
+        "hash_verdict": "PASS",
+        "json_verdict": "NOT_APPLICABLE"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/t4_attribution_fixture_v3.json",
+        "bytes": 7903,
+        "expected_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "actual_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V5/rescale_event_veto_fixture_v5.json",
+        "bytes": 13765,
+        "expected_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "actual_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "hash_verdict": "PASS",
+        "json_verdict": "PASS"
+      }
+    ]
+  },
+  "prospective_lineage_and_staleness": {
+    "verdict": "PASS_EXCEPT_FOR_PV5_B001_SCOPE_ID_BINDING",
+    "chronology": [
+      {
+        "event": "V4 protocol freeze",
+        "at": "2026-08-16T14:56:23-04:00",
+        "outcome_blind": true
+      },
+      {
+        "event": "V4 independent PASS audit",
+        "at": "2026-08-16T15:06:00-04:00",
+        "outcome_blind": true
+      },
+      {
+        "event": "V4 edge-semantics adjudication identifies PV4-EDGE-B001",
+        "at": "2026-08-16T16:10:32.2291055-04:00",
+        "outcome_blind": true
+      },
+      {
+        "event": "V5 re-audit plan frozen before V5 disclosure",
+        "at": "2026-08-16T16:29:23.277524-04:00",
+        "outcome_blind": true
+      },
+      {
+        "event": "V4 declared stale and V5 frozen",
+        "at": "2026-08-16T17:33:34-04:00",
+        "outcome_blind": true
+      }
+    ],
+    "plan_precedes_v5_freeze": true,
+    "edge_adjudication_precedes_plan": true,
+    "all_parent_paths_and_hashes_resolve": true,
+    "v4_scientific_evidence": "NONE",
+    "v4_python_or_preflight_execution": false,
+    "v4_status": "IMMUTABLE_HISTORY_STALE_FOR_IMPLEMENTATION_PREFLIGHT_AND_SCIENTIFIC_EXECUTION",
+    "v5_status_before_this_receipt": "FROZEN_BUT_UNAUTHORIZED_PENDING_REAUDIT",
+    "scope_identity_exception": "PROTOCOL/PROTOCOL_FREEZE_V5.json carries prospective_repair metadata but uses repair_id PROT-002 and never names the mandatory scientific finding ID PV4-EDGE-B001. The rescale fixture also lacks the exact repair finding and adjudication binding. This is classified as blocking finding PV5-B001 below."
+  },
+  "mandatory_repair_checks": [
+    {
+      "check_id": "V5R_I01_paired_raw_trace_identity",
+      "verdict": "FAIL_BLOCKING",
+      "passing_evidence": [
+        "V5 fixes raw sham and intervention observation traces before common centering/filtering and distinguishes diagnostic rescaling from official scientific inputs.",
+        "V5 maps each intervention identity to one already frozen physical all-zero sham within execution context, draw, seed, duration, solver and OU-innovation identity, and prohibits cross-context pairing.",
+        "All 50 Level-A condition identities and their paired sham aliases resolve without adding a physical trajectory."
+      ],
+      "failed_requirements": [
+        "The canonical diagnostic record fields do not include an explicit raw_pair_key.",
+        "The canonical diagnostic record fields do not include an explicit sham_forcing_status, despite this being a mandatory logged/schema field.",
+        "Per-role finite/validity status is not represented by a complete typed pair-input schema."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B001-RAW-TRACE-UNDEFINED",
+        "PV5-RA-B026-LOG_OR_SCHEMA-GAP"
+      ]
+    },
+    {
+      "check_id": "V5R_N01_affine_normalization_equations_and_order",
+      "verdict": "FAIL_BLOCKING",
+      "passing_evidence": [
+        "Direction is intervention-to-paired-sham only.",
+        "V5 fixes sequential float64 means and population variances over n=0..35999, ratio, correctly rounded binary64 square root, subtraction/multiplication/addition order, no recentering, and diagnostic-only use.",
+        "No clipping, winsorization, epsilon floor, tolerance, refit, alternate direction or primary-metric substitution is permitted."
+      ],
+      "failed_requirements": [
+        "The plan requires exact mu_S, mu_I, sigma_S, sigma_I, a and b values in the per-pair log/schema. V5 records means, population variances and scale a but does not define or record sigma_S, sigma_I and affine intercept b=mu_S-a*mu_I as the required terms.",
+        "The centered implementation x_A=mu_S+a*(x_I-mu_I) can be mathematically equivalent but is not guaranteed bit-identical to a separately evaluated a*x_I+b. The plan allows equivalence only when V5 fixes the same exact terms/evaluation and its fixture proves exact equality; V5 does not freeze the missing b construction/evaluation path."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B005-MOMENT-ESTIMATOR-OR-ORDER-UNDEFINED",
+        "PV5-RA-B026-LOG_OR_SCHEMA-GAP"
+      ]
+    },
+    {
+      "check_id": "V5R_N02_degenerate_nonfinite_and_invalid_cases",
+      "verdict": "FAIL_BLOCKING_FIXTURE_COVERAGE",
+      "passing_evidence": [
+        "Production prose assigns finite-positive, zero intervention variance, zero sham variance, both-zero, nonfinite, malformed-pair and prior INVALID branches before detection.",
+        "Exact zero uses raw float64 equality including signed zero; no epsilon, variance floor, fabricated empty-event success or successful clearance is allowed.",
+        "INVALID remains veto-equivalent and is not downgraded; otherwise unformable diagnostic is NOT_ESTIMABLE."
+      ],
+      "failed_requirements": [
+        "The frozen data-free fixture includes zero intervention variance but has no zero-sham-variance case and no both-variances-zero case, so the noncompensatory branch partition is not independently executable from the fixture."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B007-DEGENERATE-CASE-GAP",
+        "PV5-RA-B028-FIXTURE-COVERAGE-OR-HASH-DEFECT"
+      ]
+    },
+    {
+      "check_id": "V5R_D01_unchanged_official_detectors_and_sham_thresholds",
+      "verdict": "PASS",
+      "evidence": [
+        "SO and spindle official event tables remain outputs of the unchanged V4 detector path.",
+        "The diagnostic uses the same original paired-sham threshold constants for sham, intervention and affine intervention; recalibration on non-sham traces is prohibited.",
+        "Official table deep equality and threshold provenance are fail-closed; the affine table cannot replace an official scientific metric.",
+        "All fourteen V4 preflight tests are preserved in order, with PF_RESCALE_EVENT_VETO_V5 inserted and the former final detector perturbation test shifted intact."
+      ],
+      "blocking_codes_triggered": []
+    },
+    {
+      "check_id": "V5R_M01_three_way_event_matching",
+      "verdict": "FAIL_BLOCKING",
+      "passing_evidence": [
+        "V5 fixes separate per-block, per-event-type intervention-to-sham, affine-to-sham, and original-added-to-affine-added one-to-one matches.",
+        "Anchor/tolerance admissibility, total candidate sort order, greedy traversal, stable event IDs, equality handling, analysis boundaries and no-rematch/no-many-to-one rules are explicit.",
+        "The supplied matching oracle recomputes the frozen candidate sequence and accepted traversal exactly."
+      ],
+      "failed_requirements": [
+        "The production record schema carries accepted match tables and unmatched-ID arrays but not all eligible candidate tuples in exact sort order for each of the three matches.",
+        "The production record schema has no exhaustive per-event three-way class and raw-row consumption ledger. Aggregate N_rescale_only, persistent matches, LOST prose, and unmatched arrays do not explicitly classify every event as RESCALE_ONLY, PERSISTENT, PRE_EXISTING, LOST, or unmatched/ambiguous INVALID as required.",
+        "The fixture lacks a T8/window-boundary-touch case and does not furnish a complete per-event class/consumption oracle."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B015-THREE-WAY-CLASS-OR-TIE-AMBIGUOUS",
+        "PV5-RA-B016-BOUNDARY-OR-ROW-CONSUMPTION-DEFECT",
+        "PV5-RA-B026-LOG_OR_SCHEMA-GAP",
+        "PV5-RA-B028-FIXTURE-COVERAGE-OR-HASH-DEFECT"
+      ]
+    },
+    {
+      "check_id": "V5R_P01_context_pooling_and_denominators",
+      "verdict": "FAIL_BLOCKING_FIXTURE_COVERAGE",
+      "passing_evidence": [
+        "Production rules classify within an exact draw-seed block and event type before pooling.",
+        "Level-A, Level-B and verifier contexts, condition/dose/carrier/repetition/policy partitions, aggregation order, numerator/denominator and status priority are frozen.",
+        "Minimum complete-block floors remain Level A 30 with at least 5 seeds and 5 draws, Level B 10 of 12 with at least 3 seeds and all 3 draws, verifier 20 of 24 with at least 3 verifier seeds and 5 draws.",
+        "Inactive verifier alternatives remain NOT_LAUNCHED_BY_POLICY and incomplete contexts are NOT_ESTIMABLE."
+      ],
+      "failed_requirements": [
+        "The fixture contains no explicit cross-context pooling-prohibition trap. Production prose alone does not satisfy the plan's noncompensatory fixture coverage requirement."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B019-CROSS-CONTEXT-BORROWING",
+        "PV5-RA-B028-FIXTURE-COVERAGE-OR-HASH-DEFECT"
+      ]
+    },
+    {
+      "check_id": "V5R_V01_veto_and_not_estimable_logic",
+      "verdict": "FAIL_BLOCKING",
+      "passing_evidence": [
+        "The hard veto is exact: an estimable condition/event type is HARD_VETO_RESCALE_ONLY only when pooled N_added_original>0, N_added_rescaled=0, N_persistent=0 and pooled F_rescale_only=1.0 by integer equality.",
+        "One SO or spindle hard veto vetoes the condition; INVALID is veto-equivalent; NOT_ESTIMABLE cannot be coerced to false or clear Grade C, advancement or C2.",
+        "The diagnostic creates no benefit test, bootstrap member or favorable scalar."
+      ],
+      "failed_requirements": [
+        "The V5 all_missing_bootstrap_convention is weaker than the adjudicated rule. It says a component fails when no complete finite bootstrap replicate can be formed and a family fails when no member has a complete finite replicate. This leaves partially incomplete required component arrays and a particular required M_b whose estimable set is empty unresolved.",
+        "The adjudication instead requires a complete finite registered array for every point-eligible component and makes family inference NOT_ESTIMABLE if any required M_b would be a maximum over an empty estimable set. Skip/redraw/imputation/family shrinkage are prohibited and no numerical M_b may be emitted."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B023-ALL-MISSING-BOOTSTRAP-DRIFT"
+      ]
+    },
+    {
+      "check_id": "V5R_U01_no_new_multiplicity_family",
+      "verdict": "PASS",
+      "evidence": [
+        "No new target, target score, family member, p-value, seed stream, bootstrap stream, favorable scalar or multiplicity family was introduced.",
+        "The 64 benefit plus 64 adverse cross-target members remain exact in identity, order and count.",
+        "The rescale veto is a nonbootstrapped diagnostic validity gate only."
+      ],
+      "blocking_codes_triggered": []
+    },
+    {
+      "check_id": "V5R_L01_logs_schemas_and_fixtures",
+      "verdict": "FAIL_BLOCKING",
+      "passing_evidence": [
+        "V5 provides finite-safe null/reason semantics, raw and normalized hashes, moment hex fields, official and affine event tables, accepted matches, unmatched arrays, block counts, pooled counts and consequence statuses.",
+        "The existing T4 fixture is byte-identical to V4 at SHA-256 30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9.",
+        "All eighteen case IDs actually declared by the V5 rescale fixture are present exactly once and their supplied numerical/status expectations independently recompute."
+      ],
+      "failed_requirements": [
+        "There is no one canonical schema ID and no complete field-by-field typed schema specifying exact name, type, units, order/key rule, nullability and enum.",
+        "Mandatory mu_S, mu_I, sigma_S, sigma_I, a, b, raw-pair key, sham forcing status, all candidate tuples, three-way per-event class, and full row-consumption fields are absent or incomplete.",
+        "The fixture lacks zero sham variance, both variances zero, T8/window-boundary touch and cross-context pooling prohibition.",
+        "The fixture supplies no expected raw/intervention/affine array SHA-256 ledger and no complete intermediate-hash ledger.",
+        "The fixture is not a self-contained end-to-end raw r_E/r_T to raw observation to moments to affine trace to frozen filter/detector to event table to match to pool to canonical record-hash oracle. Projection overrides bypass raw observation construction, filtering, threshold derivation, production event-row construction and official-table validation.",
+        "The fixture does not provide a complete expected per-event class and consumption ledger."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B026-LOG_OR_SCHEMA-GAP",
+        "PV5-RA-B027-FIXTURE-NOT-SELF-CONTAINED",
+        "PV5-RA-B028-FIXTURE-COVERAGE-OR-HASH-DEFECT"
+      ]
+    },
+    {
+      "check_id": "V5R_X01_cross_file_binding_and_executability",
+      "verdict": "FAIL_BLOCKING",
+      "passing_evidence": [
+        "All nine artifact paths and hashes resolve from the V5 freeze.",
+        "Repeated algorithm, fixture ID/path/hash, context and status references in the six core machine-readable artifacts resolve without a dangling Candidate V4 execution path.",
+        "No TODO, TBD, FIXME, XXX or PLACEHOLDER token was found in the exact V5 package.",
+        "Repair-scope metadata in the six core V5 candidate JSON artifacts names PV4-EDGE-B001; scientific changes outside the intended diagnostic repair were not found."
+      ],
+      "failed_requirements": [
+        "PROTOCOL/PROTOCOL_FREEZE_V5.json itself carries prospective_repair metadata but names PROT-002 rather than the exact required scientific finding ID PV4-EDGE-B001.",
+        "The new rescale fixture does not bind protocol_route_version, V4 parent freeze path/hash, edge-adjudication path/hash, or exact PV4-EDGE-B001 repair scope internally.",
+        "No canonical schema ID exists for all cross-file record references, and fixture projections do not validate the full production record schema/hash route."
+      ],
+      "blocking_codes": [
+        "PV5-RA-B030-CROSS-FILE-REPAIR-MISMATCH",
+        "PV5-RA-B032-V5-FREEZE-OR-LINEAGE-BINDING-DEFECT"
+      ]
+    }
+  ],
+  "independent_fixture_calculation": {
+    "verdict": "PRESENT_CASE_VALUES_PASS_BUT_FIXTURE_COMPLETENESS_FAILS",
+    "method": "Independent read-only arithmetic and ordering review of the frozen data-free arrays and expected tables; no candidate code, Python, launcher, preflight or science was executed.",
+    "normalization_oracles": [
+      {
+        "case_id": "MV_MEAN_SHIFT",
+        "verdict": "PASS",
+        "independent_rescaled_values": [-1.0, 1.0, -1.0, 1.0],
+        "independent_little_endian_float64_sha256": "AC44B3214636DC7A21E80ED87DDEF6CCF8B4988FCF2E69F045DD6E6E3A320C55"
+      },
+      {
+        "case_id": "MV_VARIANCE_SCALE",
+        "verdict": "PASS",
+        "independent_rescaled_values": [-1.0, 1.0, -1.0, 1.0],
+        "independent_little_endian_float64_sha256": "AC44B3214636DC7A21E80ED87DDEF6CCF8B4988FCF2E69F045DD6E6E3A320C55"
+      },
+      {
+        "case_id": "MV_ZERO_INTERVENTION_VARIANCE",
+        "verdict": "PASS",
+        "independent_status": "NOT_ESTIMABLE_ZERO_VARIANCE"
+      },
+      {
+        "case_id": "MV_NONFINITE_INPUT",
+        "verdict": "PASS",
+        "independent_status": "INVALID_NONFINITE_INPUT"
+      }
+    ],
+    "detector_projection_oracles": [
+      {
+        "case_id": "SO_THRESHOLD_EQUALITY_ACCEPTED",
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "SO_LEFT_EDGE_STRICTLY_REJECTED",
+        "boundary_sample": 2000,
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "SPINDLE_THRESHOLD_EQUALITY_ACCEPTED",
+        "duration_samples": 60,
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "SPINDLE_RIGHT_EDGE_STRICTLY_REJECTED",
+        "boundary_sample": 34000,
+        "verdict": "PASS"
+      }
+    ],
+    "matching_oracle": {
+      "case_id": "MATCH_TIES_AND_TOLERANCE_BOUNDARY",
+      "verdict": "PASS",
+      "independent_candidate_order": [
+        "I01-R01-50",
+        "I01-R02-50",
+        "I02-R02-50",
+        "I02-R03-50"
+      ],
+      "independent_accepted_pairs": [
+        "I01-R01",
+        "I02-R02"
+      ],
+      "independent_unmatched_left": ["I03"],
+      "independent_unmatched_right": ["R03"]
+    },
+    "block_event_oracles": [
+      {
+        "case_id": "EVENT_NONZERO_SURVIVAL",
+        "counts": [0, 1, 1, 1, 1, 1, 0],
+        "block_rescale_only": false,
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "EVENT_ALL_ADDED_VANISH",
+        "counts": [0, 1, 0, 1, 0, 0, 1],
+        "block_rescale_only": true,
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "EVENT_NO_ADDED_EVENTS",
+        "counts": [1, 1, 1, 0, 0, 0, 0],
+        "block_rescale_only": false,
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "EVENT_MIXED_SURVIVAL",
+        "counts": [0, 2, 1, 2, 1, 1, 1],
+        "block_rescale_only": false,
+        "verdict": "PASS"
+      }
+    ],
+    "pooling_oracles": [
+      {
+        "case_id": "POOL_LEVEL_A_ALL_ADDED_VANISH",
+        "independent_status": "HARD_VETO_RESCALE_ONLY",
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "POOL_LEVEL_A_NONZERO_SURVIVAL",
+        "independent_status": "NO_VETO_PERSISTENT_OR_MIXED",
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "POOL_LEVEL_A_NO_ADDED_EVENTS",
+        "independent_status": "NO_VETO_NO_ADDED_EVENTS",
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "POOL_ZERO_VARIANCE_FAIL_CLOSED",
+        "independent_status": "NOT_ESTIMABLE_INSUFFICIENT_BLOCKS",
+        "verdict": "PASS"
+      },
+      {
+        "case_id": "POOL_NONFINITE_FAIL_CLOSED",
+        "independent_status": "INVALID_NONFINITE_INPUT",
+        "verdict": "PASS"
+      }
+    ],
+    "fixture_declared_case_count": 18,
+    "fixture_declared_cases_present_once": true,
+    "plan_required_coverage_missing": [
+      "zero sham variance",
+      "both intervention and sham variances zero",
+      "T8 or window boundary touch through the production event route",
+      "cross-context pooling prohibition trap",
+      "end-to-end raw observation/filter/detector/record-hash oracle"
+    ]
+  },
+  "v4_to_v5_path_indexed_semantic_diff": {
+    "verdict": "PASS_OUTSIDE_LISTED_REPAIR_DEFECTS",
+    "method": "Each of the eight exact V4 artifacts authorized through the V4 freeze was compared against its same-purpose V5 artifact; the ninth V5 rescale fixture was reviewed as a repair-only addition. Repeated identities and arrays were compared by stable IDs where positional insertion would otherwise create false shifts.",
+    "paired_json_structural_leaf_diff_counts": {
+      "control_target_registry.json": 52,
+      "mechanistic_parameter_map.json": 22,
+      "phase2_protocol.json": 37,
+      "advancement_rule.json": 28,
+      "c2_gate_protocol.json": 22,
+      "claim_registry.json": 47,
+      "t4_attribution_fixture_v3.json": 0
+    },
+    "markdown_review": {
+      "v4_and_v5_common_tail_lines_compared": 104,
+      "positionally_different_common_tail_lines": 8,
+      "all_differences_classified": true
+    },
+    "changed_common_numeric_scientific_scalars": [],
+    "changed_common_boolean_scientific_scalars": [],
+    "unclassified_semantic_differences": [],
+    "allowed_difference_ledger": [
+      {
+        "paths": [
+          "/schema_version",
+          "/protocol_route_version",
+          "/protocol_version and same-purpose version labels",
+          "/freeze_binding and parent-lineage metadata",
+          "/repair_scope and repair narrative metadata",
+          "/current Candidate V5 artifact path references"
+        ],
+        "classification": "ROUTE_VERSION_AND_EXACT_LINEAGE_ONLY"
+      },
+      {
+        "paths": [
+          "phase2_protocol.json#/stability_and_plausibility/rescale_only_event_veto",
+          "phase2_protocol.json#/phase2a/level_a_run_identity_registry",
+          "phase2_protocol.json#/phase2a/paired_sham_identity_registry",
+          "phase2_protocol.json Level-B cached-sham, T6/T7 reuse, and verifier sham-alias identity fields",
+          "phase2_protocol.json#/preflight/PF_RESCALE_EVENT_VETO_V5",
+          "mechanistic_parameter_map.json rescale-veto mapping and fixture binding",
+          "control_target_registry.json repaired diagnostic route references"
+        ],
+        "classification": "PV4_EDGE_B001_EXECUTABILITY_REPAIR"
+      },
+      {
+        "paths": [
+          "advancement_rule.json rescale-veto and missingness consequence references",
+          "c2_gate_protocol.json repaired C2-G7/C2-G8 validity-route references",
+          "claim_registry.json repaired veto/missingness consequence references",
+          "PREOUTCOME_DESIGN_MEMO.md V5 repair, identity, fixture and current-route sections"
+        ],
+        "classification": "NONCOMPENSATORY_REPAIR_PROPAGATION_WITH_NO_NEW_BENEFIT_RULE"
+      },
+      {
+        "paths": [
+          "phase2_protocol.json all_missing_bootstrap_convention",
+          "dependent advancement, C2 and claim missingness references"
+        ],
+        "classification": "INTENDED_ADJUDICATION_RESTATEMENT_BUT_BLOCKING_AMBIGUITY_PV5_B005"
+      },
+      {
+        "paths": [
+          "PROTOCOL/CANDIDATE_V5/rescale_event_veto_fixture_v5.json"
+        ],
+        "classification": "NEW_DATA_FREE_IMPLEMENTATION_PREFLIGHT_FIXTURE_WITH_BLOCKING_COMPLETENESS_DEFECTS_PV5_B004"
+      },
+      {
+        "paths": [
+          "PROTOCOL/CANDIDATE_V5/t4_attribution_fixture_v3.json"
+        ],
+        "classification": "BYTE_IDENTICAL_NO_CHANGE"
+      }
+    ],
+    "detector_preflight_sequence": {
+      "v4_tests_preserved": 14,
+      "new_test_id": "PF_RESCALE_EVENT_VETO_V5",
+      "new_test_inserted_before": "PF_DETECTOR_PERTURB",
+      "v4_final_test_preserved_intact_after_insertion": true,
+      "verdict": "PASS"
+    }
+  },
+  "unchanged_v4_regression_checks": [
+    {
+      "check_id": "R01_MODEL_RNG_FORCING_SCHEDULER_DETECTORS_T4",
+      "verdict": "PASS",
+      "evidence": "The 32 model parameters, 17 uncertainty coordinates, equations, defaults, timebase, RNG/OU rules, forcing, scheduler, official T1-T8 detector semantics and T4 attribution semantics are unchanged. The T4 fixture is byte-identical."
+    },
+    {
+      "check_id": "R02_TARGETS_POLICIES_GRIDS_STATISTICS_MULTIPLICITY_128_MEMBERS",
+      "verdict": "PASS",
+      "evidence": "Exactly eight targets remain with primary T1/T4/T6, secondary T2/T3/T5/T7 and exploratory T8. Grid counts remain T1=6, T2=7, T3=7, T4=7, T5=7, shared T6/T7=9, T8=7. Policies, estimands, margins, statistics, family construction and the ordered 64 benefit plus 64 adverse members are unchanged."
+    },
+    {
+      "check_id": "R03_RUN_IDENTITIES_COUNTS_AND_COMPUTE",
+      "verdict": "PASS",
+      "evidence": "Fifty unique Level-A condition IDs expand to 1800 unique runs; seven self-pair condition IDs expand to 252 exact self-paired identities. Level B remains bounded by 12*(25*n25+20*n20) at 900 selected runs. Verifier remains 19 logical identities per block, 18 intervention plus one shared sham, across 24 blocks for 456 unique runs. Total remains 1800+900+456=3156, 662760 seconds and 662760000 stored intervals. CPU partitions remain 60 worker plus 50 verifier within 180 logical CPUs with no borrowing."
+    },
+    {
+      "check_id": "R04_ADVANCEMENT_C2_CLAIMS_PHASE2B_CEILING",
+      "verdict": "PASS",
+      "evidence": "Advancement cap remains three with current advancing list empty; C2 contains exactly C2-G1 through C2-G10; all eight claims remain DESIGNED_NOT_EXECUTED; Phase2B remains N=0, minimum=3, NOT_ESTIMABLE with synthetic substitution prohibited; the claim ceiling remains M1_C0_P0_UNCHANGED_NO_TRANSFER."
+    },
+    {
+      "check_id": "R05_LINEAGE_PLACEHOLDER_AND_ZERO_ACCESS",
+      "verdict": "FAIL_BLOCKING",
+      "passing_evidence": "All hashes resolve, placeholders are absent, current V5 paths are used for execution references, and protected/execution/outcome access is zero.",
+      "failed_evidence": "The V5 freeze and new repair fixture do not carry the exact PV4-EDGE-B001 identity/bindings required by the prospective plan."
+    }
+  ],
+  "structural_and_arithmetic_checks": {
+    "verdict": "PASS",
+    "targets": 8,
+    "target_ids": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "target_registry_non_null_field_counts": {
+      "T1": 37,
+      "T2": 37,
+      "T3": 37,
+      "T4": 38,
+      "T5": 37,
+      "T6": 37,
+      "T7": 37,
+      "T8": 37
+    },
+    "placeholder_scan": "PASS",
+    "level_a_condition_ids": 50,
+    "level_a_unique_runs": 1800,
+    "level_b_all_target_potential_cells": 190,
+    "level_b_all_target_potential_run_ids": 2280,
+    "level_b_selected_maximum_runs": 900,
+    "verifier_logical_condition_ids": 19,
+    "verifier_unique_runs": 456,
+    "maximum_registered_runs": 3156,
+    "t4_attribution_rows": 16,
+    "t4_context_counts": {
+      "level_a_worker": 3,
+      "conditional_level_b": 10,
+      "cross_target_verifier": 3
+    },
+    "t4_formal_row": "T4_LA_WORKER_D1P50_FC13",
+    "t4_formal_comparison": "+1.5 Hz-equivalent at 13 Hz versus paired sham",
+    "t4_join_keys_unique": true,
+    "t4_references_resolved": true,
+    "c2_gate_count": 10,
+    "claim_count": 8,
+    "advancement_cap": 3,
+    "cross_target_members": 128,
+    "phase2b": {
+      "eligible_certified_subjects": 0,
+      "minimum_certified_subjects": 3,
+      "status": "NOT_ESTIMABLE",
+      "synthetic_substitution": "PROHIBITED"
+    },
+    "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER"
+  },
+  "blocking_findings": [
+    {
+      "finding_id": "PV5-B001",
+      "title": "Exact sole-repair finding identity is absent from the V5 freeze and incomplete in the fixture binding",
+      "severity": "BLOCKING",
+      "plan_codes": ["PV5-RA-B032-V5-FREEZE-OR-LINEAGE-BINDING-DEFECT"],
+      "evidence": [
+        "PROTOCOL/PROTOCOL_FREEZE_V5.json contains prospective_repair.repair_id=PROT-002 and descriptive text but zero occurrences of PV4-EDGE-B001.",
+        "The plan requires every V5 artifact carrying repair metadata to identify exactly PV4-EDGE-B001 and no other scientific finding.",
+        "The six core V5 candidate JSON artifacts do name PV4-EDGE-B001, but the new rescale fixture does not internally bind the V4 parent freeze, edge adjudication or exact repair finding."
+      ],
+      "minimal_v6_repair": [
+        "Create a new outcome-blind freeze whose repair metadata has finding_id exactly PV4-EDGE-B001. PROT-002 may remain only as an explicitly non-scientific administrative alias.",
+        "Bind the new repair fixture internally to protocol route V6, the exact V4 parent freeze hash, exact edge-adjudication path/hash, and finding_id PV4-EDGE-B001.",
+        "Keep every unrelated scientific field identical to V5."
+      ]
+    },
+    {
+      "finding_id": "PV5-B002",
+      "title": "Mandatory affine terms and raw-pair log fields are not fully frozen",
+      "severity": "BLOCKING",
+      "plan_codes": [
+        "PV5-RA-B001-RAW-TRACE-UNDEFINED",
+        "PV5-RA-B005-MOMENT-ESTIMATOR-OR-ORDER-UNDEFINED",
+        "PV5-RA-B026-LOG_OR_SCHEMA-GAP"
+      ],
+      "evidence": [
+        "V5 defines and logs mu_sham, mu_intervention, population variances and scale a, but no sigma_S field, no diagnostic sigma_I field distinct from the unrelated model parameter of that name, and no affine intercept b field.",
+        "V5 has no raw_pair_key or sham_forcing_status record field.",
+        "The exact binary64 operation order for a and b plus a*x_I+b is not frozen or fixture-compared against the centered expression."
+      ],
+      "minimal_v6_repair": [
+        "Freeze exact binary64 sigma_S and sigma_I definitions, square-root rules, a=sigma_S/sigma_I, b=mu_S-a*mu_I, and one exact reconstruction/evaluation order. If the centered form is retained, freeze an exact equivalence contract and fixture bytes proving equality under the chosen evaluation.",
+        "Add mu_S, mu_I, sigma_S, sigma_I, a and b to the canonical record with types, units, finite/null rules and float64-hex representation.",
+        "Add raw_pair_key, per-role finite/validity status, exact run/context identifiers, raw hashes and sham_forcing_status."
+      ]
+    },
+    {
+      "finding_id": "PV5-B003",
+      "title": "Canonical typed record schema and exhaustive three-way event ledger are incomplete",
+      "severity": "BLOCKING",
+      "plan_codes": [
+        "PV5-RA-B015-THREE-WAY-CLASS-OR-TIE-AMBIGUOUS",
+        "PV5-RA-B016-BOUNDARY-OR-ROW-CONSUMPTION-DEFECT",
+        "PV5-RA-B026-LOG_OR_SCHEMA-GAP",
+        "PV5-RA-B030-CROSS-FILE-REPAIR-MISMATCH"
+      ],
+      "evidence": [
+        "No canonical_schema_id exists in the V5 freeze or nine bound V5 artifacts.",
+        "Accepted match tables are specified, but all eligible candidate tuples in exact sort order are not record fields for all three match stages.",
+        "No exhaustive production per-event class table distinguishes RESCALE_ONLY, PERSISTENT, PRE_EXISTING, LOST and unmatched/ambiguous INVALID while proving raw-row consumption.",
+        "No single field-by-field schema gives every exact field name, JSON type, unit, nullability, enum and ordering/key rule."
+      ],
+      "minimal_v6_repair": [
+        "Freeze one canonical block-record schema ID and one canonical condition-record schema ID, with exact typed field descriptors, units, null rules, enums and key/order rules.",
+        "Record all eligible candidate tuples in exact sort order and accepted matches in traversal order for all three matches.",
+        "Add an exhaustive per-event class/consumption ledger with mutually exclusive finite-safe classes RESCALE_ONLY, PERSISTENT, PRE_EXISTING, LOST and UNMATCHED_OR_AMBIGUOUS_INVALID.",
+        "Include these fields in the nonrecursive payload hash and bind every cross-file reference to the same schema IDs."
+      ]
+    },
+    {
+      "finding_id": "PV5-B004",
+      "title": "The repair fixture is neither plan-complete nor end-to-end self-contained",
+      "severity": "BLOCKING",
+      "plan_codes": [
+        "PV5-RA-B007-DEGENERATE-CASE-GAP",
+        "PV5-RA-B019-CROSS-CONTEXT-BORROWING",
+        "PV5-RA-B027-FIXTURE-NOT-SELF-CONTAINED",
+        "PV5-RA-B028-FIXTURE-COVERAGE-OR-HASH-DEFECT",
+        "PV5-RA-B030-CROSS-FILE-REPAIR-MISMATCH",
+        "PV5-RA-B032-V5-FREEZE-OR-LINEAGE-BINDING-DEFECT"
+      ],
+      "evidence": [
+        "The eighteen declared cases omit zero sham variance, both variances zero, T8/window-boundary touch and cross-context pooling prohibition.",
+        "Expected raw/intervention/affine array hashes and a complete intermediate-hash ledger are absent.",
+        "Projection overrides bypass raw r_E/r_T observation construction, common filtering, sham-threshold derivation, canonical detector event construction, official-table validation and full production record hashing.",
+        "No complete expected per-event class/consumption ledger is supplied.",
+        "The fixture lacks exact internal route, V4 parent, edge-adjudication and repair-finding bindings."
+      ],
+      "minimal_v6_repair": [
+        "Supply one expanded or replacement self-contained data-free fixture covering every plan-required edge case, including zero sham scale, both zero, T8/window boundary touch and an explicit cross-context borrowing trap.",
+        "Freeze raw source arrays sufficient to derive x_raw and all expected raw/intervention/affine SHA-256 values, intermediate moments/coefficients/hashes, unchanged detector provenance, event tables, all candidates, accepted matches, classes, row consumption, context denominators/statuses and canonical record payload hashes.",
+        "Exercise the production route end to end without projection-only substitutes for observation, filter, threshold, event table or record schema validation.",
+        "Bind the fixture exactly as required by PV5-B001 and preserve the T4 fixture byte-for-byte."
+      ]
+    },
+    {
+      "finding_id": "PV5-B005",
+      "title": "The all-missing-bootstrap restatement leaves partial-array and per-replicate empty-family cases ambiguous",
+      "severity": "BLOCKING",
+      "plan_codes": ["PV5-RA-B023-ALL-MISSING-BOOTSTRAP-DRIFT"],
+      "evidence": [
+        "V5 triggers component failure only when no complete finite bootstrap replicate can be formed and family failure only when no member has a complete finite replicate.",
+        "The adjudication requires the entire registered bootstrap slack/deviation array for a point-eligible component to be complete and finite, and separately requires family NOT_ESTIMABLE whenever any required M_b is a maximum over an empty estimable set.",
+        "V5 does prohibit skipping/redrawing/imputation but does not assign an unambiguous status to the two intermediate cases above."
+      ],
+      "minimal_v6_repair": [
+        "Restate the adjudicated array-scope rule exactly: any point-eligible component whose required registered bootstrap array cannot be formed as a complete finite array is NOT_ESTIMABLE with no numeric interval.",
+        "Restate the per-replicate family rule exactly: if any required M_b would be max over an empty estimable set, the affected family inference is NOT_ESTIMABLE; emit no numeric M_b, do not skip/redraw, and retain all 10000 registered replicates.",
+        "Keep T4 ZERO_ADDED_BOOTSTRAP as the sole post-point-denominator numerical exception and keep the finite constant-array scale floor unchanged."
+      ]
+    }
+  ],
+  "nonblocking_findings": [],
+  "unresolved_findings": [],
+  "release_gate_verdicts": {
+    "root_static_implementation_release_eligibility": "DENIED_FAIL_BLOCKING",
+    "implementation": "DENIED",
+    "data_free_preflight": "DENIED",
+    "phase2a_scientific_execution": "DENIED",
+    "phase2a_outcome_access": "DENIED",
+    "cross_target_verifier_execution": "DENIED",
+    "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+    "release_ceiling_if_a_future_version_passes": "ROOT_MAY_ISSUE_A_NEW_OUTCOME_BLIND_STATIC_IMPLEMENTATION_RELEASE_ONLY",
+    "required_next_governance_action": "Prospectively author and freeze a new V6 protocol package that minimally repairs PV5-B001 through PV5-B005 without scientific changes elsewhere, then commission a new independent pre-outcome re-audit."
+  },
+  "final_attestation": {
+    "input_hash_integrity": "PASS",
+    "prospective_plan_integrity": "PASS",
+    "sole_repair_scope_binding": "FAIL",
+    "repair_algorithm_core_semantics": "PARTIAL_PASS_NONCOMPENSATORY_FAIL",
+    "fixture_present_case_values": "PASS",
+    "fixture_completeness_and_self_containment": "FAIL",
+    "v4_scientific_regression_outside_findings": "PASS",
+    "protected_access": "NONE",
+    "scientific_outcomes": "NONE",
+    "overall": "FAIL_BLOCKING"
+  },
+  "immutability": {
+    "immutable_after_creation": true,
+    "self_hash_policy": "The receipt cannot contain its own ordinary whole-file SHA-256 without recursion. Compute SHA-256 over the exact immutable bytes after the single creation write and report that digest externally; any byte change requires a new receipt path/version."
+  }
+}

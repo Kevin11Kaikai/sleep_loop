@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_IMMUTABLE_PROTOCOL_V6_ADDENDUM_RECOVERY_REVALIDATION",
+  "receipt_id": "PROTOCOL_V6_ADDENDUM_RECOVERY_REVALIDATION",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "audited_at": "2026-08-16T20:38:45.8464469-04:00",
+  "auditor_role": "Independent Clean Governance Auditor",
+  "overall_verdict": "PASS",
+  "restoration_authorization_verdict": "ROOT_MAY_AUTHORIZE_CANONICAL_BYTE_IDENTICAL_RESTORATION_ONLY",
+  "audit_boundary": {
+    "campaign_root": "D:/Year3_Mao_Projects/sleep_loop/BigBang_Phase2/COSTA_PHASE2_FRESH_20260816_105951",
+    "authorized_reads": [
+      "GOVERNANCE/RECOVERY/PROTOCOL_V6_REAUDIT_ADDENDUM_RECOVERY.json",
+      "GOVERNANCE/PROTOCOL_V6_ADDENDUM_DELETION_INCIDENT.json",
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json existence only",
+      "the ten exact Candidate V6 staging paths frozen in the incident receipt"
+    ],
+    "directory_enumeration": false,
+    "code_access": "NONE",
+    "implementation_or_preflight_manifest_access": "NONE",
+    "data_access": "NONE",
+    "r4_access": "NONE",
+    "scientific_outcome_access": "NONE",
+    "python_or_module_execution": false,
+    "launcher_preflight_or_scientific_execution": false,
+    "protected_access": "NONE",
+    "canonical_restored_by_auditor": false,
+    "state_modified_by_auditor": false
+  },
+  "recovery_candidate_integrity": {
+    "verdict": "PASS",
+    "path": "GOVERNANCE/RECOVERY/PROTOCOL_V6_REAUDIT_ADDENDUM_RECOVERY.json",
+    "bytes": 64268,
+    "expected_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+    "actual_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+    "json_valid": true,
+    "stable_hash_recheck": "PASS",
+    "byte_identity_conclusion": "The recovery candidate has the exact SHA-256 reported for the predeletion canonical artifact and therefore is accepted as the byte-identical recovered object."
+  },
+  "recovered_addendum_identity": {
+    "verdict": "PASS",
+    "schema_version": "1.0.0",
+    "addendum_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM",
+    "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+    "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+    "planned_protocol_route_version": "6.0.0",
+    "status": "IMMUTABLE_BEFORE_ANY_CANDIDATE_V6_DISCLOSURE",
+    "scientific_outcomes_visible": false,
+    "declared_canonical_output_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+    "purpose": "Noncompensatory independent V6 re-audit requiring exact closure of PV5-B001 through PV5-B005 with all unaffected V5/V4 semantics unchanged.",
+    "current_gate_state": {
+      "candidate_v6_access": "DENIED_UNTIL_ACTIVATION_GATE",
+      "v6_static_implementation_release": "DENIED_PENDING_V6_FREEZE_AND_INDEPENDENT_REAUDIT_PASS",
+      "code_or_manifest_access": "DENIED",
+      "data_free_preflight": "DENIED",
+      "phase2a_worker": "DENIED",
+      "cross_target_verifier": "DENIED",
+      "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+      "protected_access": "NONE",
+      "scientific_outcomes": "NONE"
+    }
+  },
+  "provenance_revalidation": {
+    "verdict": "PASS",
+    "incident_receipt": {
+      "path": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_DELETION_INCIDENT.json",
+      "bytes": 17277,
+      "expected_sha256": "9A411950A308E4B4E1E68CFC01206C1958B53693D845AFEB02FF570CD4BADEAD",
+      "actual_sha256": "9A411950A308E4B4E1E68CFC01206C1958B53693D845AFEB02FF570CD4BADEAD",
+      "status": "PASS"
+    },
+    "incident_expected_original": {
+      "canonical_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+      "predeletion_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+      "matches_recovery_candidate": true
+    },
+    "originating_independent_author_attestation": {
+      "actor": "/root/prospective_protocol_architect/v3_consistency_audit",
+      "role": "Independent prospective audit-protocol author",
+      "root_authorized_original_creation": true,
+      "retained_exact_patch_history": true,
+      "reported_recovery_method": "Exact byte reconstruction from retained original and subsequent byte-changing patches under direct Root recovery authorization",
+      "reported_recovered_bytes": 64268,
+      "reported_recovered_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+      "reported_json_valid": true,
+      "candidate_v6_access": "NONE",
+      "code_preflight_data_r4_outcome_access": "NONE",
+      "execution": "NONE",
+      "state_modified": false
+    },
+    "embedded_authoritative_bindings": {
+      "v5_freeze_sha256": "4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA",
+      "prospective_v5_reaudit_plan_sha256": "F84EBEAD585F0A773A092D3912413FE8319818777262024510FB49D6594C9EC6",
+      "v5_fail_receipt_sha256": "485E664B663BBC2E3A13A5FE05C86684B1295490FEB703EFFE77AB5CEB7EA1CA",
+      "v5_fail_receipt_verdict": "FAIL_BLOCKING",
+      "blocking_findings_in_order": [
+        "PV5-B001",
+        "PV5-B002",
+        "PV5-B003",
+        "PV5-B004",
+        "PV5-B005"
+      ],
+      "v5_stale_declaration_sha256": "3CB110644DDE677E57F67D0B4D769BA0F9C7FEB7CBC76755B721138A7C24D503",
+      "authorized_successor_scope": "PV5-B001_THROUGH_PV5-B005_ONLY"
+    },
+    "chronology_conclusion": "The exact recovered bytes preserve the prospectively authored, outcome-blind addendum that existed before Candidate V6 disclosure. Quarantine recovery changes location only and does not change content or authorship."
+  },
+  "canonical_path_state": {
+    "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+    "exists_at_revalidation": false,
+    "status": "MISSING_AS_REQUIRED_DURING_QUARANTINE_REVALIDATION",
+    "canonical_and_recovery_duplicate_active_authority": false
+  },
+  "candidate_v6_staging_drift_recheck": {
+    "verdict": "PASS_ZERO_DRIFT",
+    "paths_checked": 10,
+    "hashes_matching_incident_receipt": 10,
+    "hashes_mismatching_incident_receipt": 0,
+    "ledger": [
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/.candidate_v6_marker",
+        "bytes": 39,
+        "incident_sha256": "22DA187BECC08EC157C045C4AED4BA8D63693A19910743A5CD68D3907A958966",
+        "current_sha256": "22DA187BECC08EC157C045C4AED4BA8D63693A19910743A5CD68D3907A958966",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/control_target_registry.json",
+        "bytes": 69556,
+        "incident_sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC",
+        "current_sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/mechanistic_parameter_map.json",
+        "bytes": 35159,
+        "incident_sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11",
+        "current_sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/phase2_protocol.json",
+        "bytes": 170784,
+        "incident_sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C",
+        "current_sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/advancement_rule.json",
+        "bytes": 10332,
+        "incident_sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204",
+        "current_sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/c2_gate_protocol.json",
+        "bytes": 16307,
+        "incident_sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E",
+        "current_sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/claim_registry.json",
+        "bytes": 44070,
+        "incident_sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E",
+        "current_sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/PREOUTCOME_DESIGN_MEMO.md",
+        "bytes": 30084,
+        "incident_sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514",
+        "current_sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/t4_attribution_fixture_v3.json",
+        "bytes": 7903,
+        "incident_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "current_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/rescale_event_veto_fixture_v6.json",
+        "bytes": 13765,
+        "incident_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "current_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "verdict": "PASS"
+      }
+    ],
+    "conclusion": "No byte drift occurred in the exact V6 staging scope after the deletion incident. The nine semantic artifacts remain V5 baseline copies and the marker remains intact."
+  },
+  "canonical_restoration_conditions": {
+    "eligible_now": true,
+    "authorized_actor": "Root Orchestrator or the original independent addendum author under one exact Root restoration commission; not the prospective protocol repair architect",
+    "source_path": "GOVERNANCE/RECOVERY/PROTOCOL_V6_REAUDIT_ADDENDUM_RECOVERY.json",
+    "target_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+    "required_operation": "BYTE_IDENTICAL_COPY_WITH_NO_PARSE_RESERIALIZATION_NO_EDIT_NO_NORMALIZATION",
+    "required_source_and_target_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+    "required_source_and_target_bytes": 64268,
+    "prohibitions": [
+      "Do not ask the repair architect to reconstruct, edit, certify, or delete the independent artifact.",
+      "Do not reserialize JSON, change newlines, whitespace, encoding, path strings, or metadata.",
+      "Do not modify the quarantine recovery source during restoration.",
+      "Do not treat restoration as implementation, preflight, Candidate V6 audit activation, or scientific release."
+    ],
+    "immediate_post_restoration_checks": [
+      "canonical path exists",
+      "canonical byte count equals 64268",
+      "canonical SHA-256 equals 545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+      "canonical JSON parses",
+      "canonical bytes equal the quarantine recovery bytes",
+      "all ten V6 staging hashes still equal this receipt"
+    ]
+  },
+  "post_restoration_governance_gate": {
+    "architect_may_resume_from_this_receipt_alone": false,
+    "remaining_requirements_before_architect_resume": [
+      "successful canonical restoration and immediate post-restoration validation",
+      "Root reconciliation of ACCESS_LEDGER.json and AGENT_ROLE_LEDGER.json for deletion, pause, recovery, revalidation and restoration",
+      "explicit narrowed Root reauthorization prohibiting cross-role destructive writes",
+      "continued denial of CODE, PREFLIGHT, data, R4, outcomes and execution"
+    ],
+    "v6_freeze": "DENIED_PENDING_COMPLETED_REPAIR_AND_LATER_ROOT_FREEZE",
+    "implementation": "DENIED",
+    "preflight": "DENIED",
+    "scientific_execution": "DENIED"
+  },
+  "final_verdicts": {
+    "recovery_hash_and_json": "PASS",
+    "recovery_provenance": "PASS",
+    "incident_receipt_binding": "PASS",
+    "canonical_current_state": "MISSING",
+    "v6_staging_drift": "NONE",
+    "protected_access": "NONE",
+    "scientific_outcomes": "NONE",
+    "root_may_authorize_byte_identical_canonical_restoration": "YES",
+    "architect_resume": "NOT_AUTHORIZED_BY_THIS_RECEIPT"
+  },
+  "immutability": {
+    "immutable_after_creation": true,
+    "self_hash_policy": "Compute SHA-256 over this exact immutable receipt after the single creation write and report it externally. Any change requires a new versioned receipt."
+  }
+}

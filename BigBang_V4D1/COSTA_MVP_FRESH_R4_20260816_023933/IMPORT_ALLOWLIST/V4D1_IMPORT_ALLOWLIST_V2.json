@@ -1,0 +1,108 @@
+{
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "policy": "per-exact-file; selective subset; default deny",
+  "frozen_at": "2026-08-16T02:48:54-04:00",
+  "outer_candidate_manifest": {
+    "path": "BigBang_V4D1/COSTA_MVP_FRESH_R3_20260816_010342/COMMON/R4_EXECUTION_ONLY_IMPORT_CANDIDATES.json",
+    "sha256": "A1C7B6C8E241056A947954502E13BEF876AE5C6F1E94E7D9CE6AE26E470AF47E",
+    "review_status": "REJECTED_AS_EXECUTION_BUNDLE",
+    "reason": "Its inner freeze closure names a non-allowlisted repair artifact; its historical runner is not executable within this boundary."
+  },
+  "entries": [
+    {
+      "exact_path": "D:/Year3_Mao_Projects/sleep_loop/BigBang_V4D1/COSTA_MVP_FRESH_R3_20260816_010342/R3/MECHANISTIC_V2/__init__.py",
+      "sha256": "83CD4B0D88653F36C83F2707BD011D94F8D202956BFA299D44070BB3D9BE7BCA",
+      "evidence_class": "PURE_V2_CODE",
+      "development_only_provenance": "R3 pre-empirical clean-room source; exact byte identity independently verified",
+      "protected_derived_contamination_status": "NONE_FOUND",
+      "permitted_roles": ["R4 builder", "M1 worker", "independent verifier"],
+      "permitted_purpose": "package marker for exact scientific source",
+      "reviewer": "/root/costa_campaign_root_r4/r4_clean_import_auditor",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T02:48:54-04:00"
+    },
+    {
+      "exact_path": "D:/Year3_Mao_Projects/sleep_loop/BigBang_V4D1/COSTA_MVP_FRESH_R3_20260816_010342/R3/MECHANISTIC_V2/model.py",
+      "sha256": "775A3961093C386A1E7DF8F0D033963EAB684F2566AE206E5BB6DB4A6CD03869",
+      "evidence_class": "PURE_V2_CODE",
+      "development_only_provenance": "R3 pre-empirical clean-room source; exact byte identity independently verified",
+      "protected_derived_contamination_status": "NONE_FOUND",
+      "permitted_roles": ["R4 builder", "M1 worker", "independent verifier"],
+      "permitted_purpose": "immutable scientific model and proxy operator",
+      "reviewer": "/root/costa_campaign_root_r4/r4_clean_import_auditor",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T02:48:54-04:00"
+    },
+    {
+      "exact_path": "D:/Year3_Mao_Projects/sleep_loop/BigBang_V4D1/COSTA_MVP_FRESH_R3_20260816_010342/R3/MECHANISTIC_V2/harness.py",
+      "sha256": "A8735BD770E4EBCB7657EDEA9ABE9B4831025000E08E00C8F6D696E5131D8F6B",
+      "evidence_class": "PURE_V2_CODE",
+      "development_only_provenance": "R3 pre-empirical synthetic harness; exact byte identity independently verified",
+      "protected_derived_contamination_status": "NONE_FOUND",
+      "permitted_roles": ["R4 builder", "M1 worker", "independent verifier"],
+      "permitted_purpose": "immutable synthetic G2-G6 scientific checks",
+      "reviewer": "/root/costa_campaign_root_r4/r4_clean_import_auditor",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T02:48:54-04:00"
+    },
+    {
+      "exact_path": "D:/Year3_Mao_Projects/sleep_loop/BigBang_V4D1/COSTA_MVP_FRESH_R3_20260816_010342/R3/MECHANISTIC_V2/partitions.py",
+      "sha256": "21941B364BA56D6F447924B12C3ADD38F9D0700D21EDB2B1DFFA28EC53D9451B",
+      "evidence_class": "PURE_V2_CODE",
+      "development_only_provenance": "R3 pre-empirical deterministic partition source; exact byte identity independently verified",
+      "protected_derived_contamination_status": "NONE_FOUND",
+      "permitted_roles": ["R4 builder", "M1 worker", "independent verifier"],
+      "permitted_purpose": "immutable a-priori N3 FIT/HELDOUT assignment",
+      "reviewer": "/root/costa_campaign_root_r4/r4_clean_import_auditor",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T02:48:54-04:00"
+    },
+    {
+      "exact_path": "D:/Year3_Mao_Projects/sleep_loop/BigBang_V4D1/COSTA_MVP_FRESH_R3_20260816_010342/R3/PREFLIGHT_V2/protocol_v2.json",
+      "sha256": "338366593A2A4C8626349D70AA38306C5931F0FF4D22FD96DB546DD41505E3C3",
+      "evidence_class": "FROZEN_V2_PROTOCOL",
+      "development_only_provenance": "R3 pre-empirical prospective scientific protocol; exact byte identity independently verified",
+      "protected_derived_contamination_status": "NONE_FOUND",
+      "permitted_roles": ["R4 builder", "M1 worker", "independent verifier"],
+      "permitted_purpose": "immutable candidate bank, thresholds, seeds, model and operator",
+      "reviewer": "/root/costa_campaign_root_r4/r4_clean_import_auditor",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T02:48:54-04:00"
+    },
+    {
+      "exact_path": "D:/Year3_Mao_Projects/sleep_loop/BigBang_V4D1/COSTA_MVP_FRESH_R3_20260816_010342/R3/PREFLIGHT_V2/claims_v2.json",
+      "sha256": "6E386873060858737DA2C8356BA59D291CA59BC914F76951AF49AE0FED1B4891",
+      "evidence_class": "FROZEN_V2_CLAIMS",
+      "development_only_provenance": "R3 pre-empirical prospective claim registry; exact byte identity independently verified",
+      "protected_derived_contamination_status": "NONE_FOUND",
+      "permitted_roles": ["R4 builder", "M1 worker", "independent verifier"],
+      "permitted_purpose": "immutable claim and comparator definitions",
+      "reviewer": "/root/costa_campaign_root_r4/r4_clean_import_auditor",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T02:48:54-04:00"
+    },
+    {
+      "exact_path": "D:/Year3_Mao_Projects/sleep_loop/BigBang_V4D1/COSTA_MVP_FRESH_R3_20260816_010342/R3/PREFLIGHT_V2/test_synthetic_v2.py",
+      "sha256": "445E4FBA4CA43B580377E8597DFE1EC63E412EF4661F8A544A50D220C5AEEA86",
+      "evidence_class": "PURE_V2_TEST_CODE",
+      "development_only_provenance": "R3 pre-empirical deterministic tests; exact byte identity independently verified",
+      "protected_derived_contamination_status": "NONE_FOUND",
+      "permitted_roles": ["R4 builder", "M1 worker", "independent verifier"],
+      "permitted_purpose": "synthetic fixture and partition preflight tests",
+      "reviewer": "/root/costa_campaign_root_r4/r4_clean_import_auditor",
+      "review_status": "CLEAN_ALLOWLISTED",
+      "timestamp": "2026-08-16T02:48:54-04:00"
+    }
+  ],
+  "explicitly_denied": [
+    "R3/PREFLIGHT_V2/run_preflight.py",
+    "R3/PREFLIGHT_V2/freeze_manifest_v2.json",
+    "R3/PREFLIGHT_V2/FREEZE_MANIFEST_V2.sha256",
+    "R3/PREFLIGHT_V2/audit_bootstrap.py",
+    "R3/PREFLIGHT_V2/PROTOCOL_NOTES_V2.md",
+    "REPAIR_CYCLE_V2_001.json",
+    "RUN_V2_001",
+    "RUN_V2_002",
+    "all R3 outcomes, reports, STATE, narratives, verification, and DATA_STEWARD"
+  ]
+}

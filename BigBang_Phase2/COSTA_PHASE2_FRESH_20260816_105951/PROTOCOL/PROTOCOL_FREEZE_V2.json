@@ -1,0 +1,125 @@
+{
+  "schema_version": "2.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "freeze_id": "PHASE2_PROTOCOL_FREEZE_V2",
+  "frozen_at": "2026-08-16T13:08:35-04:00",
+  "frozen_by": "Root Orchestrator",
+  "scientific_outcomes_visible": false,
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "2.0.0",
+  "relationship_to_r4": "SEPARATE_CLEAN_ROOM_DIAGNOSTIC_NOT_THE_R4_M1_CANDIDATE",
+  "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER",
+  "supersedes": {
+    "freeze_path": "PROTOCOL/PROTOCOL_FREEZE_V1.json",
+    "freeze_sha256": "1A27094D05DD24848E7F8D9643936D69078464B864EFA18621E022A04410F3F0",
+    "stale_declaration_path": "GOVERNANCE/PROTOCOL_V1_STALE_DECLARATION.json",
+    "stale_declaration_sha256": "0ABECCD97E77EA972C2CD059B5C16D4D7F9CCEC4E3F86B6B7C9201B24F367B7C",
+    "failed_audit_path": "GOVERNANCE/PROTOCOL_FREEZE_AUDIT.json",
+    "failed_audit_sha256": "053ED3636CD1F40597524DB2C5369F87B5FC52696EB62C12895917BF9749BE14",
+    "v1_scientific_evidence": "NONE",
+    "v1_preflight_executed": false
+  },
+  "prospective_repairs": [
+    {
+      "finding_id": "PF-B001",
+      "resolution": "Exact causal phase-trigger filters, state, period estimator, phase-to-forward-delay conversion, latency, queue, overlap, packet waveform, and decision log are frozen."
+    },
+    {
+      "finding_id": "PF-B002",
+      "resolution": "T8 now uses six exact nonoverlapping 25-second windows within the retained interval and an exact 25-second Welch estimator."
+    },
+    {
+      "finding_id": "PF-B003",
+      "resolution": "The unique eight-condition T6/T7 grid includes both minus-pi/2 and plus-pi/2 and excludes the duplicate plus-pi endpoint."
+    },
+    {
+      "finding_id": "PF-B004",
+      "resolution": "Exact 10,000-draw studentized max-absolute-deviation hierarchical bootstrap simultaneous bands and families are frozen."
+    },
+    {
+      "finding_id": "PF-B005",
+      "resolution": "Exact deterministic sham-to-intervention event matching, ADDED classification, packet association, autonomous-cycle rule, and denominators are frozen."
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "PROTOCOL/CANDIDATE_V2/control_target_registry.json",
+      "sha256": "2B4A0ABA6D2FBE0C4D05CF1E1C1889238835A0CEE37C8DD5F6686C716FA94D57"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V2/mechanistic_parameter_map.json",
+      "sha256": "271DA1188C6F7F3DA3A6F90553F0B6E6B99ED7BCB20AC4B5B1D1CB4584B83760"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V2/phase2_protocol.json",
+      "sha256": "9A3CC8BB37D33844DD884267028657918CB9525B11AF5F1874727FE6ACA05B35"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V2/advancement_rule.json",
+      "sha256": "5DDB6A09DE73977BEEB16F653E0595946F98B3C5F8CB06948797DDA0A8543BD7"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V2/c2_gate_protocol.json",
+      "sha256": "8790C827E61702C52AB84CBF37C27E28AF2EA195C48DBA685E8985375B67550A"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V2/claim_registry.json",
+      "sha256": "74AE0888DBB02A1AE1F006AB430EB2C04CA740552096DFCDE57DB40B3CF3B7A7"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V2/PREOUTCOME_DESIGN_MEMO.md",
+      "sha256": "54CB9E40EE8C7E22C7A0D65922636AE5D9973102A046C71DBBE79029E98AF550"
+    }
+  ],
+  "target_priority": {
+    "primary": ["T1", "T4", "T6"],
+    "secondary": ["T2", "T3", "T5", "T7"],
+    "exploratory": ["T8"]
+  },
+  "phase2a": {
+    "targets_required": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "maximum_level_a_runs": 1800,
+    "advancement_cap": 3,
+    "outcome_access": "CLOSED_PENDING_INDEPENDENT_V2_FREEZE_AUDIT"
+  },
+  "phase2b": {
+    "status": "NOT_ESTIMABLE",
+    "minimum_certified_subjects": 3,
+    "eligible_certified_subjects": 0,
+    "advancing_targets": [],
+    "synthetic_substitution": "PROHIBITED"
+  },
+  "immutable_scientific_fields": [
+    "candidate identity",
+    "model equations, defaults, uncertainty draws, and timebase",
+    "target identity and priority",
+    "observable, detector, and metric implementation",
+    "intervention, mapping, range, dose grid, baseline, and sham",
+    "comparators and estimands",
+    "practical margins, thresholds, denominators, uncertainty, and multiplicity",
+    "stability, off-target, failure, advancement, grading, and claim rules",
+    "causal scheduler and event matching rules",
+    "simultaneous confidence-band construction and families",
+    "Phase 2B denominator and C2-G1 through C2-G10"
+  ],
+  "change_control": {
+    "outcome_blind_preflight_repairs": "One initial synthetic preflight followed by at most two bounded implementation/schema/shape repairs; scientific fields remain unchanged.",
+    "outcome_visible_change": "Requires a new scientific version and makes incompatible evidence stale.",
+    "repairs_consumed": 0,
+    "current_implementation_authorization": false,
+    "current_phase2a_outcome_authorization": false
+  },
+  "validation": {
+    "json_files_parsed": 6,
+    "targets": 8,
+    "c2_gates": 10,
+    "claims": 8,
+    "unique_t6_t7_grid_conditions": 8,
+    "level_a_condition_sets": 50,
+    "maximum_level_a_runs": 1800,
+    "t8_windows": 6,
+    "forbidden_placeholder_scan": "PASS",
+    "independent_freeze_audit": "PENDING"
+  },
+  "status": "FROZEN_PREOUTCOME_IMPLEMENTATION_AND_OUTCOMES_DENIED_PENDING_INDEPENDENT_REAUDIT"
+}

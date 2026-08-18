@@ -1,0 +1,347 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_OUTCOME_BLIND_IMPLEMENTATION_RELEASE_REVALIDATION",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "release_id_reviewed": "OUTCOME_BLIND_IMPLEMENTATION_RELEASE_V4_V2",
+  "incident_id_reviewed": "IRB-001",
+  "audited_at": "2026-08-16T15:18:57.3017077-04:00",
+  "auditor_role": "INDEPENDENT_OUTCOME_BLIND_RELEASE_REVALIDATOR",
+  "overall_verdict": "PASS",
+  "authorization_effect": "CORRECTED_V2_RELEASE_VALID_FOR_STATIC_IMPLEMENTATION_ONLY",
+  "protected_access": "NONE",
+  "scientific_outcomes": "NONE",
+  "audit_boundary": {
+    "campaign_root": "D:/Year3_Mao_Projects/sleep_loop/BigBang_Phase2/COSTA_PHASE2_FRESH_20260816_105951",
+    "exact_files_read": [
+      "GOVERNANCE/IMPLEMENTATION_RELEASE_BINDING_INCIDENT.json",
+      "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+      "GOVERNANCE/IMPLEMENTATION_RELEASE_V4.json",
+      "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+      "PREFLIGHT/run_neurolib.ps1",
+      "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "COMMON/COMPUTE_BUDGET.json",
+      "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json"
+    ],
+    "directory_enumeration": false,
+    "v4_bound_scientific_artifacts_opened": false,
+    "other_repository_code_opened": false,
+    "explicit_launcher_static_text_inspected": true,
+    "r4_or_repository_scientific_content_opened": false,
+    "data_or_outcomes_opened": false,
+    "module_imported": false,
+    "launcher_executed": false,
+    "python_or_scientific_execution": "NONE",
+    "release_state_protocol_or_code_modified": false,
+    "output_created": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json"
+  },
+  "input_integrity": {
+    "verdict": "PASS_9_OF_9",
+    "json_validity": "PASS_8_OF_8",
+    "launcher_static_text_readability": "PASS",
+    "files": [
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_BINDING_INCIDENT.json",
+        "bytes": 1847,
+        "expected_sha256": "3B6AD51C5C6D93453C38CD511D016257E8E9FD8B1FD686FBC08144B9B5B5904B",
+        "actual_sha256": "3B6AD51C5C6D93453C38CD511D016257E8E9FD8B1FD686FBC08144B9B5B5904B",
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+        "bytes": 4356,
+        "expected_sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF",
+        "actual_sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF",
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4.json",
+        "bytes": 3654,
+        "expected_sha256": "A5B2BF7BF2EEBDA4CD32DCFE037D3FD2760966C75FE2E75AD3BE42A5587542AF",
+        "actual_sha256": "A5B2BF7BF2EEBDA4CD32DCFE037D3FD2760966C75FE2E75AD3BE42A5587542AF",
+        "verdict": "PASS_STALE_RECORD_IDENTITY_ONLY"
+      },
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+        "bytes": 5841,
+        "expected_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+        "actual_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+        "bytes": 30135,
+        "expected_sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+        "actual_sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PREFLIGHT/run_neurolib.ps1",
+        "bytes": 4014,
+        "expected_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+        "actual_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+        "verdict": "PASS"
+      },
+      {
+        "path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+        "bytes": 5470,
+        "expected_sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+        "actual_sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+        "verdict": "PASS"
+      },
+      {
+        "path": "COMMON/COMPUTE_BUDGET.json",
+        "bytes": 2808,
+        "expected_sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+        "actual_sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+        "bytes": 14848,
+        "expected_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+        "actual_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+        "verdict": "PASS"
+      }
+    ]
+  },
+  "incident_reproduction_and_containment": {
+    "verdict": "PASS_CONTAINED_AND_EXACTLY_REPRODUCED",
+    "classification": "OUTCOME_BLIND_GOVERNANCE_CONTROL_BINDING_ERROR",
+    "stale_release": {
+      "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4.json",
+      "sha256": "A5B2BF7BF2EEBDA4CD32DCFE037D3FD2760966C75FE2E75AD3BE42A5587542AF",
+      "status": "STALE_INVALID_NOT_AUTHORIZED_FOR_FURTHER_USE"
+    },
+    "reproduced_defects": [
+      {
+        "field": "environment.launcher_sha256",
+        "stale_v1_value": "E47B3632862CBB885ED422505256DB6199007268786CA6D8F71BE3AFEA334867",
+        "correct_value": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+        "verdict": "CONFIRMED"
+      },
+      {
+        "field": "allowed_reads compute budget path",
+        "stale_v1_value": "STATE/COMPUTE_BUDGET.json",
+        "correct_path": "COMMON/COMPUTE_BUDGET.json",
+        "correct_sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+        "verdict": "CONFIRMED"
+      }
+    ],
+    "containment": {
+      "worker_paused": true,
+      "implementation_files_written": 0,
+      "preflight_manifests_written": 0,
+      "python_or_scientific_execution": "NONE",
+      "preflight_executed": false,
+      "scientific_evidence_generated": "NONE",
+      "incompatible_evidence": "NONE",
+      "protected_access": "NONE"
+    },
+    "materiality": "MATERIAL_RELEASE_BINDING_DEFECT_WITH_ZERO_IMPLEMENTATION_OR_SCIENTIFIC_EFFECT_DUE_TO_IMMEDIATE_FAIL_CLOSED_CONTAINMENT",
+    "incident_remediation_status": "CORRECTED_BY_SEPARATELY_VERSIONED_V2_AND_VALIDATED_BY_THIS_EXTERNAL_RECEIPT",
+    "incident_record_modified": false
+  },
+  "corrected_release_binding": {
+    "verdict": "PASS",
+    "release_path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+    "release_sha256": "AA3DC83FFDCA4DD63031ABCAC524790D6DB2133509259E4AD1B641D6D59FC6EF",
+    "supersedes_exact_stale_v1_path_and_hash": true,
+    "binds_exact_incident_path": true,
+    "protocol_freeze": {
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+      "freeze_id": "PHASE2_PROTOCOL_FREEZE_V4",
+      "bound_artifact_count": 8
+    },
+    "independent_protocol_audit": {
+      "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+      "sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+      "verdict": "PASS",
+      "release_scope": "OUTCOME_BLIND_IMPLEMENTATION_ONLY",
+      "preflight": "DENIED_PENDING_HASH_FROZEN_IMPLEMENTATION_AND_INDEPENDENT_CODE_AUDIT",
+      "phase2a": "DENIED"
+    },
+    "environment": {
+      "version": "NEUROLIB_ENV_V3",
+      "launcher_path": "PREFLIGHT/run_neurolib.ps1",
+      "launcher_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+      "snapshot_path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "snapshot_sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+      "compute_budget_path": "COMMON/COMPUTE_BUDGET.json",
+      "compute_budget_sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+      "compute_audit_path": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+      "compute_audit_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+      "cross_file_binding": "PASS"
+    },
+    "all_paths_resolve_to_the_exact_named_current_campaign_artifacts": true,
+    "all_purposes_are_consistent_with_static_implementation": true,
+    "stale_v1_has_no_residual_authority": true
+  },
+  "transitive_v4_artifact_scope": {
+    "purpose": "The corrected release phrase 'the eight exact artifacts bound by that freeze' resolves only through the hash-verified V4 freeze manifest and grants no directory-wide read authority.",
+    "verdict": "PASS_EXACTLY_EIGHT",
+    "artifacts": [
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/control_target_registry.json",
+        "sha256": "E300F2B2184B1430428FD1E2DB0CF76D07DCD5B89FF78E287C06F5213629B058"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/mechanistic_parameter_map.json",
+        "sha256": "EB811129C358B7A25F78FE8B9EB9E253F79D155F548EDDF9D8919A5366FCD013"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/phase2_protocol.json",
+        "sha256": "AB4B5226DF13529BED15D910DF12401FF192110FC152489E153FF9E2641B3BE7"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/advancement_rule.json",
+        "sha256": "0F0EDE0523A40D59D598CEA18672F53D0780607999253B88CF93F201E028D086"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/c2_gate_protocol.json",
+        "sha256": "DB7A36F243BBB08885B122AC4353A3ACE94D066A677F27FA04A912B64942135D"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/claim_registry.json",
+        "sha256": "E792BEF42B7A2A279CF2F25658C3165FA1F3D3090D01D5A22A573394B393268F"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/PREOUTCOME_DESIGN_MEMO.md",
+        "sha256": "83EB7ADE9ADCFBA3DF371C3192EB904C6194B2AC2A79EE55B47237D42227735B"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V4/t4_attribution_fixture_v3.json",
+        "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+      }
+    ],
+    "artifacts_opened_during_this_narrow_revalidation": false
+  },
+  "authorization_scope_revalidation": {
+    "verdict": "PASS_STATIC_IMPLEMENTATION_ONLY",
+    "authorized_role": "Fresh Isolated Scientific Implementation Worker",
+    "allowed_reads": [
+      "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+      "the eight exact artifacts bound by that freeze",
+      "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+      "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "COMMON/COMPUTE_BUDGET.json",
+      "PREFLIGHT/run_neurolib.ps1",
+      "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+      "GOVERNANCE/IMPLEMENTATION_RELEASE_BINDING_INCIDENT.json"
+    ],
+    "allowed_reads_exact_no_extra": true,
+    "allowed_writes": [
+      "CODE/CANDIDATE_V4/**",
+      "PREFLIGHT/CANDIDATE_V4_EXPECTED_SCHEMA.json",
+      "PREFLIGHT/CANDIDATE_V4_IMPLEMENTATION_MANIFEST.json"
+    ],
+    "allowed_writes_exact_no_extra": true,
+    "positive_permissions": {
+      "file_creation_and_editing": "ALLOWED_WITHIN_EXACT_WRITE_SCOPE",
+      "static_text_or_ast_validation": "ALLOWED"
+    },
+    "explicit_denials": {
+      "module_import": "DENIED",
+      "python_execution": "DENIED",
+      "synthetic_preflight": "DENIED_PENDING_HASH_FREEZE_AND_INDEPENDENT_CODE_AUDIT",
+      "phase2a": "DENIED",
+      "phase2b": "DENIED_NOT_ESTIMABLE"
+    },
+    "prohibited_reads": [
+      "all repository code outside the exact current-campaign V4 protocol and infrastructure controls",
+      "CODE/phase2_control_bench.py and every partial/stale V1 implementation",
+      "all R4 files and referenced artifacts",
+      "all repository data, parameters, configuration, outputs and validation outputs",
+      "Night-2, Sealed Bank, protected-derived, fresh-final, ambiguous, quarantined or historical material"
+    ],
+    "prohibited_reads_exact_no_omission": true,
+    "allowed_write_and_prohibited_read_overlap": "NONE",
+    "scientific_definition_changes": "PROHIBITED",
+    "outcome_access": "NONE",
+    "preflight_repair_budget_consumed": 0,
+    "preflight_repair_budget_maximum": 2,
+    "repair_budget_currently_usable": false,
+    "reason_repair_budget_not_yet_usable": "Synthetic preflight remains denied until implementation hash freeze and independent code audit",
+    "fail_closed_interpretation": "Any action not positively listed is denied; static implementation authority does not imply import, launcher invocation, Python, preflight, data, or outcome authority."
+  },
+  "launcher_and_compute_control_checks": {
+    "verdict": "PASS",
+    "launcher_purpose": "Official future neurolib Python launch gate with current-campaign script containment, reparse-point rejection, four process-scoped thread limits, concurrency validation, and dynamic memory admission.",
+    "launcher_execution_capability_present": true,
+    "launcher_execution_authorized_by_corrected_release": false,
+    "launcher_static_inspection_only": true,
+    "launcher_file_write_cmdlets_identified": 0,
+    "launcher_campaign_containment_present": true,
+    "launcher_reparse_point_rejection_present": true,
+    "launcher_thread_contract_present": true,
+    "launcher_memory_admission_present": true,
+    "environment_launcher_path_and_hash_match": true,
+    "compute_budget_launcher_path_match": true,
+    "compute_budget_path_is_COMMON_not_STATE": true,
+    "compute_audit_status": "PASS",
+    "compute_audit_blocking_findings": 0,
+    "current_memory_admitted_processes": 1,
+    "maximum_configured_processes": 3,
+    "implementation_release_grants_compute_execution": false
+  },
+  "purpose_and_gate_consistency": {
+    "verdict": "PASS",
+    "protocol_audit_authority": "OUTCOME_BLIND_IMPLEMENTATION_ONLY",
+    "corrected_release_authority": "STATIC_IMPLEMENTATION_ONLY",
+    "scope_is_narrower_than_or_equal_to_protocol_audit_authority": true,
+    "expected_outputs_are_static": [
+      "implementation source files under CODE/CANDIDATE_V4",
+      "PREFLIGHT/CANDIDATE_V4_EXPECTED_SCHEMA.json",
+      "PREFLIGHT/CANDIDATE_V4_IMPLEMENTATION_MANIFEST.json"
+    ],
+    "implementation_manifest_future_commands_are_text_only": true,
+    "next_gate": "HASH_FREEZE_IMPLEMENTATION_THEN_INDEPENDENT_CODE_AUDIT",
+    "preflight_gate": "CLOSED",
+    "phase2a_gate": "CLOSED",
+    "phase2b_gate": "CLOSED_NOT_ESTIMABLE",
+    "data_and_outcome_gate": "CLOSED"
+  },
+  "findings": {
+    "blocking": [],
+    "nonblocking": [],
+    "resolved": [
+      {
+        "finding_id": "IRB-001-LAUNCHER-HASH",
+        "verdict": "RESOLVED_BY_V2_EXACT_BINDING"
+      },
+      {
+        "finding_id": "IRB-001-COMPUTE-PATH",
+        "verdict": "RESOLVED_BY_V2_COMMON_PATH_AND_HASH"
+      }
+    ]
+  },
+  "final_verdicts": {
+    "INPUT_HASHES": "PASS_9_OF_9",
+    "JSON_VALIDITY": "PASS_8_OF_8",
+    "INCIDENT_CONTAINMENT": "PASS_ZERO_CODE_ZERO_EXECUTION_ZERO_OUTCOMES",
+    "STALE_V1_RELEASE": "INVALID_SUPERSEDED_NO_AUTHORITY",
+    "CORRECTED_V2_RELEASE": "PASS",
+    "PATH_AND_PURPOSE_BINDINGS": "PASS",
+    "ALLOWED_READ_SCOPE": "PASS_EXACT_FAIL_CLOSED",
+    "ALLOWED_WRITE_SCOPE": "PASS_EXACT_THREE_STATIC_DESTINATIONS",
+    "PROHIBITIONS": "PASS",
+    "STATIC_IMPLEMENTATION_RESUME": "AUTHORIZED_UNDER_CORRECTED_V2_RELEASE",
+    "MODULE_IMPORT": "DENIED",
+    "PYTHON_OR_LAUNCHER_EXECUTION": "DENIED",
+    "SYNTHETIC_PREFLIGHT": "DENIED_PENDING_HASH_FREEZE_AND_INDEPENDENT_CODE_AUDIT",
+    "PHASE2A": "DENIED",
+    "PHASE2B": "DENIED_NOT_ESTIMABLE",
+    "PROTECTED_ACCESS": "NONE",
+    "SCIENTIFIC_OUTCOMES": "NONE"
+  },
+  "immutability": {
+    "this_receipt_is_immutable": true,
+    "release_files_modified": false,
+    "state_files_modified": false,
+    "protocol_files_modified": false,
+    "code_files_modified": false,
+    "execution_performed": false,
+    "self_hash_policy": "Receipt SHA-256 is computed and reported externally after final serialization; it is not recursively embedded."
+  }
+}

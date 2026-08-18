@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_IMMUTABLE_PREOUTCOME_PROTOCOL_FREEZE_REAUDIT_V2",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_package": "CANDIDATE_V2",
+  "protocol_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "2.0.0",
+  "audited_at": "2026-08-16T13:18:54.7068872-04:00",
+  "auditor_role": "INDEPENDENT_PROTOCOL_FREEZE_AUDITOR",
+  "overall_verdict": "FAIL_NEW_BLOCKING_EXECUTABILITY_DEFECTS",
+  "implementation_release": "DENIED",
+  "phase2a_scientific_execution": "DENIED",
+  "phase2b_scientific_execution": "NOT_ESTIMABLE_AND_DENIED",
+  "protected_access": "NONE",
+  "scientific_outcomes": "NONE",
+  "audit_boundary": {
+    "preoutcome": true,
+    "outcome_blind": true,
+    "r4_or_repository_scientific_content_opened": false,
+    "data_or_scientific_outcomes_opened": false,
+    "code_opened_or_executed": false,
+    "directory_enumeration_performed": false,
+    "protocol_modified": false,
+    "state_modified": false,
+    "only_new_artifact": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+    "exact_input_scope_respected": true
+  },
+  "input_integrity": {
+    "hash_algorithm": "SHA-256",
+    "all_expected_hashes_match": true,
+    "hash_match_count": "13_OF_13",
+    "all_json_inputs_valid": true,
+    "json_validity_count": "11_OF_11",
+    "files": [
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+        "expected_sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8",
+        "observed_sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V2/control_target_registry.json",
+        "expected_sha256": "2B4A0ABA6D2FBE0C4D05CF1E1C1889238835A0CEE37C8DD5F6686C716FA94D57",
+        "observed_sha256": "2B4A0ABA6D2FBE0C4D05CF1E1C1889238835A0CEE37C8DD5F6686C716FA94D57",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V2/mechanistic_parameter_map.json",
+        "expected_sha256": "271DA1188C6F7F3DA3A6F90553F0B6E6B99ED7BCB20AC4B5B1D1CB4584B83760",
+        "observed_sha256": "271DA1188C6F7F3DA3A6F90553F0B6E6B99ED7BCB20AC4B5B1D1CB4584B83760",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V2/phase2_protocol.json",
+        "expected_sha256": "9A3CC8BB37D33844DD884267028657918CB9525B11AF5F1874727FE6ACA05B35",
+        "observed_sha256": "9A3CC8BB37D33844DD884267028657918CB9525B11AF5F1874727FE6ACA05B35",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V2/advancement_rule.json",
+        "expected_sha256": "5DDB6A09DE73977BEEB16F653E0595946F98B3C5F8CB06948797DDA0A8543BD7",
+        "observed_sha256": "5DDB6A09DE73977BEEB16F653E0595946F98B3C5F8CB06948797DDA0A8543BD7",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V2/c2_gate_protocol.json",
+        "expected_sha256": "8790C827E61702C52AB84CBF37C27E28AF2EA195C48DBA685E8985375B67550A",
+        "observed_sha256": "8790C827E61702C52AB84CBF37C27E28AF2EA195C48DBA685E8985375B67550A",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V2/claim_registry.json",
+        "expected_sha256": "74AE0888DBB02A1AE1F006AB430EB2C04CA740552096DFCDE57DB40B3CF3B7A7",
+        "observed_sha256": "74AE0888DBB02A1AE1F006AB430EB2C04CA740552096DFCDE57DB40B3CF3B7A7",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V2/PREOUTCOME_DESIGN_MEMO.md",
+        "expected_sha256": "54CB9E40EE8C7E22C7A0D65922636AE5D9973102A046C71DBBE79029E98AF550",
+        "observed_sha256": "54CB9E40EE8C7E22C7A0D65922636AE5D9973102A046C71DBBE79029E98AF550",
+        "hash_match": true,
+        "format_valid": true
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_AUDIT.json",
+        "expected_sha256": "053ED3636CD1F40597524DB2C5369F87B5FC52696EB62C12895917BF9749BE14",
+        "observed_sha256": "053ED3636CD1F40597524DB2C5369F87B5FC52696EB62C12895917BF9749BE14",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V1_STALE_DECLARATION.json",
+        "expected_sha256": "0ABECCD97E77EA972C2CD059B5C16D4D7F9CCEC4E3F86B6B7C9201B24F367B7C",
+        "observed_sha256": "0ABECCD97E77EA972C2CD059B5C16D4D7F9CCEC4E3F86B6B7C9201B24F367B7C",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "PROTOCOL/PROTOCOL_FREEZE_V1.json",
+        "expected_sha256": "1A27094D05DD24848E7F8D9643936D69078464B864EFA18621E022A04410F3F0",
+        "observed_sha256": "1A27094D05DD24848E7F8D9643936D69078464B864EFA18621E022A04410F3F0",
+        "hash_match": true,
+        "json_valid": true
+      },
+      {
+        "path": "COMMON/DATA_FEASIBILITY_RECEIPT.md",
+        "expected_sha256": "B85E5A3A21D10C523BAD707D6F034E3BEFD63EB5573FAC95FE9D1DDCDF855D2C",
+        "observed_sha256": "B85E5A3A21D10C523BAD707D6F034E3BEFD63EB5573FAC95FE9D1DDCDF855D2C",
+        "hash_match": true,
+        "format_valid": true
+      },
+      {
+        "path": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+        "expected_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+        "observed_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+        "hash_match": true,
+        "json_valid": true
+      }
+    ]
+  },
+  "v1_supersession": {
+    "verdict": "PASS",
+    "v1_freeze_preserved_and_hash_bound": true,
+    "v1_failed_audit_preserved_and_hash_bound": true,
+    "v1_stale_declaration_hash_bound": true,
+    "v1_scientific_evidence": "NONE",
+    "v1_preflight_executed": false,
+    "worker_interrupted_before_preflight_or_outcome_execution": true,
+    "candidate_v2_changes_prospective": true
+  },
+  "original_pf_blocker_resolution": [
+    {
+      "finding_id": "PF-B001",
+      "verdict": "RESOLVED_FOR_REGISTERED_LEVEL_A",
+      "evidence": "V2 freezes the causal filter coefficients and state, warmup/history, crossing and period rules, canonical phase conversion, one-sample causal latency, forward scheduling of negative offsets, queue/overlap/boundary behavior, exact packet waveform, and exhaustive decision codes. No delay calibration remains implicit.",
+      "related_new_defect": "PV2-B001 concerns conditional Level-B variants, not the repaired Level-A scheduler."
+    },
+    {
+      "finding_id": "PF-B002",
+      "verdict": "RESOLVED",
+      "evidence": "T8 uses six exact adjacent 25-second windows within [15,165) seconds, wholly inside retained [10,170), and a 5000-sample window-compatible Welch estimator with exact parameters."
+    },
+    {
+      "finding_id": "PF-B003",
+      "verdict": "RESOLVED_FOR_REGISTERED_LEVEL_A",
+      "evidence": "The eight-condition Level-A grid is identical across registry, map, and protocol; it contains executed -pi/2 and +pi/2 and only -pi as the circular endpoint representative.",
+      "related_new_defect": "PV2-B001 records that conditional Level B reintroduces prohibited +pi."
+    },
+    {
+      "finding_id": "PF-B004",
+      "verdict": "RESOLVED_FOR_SIMULTANEOUS_BANDS",
+      "evidence": "V2 freezes joint hierarchical resampling, scalar slack orientation, circular wrapping, scale floor, max-absolute-deviation statistic, 9501st order statistic, seeds, missingness, and four explicit simultaneous families.",
+      "related_new_defect": "PV2-B003 concerns the separate Holm-driving hypothesis tests and undefined T7 scalar statistics, not the repaired band construction."
+    },
+    {
+      "finding_id": "PF-B005",
+      "verdict": "RESOLVED_FOR_EVENT_CLASSIFICATION",
+      "evidence": "V2 freezes event peak time, candidate pairs, greedy one-to-one matching and ties, ADDED/LOST classes, packet association, autonomous post-offset cycle, denominators, bootstrap zero-added convention, and PASS/D/F/NOT_ESTIMABLE outcomes.",
+      "related_new_defect": "PV2-B004 concerns the missing bound preflight fixture, not the repaired scientific classifier."
+    }
+  ],
+  "cross_file_verdicts": {
+    "HASH_INTEGRITY": "PASS",
+    "JSON_VALIDITY": "PASS",
+    "V1_STALE_AND_V2_SUPERSESSION_CHAIN": "PASS",
+    "OUTCOME_BLINDNESS": "PASS",
+    "NO_OUTCOME_LEAKAGE": "PASS",
+    "REGISTRY_REQUIRED_FIELDS": "PASS_ALL_29_FIELDS_FOR_ALL_8_TARGETS",
+    "FORBIDDEN_PLACEHOLDERS": "PASS_ZERO_MATCHES",
+    "TARGET_IDENTITIES": "PASS_T1_THROUGH_T8",
+    "PRIORITY_SPLIT": "PASS_PRIMARY_T1_T4_T6_SECONDARY_T2_T3_T5_T7_EXPLORATORY_T8",
+    "GENERIC_FORCING_LABELS": "PASS_ALL_7_CHANNELS",
+    "PARAMETER_CHANGE_ROLE": "PASS_SENSITIVITY_ONLY_FOR_ALL_8_TARGETS",
+    "CORE_MODEL_EQUATIONS_AND_LEVEL_A_TIMEBASE": "PASS_PROTOCOL_LEVEL",
+    "CAUSAL_PHASE_SCHEDULER": "PASS_LEVEL_A",
+    "T8_WINDOWS_AND_WINDOW_SPECTRUM": "PASS",
+    "T4_ADDED_EVENT_CLASSIFIER": "PASS_SCIENTIFIC_RULE",
+    "LEVEL_A_GRIDS_AND_RUN_ARITHMETIC": "PASS_50_CONDITION_SETS_X_36_BLOCKS_EQUALS_1800",
+    "CONDITIONAL_LEVEL_B_GRIDS": "FAIL",
+    "TARGET_POLICY_AND_CROSS_TARGET_EFFECT_DEFINITION": "FAIL",
+    "SIMULTANEOUS_CONFIDENCE_BANDS": "PASS",
+    "TARGET_HYPOTHESIS_TESTS": "FAIL",
+    "HOLM_MULTIPLICITY": "FAIL_BECAUSE_REQUIRED_INPUT_P_VALUES_ARE_NOT_REPRODUCIBLY_DEFINED",
+    "PREFLIGHT_TEST_BINDINGS": "FAIL",
+    "EVIDENCE_GRADING_DEFINITIONS": "PASS_DEFINITIONS_FAIL_EXECUTABLE_GRADE_C_DEPENDENCIES",
+    "ADVANCEMENT_CAP_AND_CURRENT_EMPTY_SET": "PASS",
+    "FUTURE_POLICY_RANKING": "FAIL_EXECUTABLE_POLICY_DEPENDENCY",
+    "C2_G1_THROUGH_G10_COVERAGE": "PASS",
+    "CURRENT_C2_STATUS": "PASS_NOT_ESTIMABLE",
+    "PHASE2B_N_GTE_3_CURRENT_N_0": "PASS_NOT_ESTIMABLE",
+    "SYNTHETIC_SUBSTITUTION": "PASS_PROHIBITED",
+    "FORMAL_CLAIM_CEILING": "PASS_M1_C0_P0_UNCHANGED",
+    "COMPUTE_AND_ENVIRONMENT_ENVELOPE": "PASS_FOR_DATA_FREE_PREFLIGHT_AT_ONE_PROCESS_ONLY",
+    "SCIENTIFIC_IMPLEMENTATION_RELEASE": "FAIL_DENIED"
+  },
+  "registry_and_scope_checks": {
+    "targets": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "claims": ["P2A_DIAG_T1", "P2A_DIAG_T2", "P2A_DIAG_T3", "P2A_DIAG_T4", "P2A_DIAG_T5", "P2A_DIAG_T6", "P2A_DIAG_T7", "P2A_DIAG_T8"],
+    "c2_gates": ["C2-G1", "C2-G2", "C2-G3", "C2-G4", "C2-G5", "C2-G6", "C2-G7", "C2-G8", "C2-G9", "C2-G10"],
+    "advancement_cap": 3,
+    "current_advancing_targets": [],
+    "formal_phase2b_minimum_subjects": 3,
+    "current_eligible_subjects": 0,
+    "current_eligible_personalized_models": 0,
+    "formal_phase2b": "NOT_ESTIMABLE",
+    "formal_c2": "NOT_ESTIMABLE",
+    "synthetic_substitution": "PROHIBITED",
+    "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER"
+  },
+  "blocking_findings": [
+    {
+      "finding_id": "PV2-B001",
+      "severity": "BLOCKING",
+      "title": "Conditional Level-B surfaces contradict or exceed the frozen intervention-channel semantics",
+      "affected_targets": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+      "evidence": [
+        "V2 globally canonicalizes phase to [-pi,pi), prohibits exact +pi, and declares -pi the sole endpoint representative, but both T6 and T7 Level-B phase grids explicitly contain +pi.",
+        "GF_E_SLOW_SINE is frozen at amplitude 0.8, while T1 and T2 Level B require other amplitudes without a parameterized mapping or combination rule.",
+        "GF_E_SO_PULSE is frozen at repetition 0.85 Hz, while T3 Level B requires five repetition frequencies without exact onset-sample scheduling.",
+        "GF_TR_SIGMA_PACKET_BALANCE, GF_TR_SIGMA_CONTINUOUS_BALANCE, and GF_T_PHASE_LOCKED_PACKET freeze 13 Hz waveforms, while T4, T5, and T7 Level B require 11-15 Hz carriers without replacement formulas or propagation into attribution and scheduler rules.",
+        "GF_T_PHASE_LOCKED_PACKET freezes amplitude 1.0, while T6 Level B requires amplitudes 0-1.0 without an exact generalized packet rule.",
+        "T8 Level B requires exposure fractions within each 25-second window but does not freeze the on/off placement, sample indices, transition convention, or interaction with window classification."
+      ],
+      "impact": "The prospectively frozen optional surfaces can be implemented in multiple scientifically different ways, and two of them request a phase value the same protocol prohibits. Level-B family membership, run identities, compute accounting, mechanistic support, and Grade C dependencies are therefore not reproducible.",
+      "required_next_version_correction": [
+        "Use only unique canonical phase conditions and remove or replace +pi consistently across every artifact.",
+        "Freeze exact parameterized formulas, bounds, sample schedules, combination rules, and sham semantics for every second Level-B coordinate.",
+        "Propagate carrier/amplitude/frequency changes into packet, attribution, detector, family-member, run-count, and compute rules.",
+        "Freeze exact T8 exposure start/stop samples and boundary behavior for every fraction."
+      ]
+    },
+    {
+      "finding_id": "PV2-B002",
+      "severity": "BLOCKING",
+      "title": "Policy selection and the 8-by-8 cross-target scalar are not deterministically defined",
+      "affected_components": ["Level-B selection", "cross-target 8x8 matrix", "F_LEVEL_B_SURFACES", "F_CROSS_TARGET_8X8", "Grade C", "advancement ranking", "C2-G5", "C2-G8"],
+      "evidence": [
+        "The protocol selects the smallest-absolute-dose maximizer of a registered target-benefit score, but no exact per-condition score and no aggregation across each target's multiple efficacy components is frozen.",
+        "T1 and T7 are tracking problems whose requested condition changes across the grid, so a single fixed row policy cannot be inferred from endpoint contrast language alone.",
+        "F_LEVEL_B_SURFACES refers to a target-oriented normalized effect-minus-one for each cell without defining that scalar for any target.",
+        "F_CROSS_TARGET_8X8 divides each cell by that column target's practical margin even though T1-T7 contain multiple margins, often in different units, and no canonical component or aggregation is named."
+      ],
+      "impact": "Different conforming implementations can select different policies, populate different standardized effects, and assign different intended/beneficial/negligible/trade-off labels. The complete off-target requirement and Grade C cannot be adjudicated.",
+      "required_next_version_correction": [
+        "Freeze G_i(u) or an equivalent per-condition scalar formula for every target, including orientation, baseline, aggregation, units, normalization, missingness, and ties.",
+        "Define whether a row policy is one condition, a requested-value mapping, or a multi-condition contrast for T1 and T7.",
+        "Freeze the exact scalar effect and adverse margin used for every cross-target column, including multi-component targets.",
+        "Make Level-B and cross-target family members mechanically enumerable from those formulas before outcomes."
+      ]
+    },
+    {
+      "finding_id": "PV2-B003",
+      "severity": "BLOCKING",
+      "title": "T7 decision statistics and Holm-driving Monte Carlo tests are not reproducibly specified",
+      "affected_targets": ["T1", "T2", "T3", "T4", "T5", "T6", "T7"],
+      "evidence": [
+        "T7 requires circular-circular correlation rho_c but provides no formula; standard circular-correlation definitions are not equivalent.",
+        "The aggregation and exact wrapped formula for median tracking error and -pi/2 versus +pi/2 output separation are not frozen.",
+        "The common 100000-draw sign-flip test does not freeze the target test statistic, one- or two-sided tail, sign-vector generation/reset order, inclusion of the observed assignment, tie comparison, or Monte Carlo p-value correction.",
+        "The T7 circular-label permutation does not define which labels are permuted within which blocks, its statistic, tail, or p-value convention."
+      ],
+      "impact": "Target p-values, Holm decisions, T7 slacks, eligibility, grades, and claims can differ across implementations even with identical trajectories.",
+      "required_next_version_correction": [
+        "Freeze exact formulas and aggregation units for rho_c, tracking error, and circular separation.",
+        "Freeze one test statistic and alternative for each target, the exact randomization unit and generator lifecycle, treatment of zeros/ties/missing blocks, and the finite-Monte-Carlo p-value formula.",
+        "Freeze the circular permutation operation and Holm sort/tie convention."
+      ]
+    },
+    {
+      "finding_id": "PV2-B004",
+      "severity": "BLOCKING",
+      "title": "A mandatory PASS_ALL preflight test depends on an unbound fixture manifest",
+      "affected_component": "PF_T4_EVENT_ATTRIBUTION",
+      "evidence": [
+        "PF_T4_EVENT_ATTRIBUTION requires exact agreement with a frozen hand-calculated fixture manifest.",
+        "No exact event table, expected accepted-pair list, expected class/count values, or fixture-manifest path and hash is embedded in or bound by the seven-artifact Candidate V2 manifest."
+      ],
+      "impact": "The required PASS_ALL detector preflight cannot be independently reproduced or hash-verified, so the Phase2A preflight gate cannot close without creating an unfrozen expected answer.",
+      "required_next_version_correction": "Embed the exact fixture inputs and expected outputs or bind a separate immutable fixture artifact by exact path and SHA-256, then specify the executable comparison and failure output."
+    }
+  ],
+  "nonblocking_findings_and_constraints": [
+    {
+      "finding_id": "PV2-N001",
+      "title": "Environment repair lineage is closed",
+      "detail": "COMPUTE_BUDGET_REAUDIT_V3 records ENV-001 at two of two cycles with no further in-lineage repair. Candidate V2 reports zero protocol-preflight repairs consumed; any future implementation-repair authority would need an explicitly separate governance lineage and budget and is not created by this receipt."
+    },
+    {
+      "finding_id": "PV2-N002",
+      "title": "Compute fit remains envelope-level until a valid data-free implementation preflight",
+      "detail": "The 180-hour arithmetic, 50-hour verification reserve, 45-GiB stop, deadline, thread limits, and current one-process admission pass. Actual Candidate runtime and memory fit were not tested because code inspection/execution was prohibited and the protocol itself failed."
+    },
+    {
+      "finding_id": "PV2-N003",
+      "title": "Base implementation conventions must be mechanically bound before any future code freeze",
+      "detail": "A corrected version should also make sample-level input evaluation, rectangular-pulse endpoint rounding, even-length centered RMS-window alignment, filter call arguments, and surrogate-lag endpoint/shift direction explicit so an implementation hash cannot silently choose scientific semantics."
+    }
+  ],
+  "compute_budget_determination": {
+    "compute_receipt": "PASS",
+    "environment": "NEUROLIB_ENV_V3",
+    "current_admitted_processes": 1,
+    "threads_per_process": 4,
+    "total_cpu_hours": 180,
+    "phase2a_worker_cpu_hours": 60,
+    "independent_verification_cpu_hours": 50,
+    "verification_reserve_fraction": 0.2777777777777778,
+    "storage_limit_gib": 50,
+    "storage_stop_gib": 45,
+    "v2_level_a_maximum_runs": 1800,
+    "v2_conditional_level_b_maximum_runs": 900,
+    "verdict": "PASS_ENVELOPE_ONLY_NO_SCIENTIFIC_RELEASE"
+  },
+  "required_disposition": {
+    "candidate_v2_status": "STALE_FOR_IMPLEMENTATION_PRESERVE_FOR_AUDIT",
+    "candidate_v2_may_be_edited_in_place": false,
+    "required_next_artifact": "PROSPECTIVELY_FROZEN_CANDIDATE_V3_OR_LATER_WITH_NEW_HASH_MANIFEST",
+    "required_repairs": ["PV2-B001", "PV2-B002", "PV2-B003", "PV2-B004"],
+    "independent_protocol_reaudit_required": true,
+    "code_inspection_or_implementation": "DENIED",
+    "data_free_preflight": "DENIED_UNTIL_CORRECTED_PROTOCOL_REAUDIT_PASS",
+    "scientific_outcome_inspection": "REMAINS_CLOSED",
+    "phase2b": "REMAINS_NOT_ESTIMABLE",
+    "formal_claim_ceiling": "REMAINS_M1_C0_P0",
+    "protected_content_access": "REMAINS_DENIED"
+  },
+  "final_verdicts": {
+    "INPUT_HASHES": "PASS",
+    "JSON_VALIDITY": "PASS",
+    "NO_PLACEHOLDERS": "PASS",
+    "NO_OUTCOME_LEAKAGE": "PASS",
+    "ORIGINAL_PF_B001_THROUGH_PF_B005": "PASS_IN_ORIGINAL_LEVEL_A_OR_RULE_SCOPE",
+    "FULL_CROSS_FILE_CONSISTENCY": "FAIL",
+    "FULL_EXECUTABILITY": "FAIL",
+    "MODEL_AND_LEVEL_A_SCHEDULER": "PASS_PROTOCOL_LEVEL",
+    "DETECTORS_AND_METRICS": "FAIL_T7_DECISION_STATISTICS_AND_PREFLIGHT_BINDING",
+    "LEVEL_A_GRIDS": "PASS",
+    "LEVEL_B_GRIDS": "FAIL",
+    "UNCERTAINTY_BANDS": "PASS",
+    "MULTIPLICITY_AND_TESTS": "FAIL",
+    "GRADING_AND_ADVANCEMENT": "FAIL_DOWNSTREAM_EXECUTABILITY_DEPENDENCY",
+    "C2_RULE_COVERAGE": "PASS_CURRENTLY_NOT_ESTIMABLE",
+    "PHASE2B": "NOT_ESTIMABLE_N_0_MINIMUM_3_NO_SYNTHETIC_SUBSTITUTION",
+    "CLAIM_CEILING": "PASS_M1_C0_P0_UNCHANGED",
+    "COMPUTE_FIT": "PASS_ENVELOPE_ONLY",
+    "IMPLEMENTATION_RELEASE": "DENIED",
+    "PROTECTED_ACCESS": "NONE",
+    "SCIENTIFIC_OUTCOMES": "NONE"
+  },
+  "immutability": {
+    "write_once": true,
+    "instruction": "Do not append, overwrite, or reinterpret this receipt as a later-version audit.",
+    "self_hash_included": false,
+    "external_hash_rule": "The SHA-256 of the completed receipt is the authoritative immutable receipt hash."
+  }
+}

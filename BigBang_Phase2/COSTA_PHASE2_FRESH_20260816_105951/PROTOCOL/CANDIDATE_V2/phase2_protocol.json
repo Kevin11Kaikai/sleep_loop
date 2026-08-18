@@ -1,0 +1,471 @@
+{
+  "schema_version": "2.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "protocol_id": "COSTA_PHASE2_PROTOCOL_CANDIDATE_V2",
+  "parent_protocol_id": "COSTA_PHASE2_PROTOCOL_CANDIDATE_V1",
+  "repair_scope": ["PF-B001", "PF-B002", "PF-B003", "PF-B004", "PF-B005"],
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "status": "FREEZE_CANDIDATE_PREOUTCOME",
+  "outcome_visibility_at_design": "NONE",
+  "execution_authorized_by_this_artifact": false,
+  "purpose": "Prospectively specify a current-campaign clean-room diagnostic control bench and a compute-bounded Phase 2A assessment of T1-T8 without importing R4 execution artifacts or scientific outcomes.",
+  "claim_boundary": {
+    "r4_categorical_substrate": {"mechanistic_level": "M1", "control_level": "C0", "predictive_level": "P0", "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION"},
+    "bench_relation_to_r4": "NO_EXECUTABLE_IDENTITY_LINK",
+    "maximum_bench_evidence": "NON_TRANSFERABLE_SYNTHETIC_DIAGNOSTIC",
+    "formal_c1_assignment": "PROHIBITED",
+    "formal_c2_assignment": "PROHIBITED",
+    "r4_substrate_change": "PROHIBITED",
+    "clinical_or_human_intervention_inference": "PROHIBITED"
+  },
+  "software_contract": {
+    "environment": "neurolib",
+    "environment_version": "NEUROLIB_ENV_V3",
+    "python": "3.10.20",
+    "required_packages": {"numpy": "2.2.6", "scipy": "1.15.2", "neurolib": "0.6.1"},
+    "scientific_dependencies": ["numpy", "scipy"],
+    "neurolib_role": "environment compatibility and future adapter boundary only; no repository or historical neurolib model is imported",
+    "official_launcher": "PREFLIGHT/run_neurolib.ps1",
+    "threads": {"OMP_NUM_THREADS": 4, "MKL_NUM_THREADS": 4, "OPENBLAS_NUM_THREADS": 4, "NUMEXPR_NUM_THREADS": 4},
+    "requested_concurrent_processes": 1,
+    "reason_for_single_process": "The frozen environment snapshot admits one process at captured available memory."
+  },
+  "bench": {
+    "bench_id": "PHASE2_CONTROL_BENCH_V1",
+    "bench_type": "clean-room reduced thalamocortical stochastic rate model",
+    "equations": {
+      "rates": "tau_i*dr_i/dt=-r_i+rmax_i/(1+exp(-beta*(h_i-theta))) for i=E,I,T,R",
+      "adaptation": "tau_a*da/dt=-a+r_E",
+      "h_E": "b_E+w_EE*r_E-w_EI*r_I+w_ET*r_T-g_a*a+eta_E+u_E(t)",
+      "h_I": "b_I+w_IE*r_E-w_II*r_I+w_IT*r_T+eta_I+u_I(t)",
+      "h_T": "b_T+w_TE*r_E-w_TR*r_R+eta_T+u_T(t)",
+      "h_R": "b_R+w_RE*r_E+w_RT*r_T-w_RR*r_R+eta_R+u_R(t)",
+      "ou_update": "eta_i[n+1]=rho*eta_i[n]+sigma_i*sqrt(1-rho^2)*epsilon_i[n], rho=exp(-dt/tau_eta), epsilon_i[n] iid N(0,1)",
+      "observation": "x(t)=(r_E(t)+0.25*r_T(t))/10 m.u."
+    },
+    "state_order": ["r_E", "r_I", "r_T", "r_R", "a", "eta_E", "eta_I", "eta_T", "eta_R"],
+    "initial_state": [8.0, 10.0, 6.0, 8.0, 8.0, 0.0, 0.0, 0.0, 0.0],
+    "parameter_source": "mechanistic_parameter_map.json#parameter_defaults_and_bounds",
+    "parameter_values": {
+      "tau_E": 0.020, "tau_I": 0.010, "tau_T": 0.020, "tau_R": 0.010, "tau_a": 1.000, "tau_eta": 0.050,
+      "rmax_E": 100.0, "rmax_I": 100.0, "rmax_T": 100.0, "rmax_R": 100.0,
+      "beta": 0.18, "theta": 15.0, "b_E": 12.0, "b_I": 8.0, "b_T": 10.0, "b_R": 8.0, "g_a": 0.30,
+      "w_EE": 0.22, "w_EI": 0.35, "w_ET": 0.16, "w_IE": 0.30, "w_II": 0.10, "w_IT": 0.10,
+      "w_TE": 0.12, "w_TR": 0.40, "w_RE": 0.08, "w_RT": 0.35, "w_RR": 0.08,
+      "sigma_E": 0.25, "sigma_I": 0.20, "sigma_T": 0.20, "sigma_R": 0.20
+    },
+    "timebase": {
+      "internal_dt_seconds": 0.001,
+      "integrator": "fixed-step stochastic Heun for rate/adaptation states with exact discrete OU update",
+      "predictor_corrector_order": "Compute OU next state from the registered epsilon; Euler-predict r and a using current eta; recompute drift at predictor using next eta; set state_next=state+0.5*dt*(drift_current+drift_predictor).",
+      "clipping": "NONE",
+      "warmup_seconds": 30,
+      "analysis_seconds": 180,
+      "stored_sampling_rate_hz": 200,
+      "decimation_rule": "store every fifth internal sample after warmup; no antialias filter is needed for stored states because detector bands end at 30 Hz, but a fixed scipy.signal.decimate FIR zero-phase check must agree within 1 percent on preflight spectra",
+      "time_origin": "intervention starts after warmup at analysis t=0",
+      "floating_point": "IEEE-754 float64"
+    },
+    "randomness": {
+      "bit_generator": "numpy.random.PCG64",
+      "worker_seeds": [11003, 22007, 33013, 44017, 55021, 66029],
+      "independent_verification_seeds": [77041, 88069, 99079, 111091],
+      "seed_pairing": "For a given parameter draw and seed, sham and every intervention condition reuse the identical four OU innovation streams.",
+      "stream_layout": "One Generator(seed) produces a float64 array in C order with columns E,I,T,R at each internal step.",
+      "parameter_draws": ["D00_NOMINAL", "D01", "D02", "D03", "D04", "D05"],
+      "parameter_draw_rule": "mechanistic_parameter_map.json#synthetic_uncertainty_rule",
+      "interpretation": "seed and parameter draws quantify synthetic bench uncertainty only; they are not people and not personalization evidence"
+    },
+    "intervention_semantics": {
+      "name_requirement": "Every applied input is named GENERIC EXTERNAL FORCING.",
+      "auditory_like_label": "PROHIBITED",
+      "physiological_parameter_change_as_control": "PROHIBITED",
+      "parameter_perturbation_role": "SENSITIVITY_ONLY",
+      "channels": "mechanistic_parameter_map.json#intervention_channels",
+      "causal_phase_scheduler": {
+        "scope": "Exact scheduler for GF_T_PHASE_LOCKED_PACKET only. Offline T6/T7 measurement filters remain the separately frozen zero-phase filters.",
+        "scheduler_sampling_rate_hz": 200,
+        "scheduler_dt_seconds": 0.005,
+        "sample_origin": "Scheduler sample n=0 is simulation time -30.000 s; analysis begins at n=6000 and ends before n=42000.",
+        "input": "Raw online x[n]=(r_E[n]+0.25*r_T[n])/10 at every fifth 1 ms solver step; no future centering or zero-phase filtering.",
+        "causal_filter": {
+          "type": "one-pole high-pass at 0.3 Hz followed by one-pole low-pass at 1.5 Hz",
+          "tau_hp_seconds": 0.5305164769729844,
+          "alpha_hp": 0.990663219125838,
+          "tau_lp_seconds": 0.1061032953945969,
+          "alpha_lp": 0.04500316558786029,
+          "formula_hp": "hp[n]=alpha_hp*(hp[n-1]+x[n]-x[n-1])",
+          "formula_lp": "bp[n]=bp[n-1]+alpha_lp*(hp[n]-bp[n-1])",
+          "initialization": "At n=0 set x_prev=x[0], hp[0]=0, bp[0]=0. For n>=1 update hp first, then bp, then set x_prev=x[n].",
+          "delay_calibration": "NONE",
+          "delay_semantics": "The causal filtered upward crossing itself defines phase zero; no estimated or subtracted filter delay is permitted."
+        },
+        "warmup_and_history": {
+          "filter_warmup_samples": 6000,
+          "transient_excluded_samples": 4000,
+          "history_collection_samples": [4000, 6000],
+          "packet_delivery_during_warmup": "PROHIBITED",
+          "history_rule": "Crossings during samples 4000 through 5999 may build period history. Only crossings n>=6000 may schedule packets."
+        },
+        "crossing_rule": {
+          "candidate": "bp[n-1]<0 and bp[n]>=0; equality at bp[n-1] is not a crossing; crossing time is integer sample n with no interpolation.",
+          "valid_period_samples_inclusive": [134, 400],
+          "valid_period_seconds_inclusive": [0.67, 2.0],
+          "valid_frequency_hz_approximate": [0.5, 1.4925373134328357],
+          "invalid_interval_action": "Log PERIOD_OUT_OF_RANGE, replace the prior anchor with n, clear all period intervals, and do not schedule from this crossing.",
+          "valid_interval_action": "Append n-last_anchor to a FIFO containing at most the three most recent valid intervals, set last_anchor=n, and mark n accepted.",
+          "first_anchor_action": "Store n as last_anchor, clear interval history, log FIRST_ANCHOR, and do not schedule."
+        },
+        "period_estimation": {
+          "minimum_intervals": 3,
+          "estimator": "P_hat is the integer median of the three stored valid integer intervals; because there are exactly three, no fractional median occurs.",
+          "clamp_samples_inclusive": [134, 400],
+          "clamp_formula": "P_use=min(400,max(134,P_hat))",
+          "insufficient_history_action": "Log INSUFFICIENT_PERIOD_HISTORY and do not schedule."
+        },
+        "phase_to_delay": {
+          "canonical_phase_domain": "[-pi,pi)",
+          "canonicalization": "phi_c=((phi+pi) mod (2*pi))-pi; an exact +pi input is prohibited and -pi is its sole representative.",
+          "forward_phase": "q=((phi_c mod (2*pi))+2*pi) mod (2*pi), so q is in [0,2*pi).",
+          "unquantized_delay_samples": "d_real=q*P_use/(2*pi)",
+          "quantization": "d_round=floor(d_real+0.5), a deterministic round-half-up for nonnegative d_real.",
+          "causal_minimum_latency": "d=max(1,d_round); the scheduler runs after x[n] is observed, so the earliest packet begins at n+1.",
+          "negative_offset_semantics": "Negative phi maps through q to the remaining fraction of the current estimated cycle and is therefore scheduled after the detected crossing; for example -pi/2 maps to 3*P_use/4. It never refers to an already elapsed phase.",
+          "next_cycle_semantics": "If q is numerically zero only phi_c=0 is allowed and the one-sample causal latency applies. No extra cycle is added. All negative offsets use the forward modulo delay within the cycle ending at the next predicted crossing."
+        },
+        "queue_and_overlap": {
+          "proposed_start_scheduler_sample": "s=n+d",
+          "proposed_start_internal_step": "j_start=5*s",
+          "packet_internal_steps": 500,
+          "interval_convention": "A packet occupies internal steps [j_start,j_start+500), equivalent to scheduler time [s,s+100 samples).",
+          "overlap_rule": "Before insertion, compare the half-open proposed interval with every active or queued interval. If max(start_a,start_b)<min(stop_a,stop_b), log OVERLAP_SKIP and discard the new packet; packets are never summed, truncated, merged, or replaced.",
+          "queue_order": "Nonoverlapping packets are stored by ascending start step; equal starts would overlap and the earlier-created packet remains.",
+          "maximum_queued_not_active": 2,
+          "queue_full_rule": "If two future packets are already queued, log QUEUE_FULL and discard the new packet even if it would not overlap.",
+          "analysis_boundary_rule": "Internal step zero is simulation start; warmup ends at j_analysis_start=30*1000=30000 and analysis ends at j_analysis_stop=210*1000=210000. If j_start<30000 or j_start+500>210000, log OUTSIDE_ANALYSIS_SKIP and discard the packet."
+        },
+        "packet_samples": {
+          "amplitude_hz_equivalent": 1.0,
+          "carrier_hz": 13.0,
+          "duration_seconds": 0.5,
+          "internal_sampling_rate_hz": 1000,
+          "indices": "k=0,...,499",
+          "hann": "w[k]=0.5*(1-cos(2*pi*k/499))",
+          "carrier": "c[k]=0.5*(1+sin(2*pi*13*k/1000))",
+          "injection": "u_T[j_start+k]=1.0*w[k]*c[k], with u_E=u_I=u_R=0 for this channel; endpoints w[0] and w[499] are exactly zero."
+        },
+        "required_log_per_crossing": ["crossing_sample", "interval_samples", "history_samples", "P_use", "phi_c", "q", "d_real", "d_round", "scheduled_start", "scheduled_stop", "decision_code"],
+        "decision_codes": ["FIRST_ANCHOR", "PERIOD_OUT_OF_RANGE", "INSUFFICIENT_PERIOD_HISTORY", "WARMUP_ONLY", "SCHEDULED", "OVERLAP_SKIP", "QUEUE_FULL", "OUTSIDE_ANALYSIS_SKIP"],
+        "missed_trigger_rule": "Every accepted or rejected crossing receives exactly one decision code; skipped triggers are retained in the run artifact and never silently retried."
+      }
+    }
+  },
+  "observation_and_detector_contract": {
+    "common_preprocessing": {
+      "signal": "x(t)=(r_E+0.25*r_T)/10 m.u.",
+      "centering": "subtract the mean of the 180 s analysis interval separately for each run",
+      "filter_implementation": "scipy.signal.butter(..., output='sos', fs=200) followed by scipy.signal.sosfiltfilt",
+      "filter_order": 4,
+      "edge_exclusion_seconds_each_side": 10,
+      "condition_invariance": "All coefficients, thresholds, duration rules, and edge rules are fixed before non-sham outcomes and applied unchanged across the paired sham and intervention conditions."
+    },
+    "T1": {
+      "metric": "dominant slow-oscillation peak frequency plus frequency-lock validation",
+      "welch": {"fs_hz": 200, "window": "hann", "nperseg": 12000, "noverlap": 6000, "nfft": 24000, "detrend": "constant", "scaling": "density", "peak_band_hz": [0.4, 1.5], "tie_rule": "lowest-frequency maximum"},
+      "peak_refinement": "three-bin parabolic interpolation in log power; use the discrete bin at either boundary",
+      "locking": "PLV=abs(mean(exp(i*(phase_SO-2*pi*f_drive*t)))) after the edge exclusion; phase_SO is the Hilbert phase of the 0.3-1.5 Hz filtered signal",
+      "validity": "Welch power finite and positive, peak not at 0.4 or 1.5 Hz, at least 30 valid SO cycles"
+    },
+    "T2_T3_SO_events": {
+      "band_hz": [0.3, 1.5],
+      "cycle_boundary": "successive upward zero crossings",
+      "cycle_duration_seconds": [0.4, 2.5],
+      "event_thresholds": {"minimum_peak_to_peak_m_u": 0.10, "maximum_negative_trough_m_u": -0.04},
+      "event_containment": "both cycle boundaries and extrema must lie strictly inside the analysis interval after edge exclusion",
+      "T2_metric": "median(max-min) across valid SO events",
+      "T3_metric": "60*valid_event_count/retained_duration_seconds",
+      "zero_event_rule": "T3 density is zero if retained duration is valid; T2 is NOT_ESTIMABLE if fewer than 30 events"
+    },
+    "T4_T5_spindle_events": {
+      "band_hz": [11.0, 16.0],
+      "envelope": "sqrt(moving_mean(sigma_signal^2)) with a centered 0.200 s boxcar",
+      "threshold_calibration": "For each seed-draw block, threshold constants are derived once from its sham: high=median+3*MAD and low=median+1.5*MAD, MAD=1.4826*median(abs(x-median(x))). The same constants are applied to every condition in that block.",
+      "event_rule": "start on high-threshold crossing, extend to surrounding low-threshold crossings, merge gaps <=0.100 s, retain durations 0.300-2.000 s, enforce strict containment",
+      "T4_metric": "60*spindle_count/retained_duration_seconds",
+      "T5_metric": "median event RMS of the unthresholded 11-16 Hz signal",
+      "zero_event_rule": "T4 density is zero; T5 is NOT_ESTIMABLE if fewer than 10 retained events"
+    },
+    "T4_added_event_attribution": {
+      "comparison": "Apply only to the primary relay-directed d=+1.5 GF_TR_SIGMA_PACKET_BALANCE condition versus its exact paired sham within each of the 36 worker seed-draw blocks. The same algorithm is descriptive for other positive packet doses.",
+      "event_time": "For each retained spindle event, peak_sample is the earliest stored 200 Hz sample attaining the maximum frozen RMS envelope inside the event. Event IDs are assigned by onset sample then offset sample.",
+      "candidate_match": "Create every sham/intervention event pair with abs(intervention_peak_sample-sham_peak_sample)<=50 samples (0.250 s).",
+      "one_to_one_algorithm": "Sort candidate pairs lexicographically by absolute peak difference, intervention peak sample, sham peak sample, intervention event ID, sham event ID. Traverse once; accept a pair only when neither event is already matched. This greedy result is final.",
+      "added_and_lost": "Every unmatched intervention event is ADDED. Every unmatched sham event is LOST. Matched events are PAIRED_EXISTING. No many-to-one matching, rematching, or amplitude-based matching is permitted.",
+      "packet_schedule_for_attribution": "For packet index p=0,1,... set scheduler start s_p=floor(p*200/0.85+0.5) relative to analysis t=0 and internal start j_p=30000+5*s_p. Retain packets with j_p+500<=210000. Packet stop at stored resolution is the half-open sample s_p+100.",
+      "packet_association": "An ADDED event is associated with a packet when packet_start_sample<=event_peak_sample<packet_stop_sample+50. If multiple packets qualify, select the smallest abs(event_peak_sample-packet_stop_sample), then the earlier packet_start_sample. Otherwise classify it UNASSOCIATED_ADDED.",
+      "post_packet_autonomous_cycle": "On the frozen 11-16 Hz filtered signal, enumerate upward zero crossings z where sigma[z-1]<0 and sigma[z]>=0. A packet-associated ADDED event has an autonomous post-packet cycle only if two successive crossings z1,z2 satisfy packet_stop_sample<z1<z2<event_offset_sample and 13<=z2-z1<=19 samples. The crossings must both lie strictly inside that same event.",
+      "classes": ["AUTONOMOUS_PACKET_ASSOCIATED_ADDED", "PACKET_REPLICA_ADDED", "UNASSOCIATED_ADDED"],
+      "class_rule": "Packet-associated with a qualifying post-offset cycle is AUTONOMOUS_PACKET_ASSOCIATED_ADDED; packet-associated without one is PACKET_REPLICA_ADDED; no packet association is UNASSOCIATED_ADDED.",
+      "denominator": "Pool all ADDED events from the +1.5 versus sham comparison across valid blocks. Require N_added>=30 and at least 10 distinct blocks containing one or more ADDED events. F_auto=N_autonomous/N_added and F_replica=N_packet_replica/N_added; unassociated events remain in the denominator.",
+      "simultaneous_inference": "F_auto-0.50 is a member of F_TARGET_DECISIONS. If the base denominator passes but a hierarchical bootstrap resample contains zero added events, use F_auto=0 for that bootstrap replicate and log ZERO_ADDED_BOOTSTRAP.",
+      "decision_and_grade": {
+        "PASS": "N_added and block minima pass, simultaneous lower 95% bound for F_auto-0.50 is >0, T4 density criteria pass, and no artifact/stability veto fires.",
+        "D": "Classifier and denominator are valid with F_replica<0.50, but the density margin fails, F_auto point estimate is <0.50, or its simultaneous lower bound is <=0.",
+        "F": "F_replica>=0.50, or matching/detector/packet-timing error, instability, threshold drift, or direct-forcing artifact materially generates the apparent density effect.",
+        "NOT_ESTIMABLE": "N_added<30, fewer than 10 blocks contain ADDED events, or required event/paired-sham data are undefined without an artifact finding."
+      },
+      "required_log": ["block_id", "event IDs and onset/offset/peak samples", "candidate pairs", "accepted pairs", "added events", "lost events", "associated packet", "post-offset crossings", "class", "N_added", "F_auto", "F_replica"]
+    },
+    "T6": {
+      "metric": "surrogate-bias-corrected Tort modulation index",
+      "phase": "Hilbert angle of the 0.3-1.5 Hz filtered signal",
+      "amplitude": "absolute Hilbert transform of the 11-16 Hz filtered signal",
+      "phase_bins": 18,
+      "formula": "MI=(log(18)+sum_j(P_j*log(P_j)))/log(18), where P_j is mean sigma amplitude in bin j divided by the sum across bins; 0*log(0)=0",
+      "surrogate_rule": "subtract the median MI of 200 circular amplitude-envelope shifts; shift samples are generated without replacement from integer lags corresponding to 10.000 through 170.000 s using PCG64(seed+600000)",
+      "validity": "all 18 phase bins populated, at least 30 SO cycles and at least 10 spindle events"
+    },
+    "T7": {
+      "metric": "circular mean SO phase of within-spindle sigma-envelope maxima",
+      "formula": "atan2(sum(sin(phi_e)),sum(cos(phi_e))) in [-pi,pi); ties in envelope maxima use earliest sample",
+      "concentration": "R=abs(mean(exp(i*phi_e)))",
+      "validity": "at least 10 spindle events, at least 30 SO cycles, and R>=0.20"
+    },
+    "T8": {
+      "metric": "mixed SO-spindle model-regime occupancy",
+      "retained_interval": "The common 10 s edge exclusion applies. The retained half-open interval is analysis time [10,170) s, stored samples [2000,34000) at 200 Hz.",
+      "windows": [
+        {"window_id": "W1", "time_seconds": [15, 40], "sample_indices_half_open": [3000, 8000]},
+        {"window_id": "W2", "time_seconds": [40, 65], "sample_indices_half_open": [8000, 13000]},
+        {"window_id": "W3", "time_seconds": [65, 90], "sample_indices_half_open": [13000, 18000]},
+        {"window_id": "W4", "time_seconds": [90, 115], "sample_indices_half_open": [18000, 23000]},
+        {"window_id": "W5", "time_seconds": [115, 140], "sample_indices_half_open": [23000, 28000]},
+        {"window_id": "W6", "time_seconds": [140, 165], "sample_indices_half_open": [28000, 33000]}
+      ],
+      "window_duration_seconds": 25,
+      "placement_rationale": "Six adjacent 25 s windows occupy the centered 150 s subinterval [15,165), leaving 5 s unused at each side of the already edge-retained [10,170) interval.",
+      "filter_and_threshold_scope": "Compute the registered zero-phase SO and sigma filters once on the complete 180 s analysis signal. Calibrate spindle high/low thresholds once from the paired sham over retained [10,170) s. Apply those unchanged filtered arrays and thresholds to all six windows and all paired intervention conditions.",
+      "strict_event_containment": "An SO or spindle event contributes to a window only if its onset, offset, and detector extrema/peak samples are all strictly greater than the window start sample and strictly less than the window stop sample. Boundary-touching and cross-window events contribute to no T8 window and are logged once as T8_BOUNDARY_REJECT.",
+      "per_window_welch": {"fs_hz": 200, "window": "hann", "nperseg": 5000, "noverlap": 0, "nfft": 10000, "detrend": "constant", "scaling": "density", "peak_band_hz": [0.4, 1.5], "tie_rule": "lowest-frequency maximum", "peak_refinement": "three-bin parabolic interpolation in log power; use the discrete bin when the maximum is at either peak-band boundary"},
+      "window_is_valid_regime": "all rates finite and their means in [0.5,60] Hz; dominant SO peak in [0.5,1.25] Hz; SO median peak-to-peak in [0.10,2.00] m.u.; SO density in [10,90] events/min; spindle density in [0.5,20] events/min; and 11-16 Hz power divided by 4-30 Hz power in [0.02,0.60]",
+      "metric_formula": "number of valid-regime windows/6",
+      "transition_persistence": "an intervention-induced regime requires at least two consecutive valid-regime windows",
+      "invalidity": "solver or state invalidity is never a regime transition"
+    }
+  },
+  "detector_preflight": {
+    "status_required_before_phase2a": "PASS_ALL",
+    "tests": [
+      {"test_id": "PF_NUMERIC_ZERO", "fixture": "180 s all-zero signal", "expected": "T3=0 events/min, T4=0 spindles/min, T2/T5/T6/T7 NOT_ESTIMABLE; no exception"},
+      {"test_id": "PF_T1_FREQUENCY", "fixture": "x=sin(2*pi*0.80*t)", "expected": "T1 peak within 0.02 Hz of 0.80 and PLV>=0.99 at a 0.80 Hz reference"},
+      {"test_id": "PF_SO_EVENTS", "fixture": "x=0.20*sin(2*pi*0.80*t)", "expected": "T3 within 1 event/min of 48 and T2 within 0.01 m.u. of 0.40 after edge handling"},
+      {"test_id": "PF_SPINDLE_EVENTS", "fixture": "thirteen nonoverlapping 1.0 s 13 Hz Hann bursts placed inside a 180 s signal", "expected": "exactly 13 retained spindle events and median duration within 0.05 s of 1.0"},
+      {"test_id": "PF_COUPLING_POSITIVE", "fixture": "0.8 Hz carrier phase with 13 Hz burst envelope centered at phase 0 each cycle", "expected": "bias-corrected T6 MI greater than 0.01 and T7 absolute phase error <=pi/12"},
+      {"test_id": "PF_COUPLING_NULL", "fixture": "same slow carrier with sigma envelope circularly shifted independently each cycle by PCG64(900001)", "expected": "absolute bias-corrected T6 MI <=0.01"},
+      {"test_id": "PF_EDGE_CONTAINMENT", "fixture": "events straddling both analysis boundaries plus one interior event", "expected": "only the interior event is retained"},
+      {"test_id": "PF_BROADBAND_VETO", "fixture": "broadband variance doubled without changing the isolated 13 Hz burst", "expected": "T5 specificity veto is triggered if 4-30 Hz power rises more than 25 percent while sigma fraction fails to rise"},
+      {"test_id": "PF_SOLVER_REPEAT", "fixture": "10 s nominal bench simulation repeated with seed 123457", "expected": "state arrays are byte-identical, finite, unclipped, and within [-1e-6,rmax+1e-6]"},
+      {"test_id": "PF_CAUSAL_PHASE_SCHEDULER", "fixture": "Feed the exact causal scheduler 30 s warmup plus 12 s analysis of x[n]=sin(2*pi*0.8*n/200) for every canonical Level-A phase; disable model dynamics.", "expected": "Accepted period history equals 250 samples after transient; phi=0 starts one sample after its crossing, +pi/2 starts 63 samples after crossing, -pi/2 starts 188 samples after crossing, and -pi starts 125 samples after crossing under round-half-up; every crossing has one decision log and +pi is rejected as noncanonical."},
+      {"test_id": "PF_CAUSAL_QUEUE", "fixture": "Synthetic accepted crossing schedule with proposed packet intervals that overlap, exactly touch, exceed queue length two, and cross the analysis stop.", "expected": "Overlap is skipped, half-open exact touching is accepted, third future packet is QUEUE_FULL, boundary-crossing packet is OUTSIDE_ANALYSIS_SKIP, and no packet samples are summed or truncated."},
+      {"test_id": "PF_T8_WINDOWS", "fixture": "A 180 s analytic mixed signal with events at every T8 window boundary and interior plus a known 0.8 Hz spectral peak.", "expected": "Window sample pairs exactly equal [3000,8000),[8000,13000),[13000,18000),[18000,23000),[23000,28000),[28000,33000); boundary-touching events are rejected; each Welch call uses nperseg=5000 and returns a peak within 0.02 Hz of 0.8."},
+      {"test_id": "PF_T4_EVENT_ATTRIBUTION", "fixture": "Paired synthetic sham/intervention event tables containing unique matches, equal-distance ties, unmatched events, multiple packet associations, one post-offset 13 Hz cycle, and direct packet replicas.", "expected": "Greedy match order, tie resolution, ADDED/LOST counts, earliest tied packet, autonomous/replica/unassociated classes, N_added, F_auto, and F_replica exactly match the frozen hand-calculated fixture manifest."},
+      {"test_id": "PF_DETECTOR_PERTURB", "fixture": "repeat analytic fixtures at fs 199.999 and 200.001 Hz and filter order 3 and 5 as sensitivity only", "expected": "event counts differ by at most one and continuous metrics differ by at most 5 percent; registered order 4 remains the official metric"}
+    ],
+    "failure_action": "Stop before scientific Phase 2A. An outcome-blind implementation repair may use the remaining campaign repair authority only if separately authorized; this protocol itself does not authorize a repair."
+  },
+  "phase2a": {
+    "status": "DESIGNED_NOT_EXECUTED",
+    "evidence_label": "SYNTHETIC",
+    "mandatory_targets": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "priority_classes": {"primary": ["T1", "T4", "T6"], "secondary": ["T2", "T3", "T5", "T7"], "exploratory": ["T8"]},
+    "level_a_single_channel_grids": {
+      "T1": {"channel": "GF_E_SLOW_SINE", "amplitude_hz_equivalent": 0.8, "drive_frequencies_hz": [0.55, 0.70, 0.85, 1.00, 1.15], "sham": "all u channels zero"},
+      "T2": {"channel": "GF_E_DC", "dose_hz_equivalent": [-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5]},
+      "T3": {"channel": "GF_E_SO_PULSE", "dose_hz_equivalent": [-2.0, -1.25, -0.5, 0.0, 0.5, 1.25, 2.0]},
+      "T4": {"channel": "GF_TR_SIGMA_PACKET_BALANCE", "dose_hz_equivalent": [-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5]},
+      "T5": {"channel": "GF_TR_SIGMA_CONTINUOUS_BALANCE", "dose_hz_equivalent": [-1.2, -0.8, -0.4, 0.0, 0.4, 0.8, 1.2]},
+      "T6_T7_SHARED": {"channel": "GF_T_PHASE_LOCKED_PACKET", "phase_offsets_radians_canonical_unique": [-3.141592653589793, -2.0943951023931953, -1.5707963267948966, -1.0471975511965976, 0.0, 1.0471975511965976, 1.5707963267948966, 2.0943951023931953], "fixed_amplitude_hz_equivalent": 1.0, "sham": "amplitude zero", "endpoint_rule": "-pi is the sole representative of the circular pi endpoint; +pi is not executed"},
+      "T8": {"channel": "GF_BALANCED_DC", "dose_hz_equivalent": [-2.0, -1.25, -0.5, 0.0, 0.5, 1.25, 2.0]}
+    },
+    "replication": {
+      "worker_seeds": 6,
+      "parameter_draws": 6,
+      "paired_seed_draw_blocks_per_condition": 36,
+      "minimum_valid_paired_blocks_per_registered contrast": 30,
+      "minimum_distinct_seeds": 5,
+      "minimum_distinct_parameter_draws": 5
+    },
+    "unique_simulation_count": {
+      "level_a_condition_sets_per_seed_draw": 50,
+      "seed_draw_blocks": 36,
+      "maximum_level_a_runs": 1800,
+      "deduplication": "T6 and T7 reuse the same trajectories; every run supplies all eight metrics for the cross-target matrix."
+    },
+    "analysis_order": ["detector preflight", "all sham blocks", "T1", "T2", "T3", "T4", "T5", "shared T6/T7", "T8", "cross-target matrix", "conditional Level B"],
+    "blinding": "Only implementation/schema/validity flags may be inspected until all Level A trajectories, metrics, and immutable per-target checkpoints are complete.",
+    "negative_result_rule": "Every valid null, adverse, nonmonotonic, or practically negligible result is retained. No target, dose, seed, or draw may be silently removed.",
+    "invalid_run_rule": "Nonfinite state, rate outside [-1e-6,rmax+1e-6], solver/schema failure, detector contradiction, or missing paired sham marks the pair INVALID; instability is not efficacy.",
+    "conditional_level_b": {
+      "purpose": "Prospectively bounded two-coordinate response surfaces for mechanistic diagnosis, not formal C2.",
+      "eligibility": "A target is eligible only if Level A has at least 30 valid paired blocks, at least 95 percent stable runs, meets its practical margin with a simultaneous 95 percent interval, has no hard off-target veto, and has a dose-ordered response in at least 4 of 6 draws.",
+      "selection_cap": 3,
+      "deterministic_order": "Sort eligible targets by priority class primary before secondary before exploratory, then descending lower-confidence-bound margin slack normalized by the target practical margin, then target_id ascending.",
+      "grids": {
+        "T1": "5 drive frequencies already registered crossed with amplitudes [0.4,0.6,0.8,1.0,1.2] Hz-equivalent",
+        "T2": "GF_E_DC doses [-1.5,-0.75,0,0.75,1.5] crossed with GF_E_SLOW_SINE amplitudes [0,0.3,0.6,0.9,1.2] at 0.85 Hz",
+        "T3": "pulse doses [-2,-1,0,1,2] crossed with pulse repetition frequencies [0.55,0.70,0.85,1.00,1.15] Hz",
+        "T4": "packet-balance doses [-1.5,-0.75,0,0.75,1.5] crossed with carrier frequencies [11,12,13,14,15] Hz",
+        "T5": "continuous-balance doses [-1.2,-0.6,0,0.6,1.2] crossed with carrier frequencies [11,12,13,14,15] Hz",
+        "T6": "phase offsets [-pi,-pi/2,0,pi/2,pi] crossed with amplitudes [0,0.25,0.5,0.75,1.0] Hz-equivalent",
+        "T7": "phase offsets [-pi,-pi/2,0,pi/2,pi] crossed with carrier frequencies [11,12,13,14,15] Hz",
+        "T8": "balanced doses [-2,-1,0,1,2] crossed with fixed-duration exposure fractions [0.2,0.4,0.6,0.8,1.0] of each 25 s window"
+      },
+      "replication": "Use worker seeds [11003,33013,55021,66029] and draws [D00_NOMINAL,D02,D04], giving 12 paired blocks per cell.",
+      "maximum_runs": 900,
+      "no_level_c": "No PID, adaptive, reinforcement-learning, or model-predictive controller is included in V2. The causal phase-triggered packet is a fixed event-triggered policy, not an optimized controller."
+    },
+    "cross_target_matrix": {
+      "shape": [8, 8],
+      "row_definition": "registered intervention family optimized only by the deterministic fixed-grid target-benefit rule for T_i on worker selection seeds",
+      "column_definition": "paired effect on T1 through T8 on disjoint verification seeds",
+      "labels": {
+        "intended improvement": "target-oriented effect meets its practical margin and has the intended sign",
+        "beneficial secondary effect": "non-target effect meets that target's margin without a veto",
+        "negligible": "simultaneous interval lies within plus or minus that target's practical margin",
+        "trade-off": "non-target effect crosses its adverse practical margin",
+        "unacceptable collateral effect": "any hard stability, plausibility, broadband, detector, silence, saturation, or regime-collapse veto"
+      },
+      "missing_rule": "Undefined event-dependent cells remain NOT_ESTIMABLE and are never replaced with zero."
+    },
+    "evidence_grading": {
+      "A": "Reserved for robust subject-dependent mechanistic control with eligible human-subject model denominators; impossible for this bench package.",
+      "B": "Reserved for a transferable, robust in-silico control claim on the exact eligible candidate; impossible because R4 executable identity is absent.",
+      "C": "Maximum bench grade: all registered diagnostic response, uncertainty, stability, specificity, detector, and off-target criteria pass, but transfer and personalization remain unsupported.",
+      "D": "Valid execution does not meet the frozen diagnostic efficacy or robustness criteria.",
+      "F": "Apparent effect is invalid/artifactual because of instability, detector failure, broadband confounding, leakage, or protocol violation."
+    }
+  },
+  "phase2b": {
+    "formal_status": "NOT_ESTIMABLE",
+    "eligible_public_development_night1_subjects": 0,
+    "eligible_public_development_night1_personalized_models": 0,
+    "minimum_subjects": 3,
+    "same_candidate_r4_executable_identity_available": false,
+    "synthetic_substitution": "PROHIBITED",
+    "formal_execution_under_v2": "PROHIBITED",
+    "reason": "The frozen data-feasibility receipt certifies zero eligible Night-1 personalized models and no exact R4 executable identity. This is decided before Phase 2A outcomes and cannot be reversed within Candidate V2.",
+    "future_resolution": "A new governance-approved exact release would require a new prospectively frozen protocol version before any affected outcome is viewed."
+  },
+  "uncertainty_and_statistics": {
+    "primary_effect_interval": "paired hierarchical percentile bootstrap with 10000 resamples using PCG64(860216): resample parameter draws, then paired seeds within selected draws; compute the registered estimand; report two-sided 95 percent interval",
+    "sensitivity_interval": "studentized paired mean interval is reported only as a secondary sensitivity check",
+    "simultaneous_95_construction": {
+      "method": "studentized max-absolute-deviation paired hierarchical bootstrap",
+      "bootstrap_replicates": 10000,
+      "pairing": "A single hierarchical resample index is applied jointly to sham, every intervention condition, every target component, and every off-target outcome in the applicable family.",
+      "phase2a_resampling_unit": "Draw six parameter-draw indices with replacement from D00-D05. For each selected draw occurrence, draw six worker-seed indices with replacement from the six paired seeds. Repeated draw occurrences receive independent seed resamples.",
+      "point_statistic_orientation": "Express each registered numeric requirement as a scalar margin slack z_k with PASS direction z_k>0. For upper-limit requirements use limit-estimate; for lower-limit requirements use estimate-limit. Proportions and correlations are treated on their registered scales.",
+      "bootstrap_deviation": "For noncircular scalar slack k, delta[b,k]=z_boot[b,k]-z_hat[k]. For a raw circular angle, delta[b,k]=atan2(sin(theta_boot-theta_hat),cos(theta_boot-theta_hat)); target rules based on circular distance first convert the wrapped angle to the registered scalar distance and then orient the margin slack.",
+      "scale": "s_k=max(std(delta[:,k],ddof=1),1e-12*max(1,abs(z_hat[k]))).",
+      "joint_statistic": "M_b=max over all estimable k in the frozen family of abs(delta[b,k])/s_k.",
+      "quantile": "Sort M_1 through M_10000 ascending and use the 9501st order statistic (one-based), equivalently numpy.partition(M,9500)[9500].",
+      "band": "Simultaneous two-sided 95 percent band for slack k is [z_hat[k]-q*s_k,z_hat[k]+q*s_k]. A required benefit passes only when its simultaneous lower bound is strictly greater than zero.",
+      "circular_width_failure": "If a raw circular tangent-scale half-width q*s_k is >=pi, mark that component NOT_ESTIMABLE; it cannot pass and is not converted to a linear interval.",
+      "zero_variance": "The registered scale floor is used; if all bootstrap values equal the point estimate, the simultaneous band has the resulting finite floor width rather than zero.",
+      "distinction_from_holm": "These bands control joint effect-size uncertainty. Holm step-down tests remain the separately frozen across-target hypothesis-test multiplicity rule and cannot replace the simultaneous bands."
+    },
+    "simultaneous_families": {
+      "F_TARGET_DECISIONS": {
+        "seed": 860218,
+        "resampling": "six draws by six worker seeds as specified above",
+        "family_members": {
+          "T1": ["E1-0.05", "PLV_low-0.50", "PLV_high-0.50", "move_fraction_low-0.80", "move_fraction_high-0.80"],
+          "T2": ["E2-0.15", "fractional_positive_endpoint_gain-0.05", "fractional_negative_endpoint_reduction-0.05"],
+          "T3": ["E3-3.0", "positive_endpoint_gain_events_per_min-1.5", "negative_endpoint_reduction_events_per_min-1.5"],
+          "T4": ["E4-1.0", "positive_endpoint_gain_spindles_per_min-0.5", "negative_endpoint_reduction_spindles_per_min-0.5", "autonomous_added_event_fraction-0.50"],
+          "T5": ["E5-0.15", "fractional_positive_endpoint_gain-0.05", "fractional_negative_endpoint_reduction-0.05"],
+          "T6": ["E6-0.010", "positive_block_fraction-0.75"],
+          "T7": ["circular_correlation-0.70", "pi_over_6-median_absolute_tracking_error", "observed_phase_separation-pi_over_3"],
+          "T8": ["E8-one_third"]
+        },
+        "missing_component_rule": "If a point component is undefined under its frozen event/window denominator, that target is NOT_ESTIMABLE and cannot pass. The missing component is omitted from M_b for other targets, and the exact omitted member is logged; it is never imputed as zero. For T4 only, a bootstrap resample with zero added events after the base denominator passed assigns autonomous fraction zero in that bootstrap replicate.",
+        "decision_use": "Every scalar target margin listed above must have simultaneous lower bound>0, in addition to the frozen Holm test, binary stability, persistence, dose-order, and hard-veto rules."
+      },
+      "F_LEVEL_B_SURFACES": {
+        "seed": 860220,
+        "resampling": "For each selected surface jointly draw three registered Level-B parameter draws with replacement and, within each selected draw occurrence, four registered Level-B seeds with replacement.",
+        "family_members": "Every target-oriented normalized effect-minus-one margin slack for every executed cell in all selected 5x5 surfaces; at most 75 cells form one family, not separate per-surface families.",
+        "statistic": "Use the common max-absolute-deviation construction across all estimable executed cells.",
+        "missing_cell_rule": "A cell lacking its frozen metric/event denominator is NOT_ESTIMABLE and omitted from M_b, but any missing required cell makes its entire 5x5 surface NOT_ESTIMABLE for mechanistic support or Grade C. Other cell bands remain descriptive and the missingness map is mandatory.",
+        "eligibility_use": "Level-B launch eligibility remains based only on completed Level-A F_TARGET_DECISIONS bands; Level-B outcomes cannot retroactively alter eligibility."
+      },
+      "F_CROSS_TARGET_8X8": {
+        "seed": 860221,
+        "resampling": "Jointly resample six parameter draws and, within each, the four disjoint verifier seeds; keep each row policy fixed from worker-seed selection.",
+        "family_members": "All 64 row-policy by column-outcome standardized target-oriented effects, each divided by that column target's practical margin.",
+        "statistic": "Use the common max-absolute-deviation construction across all estimable cells.",
+        "circular_handling": "For T7 column cells, compute each resample's circular mean by complex resultant, wrap the policy-minus-sham difference to [-pi,pi), convert it to the registered scalar tracking-benefit or adverse-distance orientation, and only then studentize.",
+        "classification": "Hard veto gives unacceptable collateral effect. Otherwise a diagonal cell with lower band>1 is intended improvement; an off-diagonal cell with lower band>1 is beneficial secondary effect; a band wholly within [-1,1] is negligible; every other estimable cell is conservatively a trade-off.",
+        "missing_cell_rule": "A missing event-dependent cell is NOT_ESTIMABLE, never zero or negligible. Any missing cell in a policy row prevents that row from passing the complete off-target requirement, Grade C, advancement, or C2-G8; bands for remaining cells are reported with exact family membership."
+      },
+      "F_FORMAL_C2_INTERACTIONS": {
+        "seed": 860222,
+        "resampling": "If a future protocol is eligible, jointly resample subjects, then within-subject model/posterior draws and paired evaluation seeds.",
+        "family_members": "I_pop-0.25, I_wrong-0.25, and R_between-1.5 for every formally selected target in one family.",
+        "current_status": "NOT_ESTIMABLE"
+      }
+    },
+    "familywise_multiplicity": "Holm step-down at alpha=0.05 over primary T1,T4,T6. Secondary T2,T3,T5,T7 are tested by a separate Holm family at alpha=0.05 only if at least one primary passes; otherwise secondary results are descriptive. T8 is exploratory and cannot support advancement under V2.",
+    "dose_selection": "Any dose selected for a diagnostic policy is the smallest absolute dose attaining the maximal registered target-benefit score on worker seeds; ties then use the numerically smaller signed dose. Performance is evaluated on disjoint verifier seeds.",
+    "missingness": "No imputation. Missing event-dependent metrics remain NOT_ESTIMABLE; invalid simulations remain INVALID.",
+    "attempt_budget": "One frozen scientific execution per run identity; infrastructure reruns require byte-identical inputs and must not follow scientific outcome inspection."
+  },
+  "stability_and_plausibility": {
+    "hard_rules": [
+      "all stored states and metrics finite",
+      "all rates within [-1e-6,rmax+1e-6] without clipping",
+      "mean rate of every population between 0.5 and 60 Hz for a valid model-level physiological window",
+      "no more than 1 percent of samples below 0.01 Hz or above 95 Hz",
+      "4-30 Hz total power no more than four times paired sham",
+      "detector retained-duration fraction at least 0.85",
+      "at least 95 percent of all prescribed dose-seed-draw runs stable"
+    ],
+    "off_target_vetoes": [
+      "broadband 4-30 Hz power increases by more than 25 percent without an increased target-band fraction",
+      "SO or spindle detector threshold changes between paired conditions",
+      "SO or spindle events appear only because the signal mean or variance is rescaled",
+      "silence, saturation, solver divergence, clipping, or T8 regime invalidity",
+      "any non-target primary metric crosses its adverse practical margin with a simultaneous interval"
+    ]
+  },
+  "compute_envelope": {
+    "campaign_total_cpu_hours": 180,
+    "phase2a_worker_cpu_hour_cap": 60,
+    "independent_verification_cpu_hours_reserved": 50,
+    "verification_reserve_worker_use": "PROHIBITED",
+    "level_a_maximum_runs": 1800,
+    "conditional_level_b_maximum_runs": 900,
+    "per_run_simulated_seconds": 210,
+    "storage_hard_stop_gib": 45,
+    "wall_clock_deadline": "2026-08-18T23:59:59-04:00",
+    "budget_stop": "Complete all eight Level A targets before any Level B surface; if 52 Phase2A worker CPU-hours are consumed, prohibit new Level B launches and reserve the remaining 8 hours for completion/checkpointing.",
+    "checkpoint": "Write an immutable result block after every target and seed-draw block; resume only byte-identical incomplete run identities; preserve valid negatives."
+  },
+  "verification": {
+    "required_for_any_reportable_diagnostic_support": true,
+    "verifier_inputs": ["frozen protocol", "immutable implementation hash", "environment hash", "seed list", "parameter-draw manifest", "metric definitions", "expected schema"],
+    "verifier_seeds": [77041, 88069, 99079, 111091],
+    "required_outputs": ["NUMERIC_REPRODUCTION", "PROCEDURAL_FIDELITY", "SEED_PAIRING_AGREEMENT", "DETECTOR_AGREEMENT", "CLAIM_AGREEMENT", "MATERIAL_DISAGREEMENT"],
+    "pass_rule": "VERIFIED and MATERIAL_DISAGREEMENT=false with exact protocol/input hashes; this can support only the non-transferable diagnostic ceiling."
+  },
+  "prohibited_actions": [
+    "access any R4 file or referenced artifact",
+    "access repository data, fitted parameters, scientific configuration, historical code, outputs, protected-derived, Night-2, sealed, fresh-final, or confirmatory material",
+    "tune equations, thresholds, grids, target priority, margins, or detectors after target outcomes are visible",
+    "call a fitted parameter perturbation an intervention",
+    "call generic forcing auditory-like stimulation",
+    "replace missing eligible subjects with synthetic draws",
+    "assign C1 or C2 to PHASE2_CONTROL_BENCH_V1",
+    "change the categorical R4 M1/C0/P0 substrate"
+  ]
+}

@@ -1,0 +1,2331 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "artifact_type": "NONHISTORICAL_REPOSITORY_EXACT_FILE_AUDIT_DECISIONS",
+  "auditor_identity": "/root/repository_input_audit",
+  "audited_at": "2026-08-16T11:47:03.9798983-04:00",
+  "authority_and_boundary": {
+    "controls_read": [
+      "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\NONHISTORICAL_METADATA_RELEASE.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\PROTECTED_DENYLIST.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\SANITIZER_OUTPUT_AUDIT.json",
+      "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\NONHISTORICAL_METADATA_CANDIDATES.json"
+    ],
+    "candidate_groups_reviewed": [
+      "DOCUMENTATION_AND_ENVIRONMENT",
+      "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "TESTS_AND_OBSERVATION_CONTRACTS",
+      "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY"
+    ],
+    "exact_file_count": 54,
+    "directory_enumeration_performed": false,
+    "scientific_code_imported_or_executed": false,
+    "data_and_parameter_metadata_group_accessed": false,
+    "data_config_dependency_accessed": false,
+    "docs_outputs_validation_outputs_or_historical_campaign_content_accessed": false,
+    "protected_denylist_match_accessed": false,
+    "state_modified": false,
+    "official_historical_allowlist_modified": false
+  },
+  "classification_definitions": {
+    "CLEAN_ALLOWLISTED": "Clean only for the stated narrow static role; this audit is not an execution release.",
+    "UNRESOLVED": "No decisive outcome contamination found, but method/dependency/provenance or import safety prevents release.",
+    "QUARANTINED": "Outcome-guided, prior-result-bearing, data-specific, or unsafe historical content; governance inventory only.",
+    "DENIED": "Primary operation necessarily consumes excluded/protected output state or selected checkpoints; no scientific use."
+  },
+  "summary": {
+    "total": 54,
+    "by_class": {
+      "QUARANTINED": 43,
+      "CLEAN_ALLOWLISTED": 6,
+      "UNRESOLVED": 2,
+      "DENIED": 3
+    },
+    "by_group": {
+      "DOCUMENTATION_AND_ENVIRONMENT": {
+        "total": 2,
+        "CLEAN_ALLOWLISTED": 1,
+        "QUARANTINED": 1,
+        "UNRESOLVED": 0,
+        "DENIED": 0
+      },
+      "MODEL_AND_CONTROL_IMPLEMENTATIONS": {
+        "total": 23,
+        "CLEAN_ALLOWLISTED": 2,
+        "QUARANTINED": 18,
+        "UNRESOLVED": 2,
+        "DENIED": 1
+      },
+      "TESTS_AND_OBSERVATION_CONTRACTS": {
+        "total": 9,
+        "CLEAN_ALLOWLISTED": 2,
+        "QUARANTINED": 6,
+        "UNRESOLVED": 0,
+        "DENIED": 1
+      },
+      "DETECTOR_AND_METRIC_IMPLEMENTATIONS": {
+        "total": 9,
+        "CLEAN_ALLOWLISTED": 1,
+        "QUARANTINED": 7,
+        "UNRESOLVED": 0,
+        "DENIED": 1
+      },
+      "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY": {
+        "total": 11,
+        "CLEAN_ALLOWLISTED": 0,
+        "QUARANTINED": 11,
+        "UNRESOLVED": 0,
+        "DENIED": 0
+      }
+    },
+    "canonical_personalized_simulator_established": false,
+    "scientific_winner_selected": false,
+    "data_config_status": "PENDING_INDEPENDENT_DATA_AUDIT",
+    "access_inheritance": "NONE",
+    "cleanliness_inheritance": "NONE"
+  },
+  "decisions": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\README.md",
+      "sha256": "6F2A2E00D7E1CC7440A05175E89A1F61B52B57FD50ADC3AAAAFD84DA1ED643B6",
+      "candidate_group": "DOCUMENTATION_AND_ENVIRONMENT",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Repository overview embeds an outcome-guided recommendation that V3 is the current/main result path and directs readers to prior data, docs, and outputs; it also contains stale environment text contradicted by the present requirements file.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Repository lineage/context inventory only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use its V3 recommendation, version ordering, or output descriptions to choose a scientific implementation."
+      ],
+      "capabilities": [
+        "Repository layout and dependency-name context."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v3_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\evolution_fig7_v3_records.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\requirements.txt",
+      "sha256": "464AC31370FDDBB5536B885E8E1CD86A55950043F7BFE114920E8532E277D6E6",
+      "candidate_group": "DOCUMENTATION_AND_ENVIRONMENT",
+      "class": "CLEAN_ALLOWLISTED",
+      "contamination_or_provenance": "Package-name inventory contains no results or outcome-guided ranking. Versions and hashes are absent, so it does not establish a reproducible environment.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Independent Method Reviewer"
+      ],
+      "permitted_purpose": "Dependency-name inventory only.",
+      "scientific_role_status": "NOT_RELEASED_FOR_EXECUTION; separate Root authorization and dependency audit required",
+      "prohibitions": [
+        "No scientific execution or result claim without separate authorization.",
+        "No data/config cleanliness inheritance.",
+        "Do not treat the unpinned list as an environment lock or proof of compatibility."
+      ],
+      "capabilities": [
+        "Names NumPy, pandas, SciPy, Matplotlib, MNE, neurolib, FOOOF, numba, jitcdde, Gymnasium, and Stable-Baselines3."
+      ],
+      "referenced_dependencies": [],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s3_sleep_kernel.py",
+      "sha256": "25EE900777E6BE4EC61A233C580973B4B3DFCB6FD5FFADF451B6C3E91847FB36",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "CLEAN_ALLOWLISTED",
+      "contamination_or_provenance": "No embedded prior-run outputs or rankings. Comments attribute parameters to literature and empirically discovered API/scaling behavior, which was not independently verified.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Independent Method Reviewer"
+      ],
+      "permitted_purpose": "Static network-topology and simulator-contract reference only.",
+      "scientific_role_status": "NOT_RELEASED_FOR_EXECUTION; separate Root authorization and dependency audit required",
+      "prohibitions": [
+        "No scientific execution or result claim without separate authorization.",
+        "No data/config cleanliness inheritance.",
+        "Do not import as a library: it has an unguarded simulation and output writes.",
+        "Do not adopt its fixed numerical parameters as personalized or canonical values."
+      ],
+      "capabilities": [
+        "Two-node cortical ALN/thalamic network construction; connectivity direction contract; cortical/thalamic EXC-rate extraction; backend fallback."
+      ],
+      "referenced_dependencies": [],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_0_isolated_thalamus_sweep.py",
+      "sha256": "21281FFF3AD37DEFECF8139ECE314A2F67F2575D91AA973FA74894895B3831F7",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Explicit V5 post-mortem, fixed prior best point, inherited thresholds, and outcome-led sweep/ranking contaminate the grid.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic lineage and metric-interface extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use the fixed point, grid, thresholds, scores, or rankings."
+      ],
+      "capabilities": [
+        "Thalamus grid; spindle-event, PSD, and PAC metrics."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "utils\\02_preprocess_psd.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\thalamus_sweep_3d.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\thalamus_sweep_3d.npz",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_0b_verify_golden_point.py",
+      "sha256": "133B3AF813F62C71DC12C758204B57F2322AEDF10BB2C8CDC0C3A8698B4963D3",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds sweep-selected primary/control points and predicted outcomes; it is a visual verification of prior winners.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic event/PAC and diagnostic-panel interface description only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use golden points, predictions, phase tolerances, or visual conclusions."
+      ],
+      "capabilities": [
+        "Fixed-configuration event verification, PAC, and diagnostic panels."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\golden_point_verification.png",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\golden_point_metrics.txt",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_0c_diagnose_v6_hotspots.py",
+      "sha256": "8C484DF140CF397E13E851C80F6B239F898BB8325AA9FBBF4E43438ABBF32963",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Starts from V6 outcome/failure, embeds selected hotspots and V6 thresholds, and is outcome-conditioned.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic T1-T12 schema and coupled/isolated interface extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not adopt test points, thresholds, hypotheses, bounds, or recommendations."
+      ],
+      "capabilities": [
+        "T1-T12 constraint battery, FOOOF rewards, coupled/isolated comparison."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "utils\\02_preprocess_psd.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\v6_hotspot_diagnosis.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_0d_scan_c_th2ctx_sweetspot.py",
+      "sha256": "29F0A518BCF471A71B2D161E143C01AED49EAA4D40254EA57C5CB2344F4BE88B",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Driven by prior hotspot outcomes and embeds known-good points, a sweet-spot grid, pass criteria, and a decision framework.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic scan/report-interface extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use the grid, hotspots, duration comparison, cutoffs, or V7 recommendation."
+      ],
+      "capabilities": [
+        "Coupling/duration scan, T4/T6/FOOOF metrics, heatmap/report generation."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "utils\\02_preprocess_psd.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\c_th2ctx_scan.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize.py",
+      "sha256": "7209FC8AA9E9C39DAB6EAC6BC2B80344414E7157628EC0D3A03A4797CB939325",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "UNRESOLVED",
+      "contamination_or_provenance": "No fitted winner was embedded, but provenance is unresolved because the target is built from an unaudited manifest and dynamic EDF/hypnogram paths; importing triggers module-level optimization and writes.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Independent Data/Method Auditor"
+      ],
+      "permitted_purpose": "Static candidate for the earliest personalized-fit contract pending independent data/method audit.",
+      "scientific_role_status": "DENIED_PENDING_RESOLUTION",
+      "prohibitions": [
+        "No import, execution, fitting, or canonical selection while unresolved.",
+        "No data/config cleanliness inheritance.",
+        "Do not construct targets or run differential evolution.",
+        "Printed and actual output naming is inconsistent."
+      ],
+      "capabilities": [
+        "Four-parameter personalized DE; manifest-driven N3 QC/Welch target; PSD-correlation fitness."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\target_psd_SC4001.npy",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\target_freqs_SC4001.npy",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7.py",
+      "sha256": "37717974074A484F088DB0CE406F0D6F4186325BFA42908EEA0FFE51D326DFCC",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "UNRESOLVED",
+      "contamination_or_provenance": "No fitted winner was embedded, but manifest/EDF/hypnogram provenance, private FOOOF internals, module-level DE side effects, and inconsistent output names remain unresolved.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Independent Data/Method Auditor"
+      ],
+      "permitted_purpose": "Static candidate for an eight-parameter personalized simulator/fitness contract pending independent audits.",
+      "scientific_role_status": "DENIED_PENDING_RESOLUTION",
+      "prohibitions": [
+        "No import, execution, fitting, or canonical selection while unresolved.",
+        "No data/config cleanliness inheritance.",
+        "Do not call it canonical until dependencies, FOOOF method, naming, and side effects are resolved."
+      ],
+      "capabilities": [
+        "Eight-parameter thalamocortical builder; target N3 PSD; FOOOF residual-shape fitness; DE and plotting."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v2.py",
+      "sha256": "FE20EC077EEE195C4F0415519C3E236844AF662C3313D46BC4ED789EA051DBDA",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Filename/docstring lineage mismatch; constraints and bounds were explicitly added after a prior persistent-DOWN outcome.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic version lineage and T1-T5 schema extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use bounds, thresholds, reward weights, or optimization results."
+      ],
+      "capabilities": [
+        "Eight-parameter builder, FOOOF shape, T1-T5 dynamics, DE."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v3.py",
+      "sha256": "4803B90FF98A7E5C50E1E058A7C24803398CCA2E6EB4EF92B45EFA4A7874B4E1",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Outcome-guided V2 correction plus a soft width gate, penalties, tuned weights/bounds, malformed comments, and broad exception suppression.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic builder and T1-T5/fitness interface extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not adopt gates, weights, bounds, thresholds, or outputs."
+      ],
+      "capabilities": [
+        "Eight-parameter simulator, N3 target, FOOOF shape, soft-constrained DE."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "utils\\02_preprocess_psd.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v4.py",
+      "sha256": "0F5A46D8B8BDFF4CEB1E7F49999920DAA5976962A23C0AEB21D4D3E6C740D685",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Explicit V3-derived loophole corrections and outcome-selected T4/T6/T7 thresholds and reward design.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic seven-constraint feasibility-schema extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not adopt thresholds, rewards, bounds, or rankings."
+      ],
+      "capabilities": [
+        "T1-T7 hard constraints and feasible-only FOOOF rewards."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "utils\\02_preprocess_psd.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v4_improve.py",
+      "sha256": "007C6FC0ECA3C700E6767D6B71D16EFFEC5FA1AC3DC5EFA55EF0251A319CD4D7",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Hardcodes the V4 best feasible vector and narrows every bound around that outcome.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic continuous-feasibility implementation review only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use the embedded winner, derived bounds, rankings, thresholds, or fitness."
+      ],
+      "capabilities": [
+        "V4 builder/constraints with continuous infeasible scoring."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v4_improve_v2.py",
+      "sha256": "C9938DCC65FF5870DEFA3B930669FA772DD96FA92C41F6C85334F9C931BCC214",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Retains the embedded V4 winner/bounds and adds an outcome-driven T8 event loophole fix; the docstring misnames its source.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic T8 event-contract extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use the winner, bounds, thresholds, or fitness."
+      ],
+      "capabilities": [
+        "Eight-constraint DE and envelope-event counting."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v5.py",
+      "sha256": "ECA74DF1B4D4D18A560F1F1C06E6B0C3363E5EE6BBAEC2D2CDE7AFFE4532C23A",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds the V4 best vector/bounds; T9/T10 were recalibrated from prior sweep/golden results and measured/predicted MI/phase outcomes.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic PAC interface/schema extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use thresholds, calibration values, fitted vector, bounds, or reward."
+      ],
+      "capabilities": [
+        "T1-T11, PAC MI/preferred phase, directional lag."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v6.py",
+      "sha256": "333A29288F2785932B43BB6CEE6B144D538F7D73A1EBAA2DAD99CBB37884028F",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Contains prior feasibility rates, expected outcomes, sweep counts/hotspots, a prior winner, calibrated bounds, and retuned T8/T12/T9/T10.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic T12 event-spectral-verification contract extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use bounds, thresholds, expectations, results, or rankings."
+      ],
+      "capabilities": [
+        "T1-T12, event spectral verification, PAC, DE."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v7.py",
+      "sha256": "AE7881C0DF252E561E3C2293259380C32503F90513BEAD6BFF44AEA5F0A1F25A",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds prior result rates, diagnostic values, failure analyses, a prior winner, and outcome-guided duration/bounds/T5/reward changes.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic pre-V8 simulator and T1-T12 signature extraction only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not adopt redesign choices, numbers, bounds, reward, or selected points."
+      ],
+      "capabilities": [
+        "Seeded eight-parameter builder; T1-T12; event-based SO/spindle rewards."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s4_personalize_fig7_v8.py",
+      "sha256": "9E4F525BEE282A7C3FFF2EA3A6557A41D8FDF4B6620B32DFF97058C58DD598B1",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Latest-by-lineage candidate explicitly patches a selected V7 outcome, retains prior/sweep-derived numbers, adds T13/weights/bound expansion, and dynamically imports an unaudited repair module.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic latest-interface candidate only; not canonical or approved.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use T13 thresholds, weights, bounds, or prior-point claims.",
+        "Do not resolve or import the repair dependency under this audit."
+      ],
+      "capabilities": [
+        "build_model, compute_constraints_v8, compute_fitness_v8, and T1-T13 interface signatures."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "utils\\02_preprocess_psd.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "S4_v7_repair\\compute_pac_metrics_fixed.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s5_bifurcation.py",
+      "sha256": "C101A99255C0931361CE443DF19E589E0E52A4E8946B3FAA852EEE88433BAE20",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Consumes a prior patient fit and embeds an empirically verified scale and outcome/risk cutoffs.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic generic grid-scan mechanics only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "No patient inference, risk classification, scale mapping, or threshold use."
+      ],
+      "capabilities": [
+        "Two-dimensional ALN scan and approximate bistability mask/distance."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\patient_params.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\bifurcation_summary.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s6_baseline_check.py",
+      "sha256": "277112850A2597B7127C2CA4FEE7885639008190625EF37D89317094F506A827",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Validates against a prior baseline outcome and outcome cutoffs while consuming fitted/target files; target-frequency naming is stale/inconsistent.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic observation-decoding and duration-sensitivity interface description only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use baseline conclusions, cutoffs, or target comparisons."
+      ],
+      "capabilities": [
+        "SleepEnv observation calls and duration sensitivity."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "models\\s6_rl_env.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\target_psd_SC4001.npy",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\target_freqs.npy",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s6_decision_check.py",
+      "sha256": "F928A8985B5526D80BD84ED7C955B8EC7D7F1896ED6C9F45D9008BA16B4BBC77",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Outcome-selection experiment for action range and step duration with fixed stimuli, effect-size cutoffs, recommendations, and a prior fit.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Forensic intervention-sensitivity interface description only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use it to select action range, duration, cutoffs, or a controller."
+      ],
+      "capabilities": [
+        "Direct cortical-input stimulation sweep and timing comparison."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "models\\s6_rl_env.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s6_rl_env.py",
+      "sha256": "EFAE810642502EADE94A14C7FBB1E7FE36FB5847A6163ED5554D840E982B091E",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Core control candidate embeds target bands, prior perturbation/rescue tuning and failure outcomes, substitutes selected fixed values, and restarts the simulator each step rather than maintaining continuous state.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Static Gym observation/action/interface inventory only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "No training/control claim or adoption of reward, target, perturbation, or fixed parameters.",
+        "Do not describe it as a PID or true continuous closed loop."
+      ],
+      "capabilities": [
+        "Gym reset/step; three-dimensional PSD/rate observation; scalar cortical-input intervention; reward."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\patient_params_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s7_sac_train.py",
+      "sha256": "827851F44C1F983BA4E088918B8AF03E94805A04971E2780EB2F3E00D2759611",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Trains the quarantined SleepEnv and embeds target/success cutoffs and unverified fixed hyperparameters.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Static SAC callback/logging pipeline review only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "No training, checkpoint production, convergence claim, or hyperparameter adoption."
+      ],
+      "capabilities": [
+        "Stable-Baselines3 SAC training/evaluation/checkpoint/logging."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "models\\s6_rl_env.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\models\\s8_sac_iterate.py",
+      "sha256": "18522E65DE124815E86D6DD5FE8D6238B62760F7EA657DFE9D2819DD6B594FC4",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "DENIED",
+      "contamination_or_provenance": "Primary operation loads a selected prior checkpoint, compares against an embedded prior outcome, ranks checkpoints, and mutates outcome history.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor"
+      ],
+      "permitted_purpose": "Hash/provenance inventory only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No import, execution, dependency opening, scientific use, or result transfer.",
+        "No data/config cleanliness inheritance.",
+        "Do not load the checkpoint or history; do not use its decision policy, ranking, or recommendation."
+      ],
+      "capabilities": [
+        "Selected-checkpoint SAC continuation and outcome-history mutation."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\sac_round3_best.zip",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\iteration_history.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\scripts\\hce_shift_finite_checks.py",
+      "sha256": "F232D817F648E61E6DC237373451C78B9790635458C4962E785154457CE6D4F7",
+      "candidate_group": "MODEL_AND_CONTROL_IMPLEMENTATIONS",
+      "class": "CLEAN_ALLOWLISTED",
+      "contamination_or_provenance": "Self-contained exact-rational exhaustive checks with no local data/output dependency, empirical result, selected threshold, or mutable external state.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Independent Method Reviewer"
+      ],
+      "permitted_purpose": "Deterministic HCE finite conditional-TV/error-decomposition regression checks only.",
+      "scientific_role_status": "NOT_RELEASED_FOR_EXECUTION; separate Root authorization and dependency audit required",
+      "prohibitions": [
+        "No scientific execution or result claim without separate authorization.",
+        "No data/config cleanliness inheritance.",
+        "Do not treat finite-grid checks as sleep-model evidence or a general proof."
+      ],
+      "capabilities": [
+        "Enumerates rational distributions and asserts two algebraic identities."
+      ],
+      "referenced_dependencies": [],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\conftest.py",
+      "sha256": "D55E748CE6C8E0AC8C8DFA2EA7640A48573ECFA02B8C82F2FCD62BC6DB8BAF69",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "CLEAN_ALLOWLISTED",
+      "contamination_or_provenance": "No embedded outcomes or scientific thresholds; repository-relative bootstrap and unavailable-data skip logic.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Independent Method Reviewer"
+      ],
+      "permitted_purpose": "Test bootstrap and unavailable-data skip contract only.",
+      "scientific_role_status": "NOT_RELEASED_FOR_EXECUTION; separate Root authorization and dependency audit required",
+      "prohibitions": [
+        "No scientific execution or result claim without separate authorization.",
+        "No data/config cleanliness inheritance.",
+        "Do not treat fixture construction as confirmation of an observation bundle."
+      ],
+      "capabilities": [
+        "Prepends S4_sbi/src and conditionally constructs observation_bundle."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "S4_sbi\\src",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_compute_fitness_v3.py",
+      "sha256": "23EC87B3DDE95ED95BDCBBFF623AC0C543E9550B081700AF0DC0974A06022491",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Legacy V3 harness consumes selected parameter JSONs, embeds weights/thresholds, executes a model module during import, and can overwrite prior figures.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Legacy Welch/FOOOF/fitness field and plotting-flow inventory only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not reuse fitted parameters, weights, thresholds, results, or figures."
+      ],
+      "capabilities": [
+        "Simulation, Welch PSD, FOOOF residual correlation, fitness decomposition, plotting."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "models\\s4_personalize_fig7_v3.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v3_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v2_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_epoch_boundaries.py",
+      "sha256": "DCC9C6E46738678C620C8301019FDC1DA4140D1EAED0EDD6BCE34258176CCA40",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds data-specific retained/rejected counts and an exact epoch array shape.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Boundary-invariant, accounting-form, and validity-mask contract only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not reuse embedded counts/shapes as expected results or acceptance thresholds."
+      ],
+      "capabilities": [
+        "Event containment, positive IBI, and boundary-exclusion accounting."
+      ],
+      "referenced_dependencies": [],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_loading.py",
+      "sha256": "46063D019CF2ACBBAC73CC1C9D44E078172ADD17B3598D240D9DB1A44EEAAA8E",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds subject/channel/sampling metadata, stage counts, and aligned N3 count.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Stage-label mapping and publication-metadata safety contract only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use subject-specific counts or metadata as independent evidence."
+      ],
+      "capabilities": [
+        "Stage normalization and public-metadata path/raw-array exclusions."
+      ],
+      "referenced_dependencies": [],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_plots.py",
+      "sha256": "DC61B8A227AA660DB82314190842BA17D2B914D05B2E447A17A7A692CAAE0B5A",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "CLEAN_ALLOWLISTED",
+      "contamination_or_provenance": "No embedded scientific outcomes; byte-size and pixel-variance cutoffs are engineering render checks.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Independent Method Reviewer"
+      ],
+      "permitted_purpose": "Rendering, artifact-schema, openability, and publication-safety tests only.",
+      "scientific_role_status": "NOT_RELEASED_FOR_EXECUTION; separate Root authorization and dependency audit required",
+      "prohibitions": [
+        "No scientific execution or result claim without separate authorization.",
+        "No data/config cleanliness inheritance.",
+        "Do not treat visual cutoffs or panel count as scientific validation."
+      ],
+      "capabilities": [
+        "Observation-panel rendering; SVG/PNG checks; raw-sample and absolute-path safety."
+      ],
+      "referenced_dependencies": [],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_observation_schema.py",
+      "sha256": "35A88C21AD47DA1C1B8A5BFBACD6557E21B2B682D2816B27579158D37B9204DA",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds a retained-epoch count, exact FOOOF version, and legacy metric/model labels.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Summary-field schema, role separation, PSD normalization, and sensitivity-window contract only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use embedded counts or model-specific labels as evidence."
+      ],
+      "capabilities": [
+        "Typed roles, finite-value checks, Hann/Hamming shapes, normalized PSD integral."
+      ],
+      "referenced_dependencies": [],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_pyloric_inspired_observation.py",
+      "sha256": "29BEEAA494916F715A1DB90AB3715B046A989B9A4EF55B2CE7992055777A9FFD",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Contains data-dependent regression expectations and exact observation/figure counts; config paths are dynamically resolved.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Observation schema, boundedness/positivity, zero-event, containment, and export-safety structure only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use old-vs-new verdicts, exact counts, or artifacts as evidence."
+      ],
+      "capabilities": [
+        "Eighteen-dimensional observation concept, SO/spindle events, phase pairing, ledgers, exports."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "<load_observation_config()>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<load_pyloric_inspired_config()>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_seed_reproducibility.py",
+      "sha256": "5EFBE0DB8155402FB29A564A715AA72098FAD3B33E3101C888A0D2EFFF719CFA",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Consumes selected Pareto seeds, diagnoses prior constraint failures, embeds run framing and a verdict cutoff, and performs work at import scope.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Reproducibility procedure, record fields, and seed-injection interface only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use selected seeds, rankings, failure frequencies, parameter vectors, or cutoff."
+      ],
+      "capabilities": [
+        "Repeated seeded simulations and constraint-bit summaries."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "models\\s4_personalize_fig7_v7.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "S4_v7_repair\\pareto_seeds.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\tests\\test_spindles.py",
+      "sha256": "5E0F96872F23852119F9941C0A9EC5942D82A4B6EBBB5D02F039E186587A500C",
+      "candidate_group": "TESTS_AND_OBSERVATION_CONTRACTS",
+      "class": "DENIED",
+      "contamination_or_provenance": "Primary operation necessarily loads excluded generated output arrays at import and applies uncited pass thresholds.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor"
+      ],
+      "permitted_purpose": "Hash/provenance inventory only; detector concept requires an independent reimplementation.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No import, execution, dependency opening, scientific use, or result transfer.",
+        "No data/config cleanliness inheritance.",
+        "Do not read its input arrays, use its thresholds, or run its process-exit/plot flow."
+      ],
+      "capabilities": [
+        "Welch PSD, band peaks/ratios, plotting."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\r_cortex.npy",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\r_thalamus.npy",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\t_ms.npy",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\compute_pac_metrics_fixed.py",
+      "sha256": "141D8787BA1791667EE6C096878EF469753885C70C67DEF52F9AC78A90559130",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Repair narrative embeds prior numerical outcomes and outcome-informed heuristics; unused declared bounds and broad exception suppression weaken provenance/safety.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Candidate PAC algorithm/interface extraction after independent rederivation only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use default thresholds, correctness claims, or silent-failure outputs."
+      ],
+      "capabilities": [
+        "Cycle phase, spindle envelope, Tort MI, preferred phase, concentration, UP/DOWN ratio."
+      ],
+      "referenced_dependencies": [],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\run_so_waveform_canonicalV1.py",
+      "sha256": "9BA98868A2B83E39D8CD9A31D8C04603C7068452B6BED8A07A3D8992CD30196D",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds prior shape results and a canonical selection, uses hard-coded machine paths, and dynamically executes a held-out validator.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Dependency/output-routing inventory only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use its canonical ranking, fitted-point comparison, or held-out claim."
+      ],
+      "capabilities": [
+        "Validator rerouting and output naming."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "valid_scripts\\validate_so_waveform_heldout.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\t5_deconfound.py",
+      "sha256": "40161A2B9628D78A47E4D90488A04C2EFF729D89E23DD4F9B731E3163A4714AD",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "DENIED",
+      "contamination_or_provenance": "Primary operation is import-time post-hoc rescoring of excluded historical evolution records, including a selected-point result and historical threshold comparison.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor"
+      ],
+      "permitted_purpose": "Hash/provenance inventory only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No import, execution, dependency opening, scientific use, or result transfer.",
+        "No data/config cleanliness inheritance.",
+        "Do not use thresholds, feasibility fractions, selected-point verdict, or interpretation."
+      ],
+      "capabilities": [
+        "Post-hoc feasibility rescoring and outcome bucketing."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\evolution_fig7_v7_records.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\test_surrogate_zscore_pac.py",
+      "sha256": "38106EC555D9040802B406F4EDBC0D3B534B58C688DAA5C58FE6E9A4523C0C72",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds observed durations, subject workflow, a decision rule, and a complete selected parameter vector; concatenated epochs can create filter/PAC boundary artifacts.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Surrogate-shift design and null-check topology only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use the selected vector, z cutoff, durations, or empirical/simulation comparison."
+      ],
+      "capabilities": [
+        "Raw EEG loading, artifact rejection, MI surrogate z-score, seeded simulation."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "S4_v7_repair\\compute_pac_metrics_eeg_native.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_compute_pac_metrics_fixed.py",
+      "sha256": "A3982DCF47E127D1D90AB88622018F058DD91591D91D67BD8C8F1B12E5D3C450",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Synthetic suite was designed around a known failure regime and uses permissive/tuned thresholds; it creates an excluded output directory during import.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Synthetic test topology and qualitative invariants after preregistration only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use existing PASS thresholds or old-vs-new verdict as validation evidence."
+      ],
+      "capabilities": [
+        "Synthetic phase recovery, null coupling, noise, bimodality, bin and edge-case tests."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "valid_scripts\\compute_pac_metrics_fixed.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "valid_scripts\\validation_outputs",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_so_waveform_heldout.py",
+      "sha256": "0ED0FCBCD561AC8BE47BD27232872E8412D7245D192BCB945AC4AD68CD119121",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Uses selected fitted points and chooses real-EEG polarity by maximizing correlation with the V7 template; version ranking is outcome-guided and snippet accounting is duplicated.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Z-scoring, SO filtering, within-segment snippets, interpolation, RMSE/correlation formula inventory only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use anchor selection, rankings, parameter files, generated results, or the held-out designation."
+      ],
+      "capabilities": [
+        "EDF loading, SO template construction, simulation, template distance ranking."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v3_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v7_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_spindle_density_confirm.py",
+      "sha256": "EF309E7EC5ABCE84CD88CDBEA11B8A30B79242E766A684151C35E903F224C18E",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Confirmatory premise targets a previously observed result and embeds fitted points, post-hoc bands, a conclusion boundary, and model-favoring ranking; epoch concatenation permits join artifacts.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Generic sigma-RMS detector skeleton and density formula after independent preregistration only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use its bands, thresholds, fitted points, rankings, or robustness conclusion."
+      ],
+      "capabilities": [
+        "Bandpass, moving RMS, adaptive threshold, gap merge, duration filter, density."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_spindle_density_heldout.py",
+      "sha256": "C4C748DA25FFF2B8A0BAE4C01984481E9FBC370281B063AA13F42CF245740F36",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Embeds prior scores, selected fitted points, post-hoc ranking, and directional narrative; concatenated epochs can create boundary artifacts.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Generic RMS detector interface and event-density formula after independent preregistration only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use the held-out claim, thresholds, fitted points, rankings, or interpretation."
+      ],
+      "capabilities": [
+        "Sigma RMS, adaptive threshold, gap merge, duration filter, density and plots."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\validate_t6_mi_eeg_native.py",
+      "sha256": "E4D38FE9E4FB60F53C05869EB2A210746E90A022D1F0CACA4A7C9C795DBDC95E",
+      "candidate_group": "DETECTOR_AND_METRIC_IMPLEMENTATIONS",
+      "class": "CLEAN_ALLOWLISTED",
+      "contamination_or_provenance": "Pure deterministic synthetic signals with no empirical observations or fitted points; numeric ranges are synthetic unit-test oracles, not empirical cutoffs.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Independent Method Reviewer"
+      ],
+      "permitted_purpose": "Synthetic signal-shape sanity contract for T6 IBI-CV and EEG-native Tort MI only.",
+      "scientific_role_status": "NOT_RELEASED_FOR_EXECUTION; separate Root authorization and dependency audit required",
+      "prohibitions": [
+        "No scientific execution or result claim without separate authorization.",
+        "No data/config cleanliness inheritance.",
+        "Do not treat synthetic numeric ranges as empirical/model-selection thresholds.",
+        "Do not execute until the implementation dependency is separately reviewed."
+      ],
+      "capabilities": [
+        "Jittered SO generator, phase-modulated spindle generator, positive/null cases."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "S4_v7_repair\\compute_pac_metrics_eeg_native.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\analyze_v8a_relaxed_t6_sensitivity.py",
+      "sha256": "DEF7FE1A53BFEEEDE61676BD7D211190FB4665FE1D7650A3DAF6EE736FCBF2EE",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Post-hoc consumer of multiple prior V8a outputs with relaxed threshold ladder and outcome ranking of best/near-miss candidates.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use relaxed thresholds, ranking, counts, selected rows, or interpretations."
+      ],
+      "capabilities": [
+        "T1-T13 flag aggregation and post-hoc T6 sensitivity machinery."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\evolution_fig7_v8_records.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\v8a_t6_t13_coupling_sweep.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\analyze_v8a_tradeoff.py",
+      "sha256": "5D04109635D683ADDC384308F0E5072D6FED49C258B88E2351EC8D69305E9438",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Consumes prior V8a records/selected JSON/log and embeds outcome conclusions, boundary analysis, candidate ranking, and a recommended next experiment.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use correlations, pass rates, boundary readings, conclusions, or recommendations."
+      ],
+      "capabilities": [
+        "Pass-rate, quantile, failed-constraint, correlation, and trade-off summaries."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\evolution_fig7_v8_records.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v8_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\audit_v1_v3_v7_t12.py",
+      "sha256": "768D413DEEBE307D3436827D390344201F1C8AEE0E583378762C2D2DA1DDFE3B",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Re-scores selected V1/V3/V7 parameter vectors, embeds prior shape results and hard-coded external paths, and writes excluded validation outputs.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use selected vectors, embedded prior values, audit outcomes, or external patched-library path."
+      ],
+      "capabilities": [
+        "Seeded V7 build/simulate/burn-in/PSD/T1-T12 re-score harness."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v1_0418_2_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v3_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v7_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\diagnose_v8a_t6_t13_coupling_sweep.py",
+      "sha256": "A7E0A1BF3000BD8E92109EB379685AFB7B1BA4423EDA953FC50F10C97B99D9F2",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Uses selected V7/V8/narrow-search bases and prior output rankings to drive a coupling sweep and recommendation.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use selected bases, grids, correlations, thresholds, or recommendation."
+      ],
+      "capabilities": [
+        "T6/T13 coupling grid, T1-T13 evaluation, trend summary."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v7_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v8_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\v8a_local_de_t6_rescue_narrow\\best_so_far.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\local_de_v8a_t6_rescue_long.py",
+      "sha256": "8ABFBF25EF40BD4CB969312D17F5DE991FA7276EDF77EAFF606BE00046CDDF62",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Outcome-selected bases, known neighborhoods, weighted rankings, and stop/recommendation logic directly reuse prior search results.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use base selection, bounds, objective weights, seeds, rankings, or recommendations."
+      ],
+      "capabilities": [
+        "Checkpointed local DE around T4/T6/T13 diagnostics."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\evolution_fig7_v8_records.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\v8a_coupling_sweep_long\\phase1_cth2ctx_sweep.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\local_de_v8a_t6_rescue_narrow.py",
+      "sha256": "86EA6F68CB129B2D268E24F35BF09B229965098A825A8A06F731033EBF49234D",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Focuses on best regions from prior searches and embeds selected target neighborhoods, weighted objectives, and outcome-contingent recommendations.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use prior best regions, bounds, objectives, seeds, or recommendations."
+      ],
+      "capabilities": [
+        "Narrow checkpointed local DE and T4/T6/T13 diagnostics."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\v8a_local_de_t6_rescue_long\\local_de_records.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\v8a_coupling_sweep_long\\phase1_cth2ctx_sweep.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\local_search_v8a_ultra_narrow_t6_t13.py",
+      "sha256": "C20987E072F2F3C7E6CDCBEB63C893612A88D993F90530B130928B12C0952126",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Starts from the prior best T13-preserved point and uses an ultra-narrow, weighted, outcome-contingent search.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use selected base, narrow bounds, objective weights, seeds, or recommendation."
+      ],
+      "capabilities": [
+        "Ultra-narrow local DE and confirmation rerun interface."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\v8a_t6_t13_coupling_sweep.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\plot_figure10_inspired_validation_panel.py",
+      "sha256": "4A41E9341C3837C9D0B927570ABBC9D13A6D36D9E0D0F3FC73115366E22F71DF",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Builds an ensemble from prior selected JSON/CSV archives, reads raw EEG through a manifest, ranks candidates, simulates them, and produces PPC-like/recovery outputs.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use archive selection, raw-data summaries, candidate ranking, PPC-like results, or synthetic recovery."
+      ],
+      "capabilities": [
+        "Candidate-archive schema, RMS detector concept, predictive-summary and nearest-neighbor recovery topology."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "utils\\02_preprocess_psd.py",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\plot_v8a_0712_best0417_figures.py",
+      "sha256": "34D4E7758641ADC4A775ADBBD7A4E9EB6CC9F367B3F4C9993B8577DD4C12CAED",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Selects a prior post-hoc threshold row and embeds exact near-miss metrics, rankings, and presentation claims.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use selected candidate, post-hoc threshold, exact metrics, plots, or claims."
+      ],
+      "capabilities": [
+        "Trade-off plots, heatmaps, sigma-event verification, and Fig7-style rendering."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\v8a_relaxed_t6_sensitivity\\relaxed_t6_summary.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "outputs\\v8a_t6_t13_coupling_sweep.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\plot_v8a_0712_heldout_spindle_density.py",
+      "sha256": "F32B5C7A7DC2E6C4008EBCBB72242E8EB1C37F8513E851B030534772E0C0841D",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Reads raw EEG, selected fitted points, and a post-hoc prior candidate; embeds prior labels and compares/ranks model-to-real density outcomes.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use raw-data comparison, selected points, detector thresholds, rankings, or held-out claim."
+      ],
+      "capabilities": [
+        "Sigma-RMS detector and event-density comparison topology."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "data\\manifest.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.psg_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "<manifest.hypnogram_path>",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_DYNAMIC_PATH_UNRESOLVED",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v1_0418_2_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v7_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\valid_scripts\\sweep_v8a_coupling_tradeoff_long.py",
+      "sha256": "B02F73DFA65D6AEA33D10EE6C26686980A736229757DAF76D422E136560A5F1C",
+      "candidate_group": "HISTORICAL_CONTROL_CODE_GOVERNANCE_INVENTORY_ONLY",
+      "class": "QUARANTINED",
+      "contamination_or_provenance": "Selects seeds and regions from prior evolution outcomes and embeds multi-phase thresholds, rankings, boundary readings, and outcome-contingent recommendations.",
+      "permitted_roles": [
+        "Root Orchestrator",
+        "Repository Input Auditor",
+        "Governance/Forensic Reviewer"
+      ],
+      "permitted_purpose": "Value-free governance inventory of T1-T6 and related historical functionality only.",
+      "scientific_role_status": "DENIED",
+      "prohibitions": [
+        "No scientific-role import, execution, parameter/threshold adoption, ranking, or evidentiary use.",
+        "No data/config cleanliness inheritance.",
+        "Do not use seeds, sweep regions, thresholds, rankings, conclusions, or recommendations."
+      ],
+      "capabilities": [
+        "Phased coupling scan, local physiological sampling, longer check, T1-T13 summary."
+      ],
+      "referenced_dependencies": [
+        {
+          "exact_or_symbolic_path": "outputs\\evolution_fig7_v8_records.csv",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        },
+        {
+          "exact_or_symbolic_path": "data\\patient_params_fig7_v8_SC4001.json",
+          "status": "PENDING_INDEPENDENT_DATA_AUDIT_OR_CODE_AUDIT",
+          "accessed_during_this_audit": false,
+          "access_inheritance": "NONE",
+          "cleanliness_inheritance": "NONE"
+        }
+      ],
+      "review_status": "COMPLETE_EXACT_FILE_SHA256_AND_CONTENT_REVIEW; NOT_EXECUTED_OR_IMPORTED"
+    }
+  ],
+  "final_status": "COMPLETE_LOCAL_AUDIT_DECISIONS_NOT_OFFICIAL_HISTORICAL_ALLOWLIST"
+}

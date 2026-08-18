@@ -1,0 +1,141 @@
+{
+  "schema_version": "3.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "fixture_id": "PF_T4_EVENT_ATTRIBUTION_FIXTURE_V3",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "status": "PREOUTCOME_HAND_CALCULATED_ORACLE",
+  "scientific_outcomes_used": "NONE",
+  "purpose": "Self-contained deterministic oracle for the frozen paired-sham/intervention event matching, packet association, and post-packet autonomous-cycle classifier. This fixture is implementation preflight only and is not scientific evidence.",
+  "sampling_rate_hz": 200,
+  "conventions": {
+    "event_intervals": "half-open [onset_sample,offset_sample)",
+    "peak_rule": "peak_sample is the earliest stored sample attaining the maximum frozen RMS envelope inside the event",
+    "event_id_order": "onset_sample, then offset_sample",
+    "match_tolerance_samples_inclusive": 50,
+    "candidate_sort_keys": [
+      "absolute_peak_difference ascending",
+      "intervention_peak_sample ascending",
+      "sham_peak_sample ascending",
+      "intervention_event_id ascending",
+      "sham_event_id ascending"
+    ],
+    "greedy_match_rule": "Traverse the sorted candidate table once and accept a row only when neither event ID has already been accepted.",
+    "packet_association_rule": "A packet qualifies when packet_start_sample<=event_peak_sample<packet_stop_sample+50. Minimize abs(event_peak_sample-packet_stop_sample); ties use packet_start_sample ascending, then packet_id ascending.",
+    "upward_crossing_rule": "Each listed crossing z represents sigma[z-1]<0 and sigma[z]>=0.",
+    "autonomous_cycle_rule": "For the selected packet, find two successive globally ordered listed crossings z1,z2 with packet_stop_sample<z1<z2<event_offset_sample and 13<=z2-z1<=19. Both crossings must be strictly inside the same event.",
+    "fractions": "Report exact numerator and denominator integers; decimal display is numerator/denominator evaluated in float64."
+  },
+  "blocks": [
+    {
+      "block_id": "FIXTURE_BLOCK_001",
+      "sham_events": [
+        {"event_id": "S1", "onset_sample": 100, "offset_sample": 160, "peak_sample": 130},
+        {"event_id": "S2", "onset_sample": 300, "offset_sample": 360, "peak_sample": 330},
+        {"event_id": "S3", "onset_sample": 600, "offset_sample": 660, "peak_sample": 630},
+        {"event_id": "S4", "onset_sample": 900, "offset_sample": 960, "peak_sample": 930},
+        {"event_id": "S5", "onset_sample": 1470, "offset_sample": 1530, "peak_sample": 1500}
+      ],
+      "intervention_events": [
+        {"event_id": "I1", "onset_sample": 105, "offset_sample": 165, "peak_sample": 135},
+        {"event_id": "I2", "onset_sample": 280, "offset_sample": 350, "peak_sample": 315},
+        {"event_id": "I3", "onset_sample": 315, "offset_sample": 405, "peak_sample": 345},
+        {"event_id": "I4", "onset_sample": 605, "offset_sample": 675, "peak_sample": 635},
+        {"event_id": "I5", "onset_sample": 740, "offset_sample": 840, "peak_sample": 780},
+        {"event_id": "I6", "onset_sample": 925, "offset_sample": 985, "peak_sample": 955},
+        {"event_id": "I7", "onset_sample": 1100, "offset_sample": 1170, "peak_sample": 1135}
+      ],
+      "packets": [
+        {"packet_id": "P0", "packet_start_sample": 210, "packet_stop_sample": 310},
+        {"packet_id": "P1", "packet_start_sample": 280, "packet_stop_sample": 380},
+        {"packet_id": "P2", "packet_start_sample": 700, "packet_stop_sample": 800}
+      ],
+      "sigma_upward_crossings": [
+        {"crossing_id": "Z1", "sample": 320},
+        {"crossing_id": "Z2", "sample": 340},
+        {"crossing_id": "Z3", "sample": 360},
+        {"crossing_id": "Z4", "sample": 805},
+        {"crossing_id": "Z5", "sample": 820}
+      ]
+    }
+  ],
+  "expected": {
+    "candidate_pairs_sorted": [
+      {"intervention_event_id": "I1", "sham_event_id": "S1", "absolute_peak_difference": 5},
+      {"intervention_event_id": "I4", "sham_event_id": "S3", "absolute_peak_difference": 5},
+      {"intervention_event_id": "I2", "sham_event_id": "S2", "absolute_peak_difference": 15},
+      {"intervention_event_id": "I3", "sham_event_id": "S2", "absolute_peak_difference": 15},
+      {"intervention_event_id": "I6", "sham_event_id": "S4", "absolute_peak_difference": 25}
+    ],
+    "accepted_pairs_in_traversal_order": [
+      {"intervention_event_id": "I1", "sham_event_id": "S1", "absolute_peak_difference": 5},
+      {"intervention_event_id": "I4", "sham_event_id": "S3", "absolute_peak_difference": 5},
+      {"intervention_event_id": "I2", "sham_event_id": "S2", "absolute_peak_difference": 15},
+      {"intervention_event_id": "I6", "sham_event_id": "S4", "absolute_peak_difference": 25}
+    ],
+    "rejected_candidates": [
+      {"intervention_event_id": "I3", "sham_event_id": "S2", "reason": "SHAM_ALREADY_MATCHED"}
+    ],
+    "paired_existing_intervention_event_ids": ["I1", "I2", "I4", "I6"],
+    "added_intervention_event_ids": ["I3", "I5", "I7"],
+    "lost_sham_event_ids": ["S5"],
+    "added_event_classification": [
+      {
+        "event_id": "I3",
+        "selected_packet_id": "P0",
+        "qualifying_packet_ids": ["P0", "P1"],
+        "packet_distance_tie_samples": 35,
+        "post_packet_successive_crossing_pairs_considered": [[320, 340], [340, 360]],
+        "class": "PACKET_REPLICA_ADDED"
+      },
+      {
+        "event_id": "I5",
+        "selected_packet_id": "P2",
+        "qualifying_packet_ids": ["P2"],
+        "post_packet_successive_crossing_pairs_considered": [[805, 820]],
+        "qualifying_autonomous_crossing_pair": [805, 820],
+        "class": "AUTONOMOUS_PACKET_ASSOCIATED_ADDED"
+      },
+      {
+        "event_id": "I7",
+        "selected_packet_id": null,
+        "qualifying_packet_ids": [],
+        "post_packet_successive_crossing_pairs_considered": [],
+        "class": "UNASSOCIATED_ADDED"
+      }
+    ],
+    "counts": {
+      "N_candidate_pairs": 5,
+      "N_accepted_pairs": 4,
+      "N_paired_existing": 4,
+      "N_added": 3,
+      "N_lost": 1,
+      "N_autonomous_packet_associated_added": 1,
+      "N_packet_replica_added": 1,
+      "N_unassociated_added": 1,
+      "N_blocks_with_added": 1
+    },
+    "F_auto": {"numerator": 1, "denominator": 3},
+    "F_replica": {"numerator": 1, "denominator": 3},
+    "scientific_denominator_status": "NOT_ESTIMABLE",
+    "scientific_denominator_reason": "Fixture N_added=3<30 and blocks_with_added=1<10; classifier preflight may pass but this fixture can never satisfy the scientific T4 denominator."
+  },
+  "comparison_contract": {
+    "normalization_before_comparison": "Sort raw input tables by their registered ID-order rules; emit candidate and accepted tables in traversal order; emit added/lost IDs in event order; emit classification rows in added-event order. Preserve JSON null and integer types.",
+    "exact_fields": [
+      "expected.candidate_pairs_sorted",
+      "expected.accepted_pairs_in_traversal_order",
+      "expected.rejected_candidates",
+      "expected.paired_existing_intervention_event_ids",
+      "expected.added_intervention_event_ids",
+      "expected.lost_sham_event_ids",
+      "expected.added_event_classification",
+      "expected.counts",
+      "expected.F_auto",
+      "expected.F_replica",
+      "expected.scientific_denominator_status"
+    ],
+    "pass_rule": "PASS only if every exact field is deep-equal after the stated deterministic normalization and every raw input row is consumed exactly once by the implementation harness. Fractions are compared as integer numerator/denominator pairs, not rounded decimals.",
+    "failure_rule": "Any missing, extra, reordered, mistyped, or unequal exact field, any unconsumed raw row, or any exception yields PF_T4_EVENT_ATTRIBUTION_FAIL. Emit a path-indexed expected-versus-observed diff and stop before any scientific Phase 2A run.",
+    "fixture_evidence_ceiling": "IMPLEMENTATION_PREFLIGHT_ONLY_NON_TRANSFERABLE_NOT_SCIENTIFIC_EVIDENCE"
+  }
+}

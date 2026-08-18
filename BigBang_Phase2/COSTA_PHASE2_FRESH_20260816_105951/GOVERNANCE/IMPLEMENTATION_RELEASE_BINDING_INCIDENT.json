@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "incident_id": "IRB-001",
+  "detected_at": "2026-08-16T15:15:00-04:00",
+  "detected_by": "/root/scientific_worker_v4",
+  "classification": "OUTCOME_BLIND_GOVERNANCE_CONTROL_BINDING_ERROR",
+  "scientific_outcomes_visible": false,
+  "protected_access": "NONE",
+  "affected_release": {
+    "path": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4.json",
+    "sha256": "A5B2BF7BF2EEBDA4CD32DCFE037D3FD2760966C75FE2E75AD3BE42A5587542AF",
+    "status": "STALE_INVALID_NOT_AUTHORIZED_FOR_FURTHER_USE"
+  },
+  "defects": [
+    {
+      "field": "environment.launcher_sha256",
+      "encoded": "E47B3632862CBB885ED422505256DB6199007268786CA6D8F71BE3AFEA334867",
+      "correct_audited": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+      "source": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json#input_integrity/files/PREFLIGHT/run_neurolib.ps1"
+    },
+    {
+      "field": "allowed_reads compute budget path",
+      "encoded": "STATE/COMPUTE_BUDGET.json",
+      "correct_audited": "COMMON/COMPUTE_BUDGET.json",
+      "correct_sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+      "source": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json#input_integrity/files/COMMON/COMPUTE_BUDGET.json"
+    }
+  ],
+  "containment": {
+    "worker_paused": true,
+    "implementation_files_written": 0,
+    "preflight_manifests_written": 0,
+    "python_or_scientific_execution": "NONE",
+    "preflight_executed": false,
+    "scientific_evidence_generated": "NONE",
+    "incompatible_evidence": "NONE"
+  },
+  "repair": "Issue a separately versioned corrected release binding the exact audited launcher and COMMON compute-budget path/hash, then independently revalidate before worker resume.",
+  "status": "CONTAINED_PENDING_CORRECTED_RELEASE_REVALIDATION"
+}

@@ -1,0 +1,232 @@
+{
+  "schema_version": "5.0.0",
+  "fixture_id": "PF_RESCALE_EVENT_VETO_FIXTURE_V5",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "purpose": "Deterministic data-free oracle for the mean/variance-rescale event-veto primitives; it is implementation preflight only and contains no scientific outcome.",
+  "numeric_contract": {
+    "dtype": "IEEE-754 float64",
+    "array_order": "listed order",
+    "mean": "mu=sequential_sum(x[0],...,x[N-1])/N with one float64 addition per listed element and no reassociation",
+    "population_variance": "v=sequential_sum((x[n]-mu)*(x[n]-mu),n=0,...,N-1)/N with float64 subtraction and multiplication and no reassociation",
+    "rescale": "a=sqrt(v_sham/v_intervention); x_rescaled[n]=mu_sham+a*(x_intervention[n]-mu_intervention), evaluating parentheses, multiplication, then addition in that order",
+    "comparison": "Numeric fixture values compare by exact float64 equality. Status strings, IDs, arrays, tables, and object keys compare by normalized deep equality after ordering exactly as specified.",
+    "nonfinite_token": "The JSON string NONFINITE_NAN is materialized as the IEEE-754 quiet NaN value only for the named input sample before running the primitive.",
+    "fixture_length_override": "For normalization_oracles only, invoke the exact mean/variance/rescale primitive with N equal to the listed array length and bypass only the production shape/length gate. Production use remains exactly N=36000 and shape (36000,); fixture arrays can never enter science.",
+    "fixture_projection_overrides": {
+      "detector_comparator_oracles": "Each listed candidate object is the complete fixture-only projection consumed directly by the named SO or spindle comparator. Bypass raw-array construction, filtering, threshold derivation, production event-row construction, and official-table validation only for this comparator primitive; evaluate every supplied field and the exact equality/strict-edge rule, and reject any missing or extra candidate field.",
+      "matching_and_block_event_oracles": "For matching_oracle and block_event_oracles only, each event row is exactly the two-key projection {event_id,anchor_sample}. Require a unique nonempty string event_id and a JSON-integer anchor_sample, reject missing/extra keys, preserve listed source order, and bypass only the full production SO/SPINDLE event-row schema and detector/table-integrity gates. Feed these projections to the exact candidate enumeration, sort, greedy match, unmatched-side, and integer-count primitives without inventing duration, amplitude, boundary, or event-type values.",
+      "condition_pooling_oracles": "For each condition_pooling_oracle, the constructed B001 through B030 rows are the complete local expected block universe in exactly ascending numeric order. Bypass only the production RV5B block-ID formula, 36-block expected universe, full block-record field schema, and record-payload hash. Still enforce the exact Level-A thresholds of at least 30 valid blocks, at least five distinct seeds, and at least five distinct draws; apply the exact INVALID_* first-ordered-block priority, NOT_ESTIMABLE exclusion, pooled integer formulas, decision statuses, and null Boolean semantics. No unlisted B row exists in this fixture mode.",
+      "scope_prohibition": "Every override in this object is legal only while executing PF_RESCALE_EVENT_VETO_FIXTURE_V5 before science. A fixture projection, B identifier, reduced row, local universe, or bypass must never be accepted by a production rescale-veto record, scientific run, pooled condition, claim, or result artifact; such reuse is PF_RESCALE_EVENT_VETO_FAIL."
+    },
+    "oracle_modes": "normalization_oracles test numeric primitives; detector_comparator_oracles test frozen comparator/edge primitives from exact fixture projections; matching_oracle tests the pair enumerator/sort/greedy matcher on exact two-key projections; block_event_oracles test count construction from those projections; condition_pooling_oracles test denominator/pooling/status logic on the exact local B001-B030 universe. The only bypasses are enumerated in fixture_length_override and fixture_projection_overrides. No oracle is represented as an end-to-end model trajectory or scientific result."
+  },
+  "normalization_oracles": [
+    {
+      "case_id": "MV_MEAN_SHIFT",
+      "sham": [-1.0, 1.0, -1.0, 1.0],
+      "intervention": [4.0, 6.0, 4.0, 6.0],
+      "expected": {
+        "mu_sham": 0.0,
+        "v_sham": 1.0,
+        "mu_intervention": 5.0,
+        "v_intervention": 1.0,
+        "scale": 1.0,
+        "rescaled": [-1.0, 1.0, -1.0, 1.0],
+        "status": "VALID"
+      }
+    },
+    {
+      "case_id": "MV_VARIANCE_SCALE",
+      "sham": [-1.0, 1.0, -1.0, 1.0],
+      "intervention": [-2.0, 2.0, -2.0, 2.0],
+      "expected": {
+        "mu_sham": 0.0,
+        "v_sham": 1.0,
+        "mu_intervention": 0.0,
+        "v_intervention": 4.0,
+        "scale": 0.5,
+        "rescaled": [-1.0, 1.0, -1.0, 1.0],
+        "status": "VALID"
+      }
+    },
+    {
+      "case_id": "MV_ZERO_INTERVENTION_VARIANCE",
+      "sham": [-1.0, 1.0, -1.0, 1.0],
+      "intervention": [3.0, 3.0, 3.0, 3.0],
+      "expected": {
+        "mu_sham": 0.0,
+        "v_sham": 1.0,
+        "mu_intervention": 3.0,
+        "v_intervention": 0.0,
+        "scale": null,
+        "rescaled": null,
+        "status": "NOT_ESTIMABLE_ZERO_VARIANCE"
+      }
+    },
+    {
+      "case_id": "MV_NONFINITE_INPUT",
+      "sham": [-1.0, 1.0, -1.0, 1.0],
+      "intervention": [4.0, "NONFINITE_NAN", 4.0, 6.0],
+      "expected": {
+        "mu_sham": null,
+        "v_sham": null,
+        "mu_intervention": null,
+        "v_intervention": null,
+        "scale": null,
+        "rescaled": null,
+        "status": "INVALID_NONFINITE_INPUT"
+      }
+    }
+  ],
+  "detector_comparator_oracles": [
+    {
+      "case_id": "SO_THRESHOLD_EQUALITY_ACCEPTED",
+      "candidate": {
+        "left_upcross_sample": 5000,
+        "right_upcross_sample": 5250,
+        "minimum_sample": 5100,
+        "maximum_sample": 5200,
+        "minimum_m_u": -0.04,
+        "maximum_m_u": 0.06,
+        "peak_to_peak_m_u": 0.10
+      },
+      "expected": "RETAINED"
+    },
+    {
+      "case_id": "SO_LEFT_EDGE_STRICTLY_REJECTED",
+      "candidate": {
+        "left_upcross_sample": 2000,
+        "right_upcross_sample": 2250,
+        "minimum_sample": 2100,
+        "maximum_sample": 2200,
+        "minimum_m_u": -0.05,
+        "maximum_m_u": 0.07,
+        "peak_to_peak_m_u": 0.12
+      },
+      "expected": "REJECTED_EDGE"
+    },
+    {
+      "case_id": "SPINDLE_THRESHOLD_EQUALITY_ACCEPTED",
+      "candidate": {
+        "onset_sample": 5000,
+        "offset_sample_exclusive": 5060,
+        "high_threshold": 2.0,
+        "low_threshold": 1.0,
+        "previous_rms": 1.9999999999999998,
+        "onset_rms": 2.0,
+        "minimum_inside_rms": 1.0
+      },
+      "expected": "RETAINED"
+    },
+    {
+      "case_id": "SPINDLE_RIGHT_EDGE_STRICTLY_REJECTED",
+      "candidate": {
+        "onset_sample": 33800,
+        "offset_sample_exclusive": 34000,
+        "high_threshold": 2.0,
+        "low_threshold": 1.0,
+        "previous_rms": 1.5,
+        "onset_rms": 2.0,
+        "minimum_inside_rms": 1.0
+      },
+      "expected": "REJECTED_EDGE"
+    }
+  ],
+  "matching_oracle": {
+    "case_id": "MATCH_TIES_AND_TOLERANCE_BOUNDARY",
+    "tolerance_samples": 50,
+    "left_role": "intervention_added",
+    "right_role": "rescaled_added",
+    "left_events": [
+      {"event_id": "I01", "anchor_sample": 150},
+      {"event_id": "I02", "anchor_sample": 250},
+      {"event_id": "I03", "anchor_sample": 351}
+    ],
+    "right_events": [
+      {"event_id": "R01", "anchor_sample": 100},
+      {"event_id": "R02", "anchor_sample": 200},
+      {"event_id": "R03", "anchor_sample": 300}
+    ],
+    "candidate_sort_key": ["absolute_anchor_difference", "left_anchor_sample", "right_anchor_sample", "left_event_id", "right_event_id"],
+    "expected_candidate_pairs_in_order": [
+      ["I01", "R01", 50],
+      ["I01", "R02", 50],
+      ["I02", "R02", 50],
+      ["I02", "R03", 50]
+    ],
+    "expected_accepted_pairs": [
+      ["I01", "R01", 50],
+      ["I02", "R02", 50]
+    ],
+    "expected_unmatched_left_ids": ["I03"],
+    "expected_unmatched_right_ids": ["R03"],
+    "boundary_rule": "Absolute difference exactly 50 is eligible; 51 is ineligible."
+  },
+  "block_event_oracles": [
+    {
+      "case_id": "EVENT_NONZERO_SURVIVAL",
+      "synthetic_role": "GENUINE_MORPHOLOGY_ADDITION_PERSISTS_AFTER_MOMENT_MATCHING",
+      "sham_events": [],
+      "intervention_events": [{"event_id": "I01", "anchor_sample": 5000}],
+      "rescaled_events": [{"event_id": "R01", "anchor_sample": 5000}],
+      "expected": {"N_sham": 0, "N_intervention": 1, "N_rescaled": 1, "N_added_original": 1, "N_added_rescaled": 1, "N_persistent": 1, "N_rescale_only": 0, "block_rescale_only": false}
+    },
+    {
+      "case_id": "EVENT_ALL_ADDED_VANISH",
+      "synthetic_role": "VARIANCE_RESCALE_ONLY_ALL_ADDED_EVENTS_VANISH",
+      "sham_events": [],
+      "intervention_events": [{"event_id": "I01", "anchor_sample": 5000}],
+      "rescaled_events": [],
+      "expected": {"N_sham": 0, "N_intervention": 1, "N_rescaled": 0, "N_added_original": 1, "N_added_rescaled": 0, "N_persistent": 0, "N_rescale_only": 1, "block_rescale_only": true}
+    },
+    {
+      "case_id": "EVENT_NO_ADDED_EVENTS",
+      "sham_events": [{"event_id": "S01", "anchor_sample": 5000}],
+      "intervention_events": [{"event_id": "I01", "anchor_sample": 5000}],
+      "rescaled_events": [{"event_id": "R01", "anchor_sample": 5000}],
+      "expected": {"N_sham": 1, "N_intervention": 1, "N_rescaled": 1, "N_added_original": 0, "N_added_rescaled": 0, "N_persistent": 0, "N_rescale_only": 0, "block_rescale_only": false}
+    },
+    {
+      "case_id": "EVENT_MIXED_SURVIVAL",
+      "sham_events": [],
+      "intervention_events": [{"event_id": "I01", "anchor_sample": 5000}, {"event_id": "I02", "anchor_sample": 8000}],
+      "rescaled_events": [{"event_id": "R01", "anchor_sample": 8000}],
+      "expected": {"N_sham": 0, "N_intervention": 2, "N_rescaled": 1, "N_added_original": 2, "N_added_rescaled": 1, "N_persistent": 1, "N_rescale_only": 1, "block_rescale_only": false}
+    }
+  ],
+  "condition_pooling_oracles": [
+    {
+      "case_id": "POOL_LEVEL_A_ALL_ADDED_VANISH",
+      "construction": "For q=0,...,29 in ascending order set block_id='B'+three-digit(q+1), parameter_draw_id=[D00_NOMINAL,D01,D02,D03,D04][floor(q/6)], and seed=[11003,22007,33013,44017,55021,66029][q mod 6]; every block is EVENT_ALL_ADDED_VANISH.",
+      "expected": {"valid_complete_blocks": 30, "N_added_original": 30, "N_added_rescaled": 0, "N_persistent": 0, "N_rescale_only": 30, "rescale_only_fraction": 1.0, "status": "HARD_VETO_RESCALE_ONLY"}
+    },
+    {
+      "case_id": "POOL_LEVEL_A_NONZERO_SURVIVAL",
+      "construction": "For q=0,...,29 in ascending order set block_id='B'+three-digit(q+1), parameter_draw_id=[D00_NOMINAL,D01,D02,D03,D04][floor(q/6)], and seed=[11003,22007,33013,44017,55021,66029][q mod 6]; every block is EVENT_NONZERO_SURVIVAL.",
+      "expected": {"valid_complete_blocks": 30, "N_added_original": 30, "N_added_rescaled": 30, "N_persistent": 30, "N_rescale_only": 0, "rescale_only_fraction": 0.0, "status": "NO_VETO_PERSISTENT_OR_MIXED"}
+    },
+    {
+      "case_id": "POOL_LEVEL_A_NO_ADDED_EVENTS",
+      "construction": "For q=0,...,29 in ascending order set block_id='B'+three-digit(q+1), parameter_draw_id=[D00_NOMINAL,D01,D02,D03,D04][floor(q/6)], and seed=[11003,22007,33013,44017,55021,66029][q mod 6]; every block is EVENT_NO_ADDED_EVENTS.",
+      "expected": {"valid_complete_blocks": 30, "N_added_original": 0, "N_added_rescaled": 0, "N_persistent": 0, "N_rescale_only": 0, "rescale_only_fraction": null, "status": "NO_VETO_NO_ADDED_EVENTS"}
+    },
+    {
+      "case_id": "POOL_ZERO_VARIANCE_FAIL_CLOSED",
+      "construction": "Use the exact B001-B030 draw-seed mapping above and set every intervention trajectory to MV_ZERO_INTERVENTION_VARIANCE.",
+      "expected": {"valid_complete_blocks": 0, "status": "NOT_ESTIMABLE_INSUFFICIENT_BLOCKS", "hard_veto_boolean": null}
+    },
+    {
+      "case_id": "POOL_NONFINITE_FAIL_CLOSED",
+      "construction": "Use the exact B001-B030 draw-seed mapping above with EVENT_NONZERO_SURVIVAL; before moment calculation replace intervention array index 1 in B017 with NONFINITE_NAN.",
+      "expected": {"status": "INVALID_NONFINITE_INPUT", "hard_veto_boolean": null}
+    }
+  ],
+  "comparison_contract": {
+    "execution_order": ["normalization_oracles", "detector_comparator_oracles", "matching_oracle", "block_event_oracles", "condition_pooling_oracles"],
+    "required_case_ids": ["MV_MEAN_SHIFT", "MV_VARIANCE_SCALE", "MV_ZERO_INTERVENTION_VARIANCE", "MV_NONFINITE_INPUT", "SO_THRESHOLD_EQUALITY_ACCEPTED", "SO_LEFT_EDGE_STRICTLY_REJECTED", "SPINDLE_THRESHOLD_EQUALITY_ACCEPTED", "SPINDLE_RIGHT_EDGE_STRICTLY_REJECTED", "MATCH_TIES_AND_TOLERANCE_BOUNDARY", "EVENT_NONZERO_SURVIVAL", "EVENT_ALL_ADDED_VANISH", "EVENT_NO_ADDED_EVENTS", "EVENT_MIXED_SURVIVAL", "POOL_LEVEL_A_ALL_ADDED_VANISH", "POOL_LEVEL_A_NONZERO_SURVIVAL", "POOL_LEVEL_A_NO_ADDED_EVENTS", "POOL_ZERO_VARIANCE_FAIL_CLOSED", "POOL_NONFINITE_FAIL_CLOSED"],
+    "pass_rule": "Materialize only the declared fixture inputs, execute the V5 primitives in execution_order, consume every input row exactly once, and deep-equal every expected value, array, pair order, count, status, and null.",
+    "failure_rule": "Any missing/extra case, unconsumed row, numeric inequality, ordering difference, unexpected exception, or status difference emits PF_RESCALE_EVENT_VETO_FAIL and stops before scientific Phase 2A.",
+    "scientific_use": "PROHIBITED"
+  }
+}

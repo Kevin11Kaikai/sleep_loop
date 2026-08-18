@@ -1,0 +1,28 @@
+{
+  "policy": "default_deny_fail_closed",
+  "frozen_at": "2026-08-16T02:39:33-04:00",
+  "denied_categories": [
+    "Night-2 raw data",
+    "fresh-final validation data",
+    "sealed-confirm data",
+    "protected-derived outcome files",
+    "Incident-001 payload or exact values",
+    "cross-night outcome artifacts",
+    "prior R1/R2/R3 outcomes, reports, state, narratives, and run outputs",
+    "R3 failed DATA_STEWARD adapter"
+  ],
+  "prohibited_operations": [
+    "read",
+    "list",
+    "preview",
+    "hash",
+    "derive",
+    "execute"
+  ],
+  "allowed_historical_entrypoint": "BigBang_V4D1\\COSTA_MVP_FRESH_R3_20260816_010342\\COMMON\\R4_EXECUTION_ONLY_IMPORT_CANDIDATES.json",
+  "allowed_historical_entrypoint_expected_sha256": "42EEEE2E0C453F1FD54B60B6DB08FEF57E5096062907D99EC57997A30600D3A8",
+  "allowed_empirical_paths": [
+    "data\\sleep-edfx-cassette\\SC4001E0-PSG.edf",
+    "data\\sleep-edfx-cassette\\SC4001EC-Hypnogram.edf"
+  ]
+}

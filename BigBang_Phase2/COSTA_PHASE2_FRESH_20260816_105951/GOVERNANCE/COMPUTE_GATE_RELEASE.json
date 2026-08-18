@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "gate": "NEUROLIB_ENVIRONMENT_AND_COMPUTE_BUDGET",
+  "released_at": "2026-08-16T12:19:30-04:00",
+  "released_by": "Root Orchestrator",
+  "verdict": "PASS",
+  "independent_receipt": {
+    "path": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+    "sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+    "blocking_findings": 0
+  },
+  "frozen_controls": [
+    {
+      "path": "PREFLIGHT/run_neurolib.ps1",
+      "sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867"
+    },
+    {
+      "path": "PREFLIGHT/environment_probe.py",
+      "sha256": "64E225E0B768987BDD994CF24305036EDBF04189387A25552CC65F435B756D01"
+    },
+    {
+      "path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6"
+    },
+    {
+      "path": "COMMON/COMPUTE_BUDGET.json",
+      "sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF"
+    },
+    {
+      "path": "STATE/ENVIRONMENT_LOG.md",
+      "sha256": "E886D5DDC28943C08FEDE7A9FD452343CBB375324C970E0AD3883EF9FA8BAD10"
+    },
+    {
+      "path": "GOVERNANCE/REPAIR_LEDGER.json",
+      "sha256": "0E4B7BC3118FA60628AE43D8521C832C5A39FC10D00A6FA8B46811373E9140C5"
+    }
+  ],
+  "environment_version": "NEUROLIB_ENV_V3",
+  "official_launcher_required": true,
+  "threads_per_process": 4,
+  "maximum_configured_concurrent_scientific_processes": 3,
+  "dynamic_memory_admission_required": true,
+  "independent_verification_cpu_fraction_reserved": 0.2777777778,
+  "repair_lineage": {
+    "repair_id": "ENV-001",
+    "bounded_cycles_consumed": 2,
+    "maximum_bounded_cycles": 2,
+    "status": "CLOSED_PASS",
+    "further_repairs_permitted_in_lineage": false
+  },
+  "authorization": {
+    "data_free_synthetic_preflight": true,
+    "phase2a_scientific_outcomes": false,
+    "phase2b_scientific_outcomes": false,
+    "condition": "Phase 2A remains closed until the full target/intervention/claim registry and executable code pass pre-outcome freeze audit."
+  },
+  "scientific_outcomes_visible_at_release": false,
+  "protected_access": "NONE"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "budget_path": "COMMON/COMPUTE_BUDGET.json",
+  "accounting_method": "process wall time multiplied by allocated logical cores; governance-only agent time recorded separately and not charged as scientific compute",
+  "scientific_cpu_hours_consumed": 0.0,
+  "scientific_gpu_hours_consumed": 0.0,
+  "verification_cpu_hours_consumed": 0.0,
+  "repair_cpu_hours_consumed": 0.0,
+  "storage_gib_consumed": 0.0,
+  "outcome_runs_started": 0,
+  "updated_at": "2026-08-16T11:45:39.9317380-04:00"
+}

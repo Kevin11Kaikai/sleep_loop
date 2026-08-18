@@ -1,0 +1,120 @@
+{
+  "schema": "COSTA_R4_M1_WORKER_GATE_SCORECARD_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "claim_id": "R4_M1_PRIMARY",
+  "gates": {
+    "G1": {
+      "status": "PASS",
+      "checks_passed": 14,
+      "checks_total": 14,
+      "threshold": "All frozen runtime, repository, path-isolation, single-thread, and deterministic repetition checks pass.",
+      "observed": {
+        "core_repetitions": 2,
+        "matching_core_digests": 2,
+        "core_digest": "A3CE6D2D01FDEDBDFBC4C19E4D685F4CBB5CC67DC6CBF958AD395A02EB9A97D7",
+        "exact_python": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+        "neurolib_version": "0.6.1",
+        "neurolib_commit": "9b6b2b8f082c0cfa212f05576ead55bf23046d6f"
+      }
+    },
+    "G2": {
+      "status": "PASS",
+      "checks_passed": 5,
+      "checks_total": 5,
+      "threshold": "Truth recovery, truth heldout error, zero-coupling ablation, registered-null behavior, and non-isomorphic rejection all pass.",
+      "denominators": {"synthetic_subjects": 4},
+      "observed": {
+        "truth_recovered": 4,
+        "truth_recovery_fraction": 1.0,
+        "maximum_truth_heldout_nrmse": 0.0005789052687937201,
+        "minimum_truth_vs_zero_coupling_relative_improvement": 0.9961873232475084,
+        "null_world_registered_null_nrmse_advantage": 0.0999632513282361,
+        "nonisomorphic_best_mechanistic_heldout_nrmse": 1.0039145593343763
+      }
+    },
+    "G3": {
+      "status": "PASS",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "threshold": "Every synthetic subject and the median synthetic result beat the population and frozen wrong-subject comparators.",
+      "denominators": {"synthetic_subjects": 4, "beat_population": 4, "beat_wrong_subject": 4},
+      "observed": {
+        "relative_improvement_vs_population": [0.997700618189715, 0.9935352273382251, 0.9981257949821304, 0.9998030328845632],
+        "relative_improvement_vs_wrong_subject": [0.9981784666032044, 0.9972011417290064, 0.9998325949913067, 0.9997995411558136]
+      }
+    },
+    "G4": {
+      "status": "PASS",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "threshold": "Finite bootstrap interval, strictly positive paired CI lower bound, and truth in the training minimizer set.",
+      "uncertainty": {
+        "bootstrap_repetitions": 256,
+        "block_samples": 64,
+        "confidence_level": 0.95,
+        "observed_mean_paired_mse_advantage": 14.24890996213641,
+        "ci_lower": 4.524518898122416,
+        "ci_upper": 27.019127347457072
+      }
+    },
+    "G5": {
+      "status": "PASS",
+      "checks_passed": 5,
+      "checks_total": 5,
+      "threshold": "Complete fixed four-source observation operator with arbitrary model-unit, no physical forward-model, and no scalp-causality overclaim declarations.",
+      "observed": {
+        "source_count": 4,
+        "proxy_unit": "model-amplitude unit (mau; arbitrary model unit)",
+        "physical_forward_model_claimed": false,
+        "scalp_causality_claimed": false
+      }
+    },
+    "G6": {
+      "status": "PASS",
+      "checks_passed": 6,
+      "checks_total": 6,
+      "thresholds": {
+        "eligible_n3_epochs_minimum": 4,
+        "valid_fit_epochs_minimum": 2,
+        "valid_heldout_epochs_minimum": 2,
+        "relative_nrmse_improvement_minimum": 0.05,
+        "paired_epoch_bootstrap_ci_lower": "> 0",
+        "candidate_unchanged_after_fit_freeze": true
+      },
+      "denominators": {
+        "eligible_n3_epochs": 220,
+        "fit_assigned": 110,
+        "fit_valid": 110,
+        "fit_excluded": 0,
+        "heldout_assigned": 110,
+        "heldout_valid": 110,
+        "heldout_excluded": 0,
+        "paired_epoch_bootstrap_n": 110
+      },
+      "observed": {
+        "selected_candidate_id": "C006",
+        "population_candidate_id": "C000",
+        "personalized_heldout_nrmse": 0.24784525436798707,
+        "population_heldout_nrmse": 0.46377535006926635,
+        "relative_nrmse_improvement": 0.46559200627853425,
+        "selection_freeze_sha256_verified_before_heldout_open": "3D8C3D035F074CED2D608132864996D4AF9920C52889A11FE7C8E7DDA5DD8BBF"
+      },
+      "uncertainty": {
+        "method": "paired epoch bootstrap",
+        "repetitions": 1000,
+        "seed": 26081604,
+        "confidence_level": 0.95,
+        "ci_lower": 0.07980018864484562,
+        "ci_upper": 0.10146456173015034
+      },
+      "synthetic_interface": {"status": "PASS", "checks_passed": 7, "checks_total": 7}
+    },
+    "G7": {
+      "status": "NOT_RUN",
+      "reason": "Reserved for the fresh independent verifier."
+    }
+  },
+  "worker_execution_validity": "VALID_G1_TO_G6_PENDING_FRESH_VERIFIER",
+  "claim_assignment": "PENDING_VERIFICATION",
+  "claim_ceiling": "Proxy-level single-subject model-internal personalized mechanistic consistency; no population generalization, human-mechanism validation, scalp causal model, or clinical digital-twin claim."
+}

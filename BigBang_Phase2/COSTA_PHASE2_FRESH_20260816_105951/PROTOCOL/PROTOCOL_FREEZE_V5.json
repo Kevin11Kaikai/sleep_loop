@@ -1,0 +1,139 @@
+{
+  "schema_version": "5.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "freeze_id": "PHASE2_PROTOCOL_FREEZE_V5",
+  "frozen_at": "2026-08-16T17:33:34-04:00",
+  "frozen_by": "Root Orchestrator",
+  "scientific_outcomes_visible": false,
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "protocol_route_version": "5.0.0",
+  "relationship_to_r4": "SEPARATE_CLEAN_ROOM_DIAGNOSTIC_NOT_THE_R4_M1_CANDIDATE",
+  "formal_claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER",
+  "lineage": {
+    "parent_freeze_path": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+    "parent_freeze_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+    "parent_pass_audit_path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+    "parent_pass_audit_sha256": "D30035223430075381048426BE8E2C9AAD53E6165F4CB15CD2242E48189EF496",
+    "edge_adjudication_path": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+    "edge_adjudication_sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A",
+    "parent_stale_declaration_path": "GOVERNANCE/PROTOCOL_V4_EDGE_STALE_DECLARATION.json",
+    "parent_stale_declaration_sha256": "FD507A2ED6E04B8C3D1588A415EE54A7B86F20C7BB796DC834C4E58215719A1F",
+    "prospective_reaudit_plan_path": "GOVERNANCE/PROTOCOL_V5_REAUDIT_PLAN.json",
+    "prospective_reaudit_plan_sha256": "F84EBEAD585F0A773A092D3912413FE8319818777262024510FB49D6594C9EC6",
+    "v4_scientific_evidence": "NONE",
+    "v4_python_or_preflight_execution": false
+  },
+  "prospective_repair": {
+    "repair_id": "PROT-002",
+    "finding": "V4 mean/variance-rescale-only SO/spindle event veto was named but not numerically executable.",
+    "resolution": "V5 freezes exact paired raw-trace inputs, intervention-to-sham affine moment normalization, degenerate and nonfinite branches, unchanged sham detector thresholds, three-way SO/spindle matching and ordering, per-block and context pooling, hard-veto and NOT_ESTIMABLE logic, nonrecursive record hashes, exact logs and a self-contained data-free oracle.",
+    "identity_resolution": "V5 also freezes deterministic identities for all 50 Level-A conditions and 1,800 runs plus complete Level-A, Level-B cached-sham, T6/T7 reuse, and verifier sham aliases; these name existing physical trajectories and create no new run.",
+    "bootstrap_clarification": "Undefined or all-missing point-estimable bootstrap members yield a fail-closed NOT_ESTIMABLE family with no imputation, redraw, retry or numeric band; T4 zero-added remains the sole explicit exception.",
+    "new_multiplicity_member_or_family": false,
+    "unrelated_scientific_fields_changed": false,
+    "run_counts_changed": false
+  },
+  "artifacts": [
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/control_target_registry.json",
+      "bytes": 69556,
+      "sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/mechanistic_parameter_map.json",
+      "bytes": 35159,
+      "sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/phase2_protocol.json",
+      "bytes": 170784,
+      "sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/advancement_rule.json",
+      "bytes": 10332,
+      "sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/c2_gate_protocol.json",
+      "bytes": 16307,
+      "sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/claim_registry.json",
+      "bytes": 44070,
+      "sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/PREOUTCOME_DESIGN_MEMO.md",
+      "bytes": 30084,
+      "sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/t4_attribution_fixture_v3.json",
+      "bytes": 7903,
+      "sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V5/rescale_event_veto_fixture_v5.json",
+      "bytes": 13765,
+      "sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC"
+    }
+  ],
+  "target_priority": {
+    "primary": ["T1", "T4", "T6"],
+    "secondary": ["T2", "T3", "T5", "T7"],
+    "exploratory": ["T8"]
+  },
+  "phase2a": {
+    "targets_required": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "level_a_condition_ids": 50,
+    "level_a_maximum_runs": 1800,
+    "conditional_level_b_maximum_runs": 900,
+    "cross_target_verifier_unique_runs": 456,
+    "maximum_registered_runs_including_cross_verifier": 3156,
+    "advancement_cap": 3,
+    "outcome_access": "CLOSED_PENDING_INDEPENDENT_V5_FREEZE_REAUDIT"
+  },
+  "phase2b": {
+    "status": "NOT_ESTIMABLE",
+    "minimum_certified_subjects": 3,
+    "eligible_certified_subjects": 0,
+    "advancing_targets": [],
+    "synthetic_substitution": "PROHIBITED"
+  },
+  "immutable_scientific_fields": [
+    "candidate identity and clean-room claim boundary",
+    "model equations, defaults, uncertainty draws and timebase",
+    "target identity, priority, observables, detectors and metrics",
+    "all Level-A and conditional Level-B interventions, formulas, schedules, grids, shams and run identities",
+    "comparators, estimands, target scores, policy objects and cross-target benefit/adverse scalars",
+    "practical margins, thresholds, denominators, uncertainty, randomization tests and multiplicity",
+    "stability, off-target, failure, advancement, grading and claim rules",
+    "causal scheduler, event matching, T4 attribution domain, rescale-only veto, fixtures and missingness rules",
+    "simultaneous confidence families and cross-target aggregation order",
+    "Phase 2B denominator and C2-G1 through C2-G10"
+  ],
+  "change_control": {
+    "outcome_blind_preflight_repairs": "One initial data-free synthetic preflight followed by at most two bounded implementation/schema/shape repairs; no scientific field may change.",
+    "outcome_visible_change": "Requires a new scientific version and makes incompatible evidence stale.",
+    "repairs_consumed": 0,
+    "current_implementation_authorization": false,
+    "current_preflight_authorization": false,
+    "current_phase2a_outcome_authorization": false
+  },
+  "validation": {
+    "json_files_parsed": 8,
+    "targets": 8,
+    "c2_gates": 10,
+    "claims": 8,
+    "level_a_condition_ids": 50,
+    "t4_attribution_domain_rows": 16,
+    "cross_target_members": 128,
+    "forbidden_placeholder_scan": "PASS",
+    "architect_stable_byte_subaudit": "PASS",
+    "root_exact_hash_and_json_validation": "PASS",
+    "independent_freeze_reaudit": "PENDING"
+  },
+  "status": "FROZEN_PREOUTCOME_IMPLEMENTATION_PREFLIGHT_AND_OUTCOMES_DENIED_PENDING_INDEPENDENT_REAUDIT"
+}

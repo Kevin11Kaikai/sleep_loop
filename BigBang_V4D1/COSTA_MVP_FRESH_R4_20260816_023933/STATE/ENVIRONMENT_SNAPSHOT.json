@@ -1,0 +1,46 @@
+{
+  "snapshot_id": "R4_NEUROLIB_ENV_V1",
+  "frozen_before_raw_access": true,
+  "launcher": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\condabin\\conda.bat run --no-capture-output -n neurolib python",
+  "python_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+  "python_version": "3.10.20",
+  "conda_default_env_under_launcher": "neurolib",
+  "packages": {
+    "neurolib": "0.6.1",
+    "mne": "1.9.0",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2"
+  },
+  "neurolib": {
+    "editable_root": "D:\\Year3_Mao_Projects\\neurolib",
+    "module_origin": "D:\\Year3_Mao_Projects\\neurolib\\neurolib\\__init__.py",
+    "git_command_policy": "git -c safe.directory=D:/Year3_Mao_Projects/neurolib -C D:/Year3_Mao_Projects/neurolib <read-only-command>",
+    "git_commit": "9b6b2b8f082c0cfa212f05576ead55bf23046d6f",
+    "tracked_diff_clean": true,
+    "untracked": ["environment.yml"],
+    "environment_yml_runtime_role": "must remain absent from source, configuration, module, and open-file closures; content not read or used"
+  },
+  "mne_api_contract": {
+    "read_annotations_signature": "(fname, sfreq='auto', uint16_codec=None, encoding='utf8', ignore_marker_types=False)",
+    "read_annotations_call": "mne.read_annotations(path)",
+    "read_raw_edf_signature": "(input_fname, eog=None, misc=None, stim_channel='auto', exclude=(), infer_types=False, include=None, preload=False, units=None, encoding='utf8', exclude_after_unique=False, *, verbose=None)",
+    "read_raw_edf_call": "mne.io.read_raw_edf(path, preload=True, verbose='ERROR')"
+  },
+  "smoke_tests": {
+    "exact_launcher_api_smoke": "PASS",
+    "neurolib_WCModel_output_shape": [1, 200],
+    "neurolib_WCModel_all_finite": true
+  },
+  "outcome_blind_runtime_repair": {
+    "reason": "default Numba cache temporary-file creation caused pathological MNE import latency",
+    "TEMP": "SCRATCH/tmp",
+    "TMP": "SCRATCH/tmp",
+    "NUMBA_CACHE_DIR": "SCRATCH/numba_cache",
+    "MNE_DONTWRITE_HOME": "true",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "post_repair_mne_import_seconds": 1.374,
+    "scientific_logic_changed": false
+  }
+}

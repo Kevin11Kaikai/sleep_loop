@@ -1,0 +1,28 @@
+{
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "stage": "FINAL_CLOSEOUT",
+  "status": "COMPLETE",
+  "updated_at": "2026-08-16T13:47:33.9322821Z",
+  "scientific_outcomes_opened": true,
+  "scientific_outcomes_scope": "authorized public Night-1 development data only",
+  "protected_access": "PASS_NONE",
+  "raw_open_budget": "EXHAUSTED_CLOSED",
+  "gate_status": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS",
+    "G6": "PASS",
+    "G7": "PASS_INDEPENDENT_REPRODUCTION"
+  },
+  "final_assignment": {
+    "M": "M1",
+    "C": "C0",
+    "P": "P0",
+    "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION",
+    "C1": "NOT_ASSIGNED"
+  },
+  "final_verdict": "COSTA_DISSERTATION_MVP=PASS",
+  "scope_qualification": "narrow M1/P0/INDEPENDENT_REPRODUCTION scope only; not dissertation sufficiency"
+}

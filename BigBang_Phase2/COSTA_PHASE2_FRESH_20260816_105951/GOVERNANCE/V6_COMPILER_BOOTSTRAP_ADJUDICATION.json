@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "V6_COMPILER_BOOTSTRAP_ADJUDICATION",
+  "adjudication_id": "V6-COMPILER-BOOTSTRAP-ADJUDICATION-001",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "created_date": "2026-08-16",
+  "auditor_role": "independent outcome-blind compiler-bootstrap adjudicator",
+  "immutability": {
+    "status": "IMMUTABLE_ON_CREATION",
+    "amendment_policy": "Do not edit this adjudication. Any supersession must be a new artifact binding this artifact by its externally reported SHA-256.",
+    "receipt_hash_policy": "The SHA-256 of this complete artifact is reported externally after creation and is not recursively embedded."
+  },
+  "evidentiary_scope": {
+    "mode": "REASONING_FROM_TWO_ALREADY_VERIFIED_GOVERNANCE_ARTIFACTS_ONLY",
+    "inputs": [
+      {
+        "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+        "sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+        "hash_basis": "Exact hash previously verified and recorded by the static audit; not re-read or re-executed for this adjudication."
+      },
+      {
+        "path": "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json",
+        "sha256": "F0D0B8C2511AE4DEB2447E54D95313280BCFC0BA33060DD2AAC8A1E89D070409",
+        "hash_basis": "Immutable receipt created and externally hashed before this adjudication; not re-read through any additional source scope."
+      }
+    ],
+    "new_file_inspection": "NONE",
+    "Candidate_V6_access": "NONE",
+    "compiler_or_code_access": "NONE",
+    "data_access": "NONE",
+    "R4_access": "NONE",
+    "outcome_access": "NONE",
+    "execution": "NONE",
+    "STATE_modified": false
+  },
+  "question": "How can the prospectively required 36,000-sample source, filter, and intermediate hashes be established without circularly executing the authoritative one-shot compiler before those hashes exist?",
+  "governing_logic": [
+    "A hash used as a prospective oracle must exist, be frozen, and be independently bound before the authoritative compiler execution that it is intended to verify.",
+    "The authoritative compiler cannot lawfully generate an expected hash and then validate its own output against that newly generated value in the same authorization; that is self-authorization, not prospective verification.",
+    "Exact literal bytes may be authored and content-hashed without executing the scientific compiler, but derived filter, detector, matching, pooling, bootstrap, or record intermediates do not become independently validated merely because their bytes are serialized as literals after being produced by the same implementation.",
+    "Any numerical derivation used to create candidate expected intermediate hashes is an execution with a write and provenance surface. It therefore needs its own prospective authority, exact scope, static audit, environment binding, and immutable receipt.",
+    "A bootstrap derivation may create a candidate lockfile only. It cannot release the official compiler, modify the frozen lockfile after review, write the official fixture, or constitute scientific evidence.",
+    "After candidate hashes are independently frozen, the official compiler may only recompute and compare against them fail-closed; it may not learn, repair, refresh, or replace expected values during its one-shot run."
+  ],
+  "option_evaluation": {
+    "A": {
+      "description": "Exact embedded raw arrays and literal coefficients are authored and hashed with non-scientific static tooling.",
+      "verdict": "LAWFUL_BUT_PARTIAL",
+      "lawful_now_for": [
+        "Authoring complete exact little-endian <f8 source-array bytes as RFC4648 base64 with shape and uppercase SHA-256.",
+        "Authoring exact coefficient bytes or exact IEEE-754 coefficient words as literals, with canonical serialization and uppercase SHA-256.",
+        "Hashing already-authored literal byte payloads with a non-scientific content-hash tool, followed by independent byte/hash verification.",
+        "Binding exact NaN or other nonfinite test words by their explicit IEEE-754 bit patterns."
+      ],
+      "not_sufficient_for": [
+        "Deriving SciPy filter coefficients from cutoff/order parameters.",
+        "Computing filtered traces, thresholds, detector tables, match ledgers, event classes, pooling results, bootstrap oracles, or canonical record hashes.",
+        "Establishing that a literal derived intermediate is correct when its provenance is the same implementation that will later be verified."
+      ],
+      "conditions": [
+        "The authored bytes, their exact encoding rules, and their hashes are frozen before any authoritative compiler run.",
+        "No procedural generator, host-dependent transcendental evaluation, implicit seed expansion, projection, or implementation-produced input is accepted as an authored literal.",
+        "Static hashing does not execute model, detector, filter, compiler, preflight, or scientific code.",
+        "An independent reviewer verifies decode length, shape, endianness, canonical encoding, and hash."
+      ],
+      "conclusion": "Use A for all primitive source arrays, fixed bit words, and coefficients that can genuinely be authored as exact literals. A alone does not resolve the required derived-intermediate oracle hashes unless every derived byte is independently supplied with noncircular provenance."
+    },
+    "B": {
+      "description": "A separately versioned, statically audited, explicitly non-authoritative data-free lockfile-derivation run generates candidate hashes, followed by freeze and independent official verification.",
+      "verdict": "TECHNICALLY_SOUND_ONLY_AFTER_NEW_PROSPECTIVE_AUTHORIZATION",
+      "current_authority": "NOT_AUTHORIZED_BY_THE_CURRENT_ADDENDUM",
+      "why_it_resolves_circularity": [
+        "The bootstrap run produces candidate expected values under a distinct identity and cannot write or execute the authoritative compiler or official fixture.",
+        "Root freezes the resulting lockfile bytes and hash only after an independent derivation-receipt audit.",
+        "A separately frozen official compiler then treats the lockfile as immutable input and independently recomputes every value.",
+        "Any mismatch fails closed; the official run cannot update the lockfile or reinterpret the candidate values."
+      ],
+      "mandatory_independence": [
+        "Separate bootstrap release ID, invocation ID, code path, source hash, manifest, output path, success/failure/spent receipts, and role assignment.",
+        "Prefer an independently implemented derivation route; at minimum, prohibit byte-identical reuse of the authoritative compiler as the bootstrap generator and require independently reviewable formulas and checkpoints.",
+        "Bootstrap output is a candidate lockfile only, labeled NON_AUTHORITATIVE_DATA_FREE_BOOTSTRAP and NOT_SCIENTIFIC_EVIDENCE.",
+        "The bootstrap process has no write authority over protocol freeze, official compiler package, official fixture, STATE, data, R4, outcomes, release receipts, claims, or run counts.",
+        "The reviewer who freezes/adjudicates the candidate lockfile is role-isolated from the derivation author and the later authoritative compiler operator."
+      ],
+      "conclusion": "B is the safest practical way to establish derived hashes, but executing B under the present addendum would itself be an unauthorized governance expansion."
+    },
+    "C": {
+      "description": "The current addendum makes lawful compilation impossible and requires a versioned governance amendment.",
+      "verdict": "TRUE_FOR_THE_CURRENT_RELEASE_STATE",
+      "basis": [
+        "The addendum requires source and intermediate expected hashes to be prospectively frozen before the authoritative one-shot compiler run.",
+        "The present release has no lawful bootstrap derivation identity, read/write allowlist, environment binding, output schema, one-shot authorization, or receipt path for producing the derived candidates.",
+        "The static audit found no prospective source/intermediate/filter hashes and denied execution noncompensatorily.",
+        "Treating an official compiler's first output as its own oracle would defeat the addendum's prospective and independent-verification requirements."
+      ],
+      "conclusion": "No authoritative compiler execution can be released under the current addendum. A versioned governance amendment is required if any numerical bootstrap derivation is needed."
+    }
+  },
+  "adjudication": {
+    "overall_verdict": "CURRENT_COMPILATION_IMPOSSIBLE_WITHOUT_PROSPECTIVE_GOVERNANCE_REPAIR",
+    "selected_route": "A_THEN_AMENDED_B_THEN_FREEZE_THEN_INDEPENDENT_OFFICIAL_VERIFICATION",
+    "option_A": "APPROVED_FOR_PRIMITIVE_LITERAL_AUTHORING_AND_STATIC_HASHING_ONLY",
+    "option_B": "CONDITIONALLY_APPROVED_AS_DESIGN_BUT_EXECUTION_DENIED_UNTIL_VERSIONED_AMENDMENT_AND_STATIC_PASS",
+    "option_C": "REQUIRED_BEFORE_ANY_BOOTSTRAP_OR_OFFICIAL_EXECUTION",
+    "no_self_authorization": true,
+    "no_compensatory_shortcut": true
+  },
+  "safest_executable_route": {
+    "step_1_static_literal_freeze": {
+      "action": "Author all primitive 36k source buffers, fixed nonfinite bit words, and any legitimately literal coefficients as complete exact bytes; encode and hash them prospectively.",
+      "execution_status": "STATIC_AUTHORING_AND_HASHING_ONLY",
+      "required_receipt": "Independent literal-byte, shape, endianness, canonical-encoding, and hash verification."
+    },
+    "step_2_versioned_bootstrap_amendment": {
+      "action": "Root adopts an outcome-blind versioned governance amendment defining the non-authoritative lockfile derivation transaction.",
+      "execution_status": "MANDATORY_BEFORE_STEP_3",
+      "must_not_weaken": [
+        "The addendum's exact scientific formulas, case registry, schemas, and failure semantics.",
+        "The official compiler's prospective hash-verification requirement.",
+        "Protected, data, R4, outcome, implementation, preflight, claim, and run-count gates."
+      ]
+    },
+    "step_3_bootstrap_package_static_audit": {
+      "action": "Freeze and independently static-audit the separate derivation code, manifest, exact literal inputs, schemas, dependencies, environment, launcher, write transaction, and receipts.",
+      "execution_status": "DENIED_UNLESS_STATIC_AUDIT_PASS",
+      "release_scope": "One data-free derivation invocation writing only an absent temporary candidate lockfile, immutable receipts, and an atomic final candidate-lockfile rename."
+    },
+    "step_4_non_authoritative_derivation": {
+      "action": "Run the separately authorized bootstrap exactly once to derive candidate coefficient/intermediate/hash values.",
+      "execution_status": "CONDITIONAL_AFTER_STEPS_1_TO_3",
+      "output_status": "CANDIDATE_ONLY_NON_AUTHORITATIVE_NOT_SCIENTIFIC_EVIDENCE"
+    },
+    "step_5_independent_lockfile_revalidation_and_freeze": {
+      "action": "An independent role verifies the bootstrap receipt, raw-input hashes, environment, formulas, every expected/actual intermediate, schema, canonical bytes, and candidate lockfile hash; Root then freezes the exact lockfile without modification.",
+      "execution_status": "REQUIRED_BEFORE_OFFICIAL_COMPILER_RELEASE",
+      "failure_rule": "Any mismatch, missing provenance, role overlap, stale hash, extra access, or unauthorized write rejects and spends the bootstrap attempt."
+    },
+    "step_6_official_package_rebuild_and_static_reaudit": {
+      "action": "Build a new versioned official compiler package that binds the frozen lockfile path/hash and every repaired requirement V6FC-SA-B001 through V6FC-SA-B008; independently static-audit it.",
+      "execution_status": "DENIED_UNLESS_NEW_STATIC_AUDIT_PASS"
+    },
+    "step_7_authoritative_one_shot_verification": {
+      "action": "The official compiler independently recomputes all values and compares them byte-for-byte and hash-for-hash to the frozen lockfile before atomically writing an official fixture.",
+      "execution_status": "CONDITIONAL_AFTER_ROOT_EXACT_RELEASE",
+      "prohibitions": [
+        "No learning or updating expected values.",
+        "No lockfile write or fallback acceptance.",
+        "No tolerance substitution for exact byte/hash requirements.",
+        "No data, R4, outcomes, scientific models, or run-count mutation.",
+        "No reuse of bootstrap authorization."
+      ]
+    },
+    "step_8_post_run_independent_audit": {
+      "action": "Independently validate the official success/failure/spent receipt and fixture before any downstream protocol consideration.",
+      "execution_status": "MANDATORY",
+      "automatic_downstream_release": false
+    }
+  },
+  "required_bootstrap_amendment_fields": [
+    "Exact amendment ID, parent hashes, sole purpose, and explicit statement that the bootstrap is non-authoritative and data-free.",
+    "Distinct bootstrap release ID and one-shot invocation ID.",
+    "Exact derivation specification, code, manifest, schemas, launcher, environment, dependency, executable, package, BLAS/LAPACK, architecture, locale, byteorder, and thread bindings with sizes and SHA-256 values.",
+    "Complete normalized absolute read and write allowlists, link/reparse/hardlink containment rules, and explicit forbidden paths/capabilities.",
+    "Exact primitive literal-input paths/hashes and exact derivation recipe registry.",
+    "Absent temporary/final candidate-lockfile paths; atomic same-directory transaction; immutable success, failure, and authorization-spent receipt paths.",
+    "Canonical lockfile schema containing every coefficient, source, observation, filtered trace, threshold, event table, match/class/consumption ledger, pooled result, bootstrap oracle, record payload, and final payload hash required by the governing addendum.",
+    "Per-value provenance identifying literal input hashes, formula/algorithm ID, stage, dtype, shape, byteorder, canonicalization, and expected/actual hash.",
+    "Role-isolated author, static auditor, operator, result auditor, lockfile freezer, and official verifier assignments.",
+    "Fail-closed conditions for missing/stale hashes, environment mismatch, unexpected file state, extra access, schema failure, numerical mismatch, write failure, or role overlap.",
+    "Explicit prohibitions on protocol/official-compiler/official-fixture/STATE/data/R4/outcome/claim/run-count writes and on any downstream release effect."
+  ],
+  "gates": {
+    "static_literal_authoring": "PERMITTED_WITH_EXACT_SCOPE_AND_INDEPENDENT_HASH_REVIEW",
+    "current_fixture_compiler_execution": "DENIED",
+    "bootstrap_derivation_execution_under_current_addendum": "DENIED",
+    "bootstrap_derivation_execution_after_versioned_amendment": "CONDITIONAL_ON_EXACT_PACKAGE_FREEZE_AND_INDEPENDENT_STATIC_PASS",
+    "candidate_lockfile_authority": "NONE_UNTIL_INDEPENDENT_REVALIDATION_AND_ROOT_FREEZE",
+    "official_compiler_release": "DENIED_UNTIL_FROZEN_LOCKFILE_AND_NEW_STATIC_PASS",
+    "implementation": "DENIED",
+    "preflight": "DENIED",
+    "scientific_execution": "DENIED",
+    "data_R4_outcomes": "DENIED",
+    "automatic_release": false
+  },
+  "final_verdict": "VERSIONED_GOVERNANCE_AMENDMENT_REQUIRED; USE_STATIC_LITERAL_AUTHORING_WHERE_POSSIBLE, THEN A DISTINCT NON_AUTHORITATIVE BOOTSTRAP, FREEZE, AND INDEPENDENT OFFICIAL VERIFICATION"
+}

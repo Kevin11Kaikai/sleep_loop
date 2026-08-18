@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "scientific_outcomes_visible": false,
+  "repairs": [
+    {
+      "repair_id": "D-001",
+      "class": "OUTCOME_BLIND_GOVERNANCE_CONTROL_FILE_EXCEPTION",
+      "trigger": "Denylist self-matched two current-campaign governance filenames",
+      "change": "Added exact path, role, operation, and no-scientific-use exceptions evaluated before deny patterns",
+      "scientific_definition_changed": false,
+      "status": "INDEPENDENTLY_RESOLVED",
+      "receipt": "GOVERNANCE/CLEAN_ROOT_AUDIT.md"
+    },
+    {
+      "repair_id": "OAV-001",
+      "class": "OUTCOME_BLIND_IMPORT_PERMISSION_FIDELITY_REPAIR",
+      "trigger": "Official allowlist v2 role/purpose extension exceeded the frozen audit decision wording",
+      "change": "Paused sanitizer, obtained independent narrow permission amendment, bound amendment and exact purpose wording in allowlist v3",
+      "scientific_definition_changed": false,
+      "protected_access": "NONE",
+      "scientific_outcomes_visible": false,
+      "status": "COMPLETE_CONTAINED_RECONCILED_AND_INDEPENDENTLY_REVALIDATED",
+      "receipts": [
+        "GOVERNANCE/HISTORICAL_IMPORT_AUDIT.md",
+        "IMPORT_ALLOWLIST/SANITIZER_PERMISSION_AMENDMENT.json",
+        "GOVERNANCE/OAV_001_ACCESS_FIDELITY_INCIDENT.md",
+        "GOVERNANCE/OAV_001_ADJUDICATION.md",
+        "IMPORT_ALLOWLIST/OFFICIAL_ALLOWLIST_V5_REVALIDATION.json"
+      ]
+    },
+    {
+      "repair_id": "ENV-001",
+      "class": "OUTCOME_BLIND_ENVIRONMENT_AND_COMPUTE_CONTROL_REPAIR",
+      "trigger": "Independent compute audit found unenforced thread settings and total-versus-available RAM mislabel; V2 re-audit then found an unexecutable frozen PowerShell command and incomplete path-boundary containment",
+      "change": "Cycle 1 created the enforcing launcher, corrected memory labels, and added dynamic admission. Cycle 2 issued NEUROLIB_ENV_V3 with a process-scoped Bypass command, separator-bounded containment, and reparse-point rejection.",
+      "scientific_definition_changed": false,
+      "environment_packages_changed": false,
+      "scientific_outcomes_visible": false,
+      "bounded_cycles_consumed": 2,
+      "maximum_bounded_cycles": 2,
+      "further_repairs_permitted_in_lineage": false,
+      "status": "PENDING_FINAL_INDEPENDENT_REAUDIT",
+      "receipts": [
+        "GOVERNANCE/COMPUTE_BUDGET_AUDIT.json",
+        "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V2.json",
+        "STATE/ENVIRONMENT_SNAPSHOT.json",
+        "PREFLIGHT/run_neurolib.ps1"
+      ]
+    },
+    {
+      "repair_id": "PROT-001",
+      "class": "PROSPECTIVE_SCIENTIFIC_PROTOCOL_VERSION_CHANGE_BEFORE_OUTCOMES",
+      "trigger": "Independent Protocol Freeze V1 audit found five blocking executable-definition contradictions",
+      "change": "Candidate V1 and its partial unexecuted implementation were declared stale for execution; an isolated architect was commissioned to issue complete Candidate V2 resolving PF-B001 through PF-B005.",
+      "scientific_definition_changed": true,
+      "outcome_visibility_at_change": "NONE",
+      "protected_access": "NONE",
+      "preflight_repair_budget_consumed": 0,
+      "incompatible_v1_evidence": "NONE_GENERATED",
+      "status": "COMPLETE_V4_INDEPENDENTLY_REVALIDATED_NO_OUTCOMES",
+      "receipts": [
+        "GOVERNANCE/PROTOCOL_FREEZE_AUDIT.json",
+        "GOVERNANCE/PROTOCOL_V1_STALE_DECLARATION.json",
+        "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+        "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+        "GOVERNANCE/PROTOCOL_V2_STALE_DECLARATION.json",
+        "PROTOCOL/PROTOCOL_FREEZE_V3.json",
+        "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V3.json",
+        "GOVERNANCE/PROTOCOL_V3_STALE_DECLARATION.json",
+        "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+        "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json"
+      ]
+    },
+    {
+      "repair_id": "IRB-001",
+      "class": "OUTCOME_BLIND_GOVERNANCE_CONTROL_BINDING_REPAIR",
+      "trigger": "Implementation worker independently found a wrong launcher SHA-256 and nonexistent STATE compute-budget path in the V1 implementation release.",
+      "change": "Paused before code writes, declared V1 stale, and issued V2 with the exact V3-audited launcher hash plus COMMON/COMPUTE_BUDGET.json path and hash.",
+      "scientific_definition_changed": false,
+      "scientific_outcomes_visible": false,
+      "protected_access": "NONE",
+      "implementation_files_written_before_pause": 0,
+      "status": "COMPLETE_CONTAINED_AND_INDEPENDENTLY_REVALIDATED",
+      "receipts": [
+        "GOVERNANCE/IMPLEMENTATION_RELEASE_BINDING_INCIDENT.json",
+        "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+        "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json"
+      ]
+    },
+    {
+      "repair_id": "PROT-002",
+      "class": "PROSPECTIVE_SCIENTIFIC_PROTOCOL_VERSION_CHANGE_BEFORE_OUTCOMES",
+      "trigger": "Independent outcome-blind adjudication found that V4 names a mean/variance-rescale-only SO/spindle event veto without an executable numerical normalization, detector-rerun, pooling, missingness, or decision algorithm.",
+      "change": "Paused the unfrozen V4 static implementation before any import or execution and commissioned an isolated architect to issue a minimal complete Candidate V5 specification. The general all-missing bootstrap convention remains fail-closed NOT_ESTIMABLE and requires no scientific change.",
+      "scientific_definition_changed": true,
+      "outcome_visibility_at_change": "NONE",
+      "protected_access": "NONE",
+      "preflight_repair_budget_consumed": 0,
+      "incompatible_v4_evidence": "NONE_GENERATED",
+      "implementation_manifest_created": false,
+      "status": "ACTIVE_V6_REPAIR_AFTER_V5_INDEPENDENT_REAUDIT_FAIL",
+      "receipts": [
+        "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+        "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+        "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+        "GOVERNANCE/PROTOCOL_V5_STALE_DECLARATION.json"
+      ]
+    },
+    {
+      "repair_id": "V6ADD-001",
+      "class": "OUTCOME_BLIND_ROLE_ISOLATION_AND_GOVERNANCE_CONTROL_RECOVERY",
+      "trigger": "The protocol architect deleted a separately Root-authorized prospective V6 re-audit addendum after misclassifying it as unauthorized.",
+      "change": "Paused all V6 writes; independently audited the exact deletion scope; recovered the original 64,268 bytes to quarantine; independently revalidated the original SHA-256; restored the canonical path byte-identically; independently rehashed all ten staging paths and closed the incident; narrowed architect authority to Candidate V6 paths only.",
+      "scientific_definition_changed": false,
+      "scientific_outcomes_visible": false,
+      "protected_access": "NONE",
+      "scientific_contamination": "NONE",
+      "status": "COMPLETE_CONTAINED_RECOVERED_AND_INDEPENDENTLY_REVALIDATED",
+      "receipts": [
+        "GOVERNANCE/PROTOCOL_V6_ADDENDUM_DELETION_INCIDENT.json",
+        "GOVERNANCE/RECOVERY/PROTOCOL_V6_REAUDIT_ADDENDUM_RECOVERY.json",
+        "GOVERNANCE/PROTOCOL_V6_ADDENDUM_RECOVERY_REVALIDATION.json",
+        "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+        "GOVERNANCE/PROTOCOL_V6_ADDENDUM_INCIDENT_CLOSEOUT.json"
+      ]
+    }
+  ],
+  "created_at": "2026-08-16T11:17:55.7201963-04:00",
+  "last_updated_at": "2026-08-16T20:50:01-04:00"
+}

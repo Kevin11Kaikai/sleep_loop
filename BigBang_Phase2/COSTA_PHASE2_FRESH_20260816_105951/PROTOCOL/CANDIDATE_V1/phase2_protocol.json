@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "protocol_id": "COSTA_PHASE2_PROTOCOL_CANDIDATE_V1",
+  "candidate_identity": "PHASE2_CONTROL_BENCH_V1",
+  "status": "FREEZE_CANDIDATE_PREOUTCOME",
+  "outcome_visibility_at_design": "NONE",
+  "execution_authorized_by_this_artifact": false,
+  "purpose": "Prospectively specify a current-campaign clean-room diagnostic control bench and a compute-bounded Phase 2A assessment of T1-T8 without importing R4 execution artifacts or scientific outcomes.",
+  "claim_boundary": {
+    "r4_categorical_substrate": {"mechanistic_level": "M1", "control_level": "C0", "predictive_level": "P0", "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION"},
+    "bench_relation_to_r4": "NO_EXECUTABLE_IDENTITY_LINK",
+    "maximum_bench_evidence": "NON_TRANSFERABLE_SYNTHETIC_DIAGNOSTIC",
+    "formal_c1_assignment": "PROHIBITED",
+    "formal_c2_assignment": "PROHIBITED",
+    "r4_substrate_change": "PROHIBITED",
+    "clinical_or_human_intervention_inference": "PROHIBITED"
+  },
+  "software_contract": {
+    "environment": "neurolib",
+    "environment_version": "NEUROLIB_ENV_V3",
+    "python": "3.10.20",
+    "required_packages": {"numpy": "2.2.6", "scipy": "1.15.2", "neurolib": "0.6.1"},
+    "scientific_dependencies": ["numpy", "scipy"],
+    "neurolib_role": "environment compatibility and future adapter boundary only; no repository or historical neurolib model is imported",
+    "official_launcher": "PREFLIGHT/run_neurolib.ps1",
+    "threads": {"OMP_NUM_THREADS": 4, "MKL_NUM_THREADS": 4, "OPENBLAS_NUM_THREADS": 4, "NUMEXPR_NUM_THREADS": 4},
+    "requested_concurrent_processes": 1,
+    "reason_for_single_process": "The frozen environment snapshot admits one process at captured available memory."
+  },
+  "bench": {
+    "bench_id": "PHASE2_CONTROL_BENCH_V1",
+    "bench_type": "clean-room reduced thalamocortical stochastic rate model",
+    "equations": {
+      "rates": "tau_i*dr_i/dt=-r_i+rmax_i/(1+exp(-beta*(h_i-theta))) for i=E,I,T,R",
+      "adaptation": "tau_a*da/dt=-a+r_E",
+      "h_E": "b_E+w_EE*r_E-w_EI*r_I+w_ET*r_T-g_a*a+eta_E+u_E(t)",
+      "h_I": "b_I+w_IE*r_E-w_II*r_I+w_IT*r_T+eta_I+u_I(t)",
+      "h_T": "b_T+w_TE*r_E-w_TR*r_R+eta_T+u_T(t)",
+      "h_R": "b_R+w_RE*r_E+w_RT*r_T-w_RR*r_R+eta_R+u_R(t)",
+      "ou_update": "eta_i[n+1]=rho*eta_i[n]+sigma_i*sqrt(1-rho^2)*epsilon_i[n], rho=exp(-dt/tau_eta), epsilon_i[n] iid N(0,1)",
+      "observation": "x(t)=(r_E(t)+0.25*r_T(t))/10 m.u."
+    },
+    "state_order": ["r_E", "r_I", "r_T", "r_R", "a", "eta_E", "eta_I", "eta_T", "eta_R"],
+    "initial_state": [8.0, 10.0, 6.0, 8.0, 8.0, 0.0, 0.0, 0.0, 0.0],
+    "parameter_source": "mechanistic_parameter_map.json#parameter_defaults_and_bounds",
+    "parameter_values": {
+      "tau_E": 0.020, "tau_I": 0.010, "tau_T": 0.020, "tau_R": 0.010, "tau_a": 1.000, "tau_eta": 0.050,
+      "rmax_E": 100.0, "rmax_I": 100.0, "rmax_T": 100.0, "rmax_R": 100.0,
+      "beta": 0.18, "theta": 15.0, "b_E": 12.0, "b_I": 8.0, "b_T": 10.0, "b_R": 8.0, "g_a": 0.30,
+      "w_EE": 0.22, "w_EI": 0.35, "w_ET": 0.16, "w_IE": 0.30, "w_II": 0.10, "w_IT": 0.10,
+      "w_TE": 0.12, "w_TR": 0.40, "w_RE": 0.08, "w_RT": 0.35, "w_RR": 0.08,
+      "sigma_E": 0.25, "sigma_I": 0.20, "sigma_T": 0.20, "sigma_R": 0.20
+    },
+    "timebase": {
+      "internal_dt_seconds": 0.001,
+      "integrator": "fixed-step stochastic Heun for rate/adaptation states with exact discrete OU update",
+      "predictor_corrector_order": "Compute OU next state from the registered epsilon; Euler-predict r and a using current eta; recompute drift at predictor using next eta; set state_next=state+0.5*dt*(drift_current+drift_predictor).",
+      "clipping": "NONE",
+      "warmup_seconds": 30,
+      "analysis_seconds": 180,
+      "stored_sampling_rate_hz": 200,
+      "decimation_rule": "store every fifth internal sample after warmup; no antialias filter is needed for stored states because detector bands end at 30 Hz, but a fixed scipy.signal.decimate FIR zero-phase check must agree within 1 percent on preflight spectra",
+      "time_origin": "intervention starts after warmup at analysis t=0",
+      "floating_point": "IEEE-754 float64"
+    },
+    "randomness": {
+      "bit_generator": "numpy.random.PCG64",
+      "worker_seeds": [11003, 22007, 33013, 44017, 55021, 66029],
+      "independent_verification_seeds": [77041, 88069, 99079, 111091],
+      "seed_pairing": "For a given parameter draw and seed, sham and every intervention condition reuse the identical four OU innovation streams.",
+      "stream_layout": "One Generator(seed) produces a float64 array in C order with columns E,I,T,R at each internal step.",
+      "parameter_draws": ["D00_NOMINAL", "D01", "D02", "D03", "D04", "D05"],
+      "parameter_draw_rule": "mechanistic_parameter_map.json#synthetic_uncertainty_rule",
+      "interpretation": "seed and parameter draws quantify synthetic bench uncertainty only; they are not people and not personalization evidence"
+    },
+    "intervention_semantics": {
+      "name_requirement": "Every applied input is named GENERIC EXTERNAL FORCING.",
+      "auditory_like_label": "PROHIBITED",
+      "physiological_parameter_change_as_control": "PROHIBITED",
+      "parameter_perturbation_role": "SENSITIVITY_ONLY",
+      "channels": "mechanistic_parameter_map.json#intervention_channels"
+    }
+  },
+  "observation_and_detector_contract": {
+    "common_preprocessing": {
+      "signal": "x(t)=(r_E+0.25*r_T)/10 m.u.",
+      "centering": "subtract the mean of the 180 s analysis interval separately for each run",
+      "filter_implementation": "scipy.signal.butter(..., output='sos', fs=200) followed by scipy.signal.sosfiltfilt",
+      "filter_order": 4,
+      "edge_exclusion_seconds_each_side": 10,
+      "condition_invariance": "All coefficients, thresholds, duration rules, and edge rules are fixed before non-sham outcomes and applied unchanged across the paired sham and intervention conditions."
+    },
+    "T1": {
+      "metric": "dominant slow-oscillation peak frequency plus frequency-lock validation",
+      "welch": {"fs_hz": 200, "window": "hann", "nperseg": 12000, "noverlap": 6000, "nfft": 24000, "detrend": "constant", "scaling": "density", "peak_band_hz": [0.4, 1.5], "tie_rule": "lowest-frequency maximum"},
+      "peak_refinement": "three-bin parabolic interpolation in log power; use the discrete bin at either boundary",
+      "locking": "PLV=abs(mean(exp(i*(phase_SO-2*pi*f_drive*t)))) after the edge exclusion; phase_SO is the Hilbert phase of the 0.3-1.5 Hz filtered signal",
+      "validity": "Welch power finite and positive, peak not at 0.4 or 1.5 Hz, at least 30 valid SO cycles"
+    },
+    "T2_T3_SO_events": {
+      "band_hz": [0.3, 1.5],
+      "cycle_boundary": "successive upward zero crossings",
+      "cycle_duration_seconds": [0.4, 2.5],
+      "event_thresholds": {"minimum_peak_to_peak_m_u": 0.10, "maximum_negative_trough_m_u": -0.04},
+      "event_containment": "both cycle boundaries and extrema must lie strictly inside the analysis interval after edge exclusion",
+      "T2_metric": "median(max-min) across valid SO events",
+      "T3_metric": "60*valid_event_count/retained_duration_seconds",
+      "zero_event_rule": "T3 density is zero if retained duration is valid; T2 is NOT_ESTIMABLE if fewer than 30 events"
+    },
+    "T4_T5_spindle_events": {
+      "band_hz": [11.0, 16.0],
+      "envelope": "sqrt(moving_mean(sigma_signal^2)) with a centered 0.200 s boxcar",
+      "threshold_calibration": "For each seed-draw block, threshold constants are derived once from its sham: high=median+3*MAD and low=median+1.5*MAD, MAD=1.4826*median(abs(x-median(x))). The same constants are applied to every condition in that block.",
+      "event_rule": "start on high-threshold crossing, extend to surrounding low-threshold crossings, merge gaps <=0.100 s, retain durations 0.300-2.000 s, enforce strict containment",
+      "T4_metric": "60*spindle_count/retained_duration_seconds",
+      "T5_metric": "median event RMS of the unthresholded 11-16 Hz signal",
+      "zero_event_rule": "T4 density is zero; T5 is NOT_ESTIMABLE if fewer than 10 retained events"
+    },
+    "T6": {
+      "metric": "surrogate-bias-corrected Tort modulation index",
+      "phase": "Hilbert angle of the 0.3-1.5 Hz filtered signal",
+      "amplitude": "absolute Hilbert transform of the 11-16 Hz filtered signal",
+      "phase_bins": 18,
+      "formula": "MI=(log(18)+sum_j(P_j*log(P_j)))/log(18), where P_j is mean sigma amplitude in bin j divided by the sum across bins; 0*log(0)=0",
+      "surrogate_rule": "subtract the median MI of 200 circular amplitude-envelope shifts; shift samples are generated without replacement from integer lags corresponding to 10.000 through 170.000 s using PCG64(seed+600000)",
+      "validity": "all 18 phase bins populated, at least 30 SO cycles and at least 10 spindle events"
+    },
+    "T7": {
+      "metric": "circular mean SO phase of within-spindle sigma-envelope maxima",
+      "formula": "atan2(sum(sin(phi_e)),sum(cos(phi_e))) in [-pi,pi); ties in envelope maxima use earliest sample",
+      "concentration": "R=abs(mean(exp(i*phi_e)))",
+      "validity": "at least 10 spindle events, at least 30 SO cycles, and R>=0.20"
+    },
+    "T8": {
+      "metric": "mixed SO-spindle model-regime occupancy",
+      "windows": "six nonoverlapping 30 s windows",
+      "window_is_valid_regime": "all rates finite and their means in [0.5,60] Hz; dominant SO peak in [0.5,1.25] Hz; SO median peak-to-peak in [0.10,2.00] m.u.; SO density in [10,90] events/min; spindle density in [0.5,20] events/min; and 11-16 Hz power divided by 4-30 Hz power in [0.02,0.60]",
+      "metric_formula": "number of valid-regime windows/6",
+      "transition_persistence": "an intervention-induced regime requires at least two consecutive valid-regime windows",
+      "invalidity": "solver or state invalidity is never a regime transition"
+    }
+  },
+  "detector_preflight": {
+    "status_required_before_phase2a": "PASS_ALL",
+    "tests": [
+      {"test_id": "PF_NUMERIC_ZERO", "fixture": "180 s all-zero signal", "expected": "T3=0 events/min, T4=0 spindles/min, T2/T5/T6/T7 NOT_ESTIMABLE; no exception"},
+      {"test_id": "PF_T1_FREQUENCY", "fixture": "x=sin(2*pi*0.80*t)", "expected": "T1 peak within 0.02 Hz of 0.80 and PLV>=0.99 at a 0.80 Hz reference"},
+      {"test_id": "PF_SO_EVENTS", "fixture": "x=0.20*sin(2*pi*0.80*t)", "expected": "T3 within 1 event/min of 48 and T2 within 0.01 m.u. of 0.40 after edge handling"},
+      {"test_id": "PF_SPINDLE_EVENTS", "fixture": "thirteen nonoverlapping 1.0 s 13 Hz Hann bursts placed inside a 180 s signal", "expected": "exactly 13 retained spindle events and median duration within 0.05 s of 1.0"},
+      {"test_id": "PF_COUPLING_POSITIVE", "fixture": "0.8 Hz carrier phase with 13 Hz burst envelope centered at phase 0 each cycle", "expected": "bias-corrected T6 MI greater than 0.01 and T7 absolute phase error <=pi/12"},
+      {"test_id": "PF_COUPLING_NULL", "fixture": "same slow carrier with sigma envelope circularly shifted independently each cycle by PCG64(900001)", "expected": "absolute bias-corrected T6 MI <=0.01"},
+      {"test_id": "PF_EDGE_CONTAINMENT", "fixture": "events straddling both analysis boundaries plus one interior event", "expected": "only the interior event is retained"},
+      {"test_id": "PF_BROADBAND_VETO", "fixture": "broadband variance doubled without changing the isolated 13 Hz burst", "expected": "T5 specificity veto is triggered if 4-30 Hz power rises more than 25 percent while sigma fraction fails to rise"},
+      {"test_id": "PF_SOLVER_REPEAT", "fixture": "10 s nominal bench simulation repeated with seed 123457", "expected": "state arrays are byte-identical, finite, unclipped, and within [-1e-6,rmax+1e-6]"},
+      {"test_id": "PF_DETECTOR_PERTURB", "fixture": "repeat analytic fixtures at fs 199.999 and 200.001 Hz and filter order 3 and 5 as sensitivity only", "expected": "event counts differ by at most one and continuous metrics differ by at most 5 percent; registered order 4 remains the official metric"}
+    ],
+    "failure_action": "Stop before scientific Phase 2A. An outcome-blind implementation repair may use the remaining campaign repair authority only if separately authorized; this protocol itself does not authorize a repair."
+  },
+  "phase2a": {
+    "status": "DESIGNED_NOT_EXECUTED",
+    "evidence_label": "SYNTHETIC",
+    "mandatory_targets": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+    "priority_classes": {"primary": ["T1", "T4", "T6"], "secondary": ["T2", "T3", "T5", "T7"], "exploratory": ["T8"]},
+    "level_a_single_channel_grids": {
+      "T1": {"channel": "GF_E_SLOW_SINE", "amplitude_hz_equivalent": 0.8, "drive_frequencies_hz": [0.55, 0.70, 0.85, 1.00, 1.15], "sham": "all u channels zero"},
+      "T2": {"channel": "GF_E_DC", "dose_hz_equivalent": [-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5]},
+      "T3": {"channel": "GF_E_SO_PULSE", "dose_hz_equivalent": [-2.0, -1.25, -0.5, 0.0, 0.5, 1.25, 2.0]},
+      "T4": {"channel": "GF_TR_SIGMA_PACKET_BALANCE", "dose_hz_equivalent": [-1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5]},
+      "T5": {"channel": "GF_TR_SIGMA_CONTINUOUS_BALANCE", "dose_hz_equivalent": [-1.2, -0.8, -0.4, 0.0, 0.4, 0.8, 1.2]},
+      "T6_T7_SHARED": {"channel": "GF_T_PHASE_LOCKED_PACKET", "phase_offsets_radians": [-3.141592653589793, -2.0943951023931953, -1.0471975511965976, 0.0, 1.0471975511965976, 2.0943951023931953, 3.141592653589793], "fixed_amplitude_hz_equivalent": 1.0, "sham": "amplitude zero"},
+      "T8": {"channel": "GF_BALANCED_DC", "dose_hz_equivalent": [-2.0, -1.25, -0.5, 0.0, 0.5, 1.25, 2.0]}
+    },
+    "replication": {
+      "worker_seeds": 6,
+      "parameter_draws": 6,
+      "paired_seed_draw_blocks_per_condition": 36,
+      "minimum_valid_paired_blocks_per_registered contrast": 30,
+      "minimum_distinct_seeds": 5,
+      "minimum_distinct_parameter_draws": 5
+    },
+    "unique_simulation_count": {
+      "level_a_condition_sets_per_seed_draw": 49,
+      "seed_draw_blocks": 36,
+      "maximum_level_a_runs": 1764,
+      "deduplication": "T6 and T7 reuse the same trajectories; every run supplies all eight metrics for the cross-target matrix."
+    },
+    "analysis_order": ["detector preflight", "all sham blocks", "T1", "T2", "T3", "T4", "T5", "shared T6/T7", "T8", "cross-target matrix", "conditional Level B"],
+    "blinding": "Only implementation/schema/validity flags may be inspected until all Level A trajectories, metrics, and immutable per-target checkpoints are complete.",
+    "negative_result_rule": "Every valid null, adverse, nonmonotonic, or practically negligible result is retained. No target, dose, seed, or draw may be silently removed.",
+    "invalid_run_rule": "Nonfinite state, rate outside [-1e-6,rmax+1e-6], solver/schema failure, detector contradiction, or missing paired sham marks the pair INVALID; instability is not efficacy.",
+    "conditional_level_b": {
+      "purpose": "Prospectively bounded two-coordinate response surfaces for mechanistic diagnosis, not formal C2.",
+      "eligibility": "A target is eligible only if Level A has at least 30 valid paired blocks, at least 95 percent stable runs, meets its practical margin with a simultaneous 95 percent interval, has no hard off-target veto, and has a dose-ordered response in at least 4 of 6 draws.",
+      "selection_cap": 3,
+      "deterministic_order": "Sort eligible targets by priority class primary before secondary before exploratory, then descending lower-confidence-bound margin slack normalized by the target practical margin, then target_id ascending.",
+      "grids": {
+        "T1": "5 drive frequencies already registered crossed with amplitudes [0.4,0.6,0.8,1.0,1.2] Hz-equivalent",
+        "T2": "GF_E_DC doses [-1.5,-0.75,0,0.75,1.5] crossed with GF_E_SLOW_SINE amplitudes [0,0.3,0.6,0.9,1.2] at 0.85 Hz",
+        "T3": "pulse doses [-2,-1,0,1,2] crossed with pulse repetition frequencies [0.55,0.70,0.85,1.00,1.15] Hz",
+        "T4": "packet-balance doses [-1.5,-0.75,0,0.75,1.5] crossed with carrier frequencies [11,12,13,14,15] Hz",
+        "T5": "continuous-balance doses [-1.2,-0.6,0,0.6,1.2] crossed with carrier frequencies [11,12,13,14,15] Hz",
+        "T6": "phase offsets [-pi,-pi/2,0,pi/2,pi] crossed with amplitudes [0,0.25,0.5,0.75,1.0] Hz-equivalent",
+        "T7": "phase offsets [-pi,-pi/2,0,pi/2,pi] crossed with carrier frequencies [11,12,13,14,15] Hz",
+        "T8": "balanced doses [-2,-1,0,1,2] crossed with fixed-duration exposure fractions [0.2,0.4,0.6,0.8,1.0] of each 30 s window"
+      },
+      "replication": "Use worker seeds [11003,33013,55021,66029] and draws [D00_NOMINAL,D02,D04], giving 12 paired blocks per cell.",
+      "maximum_runs": 900,
+      "no_level_c": "No PID, adaptive, reinforcement-learning, or model-predictive controller is included in V1. The causal phase-triggered packet is a fixed event-triggered policy, not an optimized controller."
+    },
+    "cross_target_matrix": {
+      "shape": [8, 8],
+      "row_definition": "registered intervention family optimized only by the deterministic fixed-grid target-benefit rule for T_i on worker selection seeds",
+      "column_definition": "paired effect on T1 through T8 on disjoint verification seeds",
+      "labels": {
+        "intended improvement": "target-oriented effect meets its practical margin and has the intended sign",
+        "beneficial secondary effect": "non-target effect meets that target's margin without a veto",
+        "negligible": "simultaneous interval lies within plus or minus that target's practical margin",
+        "trade-off": "non-target effect crosses its adverse practical margin",
+        "unacceptable collateral effect": "any hard stability, plausibility, broadband, detector, silence, saturation, or regime-collapse veto"
+      },
+      "missing_rule": "Undefined event-dependent cells remain NOT_ESTIMABLE and are never replaced with zero."
+    },
+    "evidence_grading": {
+      "A": "Reserved for robust subject-dependent mechanistic control with eligible human-subject model denominators; impossible for this bench package.",
+      "B": "Reserved for a transferable, robust in-silico control claim on the exact eligible candidate; impossible because R4 executable identity is absent.",
+      "C": "Maximum bench grade: all registered diagnostic response, uncertainty, stability, specificity, detector, and off-target criteria pass, but transfer and personalization remain unsupported.",
+      "D": "Valid execution does not meet the frozen diagnostic efficacy or robustness criteria.",
+      "F": "Apparent effect is invalid/artifactual because of instability, detector failure, broadband confounding, leakage, or protocol violation."
+    }
+  },
+  "phase2b": {
+    "formal_status": "NOT_ESTIMABLE",
+    "eligible_public_development_night1_subjects": 0,
+    "eligible_public_development_night1_personalized_models": 0,
+    "minimum_subjects": 3,
+    "same_candidate_r4_executable_identity_available": false,
+    "synthetic_substitution": "PROHIBITED",
+    "formal_execution_under_v1": "PROHIBITED",
+    "reason": "The frozen data-feasibility receipt certifies zero eligible Night-1 personalized models and no exact R4 executable identity. This is decided before Phase 2A outcomes and cannot be reversed within Candidate V1.",
+    "future_resolution": "A new governance-approved exact release would require a new prospectively frozen protocol version before any affected outcome is viewed."
+  },
+  "uncertainty_and_statistics": {
+    "primary_effect_interval": "paired hierarchical percentile bootstrap with 10000 resamples using PCG64(860216): resample parameter draws, then paired seeds within selected draws; compute the registered estimand; report two-sided 95 percent interval",
+    "sensitivity_interval": "studentized paired mean interval is reported only as a secondary sensitivity check",
+    "familywise_multiplicity": "Holm step-down at alpha=0.05 over primary T1,T4,T6. Secondary T2,T3,T5,T7 are tested by a separate Holm family at alpha=0.05 only if at least one primary passes; otherwise secondary results are descriptive. T8 is exploratory and cannot support advancement under V1.",
+    "dose_selection": "Any dose selected for a diagnostic policy is the smallest absolute dose attaining the maximal registered target-benefit score on worker seeds; ties then use the numerically smaller signed dose. Performance is evaluated on disjoint verifier seeds.",
+    "missingness": "No imputation. Missing event-dependent metrics remain NOT_ESTIMABLE; invalid simulations remain INVALID.",
+    "attempt_budget": "One frozen scientific execution per run identity; infrastructure reruns require byte-identical inputs and must not follow scientific outcome inspection."
+  },
+  "stability_and_plausibility": {
+    "hard_rules": [
+      "all stored states and metrics finite",
+      "all rates within [-1e-6,rmax+1e-6] without clipping",
+      "mean rate of every population between 0.5 and 60 Hz for a valid model-level physiological window",
+      "no more than 1 percent of samples below 0.01 Hz or above 95 Hz",
+      "4-30 Hz total power no more than four times paired sham",
+      "detector retained-duration fraction at least 0.85",
+      "at least 95 percent of all prescribed dose-seed-draw runs stable"
+    ],
+    "off_target_vetoes": [
+      "broadband 4-30 Hz power increases by more than 25 percent without an increased target-band fraction",
+      "SO or spindle detector threshold changes between paired conditions",
+      "SO or spindle events appear only because the signal mean or variance is rescaled",
+      "silence, saturation, solver divergence, clipping, or T8 regime invalidity",
+      "any non-target primary metric crosses its adverse practical margin with a simultaneous interval"
+    ]
+  },
+  "compute_envelope": {
+    "campaign_total_cpu_hours": 180,
+    "phase2a_worker_cpu_hour_cap": 60,
+    "independent_verification_cpu_hours_reserved": 50,
+    "verification_reserve_worker_use": "PROHIBITED",
+    "level_a_maximum_runs": 1764,
+    "conditional_level_b_maximum_runs": 900,
+    "per_run_simulated_seconds": 210,
+    "storage_hard_stop_gib": 45,
+    "wall_clock_deadline": "2026-08-18T23:59:59-04:00",
+    "budget_stop": "Complete all eight Level A targets before any Level B surface; if 52 Phase2A worker CPU-hours are consumed, prohibit new Level B launches and reserve the remaining 8 hours for completion/checkpointing.",
+    "checkpoint": "Write an immutable result block after every target and seed-draw block; resume only byte-identical incomplete run identities; preserve valid negatives."
+  },
+  "verification": {
+    "required_for_any_reportable_diagnostic_support": true,
+    "verifier_inputs": ["frozen protocol", "immutable implementation hash", "environment hash", "seed list", "parameter-draw manifest", "metric definitions", "expected schema"],
+    "verifier_seeds": [77041, 88069, 99079, 111091],
+    "required_outputs": ["NUMERIC_REPRODUCTION", "PROCEDURAL_FIDELITY", "SEED_PAIRING_AGREEMENT", "DETECTOR_AGREEMENT", "CLAIM_AGREEMENT", "MATERIAL_DISAGREEMENT"],
+    "pass_rule": "VERIFIED and MATERIAL_DISAGREEMENT=false with exact protocol/input hashes; this can support only the non-transferable diagnostic ceiling."
+  },
+  "prohibited_actions": [
+    "access any R4 file or referenced artifact",
+    "access repository data, fitted parameters, scientific configuration, historical code, outputs, protected-derived, Night-2, sealed, fresh-final, or confirmatory material",
+    "tune equations, thresholds, grids, target priority, margins, or detectors after target outcomes are visible",
+    "call a fitted parameter perturbation an intervention",
+    "call generic forcing auditory-like stimulation",
+    "replace missing eligible subjects with synthetic draws",
+    "assign C1 or C2 to PHASE2_CONTROL_BENCH_V1",
+    "change the categorical R4 M1/C0/P0 substrate"
+  ]
+}

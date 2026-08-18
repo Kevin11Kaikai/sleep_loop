@@ -1,0 +1,261 @@
+{
+    "schema_version":  "5.0.0",
+    "schema_id":  "V6_REAUDIT_ADDENDUM_V5_AUDIT_SCHEMA_V5",
+    "audit_id":  "PROTOCOL_V6_REAUDIT_ADDENDUM_V5_AUDIT_001",
+    "created_at":  "2026-08-17T04:49:48-04:00",
+    "auditor_role_id":  "ROLE_V5_AMENDMENT_AUDITOR",
+    "auditor_identity_tuple":  {
+                                   "actor_id":  "AGENT_ROOT_CLEAN_GOVERNANCE_AUDIT_20260817",
+                                   "session_id":  "COSTA_PHASE2_V5_AUDIT_SESSION_20260817T044806-0400",
+                                   "process_principal_id":  "CODEX_AGENT_PRINCIPAL_ROOT_CLEAN_GOVERNANCE_AUDIT",
+                                   "delegation_chain_sha256":  "192B55A2A863E6C2EBBB00E0D49868045CC863CE17BCF77C5FB7C86EAB34E76B",
+                                   "public_attestation_id":  "CODEX_ATTESTATION_ROOT_CLEAN_GOVERNANCE_AUDIT_V5_20260817",
+                                   "implementation_provenance_id":  "OPENAI_CODEX_AGENT_RUNTIME_CURRENT_SESSION",
+                                   "identity_tuple_sha256":  "A34D7E729B9C5DCA7FA8BD90F287423F51AFD75FE22BD87961607E21F78A44B7"
+                               },
+    "v5_binding":  {
+                       "artifact_id":  "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V5",
+                       "path_id":  "static:v5",
+                       "relative_path":  "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V5.json",
+                       "bytes":  112390,
+                       "sha256":  "E1E436A8E5F0FDF5CCE2BD12B9E712465879947DFF717DF0DC66A7AFCEBE2C85"
+                   },
+    "v4_binding":  {
+                       "artifact_id":  "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V4",
+                       "path_id":  "static:v4",
+                       "relative_path":  "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V4.json",
+                       "bytes":  316217,
+                       "sha256":  "0C83B242A64575BF874DFA7BBB7CFEAA084E4D90D1B829C23D5629885BD37DEC"
+                   },
+    "v4_fail_audit_binding":  {
+                                  "artifact_id":  "PROTOCOL_V6_REAUDIT_ADDENDUM_V4_AUDIT_001",
+                                  "path_id":  "static:v4_audit",
+                                  "relative_path":  "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V4_AUDIT.json",
+                                  "bytes":  15463,
+                                  "sha256":  "99CCDFBF00F1E861FE69D81E466DF266B278170FA32DF22D557503C419FC6E00"
+                              },
+    "checks_in_exact_order":  [
+                                  {
+                                      "check_id":  "V5-CHK01-INPUTS-AND-BOUNDARY",
+                                      "requirement":  "Rehash and JSON-validate only static:v5, source:v4 and source:v4_fail_audit; reject any other read, listing or execution.",
+                                      "observed":  "PASS: exact bytes, hashes and JSON all match. Only the three authorized inputs and the absent designated output path were accessed; no directory listing, Candidate/compiler/code/preflight/data/R4/outcome/STATE access or program/scientific execution occurred.",
+                                      "verdict":  "PASS"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK02-EXACT-SEVEN-SUPERSESSIONS",
+                                      "requirement":  "Verify V5 supersedes exactly seven findings and preserves every V4 PASS gate, denial, count, case, route and no-evidence invariant outside those surfaces.",
+                                      "observed":  "FAIL_BLOCKING: the seven finding IDs and declared supersession rows are exact, but audit-access proof, inherited schema references, prestage control/header reads and Stage-A directory-intent binding regress outside the intended repairs.",
+                                      "verdict":  "FAIL_BLOCKING"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK03-SCHEMA-AND-REFERENCE-CLOSURE",
+                                      "requirement":  "Validate every typed schema field order, reference, null rule, enum, conditional, additional_fields=false rule and artifact hash domain; require globally unique V5 schema IDs and no conflict with V4 IDs.",
+                                      "observed":  "FAIL_BLOCKING: 18 typed schemas, their field orders, 50 new references, five overlay preconditions, 65-key set construction and schema-ID uniqueness pass. The effective registry removes ACCESS_ATTESTATION_V4 while eight retained schemas still reference it, and the inherited GOVERNANCE_HEADER_V4 remains satisfiability-blocking.",
+                                      "verdict":  "FAIL_BLOCKING"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK04-IDENTITY-AND-153-JOINS",
+                                      "requirement":  "Verify complete audit-time identity timing, six Root comparisons, 18 assignments, formula-complete 153 unique joined pairs, 918 pair comparisons and 108 auditor-role comparisons.",
+                                      "observed":  "FAIL_BLOCKING: chronology, counts, pair formula 0 through 152, assignment joins and comparison counts pass. Unequal delegation_chain_sha256 values do not establish the preserved delegation_overlap_absent semantic because no chain members or disjointness proof are bound.",
+                                      "verdict":  "FAIL_BLOCKING"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK05-PROCESS-START-TOTALITY",
+                                      "requirement":  "Verify every CreateProcessW raw state maps exactly once to the three classes and every unknown is spent, incident-routed and nonretryable.",
+                                      "observed":  "FAIL_BLOCKING: the primitive three-class table is total and fail-closed, but INCIDENT_RECEIPT_V5 contains a second required process_start_outcome beside checkpoint_ledger.process_start_outcome_or_null with no phase or byte-equality join, permitting conflicting process histories.",
+                                      "verdict":  "FAIL_BLOCKING"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK06-CHECKPOINT-STATE-TOTALITY",
+                                      "requirement":  "Verify C1-C5 and P1-P5 normalization is total, state predicates and branches are disjoint, the sole unspent row is exact C2 unchanged failure, and every failure/crash has one preauthorized trigger.",
+                                      "observed":  "FAIL_BLOCKING: the 11 checkpoint rows, 19 state keys and 14 trigger-map keys are internally counted, but thirteen new triggers lack incident preauthorization; P4 explicit no-mutation failure conflicts with its uncertainty-only state predicate; ledger predecessors are unconstrained; and publication attestation circularly claims P5 completion before P5 validates it.",
+                                      "verdict":  "FAIL_BLOCKING"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK07-SELECTED-STAGING-READS",
+                                      "requirement":  "Verify Root reads exactly four success or three failure staging files only after P1, records the six-operation validation sequence or truthful prefix, and never reads the unselected branch or writes content.",
+                                      "observed":  "PASS: branch grants, selected path expansion, per-file full-byte/SHA/deep-validation sequence, contiguous failure-prefix representation, unselected-branch denial and no-content-write constraints close the original staging-read blocker.",
+                                      "verdict":  "PASS"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK08-COMPOSITE-PROJECTIONS",
+                                      "requirement":  "Resolve every projection pointer and overlay, reconstruct both unique physical containers, and require complete member and whole-file canonical byte/hash semantics including the literal specialization.",
+                                      "observed":  "PASS: all pointers and overlay priors resolve. Independent canonical reconstruction gives literal composite 3293 bytes SHA-256 A1C45942C2B7E5000DBE0ACA4B2F98DA3BFCB435A3264AE371CBED7D76D36D51 and Root composite 28537 bytes SHA-256 E9E2F81AA33FA213012BE54FEB272F9C6E7F6FA335FA43380031DF8944A4E926. The separate effective-registry dangling references remain finding B008.",
+                                      "verdict":  "PASS"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK09-GENERIC-WRITE-FLUSH-NONMUTATION",
+                                      "requirement":  "Verify exact GENERIC_WRITE/share/flags, only FlushFileBuffers then CloseHandle, zero mutation, identical snapshots and checkpoint-specific failure routing for every required flush.",
+                                      "observed":  "FAIL_BLOCKING: handle access and the two-operation nonmutation primitive pass. Publication and incident arrays do not bind exact required-path coverage, repeated-call order or first-failure prefix, and the quarantine-parent SUCCESS_DURABLE scalar is not derived from a unique V5 observation.",
+                                      "verdict":  "FAIL_BLOCKING"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK10-WRITERS-AND-ACCESS",
+                                      "requirement":  "Verify V5 audit/activation/freeze writers and exact reads/writes, then preserve all inherited role/path denials.",
+                                      "observed":  "FAIL_BLOCKING: the four V5 file writers are distinct and CREATE_NEW-scoped, but the V5 audit schema omits typed access evidence, operational roles retain only the old V4 mandatory controls, Stage-A artifacts retain the impossible V4 header, and the V5 freeze does not carry the four required Stage-A directory intents.",
+                                      "verdict":  "FAIL_BLOCKING"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK11-PRESERVED-INVARIANTS",
+                                      "requirement":  "Verify 23 cases, 8 targets, 8 claims, 10 gates, 1800+900+456=3156, N0/min3, M1/C0/P0, zero repair simulations, Candidate denial and no-evidence semantics.",
+                                      "observed":  "PASS: all 23 unique case IDs remain source-hash bound; counts are exactly 8/8/10, 50 Level-A conditions, 1800+900+456=3156, cap three, Phase2B N0/min3 NOT_ESTIMABLE, zero repair simulations and M1/C0/P0 no transfer. Candidate, implementation, preflight, science, data/R4/outcomes and automatic release remain denied.",
+                                      "verdict":  "PASS"
+                                  },
+                                  {
+                                      "check_id":  "V5-CHK12-STALE-AND-UNFINISHED-MARKER-SCAN",
+                                      "requirement":  "Search for unfinished markers, stale supersession, missing lookup, overlapping state, Boolean alias, unresolved pointer, unselected read, attribute-only flush or favorable interpretation.",
+                                      "observed":  "FAIL_BLOCKING: no TODO/TBD/FIXME/placeholder or stale path typo exists, but the eleven enumerated schema, temporal, state, access and inherited-control contradictions require interpretation or make the route unreachable.",
+                                      "verdict":  "FAIL_BLOCKING"
+                                  }
+                              ],
+    "blocking_findings":  [
+                              {
+                                  "finding_id":  "V6A5-AUD-B001",
+                                  "severity":  "BLOCKING",
+                                  "title":  "Delegation-chain inequality does not prove preserved delegation-overlap absence",
+                                  "evidence":  "V5 binds only delegation_chain_sha256 and requires unequal hashes in each six-dimension comparison. Distinct full-chain hashes do not prove that two chains share no actor, principal, delegator or edge, while the preserved V4 conflict semantic requires delegation_overlap_absent. Minimal successor repair: bind canonical typed delegation-chain members or edges and derive an exact disjointness proof for all 153 operational and 18 auditor-role comparisons; retain the whole-chain hash only as an integrity binding.",
+                                  "affected_path_ids":  [
+                                                            "/role_identity_and_conflict_repair/identity_dimensions_in_exact_order",
+                                                            "/role_identity_and_conflict_repair/role_freeze_contract/dimension_rule",
+                                                            "/typed_schema_registry/AUDITOR_ROLE_COMPARISON_V5",
+                                                            "/typed_schema_registry/IDENTITY_TUPLE_V5/fields/delegation_chain_sha256",
+                                                            "/typed_schema_registry/ROLE_CONFLICT_JOIN_ROW_V5"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B002",
+                                  "severity":  "BLOCKING",
+                                  "title":  "Incident receipts can bind two conflicting process-start histories",
+                                  "evidence":  "INCIDENT_RECEIPT_V5 adds a required process_start_outcome while CHECKPOINT_LEDGER_V5 separately carries process_start_outcome_or_null. Neither the override conditional nor cross-reference rule requires exact equality at or after C5 or the exact null versus NOT_CALLED pairing before C5. Minimal successor repair: use one authoritative object, or freeze a phase-conditional exact byte-equality/null join and reject every conflict.",
+                                  "affected_path_ids":  [
+                                                            "/cross_reference_registry/process_outcome",
+                                                            "/effective_schema_override_registry/INCIDENT_RECEIPT_V5/conditional_rule",
+                                                            "/effective_schema_override_registry/INCIDENT_RECEIPT_V5/operations_in_exact_order",
+                                                            "/typed_schema_registry/CHECKPOINT_LEDGER_V5/fields/process_start_outcome_or_null"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B003",
+                                  "severity":  "BLOCKING",
+                                  "title":  "Thirteen V5 incident triggers are not preauthorized",
+                                  "evidence":  "V5 receipts use fourteen new trigger IDs, but the effective registry retains unchanged INCIDENT_AUTHORIZATION_V4 with its old eight-token authorized_trigger_states. Only ILLEGAL_SPLIT_STATE is shared; thirteen V5 triggers therefore have no preworker authorization. Minimal successor repair: define INCIDENT_AUTHORIZATION_V6/V5-successor with the exact new trigger array, replace it in the effective registry and Root projection, update all refs, and add the exact supersession pointer without reinterpreting V4.",
+                                  "affected_path_ids":  [
+                                                            "/composite_schema_materialization_repair/physical_projection_specs",
+                                                            "/crash_and_incident_state_repair/incident_trigger_ids_exact",
+                                                            "/effective_schema_registry_contract/effective_schema_keys_in_utf8_lexical_order",
+                                                            "/exact_v4_control_supersession_registry/rows_in_finding_order",
+                                                            "/schema_system/schemas/INCIDENT_AUTHORIZATION_V4/fields/authorized_trigger_states"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B004",
+                                  "severity":  "BLOCKING",
+                                  "title":  "P4 explicit unchanged failure has no matching legal state predicate",
+                                  "evidence":  "P4 maps all five non-success tokens, including EXPLICIT_FAILURE_PROVEN_NO_MUTATION, to PUBLICATION_ATTESTATION_RENAME_OUTCOME_UNKNOWN_SPENT. That state\u0027s predicate requires attestation absence/presence/identity to be unprovable, which conflicts with an explicit failure whose unchanged state is proven. Minimal successor repair: add a distinct explicit-failure state or broaden and formally partition the predicate so every P4 token matches exactly one truthful state.",
+                                  "affected_path_ids":  [
+                                                            "/crash_and_incident_state_repair/checkpoint_outcome_partition",
+                                                            "/crash_and_incident_state_repair/checkpoint_policy_rows",
+                                                            "/crash_and_incident_state_repair/state_predicates_exact/PUBLICATION_ATTESTATION_RENAME_OUTCOME_UNKNOWN_SPENT"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B005",
+                                  "severity":  "BLOCKING",
+                                  "title":  "Checkpoint ledgers do not constrain last-completed and first-failed adjacency",
+                                  "evidence":  "CHECKPOINT_LEDGER_V5 has separate last_completed_checkpoint_or_none and first_failed_checkpoint_or_null fields but no exact predecessor relation, including branch-specific P2S/P2F to P3. Impossible histories can satisfy the individual enums and Boolean assertions. Minimal successor repair: freeze the exact predecessor/transition table, join both fields and selected branch to one row, and verify reachability, totality and no later checkpoint after failure.",
+                                  "affected_path_ids":  [
+                                                            "/crash_and_incident_state_repair/checkpoint_policy_rows",
+                                                            "/crash_and_incident_state_repair/disjointness_rule",
+                                                            "/crash_and_incident_state_repair/first_failure_rule",
+                                                            "/typed_schema_registry/CHECKPOINT_LEDGER_V5/conditional_rule"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B006",
+                                  "severity":  "BLOCKING",
+                                  "title":  "Publication attestation circularly claims the later P5 validation",
+                                  "evidence":  "The V5 publication-attestation override requires checkpoint_ledger to show P5 completed with null failure. Under the inherited and explicitly preserved P1-P5 order, the attestation is constructed and published at P4 and only then validated at P5. It cannot truthfully hash-bind its own future validation. Minimal successor repair: limit the attestation ledger to observations completed before its bytes are finalized, and record P5 in a distinct later immutable validation artifact or downstream audit.",
+                                  "affected_path_ids":  [
+                                                            "/effective_schema_override_registry/PUBLICATION_ATTESTATION_V5/operations_in_exact_order",
+                                                            "/exact_v4_control_supersession_registry/overlap_composition_rows_exact",
+                                                            "/trusted_root_controller_protocol/post_worker_publication_algorithm"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B007",
+                                  "severity":  "BLOCKING",
+                                  "title":  "V5 flush observations do not prove the complete required flush plan",
+                                  "evidence":  "ACCESS_ATTESTATION_V5 forces inherited flush observations empty, but the replacement publication array has only minimum one row and the incident array may be empty. No exact branch/phase required-path and repeated-call order, first-failure prefix, or no-later-call rule is bound. The inherited quarantine-parent SUCCESS_DURABLE field is also not joined to a unique V5 row. Minimal successor repair: freeze an exact branch-specific call plan, require one ordered observation per attempted/required call with prefix failure semantics, and derive every durability scalar from its unique matching observation.",
+                                  "affected_path_ids":  [
+                                                            "/effective_schema_override_registry/ACCESS_ATTESTATION_V5",
+                                                            "/effective_schema_override_registry/INCIDENT_RECEIPT_V5",
+                                                            "/effective_schema_override_registry/PUBLICATION_ATTESTATION_V5",
+                                                            "/flush_handle_repair/effective_scope_rule",
+                                                            "/schema_system/schemas/FAILURE_PREPUBLICATION_DISPOSITION_V4/fields/transaction_parent_post_quarantine_flush_state_or_null",
+                                                            "/typed_schema_registry/FLUSH_HANDLE_OBSERVATION_V5"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B008",
+                                  "severity":  "BLOCKING",
+                                  "title":  "The 65-schema effective registry contains eight dangling access-attestation references",
+                                  "evidence":  "Construction removes ACCESS_ATTESTATION_V4 and inserts ACCESS_ATTESTATION_V5, but eight retained schemas still reference the removed key: V4 audit, directory fallback, static audit, spent, success, failure, incident closeout and result audit. No reference-rewrite or compatibility key exists, so the declared effective registry and both composite schema files are not reference-closed. Minimal successor repair: retain the V4 key where semantically valid or explicitly override all eight references, then recompute the effective key count, registry hash and composite projection oracles.",
+                                  "affected_path_ids":  [
+                                                            "/effective_schema_registry_contract/removed_v4_keys_exact",
+                                                            "/effective_schema_registry_contract/replacement_key_map",
+                                                            "/schema_classification/explicit_override_reference_reconciliation"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B009",
+                                  "severity":  "BLOCKING",
+                                  "title":  "The V5 audit receipt cannot bind its own access boundary",
+                                  "evidence":  "The V4 audit receipt carried a typed access_attestation, but V5_AUDIT_RECEIPT_V5 omits it while still requiring exact read/write/no-listing/no-execution compliance. Free-text check observations cannot mechanically bind actual access. This is an unintended regression outside identity timing. Minimal successor repair: add a typed V5 audit access attestation with exact reads static:v4, static:v4_audit and static:v5, sole write static:v5_audit, exact metadata scope, and false listing/Candidate/execution fields.",
+                                  "affected_path_ids":  [
+                                                            "/governance_writer_and_access_contract/writer_rows_in_route_order",
+                                                            "/prospective_v5_audit_contract/required_checks_in_exact_order",
+                                                            "/typed_schema_registry/V5_AUDIT_RECEIPT_V5/field_order",
+                                                            "/typed_schema_registry/V5_AUDIT_RECEIPT_V5/fields"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B010",
+                                  "severity":  "BLOCKING",
+                                  "title":  "Inherited Stage-A artifacts still require the impossible V4 prestage chain",
+                                  "evidence":  "The effective registry retains GOVERNANCE_HEADER_V4 and twenty future schemas reference it. That header requires static:v4_audit PASS plus V4 activation and V4 role freeze, but the immutable bound V4 audit is FAIL_BLOCKING. Operational mandatory control reads are also inherited unchanged and contain no V5 controls. Minimal successor repair: define and propagate a V5-successor governance header binding V5, PASS audit, activation and role freeze; replace every future header ref; and update every operational mandatory control-read/access-attestation set without changing the historical V4 verdict.",
+                                  "affected_path_ids":  [
+                                                            "/effective_schema_registry_contract/effective_schema_keys_in_utf8_lexical_order",
+                                                            "/governance_writer_and_access_contract/all_other_roles_rule",
+                                                            "/governance_writer_and_access_contract/binding_chain",
+                                                            "/role_access_model/mandatory_postfreeze_control_read_path_ids",
+                                                            "/route/ordered_gates",
+                                                            "/schema_system/schemas/GOVERNANCE_HEADER_V4"
+                                                        ]
+                              },
+                              {
+                                  "finding_id":  "V6A5-AUD-B011",
+                                  "severity":  "BLOCKING",
+                                  "title":  "The V5 role freeze omits and does not rebind the four Stage-A directory intents",
+                                  "evidence":  "V4\u0027s passing S002 design prebinds bootstrap root, schema, static-tooling and Root-controller directory intents in static:role_assignment_freeze and uses that path as the ROOT_CONTROLLER gate. ROLE_ASSIGNMENT_FREEZE_V5 has no directory_creation_intents field, while inherited lookup still names the old impossible V4 freeze. Minimal successor repair: carry the exact four typed intents in the new freeze, replace every intent-container and ROOT_CONTROLLER gate lookup with the new path, preserve parents/writers/prestates and the 8/29/0 partition, and independently re-audit all 37 intents.",
+                                  "affected_path_ids":  [
+                                                            "/path_registry_extension/static:v5_role_assignment_freeze",
+                                                            "/role_access_model/directory_creation_record_materialization/intent_container_and_primary_record_lookup/ROLE_ASSIGNMENT_FREEZE",
+                                                            "/role_access_model/directory_creation_record_materialization/prebound_intent_registry_by_container/ROLE_ASSIGNMENT_FREEZE",
+                                                            "/schema_system/schemas/ROLE_ASSIGNMENT_FREEZE_V4/fields/directory_creation_intents_in_creation_order",
+                                                            "/typed_schema_registry/ROLE_ASSIGNMENT_FREEZE_V5/fields"
+                                                        ]
+                              }
+                          ],
+    "unresolved_findings":  [
+
+                            ],
+    "verdict":  "FAIL_BLOCKING",
+    "audit_payload_hash_envelope":  {
+                                        "schema_id":  "NONRECURSIVE_SHA256_ENVELOPE_V4",
+                                        "algorithm":  "SHA-256",
+                                        "canonicalization_id":  "CANONICAL_JSON_SHA256_V6",
+                                        "excluded_field":  "audit_payload_hash_envelope",
+                                        "payload_byte_length":  19399,
+                                        "payload_sha256":  "14A4537EA56AD28CE5E0FD835C270FE08AB34966902BF900BD23566877745DBB"
+                                    }
+}

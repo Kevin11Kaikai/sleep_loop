@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "OFFICIAL_ALLOWLIST_V5_INDEPENDENT_REVALIDATION",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "auditor_identity": "/root/clean_governance_audit",
+  "auditor_role": "Clean Governance Auditor",
+  "revalidated_at": "2026-08-16T11:25:53.9649449-04:00",
+  "review_boundary": {
+    "current_campaign_records_only": true,
+    "r4_files_opened": false,
+    "scientific_repository_content_opened": false,
+    "directory_enumeration_performed": false,
+    "protected_content_opened": false,
+    "state_modified": false,
+    "allowlist_modified": false,
+    "other_artifacts_modified": false
+  },
+  "reviewed_artifacts": [
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\V4D1_IMPORT_ALLOWLIST.json",
+      "artifact_role": "OFFICIAL_IMPORT_ALLOWLIST_VERSION_5",
+      "expected_sha256": "3ABAD00A85C1210A02041F32D0CF15AB1F7B555EE2729B713BEA0016562742B5",
+      "observed_sha256": "3ABAD00A85C1210A02041F32D0CF15AB1F7B555EE2729B713BEA0016562742B5",
+      "hash_verdict": "MATCH"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\AUDIT_DECISIONS.json",
+      "artifact_role": "FROZEN_ORIGINAL_IMPORT_DECISIONS",
+      "expected_sha256_from_allowlist": "DA50B67A50118A6BBB6BD6F65D141EB75A5B1A7931DAF5FF1D4B13458C94C3E7",
+      "observed_sha256": "DA50B67A50118A6BBB6BD6F65D141EB75A5B1A7931DAF5FF1D4B13458C94C3E7",
+      "hash_verdict": "MATCH"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\GOVERNANCE\\HISTORICAL_IMPORT_AUDIT.md",
+      "artifact_role": "STABLE_HISTORICAL_IMPORT_AUDIT",
+      "expected_sha256_from_allowlist": "94644C28CFC7AA27B1D7A359B729AED95C009BAB55CDA018E549488987F6B7CB",
+      "observed_sha256": "94644C28CFC7AA27B1D7A359B729AED95C009BAB55CDA018E549488987F6B7CB",
+      "hash_verdict": "MATCH"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\IMPORT_ALLOWLIST\\SANITIZER_PERMISSION_AMENDMENT.json",
+      "artifact_role": "SANITIZER_PERMISSION_AMENDMENT",
+      "expected_sha256_from_allowlist": "0EFAFC537841F22D3023EC93B5965DF97033A7AB88F1C6E4D494FB42A655BCCA",
+      "observed_sha256": "0EFAFC537841F22D3023EC93B5965DF97033A7AB88F1C6E4D494FB42A655BCCA",
+      "hash_verdict": "MATCH"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\STATE\\ACCESS_LEDGER.json",
+      "artifact_role": "RECONCILED_ACCESS_LEDGER",
+      "observed_sha256": "D33CE9005691023F062B93C6FA71FD8EEAE48BB54679A54CB0F44754AAEFFC45",
+      "hash_verdict": "MATCH_EXPECTED_D33CE900_PREFIX"
+    },
+    {
+      "exact_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\STATE\\AGENT_ROLE_LEDGER.json",
+      "artifact_role": "RECONCILED_AGENT_ROLE_LEDGER",
+      "observed_sha256": "A1D150517B2DC2DB14D5EE8F7D37ABF97938F7C8D652B7AA7D0445EDC5475FDD",
+      "hash_verdict": "MATCH_EXPECTED_A1D15051_PREFIX"
+    }
+  ],
+  "v4_semantics_preservation": {
+    "verdict": "PASS",
+    "checks": {
+      "exact_entry_count": 4,
+      "clean_allowlisted_entry_count": 3,
+      "quarantined_entry_count": 1,
+      "default_policy": "DENY",
+      "allowed_review_status": "CLEAN_ALLOWLISTED",
+      "entry_paths_hashes_classes_provenance_contamination_statuses_and_prohibitions_preserved": true,
+      "quarantined_narrative_remains_unavailable_to_evidence_sanitizer": true,
+      "evidence_sanitizer_role_added_only_to_three_clean_entries": true,
+      "amendment_purposes_preserved_exactly": true,
+      "numeric_scientific_values_permitted": false,
+      "manifest_referenced_file_access_permitted": false,
+      "manifest_candidate_status": "PENDING_INDEPENDENT_AUDIT",
+      "referenced_file_default_access_policy": "DENY",
+      "cleanliness_inheritance": false,
+      "enumeration_search_or_existence_probing_permitted": false,
+      "role_mixing_permitted": false
+    }
+  },
+  "stable_receipt_binding": {
+    "verdict": "PASS",
+    "audit_decisions_bound_and_verified": true,
+    "stable_historical_import_audit_bound_and_verified": true,
+    "sanitizer_permission_amendment_bound_and_verified": true
+  },
+  "external_revalidation_receipt_policy": {
+    "allowlist_policy": "EXTERNAL_IMMUTABLE_RECEIPT_NOT_RECURSIVELY_EMBEDDED",
+    "verdict": "PASS",
+    "this_receipt_embedded_in_allowlist": false,
+    "self_hash_embedded_in_this_receipt": false,
+    "rationale": "Keeping this immutable revalidation receipt external prevents recursive self-reference and stale path-bound receipt cycles. Consumers may hash this completed file externally without changing allowlist version 5."
+  },
+  "oav_001_state_reconciliation": {
+    "verdict": "PASS",
+    "access_ledger": {
+      "sequences_contiguous_through": 12,
+      "premature_allowlist_read_recorded": true,
+      "three_exact_historical_clean_record_reads_and_hashes_recorded": true,
+      "incident_containment_recorded": true,
+      "independent_adjudication_acceptance_recorded": true,
+      "historical_clean_record_access_count": 3,
+      "protected_access_count": 0,
+      "raw_data_access_count": 0
+    },
+    "agent_role_ledger": {
+      "evidence_sanitizer_status": "PAUSED_PENDING_GOVERNANCE_REVALIDATION",
+      "fresh_isolated_role": true,
+      "three_exact_historical_files_attested": true,
+      "quarantined_or_referenced_files_opened": false,
+      "directory_enumeration_performed": false,
+      "outputs_written": false,
+      "conflicting_role_mixing_detected": false
+    },
+    "materiality_classification_preserved": "GOVERNANCE_MATERIAL_OUTCOME_BLIND_SCIENTIFIC_CONTAMINATION_NOT_DETECTED"
+  },
+  "verdicts": {
+    "IMPORT_ALLOWLIST": "PASS_VERSION_5_INDEPENDENTLY_REVALIDATED",
+    "OAV_001_REMEDIATION": "COMPLETE_CONTAINED_RECONCILED_AND_INDEPENDENTLY_REVALIDATED",
+    "PROTECTED_ACCESS": "NONE",
+    "ROLE_ISOLATION": "PASS",
+    "EVIDENCE_SANITIZER_RELEASE_ELIGIBILITY": "ELIGIBLE_FOR_ROOT_ORCHESTRATOR_RELEASE_EXACT_AMENDMENT_SCOPE_ONLY",
+    "SCIENTIFIC_REPOSITORY_INSPECTION": "CLOSED_PENDING_SANITIZER_COMPLETION_DOWNSTREAM_EXACT_FILE_AUDITS_AND_EXPLICIT_ROOT_RELEASE"
+  },
+  "sanitizer_release_boundary": {
+    "eligible": true,
+    "release_authority": "Root Orchestrator",
+    "scope": "Exact operations, sources, outputs, and prohibitions in SANITIZER_PERMISSION_AMENDMENT_V1 only",
+    "quarantined_narrative_access_permitted": false,
+    "other_r4_path_access_permitted": false,
+    "manifest_referenced_file_access_permitted": false,
+    "scientific_interpretation_permitted": false,
+    "shared_state_or_allowlist_mutation_permitted": false
+  },
+  "scientific_inspection_gate": {
+    "open": false,
+    "status": "CLOSED",
+    "conditions_before_any_later_opening": [
+      "Evidence Sanitizer completes the exact amendment scope",
+      "Every proposed repository input undergoes downstream independent exact-path and exact-hash audit",
+      "Each permitted input receives an explicit CLEAN_ALLOWLISTED decision",
+      "Root Orchestrator issues a separate scientific-stage release"
+    ],
+    "protected_classes_remain_prohibited": true
+  },
+  "final_status": "PASS_IMMUTABLE_EXTERNAL_REVALIDATION_RECEIPT",
+  "immutability_instruction": "Do not append to or modify this receipt. Record its completed-file SHA-256 externally if a later ledger binding is required."
+}

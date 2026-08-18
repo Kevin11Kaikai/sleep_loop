@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "current_stage": "OUTCOME_BLIND_PROTOCOL_V6_REPAIR_ACTIVE",
+  "scientific_outcomes_visible": false,
+  "phase2a_authorized": false,
+  "phase2b_authorized": false,
+  "protected_access": "NONE",
+  "governance_gates": {
+    "CLEAN_ROOT": "PASS",
+    "IMPORT_ALLOWLIST": "PASS_VERSION_5_INDEPENDENTLY_REVALIDATED",
+    "PROTECTED_ACCESS": "NONE",
+    "ROLE_ISOLATION": "PASS"
+  },
+  "clean_root_audit": {
+    "path": "GOVERNANCE/CLEAN_ROOT_AUDIT.md",
+    "sha256": "D097353C680A3E1FED4A33F0D64EF65419827A6060CFF0004C967E10C60ABE09",
+    "verdict": "PASS",
+    "material_defects_open": 0,
+    "governance_only_exact_r4_import_audit_authorized": true,
+    "scientific_repository_inspection_authorized": false
+  },
+  "open_governance_incidents": [
+    {
+      "incident_id": "PROT-002",
+      "class": "PROSPECTIVE_PROTOCOL_EXECUTABILITY_DEFECT_BEFORE_OUTCOMES",
+      "status": "OPEN_V6_REPAIR_ACTIVE_AFTER_V5_REAUDIT_FAIL",
+      "trigger_receipt": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+      "trigger_sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A",
+      "protected_access": "NONE",
+      "scientific_outcomes_visible": false,
+      "implementation_status": "PAUSED_UNFROZEN_NO_EXECUTION"
+    }
+  ],
+  "closed_governance_incidents": [
+    {
+      "incident_id": "OAV-001",
+      "class": "OUTCOME_BLIND_IMPORT_PERMISSION_FIDELITY_DEVIATION",
+      "protected_access": "NONE",
+      "scientific_outcomes_visible": false,
+      "status": "COMPLETE_CONTAINED_RECONCILED_AND_INDEPENDENTLY_REVALIDATED",
+      "adjudication": "GOVERNANCE/OAV_001_ADJUDICATION.md",
+      "revalidation": "IMPORT_ALLOWLIST/OFFICIAL_ALLOWLIST_V5_REVALIDATION.json"
+    },
+    {
+      "incident_id": "V6ADD-001",
+      "class": "OUTCOME_BLIND_ROLE_ISOLATION_GOVERNANCE_CONTROL_DELETION",
+      "protected_access": "NONE",
+      "scientific_outcomes_visible": false,
+      "status": "CONTAINED_RECOVERED_AND_INDEPENDENTLY_REVALIDATED",
+      "incident_receipt": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_DELETION_INCIDENT.json",
+      "recovery_revalidation": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_RECOVERY_REVALIDATION.json",
+      "closeout": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_INCIDENT_CLOSEOUT.json",
+      "canonical_restored_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE"
+    }
+  ],
+  "evidence_sanitizer_authorized": false,
+  "evidence_sanitizer_status": "COMPLETED_OUTPUT_AUDIT_PASS",
+  "sanitizer_output_audit": {
+    "path": "GOVERNANCE/SANITIZER_OUTPUT_AUDIT.json",
+    "sha256": "A3513B6E4003368834BD132C7EB4746E95CA14212CD47B25BDDB134B6CAE44D9",
+    "verdict": "PASS"
+  },
+  "metadata_only_repository_inspection": {
+    "authorized": true,
+    "release": "GOVERNANCE/NONHISTORICAL_METADATA_RELEASE.json",
+    "sha256": "10C372462C46BADDC6D4D31B52F45776E7D5BF33CE5F82E18635C1F44B376A5D"
+  },
+  "scientific_repository_inspection_authorized": false,
+  "repository_and_data_audits": {
+    "repository_input_audit": "COMPLETE_NO_CANONICAL_PERSONALIZED_SIMULATOR",
+    "data_feasibility_audit": "COMPLETE",
+    "eligible_public_development_night1_personalized_models": 0,
+    "same_candidate_r4_execution_artifacts": 0,
+    "raw_data_access": "DENIED_UNOPENED",
+    "phase2b_feasibility": "NOT_ESTIMABLE_UNDER_CURRENT_ACCESS"
+  },
+  "environment_and_compute_gate": {
+    "environment_version": "NEUROLIB_ENV_V3",
+    "verdict": "PASS",
+    "receipt": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+    "receipt_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+    "release": "GOVERNANCE/COMPUTE_GATE_RELEASE.json",
+    "release_sha256": "46184CDE4A22947706C3C7FEECB0818E15AB8931105881D0C1531CE05BFAFFA2"
+  },
+  "phase2a_route": {
+    "planned_bench": "PHASE2_CONTROL_BENCH_V1",
+    "relationship_to_r4": "SEPARATE_CLEAN_ROOM_DIAGNOSTIC_NOT_THE_R4_M1_CANDIDATE",
+    "formal_claim_ceiling": "C0_NO_TRANSFER",
+    "protocol_v1_freeze": "PROTOCOL/PROTOCOL_FREEZE_V1.json",
+    "protocol_v1_freeze_sha256": "1A27094D05DD24848E7F8D9643936D69078464B864EFA18621E022A04410F3F0",
+    "protocol_v1_audit": "FAIL_BLOCKING_SPECIFICATION_DEFECTS",
+    "protocol_v1_audit_receipt": "GOVERNANCE/PROTOCOL_FREEZE_AUDIT.json",
+    "protocol_v1_stale_declaration": "GOVERNANCE/PROTOCOL_V1_STALE_DECLARATION.json",
+    "protocol_v2_freeze": "PROTOCOL/PROTOCOL_FREEZE_V2.json",
+    "protocol_v2_freeze_sha256": "49A5104284CF2C29216EC3FD0463DA6D57355F5DDB47DF138EA85B19D965A8A8",
+    "protocol_v2_status": "STALE_AFTER_INDEPENDENT_REAUDIT_FAIL",
+    "protocol_v2_audit": "FAIL_NEW_BLOCKING_EXECUTABILITY_DEFECTS",
+    "protocol_v2_audit_receipt": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V2.json",
+    "protocol_v2_stale_declaration": "GOVERNANCE/PROTOCOL_V2_STALE_DECLARATION.json",
+    "protocol_v3_freeze": "PROTOCOL/PROTOCOL_FREEZE_V3.json",
+    "protocol_v3_freeze_sha256": "0FF4B771925FF942B10515384E923EB06649507EC4EE6FDB538C556FCB952412",
+    "protocol_v3_status": "STALE_AFTER_INDEPENDENT_REAUDIT_FAIL",
+    "protocol_v3_audit": "FAIL_ONE_BLOCKING_CROSS_FILE_EXECUTABILITY_DEFECT",
+    "protocol_v3_audit_receipt": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V3.json",
+    "protocol_v3_stale_declaration": "GOVERNANCE/PROTOCOL_V3_STALE_DECLARATION.json",
+    "protocol_v4_freeze": "PROTOCOL/PROTOCOL_FREEZE_V4.json",
+    "protocol_v4_freeze_sha256": "F002EE65EA450757E85C854FF9A6DB93518F39F2D1188CEEFF253D5AC2BEA996",
+    "protocol_v4_status": "STALE_PENDING_PROSPECTIVE_V5_AFTER_EDGE_SEMANTICS_ADJUDICATION",
+    "protocol_v4_audit": "PASS",
+    "protocol_v4_audit_receipt": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V4.json",
+    "protocol_v5_freeze": "PROTOCOL/PROTOCOL_FREEZE_V5.json",
+    "protocol_v5_freeze_sha256": "4C270020736BAA2D7C0B024019D38B7AE8364B4502407CD7069CAE26820B3DAA",
+    "protocol_v5_status": "STALE_AFTER_INDEPENDENT_REAUDIT_FAIL",
+    "protocol_v5_audit": "FAIL_BLOCKING_FIVE_FINDINGS",
+    "protocol_v5_audit_receipt": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+    "protocol_v5_stale_declaration": "GOVERNANCE/PROTOCOL_V5_STALE_DECLARATION.json",
+    "implementation_release_v1": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4.json",
+    "implementation_release_v1_status": "STALE_IRB_001",
+    "implementation_release_v2": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2.json",
+    "implementation_release_v2_status": "STALE_AFTER_PROTOCOL_V4_EDGE_DEFECT",
+    "implementation_release_v2_revalidation": "GOVERNANCE/IMPLEMENTATION_RELEASE_V4_V2_REVALIDATION.json",
+    "prospective_code_audit_protocol": "GOVERNANCE/CODE_AUDIT_PROTOCOL_V4.json",
+    "prospective_code_audit_protocol_sha256": "FBBEFACE9BB9038F139017220DC7A30217726A7DFBC429B573485A4D264A1FBE",
+    "v4_edge_semantics_adjudication": "GOVERNANCE/V4_EDGE_SEMANTICS_ADJUDICATION.json",
+    "v4_edge_semantics_adjudication_sha256": "227E0CF0E8865A3101A3E293758483B5ADF450AB6486D955E6BE334DAC50277A",
+    "implementation_status": "PAUSED_UNFROZEN_NO_EXECUTION_PENDING_V6",
+    "authorization": "PROSPECTIVE_V6_PROTOCOL_REPAIR_PV5_B001_THROUGH_B005_ONLY_PREFLIGHT_AND_PHASE2A_CLOSED"
+  },
+  "updated_at": "2026-08-16T20:50:01-04:00"
+}

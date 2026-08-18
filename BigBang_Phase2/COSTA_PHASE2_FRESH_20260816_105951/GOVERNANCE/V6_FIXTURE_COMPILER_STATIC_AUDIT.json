@@ -1,0 +1,347 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "V6_FIXTURE_COMPILER_STATIC_AUDIT",
+  "audit_id": "V6-FIXTURE-COMPILER-STATIC-AUDIT-001",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "created_at": "2026-08-16T21:16:16-04:00",
+  "auditor_role": "independent outcome-blind static fixture-compiler auditor",
+  "audit_mode": "STATIC_ONLY_NO_EXECUTION_NO_IMPORT",
+  "immutability": {
+    "status": "IMMUTABLE_ON_CREATION",
+    "amendment_policy": "Do not edit this receipt. Any later correction or re-audit must be a new artifact that binds this receipt by its externally reported SHA-256.",
+    "receipt_hash_policy": "The SHA-256 of this complete receipt is reported externally after creation and is not recursively embedded in this file."
+  },
+  "scope": {
+    "campaign_root": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951",
+    "authorized_exact_primary_files": [
+      "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER/compile_rescale_event_veto_fixture_v6.py",
+      "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER/fixture_compiler_manifest_v6.json",
+      "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER/rescale_event_veto_record_schemas_v6.json"
+    ],
+    "authorized_exact_governing_controls": [
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+      "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+      "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "PREFLIGHT/run_neurolib.ps1",
+      "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json"
+    ],
+    "authorized_exact_prestate_check": "PROTOCOL/CANDIDATE_V6/rescale_event_veto_fixture_v6.json",
+    "prestate_check_limit": "Existence, byte size, and SHA-256 only; content was not opened.",
+    "prohibited": [
+      "Python execution or import",
+      "launcher or preflight execution",
+      "scientific or fixture execution",
+      "inspection of any other Candidate V6 artifact",
+      "inspection of CODE or any implementation/PREFLIGHT manifest",
+      "inspection of data, R4, or outcomes",
+      "repository or directory enumeration",
+      "STATE modification"
+    ],
+    "scope_compliance": "PASS"
+  },
+  "input_integrity": {
+    "verdict": "PASS",
+    "hash_algorithm": "SHA-256",
+    "files": [
+      {
+        "path": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER/compile_rescale_event_veto_fixture_v6.py",
+        "expected_sha256": "D11F0BC51A52039B3944517FAE10F686B853014E44D5982AF417C94FA69E3925",
+        "observed_sha256": "D11F0BC51A52039B3944517FAE10F686B853014E44D5982AF417C94FA69E3925",
+        "bytes": 84018,
+        "format_check": "STATIC_TEXT_READ_COMPLETE_1843_LINES",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER/fixture_compiler_manifest_v6.json",
+        "expected_sha256": "8B8D22917A13064D5F0973FF9F04200EC89CB934905C5363B6AC0AA44ECDD310",
+        "observed_sha256": "8B8D22917A13064D5F0973FF9F04200EC89CB934905C5363B6AC0AA44ECDD310",
+        "bytes": 9811,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6_FIXTURE_COMPILER/rescale_event_veto_record_schemas_v6.json",
+        "expected_sha256": "2601C276BB398E9CD82776BEEB3975E11E6165278BA88342FDB8D875D25C876D",
+        "observed_sha256": "2601C276BB398E9CD82776BEEB3975E11E6165278BA88342FDB8D875D25C876D",
+        "bytes": 29425,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+        "expected_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+        "observed_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+        "bytes": 64268,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/PROTOCOL_FREEZE_REAUDIT_V5.json",
+        "expected_sha256": "485E664B663BBC2E3A13A5FE05C86684B1295490FEB703EFFE77AB5CEB7EA1CA",
+        "observed_sha256": "485E664B663BBC2E3A13A5FE05C86684B1295490FEB703EFFE77AB5CEB7EA1CA",
+        "bytes": 44924,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+        "expected_sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+        "observed_sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+        "bytes": 5470,
+        "json_valid": true,
+        "verdict": "PASS"
+      },
+      {
+        "path": "PREFLIGHT/run_neurolib.ps1",
+        "expected_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+        "observed_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+        "bytes": 4014,
+        "format_check": "STATIC_TEXT_READ_COMPLETE",
+        "verdict": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V3.json",
+        "expected_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+        "observed_sha256": "7CD0CD77D523AA1E1CC7B85FD5947FA939F6EEC3A08D131AF85D0D0C0266642A",
+        "bytes": 14848,
+        "json_valid": true,
+        "verdict": "PASS"
+      }
+    ],
+    "rehash_completed_at": "2026-08-16T21:16:16-04:00",
+    "all_source_hashes_stable_at_seal": true
+  },
+  "designated_output_prestate": {
+    "path": "PROTOCOL/CANDIDATE_V6/rescale_event_veto_fixture_v6.json",
+    "required_existing_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+    "observed_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+    "observed_bytes": 13765,
+    "content_opened": false,
+    "verdict": "PASS"
+  },
+  "static_method": {
+    "compiler_execution": false,
+    "python_import": false,
+    "launcher_execution": false,
+    "scientific_execution": false,
+    "review_steps": [
+      "Recomputed SHA-256 and byte sizes for the eight exact audit inputs.",
+      "Parsed the five JSON controls/manifests/schemas without invoking Python.",
+      "Read all compiler source bytes and traced imports, constants, control flow, array construction, filtering, detection, matching, classification, pooling, bootstrap, validation, CLI guards, reads, writes, and receipt emission.",
+      "Read the exact launcher statically and reconciled its environment and concurrency controls to the exact environment and compute receipts.",
+      "Compared the package noncompensatorily against every applicable prospective compiler, fixture, schema, one-shot, and receipt requirement in the V6 addendum.",
+      "Rehashed all exact inputs and the designated output prestate immediately before sealing."
+    ]
+  },
+  "verdicts": {
+    "OVERALL": "FAIL_BLOCKING",
+    "INPUT_HASHES_AND_JSON": "PASS",
+    "STATIC_ONLY_SCOPE": "PASS",
+    "DEPENDENCY_ALLOWLIST": "PASS",
+    "FIXED_36000_SAMPLE_SHAPE": "PASS",
+    "PROSPECTIVE_SYNTHETIC_BYTE_DETERMINISM": "FAIL_BLOCKING",
+    "SCIPY_FILTER_AND_DETECTOR_CODE_PRESENT": "PASS",
+    "MATCHING_POOLING_AND_BOOTSTRAP_CODE_PRESENT": "PASS",
+    "GOVERNING_SCHEMA_CONFORMANCE": "FAIL_BLOCKING",
+    "SOURCE_AND_SCHEMA_HASH_GUARDS": "PASS",
+    "SINGLE_DESIGNATED_WRITE_TARGET": "PASS",
+    "ATOMIC_BOUNDED_OUTPUT_TRANSACTION": "FAIL_BLOCKING",
+    "REQUIRED_PRESTATE_HASH": "PASS",
+    "VERSION_GUARDS": "PASS",
+    "COMPLETE_ENVIRONMENT_IDENTITY_GUARDS": "FAIL_BLOCKING",
+    "PATH_CONTAINMENT_AND_LINK_GUARDS": "FAIL_BLOCKING",
+    "ONE_SHOT_SPENT_AND_FAILURE_GUARDS": "FAIL_BLOCKING",
+    "EXACT_LAUNCHER_COMMAND_BINDING": "PASS",
+    "NO_MODEL_REPOSITORY_DATA_R4_OR_OUTCOME_IMPORT": "PASS",
+    "NO_SCIENTIFIC_OR_RUN_COUNT_MUTATION": "PASS",
+    "COMPILER_EXECUTION_RELEASE": "DENIED"
+  },
+  "passing_checks": [
+    {
+      "check_id": "V6FC-SA-P001",
+      "finding": "All eight exact source/control hashes equal their authorized values; all JSON inputs parse."
+    },
+    {
+      "check_id": "V6FC-SA-P002",
+      "finding": "The compiler import set is exactly hashlib, json, sys, numpy, scipy, and scipy.signal. Static inspection found no os, pathlib, subprocess, importlib, eval, exec, random, clock, network, multiprocessing, threading, pickle, joblib, neurolib, brainmass, or jax capability."
+    },
+    {
+      "check_id": "V6FC-SA-P003",
+      "finding": "The compiler fixes sample rate to 200 Hz, each source-array shape to exactly 36,000 float64 samples, retained indices to [2000,34000), little-endian array materialization to <f8, and a 50-sample matching tolerance."
+    },
+    {
+      "check_id": "V6FC-SA-P004",
+      "finding": "Static code contains explicit sequential population moments, direct a*x+b affine evaluation, distinct nonfinite and zero-variance branches, scipy.signal.butter order-4 SOS construction, scipy.signal.sosfiltfilt filtering, SO and spindle detection, three matching stages, event-class construction, pooling, and zero-added-event bootstrap handling. These implementation presences do not cure the prospective binding and schema failures below."
+    },
+    {
+      "check_id": "V6FC-SA-P005",
+      "finding": "The compiler fails closed on its own source SHA-256, schema SHA-256, manifest-declared absolute argument strings, Python 3.10.20, NumPy 2.2.6, SciPy 1.15.2, requested concurrency 1, and the required existing output prestate hash."
+    },
+    {
+      "check_id": "V6FC-SA-P006",
+      "finding": "The exact manifest launcher command names the exact launcher, compiler, manifest, schema, output, and one requested concurrent process. The launcher hash matches, and its static controls reconcile with the environment snapshot and compute receipt for the declared one-process execution envelope."
+    },
+    {
+      "check_id": "V6FC-SA-P007",
+      "finding": "Static source inspection found exactly one filesystem write site, directed to the CLI output argument after exact-string comparison to the manifest-designated output. No scientific model, repository content, data, R4, outcomes, or run-count artifacts are read or mutated."
+    },
+    {
+      "check_id": "V6FC-SA-P008",
+      "finding": "The designated output prestate exists with the exact required DDB61398... hash and was not opened during this audit."
+    }
+  ],
+  "blocking_findings": [
+    {
+      "finding_id": "V6FC-SA-B001",
+      "severity": "BLOCKING",
+      "title": "Compiler release manifest omits mandatory prospectively frozen identity and transaction fields",
+      "governing_requirement": "PROTOCOL_V6_REAUDIT_ADDENDUM.json requires a compiler release ID, one-shot invocation ID, compiler specification path/size/hash, source and launcher sizes/hashes, normalized absolute read/write allowlists, temporary/final/receipt/failure/spent paths, full host/interpreter/package/numerical-backend identity, complete imports, exact recipe registry, expected 36k source hashes, filter coefficient/provenance hashes, detector IDs, and failure/spent receipt schemas before execution.",
+      "observed": "The manifest binds basic compiler/schema/launcher paths and hashes, three package versions, a module allowlist, one final output path, and a prestate hash. It does not bind the remaining mandatory release, normalized filesystem, temporary transaction, executable/package binary, locale/byteorder, BLAS/LAPACK, recipe/source-array, filter-coefficient, detector, failure-receipt, or authorization-spent fields.",
+      "impact": "The proposed run is not the prospectively frozen and fully attributable one-time compiler transaction required by the addendum.",
+      "minimal_prospective_repair": "Create a new versioned compiler release manifest that includes every addendum-required field with exact normalized absolute paths, byte sizes, uppercase SHA-256 values, identifiers, environment identities, recipe/source/filter bindings, and receipt schemas; obtain a new independent static PASS before execution."
+    },
+    {
+      "finding_id": "V6FC-SA-B002",
+      "severity": "BLOCKING",
+      "title": "Output transaction directly overwrites a preexisting protocol artifact instead of using the required absent temporary/final paths and atomic rename",
+      "governing_requirement": "The addendum requires temporary and final outputs to be absent before execution, prohibits overwrite or in-place editing, requires write-to-temporary, flush/close, parse/hash validation, and an atomic same-directory rename, and requires exact failure and authorization-spent artifacts.",
+      "observed": "The manifest requires the final output to preexist at DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC. Compiler lines 1810-1825 read that final path and then open the same path with mode wb, write directly, flush, close, and rehash. There is no temporary sibling, atomic rename, failure receipt, or spent declaration. Absolute path strings are compared, but resolved containment and symlink/reparse/hardlink defenses are absent for the manifest, schema, and output.",
+      "impact": "Execution would violate the frozen one-shot transaction and could truncate or corrupt the governed prestate without a complete immutable failure trail.",
+      "minimal_prospective_repair": "Use newly designated absent temporary and final paths under an exact normalized allowlist; reject existing targets and links/reparse points; write and flush/close only the temporary file; independently parse, schema-check, and hash it; atomically rename it in the same directory; emit immutable success/failure and spent receipts. If overwrite of the current prestate is still desired, first adopt a prospectively versioned governance amendment because the current addendum forbids it."
+    },
+    {
+      "finding_id": "V6FC-SA-B003",
+      "severity": "BLOCKING",
+      "title": "The 36,000-sample inputs and numerical intermediates are not prospectively byte-bound",
+      "governing_requirement": "The addendum requires every constructed source array to be checked against an expected prospectively frozen hash before observation, forbids host-dependent transcendental generation unless expected bytes are prebound, and requires exact environmental and numerical-library provenance sufficient to reproduce the bytes.",
+      "observed": "The compiler constructs source arrays with np.sin, np.cos, np.pi, np.median, scipy.signal.butter, scipy.signal.sosfiltfilt, and a bounded numerical threshold search. Neither source nor manifest contains prospective expected hashes for source arrays, observations, filter coefficients, filtered traces, detector tables, or other required intermediates. The nonfinite case assigns np.nan rather than embedding and verifying an exact IEEE-754 bit word. Only version strings are bound; executable, package/distribution, platform/architecture, locale, byteorder, and BLAS/LAPACK hashes are not.",
+      "impact": "The package may be deterministic within one observed host, but it is not the prospectively byte-frozen synthetic oracle required for an outcome-blind repair.",
+      "minimal_prospective_repair": "Replace host-dependent procedural construction with prospectively embedded RFC4648 base64 <f8 inputs or bind every constructed 36k source and required intermediate by exact expected uppercase SHA-256 before downstream use; bind exact IEEE-754 nonfinite words, filter coefficients/provenance, executable and package hashes, platform/locale/byteorder, and BLAS/LAPACK identity."
+    },
+    {
+      "finding_id": "V6FC-SA-B004",
+      "severity": "BLOCKING",
+      "title": "Formal identifiers, ranks, enum values, and exact record field sets diverge from the governing addendum",
+      "governing_requirement": "The addendum freezes exact identifiers, zero-based ranks, raw_endianness value, status enums, and exact block/condition fields for the compiler output.",
+      "observed": {
+        "identifier_drift": [
+          "Addendum AFFINE_AX_PLUS_B_BINARY64_V6 versus package AFFINE_DIRECT_MUL_THEN_ADD_FLOAT64_V6",
+          "Addendum RAW_RE_PLUS_QUARTER_RT_DIV10_V6 versus package XRAW_RE_PLUS_0P25_RT_DIV10_FLOAT64_V1",
+          "Addendum CANONICAL_JSON_SHA256_V6 versus package PY_JSON_CANONICAL_ASCII_V1"
+        ],
+        "index_and_endianness_drift": [
+          "Addendum candidate_rank and accepted_rank are zero-based; compiler enumerate(..., start=1) and accepted ranks begin at 1",
+          "Addendum raw_endianness LITTLE_ENDIAN versus package LITTLE"
+        ],
+        "enum_drift": [
+          "Addendum NOT_ESTIMABLE_ZERO_VARIANCE and INVALID_EVENT_LEDGER versus package split zero-variance statuses, INVALID_MATCH_LEDGER, and INVALID_SOLVER_OR_STATE",
+          "Input, finite-status, sham-status, and condition-status enum vocabularies do not match the addendum exact vocabularies"
+        ],
+        "field_set_drift": [
+          "Addendum block_record_payload_sha256 is absent; package adds first_nonfinite_role_or_null, first_nonfinite_index_or_null, and block_record_hash_envelope",
+          "Addendum condition_record_payload_sha256 is replaced by condition_record_hash_envelope",
+          "Addendum minimum_denominator_rule is an exact string enum; package emits an object"
+        ]
+      },
+      "impact": "Even a numerically successful run would not serialize the prospectively frozen V6 record contract.",
+      "minimal_prospective_repair": "Change compiler, manifest, and schema together to use the addendum's exact IDs, zero-based rank conventions, LITTLE_ENDIAN spelling, status vocabularies, nullability, field sets, payload-hash fields, and exact denominator-rule string; statically prove cross-file identity before release."
+    },
+    {
+      "finding_id": "V6FC-SA-B005",
+      "severity": "BLOCKING",
+      "title": "Required match, class, and consumption ledger wrappers and hashes are absent, and runtime validation is structurally incomplete",
+      "governing_requirement": "The addendum requires candidate and accepted ledger wrappers containing schema_id, match_stage, rows, and a nonrecursive payload SHA-256; analogous typed and hashed wrappers are required for class and consumption ledgers. Class rows cover official E_S/E_I events, while consumption covers E_S/E_I/E_A. Full schema, type, enum, nullability, ordering, wrapper, and hash validation is mandatory before write.",
+      "observed": "Candidate and accepted ledgers are arrays of match_stage/rows objects without wrapper schema IDs or ledger payload hashes. Class and consumption ledgers are bare arrays without required wrappers or hashes. The class ledger additionally includes E_A rows, contrary to the exact class-ledger scope. Runtime validation checks selected key sets and record hash-envelope equality but does not enforce declared types, enums, nullability, nested wrapper schemas, or ordering.",
+      "impact": "Required provenance, single-consumption, and canonical-record integrity cannot be established from the emitted structure.",
+      "minimal_prospective_repair": "Implement the exact typed wrappers and nonrecursive payload hashes for every ledger; restrict class-ledger membership and consumption-ledger membership to the frozen event domains; validate all nested types, enums, nulls, key sets, ordering, schemas, and hashes before any write."
+    },
+    {
+      "finding_id": "V6FC-SA-B006",
+      "severity": "BLOCKING",
+      "title": "The schema bundle rejects the compiler's own fixture hash envelope",
+      "governing_requirement": "Every emitted object must conform to the exact bundled schema, including the enum of excluded fields used by nonrecursive hash envelopes.",
+      "observed": "The schema's canonicalization.nonrecursive_envelope_fields.excluded_field enum permits only block_record_hash_envelope and condition_record_hash_envelope. Compiler lines 1660-1770 constructs and validates a fixture envelope whose excluded field is fixture_payload_hash_envelope. Runtime validation does not apply the enum deeply enough to detect this contradiction.",
+      "impact": "The proposed fixture is nonconformant to its own release-bound schema by construction.",
+      "minimal_prospective_repair": "Reconcile the fixture-envelope schema and compiler under the governing addendum, then add full validator coverage and a static fixture-envelope conformance test whose expected canonical payload hash is prospectively bound."
+    },
+    {
+      "finding_id": "V6FC-SA-B007",
+      "severity": "BLOCKING",
+      "title": "Fixture case registry, raw input encoding, and case-specific oracle coverage do not match the exact frozen contract",
+      "governing_requirement": {
+        "required_case_ids_in_exact_order": [
+          "MV_MEAN_SHIFT",
+          "MV_VARIANCE_SCALE",
+          "MV_ZERO_INTERVENTION_VARIANCE",
+          "MV_NONFINITE_INPUT",
+          "SO_THRESHOLD_EQUALITY_ACCEPTED",
+          "SO_LEFT_EDGE_STRICTLY_REJECTED",
+          "SPINDLE_THRESHOLD_EQUALITY_ACCEPTED",
+          "SPINDLE_RIGHT_EDGE_STRICTLY_REJECTED",
+          "MATCH_TIES_AND_TOLERANCE_BOUNDARY",
+          "EVENT_NONZERO_SURVIVAL",
+          "EVENT_ALL_ADDED_VANISH",
+          "EVENT_NO_ADDED_EVENTS",
+          "EVENT_MIXED_SURVIVAL",
+          "POOL_LEVEL_A_ALL_ADDED_VANISH",
+          "POOL_LEVEL_A_NONZERO_SURVIVAL",
+          "POOL_LEVEL_A_NO_ADDED_EVENTS",
+          "POOL_ZERO_VARIANCE_FAIL_CLOSED",
+          "POOL_NONFINITE_FAIL_CLOSED",
+          "MV_ZERO_SHAM_VARIANCE",
+          "MV_BOTH_ZERO_VARIANCES",
+          "T8_WINDOW_BOUNDARY_TOUCH",
+          "POOL_CROSS_CONTEXT_PROHIBITION",
+          "RAW_END_TO_END_CANONICAL_RECORD_HASH"
+        ],
+        "raw_input_encoding": "RFC4648 base64 without whitespace over complete exact little-endian <f8 bytes, with shape and uppercase SHA-256",
+        "case_assertion_rule": "Each named case must independently prove its named branch through exact raw inputs, expected intermediates, output, and hashes."
+      },
+      "observed": "The compiler instead emits eleven differently named E2E raw cases, seven pooling cases, and five bootstrap-oracle cases. It does not preserve the exact 23 IDs/order and lacks the exact POOL_LEVEL_A_NO_ADDED_EVENTS case. Raw arrays are encoded as lowercase hexadecimal rather than RFC4648 base64. Zero-sham and both-zero cases use package-specific statuses rather than NOT_ESTIMABLE_ZERO_VARIANCE. Several coverage checks rely on any global witness or declared coverage tags instead of binding the required branch to its named case; pooling hard-veto/nonzero sources are hard-coded to SPINDLE while global assertions allow any SO or SPINDLE witness. Required per-field NOT_APPLICABLE reason structures are absent.",
+      "impact": "The artifact would not be the prospectively specified regression oracle, and declared coverage could pass without the named case proving the required semantics.",
+      "minimal_prospective_repair": "Emit exactly the 23 required IDs in order, embed all required raw buffers as exact RFC4648 base64 <f8 bytes plus shape and uppercase SHA-256, use exact frozen statuses/null reasons, and assert each required branch, intermediate, ledger, denominator, hash, and cross-context prohibition within its named case."
+    },
+    {
+      "finding_id": "V6FC-SA-B008",
+      "severity": "BLOCKING",
+      "title": "Success, failure, and authorization-spent receipts are incomplete or absent",
+      "governing_requirement": "The addendum requires the static release authorization path/hash and compiler-release identity; invocation and environment/dependency ledgers; exact read/write ledger; per-case verdicts; expected/actual intermediate ledger; forbidden-access attestations; all fail-closed flags; authorization_spent; PASS or FAIL_CLOSED status; and exact immutable success, failure, and spent receipt paths/schemas.",
+      "observed": "The compiler emits only a stdout JSON object containing status, fixture/output hash/count, compiler/manifest/schema hashes, and two booleans. It writes no governed success receipt, failure receipt, or authorization-spent declaration and cannot establish the required read/write or per-case/intermediate audit trail.",
+      "impact": "A one-shot attempt could neither prove compliant completion nor fail closed with a durable, attributable spent authorization.",
+      "minimal_prospective_repair": "Implement exact immutable success, failure, and authorization-spent receipt artifacts with all addendum-mandated fields and atomic write semantics; bind their paths and schemas prospectively in the release manifest and require independent post-run revalidation."
+    }
+  ],
+  "nonblocking_findings": [],
+  "noncompensatory_decision": {
+    "rule": "Every prospective governance and fixture requirement is independently mandatory; passing implementation-presence checks cannot compensate for a single release, schema, determinism, case, path, or receipt failure.",
+    "blocking_finding_count": 8,
+    "unresolved_blocking_finding_count": 8,
+    "result": "FAIL_BLOCKING"
+  },
+  "release_gate": {
+    "fixture_compiler_execution": "DENIED",
+    "exact_launcher_command_execution": "DENIED",
+    "output_overwrite_or_creation": "DENIED",
+    "implementation": "REMAINS_DENIED",
+    "preflight": "REMAINS_DENIED",
+    "scientific_execution": "REMAINS_DENIED",
+    "outcome_access": "REMAINS_DENIED",
+    "next_permitted_action": "Outcome-blind preparation of a new versioned fixture-compiler package and release manifest addressing V6FC-SA-B001 through V6FC-SA-B008, followed by a new independent static audit.",
+    "automatic_release_on_repair": false
+  },
+  "access_and_mutation_attestation": {
+    "protected_access": "NONE",
+    "scientific_repository_access": "NONE",
+    "data_access": "NONE",
+    "R4_access": "NONE",
+    "outcome_access": "NONE",
+    "compiler_executed": false,
+    "python_imported_or_executed": false,
+    "launcher_or_preflight_executed": false,
+    "scientific_runs_executed": 0,
+    "STATE_modified": false,
+    "protocol_or_compiler_package_modified": false,
+    "only_created_artifact": "GOVERNANCE/V6_FIXTURE_COMPILER_STATIC_AUDIT.json"
+  },
+  "final_verdict": "FAIL_BLOCKING"
+}

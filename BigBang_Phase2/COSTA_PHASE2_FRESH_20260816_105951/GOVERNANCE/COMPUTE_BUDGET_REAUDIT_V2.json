@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_COMPUTE_BUDGET_REAUDIT_V2",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "environment_version": "NEUROLIB_ENV_V2",
+  "audited_at": "2026-08-16T12:07:45.5809469-04:00",
+  "auditor_role": "Independent Compute Budget Auditor",
+  "receipt_lineage": {
+    "prior_failed_receipt": "GOVERNANCE/COMPUTE_BUDGET_AUDIT.json",
+    "prior_failed_receipt_sha256": "DC6ADD872FCA5271771895DE9A38AE38A31F18E1DC8D51E3D3B1AFC9E918271B",
+    "prior_failed_receipt_hash_reverified": true,
+    "prior_failed_receipt_read_only_reverified": true,
+    "prior_failed_receipt_modified": false,
+    "repair_class": "OUTCOME_BLIND_ENVIRONMENT_CONTROL_REPAIR",
+    "repair_cycle_index": 2,
+    "maximum_bounded_repair_cycles": 2,
+    "bounded_repair_cycles_remaining_after_this_receipt": 0,
+    "repair_cycle_status": "FINAL_CYCLE_CONSUMED"
+  },
+  "immutability": {
+    "write_once": true,
+    "supersession_requires_new_receipt_path_and_explicit_governance_authority": true,
+    "source_state_budget_or_environment_modified_by_auditor": false
+  },
+  "scope": {
+    "authorized_v2_files_read": [
+      "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "COMMON/COMPUTE_BUDGET.json",
+      "PREFLIGHT/run_neurolib.ps1",
+      "PREFLIGHT/environment_probe.py",
+      "STATE/ENVIRONMENT_LOG.md"
+    ],
+    "repository_scientific_content_inspected": false,
+    "campaign_outcome_code_executed": false,
+    "bounded_unchanged_environment_probe_executed": true,
+    "scientific_outcomes_inspected": false
+  },
+  "input_integrity": {
+    "hash_algorithm": "SHA-256",
+    "canonical_input_set_encoding": "UTF-8 lines in listed order, each relative_path=uppercase_sha256 followed by LF",
+    "canonical_input_set_sha256": "2A0374726BF3D3DDF7AB91A76A5E7E080A323E4C30AB131F04A12F1A1EA921FB",
+    "all_expected_hashes_match": true,
+    "files": [
+      {
+        "path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+        "bytes": 4647,
+        "expected_sha256": "4CBF0B3DE2F0377C62585F1AE3BA3A16596F57E3CBBAEE6123DBEF384A3BEE72",
+        "observed_sha256": "4CBF0B3DE2F0377C62585F1AE3BA3A16596F57E3CBBAEE6123DBEF384A3BEE72",
+        "status": "PASS"
+      },
+      {
+        "path": "COMMON/COMPUTE_BUDGET.json",
+        "bytes": 2802,
+        "expected_sha256": "40BC4729BDB92F20D47524B7E1D35720091C07A993F71EDC343A3E57ABE51C03",
+        "observed_sha256": "40BC4729BDB92F20D47524B7E1D35720091C07A993F71EDC343A3E57ABE51C03",
+        "status": "PASS"
+      },
+      {
+        "path": "PREFLIGHT/run_neurolib.ps1",
+        "bytes": 2247,
+        "expected_sha256": "D0BB9960723B3BEC7809DE6467B66FF43D9824AC5A14C449B4D1392CEFA5EAF6",
+        "observed_sha256": "D0BB9960723B3BEC7809DE6467B66FF43D9824AC5A14C449B4D1392CEFA5EAF6",
+        "status": "PASS"
+      },
+      {
+        "path": "PREFLIGHT/environment_probe.py",
+        "bytes": 2373,
+        "expected_sha256": "64E225E0B768987BDD994CF24305036EDBF04189387A25552CC65F435B756D01",
+        "observed_sha256": "64E225E0B768987BDD994CF24305036EDBF04189387A25552CC65F435B756D01",
+        "status": "PASS"
+      },
+      {
+        "path": "STATE/ENVIRONMENT_LOG.md",
+        "bytes": 1593,
+        "expected_sha256": "BA72106EFFE26EB8B84989274D253478D2AAEB08F1A261865533F250FF3ADF81",
+        "observed_sha256": "BA72106EFFE26EB8B84989274D253478D2AAEB08F1A261865533F250FF3ADF81",
+        "status": "PASS"
+      }
+    ],
+    "status": "PASS"
+  },
+  "recorded_official_command_test": {
+    "command": "powershell -File D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\run_neurolib.ps1 -ScriptPath D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\environment_probe.py -RequestedConcurrentProcesses 1",
+    "exit_code": 1,
+    "observed_error_class": "PSSecurityException / UnauthorizedAccess",
+    "observed_error": "run_neurolib.ps1 cannot be loaded because running scripts is disabled on this system",
+    "windows_powershell_execution_policy": {
+      "MachinePolicy": "Undefined",
+      "UserPolicy": "Undefined",
+      "Process": "Undefined",
+      "CurrentUser": "Undefined",
+      "LocalMachine": "Undefined",
+      "effective_default": "Restricted"
+    },
+    "status": "FAIL"
+  },
+  "process_scoped_bypass_diagnostic": {
+    "purpose": "Outcome-blind diagnostic of launcher internals only; not authorization to substitute for the frozen command",
+    "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\run_neurolib.ps1 -ScriptPath D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\environment_probe.py -RequestedConcurrentProcesses 1",
+    "execution_policy_scope": "child process only",
+    "exit_code": 0,
+    "environment": {
+      "conda_default_env": "neurolib",
+      "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+      "python_version": "3.10.20",
+      "platform": "Windows-10-10.0.19045-SP0"
+    },
+    "thread_environment_observed": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "4",
+      "NUMEXPR_NUM_THREADS": "4"
+    },
+    "smoke_test": {
+      "model": "neurolib.models.wc.WCModel",
+      "duration_ms": 20.0,
+      "output_shape": [
+        1,
+        200
+      ],
+      "finite": true,
+      "status": "PASS"
+    },
+    "launcher_internal_thread_contract_status": "PASS",
+    "diagnostic_status": "PASS"
+  },
+  "package_and_definition_consistency": {
+    "observed_packages": {
+      "neurolib": "0.6.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "pandas": "2.3.3",
+      "matplotlib": "3.10.8",
+      "mne": "1.9.0",
+      "h5py": "3.15.1",
+      "numba": "0.64.0",
+      "joblib": "1.5.3",
+      "scikit_learn": "1.7.2",
+      "statsmodels": "0.14.6",
+      "psutil": "7.2.2",
+      "PyYAML": "6.0.3",
+      "brainmass": "NOT_INSTALLED",
+      "jax": "NOT_INSTALLED"
+    },
+    "all_package_versions_match_v1": true,
+    "package_installations_performed": false,
+    "environment_probe_sha256_unchanged_from_v1": true,
+    "scientific_definition_change_detected": false,
+    "status": "PASS"
+  },
+  "memory_inventory_and_admission": {
+    "snapshot": {
+      "total_physical_memory_bytes": 34055770112,
+      "available_physical_memory_bytes": 11372978176,
+      "memory_observed_at": "2026-08-16T12:02:07.8074430-04:00",
+      "captured_admission": 2
+    },
+    "independent_observation": {
+      "observed_at": "2026-08-16T12:05:34.2913622-04:00",
+      "total_physical_memory_bytes": 34055770112,
+      "available_physical_memory_bytes": 10089881600,
+      "current_admitted_concurrent_processes": 1
+    },
+    "thresholds_bytes": {
+      "one_process": 6442450944,
+      "two_processes": 10737418240,
+      "three_processes": 17179869184,
+      "stop_new_launches_below": 6442450944,
+      "per_process_rss_soft_cap": 5368709120
+    },
+    "dynamic_admission_tests": [
+      {
+        "requested_processes": 1,
+        "result": "ADMITTED",
+        "child_probe_executed": true,
+        "exit_code": 0
+      },
+      {
+        "requested_processes": 2,
+        "required_available_bytes": 10737418240,
+        "observed_available_bytes_by_launcher": 10023555072,
+        "result": "REJECTED_BEFORE_CHILD_EXECUTION",
+        "exit_code": 1
+      },
+      {
+        "requested_processes": 3,
+        "required_available_bytes": 17179869184,
+        "observed_available_bytes_by_launcher": 10047528960,
+        "result": "REJECTED_BEFORE_CHILD_EXECUTION",
+        "exit_code": 1
+      }
+    ],
+    "total_and_available_memory_separately_labeled": true,
+    "total_memory_matches_independent_observation": true,
+    "available_memory_dynamic_variation_is_expected": true,
+    "runtime_admission_rechecked_per_launch": true,
+    "current_admission_at_audit": 1,
+    "status": "PASS"
+  },
+  "launcher_path_boundary": {
+    "inside_current_campaign_probe_accepted_under_diagnostic_invocation": true,
+    "ordinary_outside_path_test": {
+      "path": "D:\\Year3_Mao_Projects\\sleep_loop",
+      "result": "REJECTED_BEFORE_CHILD_EXECUTION",
+      "exit_code": 1
+    },
+    "implemented_predicate": "$resolvedScript.StartsWith($campaignRoot, OrdinalIgnoreCase)",
+    "prefix_collision_test": {
+      "synthetic_outside_sibling": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951_OUTSIDE\\probe.py",
+      "raw_startswith_result": true,
+      "separator_bounded_startswith_result": false
+    },
+    "reparse_target_containment_check_implemented": false,
+    "determination": "The ordinary outside-path test is rejected, but the implemented raw string-prefix predicate does not establish a directory boundary. An existing sibling whose name begins with the campaign-root string would pass the predicate despite being outside the current campaign. The launcher also performs no final-target containment check for a symlink, junction, or other reparse-point indirection located lexically inside the campaign root.",
+    "status": "FAIL"
+  },
+  "budget_arithmetic_and_reserves": {
+    "total_cpu_hours": 180,
+    "stage_cpu_hours": {
+      "governance_environment_and_data_audit": 10,
+      "data_free_and_synthetic_preflight": 10,
+      "phase2a_worker_execution": 60,
+      "phase2b_worker_execution_if_eligible": 35,
+      "independent_verification_reserve": 50,
+      "outcome_blind_repair_reserve": 10,
+      "adversarial_final_judgment_and_packaging": 5
+    },
+    "stage_sum_cpu_hours": 180,
+    "stage_sum_matches_total": true,
+    "verification_reserve_cpu_hours": 50,
+    "verification_reserve_fraction_recomputed": 0.2777777777777778,
+    "verification_reserve_minimum_fraction": 0.25,
+    "verification_reserve_protected_from_worker_use": true,
+    "repair_reserve_cpu_hours": 10,
+    "repair_maximum_cycles": 2,
+    "repair_maximum_wall_clock_hours_per_lineage": 2,
+    "repair_maximum_fraction_of_lineage_budget": 0.1,
+    "outcome_guided_repairs_permitted": false,
+    "numeric_allocations_unchanged_from_v1": true,
+    "checkpoint_stop_and_degradation_rules_unchanged_from_v1": true,
+    "status": "PASS"
+  },
+  "capacity_at_current_memory_admission": {
+    "wall_clock_deadline": "2026-08-18T23:59:59-04:00",
+    "remaining_window_hours_at_audit": 59.870394181416664,
+    "current_admitted_concurrent_processes": 1,
+    "threads_per_process": 4,
+    "current_admitted_logical_threads": 4,
+    "total_cpu_budget_wall_hours_at_current_admission": 45.0,
+    "theoretical_remaining_cpu_capacity_hours": 239.48157672566666,
+    "nominal_wall_clock_feasibility_if_launcher_defects_are_resolved": "PASS",
+    "authorization_status": "NOT_AUTHORIZED_DUE_TO_BLOCKING_LAUNCHER_DEFECTS"
+  },
+  "governance_rule_checks": {
+    "all_supplied_input_hashes": "PASS",
+    "environment_identity": "PASS",
+    "package_consistency": "PASS",
+    "unchanged_scientific_definition": "PASS",
+    "bounded_smoke_test_under_diagnostic_invocation": "PASS",
+    "all_four_thread_variables_under_diagnostic_invocation": "PASS",
+    "recorded_official_command_executable_on_host": "FAIL",
+    "ordinary_outside_path_rejection": "PASS",
+    "separator_bounded_path_containment": "FAIL",
+    "total_available_ram_separation": "PASS",
+    "dynamic_memory_admission": "PASS",
+    "current_concurrency_admission": "PASS_AT_ONE_PROCESS",
+    "stage_sum": "PASS",
+    "verification_reserve_at_least_25_percent": "PASS",
+    "repair_reserve_limits": "PASS_FINAL_CYCLE_CONSUMED",
+    "budget_stop_checkpoint_and_degradation_rules": "PASS",
+    "nominal_wall_clock_feasibility_at_current_admission": "PASS"
+  },
+  "blocking_findings": [
+    {
+      "finding_id": "CB-REAUDIT-V2-001",
+      "severity": "BLOCKING",
+      "category": "OFFICIAL_COMMAND_EXECUTABILITY",
+      "status": "FAIL",
+      "determination": "The exact command frozen in NEUROLIB_ENV_V2 exits 1 before the launcher runs because Windows PowerShell script execution is disabled under the host's effective policy. The process-scoped Bypass diagnostic proves the launcher internals can run, but it is not the recorded official command and cannot silently substitute for it.",
+      "required_resolution": "Freeze an official invocation that is executable under the actual host policy, such as a process-scoped `powershell.exe -NoProfile -ExecutionPolicy Bypass -File ...` command, or use a signed launcher plus an explicitly verified compatible policy. Re-run the bounded probe using that exact frozen command and obtain a new independent receipt before any outcome-bearing execution."
+    },
+    {
+      "finding_id": "CB-REAUDIT-V2-002",
+      "severity": "BLOCKING",
+      "category": "CURRENT_CAMPAIGN_PATH_BOUNDARY",
+      "status": "FAIL",
+      "determination": "The launcher uses a raw case-insensitive string-prefix test rather than a separator-bounded directory containment test. A prefix-collision sibling path would be accepted even though it is outside the campaign root, and no check establishes that the final target of a symlink, junction, or other reparse-point indirection remains inside the campaign root.",
+      "required_resolution": "Canonicalize both paths, require the candidate to be a leaf file, and enforce containment against `campaignRoot` plus the platform directory separator, with an explicit prefix-collision rejection test. Also reject any path indirection that resolves outside the campaign root. Re-run positive in-root and negative ordinary-outside/prefix-collision tests under the exact frozen command and obtain a new independent receipt before outcome-bearing execution."
+    }
+  ],
+  "nonblocking_observations": [
+    "The V1 thread-enforcement defect is repaired inside the launcher: all four variables are set and observed as 4 when the launcher is invoked through a process-scoped diagnostic Bypass.",
+    "The V1 memory-label defect is repaired: total and available physical RAM are separate, timestamped fields.",
+    "Available RAM decreased after capture, so current admission is one process rather than the captured two; the per-launch guard correctly rejected requests for two and three processes.",
+    "At the current one-process/four-thread admission, the 180 CPU-hour budget requires 45 nominal wall hours within approximately 59.87 hours remaining, so nominal arithmetic feasibility remains intact.",
+    "All package versions, the environment-probe hash, CPU-stage allocations, reserves, and stop/checkpoint/degradation rules remain unchanged."
+  ],
+  "overall_status": "FAIL",
+  "authorization_effect": "OUTCOME_BEARING_EXECUTION_NOT_AUTHORIZED_BY_THIS_RECEIPT",
+  "final_determination": "V2 repairs the original thread-variable enforcement and RAM-label defects internally, and its dynamic memory admission operates as declared. The re-audit nevertheless fails because the exact frozen official command is blocked by the host execution policy and the launcher does not enforce a separator-bounded current-campaign path boundary. The second and final bounded environment-control repair cycle is consumed; this receipt must not be overwritten."
+}

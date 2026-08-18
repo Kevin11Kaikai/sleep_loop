@@ -1,0 +1,389 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_OUTCOME_BLIND_PROTOCOL_FREEZE_AUDIT",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "candidate_id": "CANDIDATE_V1",
+  "protocol_identity": "PHASE2_CONTROL_BENCH_V1",
+  "audited_at": "2026-08-16T12:45:00.8268272-04:00",
+  "auditor_role": "INDEPENDENT_PROTOCOL_FREEZE_AUDITOR",
+  "overall_verdict": "FAIL_BLOCKING_SPECIFICATION_DEFECTS",
+  "protocol_freeze": "FAIL",
+  "implementation_release": "DENIED_PENDING_PROSPECTIVE_V2_AND_INDEPENDENT_REAUDIT",
+  "phase2a_scientific_execution": "DENIED",
+  "phase2b_scientific_execution": "NOT_ESTIMABLE_AND_DENIED",
+  "protected_access": "NONE",
+  "scientific_outcomes": "NONE",
+  "audit_boundary": {
+    "outcome_blind": true,
+    "repository_or_r4_content_opened": false,
+    "data_or_scientific_outcomes_opened": false,
+    "code_opened": false,
+    "directory_enumeration_performed": false,
+    "shared_state_modified": false,
+    "protocol_or_candidate_artifacts_modified": false,
+    "only_new_artifact": "GOVERNANCE/PROTOCOL_FREEZE_AUDIT.json",
+    "allowed_files_only": true
+  },
+  "reviewed_artifacts": [
+    {
+      "path": "C:/Users/YUS190/.codex/attachments/ac0c0389-079b-4503-9119-053a53637ffc/pasted-text.txt",
+      "role": "GOVERNING_ATTACHMENT_1",
+      "sha256": "6FE01574A1DED6E78349C14787397A72A51A058870A3AC9AD7FDD4510F067170",
+      "format_validity": "TEXT_READABLE"
+    },
+    {
+      "path": "C:/Users/YUS190/.codex/attachments/b43e47ec-00b1-4f69-9eb3-285ae6305e17/pasted-text.txt",
+      "role": "GOVERNING_ATTACHMENT_2",
+      "sha256": "1C65D1F2BB61E6D1597B164BAE6B4F1CE493799B9BCF9D165876F12053F26B46",
+      "format_validity": "TEXT_READABLE"
+    },
+    {
+      "path": "PROTOCOL/PROTOCOL_FREEZE_V1.json",
+      "role": "FREEZE_MANIFEST",
+      "sha256": "1A27094D05DD24848E7F8D9643936D69078464B864EFA18621E022A04410F3F0",
+      "json_validity": "PASS"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/control_target_registry.json",
+      "role": "BOUND_CANDIDATE_ARTIFACT",
+      "expected_sha256": "5DD2CBC3FB4EE0BA3F980F063B9A87056359A94A387286B3C1FFFB2040E68CEA",
+      "observed_sha256": "5DD2CBC3FB4EE0BA3F980F063B9A87056359A94A387286B3C1FFFB2040E68CEA",
+      "hash_match": true,
+      "json_validity": "PASS"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/mechanistic_parameter_map.json",
+      "role": "BOUND_CANDIDATE_ARTIFACT",
+      "expected_sha256": "FCAD91DA91B8B3957D215DF7340097FF1F4006E4F5A18DF04FAC4310F4BF2ECA",
+      "observed_sha256": "FCAD91DA91B8B3957D215DF7340097FF1F4006E4F5A18DF04FAC4310F4BF2ECA",
+      "hash_match": true,
+      "json_validity": "PASS"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/phase2_protocol.json",
+      "role": "BOUND_CANDIDATE_ARTIFACT",
+      "expected_sha256": "0FE4136754B52EB5D516C26F80FE3991F4F9B09207A9B7D8418E10B2D45C6C10",
+      "observed_sha256": "0FE4136754B52EB5D516C26F80FE3991F4F9B09207A9B7D8418E10B2D45C6C10",
+      "hash_match": true,
+      "json_validity": "PASS"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/advancement_rule.json",
+      "role": "BOUND_CANDIDATE_ARTIFACT",
+      "expected_sha256": "B391622DFC308B53108080958DD01973CDC2B4CF02903F30E05B157104F4B643",
+      "observed_sha256": "B391622DFC308B53108080958DD01973CDC2B4CF02903F30E05B157104F4B643",
+      "hash_match": true,
+      "json_validity": "PASS"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/c2_gate_protocol.json",
+      "role": "BOUND_CANDIDATE_ARTIFACT",
+      "expected_sha256": "41CDE3295F0761524BA4ED2B0C3FF60126A6D56287F1D513DE9AABA825D49388",
+      "observed_sha256": "41CDE3295F0761524BA4ED2B0C3FF60126A6D56287F1D513DE9AABA825D49388",
+      "hash_match": true,
+      "json_validity": "PASS"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/claim_registry.json",
+      "role": "BOUND_CANDIDATE_ARTIFACT",
+      "expected_sha256": "6DEBABFF5A48B1B36B3D073D602667B88DE8FDE2163291DCE65F4B4C9AFD42A8",
+      "observed_sha256": "6DEBABFF5A48B1B36B3D073D602667B88DE8FDE2163291DCE65F4B4C9AFD42A8",
+      "hash_match": true,
+      "json_validity": "PASS"
+    },
+    {
+      "path": "PROTOCOL/CANDIDATE_V1/PREOUTCOME_DESIGN_MEMO.md",
+      "role": "BOUND_CANDIDATE_ARTIFACT",
+      "expected_sha256": "72EFFF7265EB969CB30B255716D79E37B883EF8FF98CF5B620F5B2214BA3BF77",
+      "observed_sha256": "72EFFF7265EB969CB30B255716D79E37B883EF8FF98CF5B620F5B2214BA3BF77",
+      "hash_match": true,
+      "format_validity": "MARKDOWN_READABLE"
+    },
+    {
+      "path": "COMMON/DATA_FEASIBILITY_RECEIPT.md",
+      "role": "FEASIBILITY_RECEIPT",
+      "sha256": "B85E5A3A21D10C523BAD707D6F034E3BEFD63EB5573FAC95FE9D1DDCDF855D2C",
+      "format_validity": "MARKDOWN_READABLE"
+    },
+    {
+      "path": "COMMON/SUBJECT_MODEL_AVAILABILITY.json",
+      "role": "SUBJECT_MODEL_AVAILABILITY",
+      "sha256": "08FF47A8EF93A08C032091F1314AA31BD959ADB320D8206E2E0BDADC4001BD88",
+      "json_validity": "PASS"
+    },
+    {
+      "path": "GOVERNANCE/COMPUTE_GATE_RELEASE.json",
+      "role": "COMPUTE_GATE",
+      "sha256": "46184CDE4A22947706C3C7FEECB0818E15AB8931105881D0C1531CE05BFAFFA2",
+      "json_validity": "PASS"
+    },
+    {
+      "path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "role": "ENVIRONMENT_SNAPSHOT",
+      "sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+      "json_validity": "PASS"
+    },
+    {
+      "path": "COMMON/COMPUTE_BUDGET.json",
+      "role": "COMPUTE_BUDGET",
+      "sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+      "json_validity": "PASS"
+    },
+    {
+      "path": "GOVERNANCE/PROTECTED_DENYLIST.json",
+      "role": "PROTECTED_DENYLIST",
+      "sha256": "AF3AA8AC66775885B09F47C425DE1BE3F515B877FD7DDDC44DCA32F1824EA060",
+      "json_validity": "PASS"
+    }
+  ],
+  "integrity_verdicts": {
+    "freeze_manifest_json": "PASS",
+    "bound_artifact_hashes": "PASS_7_OF_7",
+    "all_reviewed_json": "PASS_12_OF_12",
+    "placeholder_scan": "PASS_ZERO_MATCHES",
+    "placeholder_terms": [
+      "TBD",
+      "TODO",
+      "FIXME",
+      "UNASSIGNED",
+      "DECIDE_AFTER_RESULTS",
+      "CHOOSE_BEST_ENDPOINT",
+      "PLACEHOLDER"
+    ],
+    "syntactic_field_coverage": "PASS",
+    "semantic_executability": "FAIL"
+  },
+  "passing_controls": {
+    "target_registry": {
+      "verdict": "PASS",
+      "targets": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"],
+      "primary": ["T1", "T4", "T6"],
+      "secondary": ["T2", "T3", "T5", "T7"],
+      "exploratory": ["T8"],
+      "priority_split_consistent_across_artifacts": true
+    },
+    "mandated_field_presence": {
+      "verdict": "PASS_WITH_BLOCKING_SEMANTIC_DEFECTS_LISTED_SEPARATELY",
+      "covered": [
+        "target identifiers and priorities",
+        "observables and units",
+        "interventions and model mappings",
+        "bounded ranges and fixed grids",
+        "shams and no-control conditions",
+        "matched non-personalized and wrong-subject comparators",
+        "effect and subject-interaction estimands",
+        "practical margins and decision thresholds",
+        "uncertainty, tests, and confidence levels",
+        "minimum blocks, events, cycles, durations, and subjects",
+        "stability and off-target rules",
+        "multiplicity and failure rules",
+        "allowed and prohibited claims"
+      ]
+    },
+    "mapping_labels": {
+      "verdict": "PASS",
+      "all_actionable_control_channels_labeled": "GENERIC EXTERNAL FORCING",
+      "auditory_or_clinical_stimulation_label_used": false,
+      "all_mechanistic_parameter_changes": "SENSITIVITY_ONLY",
+      "unfrozen_parameter_optimization_authorized": false
+    },
+    "bounded_grids": {
+      "verdict": "PASS_WITH_T7_CONDITION_MISMATCH_BLOCKER",
+      "all_targets_have_bounded_prespecified_grids": true,
+      "signed_or_bidirectional_coverage_present": true,
+      "sham_present": true,
+      "post_outcome_grid_selection_allowed": false
+    },
+    "comparators_estimands_and_decisions": {
+      "verdict": "PASS_WITH_EXECUTABILITY_EXCEPTIONS",
+      "paired_sham_randomness_frozen": true,
+      "future_matched_nonpersonalized_comparator_frozen": true,
+      "future_wrong_subject_comparator_frozen": true,
+      "effect_estimands_frozen_for_all_eight_targets": true,
+      "margins_thresholds_denominators_stability_offtargets_multiplicity_failure_and_claims_present": true
+    },
+    "advancement": {
+      "verdict": "PASS",
+      "selection_cap": 3,
+      "cap_frozen_preoutcome": true,
+      "current_advancement_set": [],
+      "current_advancement_count": 0,
+      "outcome_guided_selection_allowed": false
+    },
+    "phase2b_subject_gate": {
+      "verdict": "PASS_NOT_ESTIMABLE",
+      "formal_minimum_eligible_subjects": 3,
+      "current_eligible_subjects": 0,
+      "current_clean_personalized_execution_artifacts": 0,
+      "synthetic_substitution_prohibited": true,
+      "phase2b_status": "NOT_ESTIMABLE"
+    },
+    "c2_gate_coverage": {
+      "verdict": "PASS_COVERAGE_ONLY",
+      "gates": ["C2-G1", "C2-G2", "C2-G3", "C2-G4", "C2-G5", "C2-G6", "C2-G7", "C2-G8", "C2-G9", "C2-G10"],
+      "all_ten_present": true,
+      "current_formal_execution": "NOT_ESTIMABLE"
+    },
+    "claim_ceiling": {
+      "verdict": "PASS",
+      "formal_ceiling": "M1_C0_P0",
+      "formal_ceiling_unchanged": true,
+      "maximum_candidate_v1_evidence": "NONTRANSFERABLE_SYNTHETIC_BENCH_GRADE_C_AFTER_VALID_EXECUTION_ONLY",
+      "formal_c1_or_c2_claim_authorized": false,
+      "human_or_clinical_transfer_authorized": false,
+      "r4_response_claim_authorized": false
+    },
+    "compute_fit": {
+      "verdict": "PASS_DESIGN_LEVEL_ONLY",
+      "cpu_hours_total": 180,
+      "sum_of_stage_cpu_hours": 180,
+      "gpu_hours_total": 4,
+      "storage_gb_total": 50,
+      "phase2a_cpu_hours": 60,
+      "conditional_phase2b_cpu_hours": 35,
+      "verification_cpu_hours": 50,
+      "verification_fraction_percent": 27.7777777778,
+      "verification_minimum_25_percent_met": true,
+      "repair_cpu_hours": 10,
+      "concurrent_processes": 1,
+      "environment_gate": "PASS_FOR_DATA_FREE_PREFLIGHT",
+      "runtime_fit_requires_frozen_code_and_prefight": true,
+      "scientific_execution_released_by_compute_gate": false
+    },
+    "repair_rules": {
+      "verdict": "PASS_WITH_LINEAGE_CAUTION",
+      "maximum_bounded_repair_cycles": 2,
+      "per_cycle_limit": "LESSER_OF_2_HOURS_OR_10_PERCENT_OF_RELEVANT_STAGE_BUDGET",
+      "outcome_guided_scientific_repairs_allowed": false,
+      "allowed_repairs": "IMPLEMENTATION_SCHEMA_SHAPE_OR_INFRASTRUCTURE_ONLY_WITH_BYTE_IDENTICAL_SCIENTIFIC_INPUTS",
+      "v1_blocking_specification_repairs": "REQUIRE_NEW_PROSPECTIVELY_FROZEN_PROTOCOL_VERSION",
+      "environment_incident_repair_lineage": "TWO_CYCLES_ALREADY_RECORDED_AND_CLOSED; MUST_REMAIN_DISTINCT_FROM_ANY FUTURE PROTOCOL VERSION LINEAGE"
+    }
+  },
+  "blocking_findings": [
+    {
+      "finding_id": "PF-B001",
+      "severity": "BLOCKING",
+      "affected_targets": ["T6", "T7"],
+      "title": "Causal phase-locked intervention is not reproducibly schedulable",
+      "evidence": [
+        "GF_T_PHASE_LOCKED_PACKET requires a causal upward zero crossing of a 0.3-1.5 Hz filtered signal, a registered phase offset, and subtraction of calibrated causal-filter delay.",
+        "The only fully specified 0.3-1.5 Hz filter in the observation contract is a fourth-order zero-phase scipy.signal.sosfiltfilt filter, which is noncausal.",
+        "No causal filter design or coefficients, online state initialization, transient rule, numeric or algorithmic delay calibration, phase-to-time conversion, reference period/frequency, or event-collision rule is frozen.",
+        "Negative offsets cannot be scheduled after a newly detected crossing unless a previous-cycle or next-cycle wrapping rule is frozen."
+      ],
+      "impact": "Primary T6, secondary T7, their Level-A trajectories and estimands, and downstream cross-target and C2 evaluations admit materially different implementations.",
+      "required_v2_correction": [
+        "Freeze the exact causal filter algorithm, order, coefficients, sampling rate, state initialization, warmup and edge behavior.",
+        "Freeze an exact delay-calibration algorithm or constant and how it is applied.",
+        "Freeze phase-reference and phase-to-time conversion, including the reference period/frequency.",
+        "Freeze negative-offset wrapping, first eligible cycle, refractory behavior, overlapping-packet behavior, and missed-trigger behavior."
+      ]
+    },
+    {
+      "finding_id": "PF-B002",
+      "severity": "BLOCKING",
+      "affected_targets": ["T8"],
+      "title": "T8 windowing contradicts the common analysis edge rule and lacks an executable spectral estimator",
+      "evidence": [
+        "The analysis interval is 180 seconds and the common observation contract excludes 10 seconds at each side, leaving 160 retained seconds.",
+        "T8 requires six nonoverlapping 30-second windows, which requires 180 seconds, with no explicit exception or window placement rule.",
+        "Every T8 window requires a dominant SO peak, but the only frozen Welch settings use nperseg=12000 at 200 Hz, a 60-second segment that cannot be applied to a 30-second window without an implicit parameter change."
+      ],
+      "impact": "T8 occupancy and persistence are undefined; the mandatory complete eight-target and 8-by-8 off-target evaluation cannot be executed reproducibly.",
+      "required_v2_correction": [
+        "Freeze exact T8 window start and stop times and state explicitly whether the common edge exclusion applies or has a target-specific prospective exception.",
+        "Freeze a window-compatible spectral estimator, including segment length, overlap, FFT length, detrending, band, tie, and peak-refinement rules.",
+        "Reconcile T8 denominators and persistence rules with the resulting number and duration of valid windows."
+      ]
+    },
+    {
+      "finding_id": "PF-B003",
+      "severity": "BLOCKING",
+      "affected_targets": ["T7"],
+      "title": "T7 Level-A decision rule requires conditions absent from its frozen grid",
+      "evidence": [
+        "The shared T6/T7 Level-A phase grid is [-pi,-2pi/3,-pi/3,0,pi/3,2pi/3,pi].",
+        "The T7 effect estimand and practical margin require observed-output separation at requested -pi/2 versus +pi/2.",
+        "Neither -pi/2 nor +pi/2 is a Level-A condition. Their appearance in a conditional Level-B surface cannot repair the Level-A pass rule because Level-B eligibility is decided only after Level A."
+      ],
+      "impact": "The secondary T7 effect estimand and pass/fail decision cannot be computed from the prescribed Level-A observations.",
+      "required_v2_correction": "Prospectively add the required -pi/2 and +pi/2 Level-A conditions or redefine the T7 estimand and margin to exact conditions that are present, then reconcile run counts and compute budget."
+    },
+    {
+      "finding_id": "PF-B004",
+      "severity": "BLOCKING",
+      "affected_targets": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "C2-G1", "C2-G7", "C2-G8"],
+      "title": "Required simultaneous confidence intervals lack a frozen construction and family",
+      "evidence": [
+        "Phase2A defines a paired hierarchical percentile bootstrap and a two-sided 95 percent interval.",
+        "Level-B eligibility, negligible/trade-off labels, non-target vetoes, T1, and formal gates require simultaneous 95 percent intervals or bounds.",
+        "The artifacts do not freeze the simultaneous family, joint statistic, multiplicity-adjusted quantile, max-type/bootstrap construction, or circular-endpoint handling."
+      ],
+      "impact": "Eligibility, off-target vetoes, and some efficacy decisions can change with implementation-selected confidence-family definitions.",
+      "required_v2_correction": "Freeze each simultaneous-inference family and the exact reproducible construction, including resampling unit, joint statistic or adjusted quantile, sidedness, endpoint set, seed, and circular handling."
+    },
+    {
+      "finding_id": "PF-B005",
+      "severity": "BLOCKING",
+      "affected_targets": ["T4"],
+      "title": "T4 pulse-replica veto uses an undefined added-event classifier",
+      "evidence": [
+        "T4 requires at least one autonomous sigma cycle after packet offset in at least 50 percent of added events.",
+        "No event-level counterfactual matching, packet-association window, overlap resolution, or operational definition of added event is frozen."
+      ],
+      "impact": "A hard primary-target failure rule cannot be evaluated consistently under paired sham and intervention trajectories.",
+      "required_v2_correction": "Freeze the deterministic event-matching or event-attribution algorithm, packet-association window, overlap and tie rules, denominator, and treatment of unmatched sham and intervention events."
+    }
+  ],
+  "nonblocking_findings": [
+    {
+      "finding_id": "PF-N001",
+      "severity": "NONBLOCKING_AFTER_PF-B001_REPAIR",
+      "title": "Circular grid contains duplicate-equivalent endpoints",
+      "detail": "The T6/T7 grid contains both -pi and +pi, which are the same circular phase. V2 should define canonicalization, whether both are deliberately replicated, and how they count in summaries and compute accounting."
+    },
+    {
+      "finding_id": "PF-N002",
+      "severity": "NONBLOCKING_GOVERNANCE_NOTE",
+      "title": "Freeze manifest sequences independent audit after executable preflight",
+      "detail": "This receipt is a specification-level outcome-blind audit performed before code inspection. A later exact-code and data-free preflight audit remains mandatory after a corrected protocol version passes its own freeze audit."
+    },
+    {
+      "finding_id": "PF-N003",
+      "severity": "NONBLOCKING_GOVERNANCE_NOTE",
+      "title": "Compute fit is arithmetic and envelope-level only",
+      "detail": "The budget, reserve, process, storage, stop, and checkpoint rules fit on paper, but empirical runtime and memory fit cannot be certified until corrected specifications are implemented, code-frozen, and exercised only in a data-free preflight."
+    }
+  ],
+  "required_disposition": {
+    "candidate_v1_status": "REJECTED_FOR_EXECUTION_AS_FROZEN",
+    "v1_may_be_edited_in_place": false,
+    "required_next_artifact": "PROSPECTIVELY_FROZEN_CANDIDATE_V2_OR_LATER_WITH_NEW_HASH_MANIFEST",
+    "required_repairs": ["PF-B001", "PF-B002", "PF-B003", "PF-B004", "PF-B005"],
+    "independent_protocol_reaudit_required": true,
+    "code_inspection_or_implementation_before_reaudit_pass": "DENIED",
+    "data_free_executable_preflight_after_reaudit_pass": "REQUIRED",
+    "scientific_outcome_inspection": "REMAINS_CLOSED",
+    "protected_content_access": "REMAINS_DENIED"
+  },
+  "final_verdicts": {
+    "HASH_INTEGRITY": "PASS",
+    "JSON_VALIDITY": "PASS",
+    "TARGET_AND_FIELD_COVERAGE": "PASS_SYNTACTICALLY_FAIL_SEMANTIC_EXECUTABILITY",
+    "PRIORITY_AND_AT_MOST_THREE_RULE": "PASS",
+    "PHASE2B_N_GTE_3_CURRENT_N_0_NO_SYNTHETIC_SUBSTITUTION": "PASS_NOT_ESTIMABLE",
+    "C2_G1_THROUGH_G10_COVERAGE": "PASS",
+    "FORMAL_CLAIM_CEILING_M1_C0_P0": "PASS",
+    "COMPUTE_FIT": "PASS_DESIGN_LEVEL_ONLY",
+    "REPAIR_RULES": "PASS",
+    "PROTOCOL_FREEZE": "FAIL",
+    "PROTECTED_ACCESS": "NONE",
+    "SCIENTIFIC_OUTCOMES": "NONE"
+  },
+  "immutability": {
+    "instruction": "This audit is immutable. Do not append, overwrite, or reinterpret it as a V2 receipt.",
+    "self_hash_included": false,
+    "reason_self_hash_excluded": "The external SHA-256 of this completed receipt is the authoritative immutable receipt hash."
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "initialized_at": "2026-08-16T02:39:33-04:00",
+  "protected_access": [],
+  "authorized_access": [
+    {
+      "timestamp": "2026-08-16T02:39:33-04:00",
+      "actor": "Campaign Root R4",
+      "path": "C:\\Users\\YUS190\\.codex\\attachments\\a196cb31-e5cc-4e8f-9294-038551c79686\\pasted-text.txt",
+      "operation": "read",
+      "purpose": "authoritative campaign protocol",
+      "classification": "user-supplied governance"
+    },
+    {
+      "timestamp": "2026-08-16T02:40:00-04:00",
+      "actor": "Campaign Root R4 and Historical Import Auditor",
+      "path": "R3 exact outer import manifest plus its twelve exact named candidates",
+      "operation": "hash and governance review",
+      "purpose": "independent per-file historical import audit",
+      "classification": "pre-empirical governance/code/protocol",
+      "outcome": "outer execution bundle rejected; seven exact files selectively allowlisted"
+    },
+    {
+      "timestamp": "2026-08-16T02:43:00-04:00",
+      "actor": "Campaign Root R4",
+      "path": "R3 exact historical runner and inner freeze manifest named by outer candidate manifest",
+      "operation": "content review during import audit",
+      "purpose": "transitive closure verification",
+      "classification": "historical infrastructure/governance",
+      "outcome": "closure defect and embedded process narrative detected; both artifacts denied and never executed; no empirical/protected outcome observed"
+    },
+    {
+      "timestamp": "2026-08-16T02:47:00-04:00",
+      "actor": "Environment Auditor",
+      "path": "neurolib editable source identity and installed MNE public API source/signatures",
+      "operation": "read-only Git/API/version/smoke inspection",
+      "purpose": "G1 environment and supported API validation",
+      "classification": "runtime infrastructure"
+    },
+    {
+      "timestamp": "2026-08-16T02:52:00-04:00",
+      "actor": "Data Provenance Auditor",
+      "path": "PhysioNet Sleep-EDF Expanded v1.0.0 public index and SHA256SUMS.txt",
+      "operation": "web metadata read",
+      "purpose": "freeze official Night-1 identities before local access",
+      "classification": "public provenance metadata"
+    },
+    {
+      "timestamp": "2026-08-16T03:15:00-04:00",
+      "actor": "/root/costa_campaign_root_r4/r4_partition_steward",
+      "path": "two exact SC4001 Night-1 EDF files",
+      "operation": "one SHA-256/size provenance read each plus one supported MNE logical read each",
+      "purpose": "official identity check and frozen N3 role partition/feature stewardship",
+      "classification": "authorized public Night-1 development data",
+      "outcome": "official hashes matched; 110 FIT and 110 HELDOUT valid epochs; separate sealed role payloads produced"
+    },
+    {
+      "timestamp": "2026-08-16T03:20:00-04:00",
+      "actor": "/root/costa_campaign_root_r4/r4_scientific_worker",
+      "path": "R4 steward-derived FIT then HELDOUT role payloads",
+      "operation": "FIT-only candidate selection/freeze followed by one hash-bound HELDOUT evaluation",
+      "purpose": "frozen M1-G6 scientific execution",
+      "classification": "authorized Night-1 development-derived evidence",
+      "outcome": "worker G1-G6 PASS; G7 pending independent verifier"
+    },
+    {
+      "timestamp": "2026-08-16T03:29:00-04:00",
+      "actor": "/root/costa_campaign_root_r4/r4_independent_verifier",
+      "path": "two exact SC4001 Night-1 EDF files and independent R4 verifier derivatives",
+      "operation": "one final reserved MNE logical read per EDF followed by blind independent synthetic/FIT/HELDOUT reproduction",
+      "purpose": "M1-G7 independent verification",
+      "classification": "authorized public Night-1 development data and independent reproduction",
+      "outcome": "exact reproduction; G7 VERIFIED; raw-open budget exhausted"
+    },
+    {
+      "timestamp": "2026-08-16T03:36:00-04:00",
+      "actor": "/root/costa_campaign_root_r4/r4_adversarial_judge",
+      "path": "R4 frozen standardized evidence and ledgers only",
+      "operation": "read-only rehash, adversarial audit, access closeout, final eligibility judgment",
+      "purpose": "independent claim and governance certification",
+      "classification": "R4 standardized development evidence",
+      "outcome": "no material findings; protected access PASS_NONE; M1 eligible"
+    },
+    {
+      "timestamp": "2026-08-16T13:47:33.9322821Z",
+      "actor": "/root/costa_campaign_root_r4/r4_human_review_packager and Campaign Root R4",
+      "path": "R4 standardized evidence and HUMAN_REVIEW package only",
+      "operation": "package, manifest verification, and governance closeout",
+      "purpose": "human-review delivery and terminal ledger binding",
+      "classification": "R4 standardized development evidence",
+      "outcome": "24-file package independently validated; no raw or protected access"
+    }
+  ],
+  "attestation": "No protected, Night-2, protected-derived, sealed, fresh-final, or prior outcome content accessed before initialization.",
+  "closeout": {
+    "closed_at": "2026-08-16T13:47:33.9322821Z",
+    "protected_access_verdict": "PASS_NONE",
+    "protected_access_entries": 0,
+    "denylist_breach_found": false,
+    "authorized_night1_raw_budget": "EXHAUSTED_CLOSED_3_OF_3_PER_FILE",
+    "further_raw_or_protected_access_authorized": false,
+    "human_review_packager_access": "STANDARDIZED_EVIDENCE_ONLY",
+    "campaign_root_closeout_access": "STANDARDIZED_EVIDENCE_AND_GOVERNANCE_ONLY"
+  }
+}

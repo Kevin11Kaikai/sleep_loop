@@ -1,0 +1,34 @@
+claim_id: R4_M1_PRIMARY
+route_id: COSTA_CLEANROOM_THALAMOCORTICAL_V2_R4
+route_version: 4.0.0-execution-only
+claim_axis: mechanistic
+candidate_identity: frozen 16-candidate bank plus FIT-only minimum-NRMSE selection rule; exact selected ID must be separately frozen before HELDOUT access
+mechanistic_object: explicit four-population cortical-E/cortical-I/thalamic-relay/thalamic-reticular rate simulator
+observable: four-element dimensionless log10 relative-power vector for SO, delta, theta, and spindle bands
+observation_operator: latent states -> fixed source current -> causal baseline subtraction -> mau proxy -> detrend/Welch/log-relative-band-power; EEG -> detrend/Welch/same log-relative-band-power
+dataset_partition: SHA-256 a-priori 50/50 split of upstream-labeled SC4001 Night-1 R&K stages 3/4, seed 26081601, signal/outcome blind
+evidence_label: DISCOVERY plus INDEPENDENT_REPRODUCTION on the same frozen Night-1 partition
+primary_or_secondary: primary
+estimand: relative heldout NRMSE improvement and paired epoch MSE advantage of FIT-selected personalized candidate versus matched C000
+null_hypothesis: FIT-selected candidate does not improve heldout NRMSE by 0.05 and/or paired MSE advantage is not strictly positive at the lower 95% bootstrap bound
+competing_hypothesis: FIT-selected candidate improves heldout NRMSE by at least 0.05 and has strictly positive lower 95% paired epoch-bootstrap MSE-advantage bound
+comparators: [C000 matched nonpersonalized with identical calibration/scoring, registered zero-coupling null, frozen synthetic wrong-subject cycle, non-isomorphic oscillator world]
+practical_margin: heldout relative NRMSE improvement >= 0.05
+decision_threshold: every M1-G1 through M1-G7 gate PASS; empirical paired bootstrap lower 95% bound > 0
+uncertainty_method: frozen 256-draw synthetic block bootstrap plus 1000-draw empirical paired epoch bootstrap
+statistical_test: one-sided practical decision using the two-sided 95% paired-bootstrap interval lower bound and frozen margin
+confidence_level: 0.95
+minimum_subjects: 1
+minimum_events: at least 4 eligible N3 epochs and at least 2 valid epochs in each FIT and HELDOUT role
+missing_data_rule: exclude only nonfinite, flat, too-short, or out-of-range epochs after fixed role assignment; no reassignment; minimum denominators remain mandatory
+invalid_run_rule: any hash, environment, schema, path, split, call-signature, role-open-order, or nonfinite-result mismatch makes the run INVALID
+exclusion_rule: no subject, candidate, channel, band, or epoch exclusion based on scores or outcomes
+multiplicity_rule: one primary claim; no secondary result rescues a failed primary gate
+seed_rule: partition 26081601; fixture 26081602; noise 26081603; bootstrap 26081604; exact imported seeds only
+attempt_budget: one frozen worker execution plus one fresh independent reproduction; maximum two outcome-blind repair cycles before outcomes only
+failure_rule: any mandatory gate FAIL/INVALID/NOT_ESTIMABLE/NOT_RUN prevents M1 assignment
+stop_rule: close M1_PARTIAL or M1_FAIL after a valid mandatory-gate failure; never tune or reopen based on HELDOUT
+retry_rule: no scientific retry; only frozen-budget deterministic infrastructure repair before outcomes
+claim_ceiling: proxy-level single-subject model-internal personalized mechanistic consistency; P0; no empirical wrong-subject or population generalization
+allowed_wording: Model-internal personalized mechanistic consistency was independently reproduced for a frozen proxy-level one-subject Night-1 discovery analysis, if and only if every gate passes.
+prohibited_wording: validated human mechanism; scalp EEG causal model; clinical digital twin; population-general personalized model; Night-2 prediction; fresh-sealed validation

@@ -1,0 +1,966 @@
+{
+  "schema_version": "8.0.0",
+  "schema_id": "V6_REAUDIT_ADDENDUM_SCHEMA_V8",
+  "amendment_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V8_001",
+  "created_at": "2026-08-17T14:40:00-04:00",
+  "status": "PROSPECTIVE_IMMUTABLE_PENDING_INDEPENDENT_V8_AUDIT",
+  "purpose": "Repair exactly V7A7-AUD-B001 through V7A7-AUD-B006 before Stage A while preserving every V7 PASS, scientific invariant, denial and no-evidence rule.",
+  "source_bindings": {
+    "v7": {
+      "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V7_001",
+      "path_id": "static:v7",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V7.json",
+      "bytes": 183328,
+      "sha256": "83F1BB95FE30D3E02851D03B5478BF8EADF811E253A1E032FA1873F37A247670"
+    },
+    "v7_fail_audit": {
+      "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V7_AUDIT_001",
+      "path_id": "static:v7_audit",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V7_AUDIT.json",
+      "bytes": 24197,
+      "sha256": "E8BE35475289D1542265793C889247C5B0C0EA1CCF2DC54A8286860DCA71F994",
+      "verdict": "FAIL_BLOCKING",
+      "blocking_finding_count": 6,
+      "unresolved_finding_count": 0
+    },
+    "v4_exact_extract_source_copied_from_v7": {
+      "artifact_id": "INDEPENDENT_PROSPECTIVE_PROTOCOL_V6_REAUDIT_ADDENDUM_V4",
+      "path_id": "static:v4",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V4.json",
+      "bytes": 316217,
+      "sha256": "0C83B242A64575BF874DFA7BBB7CFEAA084E4D90D1B829C23D5629885BD37DEC",
+      "authority": "Copied byte-for-byte from the exact V7 source binding solely for future projection/source-pointer verification; the V8 author did not read this artifact."
+    },
+    "v5_source_copied_from_v7_audit": {
+      "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V5_001",
+      "path_id": "static:v5",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V5.json",
+      "bytes": 112390,
+      "sha256": "E1E436A8E5F0FDF5CCE2BD12B9E712465879947DFF717DF0DC66A7AFCEBE2C85",
+      "authority": "Copied from the exact V7 FAIL audit input-hash observation for future reconstruction only; the V8 author did not read this artifact."
+    },
+    "v6_fail_audit_source_copied_from_v7": {
+      "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V6_AUDIT_001",
+      "path_id": "static:v6_audit",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V6_AUDIT.json",
+      "bytes": 26877,
+      "sha256": "2FEBC2CDAE5021DF10CE009356D56962ABFA850FDE144BF6B423A991A9FB5BD5",
+      "verdict": "FAIL_BLOCKING",
+      "authority": "Copied byte-for-byte from the exact V7 source binding for immutable lineage/reconstruction only; the V8 author did not read this artifact."
+    },
+    "v6_intent_extract_source_copied_from_v7": {
+      "artifact_id": "PROTOCOL_V6_REAUDIT_ADDENDUM_V6_001",
+      "path_id": "static:v6",
+      "relative_path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V6.json",
+      "bytes": 167433,
+      "sha256": "E025C9F258478041E9735958F906DAD02553895C8453429D1661890807DB1C39",
+      "authority": "Future independent V8 audit and Root V8 role-freeze construction may read only the three exact Stage-A rebinding pointers listed in stage_a_intent_rebinding_v8. The V8 author did not read this transitive source."
+    }
+  },
+  "authority_boundary": {
+    "authoring_inputs_in_exact_order": ["static:v7", "static:v7_audit"],
+    "future_v8_audit_reconstruction_inputs_in_exact_order": ["static:v4", "static:v5", "static:v6", "static:v6_audit", "static:v7", "static:v7_audit", "static:v8"],
+    "finding_ids_in_exact_order": ["V7A7-AUD-B001", "V7A7-AUD-B002", "V7A7-AUD-B003", "V7A7-AUD-B004", "V7A7-AUD-B005", "V7A7-AUD-B006"],
+    "finding_count": 6,
+    "bounded_repair_rule": "Only the six displayed findings may change. Every V7 field, rule, role, path, trigger, state, schema, projection member and route edge not explicitly named by a V8 operation remains source-effective and byte-semantic unchanged.",
+    "automatic_release": false,
+    "scientific_authority_boolean": false
+  },
+  "preserved_invariants": {
+    "fixture_oracle_case_count": 23,
+    "targets": 8,
+    "claims": 8,
+    "c2_gates": 10,
+    "level_a_conditions": 50,
+    "phase2a_runs": 1800,
+    "conditional_level_b_runs_maximum": 900,
+    "verifier_runs": 456,
+    "maximum_total_runs": 3156,
+    "run_equation": "1800 + at_most_900 + 456 = at_most_3156",
+    "concurrent_worker_cap": 3,
+    "phase2b": "N0_MIN3_NOT_ESTIMABLE",
+    "transfer_ceiling": "M1_C0_P0",
+    "repair_simulations": 0,
+    "directory_intents": 37,
+    "directory_intent_partition": "8_29_0",
+    "operational_roles": 18,
+    "operational_role_pairs": 153,
+    "identity_comparison_rows": 1032,
+    "identity_equation": "918_OPERATIONAL_PLUS_108_AUDITOR_PLUS_6_ROOT_EQUALS_1032",
+    "cross_transaction_negative_joins": 36,
+    "failure_token_count": 5,
+    "terminal_state_count": 20,
+    "legal_incident_adjacency_row_count": 14,
+    "flush_plan_lengths": {"SUCCESS": 9, "FAILURE_NO_QUARANTINE": 7, "FAILURE_WITH_QUARANTINE": 8},
+    "no_evidence_rule": "V8 and every artifact it specifies have zero claim, grade, gate, advancement, outcome, scientific evidence or human-transfer authority."
+  },
+  "path_registry_extension": {
+    "static:v8": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V8.json",
+    "static:v8_audit": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V8_AUDIT.json",
+    "static:v8_activation": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM_V8_ACTIVATION.json",
+    "static:v8_role_assignment_freeze": "GOVERNANCE/V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_V8.json",
+    "p5_witness_paths_by_transaction": {
+      "B_DERIVATION": {
+        "observation_path_id": "tx:B_DERIVATION:p5_external_validation",
+        "witness_path_id": "tx:B_DERIVATION:p5_external_validation_witness",
+        "witness_relative_path": "GOVERNANCE/V6_BOOTSTRAP_V4/DERIVATION/p5_external_validation_witness_v8.json",
+        "failure_path_id": "tx:B_DERIVATION:p5_external_validation_witness_failure",
+        "failure_relative_path": "GOVERNANCE/V6_BOOTSTRAP_V4/DERIVATION/p5_external_validation_witness_failure_v8.json",
+        "parent_path_id": "tx:B_DERIVATION:parent_dir"
+      },
+      "B_LOCKFILE_VERIFIER": {
+        "observation_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation",
+        "witness_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation_witness",
+        "witness_relative_path": "GOVERNANCE/V6_BOOTSTRAP_V4/LOCKFILE_VERIFIER/p5_external_validation_witness_v8.json",
+        "failure_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation_witness_failure",
+        "failure_relative_path": "GOVERNANCE/V6_BOOTSTRAP_V4/LOCKFILE_VERIFIER/p5_external_validation_witness_failure_v8.json",
+        "parent_path_id": "tx:B_LOCKFILE_VERIFIER:parent_dir"
+      },
+      "D_OFFICIAL_COMPILER": {
+        "observation_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation",
+        "witness_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation_witness",
+        "witness_relative_path": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V4/p5_external_validation_witness_v8.json",
+        "failure_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation_witness_failure",
+        "failure_relative_path": "GOVERNANCE/V6_OFFICIAL_FIXTURE_V4/p5_external_validation_witness_failure_v8.json",
+        "parent_path_id": "tx:D_OFFICIAL_COMPILER:parent_dir"
+      },
+      "D_FIXTURE_VERIFIER": {
+        "observation_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation",
+        "witness_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation_witness",
+        "witness_relative_path": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V4/p5_external_validation_witness_v8.json",
+        "failure_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation_witness_failure",
+        "failure_relative_path": "GOVERNANCE/V6_OFFICIAL_FIXTURE_VERIFIER_V4/p5_external_validation_witness_failure_v8.json",
+        "parent_path_id": "tx:D_FIXTURE_VERIFIER:parent_dir"
+      }
+    },
+    "new_path_prestate_rule": "Every witness and witness-failure path is a registered direct child of its displayed existing transaction parent, is ABSENT before CREATE_NEW, has one exact writer, is never overwritten/appended/deleted/renamed/reused, and is absent from every terminal worker bundle membership. Exactly one of witness or failure is created for a witness attempt."
+  },
+  "route": {
+    "route_id": "V6_DATA_FREE_BOOTSTRAP_ROUTE_V8",
+    "ordered_gates": [
+      "V8_INDEPENDENT_AUDIT_PASS",
+      "ROOT_V8_ACTIVATION",
+      "ROOT_V8_PRESTAGE_ROLE_FREEZE",
+      "A_LITERAL_AND_ROOT_CONTROLLER_FREEZE",
+      "B_DERIVATION_TRANSACTION",
+      "B_DERIVATION_P5_EXTERNAL_WITNESS",
+      "B_INDEPENDENT_LOCKFILE_VERIFIER_TRANSACTION",
+      "B_LOCKFILE_VERIFIER_P5_EXTERNAL_WITNESS",
+      "ROOT_LOCKFILE_FREEZE",
+      "C_INDEPENDENT_OFFICIAL_COMPILER_STATIC_PASS",
+      "D_OFFICIAL_FIXTURE_TRANSACTION",
+      "D_OFFICIAL_COMPILER_P5_EXTERNAL_WITNESS",
+      "D_INDEPENDENT_FIXTURE_VERIFIER_TRANSACTION",
+      "D_FIXTURE_VERIFIER_P5_EXTERNAL_WITNESS",
+      "OFFICIAL_RESULT_ACCEPTANCE_FOR_PROPOSAL_ONLY"
+    ],
+    "prestage_rule": "Stage A remains denied until an independent V8 audit reports PASS_ZERO_BLOCKING_ZERO_UNRESOLVED on exact static:v8, Root creates exact static:v8_activation, and Root then creates exact static:v8_role_assignment_freeze from the six-occurrence rebinding transform. V7 FAIL remains immutable history and is never interpreted as PASS.",
+    "p5_gate_rule": "Each transaction's P5 external observation is incomplete until its distinct downstream witness is exact-opened and bound by the next displayed route gate. A witness-failure incident permanently rejects that transaction route.",
+    "no_retroactive_selection": true,
+    "automatic_release": false
+  },
+  "canonical_model": {
+    "canonicalization_id": "CANONICAL_JSON_SHA256_V8",
+    "canonical_json_equation": "UTF8(json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False))",
+    "hash_equation": "UPPERCASE_HEX(SHA256(canonical_json_bytes(value)))",
+    "array_rule": "Arrays retain displayed order. Objects reject duplicate keys. Required fields cannot be omitted. NaN and Infinity are invalid.",
+    "json_pointer_rule": "RFC6901 with ~0 and ~1 decoding; array indices are zero-based canonical decimal without leading zero except zero.",
+    "unknown_rule": "Any unknown operation, missing guard, unresolved source, ambiguous join, extra occurrence, inferred path authority, alternate serialization, favorable null or caller-selected state is FAIL_BLOCKING."
+  },
+  "v7_effective_base_repair_v8": {
+    "source_program_pointer": "static:v7#/effective_v7_schema_model/replacement_programs_in_target_key_raw_utf8_order/19",
+    "target_operation_pointer": "static:v7#/effective_v7_schema_model/replacement_programs_in_target_key_raw_utf8_order/19/operations_in_exact_order/5",
+    "required_prior_operation": {
+      "op": "REPLACE_FIELD_DESCRIPTOR_INLINE",
+      "field": "root_access_attestation",
+      "descriptor": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false}
+    },
+    "replacement_operation": {
+      "op": "ADD_FIELD_BEFORE_OR_AFTER",
+      "placement": "AFTER",
+      "anchor": "p5_consumer_access_grant",
+      "field": "root_access_attestation",
+      "descriptor": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V7", "nullable": false}
+    },
+    "atomic_guard": "The complete prior operation object byte-equals required_prior_operation exactly once. In the corrected effective TRANSACTION_AUTHORIZATION_V6 base, p5_consumer_access_grant exists exactly once after operation 4, root_access_attestation is absent, and no same-named field occurs in field_order. Replace only operation 5, then execute ADD_FIELD_BEFORE_OR_AFTER under V7's exact operation language. Any mismatch discards the complete 86-key base.",
+    "authoritative_base_rule": "Apply this one source-program repair, then execute all 21 V7 programs and structured ref rewrites. Apply dotted_source_binding_v8 in byte-preserving mode. The result is the sole 86-key V7 source-effective base consumed by effective_v8_schema_model; neither the failed V7 registry nor a diagnostic hash is authoritative.",
+    "base_key_count": 86,
+    "program_count": 21,
+    "v7_program_change_count": 1
+  },
+  "dotted_source_binding_v8": {
+    "mode": "OUT_OF_BAND_BYTE_PRESERVING",
+    "baseline_occurrence_count": 31,
+    "final_occurrence_count": 32,
+    "domain_counts": {"STATIC_ARTIFACT_VALUE": 31, "INSTANCE_RELATIVE_VALUE": 1},
+    "member_kind_counts": {"constraint": 17, "order": 3, "enum_source": 7, "exact_values_source": 5},
+    "final_static_origin_counts": {"static:v4": 15, "static:v5": 4, "static:v6": 6, "static:v7": 1, "static:v8": 5},
+    "retained_row_count": 27,
+    "v8_origin_rebinding_rows_in_exact_order": [
+      {"owner_schema_key": "ACCESS_ATTESTATION_V8", "field_name": "mandatory_control_reads_in_exact_order", "descriptor_member": "exact_values_source", "source_token": "governance_header_and_stage_a_controls_v8.mandatory_stage_a_control_path_ids_in_exact_order", "origin_path_id": "static:v8"},
+      {"owner_schema_key": "P5_CONSUMER_ACCESS_GRANT_V8", "field_name": "mandatory_control_read_path_ids_in_exact_order", "descriptor_member": "exact_values_source", "source_token": "governance_header_and_stage_a_controls_v8.mandatory_stage_a_control_path_ids_in_exact_order", "origin_path_id": "static:v8"},
+      {"owner_schema_key": "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8", "field_name": "mandatory_control_read_path_ids_in_exact_order", "descriptor_member": "exact_values_source", "source_token": "governance_header_and_stage_a_controls_v8.mandatory_stage_a_control_path_ids_in_exact_order", "origin_path_id": "static:v8"},
+      {"owner_schema_key": "SCHEMA_BUNDLE_V8", "field_name": "effective_schema_keys_in_utf8_lexical_order", "descriptor_member": "exact_values_source", "source_token": "effective_v8_schema_model.final_effective_schema_keys_in_raw_utf8_order", "origin_path_id": "static:v8"}
+      ,{"owner_schema_key": "SOURCE_POINTER_V8", "field_name": "source_artifact_sha256", "descriptor_member": "constraint", "source_token": "source_bindings.v4_exact_extract_source_copied_from_v7.sha256", "origin_path_id": "static:v8"}
+    ],
+    "v8_origin_rebinding_count": 5,
+    "descriptor_byte_rule": "Every final descriptor scalar retains its source_token bytes exactly. qualified_token appears only in a DOTTED_SOURCE_OUT_OF_BAND_BINDING_V8 row and is never inserted, substituted, normalized or serialized into a schema descriptor. Effective-registry canonical bytes and every projection member are computed from unchanged source-token descriptors.",
+    "offset_rule": "token_utf8_start and token_utf8_end are zero-based half-open UTF-8 byte offsets within the unchanged descriptor scalar value before JSON string escaping. They index source_token bytes exactly. No post-replacement offset exists because no replacement occurs.",
+    "row_order_rule": "Traverse final effective schema keys in raw UTF-8 order; recursively traverse descriptor objects by raw UTF-8 member order and arrays by index; within a scalar record maximal tokens by increasing UTF-8 start offset. Retain the 27 source-effective rows, substitute the four displayed changed source-effective owner rows, insert the one new witness-grant row in traversal position, raw-traversal sort the resulting five V8 rows with all retained rows, and require exactly 32 rows.",
+    "binding_hash_rule": "Each row binds origin artifact/path/pointer, unchanged descriptor scalar canonical bytes/SHA, source-token bytes/SHA and offsets, qualified token, resolved path/pointer/value canonical bytes/SHA, resolution domain and authorized reader. These row bytes live only in the SCHEMA_BUNDLE_V8 instance and do not contribute to effective-registry schema-value bytes.",
+    "projection_rule": "Freeze and hash the 95-key effective registry before creating any schema-bundle instance or projection. Projection source pointers consume that frozen registry hash; out-of-band binding rows cannot recursively change it.",
+    "dangling_source_count": 0,
+    "descriptor_mutation_count": 0
+  },
+  "stage_a_intent_rebinding_v8": {
+    "source_binding_path_id": "static:v6",
+    "source_binding_sha256": "E025C9F258478041E9735958F906DAD02553895C8453429D1661890807DB1C39",
+    "source_pointers": {
+      "intent_templates": "/stage_a_directory_intent_rebinding/static_field_templates_in_creation_order",
+      "intent_container_path_id": "/stage_a_directory_intent_rebinding/intent_container_path_id",
+      "root_controller_gate_path_id": "/stage_a_directory_intent_rebinding/lookup_replacement/parent_provenance_and_gate_lookup/ROOT_CONTROLLER/gate_path_id"
+    },
+    "source_intent_count": 4,
+    "required_prior_gate_path_id": "static:v6_role_assignment_freeze",
+    "replacement_gate_path_id": "static:v8_role_assignment_freeze",
+    "scalar_replacements_in_exact_order": [
+      {"replacement_index": 0, "source_pointer": "/stage_a_directory_intent_rebinding/static_field_templates_in_creation_order/0/authorizing_gate_path_id"},
+      {"replacement_index": 1, "source_pointer": "/stage_a_directory_intent_rebinding/static_field_templates_in_creation_order/1/authorizing_gate_path_id"},
+      {"replacement_index": 2, "source_pointer": "/stage_a_directory_intent_rebinding/static_field_templates_in_creation_order/2/authorizing_gate_path_id"},
+      {"replacement_index": 3, "source_pointer": "/stage_a_directory_intent_rebinding/static_field_templates_in_creation_order/3/authorizing_gate_path_id"},
+      {"replacement_index": 4, "source_pointer": "/stage_a_directory_intent_rebinding/intent_container_path_id"},
+      {"replacement_index": 5, "source_pointer": "/stage_a_directory_intent_rebinding/lookup_replacement/parent_provenance_and_gate_lookup/ROOT_CONTROLLER/gate_path_id"}
+    ],
+    "scalar_replacement_count": 6,
+    "atomic_transform": "Exact-open and SHA-verify static:v6. Resolve the three source pointers and require four intent objects in displayed source order. At each of the six exact scalar pointers require a STRING byte-equal required_prior_gate_path_id. Deep-copy the containing values, replace only those six scalars with replacement_gate_path_id atomically, preserve every other scalar/member/array position, and discard every output if any guard, count or type differs.",
+    "intent_record_rule": "For each transformed intent, materialize one STAGE_A_INTENT_REBINDING_RECORD_V8 in source array order containing the exact source pointer/index, source and target canonical byte lengths/SHA-256 values, the one field pointer, prior/replacement values and changed_scalar_count=1. The four target objects are the only directory_creation_intents_in_creation_order permitted in ROLE_ASSIGNMENT_FREEZE_V8.",
+    "container_lookup_rule": "The transformed intent_container_path_id and ROOT_CONTROLLER gate lookup are both exactly static:v8_role_assignment_freeze. All container, parent-provenance, ROOT_CONTROLLER and authorizing-gate lookups consume the transformed values; V6/V7 role-freeze path IDs are forbidden for V8 Stage A.",
+    "snapshot_hash_rule": "After the atomic transform, recompute canonical bytes/SHA for each target intent, the four-object target array, the container lookup object, the ROOT_CONTROLLER lookup object, every PATH_SNAPSHOT_V4 that binds those values, the ROLE_ASSIGNMENT_FREEZE_V8 payload and its nonrecursive hash envelope. No predecessor snapshot/hash is copied after a changed scalar.",
+    "audit_materialization_rule": "The independent V8 audit exact-opens only the bound static:v6 source, repeats the transform, stores all four records and six replacement proofs in its audit work product, and byte-compares the ROLE_ASSIGNMENT_FREEZE_V8 construction contract. Literal bodies are never inferred from V7 prose.",
+    "stale_v6_or_v7_gate_occurrence_count_after_transform": 0
+  },
+  "governance_header_and_stage_a_controls_v8": {
+    "mandatory_stage_a_control_path_ids_in_exact_order": [
+      "static:v1",
+      "static:v2",
+      "static:v2_audit",
+      "static:v3",
+      "static:v3_audit",
+      "static:compiler_fail",
+      "static:bootstrap_adjudication",
+      "static:v5",
+      "static:v7",
+      "static:v7_audit",
+      "static:v8",
+      "static:v8_audit",
+      "static:v8_activation",
+      "static:v8_role_assignment_freeze"
+    ],
+    "control_count": 14,
+    "literal_role_ids_in_exact_order": ["ROLE_LITERAL_AUTHOR_V4", "ROLE_LITERAL_AUDITOR_V4"],
+    "literal_role_rule": "Both literal roles take the stable-first-occurrence union of their V7 exact reads/metadata with all fourteen controls. static:v5 remains a construction source; static:v7 and static:v7_audit are immutable FAIL lineage; only V8 audit/activation/freeze authorize Stage A. No new write, listing, flush, rename, delete, runtime, process, Candidate or science authority is implied.",
+    "header_rule": "Every future-effective V7 governance-header owner is structurally rewritten to GOVERNANCE_HEADER_V8 exactly once. The 22 mapped source owners remain exact and the two new P5 witness artifact schemas directly reference GOVERNANCE_HEADER_V8, yielding 24 future V8 header refs. The eight historical ACCESS_ATTESTATION_V4 refs remain untouched."
+  },
+  "illegal_split_incident_v8": {
+    "selector_modes_in_exact_order": ["LEGAL_FAILURE_ADJACENCY", "ILLEGAL_SPLIT_PARTITION"],
+    "legal_row_count": 14,
+    "illegal_trigger_id": "ILLEGAL_SPLIT",
+    "selection_rule": "LEGAL_FAILURE_ADJACENCY requires one exact inherited V7 row selected by joined_failure_adjacency_row_or_null and null illegal evidence. ILLEGAL_SPLIT_PARTITION requires joined_failure_adjacency_row_or_null=null, no legal row, nonnull ILLEGAL_SPLIT_INCIDENT_EVIDENCE_V8 and an independently derived illegal_partition_boolean=true. It never selects or fabricates a legal predecessor adjacency.",
+    "illegal_evidence_projection_rule": "For the actual operation prefix only, every evidence class is classified REACHED_AND_BOUND, NOT_REACHED_PROVEN or NOT_APPLICABLE. REACHED_AND_BOUND requires the exact typed sibling value and binding; NOT_REACHED_PROVEN requires the last proven checkpoint/operation plus the next expected checkpoint/operation and forbids that sibling; NOT_APPLICABLE is allowed only where the branch/phase makes the class impossible. No null is interpreted favorably.",
+    "incident_join_rule": "For ILLEGAL_SPLIT, INCIDENT_RECEIPT_V8 trigger_state, incident_authorization content, checkpoint ledger selected trigger and terminal resolution selected trigger all equal ILLEGAL_SPLIT. incident_state and the ledger resolution equal ILLEGAL_SPLIT_STATE. The selector's illegal evidence transaction_id equals every enclosing transaction_id and its evidence projection SHA binds the exact sibling/null projection.",
+    "closeout_rule": "Rows 0 through 18 of the effective terminal predicate table retain incident_closeout_state=NONE; row 19 alone requires VALIDATED_CLOSED_REJECTED. For row 19, evidence_incident_trigger_id equals the immutable incident trigger and illegal_partition_boolean equals the immutable incident evidence value. Closeout validation may preserve true or false but cannot clear, replace, normalize or infer illegal evidence. A closed ILLEGAL_SPLIT therefore remains illegal and permanently rejected.",
+    "legal_regression_rule": "All fourteen V7 legal adjacency rows, their field requirements and their selected branch/checkpoint joins are byte-semantic unchanged. The illegal mode adds no fifteenth adjacency row."
+  },
+  "rename_and_quarantine_failure_v8": {
+    "flush_evidence_modes_in_exact_order": ["NO_PLAN_NOT_ENTERED", "SELECTED_PLAN_NOT_ENTERED", "FIRST_FAILURE_PREFIX", "COMPLETE_SUCCESS", "SUCCESSFUL_FLUSH_PREFIX_STOPPED_BY_INTERVENING_OPERATION"],
+    "terminal_rename_prefix_rows_in_plan_order": [
+      {"plan_id": "SUCCESS", "plan_length": 9, "successful_prefix_count": 8, "intervening_operation": "TERMINAL_RENAME", "intervening_operation_index": 8, "first_non_success_index_or_null": null, "next_unattempted_index_or_null": 8},
+      {"plan_id": "FAILURE_NO_QUARANTINE", "plan_length": 7, "successful_prefix_count": 6, "intervening_operation": "TERMINAL_RENAME", "intervening_operation_index": 6, "first_non_success_index_or_null": null, "next_unattempted_index_or_null": 6},
+      {"plan_id": "FAILURE_WITH_QUARANTINE", "plan_length": 8, "successful_prefix_count": 7, "intervening_operation": "TERMINAL_RENAME", "intervening_operation_index": 7, "first_non_success_index_or_null": null, "next_unattempted_index_or_null": 7}
+    ],
+    "legal_presence_requirement_override": {
+      "affected_legal_row_indices_in_exact_order": [6, 7],
+      "required_token": "SELECTED_PLAN_NOT_ENTERED_OR_FIRST_FAILURE_PREFIX",
+      "v8_allowed_flush_evidence_modes_in_exact_order": ["SELECTED_PLAN_NOT_ENTERED", "FIRST_FAILURE_PREFIX", "SUCCESSFUL_FLUSH_PREFIX_STOPPED_BY_INTERVENING_OPERATION"],
+      "failure_disposition_token": "PRETERMINAL_QUARANTINE_REQUIRED_IFF_FAILURE_WITH_QUARANTINE",
+      "v8_allowed_failure_disposition_variants_in_exact_order": ["FAILURE_PRETERMINAL_QUARANTINE_ONLY", "FAILURE_PRETERMINAL_QUARANTINE_RENAME_FAILED_OR_UNCERTAIN"],
+      "failure_variant_selection_rule": "At row 7 with selected FAILURE_WITH_QUARANTINE, proven quarantine rename success selects FAILURE_PRETERMINAL_QUARANTINE_ONLY; any exact failure/uncertain rename token selects FAILURE_PRETERMINAL_QUARANTINE_RENAME_FAILED_OR_UNCERTAIN. Both are nonnull and no caller chooses between them.",
+      "rule": "These are the sole semantic extensions of inherited legal-presence tokens. The flush extension applies only to P2S/P2F rows 6/7 and the disposition extension only to P2F row 7. All row bytes/order and every other requirement-token interpretation remain unchanged."
+    },
+    "terminal_rename_rule": "The new mode is selected exactly when every flush entry preceding the terminal rename completed SUCCESS_DURABLE and the intervening terminal rename returned a non-success five-token outcome or did not yield a durable return. plan_or_null is the exact selected plan; execution_or_null is null because no V6 complete or first-flush-failure execution truthfully represents this branch; attempted_count equals the displayed successful prefix count; successful_flush_prefix_observations_in_exact_order contains exactly those plan-index observations and every durability_state=SUCCESS_DURABLE; intervening_operation_observation_or_null is nonnull and byte-equals the selected transaction/plan rename pair and raw checkpoint evidence; complete_success_boolean=false. No later open, flush, P4 or P5 is asserted.",
+    "quarantine_selection_rule": "FAILURE_WITH_QUARANTINE is selected from the proven pre-rename incomplete commit-staging condition before any quarantine rename outcome is known. It may never be reclassified as FAILURE_NO_QUARANTINE after a quarantine rename failure, no-return, interruption or uncertain postcondition.",
+    "quarantine_rename_failure_rule": "When the selected FAILURE_WITH_QUARANTINE quarantine rename is not explicitly proven successful, FAILURE_PREPUBLICATION_DISPOSITION_V8 uses variant FAILURE_PRETERMINAL_QUARANTINE_RENAME_FAILED_OR_UNCERTAIN, root_disposition=QUARANTINE_RENAME_FAILED_OR_UNCERTAIN, a nonnull QUARANTINE_RENAME_FAILURE_EVIDENCE_V8 and requirement_satisfied_boolean=false. INCIDENT_FLUSH_EVIDENCE_V8 remains the exact selected FAILURE_WITH_QUARANTINE plan with mode SELECTED_PLAN_NOT_ENTERED, nonnull V6 NOT_ENTERED execution, attempted_count=0, next_unattempted_index_or_null=0 and no flush observations. The disposition rename pair, required source/destination before snapshots and every post-call snapshot actually obtained byte-equal the nested intervening observation; any unobserved post-call snapshot is null with explicit UNKNOWN_NOT_OBSERVED. The successful-quarantine identity relation is not asserted and transaction-parent post-quarantine flush observation/state are null because that flush is prohibited until rename success is proven.",
+    "quarantine_success_rule": "The V7 successful quarantine branch remains exact: source PRESENT/destination ABSENT before, source ABSENT/destination PRESENT after, identity/same-volume join, selected plan-index-0 parent flush, and requirement true only for SUCCESS_DURABLE. EXPLICIT_FAILURE or DURABILITY_UNCERTAIN of the post-quarantine parent flush remains represented in the V7 preterminal variant and is not confused with quarantine-rename failure.",
+    "incident_rule": "Any terminal-rename or quarantine-rename non-success selects its exact preauthorized incident route, raw five-token outcome, checkpoint/transaction equality joins and permanent rejection. No operation after the first uncertain or failed intervening operation is authorized."
+  },
+  "p5_downstream_witness_v8": {
+    "rows_in_transaction_order": [
+      {"transaction_id": "B_DERIVATION", "observation_writer_role_id": "ROLE_LOCKFILE_VERIFIER_STATIC_AUDITOR_V4", "witness_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "observation_path_id": "tx:B_DERIVATION:p5_external_validation", "witness_path_id": "tx:B_DERIVATION:p5_external_validation_witness", "failure_path_id": "tx:B_DERIVATION:p5_external_validation_witness_failure", "parent_path_id": "tx:B_DERIVATION:parent_dir", "downstream_gate": "B_INDEPENDENT_LOCKFILE_VERIFIER_TRANSACTION"},
+      {"transaction_id": "B_LOCKFILE_VERIFIER", "observation_writer_role_id": "ROLE_LOCKFILE_RESULT_JUDGE_V4", "witness_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "observation_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation", "witness_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation_witness", "failure_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation_witness_failure", "parent_path_id": "tx:B_LOCKFILE_VERIFIER:parent_dir", "downstream_gate": "ROOT_LOCKFILE_FREEZE"},
+      {"transaction_id": "D_OFFICIAL_COMPILER", "observation_writer_role_id": "ROLE_FIXTURE_VERIFIER_STATIC_AUDITOR_V4", "witness_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "observation_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation", "witness_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation_witness", "failure_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation_witness_failure", "parent_path_id": "tx:D_OFFICIAL_COMPILER:parent_dir", "downstream_gate": "D_INDEPENDENT_FIXTURE_VERIFIER_TRANSACTION"},
+      {"transaction_id": "D_FIXTURE_VERIFIER", "observation_writer_role_id": "ROLE_OFFICIAL_RESULT_JUDGE_V4", "witness_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "observation_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation", "witness_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation_witness", "failure_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation_witness_failure", "parent_path_id": "tx:D_FIXTURE_VERIFIER:parent_dir", "downstream_gate": "OFFICIAL_RESULT_ACCEPTANCE_FOR_PROPOSAL_ONLY"}
+    ],
+    "row_count": 4,
+    "role_independence_rule": "For every row, observation_writer_role_id and witness_role_id select exact ROLE_ASSIGNMENT_V6-derived assignments in ROLE_ASSIGNMENT_FREEZE_V8 and are unequal in all six canonical identity dimensions, with the applicable frozen conflict/delegation proof. The witness role is downstream in the displayed route and was fixed prospectively; no author, observation writer or runtime caller may select a substitute.",
+    "preauthorization_rule": "Before claim, TRANSACTION_AUTHORIZATION_V8 and ROLE_ASSIGNMENT_FREEZE_V8 contain the exact P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8 row. The witness role may read/hash/deep-validate only the exact external observation plus fourteen controls; may metadata-open the observation, parent, witness and failure paths; and may CREATE_NEW exactly one of witness or failure. Membership listing, flush, rename, delete, runtime dependency, process start, Candidate access and science execution are empty/false.",
+    "readback_rule": "After the observation writer closes its CREATE_NEW output, the distinct witness role exact-opens it with no sharing that permits write/delete, records a PRESENT FILE/no-reparse/hardlink-one post-write snapshot, reads all bytes to EOF, closes the handle, computes SHA-256 over those bytes, parses strict duplicate-key-rejecting JSON, verifies P5_EXTERNAL_VALIDATION_OBSERVATION_V8 schema/header/hash envelope and exact transaction/consumer/path joins, and then CREATE_NEW writes either the witness or the failure artifact. A missing, short, noncanonical, malformed, mismatched, still-open or uncertain observation can never produce a PASS witness.",
+    "witness_durability_rule": "P5_EXTERNAL_OBSERVATION_WITNESS_V8 binds the observed external-validation bytes/SHA and post-write snapshot. It is closed before route progression and the displayed downstream gate exact-opens, hashes, validates and binds the witness path/bytes/SHA in that gate's ordinary governance input evidence. The witness does not assert or hash a snapshot of its own file, and the original observation writer has no witness read/write authority; therefore no self-witness or recursive hash exists.",
+    "failure_rule": "Any read/open/close/hash/canonical/schema/header/content-join uncertainty writes only P5_WITNESS_FAILURE_INCIDENT_V8 at the preauthorized failure path, with the exact first failure code and observed snapshot/API evidence, permanently rejects the transaction and forbids its downstream gate. If CREATE_NEW of either terminal witness artifact is itself uncertain, the route permanently halts with no completion claim and no alternate writer/path.",
+    "external_completion_rule": "Neither the P5 receipt nor the external observation completes P5. External completion exists only after the exact transaction witness is valid and bound by its displayed downstream gate."
+  },
+  "terminal_state_predicate_registry_v8": {
+    "source_registry_pointer": "static:v7#/terminal_state_predicate_registry_v7",
+    "generated_registry_id": "generated:v8_terminal_state_registry",
+    "generated_rows_pointer": "/rows_in_state_index_order",
+    "source_row_count": 20,
+    "target_row_count": 20,
+    "required_prior_row19_predicate_ast": {"op": "ALL", "args": [{"op": "EQ", "field": "/incident_closeout_state", "value": "VALIDATED_CLOSED_REJECTED"}, {"op": "EQ", "field": "/illegal_partition_boolean", "value": false}]},
+    "replacement_row19_predicate_ast": {"op": "EQ", "field": "/incident_closeout_state", "value": "VALIDATED_CLOSED_REJECTED"},
+    "atomic_transform_rule": "Deep-copy the exact twenty V7 rows. Require row index 19/state key INCIDENT_CLOSED_REJECTED and predicate_ast byte-equal required_prior_row19_predicate_ast exactly once; replace only that predicate_ast. Preserve every other source row/member/value/order. For each generated row insert effective_ast immediately after predicate_ast: rows 0 through 18 use {'op':'ALL','args':[predicate_ast,{'op':'EQ','field':'/incident_closeout_state','value':'NONE'}]}, while row 19 uses replacement_row19_predicate_ast byte-for-byte. The generated registry object contains exactly rows_in_state_index_order then source_binding, and source_binding is exact static:v7 bytes/SHA.",
+    "generated_hash_rule": "Canonicalize/hash the complete generated registry after the deterministic transform. Every TERMINAL_STATE_PREDICATE_EVALUATION_V8 pointer, text and SHA resolves against generated:v8_terminal_state_registry and the displayed effective_ast, never a nonexistent static:v8 row path.",
+    "trigger_rule": "Row 19 retains trigger_mode FROM_EVIDENCE_INCIDENT_TRIGGER and derives the trigger from the exact finalized incident evidence projection. An illegal incident therefore keeps ILLEGAL_SPLIT after closeout; a legal incident keeps its prior trigger. Row 19 never requires or changes illegal_partition_boolean.",
+    "state_count": 20,
+    "state_keys_unchanged_boolean": true,
+    "unique_selection_rule": "Exactly one effective AST is true for every permitted evidence projection. Pre-closeout illegal evidence selects row 17; validated closeout then selects row 19. The closeout transition does not retroactively alter the earlier receipt or evidence."
+  },
+  "typed_schema_registry_v8": {
+    "GOVERNANCE_HEADER_V8": {
+      "schema_id": "GOVERNANCE_BINDING_HEADER_SCHEMA_V8",
+      "classification": "COMPONENT",
+      "field_order": ["v8_amendment_binding", "v8_independent_pass_audit_binding", "v8_root_activation_binding", "v8_role_assignment_freeze_binding"],
+      "fields": {
+        "v8_amendment_binding": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "path static:v8 exact audit-target bytes/SHA", "nullable": false},
+        "v8_independent_pass_audit_binding": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "path static:v8_audit PASS_ZERO_BLOCKING_ZERO_UNRESOLVED", "nullable": false},
+        "v8_root_activation_binding": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "path static:v8_activation ACTIVATED_FOR_STAGE_A_ONLY", "nullable": false},
+        "v8_role_assignment_freeze_binding": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "path static:v8_role_assignment_freeze FROZEN_BEFORE_STAGE_A", "nullable": false}
+      },
+      "conditional_rule": "All four bindings use their exact displayed registered path, canonical bytes/SHA and required status. None may exist before its predecessor route gate, and no FAIL receipt is accepted as PASS.",
+      "additional_fields": false
+    },
+    "DOTTED_SOURCE_OUT_OF_BAND_BINDING_V8": {
+      "schema_id": "DOTTED_SOURCE_OUT_OF_BAND_BINDING_SCHEMA_V8",
+      "classification": "COMPONENT",
+      "field_order": ["row_index", "owner_schema_key", "descriptor_json_pointer", "descriptor_member", "descriptor_scalar_canonical_sha256", "source_token", "token_utf8_start", "token_utf8_end", "source_token_sha256", "resolution_domain", "origin_path_id", "origin_artifact_sha256", "origin_json_pointer_or_null", "instance_schema_id_or_null", "qualified_token", "resolved_value_canonical_sha256", "authorized_reader_role_id", "descriptor_mutated_boolean"],
+      "fields": {
+        "row_index": {"type": "INTEGER", "minimum": 0, "maximum": 31, "nullable": false},
+        "owner_schema_key": {"type": "NONEMPTY_STRING", "nullable": false},
+        "descriptor_json_pointer": {"type": "JSON_POINTER", "nullable": false},
+        "descriptor_member": {"type": "STRING", "enum": ["constraint", "order", "enum_source", "exact_values_source"], "nullable": false},
+        "descriptor_scalar_canonical_sha256": {"type": "SHA256", "nullable": false},
+        "source_token": {"type": "NONEMPTY_STRING", "nullable": false},
+        "token_utf8_start": {"type": "INTEGER", "minimum": 0, "nullable": false},
+        "token_utf8_end": {"type": "INTEGER", "minimum": 1, "nullable": false},
+        "source_token_sha256": {"type": "SHA256", "nullable": false},
+        "resolution_domain": {"type": "STRING", "enum": ["STATIC_ARTIFACT_VALUE", "INSTANCE_RELATIVE_VALUE"], "nullable": false},
+        "origin_path_id": {"type": "PATH_ID", "nullable": false},
+        "origin_artifact_sha256": {"type": "SHA256", "nullable": false},
+        "origin_json_pointer_or_null": {"type": ["JSON_POINTER", "NULL"], "nullable": true},
+        "instance_schema_id_or_null": {"type": ["NONEMPTY_STRING", "NULL"], "nullable": true},
+        "qualified_token": {"type": "NONEMPTY_STRING", "nullable": false},
+        "resolved_value_canonical_sha256": {"type": "SHA256", "nullable": false},
+        "authorized_reader_role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "descriptor_mutated_boolean": {"type": "BOOLEAN", "const": false, "nullable": false}
+      },
+      "conditional_rule": "The row is the unique traversal occurrence under dotted_source_binding_v8. Offsets select source_token exactly from the unchanged scalar UTF-8 bytes; the two token hashes are derived, not supplied. STATIC requires origin pointer nonnull and instance ID null; INSTANCE requires the inverse and resolves inside the named enclosing instance. qualified_token and resolved hash are out-of-band evidence only. descriptor_mutated_boolean=false.",
+      "additional_fields": false
+    },
+    "STAGE_A_INTENT_REBINDING_RECORD_V8": {
+      "schema_id": "STAGE_A_INTENT_REBINDING_RECORD_SCHEMA_V8",
+      "classification": "COMPONENT",
+      "field_order": ["intent_index", "source_path_id", "source_object_json_pointer", "changed_field_json_pointer", "prior_value", "replacement_value", "source_canonical_bytes", "source_sha256", "target_canonical_bytes", "target_sha256", "changed_scalar_count"],
+      "fields": {
+        "intent_index": {"type": "INTEGER", "minimum": 0, "maximum": 3, "nullable": false},
+        "source_path_id": {"type": "PATH_ID", "const": "static:v6", "nullable": false},
+        "source_object_json_pointer": {"type": "JSON_POINTER", "nullable": false},
+        "changed_field_json_pointer": {"type": "JSON_POINTER", "nullable": false},
+        "prior_value": {"type": "STRING", "const": "static:v6_role_assignment_freeze", "nullable": false},
+        "replacement_value": {"type": "STRING", "const": "static:v8_role_assignment_freeze", "nullable": false},
+        "source_canonical_bytes": {"type": "BASE64", "nullable": false},
+        "source_sha256": {"type": "SHA256", "nullable": false},
+        "target_canonical_bytes": {"type": "BASE64", "nullable": false},
+        "target_sha256": {"type": "SHA256", "nullable": false},
+        "changed_scalar_count": {"type": "INTEGER", "const": 1, "nullable": false}
+      },
+      "conditional_rule": "Rows are in intent_index order and derive exactly from stage_a_intent_rebinding_v8. Decoded bytes are canonical JSON for the source/target object and hash to their adjacent SHA values. The sole byte-semantic change is the exact authorizing_gate_path_id scalar at the displayed source object child pointer.",
+      "additional_fields": false
+    },
+    "INCIDENT_EVIDENCE_SELECTOR_V8": {
+      "schema_id": "INCIDENT_EVIDENCE_SELECTOR_SCHEMA_V8",
+      "classification": "COMPONENT",
+      "field_order": ["mode", "legal_adjacency_row_or_null", "illegal_split_evidence_or_null"],
+      "fields": {
+        "mode": {"type": "STRING", "enum": ["LEGAL_FAILURE_ADJACENCY", "ILLEGAL_SPLIT_PARTITION"], "nullable": false},
+        "legal_adjacency_row_or_null": {"type": ["OBJECT", "NULL"], "ref": "INCIDENT_EVIDENCE_PRESENCE_ROW_V7", "nullable": true},
+        "illegal_split_evidence_or_null": {"type": ["OBJECT", "NULL"], "ref": "ILLEGAL_SPLIT_INCIDENT_EVIDENCE_V8", "nullable": true}
+      },
+      "conditional_rule": "LEGAL has exactly the nonnull V7 row and null illegal evidence. ILLEGAL has null legal row and exact nonnull illegal evidence. The selection is derived from the checkpoint ledger illegal_partition_boolean and adjacency join, never caller supplied.",
+      "additional_fields": false
+    },
+    "ILLEGAL_SPLIT_INCIDENT_EVIDENCE_V8": {
+      "schema_id": "ILLEGAL_SPLIT_INCIDENT_EVIDENCE_SCHEMA_V8",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "trigger_state", "last_proven_checkpoint_or_null", "observed_next_checkpoint_or_operation", "expected_next_checkpoint_or_operation", "branch_read_evidence_mode", "flush_evidence_mode", "failure_disposition_mode", "p4_disposition_mode", "illegal_partition_boolean", "sibling_evidence_projection_sha256"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "trigger_state": {"type": "STRING", "const": "ILLEGAL_SPLIT", "nullable": false},
+        "last_proven_checkpoint_or_null": {"type": ["STRING", "NULL"], "enum": ["C1", "C2", "C3", "C4", "C5", "P1", "P2S", "P2F", "P3", "P4", "P5", null], "nullable": true},
+        "observed_next_checkpoint_or_operation": {"type": "NONEMPTY_STRING", "nullable": false},
+        "expected_next_checkpoint_or_operation": {"type": "NONEMPTY_STRING", "nullable": false},
+        "branch_read_evidence_mode": {"type": "STRING", "enum": ["REACHED_AND_BOUND", "NOT_REACHED_PROVEN", "NOT_APPLICABLE"], "nullable": false},
+        "flush_evidence_mode": {"type": "STRING", "enum": ["REACHED_AND_BOUND", "NOT_REACHED_PROVEN", "NOT_APPLICABLE"], "nullable": false},
+        "failure_disposition_mode": {"type": "STRING", "enum": ["REACHED_AND_BOUND", "NOT_REACHED_PROVEN", "NOT_APPLICABLE"], "nullable": false},
+        "p4_disposition_mode": {"type": "STRING", "enum": ["REACHED_AND_BOUND", "NOT_REACHED_PROVEN", "NOT_APPLICABLE"], "nullable": false},
+        "illegal_partition_boolean": {"type": "BOOLEAN", "const": true, "nullable": false},
+        "sibling_evidence_projection_sha256": {"type": "SHA256", "nullable": false}
+      },
+      "conditional_rule": "observed and expected tokens are unequal and prove the illegal partition independently of all legal adjacency rows. Each evidence mode is derived from the actual prefix; REACHED_AND_BOUND hashes the exact sibling, NOT_REACHED_PROVEN forbids it and binds the proof boundary, and NOT_APPLICABLE is branch-impossible. The projection hash covers transaction, trigger, boundary, four modes and each reached sibling canonical hash.",
+      "additional_fields": false
+    },
+    "INTERVENING_OPERATION_OBSERVATION_V8": {
+      "schema_id": "INTERVENING_OPERATION_OBSERVATION_SCHEMA_V8",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "plan_id", "operation_kind", "operation_index", "normalized_outcome", "rename_pair", "rename_api", "rename_flags_in_exact_order", "api_return_or_null", "source_before_snapshot", "destination_before_snapshot", "source_after_snapshot_or_null", "destination_after_snapshot_or_null"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "plan_id": {"type": "STRING", "enum": ["SUCCESS", "FAILURE_NO_QUARANTINE", "FAILURE_WITH_QUARANTINE"], "nullable": false},
+        "operation_kind": {"type": "STRING", "enum": ["TERMINAL_RENAME", "QUARANTINE_RENAME"], "nullable": false},
+        "operation_index": {"type": "INTEGER", "minimum": 0, "maximum": 8, "nullable": false},
+        "normalized_outcome": {"type": "STRING", "enum": ["EXPLICIT_FAILURE_PROVEN_NO_MUTATION", "PARTIAL_OR_MUTATING_FAILURE", "CALL_ENTERED_NO_DURABLE_RETURN_OBSERVATION", "POSTCONDITION_UNCERTAIN", "CONTROLLER_INTERRUPTED"], "nullable": false},
+        "rename_pair": {"type": "OBJECT", "ref": "RENAME_PAIR_V4", "nullable": false},
+        "rename_api": {"type": "STRING", "const": "MoveFileExW", "nullable": false},
+        "rename_flags_in_exact_order": {"type": "ARRAY", "items": "NONEMPTY_STRING", "exact_values": ["MOVEFILE_WRITE_THROUGH"], "nullable": false},
+        "api_return_or_null": {"type": ["BOOLEAN", "NULL"], "nullable": true},
+        "source_before_snapshot": {"type": "OBJECT", "ref": "PATH_SNAPSHOT_V4", "nullable": false},
+        "destination_before_snapshot": {"type": "OBJECT", "ref": "PATH_SNAPSHOT_V4", "nullable": false},
+        "source_after_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "destination_after_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true}
+      },
+      "conditional_rule": "The exact plan/transaction fixes rename paths. TERMINAL_RENAME operation_index equals the selected plan's 8/6/7 intervening position. QUARANTINE_RENAME is legal only with FAILURE_WITH_QUARANTINE and operation_index=0 denotes the explicit pre-plan quarantine operation, not plan entry zero; the plan itself remains NOT_ENTERED. EXPLICIT_FAILURE requires api_return=false and proven unchanged before/after relation; every uncertain token requires api_return null or non-success evidence and records only snapshots actually exact-opened. Success is forbidden. No later operation is observed or attempted.",
+      "additional_fields": false
+    },
+    "QUARANTINE_RENAME_FAILURE_EVIDENCE_V8": {
+      "schema_id": "QUARANTINE_RENAME_FAILURE_EVIDENCE_SCHEMA_V8",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "intervening_operation_observation", "source_postcall_observation_state", "destination_postcall_observation_state", "parent_flush_attempted_boolean", "permanent_rejection_boolean"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "intervening_operation_observation": {"type": "OBJECT", "ref": "INTERVENING_OPERATION_OBSERVATION_V8", "nullable": false},
+        "source_postcall_observation_state": {"type": "STRING", "enum": ["OBSERVED_EXACT", "UNKNOWN_NOT_OBSERVED"], "nullable": false},
+        "destination_postcall_observation_state": {"type": "STRING", "enum": ["OBSERVED_EXACT", "UNKNOWN_NOT_OBSERVED"], "nullable": false},
+        "parent_flush_attempted_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "permanent_rejection_boolean": {"type": "BOOLEAN", "const": true, "nullable": false}
+      },
+      "conditional_rule": "The nested observation is same-transaction FAILURE_WITH_QUARANTINE/QUARANTINE_RENAME and has a non-success outcome. Each OBSERVED_EXACT state requires its matching postcall snapshot nonnull; UNKNOWN_NOT_OBSERVED requires null. No transaction-parent flush occurs because successful quarantine rename was not proven.",
+      "additional_fields": false
+    },
+    "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8": {
+      "schema_id": "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_SCHEMA_V8",
+      "classification": "COMPONENT",
+      "field_order": ["transaction_id", "observation_writer_role_id", "witness_role_id", "mandatory_control_read_path_ids_in_exact_order", "additional_read_path_ids_in_exact_order", "metadata_path_ids_in_exact_order", "write_path_ids_in_exact_order", "read_after_write_path_ids_in_exact_order", "membership_list_path_ids", "flush_path_ids", "rename_pairs", "delete_path_ids", "runtime_dependency_path_ids", "process_start_targets", "candidate_access_boolean", "science_execution_boolean"],
+      "fields": {
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "observation_writer_role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "witness_role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "mandatory_control_read_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_values_source": "governance_header_and_stage_a_controls_v8.mandatory_stage_a_control_path_ids_in_exact_order", "exact_count": 14, "nullable": false},
+        "additional_read_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 1, "nullable": false},
+        "metadata_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 4, "nullable": false},
+        "write_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 2, "nullable": false},
+        "read_after_write_path_ids_in_exact_order": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "membership_list_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "flush_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "rename_pairs": {"type": "ARRAY", "items_ref": "RENAME_PAIR_V4", "exact_count": 0, "nullable": false},
+        "delete_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "runtime_dependency_path_ids": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "process_start_targets": {"type": "ARRAY", "items": "PATH_ID", "exact_count": 0, "nullable": false},
+        "candidate_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "science_execution_boolean": {"type": "BOOLEAN", "const": false, "nullable": false}
+      },
+      "conditional_rule": "The complete object byte-equals the sole p5_downstream_witness_v8 row projection: one observation read; metadata [observation,parent,witness,failure]; writes [witness,failure]; zero read-after-write and every prohibited authority empty/false. Exactly one write path may be CREATE_NEW after validation. Both roles join frozen assignments and differ in all six dimensions.",
+      "additional_fields": false
+    },
+    "P5_EXTERNAL_OBSERVATION_WITNESS_V8": {
+      "schema_id": "P5_EXTERNAL_OBSERVATION_WITNESS_SCHEMA_V8",
+      "classification": "ARTIFACT_RECORD",
+      "field_order": ["schema_version", "schema_id", "witness_id", "created_at", "governance_header", "transaction_id", "observation_writer_role_id", "witness_role_id", "witness_access_grant", "witness_access_attestation", "external_observation_binding", "external_observation_post_write_snapshot", "parsed_external_observation", "parsed_external_observation_canonical_bytes", "external_observation_canonical_sha256", "validation_checks_in_exact_order", "all_checks_pass_boolean", "downstream_gate", "candidate_access_boolean", "scientific_authority_boolean", "witness_payload_hash_envelope"],
+      "fields": {
+        "schema_version": {"type": "STRING", "const": "8.0.0", "nullable": false},
+        "schema_id": {"type": "STRING", "const": "P5_EXTERNAL_OBSERVATION_WITNESS_SCHEMA_V8", "nullable": false},
+        "witness_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "created_at": {"type": "RFC3339", "nullable": false},
+        "governance_header": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V8", "nullable": false},
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "observation_writer_role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "witness_role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "witness_access_grant": {"type": "OBJECT", "ref": "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8", "nullable": false},
+        "witness_access_attestation": {"type": "OBJECT", "ref": "ACCESS_ATTESTATION_V8", "nullable": false},
+        "external_observation_binding": {"type": "OBJECT", "ref": "BINDING_V4", "nullable": false},
+        "external_observation_post_write_snapshot": {"type": "OBJECT", "ref": "PATH_SNAPSHOT_V4", "nullable": false},
+        "parsed_external_observation": {"type": "OBJECT", "ref": "P5_EXTERNAL_VALIDATION_OBSERVATION_V8", "nullable": false},
+        "parsed_external_observation_canonical_bytes": {"type": "BASE64", "nullable": false},
+        "external_observation_canonical_sha256": {"type": "SHA256", "nullable": false},
+        "validation_checks_in_exact_order": {"type": "ARRAY", "items_ref": "CHECK_RESULT_V4", "exact_count": 9, "nullable": false},
+        "all_checks_pass_boolean": {"type": "BOOLEAN", "const": true, "nullable": false},
+        "downstream_gate": {"type": "NONEMPTY_STRING", "nullable": false},
+        "candidate_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "scientific_authority_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "witness_payload_hash_envelope": {"type": "OBJECT", "ref": "HASH_ENVELOPE_V4", "nullable": false}
+      },
+      "conditional_rule": "All row fields byte-equal the selected p5_downstream_witness_v8 row and grant; witness_access_attestation is its exact runtime projection. Binding/snapshot path is the external observation; snapshot is PRESENT FILE/no-reparse/hardlink-one and its identity/bytes/SHA equal the binding. Decoded parsed_external_observation_canonical_bytes is the canonical JSON of parsed_external_observation, hashes to external_observation_canonical_sha256 and byte-equals the full-read file bytes/binding. Nine checks in exact order are path, open/share, full-read/EOF, close, SHA, canonical JSON, schema/header/hash-envelope, transaction/content join, and frozen role independence; all PASS. The payload contains no snapshot/binding/hash of its own witness path. The downstream gate must later exact-open and bind this artifact.",
+      "additional_fields": false,
+      "hash_domain": "All fields except witness_payload_hash_envelope."
+    },
+    "P5_WITNESS_FAILURE_INCIDENT_V8": {
+      "schema_id": "P5_WITNESS_FAILURE_INCIDENT_SCHEMA_V8",
+      "classification": "ARTIFACT_RECORD",
+      "field_order": ["schema_version", "schema_id", "incident_id", "created_at", "governance_header", "transaction_id", "witness_role_id", "witness_access_grant", "failure_code", "external_observation_snapshot_or_null", "observed_bytes_sha256_or_null", "first_failure_evidence", "permanent_rejection_boolean", "downstream_gate_forbidden_boolean", "candidate_access_boolean", "scientific_authority_boolean", "incident_payload_hash_envelope"],
+      "fields": {
+        "schema_version": {"type": "STRING", "const": "8.0.0", "nullable": false},
+        "schema_id": {"type": "STRING", "const": "P5_WITNESS_FAILURE_INCIDENT_SCHEMA_V8", "nullable": false},
+        "incident_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "created_at": {"type": "RFC3339", "nullable": false},
+        "governance_header": {"type": "OBJECT", "ref": "GOVERNANCE_HEADER_V8", "nullable": false},
+        "transaction_id": {"type": "STRING", "enum": ["B_DERIVATION", "B_LOCKFILE_VERIFIER", "D_OFFICIAL_COMPILER", "D_FIXTURE_VERIFIER"], "nullable": false},
+        "witness_role_id": {"type": "NONEMPTY_STRING", "nullable": false},
+        "witness_access_grant": {"type": "OBJECT", "ref": "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8", "nullable": false},
+        "failure_code": {"type": "STRING", "enum": ["OBSERVATION_MISSING", "OPEN_EXPLICIT_FAILURE", "OPEN_NO_DURABLE_RETURN", "READ_FAILURE_OR_SHORT_READ", "CLOSE_UNCERTAIN", "SHA_MISMATCH", "NONCANONICAL_OR_INVALID_JSON", "SCHEMA_OR_HEADER_INVALID", "CONTENT_JOIN_INVALID"], "nullable": false},
+        "external_observation_snapshot_or_null": {"type": ["OBJECT", "NULL"], "ref": "PATH_SNAPSHOT_V4", "nullable": true},
+        "observed_bytes_sha256_or_null": {"type": ["SHA256", "NULL"], "nullable": true},
+        "first_failure_evidence": {"type": "OBJECT", "constraint": "typed API/byte/parse/check evidence for exactly failure_code; no future step", "nullable": false},
+        "permanent_rejection_boolean": {"type": "BOOLEAN", "const": true, "nullable": false},
+        "downstream_gate_forbidden_boolean": {"type": "BOOLEAN", "const": true, "nullable": false},
+        "candidate_access_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "scientific_authority_boolean": {"type": "BOOLEAN", "const": false, "nullable": false},
+        "incident_payload_hash_envelope": {"type": "OBJECT", "ref": "HASH_ENVELOPE_V4", "nullable": false}
+      },
+      "conditional_rule": "The selected transaction row fixes witness role/grant/failure path. Evidence stops at the first non-PASS operation; snapshot/hash nullability follows whether those observations were reached. The witness path remains ABSENT, the failure path alone is CREATE_NEW, and the downstream gate is permanently forbidden. This record has no checkpoint/state claim and cannot be substituted for an ordinary incident receipt.",
+      "additional_fields": false,
+      "hash_domain": "All fields except incident_payload_hash_envelope."
+    }
+  },
+  "effective_v8_schema_model": {
+    "base": "The sole 86-key source-effective registry produced by v7_effective_base_repair_v8, including all V7 guarded programs, eight insertions, structured rewrites and the one corrected absent-field ADD. No diagnostic or failed V7 registry is accepted.",
+    "replaced_keys_in_raw_utf8_order": ["ACCESS_ATTESTATION_V7", "AUDITOR_ROLE_COMPARISON_V7", "CHECKPOINT_LEDGER_V7", "FAILURE_PREPUBLICATION_DISPOSITION_V7", "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7", "GOVERNANCE_HEADER_V7", "INCIDENT_AUTHORIZATION_V7", "INCIDENT_FLUSH_EVIDENCE_V7", "INCIDENT_RECEIPT_V7", "P5_CONSUMER_ACCESS_GRANT_V7", "P5_EXTERNAL_VALIDATION_OBSERVATION_V7", "P5_VALIDATION_RECEIPT_V7", "PHYSICAL_PROJECTION_RECORD_V7", "PROJECTION_MEMBER_V7", "ROLE_ASSIGNMENT_FREEZE_V7", "ROOT_ACTIVATION_V7", "SCHEMA_BUNDLE_V7", "SOURCE_POINTER_V7", "TERMINAL_STATE_PREDICATE_EVALUATION_V7", "TERMINAL_STATE_RESOLUTION_V7", "TRANSACTION_AUTHORIZATION_V7", "V7_AUDIT_RECEIPT_V7"],
+    "replacement_keys_in_raw_utf8_order": ["ACCESS_ATTESTATION_V8", "AUDITOR_ROLE_COMPARISON_V8", "CHECKPOINT_LEDGER_V8", "FAILURE_PREPUBLICATION_DISPOSITION_V8", "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V8", "GOVERNANCE_HEADER_V8", "INCIDENT_AUTHORIZATION_V8", "INCIDENT_FLUSH_EVIDENCE_V8", "INCIDENT_RECEIPT_V8", "P5_CONSUMER_ACCESS_GRANT_V8", "P5_EXTERNAL_VALIDATION_OBSERVATION_V8", "P5_VALIDATION_RECEIPT_V8", "PHYSICAL_PROJECTION_RECORD_V8", "PROJECTION_MEMBER_V8", "ROLE_ASSIGNMENT_FREEZE_V8", "ROOT_ACTIVATION_V8", "SCHEMA_BUNDLE_V8", "SOURCE_POINTER_V8", "TERMINAL_STATE_PREDICATE_EVALUATION_V8", "TERMINAL_STATE_RESOLUTION_V8", "TRANSACTION_AUTHORIZATION_V8", "V8_AUDIT_RECEIPT_V8"],
+    "new_keys_in_raw_utf8_order": ["DOTTED_SOURCE_OUT_OF_BAND_BINDING_V8", "ILLEGAL_SPLIT_INCIDENT_EVIDENCE_V8", "INCIDENT_EVIDENCE_SELECTOR_V8", "INTERVENING_OPERATION_OBSERVATION_V8", "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8", "P5_EXTERNAL_OBSERVATION_WITNESS_V8", "P5_WITNESS_FAILURE_INCIDENT_V8", "QUARANTINE_RENAME_FAILURE_EVIDENCE_V8", "STAGE_A_INTENT_REBINDING_RECORD_V8"],
+    "removed_count": 22,
+    "replacement_count": 22,
+    "new_count": 9,
+    "effective_schema_count": 95,
+    "count_equation": "86 - 22 + 22 + 9 = 95",
+    "final_effective_schema_keys_in_raw_utf8_order": [
+      "ACCESS_ATTESTATION_V4", "ACCESS_ATTESTATION_V8", "AUDITOR_ROLE_COMPARISON_V8", "BINDING_V4", "BRANCH_STAGING_READ_ATTESTATION_V5", "BRANCH_STAGING_READ_GRANT_V5", "BUNDLE_MANIFEST_V4", "BUNDLE_MEMBER_V4", "CHECKPOINT_ADJACENCY_ROW_V6", "CHECKPOINT_LEDGER_V8", "CHECK_RESULT_V4", "CLAIM_HANDOFF_V4", "DELEGATION_CHAIN_V6", "DELEGATION_DISJOINTNESS_PROOF_V6", "DELEGATION_EDGE_V6", "DELEGATION_NODE_V6", "DEPENDENCY_EDGE_V4", "DEPENDENCY_FILE_ENTRY_V4", "DIRECTORY_CREATION_FALLBACK_V4", "DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "DIRECTORY_CREATION_INTENT_V4", "DIRECTORY_CREATION_PRESTATE_V4", "DOTTED_SOURCE_OUT_OF_BAND_BINDING_V8", "EFFECTIVE_REFERENCE_REWRITE_ROW_V6", "ENVIRONMENT_ENTRY_V4", "EXPECTED_ACTUAL_HASH_V4", "FAILURE_PREPUBLICATION_DISPOSITION_V8", "FAILURE_RECEIPT_V4", "FINDING_V4", "FLUSH_HANDLE_OBSERVATION_V6", "FLUSH_OBSERVATION_V4", "FLUSH_PLAN_ENTRY_V6", "FLUSH_PLAN_EXECUTION_V6", "FLUSH_PLAN_V6", "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V8", "GOVERNANCE_DECISION_V4", "GOVERNANCE_HEADER_V8", "HASH_ENVELOPE_V4", "IDENTITY_DIMENSION_COMPARISON_V7", "IDENTITY_TUPLE_V6", "ILLEGAL_SPLIT_INCIDENT_EVIDENCE_V8", "INCIDENT_AUTHORIZATION_V8", "INCIDENT_CLOSEOUT_V4", "INCIDENT_EVIDENCE_PRESENCE_ROW_V7", "INCIDENT_EVIDENCE_SELECTOR_V8", "INCIDENT_FLUSH_EVIDENCE_V8", "INCIDENT_MANIFEST_V4", "INCIDENT_RECEIPT_V8", "INTERVENING_OPERATION_OBSERVATION_V8", "LITERAL_BUNDLE_WRAPPER_V4", "LITERAL_FREEZE_V4", "MEMBERSHIP_ENTRY_V4", "MEMBERSHIP_OBSERVATION_V4", "P4_PUBLICATION_DISPOSITION_V7", "P5_CONSUMER_ACCESS_GRANT_V8", "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8", "P5_EXTERNAL_OBSERVATION_WITNESS_V8", "P5_EXTERNAL_VALIDATION_OBSERVATION_V8", "P5_VALIDATION_RECEIPT_V8", "P5_WITNESS_FAILURE_INCIDENT_V8", "PACKAGE_MANIFEST_V4", "PATH_SHA256_PAIR_V4", "PATH_SNAPSHOT_V4", "PHYSICAL_PROJECTION_RECORD_V8", "PROCESS_START_OUTCOME_V5", "PROJECTION_MEMBER_V8", "PUBLICATION_ATTESTATION_V7", "QUARANTINE_RENAME_FAILURE_EVIDENCE_V8", "RAW_CHECKPOINT_OBSERVATION_V5", "RENAME_PAIR_V4", "RESULT_AUDIT_V4", "ROLE_ASSIGNMENT_FREEZE_V4", "ROLE_ASSIGNMENT_FREEZE_V8", "ROLE_ASSIGNMENT_V4", "ROLE_ASSIGNMENT_V6", "ROLE_CONFLICT_JOIN_ROW_V7", "ROLE_CONFLICT_ROW_V4", "ROOT_ACTIVATION_V4", "ROOT_ACTIVATION_V8", "RUNTIME_DEPENDENCY_MANIFEST_V4", "SCHEMA_BUNDLE_V8", "SCHEMA_MATERIALIZATION_ENTRY_V4", "SOURCE_POINTER_V8", "SOURCE_QUALIFIED_DOTTED_BINDING_V7", "SPENT_RECEIPT_V4", "STAGE_A_INTENT_REBINDING_RECORD_V8", "STAGING_FILE_READ_OBSERVATION_V5", "STATIC_AUDIT_RECEIPT_V4", "SUCCESS_RECEIPT_V4", "TERMINAL_STATE_EVIDENCE_PROJECTION_V7", "TERMINAL_STATE_PREDICATE_EVALUATION_V8", "TERMINAL_STATE_RESOLUTION_V8", "TRANSACTION_AUTHORIZATION_V8", "V4_AUDIT_RECEIPT_V4", "V8_AUDIT_RECEIPT_V8"
+    ],
+    "reference_rewrite_map": {
+      "ACCESS_ATTESTATION_V7": "ACCESS_ATTESTATION_V8",
+      "AUDITOR_ROLE_COMPARISON_V7": "AUDITOR_ROLE_COMPARISON_V8",
+      "CHECKPOINT_LEDGER_V7": "CHECKPOINT_LEDGER_V8",
+      "FAILURE_PREPUBLICATION_DISPOSITION_V7": "FAILURE_PREPUBLICATION_DISPOSITION_V8",
+      "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V8",
+      "GOVERNANCE_HEADER_V7": "GOVERNANCE_HEADER_V8",
+      "INCIDENT_AUTHORIZATION_V7": "INCIDENT_AUTHORIZATION_V8",
+      "INCIDENT_FLUSH_EVIDENCE_V7": "INCIDENT_FLUSH_EVIDENCE_V8",
+      "INCIDENT_RECEIPT_V7": "INCIDENT_RECEIPT_V8",
+      "P5_CONSUMER_ACCESS_GRANT_V7": "P5_CONSUMER_ACCESS_GRANT_V8",
+      "P5_EXTERNAL_VALIDATION_OBSERVATION_V7": "P5_EXTERNAL_VALIDATION_OBSERVATION_V8",
+      "P5_VALIDATION_RECEIPT_V7": "P5_VALIDATION_RECEIPT_V8",
+      "PHYSICAL_PROJECTION_RECORD_V7": "PHYSICAL_PROJECTION_RECORD_V8",
+      "PROJECTION_MEMBER_V7": "PROJECTION_MEMBER_V8",
+      "ROLE_ASSIGNMENT_FREEZE_V7": "ROLE_ASSIGNMENT_FREEZE_V8",
+      "ROOT_ACTIVATION_V7": "ROOT_ACTIVATION_V8",
+      "SCHEMA_BUNDLE_V7": "SCHEMA_BUNDLE_V8",
+      "SOURCE_POINTER_V7": "SOURCE_POINTER_V8",
+      "TERMINAL_STATE_PREDICATE_EVALUATION_V7": "TERMINAL_STATE_PREDICATE_EVALUATION_V8",
+      "TERMINAL_STATE_RESOLUTION_V7": "TERMINAL_STATE_RESOLUTION_V8",
+      "TRANSACTION_AUTHORIZATION_V7": "TRANSACTION_AUTHORIZATION_V8",
+      "V7_AUDIT_RECEIPT_V7": "V8_AUDIT_RECEIPT_V8"
+    },
+    "replacement_operation_language": {
+      "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR": "Require outer schema_id and fields.schema_id.const both equal source_schema_id and no other occurrence; atomically replace both with target_schema_id.",
+      "REPLACE_COMPONENT_SCHEMA_ID": "Require outer schema_id equals source_schema_id and fields.schema_id is absent; replace only outer schema_id.",
+      "REPLACE_FIELD_CONST": "Require the named field exactly once and its const byte-equal required_prior_const; replace only const.",
+      "REPLACE_FIELD_DESCRIPTOR_INLINE": "Require the field exactly once in fields and field_order; replace its complete descriptor without moving it.",
+      "ADD_FIELD_BEFORE_OR_AFTER": "Require field absent and anchor exactly once in fields and field_order; insert field descriptor and field_order token at the same displayed side of anchor.",
+      "RENAME_AND_REPLACE_FIELD": "Require old exactly once/new absent in fields and field_order; rename in place and replace the complete descriptor.",
+      "SET_CONDITIONAL_RULE": "Require conditional_rule exists exactly once as STRING and replace its complete scalar with value.",
+      "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE": "Require component classification and exact source ID, then replace the entire schema object with the pointed V8 template.",
+      "GLOBAL_STRUCTURED_REFERENCE_REWRITE": "After all programs and insertions, traverse only descriptor members named ref or items_ref and replace exact scalar matches by reference_rewrite_map. Prose, data values and the eight ACCESS_ATTESTATION_V4 refs are not rewritten.",
+      "guard_rule": "Every operation states or inherits an exact source key/schema ID, member type, absence/presence and anchor guard. Any mismatch, duplicate, stale target ref or unmentioned mutation rejects the complete registry."
+    },
+    "replacement_programs_in_target_key_raw_utf8_order": [
+      {
+        "source_key": "ACCESS_ATTESTATION_V7", "target_key": "ACCESS_ATTESTATION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/ACCESS_ATTESTATION_V7", "classification": "COMPONENT", "source_schema_id": "ACCESS_ATTESTATION_SCHEMA_V7", "target_schema_id": "ACCESS_ATTESTATION_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "mandatory_control_reads_in_exact_order", "descriptor": {"type": "ARRAY", "items": "PATH_ID", "exact_values_source": "governance_header_and_stage_a_controls_v8.mandatory_stage_a_control_path_ids_in_exact_order", "exact_count": 14, "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "This remains the exact V7 semantic superset of all V4-V6 runtime, membership, load, rename, delete, process-start and denial fields. Arrays equal the exact V8 role/phase grant. mandatory_control_reads_in_exact_order and read_path_ids contain the fourteen V8 controls. P5 observation writers retain zero read-after-write. P5 downstream witness roles equal their exact P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8 projection and may read the observation but not any witness/failure output after write. Every ungranted dimension is empty/false; no inferred ancestor, sibling, transitive, Candidate, compiler, runtime or science authority exists."}
+        ]
+      },
+      {
+        "source_key": "AUDITOR_ROLE_COMPARISON_V7", "target_key": "AUDITOR_ROLE_COMPARISON_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/AUDITOR_ROLE_COMPARISON_V7", "classification": "COMPONENT", "source_schema_id": "AUDITOR_ROLE_COMPARISON_SCHEMA_V7", "target_schema_id": "AUDITOR_ROLE_COMPARISON_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "SET_CONDITIONAL_RULE", "value": "role_index selects exactly one ROLE_ASSIGNMENT_V6 row in ROLE_ASSIGNMENT_FREEZE_V8; role_id and role_identity_tuple byte-equal it. auditor_identity_tuple byte-equals V8_AUDIT_RECEIPT_V8.auditor_identity_tuple. Six IDENTITY_DIMENSION_COMPARISON_V7 rows are derived from canonical tuple fields, all unequal; dimension index 3 alone binds the delegation proof. all_conflicts_absent_boolean=true. No V7 auditor/freeze tuple remains executable."}
+        ]
+      },
+      {
+        "source_key": "CHECKPOINT_LEDGER_V7", "target_key": "CHECKPOINT_LEDGER_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/CHECKPOINT_LEDGER_V7", "classification": "COMPONENT", "source_schema_id": "CHECKPOINT_LEDGER_SCHEMA_V7", "target_schema_id": "CHECKPOINT_LEDGER_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "terminal_state_resolution", "descriptor": {"type": "OBJECT", "ref": "TERMINAL_STATE_RESOLUTION_V8", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "Preserve every V7 checkpoint, raw observation, adjacency, process-outcome, transaction and consumption join. terminal_state_resolution evaluates terminal_state_predicate_registry_v8 exactly; terminal_state, incident_trigger_id_or_null and authorization_consumption_state byte-equal its sole selected row. LEGAL evidence retains the exact joined adjacency row. ILLEGAL_SPLIT has joined_failure_adjacency_row_or_null=null, illegal_partition_boolean=true and selects ILLEGAL_SPLIT_STATE/ILLEGAL_SPLIT without manufacturing a legal row. Closeout resolution occurs only in a later evidence projection and cannot mutate this ledger."}
+        ]
+      },
+      {
+        "source_key": "FAILURE_PREPUBLICATION_DISPOSITION_V7", "target_key": "FAILURE_PREPUBLICATION_DISPOSITION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/FAILURE_PREPUBLICATION_DISPOSITION_V7", "classification": "COMPONENT", "source_schema_id": "FAILURE_PREPUBLICATION_DISPOSITION_SCHEMA_V7", "target_schema_id": "FAILURE_PREPUBLICATION_DISPOSITION_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "variant", "descriptor": {"type": "STRING", "enum": ["SUCCESS", "FAILURE_TERMINAL_PUBLISHED", "FAILURE_PRETERMINAL_QUARANTINE_ONLY", "FAILURE_PRETERMINAL_QUARANTINE_RENAME_FAILED_OR_UNCERTAIN"], "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "root_disposition", "descriptor": {"type": "STRING", "enum": ["NOT_APPLICABLE_SUCCESS", "NONE_REQUIRED_FAILURE", "QUARANTINED_UNCHANGED_FAILURE", "QUARANTINE_RENAME_FAILED_OR_UNCERTAIN"], "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "quarantine_destination_after_snapshot_or_null", "field": "quarantine_rename_failure_evidence_or_null", "descriptor": {"type": ["OBJECT", "NULL"], "ref": "QUARANTINE_RENAME_FAILURE_EVIDENCE_V8", "nullable": true}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "Preserve all V7 SUCCESS, FAILURE_TERMINAL_PUBLISHED and successful-quarantine FAILURE_PRETERMINAL_QUARANTINE_ONLY field equations. Those variants require quarantine_rename_failure_evidence_or_null=null. FAILURE_PRETERMINAL_QUARANTINE_RENAME_FAILED_OR_UNCERTAIN is legal only at P2F with FAILURE_WITH_QUARANTINE already selected: all terminal failure receipt fields are null; worker states remain incomplete/pending; root_disposition=QUARANTINE_RENAME_FAILED_OR_UNCERTAIN; exact nonnull QUARANTINE_RENAME_FAILURE_EVIDENCE_V8; requirement_satisfied_boolean=false. quarantine_rename_pair_or_null and both before snapshots are nonnull and byte-equal the nested observation; each existing after snapshot byte-equals its nested nullable postcall snapshot and state; parent post-quarantine flush observation/state are null. INCIDENT_FLUSH_EVIDENCE_V8 is selected-plan NOT_ENTERED with attempted_count 0/next index 0. No successful-quarantine identity relation, reclassification or later operation exists."}
+        ]
+      },
+      {
+        "source_key": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7", "target_key": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V7", "classification": "COMPONENT", "source_schema_id": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_SCHEMA_V7", "target_schema_id": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "auditor_role_id", "descriptor": {"type": "STRING", "const": "ROLE_V8_AMENDMENT_AUDITOR", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "read_path_ids_in_exact_order", "descriptor": {"type": "ARRAY", "items": "PATH_ID", "exact_values": ["static:v4", "static:v5", "static:v6", "static:v6_audit", "static:v7", "static:v7_audit", "static:v8"], "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "write_path_ids_in_exact_order", "descriptor": {"type": "ARRAY", "items": "PATH_ID", "exact_values": ["static:v8_audit"], "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "read_after_write_path_ids_in_exact_order", "descriptor": {"type": "ARRAY", "items": "PATH_ID", "exact_values": ["static:v8_audit"], "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "metadata_path_ids_in_exact_order", "descriptor": {"type": "ARRAY", "items": "PATH_ID", "exact_values": ["static:v4", "static:v5", "static:v6", "static:v6_audit", "static:v7", "static:v7_audit", "static:v8", "static:v8_audit"], "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "output_prestate", "descriptor": {"type": "OBJECT", "ref": "PATH_SNAPSHOT_V4", "constraint": "static:v8_audit ABSENT before CREATE_NEW", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "This is the sole access record in V8_AUDIT_RECEIPT_V8. Its seven reads, one write, one readback and eight metadata paths byte-equal the V8 auditor writer row. All membership/listing/flush/rename/delete/runtime/process arrays are empty and prohibited booleans false. V4/V5/V6/V6-audit are exact reconstruction/intent/projection sources only; V6/V7 FAIL receipts remain immutable lineage, not PASS."}
+        ]
+      },
+      {
+        "source_key": "GOVERNANCE_HEADER_V7", "target_key": "GOVERNANCE_HEADER_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/GOVERNANCE_HEADER_V7", "classification": "COMPONENT", "source_schema_id": "GOVERNANCE_BINDING_HEADER_SCHEMA_V7", "target_schema_id": "GOVERNANCE_BINDING_HEADER_SCHEMA_V8",
+        "operations_in_exact_order": [{"op": "REPLACE_COMPLETE_COMPONENT_BODY_FROM_TEMPLATE", "template_pointer": "static:v8#/typed_schema_registry_v8/GOVERNANCE_HEADER_V8"}]
+      },
+      {
+        "source_key": "INCIDENT_AUTHORIZATION_V7", "target_key": "INCIDENT_AUTHORIZATION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/INCIDENT_AUTHORIZATION_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "INCIDENT_AUTHORIZATION_SCHEMA_V7", "target_schema_id": "INCIDENT_AUTHORIZATION_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "SET_CONDITIONAL_RULE", "value": "The exact fourteen inherited trigger values, including ILLEGAL_SPLIT, and every V6/V7 invocation/controller/directory/path/quarantine/bundle/promotion/science field remain. transaction_id is the authoritative equality join for every consuming TRANSACTION_AUTHORIZATION_V8 and INCIDENT_RECEIPT_V8. Header/access refs are V8 and no new trigger or evidence authority is added."}
+        ]
+      },
+      {
+        "source_key": "INCIDENT_FLUSH_EVIDENCE_V7", "target_key": "INCIDENT_FLUSH_EVIDENCE_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/INCIDENT_FLUSH_EVIDENCE_V7", "classification": "COMPONENT", "source_schema_id": "INCIDENT_FLUSH_EVIDENCE_SCHEMA_V7", "target_schema_id": "INCIDENT_FLUSH_EVIDENCE_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "mode", "descriptor": {"type": "STRING", "enum": ["NO_PLAN_NOT_ENTERED", "SELECTED_PLAN_NOT_ENTERED", "FIRST_FAILURE_PREFIX", "COMPLETE_SUCCESS", "SUCCESSFUL_FLUSH_PREFIX_STOPPED_BY_INTERVENING_OPERATION"], "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "execution_or_null", "field": "successful_flush_prefix_observations_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "FLUSH_HANDLE_OBSERVATION_V6", "maximum_items": 8, "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "successful_flush_prefix_observations_in_exact_order", "field": "intervening_operation_observation_or_null", "descriptor": {"type": ["OBJECT", "NULL"], "ref": "INTERVENING_OPERATION_OBSERVATION_V8", "nullable": true}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "The four inherited modes preserve exact V7 plan/execution/scalars, require the new prefix array empty and intervening observation null. SUCCESSFUL_FLUSH_PREFIX_STOPPED_BY_INTERVENING_OPERATION requires exact selected plan, execution_or_null=null, the exact contiguous SUCCESS_DURABLE prefix of length 8/6/7 for SUCCESS/FAILURE_NO_QUARANTINE/FAILURE_WITH_QUARANTINE, attempted_count equal that length, first_non_success_index_or_null=null, next_unattempted_index_or_null equal 8/6/7, complete_success_boolean=false and a same-transaction TERMINAL_RENAME INTERVENING_OPERATION_OBSERVATION_V8 at that index. No later entry exists. Quarantine-rename non-success instead uses inherited SELECTED_PLAN_NOT_ENTERED with exact V6 NOT_ENTERED execution and separate failure-disposition evidence."}
+        ]
+      },
+      {
+        "source_key": "INCIDENT_RECEIPT_V7", "target_key": "INCIDENT_RECEIPT_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/INCIDENT_RECEIPT_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "INCIDENT_RECEIPT_SCHEMA_V7", "target_schema_id": "INCIDENT_RECEIPT_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "evidence_presence_row", "new_field": "incident_evidence_selector", "descriptor": {"type": "OBJECT", "ref": "INCIDENT_EVIDENCE_SELECTOR_V8", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "incident_flush_evidence", "descriptor": {"type": "OBJECT", "ref": "INCIDENT_FLUSH_EVIDENCE_V8", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "failure_prepublication_disposition_or_null", "descriptor": {"type": ["OBJECT", "NULL"], "ref": "FAILURE_PREPUBLICATION_DISPOSITION_V8", "nullable": true}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "Preserve every V7 authorization binding/content, transaction, checkpoint, raw outcome, access, snapshot, fallback, membership, invocation, first-uncertain-operation, consumption and denial join, with structured refs rewritten to V8. transaction_id equals incident authorization and CHECKPOINT_LEDGER_V8. trigger_state equals the authorization, ledger and selected resolution trigger; incident_state equals the ledger selected state. incident_evidence_selector is derived exactly by illegal_split_incident_v8. LEGAL mode applies every inherited 14-row presence/quarantine/P4 rule except the exact row6/7 flush-token and row7 failure-disposition-token interpretations extended by rename_and_quarantine_failure_v8. ILLEGAL mode uses no legal row, binds actual reached/not-reached sibling evidence and selects ILLEGAL_SPLIT/ILLEGAL_SPLIT_STATE. New terminal-rename and quarantine-rename branches satisfy rename_and_quarantine_failure_v8. permanent rejection remains true and no future operation is inferred."}
+        ]
+      },
+      {
+        "source_key": "P5_CONSUMER_ACCESS_GRANT_V7", "target_key": "P5_CONSUMER_ACCESS_GRANT_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/P5_CONSUMER_ACCESS_GRANT_V7", "classification": "COMPONENT", "source_schema_id": "P5_CONSUMER_ACCESS_GRANT_SCHEMA_V7", "target_schema_id": "P5_CONSUMER_ACCESS_GRANT_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "mandatory_control_read_path_ids_in_exact_order", "descriptor": {"type": "ARRAY", "items": "PATH_ID", "exact_values_source": "governance_header_and_stage_a_controls_v8.mandatory_stage_a_control_path_ids_in_exact_order", "exact_count": 14, "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "transaction_id/consumer select the exact inherited four-row consumer table. Read only its P5 receipt; metadata is receipt,parent,external observation; write only external observation; read_after_write remains exact empty. Every other authority array is empty, controls are exact fourteen, Candidate/science false. The grant is byte-equal in TRANSACTION_AUTHORIZATION_V8, ROLE_ASSIGNMENT_FREEZE_V8 and the writer's ACCESS_ATTESTATION_V8; no witness authority is granted to the observation writer."}
+        ]
+      },
+      {
+        "source_key": "P5_EXTERNAL_VALIDATION_OBSERVATION_V7", "target_key": "P5_EXTERNAL_VALIDATION_OBSERVATION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/P5_EXTERNAL_VALIDATION_OBSERVATION_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "P5_EXTERNAL_VALIDATION_OBSERVATION_SCHEMA_V7", "target_schema_id": "P5_EXTERNAL_VALIDATION_OBSERVATION_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "external_validation_path_id", "field": "expected_witness_role_id", "descriptor": {"type": "NONEMPTY_STRING", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "expected_witness_role_id", "field": "witness_path_id", "descriptor": {"type": "PATH_ID", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "witness_path_id", "field": "witness_failure_path_id", "descriptor": {"type": "PATH_ID", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "witness_failure_path_id", "field": "downstream_gate", "descriptor": {"type": "NONEMPTY_STRING", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "Preserve every V7 transaction, consumer/root identity, P5 receipt, postvalidation ledger, six checks, output prestate, access and denial equation with V8 refs/controls. The four added scalars byte-equal the selected p5_downstream_witness_v8 row. They are expectations only: this observation contains no witness bytes, binding, snapshot or hash and does not attest its own close/readback. all_checks_pass_boolean proves only observation content; external completion remains false until the distinct witness and downstream gate binding exist."}
+        ]
+      },
+      {
+        "source_key": "P5_VALIDATION_RECEIPT_V7", "target_key": "P5_VALIDATION_RECEIPT_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/P5_VALIDATION_RECEIPT_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "P5_VALIDATION_RECEIPT_SCHEMA_V7", "target_schema_id": "P5_VALIDATION_RECEIPT_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "SET_CONDITIONAL_RULE", "value": "Preserve the exact V7 eight-check P5 receipt, prior CHECKPOINT_LEDGER_V8, P4 success disposition, publication/final-bundle bindings/snapshots, all checks/access/denials and nonrecursive hash domain. The receipt alone is not external completion, contains no observation or witness binding/hash, and is merely the input to the separately authorized observation then witness sequence."}
+        ]
+      },
+      {
+        "source_key": "PHYSICAL_PROJECTION_RECORD_V7", "target_key": "PHYSICAL_PROJECTION_RECORD_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/PHYSICAL_PROJECTION_RECORD_V7", "classification": "COMPONENT", "source_schema_id": "PHYSICAL_PROJECTION_RECORD_SCHEMA_V7", "target_schema_id": "PHYSICAL_PROJECTION_RECORD_SCHEMA_V8",
+        "operations_in_exact_order": [{"op": "REPLACE_COMPONENT_SCHEMA_ID"}, {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "projection_members_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "PROJECTION_MEMBER_V8", "nullable": false}}, {"op": "SET_CONDITIONAL_RULE", "value": "The record byte-equals the applicable projection_materialization_v8 spec; member order/count and exact instantiated pointers/values determine one canonical physical object, bytes and SHA. No supplied container or hash is accepted."}]
+      },
+      {
+        "source_key": "PROJECTION_MEMBER_V7", "target_key": "PROJECTION_MEMBER_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/PROJECTION_MEMBER_V7", "classification": "COMPONENT", "source_schema_id": "PROJECTION_MEMBER_SCHEMA_V7", "target_schema_id": "PROJECTION_MEMBER_SCHEMA_V8",
+        "operations_in_exact_order": [{"op": "REPLACE_COMPONENT_SCHEMA_ID"}, {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "source_pointer_record", "descriptor": {"type": "OBJECT", "ref": "SOURCE_POINTER_V8", "nullable": false}}, {"op": "SET_CONDITIONAL_RULE", "value": "member_index/key/value and source pointer byte-equal the applicable projection_materialization_v8 row. The pointer resolves the exact source value whose canonical bytes/SHA equal the member value; no alias or unresolved metavalue exists."}]
+      },
+      {
+        "source_key": "ROLE_ASSIGNMENT_FREEZE_V7", "target_key": "ROLE_ASSIGNMENT_FREEZE_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/ROLE_ASSIGNMENT_FREEZE_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "ROLE_ASSIGNMENT_FREEZE_SCHEMA_V7", "target_schema_id": "ROLE_ASSIGNMENT_FREEZE_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "REPLACE_FIELD_CONST", "field": "freeze_id", "required_prior_const": "V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_V7", "value": "V6_BOOTSTRAP_ROLE_ASSIGNMENT_FREEZE_V8"},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v7_pass_audit_binding", "new_field": "v7_fail_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7_audit FAIL_BLOCKING", "nullable": false}},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v7_activation_binding", "new_field": "v8_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v8 bytes/SHA", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v8_binding", "field": "v8_pass_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v8_audit PASS_ZERO_BLOCKING_ZERO_UNRESOLVED", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v8_pass_audit_binding", "field": "v8_activation_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v8_activation ACTIVATED_FOR_STAGE_A_ONLY", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "p5_consumer_access_grants_in_transaction_order", "descriptor": {"type": "ARRAY", "items_ref": "P5_CONSUMER_ACCESS_GRANT_V8", "exact_count": 4, "unique_key": "transaction_id,consumer_role_id", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "p5_consumer_access_grants_in_transaction_order", "field": "stage_a_intent_rebinding_records_in_creation_order", "descriptor": {"type": "ARRAY", "items_ref": "STAGE_A_INTENT_REBINDING_RECORD_V8", "exact_count": 4, "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "stage_a_intent_rebinding_records_in_creation_order", "field": "p5_downstream_witness_access_grants_in_transaction_order", "descriptor": {"type": "ARRAY", "items_ref": "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8", "exact_count": 4, "unique_key": "transaction_id,witness_role_id", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "All 18 assignments, 153 conflict rows, 18 auditor comparisons, 1032 identity comparisons, 36 negative joins and every denial remain exact. V7 FAIL is lineage only; exact V8 PASS/activation precede CREATE_NEW. During ROLE_ASSIGNMENT_FREEZE_V8 instance construction, apply stage_a_intent_rebinding_v8 atomically to the exact four source intent objects, intent-container scalar and ROOT_CONTROLLER lookup before canonicalization; the six source JSON pointers, not a guessed schema-field name, are the sole selectors. The four binding records, transformed objects/lookups and every dependent snapshot/hash byte-equal that transform, with zero stale V6/V7 gate value. Four consumer and four downstream witness grants byte-equal their tables and frozen assignments; Root witness is six-dimension distinct from each observation writer. No new role or scientific authority exists."}
+        ]
+      },
+      {
+        "source_key": "ROOT_ACTIVATION_V7", "target_key": "ROOT_ACTIVATION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/ROOT_ACTIVATION_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "ROOT_ACTIVATION_SCHEMA_V7", "target_schema_id": "ROOT_ACTIVATION_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "REPLACE_FIELD_CONST", "field": "activation_id", "required_prior_const": "V7_ROOT_ACTIVATION_001", "value": "V8_ROOT_ACTIVATION_001"},
+          {"op": "REPLACE_FIELD_CONST", "field": "activated_scope", "required_prior_const": "V7_ROLE_FREEZE_AND_STAGE_A_ONLY", "value": "V8_ROLE_FREEZE_AND_STAGE_A_ONLY"},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v7_pass_audit_binding", "new_field": "v7_fail_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7_audit FAIL_BLOCKING", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v7_fail_audit_binding", "field": "v8_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v8 bytes/SHA", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v8_binding", "field": "v8_pass_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v8_audit PASS_ZERO_BLOCKING_ZERO_UNRESOLVED", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "Every V5/V6/V7 lineage binding remains exact and each predecessor FAIL remains FAIL. v8_binding and v8_pass_audit_binding are exact. Auditor tuple equals V8 audit; Root tuple equals ROLE_ROOT_GOVERNANCE_JUDGE_V4; six comparisons are derived unequal with the frozen delegation proof. Root CREATE_NEW occurs only after V8 PASS and activates only V8_ROLE_FREEZE_AND_STAGE_A_ONLY; no runtime/science/automatic release."}
+        ]
+      },
+      {
+        "source_key": "SCHEMA_BUNDLE_V7", "target_key": "SCHEMA_BUNDLE_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/SCHEMA_BUNDLE_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "SCHEMA_BUNDLE_SCHEMA_V7", "target_schema_id": "SCHEMA_BUNDLE_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_bundle_id", "required_prior_const": "V7_BOOTSTRAP_GOVERNANCE_SCHEMA_BUNDLE_V7", "value": "V8_BOOTSTRAP_GOVERNANCE_SCHEMA_BUNDLE_V8"},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v7_source_binding", "field": "v8_source_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v8 bytes/SHA", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "effective_schema_key_count", "descriptor": {"type": "INTEGER", "const": 95, "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "effective_schema_keys_in_utf8_lexical_order", "descriptor": {"type": "ARRAY", "items": "NONEMPTY_STRING", "exact_values_source": "effective_v8_schema_model.final_effective_schema_keys_in_raw_utf8_order", "exact_count": 95, "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "governance_header_rewrite_rows_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "EFFECTIVE_REFERENCE_REWRITE_ROW_V6", "exact_count": 24, "nullable": false}},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "qualified_dotted_source_rows_in_traversal_order", "new_field": "out_of_band_dotted_source_bindings_in_traversal_order", "descriptor": {"type": "ARRAY", "items_ref": "DOTTED_SOURCE_OUT_OF_BAND_BINDING_V8", "exact_count": 32, "nullable": false}},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "qualified_dotted_source_counts", "new_field": "out_of_band_dotted_source_counts", "descriptor": {"type": "OBJECT", "constraint": "exact 32 total/31 static/1 instance/member-kind/origin counts and dangling zero", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "composite_physical_projection_records_in_path_id_order", "descriptor": {"type": "ARRAY", "items_ref": "PHYSICAL_PROJECTION_RECORD_V8", "exact_count": 2, "unique_key": "physical_path_id", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "All inherited exact V4-V7 source bindings and corrected-base attestations remain; v8_source_binding is exact static:v8. The 95 raw-ordinal keys/unique IDs and canonical registry bytes/SHA are constructed by these twenty-two guarded replacements, nine insertions and structured rewrites before any instance/projection. Exactly 24 header rows, 32 out-of-band source bindings with descriptor_mutation_count=0/dangling=0, inherited literal materializations and the exact two projection_materialization_v8 records are present. Source binding rows are outside registry schema-value bytes; projection pointers consume the frozen registry hash nonrecursively. No stale 86-key/qualified-mutation assertion remains."}
+        ]
+      },
+      {
+        "source_key": "SOURCE_POINTER_V7", "target_key": "SOURCE_POINTER_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/SOURCE_POINTER_V7", "classification": "COMPONENT", "source_schema_id": "SOURCE_POINTER_SCHEMA_V7", "target_schema_id": "SOURCE_POINTER_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "REPLACE_COMPONENT_SCHEMA_ID"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "source_artifact_id", "descriptor": {"type": "STRING", "enum": ["source:v4", "generated:v8_effective_registry"], "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "source_artifact_sha256", "descriptor": {"type": "SHA256", "constraint": "source:v4 equals source_bindings.v4_exact_extract_source_copied_from_v7.sha256; generated:v8_effective_registry equals instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "source:v4 pointers resolve one exact retained V4 value and hash; generated:v8_effective_registry pointers resolve one exact final 95-key value and frozen registry hash. JSON pointer, source canonical bytes/SHA, resolution mode and member value are equality-joined. No source hash is caller supplied and no schema-bundle/projection recursion is permitted."}
+        ]
+      },
+      {
+        "source_key": "TERMINAL_STATE_PREDICATE_EVALUATION_V7", "target_key": "TERMINAL_STATE_PREDICATE_EVALUATION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/TERMINAL_STATE_PREDICATE_EVALUATION_V7", "classification": "COMPONENT", "source_schema_id": "TERMINAL_STATE_PREDICATE_EVALUATION_SCHEMA_V7", "target_schema_id": "TERMINAL_STATE_PREDICATE_EVALUATION_SCHEMA_V8",
+        "operations_in_exact_order": [{"op": "REPLACE_COMPONENT_SCHEMA_ID"}, {"op": "SET_CONDITIONAL_RULE", "value": "state_index selects one generated:v8_terminal_state_registry#/rows_in_state_index_order row; state_key matches and predicate_source_pointer equals 'generated:v8_terminal_state_registry#/rows_in_state_index_order/'+decimal(state_index)+'/effective_ast'. predicate_source_text/hash are canonical JSON/SHA of the exact effective AST. Evidence canonical bytes/hash are derived. Trigger and consumption derive from that row; FROM_EVIDENCE_INCIDENT_TRIGGER equals evidence_projection.incident_trigger_id_or_null. satisfied_boolean is exact AST evaluation. No supplied hash/state/trigger is accepted."}]
+      },
+      {
+        "source_key": "TERMINAL_STATE_RESOLUTION_V7", "target_key": "TERMINAL_STATE_RESOLUTION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/TERMINAL_STATE_RESOLUTION_V7", "classification": "COMPONENT", "source_schema_id": "TERMINAL_STATE_RESOLUTION_SCHEMA_V7", "target_schema_id": "TERMINAL_STATE_RESOLUTION_SCHEMA_V8",
+        "operations_in_exact_order": [{"op": "REPLACE_COMPONENT_SCHEMA_ID"}, {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "evaluations_in_state_order", "descriptor": {"type": "ARRAY", "items_ref": "TERMINAL_STATE_PREDICATE_EVALUATION_V8", "exact_count": 20, "unique_key": "state_index,state_key", "nullable": false}}, {"op": "SET_CONDITIONAL_RULE", "value": "All twenty evaluations use byte-equal evidence projection and terminal_state_predicate_registry_v8 in state order. Exactly one is true; all selected fields equal it. Pre-closeout illegal selects row17 and post-closeout any validated incident selects row19 while preserving the evidence trigger/illegal flag."}]
+      },
+      {
+        "source_key": "TRANSACTION_AUTHORIZATION_V7", "target_key": "TRANSACTION_AUTHORIZATION_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/TRANSACTION_AUTHORIZATION_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "TRANSACTION_AUTHORIZATION_SCHEMA_V7", "target_schema_id": "TRANSACTION_AUTHORIZATION_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "incident_authorization_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact same-transaction INCIDENT_AUTHORIZATION_V8 with all fourteen inherited triggers", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "p5_consumer_access_grant", "descriptor": {"type": "OBJECT", "ref": "P5_CONSUMER_ACCESS_GRANT_V8", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "p5_consumer_access_grant", "field": "p5_downstream_witness_access_grant", "descriptor": {"type": "OBJECT", "ref": "P5_DOWNSTREAM_WITNESS_ACCESS_GRANT_V8", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "Preserve every V7 release/invocation/controller/worker/package/dependency/input/directory/prestate/READY/launcher/process/one-shot/science/hash and three-plan equation, using V8 header/access/checkpoint refs. The corrected source base already has root_access_attestation added exactly once after the V7 p5_consumer field; this program does not add or duplicate it. Worker reads are the stable union with fourteen controls. p5_consumer_access_grant and p5_downstream_witness_access_grant byte-equal their sole same-transaction rows and ROLE_ASSIGNMENT_FREEZE_V8. Witness access is preauthorized before claim and does not depend on external completion."}
+        ]
+      },
+      {
+        "source_key": "V7_AUDIT_RECEIPT_V7", "target_key": "V8_AUDIT_RECEIPT_V8", "base_pointer": "generated:v8_repaired_v7_effective_registry#/V7_AUDIT_RECEIPT_V7", "classification": "ARTIFACT_RECORD", "source_schema_id": "V7_AUDIT_RECEIPT_SCHEMA_V7", "target_schema_id": "V8_AUDIT_RECEIPT_SCHEMA_V8",
+        "operations_in_exact_order": [
+          {"op": "ATOMIC_REPLACE_ARTIFACT_SCHEMA_ID_PAIR"},
+          {"op": "REPLACE_FIELD_CONST", "field": "schema_version", "required_prior_const": "7.0.0", "value": "8.0.0"},
+          {"op": "REPLACE_FIELD_CONST", "field": "audit_id", "required_prior_const": "PROTOCOL_V6_REAUDIT_ADDENDUM_V7_AUDIT_001", "value": "PROTOCOL_V6_REAUDIT_ADDENDUM_V8_AUDIT_001"},
+          {"op": "REPLACE_FIELD_CONST", "field": "auditor_role_id", "required_prior_const": "ROLE_V7_AMENDMENT_AUDITOR", "value": "ROLE_V8_AMENDMENT_AUDITOR"},
+          {"op": "RENAME_AND_REPLACE_FIELD", "old_field": "v7_binding", "new_field": "v8_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v8 audit target", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v4_source_binding", "field": "v5_source_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v5", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v6_fail_audit_binding", "field": "v7_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7", "nullable": false}},
+          {"op": "ADD_FIELD_BEFORE_OR_AFTER", "placement": "AFTER", "anchor": "v7_binding", "field": "v7_fail_audit_binding", "descriptor": {"type": "OBJECT", "ref": "BINDING_V4", "constraint": "exact static:v7_audit FAIL_BLOCKING", "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "checks_in_exact_order", "descriptor": {"type": "ARRAY", "items_ref": "CHECK_RESULT_V4", "exact_count": 12, "nullable": false}},
+          {"op": "REPLACE_FIELD_DESCRIPTOR_INLINE", "field": "access_attestation", "descriptor": {"type": "OBJECT", "ref": "GOVERNANCE_AUDIT_ACCESS_ATTESTATION_V8", "nullable": false}},
+          {"op": "SET_CONDITIONAL_RULE", "value": "PASS requires all twelve prospective_v8_audit_contract checks PASS, exact empty blocking/unresolved arrays and exact V8 auditor access projections. v4_source_binding/v5_source_binding/v6_binding are exact reconstruction sources, v6_fail_audit_binding/v7_binding/v7_fail_audit_binding are immutable lineage and v8_binding is the audit target. No predecessor FAIL is treated as PASS; Root/future roles are not activated by this receipt."}
+        ]
+      }
+    ],
+    "replacement_program_count": 22,
+    "construction_rule": "Deep-copy the corrected 86-key base. Execute the twenty-two programs in target-key raw UTF-8 order, remove each source key and insert its target, insert the nine complete typed_schema_registry_v8 new-key bodies, then execute GLOBAL_STRUCTURED_REFERENCE_REWRITE. Require the displayed 95 keys in raw ordinal order, unique outer schema IDs, artifact outer/inner equality, exact field_order/fields key equality, all refs/items_ref resolvable, all additional_fields=false where declared and no stale replaced-key ref.",
+    "dotted_source_rule": "Do not edit registry descriptors. After registry canonical bytes/SHA are frozen, materialize the exact 32 out-of-band binding rows under dotted_source_binding_v8 and require dangling_source_count=0.",
+    "zero_unresolved_rule": "Zero unknown operation, missing guard, duplicate key/ID, dangling ref/source, stale V7 target ref, placeholder, favorable null, inferred lookup or ambiguous serialization is permitted."
+  },
+  "governance_header_reference_closure_v8": {
+    "owner_rows_in_raw_utf8_schema_key_order": [
+      {"owner_schema_key": "BUNDLE_MANIFEST_V4", "field": "governance_header"},
+      {"owner_schema_key": "CLAIM_HANDOFF_V4", "field": "governance_header"},
+      {"owner_schema_key": "DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "field": "governance_header"},
+      {"owner_schema_key": "FAILURE_RECEIPT_V4", "field": "governance_header"},
+      {"owner_schema_key": "GOVERNANCE_DECISION_V4", "field": "governance_header"},
+      {"owner_schema_key": "INCIDENT_AUTHORIZATION_V8", "field": "governance_header"},
+      {"owner_schema_key": "INCIDENT_CLOSEOUT_V4", "field": "governance_header"},
+      {"owner_schema_key": "INCIDENT_MANIFEST_V4", "field": "governance_header"},
+      {"owner_schema_key": "INCIDENT_RECEIPT_V8", "field": "governance_header"},
+      {"owner_schema_key": "LITERAL_BUNDLE_WRAPPER_V4", "field": "governance_header"},
+      {"owner_schema_key": "LITERAL_FREEZE_V4", "field": "governance_header"},
+      {"owner_schema_key": "P5_EXTERNAL_OBSERVATION_WITNESS_V8", "field": "governance_header"},
+      {"owner_schema_key": "P5_EXTERNAL_VALIDATION_OBSERVATION_V8", "field": "governance_header"},
+      {"owner_schema_key": "P5_VALIDATION_RECEIPT_V8", "field": "governance_header"},
+      {"owner_schema_key": "P5_WITNESS_FAILURE_INCIDENT_V8", "field": "governance_header"},
+      {"owner_schema_key": "PACKAGE_MANIFEST_V4", "field": "governance_header"},
+      {"owner_schema_key": "PUBLICATION_ATTESTATION_V7", "field": "governance_header"},
+      {"owner_schema_key": "RESULT_AUDIT_V4", "field": "governance_header"},
+      {"owner_schema_key": "RUNTIME_DEPENDENCY_MANIFEST_V4", "field": "governance_header"},
+      {"owner_schema_key": "SCHEMA_BUNDLE_V8", "field": "governance_header"},
+      {"owner_schema_key": "SPENT_RECEIPT_V4", "field": "governance_header"},
+      {"owner_schema_key": "STATIC_AUDIT_RECEIPT_V4", "field": "governance_header"},
+      {"owner_schema_key": "SUCCESS_RECEIPT_V4", "field": "governance_header"},
+      {"owner_schema_key": "TRANSACTION_AUTHORIZATION_V8", "field": "governance_header"}
+    ],
+    "owner_count": 24,
+    "construction_rule": "Map the exact 22 V7 rows through effective_v8_schema_model.reference_rewrite_map, append the two new witness artifact owners, raw-ordinal sort once and require byte equality to this array. Each occurrence is exactly OBJECT/ref GOVERNANCE_HEADER_V8/nullable false. No future-effective GOVERNANCE_HEADER_V7/V6/V5/V4 ref remains.",
+    "retained_access_attestation_v4_owner_keys_in_raw_utf8_order": ["DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "FAILURE_RECEIPT_V4", "INCIDENT_CLOSEOUT_V4", "RESULT_AUDIT_V4", "SPENT_RECEIPT_V4", "STATIC_AUDIT_RECEIPT_V4", "SUCCESS_RECEIPT_V4", "V4_AUDIT_RECEIPT_V4"],
+    "retained_access_rule": "All eight ACCESS_ATTESTATION_V4 refs remain byte-for-byte. Future instances of the seven nonhistorical owners stable-union the fourteen V8 controls into their exact read_path_ids and hash-bind the resulting object; historical V4 audit remains untouched. Only prior ACCESS_ATTESTATION_V7 refs rewrite to V8."
+  },
+  "projection_materialization_v8": {
+    "source_hash_lookup": {
+      "source:v4": "exact V4 extract-source binding retained in SCHEMA_BUNDLE_V8 from the bound V7 source-effective bundle",
+      "generated:v8_effective_registry": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256",
+      "nonrecursive_rule": "Canonicalize/hash all 95 final schema values before any schema-bundle instance, projection/member hash or physical binding. Out-of-band dotted-source rows and projection records consume but never contribute to that registry hash."
+    },
+    "source_pointer_template_instantiation_rule": "Copy the six displayed template members in order. At position one require source_artifact_sha256_source exactly once, resolve it through source_hash_lookup, and replace that meta-key in place with source_artifact_sha256 and its 64-uppercase-hex value. Add/remove no other key. The resulting exact order is [source_artifact_id,source_artifact_sha256,json_pointer,resolution_mode,base_schema_pointer_or_null,overlay_pointer_or_null] and validates SOURCE_POINTER_V8.",
+    "source_pointer_conditional_rule": "DIRECT_VALUE uses source:v4, exact V4 extract hash, exact literal-specialization pointer and null optional pointers. EFFECTIVE_REGISTRY_VALUE uses generated:v8_effective_registry, equality-joined enclosing SCHEMA_BUNDLE_V8 registry SHA, json_pointer='/'+logical_schema_key, that key exactly once in the 95-key registry and null optional pointers.",
+    "physical_projection_specs_in_path_order": [
+      {
+        "physical_path_id": "static:literal_audit_schema",
+        "container_id": "LITERAL_AUDIT_SCHEMA_COMPOSITE_V8",
+        "container_kind": "BASE_SCHEMA_WITH_SPECIALIZATIONS",
+        "member_count": 2,
+        "physical_object_field_order": ["schema_body", "specializations"],
+        "members_in_exact_order": [
+          {"member_index": 0, "container_member_key": "schema_body", "logical_schema_key_or_null": "STATIC_AUDIT_RECEIPT_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/STATIC_AUDIT_RECEIPT_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 1, "container_member_key": "specializations/0", "logical_schema_key_or_null": null, "source_pointer_record_template": {"source_artifact_id": "source:v4", "source_artifact_sha256_source": "exact retained V4 extract binding SHA", "json_pointer": "/schema_system/specialization_registry/LITERAL_BUNDLE_STATIC_AUDIT_V4", "resolution_mode": "DIRECT_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}}
+        ],
+        "physical_object_equation": "canonical_json({'schema_body':resolved_member_value[0],'specializations':[resolved_member_value[1]]})"
+      },
+      {
+        "physical_path_id": "static:root_controller_schema",
+        "container_id": "ROOT_CONTROLLER_SCHEMA_SET_V8",
+        "container_kind": "SCHEMA_SET",
+        "member_count": 9,
+        "physical_object_field_order": ["schemas"],
+        "members_in_exact_order": [
+          {"member_index": 0, "container_member_key": "schemas/0", "logical_schema_key_or_null": "DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/DIRECTORY_CREATION_GOVERNANCE_FALLBACK_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 1, "container_member_key": "schemas/1", "logical_schema_key_or_null": "TRANSACTION_AUTHORIZATION_V8", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/TRANSACTION_AUTHORIZATION_V8", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 2, "container_member_key": "schemas/2", "logical_schema_key_or_null": "CLAIM_HANDOFF_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/CLAIM_HANDOFF_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 3, "container_member_key": "schemas/3", "logical_schema_key_or_null": "INCIDENT_AUTHORIZATION_V8", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/INCIDENT_AUTHORIZATION_V8", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 4, "container_member_key": "schemas/4", "logical_schema_key_or_null": "PUBLICATION_ATTESTATION_V7", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/PUBLICATION_ATTESTATION_V7", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 5, "container_member_key": "schemas/5", "logical_schema_key_or_null": "INCIDENT_RECEIPT_V8", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/INCIDENT_RECEIPT_V8", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 6, "container_member_key": "schemas/6", "logical_schema_key_or_null": "INCIDENT_CLOSEOUT_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/INCIDENT_CLOSEOUT_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 7, "container_member_key": "schemas/7", "logical_schema_key_or_null": "INCIDENT_MANIFEST_V4", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/INCIDENT_MANIFEST_V4", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}},
+          {"member_index": 8, "container_member_key": "schemas/8", "logical_schema_key_or_null": "P5_VALIDATION_RECEIPT_V8", "source_pointer_record_template": {"source_artifact_id": "generated:v8_effective_registry", "source_artifact_sha256_source": "instance:SCHEMA_BUNDLE_V8#/effective_schema_registry_sha256", "json_pointer": "/P5_VALIDATION_RECEIPT_V8", "resolution_mode": "EFFECTIVE_REGISTRY_VALUE", "base_schema_pointer_or_null": null, "overlay_pointer_or_null": null}}
+        ],
+        "physical_object_equation": "canonical_json({'schemas':[resolved_member_value[0],resolved_member_value[1],resolved_member_value[2],resolved_member_value[3],resolved_member_value[4],resolved_member_value[5],resolved_member_value[6],resolved_member_value[7],resolved_member_value[8]]})"
+      }
+    ],
+    "projection_count": 2,
+    "literal_member_count": 2,
+    "root_member_count": 9,
+    "member_rule": "Each member index/key/logical key and instantiated six-field pointer byte-equals its spec. Resolved source value canonical bytes/SHA equal the member value. Indices contiguous and member keys unique.",
+    "physical_rule": "Each path/container is unique. Reconstruct exact object from displayed equation, canonicalize once and equality-join whole-file bytes/SHA/path to the physical binding. Per-member hashes never substitute for whole-file equality; no tenth Root member or other path exists."
+  },
+  "writer_and_access_contract_v8": {
+    "governance_writers_in_route_order": [
+      {"path_id": "static:v8", "writer_role_id": "ROLE_V8_AMENDMENT_AUTHOR", "reads_exact": ["static:v7", "static:v7_audit"], "writes_exact": ["static:v8"]},
+      {"path_id": "static:v8_audit", "writer_role_id": "ROLE_V8_AMENDMENT_AUDITOR", "reads_exact": ["static:v4", "static:v5", "static:v6", "static:v6_audit", "static:v7", "static:v7_audit", "static:v8"], "writes_exact": ["static:v8_audit"]},
+      {"path_id": "static:v8_activation", "writer_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "reads_exact": ["static:v7", "static:v7_audit", "static:v8", "static:v8_audit"], "writes_exact": ["static:v8_activation"]},
+      {"path_id": "static:v8_role_assignment_freeze", "writer_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "reads_exact": ["static:v6", "static:v7", "static:v7_audit", "static:v8", "static:v8_audit", "static:v8_activation"], "writes_exact": ["static:v8_role_assignment_freeze"]}
+    ],
+    "p5_observation_writers_in_transaction_order": [
+      {"path_id": "tx:B_DERIVATION:p5_external_validation", "writer_role_id": "ROLE_LOCKFILE_VERIFIER_STATIC_AUDITOR_V4", "sole_new_read_path_id": "tx:B_DERIVATION:p5_validation_receipt"},
+      {"path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation", "writer_role_id": "ROLE_LOCKFILE_RESULT_JUDGE_V4", "sole_new_read_path_id": "tx:B_LOCKFILE_VERIFIER:p5_validation_receipt"},
+      {"path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation", "writer_role_id": "ROLE_FIXTURE_VERIFIER_STATIC_AUDITOR_V4", "sole_new_read_path_id": "tx:D_OFFICIAL_COMPILER:p5_validation_receipt"},
+      {"path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation", "writer_role_id": "ROLE_OFFICIAL_RESULT_JUDGE_V4", "sole_new_read_path_id": "tx:D_FIXTURE_VERIFIER:p5_validation_receipt"}
+    ],
+    "p5_witness_writers_in_transaction_order": [
+      {"transaction_id": "B_DERIVATION", "writer_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "read_path_id": "tx:B_DERIVATION:p5_external_validation", "mutually_exclusive_write_path_ids": ["tx:B_DERIVATION:p5_external_validation_witness", "tx:B_DERIVATION:p5_external_validation_witness_failure"]},
+      {"transaction_id": "B_LOCKFILE_VERIFIER", "writer_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "read_path_id": "tx:B_LOCKFILE_VERIFIER:p5_external_validation", "mutually_exclusive_write_path_ids": ["tx:B_LOCKFILE_VERIFIER:p5_external_validation_witness", "tx:B_LOCKFILE_VERIFIER:p5_external_validation_witness_failure"]},
+      {"transaction_id": "D_OFFICIAL_COMPILER", "writer_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "read_path_id": "tx:D_OFFICIAL_COMPILER:p5_external_validation", "mutually_exclusive_write_path_ids": ["tx:D_OFFICIAL_COMPILER:p5_external_validation_witness", "tx:D_OFFICIAL_COMPILER:p5_external_validation_witness_failure"]},
+      {"transaction_id": "D_FIXTURE_VERIFIER", "writer_role_id": "ROLE_ROOT_GOVERNANCE_JUDGE_V4", "read_path_id": "tx:D_FIXTURE_VERIFIER:p5_external_validation", "mutually_exclusive_write_path_ids": ["tx:D_FIXTURE_VERIFIER:p5_external_validation_witness", "tx:D_FIXTURE_VERIFIER:p5_external_validation_witness_failure"]}
+    ],
+    "unique_writer_rule": "Every displayed path has one exact writer. An observation writer cannot read/write either witness path. Root witness authority exists prospectively in both role freeze and transaction authorization, but for each attempt exactly one terminal witness/failure file may be CREATE_NEW. Neither file is read by its own content writer to establish validity.",
+    "operation_rule": "All V8 governance, observation and witness authors use CREATE_NEW, close and exact-open only where their typed grant permits. No legacy flush, unbounded listing, rename, delete, process start, Candidate, compiler, runtime or science authority is added."
+  },
+  "supersession_and_closure_v8": {
+    "V7A7-AUD-B001": "The sole malformed V7 root_access_attestation REPLACE operation is atomically replaced by guarded ADD after p5_consumer_access_grant before the 86-key base is constructed.",
+    "V7A7-AUD-B002": "Exactly 32 out-of-band rows bind unchanged dotted source-token bytes/offsets/values; registry descriptor mutation count is zero.",
+    "V7A7-AUD-B003": "Four intent objects plus container and ROOT_CONTROLLER lookup are atomically rebound to static:v8_role_assignment_freeze with canonical bytes/snapshots/hashes recomputed.",
+    "V7A7-AUD-B004": "Typed legal/illegal selector, independent illegal proof and row-19 AST preserve illegal evidence through closeout without legal-adjacency dependence.",
+    "V7A7-AUD-B005": "Typed 8/6/7 successful flush prefixes, terminal-rename evidence and quarantine-rename non-success disposition close both temporal gaps.",
+    "V7A7-AUD-B006": "Four preauthorized Root readback witnesses bind distinct writers, exact post-write observations and downstream gate validation with fail-closed terminal failure artifacts.",
+    "no_other_supersession_rule": "No seventh repair, new role, scientific choice, fixture change, count change, runtime execution or evidence authority is authorized."
+  },
+  "prospective_v8_audit_contract": {
+    "auditor_role_id": "ROLE_V8_AMENDMENT_AUDITOR",
+    "required_check_ids_in_exact_order": [
+      "V8-CHK01-INPUT-HASHES-ACCESS-BOUNDARY",
+      "V8-CHK02-CORRECTED-ADD-AND-86-BASE",
+      "V8-CHK03-OUT-OF-BAND-DOTTED-SOURCES",
+      "V8-CHK04-FOUR-INTENTS-SIX-REBINDINGS",
+      "V8-CHK05-ILLEGAL-SPLIT-INCIDENT-CLOSEOUT",
+      "V8-CHK06-TERMINAL-RENAME-PREFIX",
+      "V8-CHK07-QUARANTINE-RENAME-FAILURE",
+      "V8-CHK08-FOUR-DOWNSTREAM-P5-WITNESSES",
+      "V8-CHK09-95-SCHEMA-REF-HEADER-PROJECTION-CLOSURE",
+      "V8-CHK10-IDENTITY-TRANSACTION-TEMPORAL-CLOSURE",
+      "V8-CHK11-PRESERVED-INVARIANTS-DENIALS",
+      "V8-CHK12-STALE-PLACEHOLDER-CONTRADICTION-SCAN"
+    ],
+    "required_checks_in_exact_order": [
+      "Rehash/JSON-validate exact V6 intent source, V7, V7 FAIL audit and V8; attest no other read/list/write/execution and exact auditor access.",
+      "Replace the one exact malformed V7 operation, execute the guarded ADD and reconstruct the unique 86-key source-effective base.",
+      "Traverse final descriptors, require exactly 32 ordered binding rows/31 static/1 instance/all member+origin counts, unchanged descriptor bytes and dangling zero.",
+      "Resolve exact V6 pointers, verify six scalar guards, construct four intent records, recompute every target/container/lookup/snapshot/role-freeze bytes/hash and require no stale gate ID.",
+      "Verify 14 legal rows unchanged, illegal selector independently total, ILLEGAL_SPLIT joins exact, row17 then row19 disjoint and closeout preserves trigger/illegal evidence.",
+      "Verify SUCCESS/FAILURE_NO_QUARANTINE/FAILURE_WITH_QUARANTINE exact plan lengths and 8/6/7 contiguous durable prefixes followed by one typed terminal-rename non-success and no later operation.",
+      "Verify pre-rename quarantine selection, success tuple/plan-index-0 regression and explicit fail/uncertain rename variant with selected-plan NOT_ENTERED, null parent flush and permanent rejection.",
+      "Verify four exact rows/paths/Root witnesses, six-dimension writer distinction, prospective grants, full post-write open/read/close/hash/canonical/schema/header/content evidence, mutual-exclusion/failure route and downstream gate binding without self-cycle.",
+      "Construct 95 raw-ordinal unique keys/IDs, close all refs and 24 headers, instantiate 2/9 projections and exact whole-object bytes/SHA, with nonrecursive registry/source-binding domains.",
+      "Verify preserved 18/153/1032/36 identity and transaction joins, exact checkpoint/state/trigger/consumption selection, access writers and every failure prefix/first-uncertain boundary.",
+      "Regression-check 23 cases, 8/8/10, 50, 1800+900+456=3156, cap3, N0/min3, M1/C0/P0, 37=8/29/0, zero simulations/evidence/automatic release and all Candidate/code/data denials.",
+      "Reject TODO/TBD/FIXME/placeholder, unknown operation, guard mismatch, unresolved ref/source, stale normative V7 replaced-key/header/access/gate, favorable null, inferred access, ambiguous serialization or temporal contradiction."
+    ],
+    "required_check_count": 12,
+    "pass_condition": "All twelve checks PASS with zero blocking and zero unresolved findings on unchanged start/end bytes. Only then may a distinct Root create static:v8_activation and static:v8_role_assignment_freeze.",
+    "output_path_id": "static:v8_audit"
+  },
+  "activation_state": {
+    "current_state": "V8_PROSPECTIVE_AMENDMENT_AWAITING_INDEPENDENT_AUDIT",
+    "v7_audit_state": "FAIL_BLOCKING_IMMUTABLE_LINEAGE",
+    "v8_audit_state": "NOT_YET_CREATED",
+    "v8_activation_state": "NOT_YET_CREATED",
+    "v8_role_assignment_freeze_state": "NOT_YET_CREATED",
+    "stage_a_authorized_boolean": false,
+    "automatic_release_boolean": false
+  },
+  "prohibited_actions": [
+    "No Candidate V6, compiler, CODE, PREFLIGHT, manifest, repository, data, R4 or outcome access during authoring or audit beyond exact bound inputs.",
+    "No Python/compiler/launcher/preflight/model/simulation/science execution.",
+    "No mutation of V7/V7 audit, STATE, any protocol candidate, code, data or result artifact.",
+    "No Stage A before independent V8 PASS, Root activation and exact transformed role freeze.",
+    "No scientific evidence, claim, grade, advancement, human transfer, fixture authority or automatic release from this amendment or its audit."
+  ],
+  "immutability": {
+    "write_mode": "CREATE_NEW_ONCE",
+    "canonical_path_id": "static:v8",
+    "post_authoring_rule": "After final validation and stable-byte independent review, any byte change creates a new version and invalidates the reported hash/audit. V8 itself may never be edited in place after seal.",
+    "hash_domain": "Entire file bytes exactly as written; external SHA-256 receipt. No self-hash field exists."
+  }
+}

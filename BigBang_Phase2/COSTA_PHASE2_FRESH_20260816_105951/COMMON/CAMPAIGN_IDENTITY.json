@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "campaign_name": "COSTA Phase 2 — Eight-Target C1/C2 Control Campaign",
+  "campaign_root": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951",
+  "repository_root": "D:\\Year3_Mao_Projects\\sleep_loop",
+  "created_at": "2026-08-16T10:59:51.6738652-04:00",
+  "fresh_root": true,
+  "prior_campaign_working_directories_reopened": false,
+  "primary_scientific_target": {
+    "mechanistic_level": "M1_FIXED",
+    "control_level": "C1_C2_DEVELOPMENT",
+    "predictive_level": "P0"
+  },
+  "authorized_scope": [
+    "Phase 2A executable assessment of T1 through T8",
+    "intervention-target and mechanistic mapping registries",
+    "single-parameter bidirectional dose-response analysis",
+    "prospectively justified bounded two-parameter response surfaces",
+    "8 by 8 cross-target side-effect matrix",
+    "target-specific C1 assessment",
+    "Phase 2B control-response specificity on certified public/development Night-1 subjects only",
+    "matched non-personalized and wrong-subject comparators",
+    "subject by intervention interaction",
+    "C2-G1 through C2-G10 where estimable",
+    "independent reproduction, adversarial audit, A-F grading, and final M1/C/P0 claim assignment"
+  ],
+  "prohibited_scope": [
+    "M2 assignment",
+    "P1 assignment",
+    "P2 assignment",
+    "Night-2 access",
+    "Sealed Bank access",
+    "protected-derived evidence access",
+    "fresh-final or confirmatory prediction payload access",
+    "clinical control",
+    "treatment efficacy",
+    "real-world stimulation efficacy",
+    "therapeutic recommendations",
+    "relabeling multi-subject control specificity as M2 evidence"
+  ],
+  "governing_documents": [
+    {
+      "title": "Reliable Personalized Digital Twin — Eight Candidate Mechanistic Intervention Targets",
+      "path": "C:\\Users\\YUS190\\.codex\\attachments\\ac0c0389-079b-4503-9119-053a53637ffc\\pasted-text.txt",
+      "sha256": "6FE01574A1DED6E78349C14787397A72A51A058870A3AC9AD7FDD4510F067170",
+      "read_completely": true
+    },
+    {
+      "title": "BIGBANG V4D.1.2 — FINAL EXECUTION PROMPT",
+      "path": "C:\\Users\\YUS190\\.codex\\attachments\\b43e47ec-00b1-4f69-9eb3-285ae6305e17\\pasted-text.txt",
+      "sha256": "1C65D1F2BB61E6D1597B164BAE6B4F1CE493799B9BCF9D165876F12053F26B46",
+      "read_completely": true,
+      "strict_governance_precedence": true
+    }
+  ],
+  "claim_ceiling": "M1 / C2 / P0 / INDEPENDENT_REPRODUCTION",
+  "freeze_status": "FROZEN",
+  "frozen_at": "2026-08-16T11:01:00-04:00",
+  "responsible_role": "Root Orchestrator"
+}

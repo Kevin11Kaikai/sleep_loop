@@ -1,0 +1,338 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "FINAL_INDEPENDENT_COMPUTE_ENVIRONMENT_REAUDIT_V3",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "environment_version": "NEUROLIB_ENV_V3",
+  "audited_at": "2026-08-16T12:16:51.7998276-04:00",
+  "auditor_role": "Independent Compute Budget Auditor",
+  "final_lineage_audit": true,
+  "immutability": {
+    "write_once": true,
+    "supersession_within_environment_lineage_permitted": false,
+    "controls_state_budget_environment_or_prior_receipts_modified_by_auditor": false
+  },
+  "scope": {
+    "authorized_controls_read": [
+      "PREFLIGHT/run_neurolib.ps1",
+      "PREFLIGHT/environment_probe.py",
+      "STATE/ENVIRONMENT_SNAPSHOT.json",
+      "COMMON/COMPUTE_BUDGET.json",
+      "STATE/ENVIRONMENT_LOG.md",
+      "GOVERNANCE/REPAIR_LEDGER.json",
+      "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V2.json"
+    ],
+    "repository_scientific_content_inspected": false,
+    "campaign_scientific_outcomes_viewed": false,
+    "campaign_outcome_code_executed": false,
+    "bounded_unchanged_environment_probe_executed": true,
+    "ephemeral_non_scientific_boundary_artifacts_used": true,
+    "all_ephemeral_boundary_artifacts_removed": true
+  },
+  "input_integrity": {
+    "hash_algorithm": "SHA-256",
+    "canonical_input_set_encoding": "UTF-8 lines in listed order, each relative_path=uppercase_sha256 followed by LF",
+    "canonical_input_set_sha256": "1B920F92D740FB4CADB03AA34075AD287021020FECAC457C2FD307EE0E11AEDB",
+    "all_expected_hashes_match_before_testing": true,
+    "all_expected_hashes_match_after_testing": true,
+    "files": [
+      {
+        "path": "PREFLIGHT/run_neurolib.ps1",
+        "bytes": 4014,
+        "expected_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+        "observed_sha256": "E47B363FFE3724CE7026E9618D5D79A034F28E0DB21C0AED4F3EC4761A734867",
+        "status": "PASS"
+      },
+      {
+        "path": "PREFLIGHT/environment_probe.py",
+        "bytes": 2373,
+        "expected_sha256": "64E225E0B768987BDD994CF24305036EDBF04189387A25552CC65F435B756D01",
+        "observed_sha256": "64E225E0B768987BDD994CF24305036EDBF04189387A25552CC65F435B756D01",
+        "status": "PASS"
+      },
+      {
+        "path": "STATE/ENVIRONMENT_SNAPSHOT.json",
+        "bytes": 5470,
+        "expected_sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+        "observed_sha256": "9ACD57E9876C5FFCA20E7EAD233BE04BA1F90FBA1880ABAE9846114CEE4850D6",
+        "status": "PASS"
+      },
+      {
+        "path": "COMMON/COMPUTE_BUDGET.json",
+        "bytes": 2808,
+        "expected_sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+        "observed_sha256": "4C3C5961F5BE6EB134D7952FE74083C3B18303ABEE740027E8D9EE764F35ACBF",
+        "status": "PASS"
+      },
+      {
+        "path": "STATE/ENVIRONMENT_LOG.md",
+        "bytes": 2740,
+        "expected_sha256": "E886D5DDC28943C08FEDE7A9FD452343CBB375324C970E0AD3883EF9FA8BAD10",
+        "observed_sha256": "E886D5DDC28943C08FEDE7A9FD452343CBB375324C970E0AD3883EF9FA8BAD10",
+        "status": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/REPAIR_LEDGER.json",
+        "bytes": 2684,
+        "expected_sha256": "0E4B7BC3118FA60628AE43D8521C832C5A39FC10D00A6FA8B46811373E9140C5",
+        "observed_sha256": "0E4B7BC3118FA60628AE43D8521C832C5A39FC10D00A6FA8B46811373E9140C5",
+        "status": "PASS"
+      },
+      {
+        "path": "GOVERNANCE/COMPUTE_BUDGET_REAUDIT_V2.json",
+        "bytes": 15142,
+        "expected_sha256": "0F4EF58130471BE9491EA6C88893C98FAC1A9BE65A32433037417D71B201F79D",
+        "observed_sha256": "0F4EF58130471BE9491EA6C88893C98FAC1A9BE65A32433037417D71B201F79D",
+        "read_only": true,
+        "status": "PASS"
+      }
+    ],
+    "status": "PASS"
+  },
+  "repair_lineage": {
+    "repair_id": "ENV-001",
+    "repair_class": "OUTCOME_BLIND_ENVIRONMENT_AND_COMPUTE_CONTROL_REPAIR",
+    "bounded_cycles_consumed": 2,
+    "maximum_bounded_cycles": 2,
+    "further_repairs_permitted_in_lineage": false,
+    "scientific_definition_changed": false,
+    "environment_packages_changed": false,
+    "scientific_outcomes_visible": false,
+    "v2_failed_receipt_sha256_reverified": true,
+    "status": "PASS_LINEAGE_CLOSED"
+  },
+  "exact_frozen_command_test": {
+    "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\run_neurolib.ps1 -ScriptPath D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\environment_probe.py -RequestedConcurrentProcesses 1",
+    "exit_code": 0,
+    "absolute_windows_powershell_path_used": true,
+    "no_profile": true,
+    "non_interactive": true,
+    "execution_policy_bypass_scope": "child process only",
+    "persistent_execution_policy_after_test": {
+      "MachinePolicy": "Undefined",
+      "UserPolicy": "Undefined",
+      "Process": "Undefined",
+      "CurrentUser": "Undefined",
+      "LocalMachine": "Undefined"
+    },
+    "machine_or_user_policy_changed": false,
+    "status": "PASS"
+  },
+  "environment_and_smoke_identity": {
+    "conda_default_env": "neurolib",
+    "sys_executable": "C:\\Users\\YUS190\\AppData\\Local\\anaconda3\\envs\\neurolib\\python.exe",
+    "python_version": "3.10.20",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "observed_packages": {
+      "neurolib": "0.6.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.2",
+      "pandas": "2.3.3",
+      "matplotlib": "3.10.8",
+      "mne": "1.9.0",
+      "h5py": "3.15.1",
+      "numba": "0.64.0",
+      "joblib": "1.5.3",
+      "scikit_learn": "1.7.2",
+      "statsmodels": "0.14.6",
+      "psutil": "7.2.2",
+      "PyYAML": "6.0.3",
+      "brainmass": "NOT_INSTALLED",
+      "jax": "NOT_INSTALLED"
+    },
+    "all_packages_match_frozen_snapshot": true,
+    "all_packages_match_v1_and_v2": true,
+    "environment_probe_hash_unchanged": true,
+    "package_installations_performed": false,
+    "scientific_definition_change_detected_within_authorized_controls": false,
+    "scientific_controls_outside_authorized_scope_inspected": false,
+    "smoke_test": {
+      "model": "neurolib.models.wc.WCModel",
+      "duration_ms": 20.0,
+      "output_shape": [
+        1,
+        200
+      ],
+      "finite": true,
+      "status": "PASS"
+    },
+    "status": "PASS"
+  },
+  "thread_contract": {
+    "expected": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "4",
+      "NUMEXPR_NUM_THREADS": "4"
+    },
+    "observed_in_exact_command_child": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "4",
+      "NUMEXPR_NUM_THREADS": "4"
+    },
+    "launcher_sets_and_asserts_each_value_before_child_execution": true,
+    "maximum_configured_processes": 3,
+    "threads_per_process": 4,
+    "maximum_configured_logical_threads": 12,
+    "logical_processors_available": 20,
+    "oversubscription_headroom_logical_threads": 8,
+    "status": "PASS"
+  },
+  "memory_inventory_and_dynamic_admission": {
+    "snapshot": {
+      "total_physical_memory_bytes": 34055770112,
+      "available_physical_memory_bytes": 10326532096,
+      "observed_at": "2026-08-16T12:11:13.9290393-04:00",
+      "captured_admitted_processes": 1
+    },
+    "independent_observation": {
+      "total_physical_memory_bytes": 34055770112,
+      "available_physical_memory_bytes": 10115948544,
+      "observed_at": "2026-08-16T12:13:54.8907307-04:00",
+      "current_admitted_processes": 1
+    },
+    "thresholds_bytes": {
+      "one_process": 6442450944,
+      "two_processes": 10737418240,
+      "three_processes": 17179869184,
+      "stop_new_launches_below": 6442450944,
+      "per_process_rss_soft_cap": 5368709120
+    },
+    "admission_tests": [
+      {
+        "requested_processes": 1,
+        "result": "ADMITTED",
+        "child_probe_executed": true,
+        "exit_code": 0
+      },
+      {
+        "requested_processes": 2,
+        "required_available_bytes": 10737418240,
+        "observed_available_bytes_by_launcher": 10162118656,
+        "result": "REJECTED_BEFORE_CHILD_EXECUTION",
+        "exit_code": 1
+      },
+      {
+        "requested_processes": 3,
+        "required_available_bytes": 17179869184,
+        "observed_available_bytes_by_launcher": 10109542400,
+        "result": "REJECTED_BEFORE_CHILD_EXECUTION",
+        "exit_code": 1
+      }
+    ],
+    "total_and_available_memory_separately_labeled": true,
+    "total_memory_matches_independent_observation": true,
+    "dynamic_admission_rechecked_per_launch": true,
+    "budget_current_admission_matches_audit": true,
+    "status": "PASS"
+  },
+  "script_path_containment": {
+    "campaign_root": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951",
+    "campaign_root_is_reparse_point": false,
+    "implemented_boundary": "canonical campaign root plus directory separator",
+    "leaf_file_required": true,
+    "python_extension_required": true,
+    "ancestry_reparse_scan_to_campaign_root_required": true,
+    "positive_in_root_test": {
+      "path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\environment_probe.py",
+      "result": "ACCEPTED",
+      "exit_code": 0
+    },
+    "prefix_collision_test": {
+      "path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951_PREFIX_COLLISION_AUDIT_9F87.py",
+      "path_existed_as_non_scientific_dummy_during_test": true,
+      "result": "REJECTED_BEFORE_CHILD_EXECUTION",
+      "observed_error": "Scientific scripts must be current-campaign artifacts",
+      "dummy_execution_marker_observed": false,
+      "exit_code": 1
+    },
+    "reparse_point_test": {
+      "lexical_path": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\_AUDIT_REPARSE_9F87\\probe.py",
+      "reparse_component": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_PHASE2_FRESH_20260816_105951\\PREFLIGHT\\_AUDIT_REPARSE_9F87",
+      "outside_target": "D:\\Year3_Mao_Projects\\sleep_loop\\BigBang_Phase2\\COSTA_REPARSE_TARGET_AUDIT_9F87\\probe.py",
+      "reparse_type": "Junction",
+      "result": "REJECTED_BEFORE_CHILD_EXECUTION",
+      "observed_error": "Reparse points are prohibited in official scientific script paths",
+      "dummy_execution_marker_observed": false,
+      "exit_code": 1
+    },
+    "synthetic_cleanup": {
+      "prefix_collision_file_absent_after_test": true,
+      "junction_absent_after_test": true,
+      "outside_target_directory_absent_after_test": true
+    },
+    "status": "PASS"
+  },
+  "budget_arithmetic_reserves_and_feasibility": {
+    "total_cpu_hours": 180,
+    "stage_cpu_hours": {
+      "governance_environment_and_data_audit": 10,
+      "data_free_and_synthetic_preflight": 10,
+      "phase2a_worker_execution": 60,
+      "phase2b_worker_execution_if_eligible": 35,
+      "independent_verification_reserve": 50,
+      "outcome_blind_repair_reserve": 10,
+      "adversarial_final_judgment_and_packaging": 5
+    },
+    "stage_sum_cpu_hours": 180,
+    "stage_sum_matches_total": true,
+    "verification_reserve_cpu_hours": 50,
+    "verification_reserve_fraction_recomputed": 0.2777777777777778,
+    "verification_reserve_minimum_fraction": 0.25,
+    "verification_reserve_protected_from_worker_use": true,
+    "repair_reserve_cpu_hours": 10,
+    "repair_maximum_cycles": 2,
+    "repair_cycles_consumed": 2,
+    "repair_maximum_wall_clock_hours_per_lineage": 2,
+    "repair_maximum_fraction_of_lineage_budget": 0.1,
+    "outcome_guided_repairs_permitted": false,
+    "gpu_budget_hours": 4,
+    "gpu_hours_required_for_valid_completion": 0,
+    "storage_limit_gib": 50,
+    "storage_stop_threshold_gib": 45,
+    "wall_clock_deadline": "2026-08-18T23:59:59-04:00",
+    "remaining_window_hours_at_audit": 59.71866671455555,
+    "current_admitted_processes": 1,
+    "threads_per_process": 4,
+    "cpu_budget_wall_hours_at_current_admission": 45.0,
+    "theoretical_remaining_cpu_capacity_hours": 238.8746668582222,
+    "nominal_wall_clock_feasibility": "PASS",
+    "storage_feasibility": "PASS",
+    "checkpoint_stop_and_degradation_rules_unchanged": true,
+    "numeric_allocations_unchanged_from_v1_and_v2": true,
+    "status": "PASS"
+  },
+  "governance_rule_checks": {
+    "all_supplied_hashes": "PASS",
+    "v2_failed_receipt_integrity": "PASS",
+    "repair_ledger_cycle_accounting": "PASS_CLOSED_AT_TWO_OF_TWO",
+    "exact_frozen_command_executable": "PASS",
+    "process_scoped_policy_isolation": "PASS",
+    "environment_identity": "PASS",
+    "package_consistency": "PASS",
+    "unchanged_environment_probe_and_scientific_definition": "PASS",
+    "bounded_smoke_test": "PASS",
+    "all_four_thread_assertions": "PASS",
+    "thread_oversubscription_protection": "PASS",
+    "total_available_ram_separation": "PASS",
+    "dynamic_memory_admission": "PASS_AT_ONE_PROCESS",
+    "separator_bounded_prefix_collision_rejection": "PASS",
+    "reparse_point_rejection": "PASS",
+    "stage_sum": "PASS",
+    "verification_reserve_at_least_25_percent": "PASS",
+    "repair_reserve_limits": "PASS_FINAL_CYCLE_CONSUMED",
+    "budget_stop_checkpoint_and_degradation_rules": "PASS",
+    "wall_clock_and_storage_feasibility": "PASS",
+    "material_defect_remaining": "NONE_DETECTED"
+  },
+  "blocking_findings": [],
+  "nonblocking_operational_constraints": [
+    "Every official scientific child process must be launched only through the exact frozen V3 command pattern and hash-matched V3 launcher.",
+    "Dynamic memory admission is authoritative at launch time; current evidence admits one concurrent process and rejects two or three.",
+    "No repair cycle remains in ENV-001. Any future material defect requires fail-closed termination of this environment lineage rather than another in-lineage repair.",
+    "This receipt approves only the frozen compute/environment controls; it does not expand scientific scope, claim level, or access permissions."
+  ],
+  "overall_status": "PASS",
+  "authorization_effect": "NEUROLIB_ENV_V3_COMPUTE_AND_ENVIRONMENT_PREFLIGHT_APPROVED",
+  "final_determination": "NEUROLIB_ENV_V3 passes the final independent compute/environment re-audit. The exact frozen command is executable, preserves process-scoped policy isolation, reproduces the frozen environment/packages/smoke identity, and enforces all four thread variables. Dynamic memory admission, separator-bounded prefix rejection, and live reparse-point rejection operate as declared. Budget arithmetic, reserves, stop/checkpoint/degradation rules, and nominal wall-clock/storage feasibility remain valid. No material defect remains within the authorized controls, all synthetic test artifacts were removed, and the two-cycle repair lineage is closed."
+}

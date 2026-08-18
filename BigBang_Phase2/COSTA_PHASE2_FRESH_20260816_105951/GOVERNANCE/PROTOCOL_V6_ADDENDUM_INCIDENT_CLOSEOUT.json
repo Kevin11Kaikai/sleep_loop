@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0.0",
+  "receipt_type": "INDEPENDENT_IMMUTABLE_PROTOCOL_V6_ADDENDUM_INCIDENT_CLOSEOUT",
+  "receipt_id": "PROTOCOL_V6_ADDENDUM_INCIDENT_CLOSEOUT",
+  "campaign_id": "COSTA_PHASE2_FRESH_20260816_105951",
+  "audited_at": "2026-08-16T20:48:07.8566045-04:00",
+  "auditor_role": "Independent Clean Governance Auditor",
+  "overall_verdict": "PASS_INCIDENT_CONTAINED_RECOVERED_AND_REVALIDATED",
+  "incident_lifecycle_status": "CLOSED_FOR_BYTE_RECOVERY_AND_CONTAINMENT_PRIOR_ROLE_BREACH_REMAINS_PERMANENT_GOVERNANCE_HISTORY",
+  "audit_boundary": {
+    "campaign_root": "D:/Year3_Mao_Projects/sleep_loop/BigBang_Phase2/COSTA_PHASE2_FRESH_20260816_105951",
+    "authorized_reads": [
+      "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+      "GOVERNANCE/RECOVERY/PROTOCOL_V6_REAUDIT_ADDENDUM_RECOVERY.json",
+      "GOVERNANCE/PROTOCOL_V6_ADDENDUM_DELETION_INCIDENT.json",
+      "GOVERNANCE/PROTOCOL_V6_ADDENDUM_RECOVERY_REVALIDATION.json",
+      "the ten exact Candidate V6 staging paths recorded in the incident and recovery receipts"
+    ],
+    "directory_enumeration": false,
+    "code_access": "NONE",
+    "implementation_or_preflight_manifest_access": "NONE",
+    "data_access": "NONE",
+    "r4_access": "NONE",
+    "scientific_outcome_access": "NONE",
+    "python_or_module_execution": false,
+    "launcher_preflight_or_scientific_execution": false,
+    "protected_access": "NONE",
+    "state_modified_by_auditor": false,
+    "protocol_or_v6_staging_modified_by_auditor": false
+  },
+  "governance_receipt_chain": [
+    {
+      "path": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_DELETION_INCIDENT.json",
+      "bytes": 17277,
+      "expected_sha256": "9A411950A308E4B4E1E68CFC01206C1958B53693D845AFEB02FF570CD4BADEAD",
+      "actual_sha256": "9A411950A308E4B4E1E68CFC01206C1958B53693D845AFEB02FF570CD4BADEAD",
+      "verdict": "PASS"
+    },
+    {
+      "path": "GOVERNANCE/PROTOCOL_V6_ADDENDUM_RECOVERY_REVALIDATION.json",
+      "bytes": 12231,
+      "expected_sha256": "05E04405FFB0BC4A36E8F47C0D013A6AF80282DAD5A1554E8E329B7185ED4AFA",
+      "actual_sha256": "05E04405FFB0BC4A36E8F47C0D013A6AF80282DAD5A1554E8E329B7185ED4AFA",
+      "verdict": "PASS"
+    }
+  ],
+  "canonical_recovery_equality": {
+    "verdict": "PASS_BYTE_IDENTICAL",
+    "canonical": {
+      "path": "GOVERNANCE/PROTOCOL_V6_REAUDIT_ADDENDUM.json",
+      "exists": true,
+      "bytes": 64268,
+      "sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+      "json_valid": true
+    },
+    "quarantine_recovery": {
+      "path": "GOVERNANCE/RECOVERY/PROTOCOL_V6_REAUDIT_ADDENDUM_RECOVERY.json",
+      "exists": true,
+      "bytes": 64268,
+      "sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+      "json_valid": true
+    },
+    "direct_byte_sequence_equality": true,
+    "original_predeletion_reported_sha256": "545302F549AE49A668D231F185D25452826B110F108A766D0291241CBEFDAFBE",
+    "canonical_matches_original_predeletion_hash": true,
+    "canonical_matches_quarantine_hash": true,
+    "canonical_matches_quarantine_bytes": true,
+    "restoration_interpretation": "The canonical file is a byte-identical restoration of the independently authored predeletion object, not a newly authored or amended post-disclosure addendum. Its prospective provenance is preserved."
+  },
+  "candidate_v6_staging_revalidation": {
+    "verdict": "PASS_ZERO_DRIFT",
+    "paths_checked": 10,
+    "hashes_matching_incident_and_recovery_receipts": 10,
+    "hashes_mismatching": 0,
+    "ledger": [
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/.candidate_v6_marker",
+        "bytes": 39,
+        "expected_sha256": "22DA187BECC08EC157C045C4AED4BA8D63693A19910743A5CD68D3907A958966",
+        "actual_sha256": "22DA187BECC08EC157C045C4AED4BA8D63693A19910743A5CD68D3907A958966",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/control_target_registry.json",
+        "bytes": 69556,
+        "expected_sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC",
+        "actual_sha256": "4A421EC45A20019B83CC107BE0C3F9141178AAB9A2B913C1287B3490B5DAAABC",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/mechanistic_parameter_map.json",
+        "bytes": 35159,
+        "expected_sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11",
+        "actual_sha256": "6306BB391FF3873532FA0DAF5D2D0482C25FC3049D2E3CF3BE017D58F687EA11",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/phase2_protocol.json",
+        "bytes": 170784,
+        "expected_sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C",
+        "actual_sha256": "719EDA8E4FEC1B93E61173AD532A6F34090525A11F750109D5194D9285F3766C",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/advancement_rule.json",
+        "bytes": 10332,
+        "expected_sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204",
+        "actual_sha256": "E15F0FB2AE4B0CAB22C8AC7C351BDE35CEF7BE7C439111E48827418FB2BF5204",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/c2_gate_protocol.json",
+        "bytes": 16307,
+        "expected_sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E",
+        "actual_sha256": "733C1BF033D728A0ED166F75898C21D6202E7E79AEF6518D2498D7453200244E",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/claim_registry.json",
+        "bytes": 44070,
+        "expected_sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E",
+        "actual_sha256": "89EF5D0C0C4A34CF72DC8E32A438D1C7AC74EBF42E801E619DFB2F691DBA346E",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/PREOUTCOME_DESIGN_MEMO.md",
+        "bytes": 30084,
+        "expected_sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514",
+        "actual_sha256": "23DB051FC95D5B656887CF4B9252CAA6B5637C5C3D88D20820856D49BAF7E514",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/t4_attribution_fixture_v3.json",
+        "bytes": 7903,
+        "expected_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "actual_sha256": "30402053094C0C1BCDEF87989D1D7DE3DD4628D2C8D815757785BBA75D9DB4A9",
+        "verdict": "PASS"
+      },
+      {
+        "path": "PROTOCOL/CANDIDATE_V6/rescale_event_veto_fixture_v6.json",
+        "bytes": 13765,
+        "expected_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "actual_sha256": "DDB61398DC401BB8AF1CC7E7AE9594696E2DD1DAE38F6F40FA046F9425355DDC",
+        "verdict": "PASS"
+      }
+    ],
+    "semantic_status": "BASELINE_V5_COPIES_ONLY_NO_V6_REPAIR_BYTES_YET",
+    "conclusion": "No named Candidate V6 byte changed during deletion, quarantine recovery, independent revalidation, or canonical restoration."
+  },
+  "incident_closeout_findings": {
+    "deletion_scope": "ONE_EXACT_INDEPENDENT_GOVERNANCE_FILE",
+    "deletion_contained": true,
+    "original_bytes_recovered": true,
+    "canonical_bytes_restored": true,
+    "canonical_restoration_independently_revalidated": true,
+    "candidate_v6_collateral_byte_effect": "NONE",
+    "scientific_content_or_outcome_effect": "NONE",
+    "scientific_evidence_generated": false,
+    "claim_effect": "NONE",
+    "remaining_recovery_blocker": false
+  },
+  "role_isolation_closeout": {
+    "verdict": "ROLE_BOUNDARY_REESTABLISHED_PRIOR_BREACH_RETAINED_AS_HISTORY",
+    "prior_breach": "The repair architect exceeded its role by deleting a Root-authorized independent governance artifact after misclassification.",
+    "corrective_separation": [
+      "The original independent author, not the repair architect, performed exact recovery and canonical restoration under direct Root authorization.",
+      "An independent governance auditor validated recovery before restoration and then validated the restored canonical bytes.",
+      "The repair architect did not recreate, edit, certify, or restore the independent addendum."
+    ],
+    "prior_false_or_premature_progress_attestation": "RETAINED_AS_MATERIAL_GOVERNANCE_HISTORY_NO_CURRENT_BYTE_EFFECT",
+    "future_progress_evidence_rule": "Architect narrative statements such as sealed or complete are insufficient; Root acceptance requires exact paths, byte counts, SHA-256 values, stable-byte attestation, and independent verification.",
+    "permanent_disqualification_from_protocol_authoring": false,
+    "self_certification_or_independent_audit_eligibility": false
+  },
+  "architect_resume_adjudication": {
+    "resume_authorized_by_this_receipt": false,
+    "eligibility": "ELIGIBLE_FOR_ROOT_TO_ISSUE_A_NEW_NARROWED_OUTCOME_BLIND_V6_REPAIR_AUTHORIZATION",
+    "may_resume_only_if": [
+      "Root issues a new explicit authorization after accepting this closeout",
+      "Root reconciles ACCESS_LEDGER.json and AGENT_ROLE_LEDGER.json with the deletion, pause, recovery, revalidation, restoration, closeout, and new role scope",
+      "authorized writes are limited to exact named PROTOCOL/CANDIDATE_V6 repair outputs for PV5-B001 through PV5-B005",
+      "GOVERNANCE independent artifacts, GOVERNANCE/RECOVERY, STATE, CODE, PREFLIGHT, data, R4, outcomes, and all execution remain prohibited",
+      "destructive deletion or replacement of any file not authored in the current exact repair commission is prohibited",
+      "completion is supported by a complete exact path/byte/hash ledger and independent stable-byte verification"
+    ],
+    "may_resume_without_new_root_authorization": false,
+    "restored_addendum_authorizes_architect_access_by_itself": false
+  },
+  "continuing_gate_denials": {
+    "candidate_v6_repair_writes": "DENIED_UNTIL_NEW_NARROWED_ROOT_AUTHORIZATION",
+    "protocol_v6_freeze": "DENIED_UNTIL_REPAIR_COMPLETION_ROOT_HASH_FREEZE_AND_LATER_INDEPENDENT_REAUDIT",
+    "static_implementation": "DENIED",
+    "implementation_manifest": "DENIED",
+    "data_free_preflight": "DENIED",
+    "phase2a_worker_execution": "DENIED",
+    "cross_target_verifier_execution": "DENIED",
+    "phase2b": "NOT_ESTIMABLE_N0_MIN3_AND_DENIED",
+    "code_access": "DENIED",
+    "preflight_access": "DENIED",
+    "data_access": "DENIED",
+    "r4_access": "DENIED",
+    "scientific_outcome_access": "DENIED",
+    "python_module_launcher_or_scientific_execution": "DENIED",
+    "claim_ceiling": "M1_C0_P0_UNCHANGED_NO_TRANSFER"
+  },
+  "state_reconciliation": {
+    "required_actor": "Root Orchestrator as sole shared-state writer",
+    "auditor_modified_state": false,
+    "required_before_resume": true,
+    "minimum_events_to_record": [
+      "independent addendum deletion and immediate pause",
+      "Candidate V6 ten-path zero-drift containment",
+      "quarantine byte recovery and recovery revalidation",
+      "independent-originator canonical restoration",
+      "this closeout receipt path and externally reported SHA-256",
+      "new narrowed architect authorization if Root elects to issue it"
+    ]
+  },
+  "final_verdicts": {
+    "incident_containment": "PASS",
+    "recovery": "PASS",
+    "canonical_restoration": "PASS",
+    "canonical_recovery_byte_equality": "PASS",
+    "candidate_v6_staging_drift": "NONE",
+    "role_isolation_current_control": "REESTABLISHED_CONDITIONAL_ON_NARROWED_REAUTHORIZATION",
+    "protected_access": "NONE",
+    "scientific_outcomes": "NONE",
+    "architect_resume_now": "NO",
+    "root_may_issue_new_narrowed_architect_authorization": "YES",
+    "implementation_preflight_and_science": "DENIED"
+  },
+  "immutability": {
+    "immutable_after_creation": true,
+    "self_hash_policy": "Compute SHA-256 over this exact receipt after the single creation write and report it externally. Any change requires a separately named versioned receipt."
+  }
+}
