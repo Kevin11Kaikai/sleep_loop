@@ -1,0 +1,32 @@
+{
+  "terminal_state": "RELIABLE_AND_CONTROLLABLE_DIGITAL_TWIN_MVP",
+  "C1_path": "T2_PRIMARY_V1",
+  "C1_CONTROLLABILITY_MVP_PASS_T2_PRIMARY": true,
+  "reliable_frozen_C006_integrity": true,
+  "controller_integrity": "PASS_6_OF_6",
+  "intermediate_confirmation": {
+    "status": "PASS",
+    "median_dT2": 0.0019128643796670255,
+    "positive_seeds": 3,
+    "I_SO": "SUPPORTIVE"
+  },
+  "long_duration_confirmation": {
+    "status": "PASS",
+    "median_dT2": 0.0017843992488324465,
+    "positive_seeds": 3,
+    "I_SO": "SUPPORTIVE"
+  },
+  "measurement_suitability": "T2_PRIMARY_SUITABLE_AND_CONFIRMED",
+  "I_SO_V2_opened": false,
+  "secondary_tradeoffs": {
+    "I_SP": "negative 3/3 at both durations",
+    "T6": "mixed across seeds with slightly negative median at both durations",
+    "P_C_GIVEN_SP": "positive 2/3 at both durations with positive median; remains conditional-event diagnostic"
+  },
+  "claim": "bounded in-silico reliable and controllable mechanistic digital twin MVP",
+  "claim_exclusions": [
+    "clinical efficacy",
+    "patient benefit",
+    "validated therapeutic control"
+  ]
+}

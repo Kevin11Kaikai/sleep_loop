@@ -1,0 +1,28 @@
+{
+  "protocol_id": "C1_PRIMARY_TARGET_V1_T2",
+  "version": 1,
+  "status": "PROSPECTIVELY_FROZEN_BEFORE_NEW_CONFIRMATION_DATA",
+  "frozen_at": "2026-08-20T20:40:34-04:00",
+  "primary_target": "T2",
+  "primary_effect": "paired relative dT2 = (ACTIVE_T2-SHAM_T2)/abs(SHAM_T2)",
+  "desired_direction": "dT2 > 0",
+  "supporting_corroboration": "I_SO",
+  "mandatory_secondary_diagnostics": ["N_SO_MIN", "I_SP", "N_SP_MIN", "P_SO", "T6", "P_C_GIVEN_SP", "T1", "T3", "T4", "T5", "T7", "T8"],
+  "matched_baseline": "same seed, duration, initial state, registered drive and observation-noise namespace; controller command identically zero in SHAM",
+  "analysis_window": "exclude first 15 s identically in SHAM and ACTIVE",
+  "fresh_seeds": [101003, 101019, 101033],
+  "intermediate_duration_s": 220,
+  "long_duration_s": 910,
+  "intermediate_gate": "median dT2 > 0 AND positive dT2 seeds >= 2/3 AND controller integrity PASS for all seeds",
+  "long_duration_gate": "median dT2 > 0 AND positive dT2 seeds >= 2/3 AND controller integrity PASS for all seeds",
+  "supporting_I_SO_classification": {
+    "SUPPORTIVE": "median I_SO > 0 and positive I_SO seeds >= 2/3",
+    "CONTRADICTORY": "median I_SO <= 0 and positive I_SO seeds <= 1/3",
+    "MIXED": "all other patterns"
+  },
+  "veto_gates": ["all trajectories finite", "controller causal", "frozen C006 hashes match", "0 <= u_ctrl <= 0.05", "command duty fraction < 0.10", "registered matched integrity limits pass", "T8 safety proxy pass"],
+  "secondary_rule": "Secondary directions do not veto Minimum C1 unless a frozen numerical, actuator, saturation, integrity, or safety gate fails; all adverse secondary effects remain visible.",
+  "failure_routing": "If intermediate T2 gate fails, perform focused measurement-suitability audit. I_SO-primary V2 is forbidden unless T2_PRIMARY_MEASUREMENT_UNSUITABLE is established for measurement-level reasons.",
+  "anti_target_shopping": "No primary, direction, seed, duration, metric definition, or pass rule may change after this freeze based on fresh outcomes.",
+  "claim_ceiling": "bounded in-silico reliable and controllable mechanistic digital twin MVP"
+}

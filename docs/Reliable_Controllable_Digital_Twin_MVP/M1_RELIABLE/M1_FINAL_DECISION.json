@@ -1,0 +1,39 @@
+{
+  "schema": "COSTA_R4_FINAL_M1_JUDGMENT_V1",
+  "campaign_id": "COSTA_MVP_FRESH_R4_20260816_023933",
+  "judge_role": "/root/costa_campaign_root_r4/r4_adversarial_judge",
+  "judged_at": "2026-08-16T03:43:58.4124667-04:00",
+  "M1_ELIGIBLE": true,
+  "MATERIAL_DISAGREEMENT": false,
+  "mandatory_gates": {
+    "M1-G1": "PASS",
+    "M1-G2": "PASS",
+    "M1-G3": "PASS",
+    "M1-G4": "PASS",
+    "M1-G5": "PASS",
+    "M1-G6": "PASS",
+    "M1-G7": "PASS_INDEPENDENT_REPRODUCTION"
+  },
+  "exact_recommendation": {
+    "M": "M1",
+    "C": "C0",
+    "P": "P0",
+    "evidence": "DISCOVERY_PLUS_INDEPENDENT_REPRODUCTION",
+    "reproduction_tier": "INDEPENDENT_REPRODUCTION"
+  },
+  "COSTA_DISSERTATION_MVP": "PASS",
+  "scope_qualifier": "PASS applies only to the narrow frozen M1/P0/independent-reproduction objective and is not a dissertation-sufficiency judgment.",
+  "protected_access_verdict": "PASS_NONE",
+  "raw_open_budget": "EXHAUSTED_CLOSED",
+  "selected_candidate": "C006",
+  "matched_nonpersonalized_comparator": "C000",
+  "heldout_relative_nrmse_improvement": 0.46559200627853425,
+  "frozen_margin": 0.05,
+  "paired_epoch_bootstrap_ci95": [0.07980018864484562, 0.10146456173015034],
+  "material_findings": [],
+  "nonmaterial_finding_count": 5,
+  "maximum_supported_claim": "Model-internal personalized mechanistic consistency was independently reproduced for a frozen proxy-level one-subject Night-1 discovery analysis.",
+  "C1_status": "NOT_ASSIGNED",
+  "prohibited_escalations": ["M2", "P1", "P2", "C1", "C2", "human causality", "population generalization", "Night-2 prediction", "sealed validation", "clinical validity", "dissertation sufficiency"],
+  "adversarial_input_manifest_sha256": "6BACBED61060CAD07CC2357F29A14EF22C51F0E5A9EB6548A1EBE1258694BAA6"
+}

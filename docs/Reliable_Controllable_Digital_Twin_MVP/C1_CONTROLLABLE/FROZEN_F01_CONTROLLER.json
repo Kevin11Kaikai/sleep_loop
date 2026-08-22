@@ -1,0 +1,21 @@
+{
+  "status": "FROZEN_BEFORE_NEW_CONFIRMATION_DATA",
+  "controller_id": "F01_CAUSAL_BASELINE_CALIBRATED_DEEP_EVENT_GATE",
+  "architecture": "CAUSAL_BASELINE_CALIBRATED_DEEP_EVENT_GATE",
+  "observable": "frozen C006 causal proxy plus registered observation noise",
+  "estimator_trigger": "q0.20 rising trough exit with baseline completed-event depth q0.50 gate",
+  "actuator": "additive cortical u_E",
+  "parameters": {
+    "quantile": 0.20,
+    "direction": "rising",
+    "depth_gate_baseline_quantile": 0.50,
+    "amplitude": 0.045,
+    "width_s": 0.10,
+    "refractory_s": 1.0
+  },
+  "legal_actuator_range": [0.0, 0.05],
+  "source_runner": "BigBang_Phase2/COSTA_QSOLVER_C006_CONTROLLABLE_TWIN_10H_V1_20260819_233635/CODE/run_c006_state_gate.py",
+  "source_champion": "BigBang_Phase2/COSTA_QSOLVER_C1_OBJECTIVE_V2_END2END_20260820_142021/STATE/C1_V2_CHAMPION.json",
+  "historical_integrity": "PASS_3_SEEDS_75S_AND_910S",
+  "confirmation_restriction": "No retuning or controller rescue during V1 confirmation."
+}

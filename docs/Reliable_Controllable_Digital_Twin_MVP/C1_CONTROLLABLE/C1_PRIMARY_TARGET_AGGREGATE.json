@@ -1,0 +1,165 @@
+{
+  "campaign": "COSTA_QSOLVER_C1_HIERARCHICAL_TARGET_20260820_204034",
+  "evidence_role": "PROSPECTIVE_HIERARCHICAL_C1_T2_PRIMARY_CONFIRMATION",
+  "primary_target": "T2",
+  "controller": "F01_CAUSAL_BASELINE_CALIBRATED_DEEP_EVENT_GATE",
+  "fresh_seeds": [
+    101003,
+    101019,
+    101033
+  ],
+  "durations": {
+    "220": {
+      "seedwise": [
+        {
+          "seed": 101003,
+          "dT2": 0.0011127920005638177,
+          "I_SO": 0.0022728082304870065,
+          "dN_SO_MIN": 1.463414634146341,
+          "I_SP": -0.0015189695671589684,
+          "dN_SP_MIN": 1.7560975609756095,
+          "dP_SO": 0.04048780487804876,
+          "dT6": -0.000940714535504988,
+          "dP_C_GIVEN_SP": 0.07542426147077302,
+          "integrity_pass": true,
+          "trigger_count": 80,
+          "duty_fraction": 0.03902439024390244,
+          "runtime_s": 2.839599400293082
+        },
+        {
+          "seed": 101019,
+          "dT2": 0.009166626909481,
+          "I_SO": 0.012099545314504108,
+          "dN_SO_MIN": 0.0,
+          "I_SP": -0.003789831871263543,
+          "dN_SP_MIN": 0.8780487804878057,
+          "dP_SO": 0.002731707317073173,
+          "dT6": 0.028110145487055916,
+          "dP_C_GIVEN_SP": 0.0488372093023256,
+          "integrity_pass": true,
+          "trigger_count": 68,
+          "duty_fraction": 0.033170731707317075,
+          "runtime_s": 2.6225763000547886
+        },
+        {
+          "seed": 101033,
+          "dT2": 0.0019128643796670255,
+          "I_SO": 0.003756367400751715,
+          "dN_SO_MIN": 0.29268292682926855,
+          "I_SP": -0.002293931810782716,
+          "dN_SP_MIN": 0.2926829268292668,
+          "dP_SO": 0.008048780487804857,
+          "dT6": -0.022641271355634544,
+          "dP_C_GIVEN_SP": -0.041666666666666685,
+          "integrity_pass": true,
+          "trigger_count": 42,
+          "duty_fraction": 0.02048780487804878,
+          "runtime_s": 2.625557799823582
+        }
+      ],
+      "medians": {
+        "dT2": 0.0019128643796670255,
+        "I_SO": 0.003756367400751715,
+        "dN_SO_MIN": 0.29268292682926855,
+        "I_SP": -0.002293931810782716,
+        "dN_SP_MIN": 0.8780487804878057,
+        "dP_SO": 0.008048780487804857,
+        "dT6": -0.000940714535504988,
+        "dP_C_GIVEN_SP": 0.0488372093023256
+      },
+      "positive_seed_counts": {
+        "dT2": 3,
+        "I_SO": 3,
+        "dN_SO_MIN": 2,
+        "I_SP": 0,
+        "dN_SP_MIN": 3,
+        "dP_SO": 3,
+        "dT6": 1,
+        "dP_C_GIVEN_SP": 2
+      },
+      "integrity_pass_count": 3,
+      "all_integrity_pass": true,
+      "T2_gate_pass": true,
+      "I_SO_classification": "SUPPORTIVE"
+    },
+    "910": {
+      "seedwise": [
+        {
+          "seed": 101003,
+          "dT2": 0.0005714551439271685,
+          "I_SO": 0.0018236864807705912,
+          "dN_SO_MIN": 0.7374301675977657,
+          "I_SP": -0.0015473981625470337,
+          "dN_SP_MIN": 0.6033519553072626,
+          "dP_SO": 0.019832402234636864,
+          "dT6": -0.0013975114210497326,
+          "dP_C_GIVEN_SP": 0.013259668508287303,
+          "integrity_pass": true,
+          "trigger_count": 344,
+          "duty_fraction": 0.03843575418994413,
+          "runtime_s": 11.153349499683827
+        },
+        {
+          "seed": 101019,
+          "dT2": 0.0067948948987909125,
+          "I_SO": 0.009018337137511783,
+          "dN_SO_MIN": 0.2011173184357542,
+          "I_SP": -0.002889016874756441,
+          "dN_SP_MIN": 0.2011173184357542,
+          "dP_SO": 0.007452513966480445,
+          "dT6": 0.027090155634489525,
+          "dP_C_GIVEN_SP": 0.028939962476547842,
+          "integrity_pass": true,
+          "trigger_count": 301,
+          "duty_fraction": 0.03363128491620112,
+          "runtime_s": 10.907853399869055
+        },
+        {
+          "seed": 101033,
+          "dT2": 0.0017843992488324465,
+          "I_SO": 0.003046250008358169,
+          "dN_SO_MIN": 0.7374301675977657,
+          "I_SP": -0.0008280557197382985,
+          "dN_SP_MIN": 0.1340782122905031,
+          "dP_SO": 0.019117318435754205,
+          "dT6": -0.00938529971260909,
+          "dP_C_GIVEN_SP": -0.05841694537346709,
+          "integrity_pass": true,
+          "trigger_count": 172,
+          "duty_fraction": 0.019217877094972066,
+          "runtime_s": 10.955509200226516
+        }
+      ],
+      "medians": {
+        "dT2": 0.0017843992488324465,
+        "I_SO": 0.003046250008358169,
+        "dN_SO_MIN": 0.7374301675977657,
+        "I_SP": -0.0015473981625470337,
+        "dN_SP_MIN": 0.2011173184357542,
+        "dP_SO": 0.019117318435754205,
+        "dT6": -0.0013975114210497326,
+        "dP_C_GIVEN_SP": 0.013259668508287303
+      },
+      "positive_seed_counts": {
+        "dT2": 3,
+        "I_SO": 3,
+        "dN_SO_MIN": 3,
+        "I_SP": 0,
+        "dN_SP_MIN": 3,
+        "dP_SO": 3,
+        "dT6": 1,
+        "dP_C_GIVEN_SP": 2
+      },
+      "integrity_pass_count": 3,
+      "all_integrity_pass": true,
+      "T2_gate_pass": true,
+      "I_SO_classification": "SUPPORTIVE"
+    }
+  },
+  "protocol_sha256": "34729FE59A4B0E0AD811EE013F3A378A568F798913ADF9C582CD9E49712F3491",
+  "controller_sha256": "64B5C154BB02681650E5B730C5C9FD6F05E2D79EC911512E5400FF317AA71A79",
+  "freeze_hash_consistency_all_six_runs": true,
+  "intermediate_gate_pass": true,
+  "long_duration_gate_pass": true,
+  "C1_CONTROLLABILITY_MVP_PASS_T2_PRIMARY": true
+}
