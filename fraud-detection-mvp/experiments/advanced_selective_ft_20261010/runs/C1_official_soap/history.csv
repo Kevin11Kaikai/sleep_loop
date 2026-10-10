@@ -1,0 +1,2 @@
+epoch,training_loss,validation_ap,validation_recall_1pct,epoch_seconds,training_samples,unique_samples,sampler_order_sha256,optimizer_steps,learning_rate
+1,-0.0008443529520553282,0.5591879662583054,0.2564102564102564,157.51111760002095,531712,413322,de2a6fb65c5fae997adce06102b9ab6a1c63f96f41916f0b37e9e5daaea3ccb7,4154,1e-05

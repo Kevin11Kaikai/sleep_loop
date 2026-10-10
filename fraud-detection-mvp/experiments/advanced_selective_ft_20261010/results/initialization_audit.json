@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "shared_tensors": 61,
+  "matched_compression_shared_weights": true,
+  "iai_qkv_scale": 0.1,
+  "iai_bias_zero": true,
+  "other_iai_tensors_identical": true,
+  "token_order_sha256": "aa7597f34288a8d63407c198ee3e87deb5c4b19fefccc08bade8aab1b789709e"
+}

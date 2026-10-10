@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "attention_equivalence": [
+    {
+      "compression": null,
+      "maximum_forward_error": 8.940696716308594e-08
+    },
+    {
+      "compression": 0.25,
+      "maximum_forward_error": 0.0
+    }
+  ],
+  "spa_direction_cls_last_query": true,
+  "finite_dropout_gradients": true,
+  "metric_equivalence": true,
+  "deterministic_replay": true
+}

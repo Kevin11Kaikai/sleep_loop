@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-10-10T20:17:38.319170+00:00",
+  "metric_recomputation": "self-check, not independent validation",
+  "models": [
+    "LightGBM",
+    "Original FT",
+    "C0_continue_bce",
+    "C1_official_soap",
+    "E1_complete_temporal_loss",
+    "E2_complete_uniform",
+    "M0_compressed",
+    "M1_full",
+    "M2_full_spa",
+    "M3_full_iai",
+    "M4_full_spa_iai"
+  ],
+  "baseline": {
+    "status": "PASS",
+    "file_count": 64,
+    "manifest_sha256": "1c6a2ed95ac3b7b88509ac71692d68417172896c1b117b7d60c44fe9da479b00",
+    "source_data_sha256": "3a5c83ab6b3cc13dcabe5ffa9f522307fd5f7f7b6e6f6a60c32284ca6283d642"
+  }
+}

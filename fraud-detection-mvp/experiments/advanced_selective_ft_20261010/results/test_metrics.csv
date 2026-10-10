@@ -1,0 +1,3 @@
+model,evaluation,roc_auc,average_precision,recall_top_1pct,precision_top_1pct,recall_top_5pct,brier_score,captured_top_1pct,captured_top_5pct,n_rows,n_fraud,top_1pct_count
+C0_continue_bce,exploratory previously viewed test,0.824756441941456,0.4518457393824728,0.2319169639961077,0.8069977426636569,0.544923775543302,0.0532748126832054,715,1680,88581,3083,886
+LightGBM,exploratory previously viewed test,0.8912698672782136,0.5307838584795882,0.2513785274083684,0.8747178329571106,0.5806033084657801,0.022836200217145,775,1790,88581,3083,886
