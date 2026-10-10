@@ -1,0 +1,3 @@
+model,trial_id,evaluation_split,roc_auc,average_precision,recall_top_1pct,precision_top_1pct,recall_top_5pct,brier_score,captured_top_1pct,captured_top_5pct,n_rows,n_fraud,top_1pct_count,selected_training_seconds,peak_gpu_allocated_mib
+LightGBM matched,lgb_rich_all_stronger,validation_only,0.9254850045177804,0.6338591015757505,0.2705456936226167,0.9288939051918735,0.6650230111768574,0.019142941489050994,823,2023,88581,3042,886,172.36654389998876,NA_CPU
+FT-Transformer single,ft_023,validation_only,0.8897857042482031,0.578390593063534,0.26101249178172253,0.8961625282167043,0.6347797501643655,0.025095125545474006,794,1931,88581,3042,886,1519.0047497000778,2078.50048828125

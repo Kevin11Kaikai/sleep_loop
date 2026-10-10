@@ -1,0 +1,328 @@
+{
+  "snapshot_utc": "2026-10-10T12:10:44.633536+00:00",
+  "files": [
+    {
+      "path": "fraud-detection-mvp/.gitignore",
+      "size": 265,
+      "sha256": "53b5229f308730fbff04648db111a3216652f5284e4061b6444b217efeeabf63",
+      "git_blob_sha": "53a3a5bddea5ddb653e59286ccda9920481435e5",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/configs/feature_list.md",
+      "size": 1772,
+      "sha256": "8f73b1227736026903afada70895beec65b951165216bf2f2f958b2307c0e366",
+      "git_blob_sha": "000a0251e507519a6d6238b9cba4c865ffc33f93",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/configs/mvp.json",
+      "size": 1103,
+      "sha256": "a35c9958d4b1ae495275de79e3fa9df912dddf9ae22ce0027c813f2df1ee9282",
+      "git_blob_sha": "2bd6b4fd657224132f2b66c11b6fcd24b010ac7d",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/__init__.py",
+      "size": 73,
+      "sha256": "5ad0ad0005c398de47f839cd4d868aa939ea09637c2e06004f6266f6639f67ae",
+      "git_blob_sha": "3f5ffe04ed25d9f2756118d01eb4b90eea14e31f",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/campaign.py",
+      "size": 9065,
+      "sha256": "fc9878abcac7f12eaf8062e759f64264a3d530c1c73d9f3c115fd8a48df6e72b",
+      "git_blob_sha": "8d8e76f8dd86d5abd8318a08007b0ee5baa42c65",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/controls.py",
+      "size": 4029,
+      "sha256": "8297f05b076175751336947f7108c4ca6e87b2dc78f43f9544e3ad3a4ae0295a",
+      "git_blob_sha": "3c02984b533ccae76d7d0e232124b42a6b8a9ba8",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/data.py",
+      "size": 12182,
+      "sha256": "33fa662574e5f35b85d630feb49abec20e628fcf8626eb6fc114add3da1b7bd8",
+      "git_blob_sha": "1e71a6fd14e7d28299c69a6fbf2c914e52ba76f7",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/finalize.py",
+      "size": 12966,
+      "sha256": "565a0cc206aaf9d23cdf64dc942024d160f3dedf0d9646baecd504da786e4084",
+      "git_blob_sha": "a745a7dc7e75e8c00c099a11a85456a6f2427a85",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/failures.json",
+      "size": 384,
+      "sha256": "64bf8b4da2d3bddacf459d31a8fe24e3cc5a779dda29c62c05200c0a5bc1a8c6",
+      "git_blob_sha": "ca645c67aae6a6a507effc7baee5dc33a8eb1e0a",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/feature_manifests.json",
+      "size": 16049,
+      "sha256": "caf711031e7de480bfdd3c1cfd329e839bbe22bbd4814a4123bc61bbc4f0bce7",
+      "git_blob_sha": "dd647c23bcbc8e4e7d3a007e43951fdd21fe3e2f",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/fit_diagnosis_curves.png",
+      "size": 109931,
+      "sha256": "6f73a94e3e31e3d76cc712a407d0b90374e3b4e947a2b5c3ee57eef134abd50a",
+      "git_blob_sha": "3448b5b48b672c342bad64f5793a04ef4ca3d3ec",
+      "encoding": "base64"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/neural_trials.csv",
+      "size": 3074,
+      "sha256": "434856a06a0b6e2c658884c07d9f1bcff63aa1b9ee0089c95bc8b7efeb47915f",
+      "git_blob_sha": "e4c45f4edd93625efbff1c7e38fadf5acad8206f",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/selected_configs.json",
+      "size": 1281,
+      "sha256": "01fe92152e61e78d5ebae74c373a5aff9f404df12d44bcd5d9592b2c5dbba665",
+      "git_blob_sha": "4772aa839e526fdda9d0af6607677bfc5374fdb8",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/status.json",
+      "size": 2305,
+      "sha256": "343ce671d3192ee34ff95d04d4ae82dd0e81d8023e6a9dbefea9a1a63ec96b67",
+      "git_blob_sha": "340686116c0f8296acc9e11d33c1f0af6607211f",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/train_validation_distributions.json",
+      "size": 8354,
+      "sha256": "24014762e327677472d6f5d63a66bea1676db32a135eec77a43dda57293d4e63",
+      "git_blob_sha": "99ae09dde16a3c8d51d4c3fa07b5c627a4e7f726",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/training_history.csv",
+      "size": 79227,
+      "sha256": "a954c60b6d298a5f99e5545694bc3c8cd749eb6247c1b46e57dbbbfaea22e7e7",
+      "git_blob_sha": "bd04c489abfe5f9ea3c756251167f884149843c2",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/validation_curves.png",
+      "size": 76109,
+      "sha256": "50a3492353c35051a339f70e24d89bc55cdaa84984768194173331de1df947e7",
+      "git_blob_sha": "a978be936ae90e3376a376f0fc3603bc197de7e4",
+      "encoding": "base64"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/validation_metrics.csv",
+      "size": 681,
+      "sha256": "788af8b6478c1f65d8522a98ef7d19b808675ff12be50da8238899b1ceadb7a6",
+      "git_blob_sha": "12e1ecbf6c515e04764c79611b1bee600b5e76ec",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/progress/20261010T121044Z/validation_recall_budget.png",
+      "size": 59555,
+      "sha256": "a8ac9b4da86f4317f8e6811de28cdb3e995051445ab1c62caa6a5a3f5c822514",
+      "git_blob_sha": "4acac1d7f1b2e27dc7a402fd453e749bd41286c8",
+      "encoding": "base64"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/protocol.json",
+      "size": 1776,
+      "sha256": "6af0738e637e5fb6f163d9ec6e1c52b620d9bebd8d0a4c3a1c7191310870b4ae",
+      "git_blob_sha": "1e633e8c5bfc8dec4181cba3ff588ddb33f67d17",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/README.md",
+      "size": 240,
+      "sha256": "1345ca40a608245e509d0a852cc3b2c213d24cb453ef48a7ca5335d413311151",
+      "git_blob_sha": "d55e23e082ed96db339abe6245da6d8ea53aa217",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/requirements-extra.txt",
+      "size": 103,
+      "sha256": "4e8e5b6d23d948389395725c8b3878038fae7e376d4bb67fcff3f997e690a274",
+      "git_blob_sha": "51dd21628bcf9fee16fea0f542a4a4e09bf24cd7",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/research_notes.md",
+      "size": 4706,
+      "sha256": "2155fa75a793239df80317b4f7a44f04f5be0ef3a25073068b51e32d5fdf6cab",
+      "git_blob_sha": "4a4c7b3494c31d9cff2b58d9d8a5e4f4f6e13ff6",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/search.py",
+      "size": 4376,
+      "sha256": "82f992622afcb233f932393c8ee478e22e7a22af8ec174d6e8e3f9ac5f9c6c59",
+      "git_blob_sha": "66b14d1f11cb9294643cd40eafcecf67ab4fa245",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/smoke.py",
+      "size": 3497,
+      "sha256": "3b6cd116246a5c1da38e25fe3d1f146c975b7b9337698a45898435a11a9f4090",
+      "git_blob_sha": "42bb2155d72e73f6d544ce667611c379da1f14bd",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/train.py",
+      "size": 16689,
+      "sha256": "e828144dc816046b6806f24b92018292f6518a5a955390cf876742793a25927c",
+      "git_blob_sha": "818bdbbde9b5e24ca1a11dae0a1d17ecb422f9f7",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/experiments/ft_upgrade_20261010/utils.py",
+      "size": 2656,
+      "sha256": "6579694f4a98ec4e59fca83f63dde95642b31c2a83a50c835bda46314d82309b",
+      "git_blob_sha": "e2804ebb0ae93af05dd7e745d459c09353f63a61",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/models/.gitkeep",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/PROGRESS_ZH.md",
+      "size": 7252,
+      "sha256": "f417afe898844ea4368f9b7005ac4892cefafe34c70f6878309d0e9712bca96c",
+      "git_blob_sha": "635efdb584c161941e06cf2257c6e95dd38e7603",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/README.md",
+      "size": 3585,
+      "sha256": "52a59cefcc22c8e46c908445afdac3e684925f4b3748429e9722536fae31e7b6",
+      "git_blob_sha": "ee0c607b9857f819eb7836ca613130cabe201dd5",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/requirements.txt",
+      "size": 251,
+      "sha256": "0674e4af1e81f21da36de9b9e3513c075d25c28305d0c24a3b11cbd4c7e15bfb",
+      "git_blob_sha": "b82ba084ec40bf29f44db013739bad4d91b634ba",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/results/original_mvp/metrics.csv",
+      "size": 844,
+      "sha256": "1eab355d3d9e109c8053a7bee6073734a0851e96ae37b3f78b4f15a521542f18",
+      "git_blob_sha": "a51ba0eb75bb43cbe584bac4c3eab291d8dbe598",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/__init__.py",
+      "size": 48,
+      "sha256": "f42aabd84d1de8972f8eed883ed3e0e1b45d27624a773e0dae591d3e79899a6c",
+      "git_blob_sha": "ed938e2f27837ebbabc2ec3eedaba78864e50f3d",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/check_environment.py",
+      "size": 3527,
+      "sha256": "1022f769749b8b9c7db8c1d42aba79dca1de1ba22db2265019e4d6ef93c6ad2e",
+      "git_blob_sha": "0a096dc0701fa95766734b0de953315db7e66897",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/common.py",
+      "size": 3262,
+      "sha256": "9809fc69af379bd72191dda64494aaf6a78e0ff30074aaa684f750ddcf999349",
+      "git_blob_sha": "e1eed726a9e6af144d3b228679f5a0d66783f4c6",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/data.py",
+      "size": 9707,
+      "sha256": "6b9fa4753809e16992bf574145a50e1ed1a568d424e2655715238fa3a6588ec7",
+      "git_blob_sha": "957608d8f6cba542820941346732f7d0929cbec5",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/download_data.py",
+      "size": 5274,
+      "sha256": "ef4b55ffa7cae1435e8600e1ea6d35fd43620a5f2dd256b0d3bd5c074a9531b2",
+      "git_blob_sha": "3bcb1861528ae1dba41bc559b5267c8b9fb9dc43",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/evaluate.py",
+      "size": 16183,
+      "sha256": "f856bfd2963e85b25b38d247417e4cde0750f59a68d56dbcbfbdd72c0885180e",
+      "git_blob_sha": "4a04f3ae7813cbf9f03f137b30370c2ae0722c2f",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/run.py",
+      "size": 6819,
+      "sha256": "b39d94c55d9771cea28386537de022ba30712b8468cfe8ad34020dfa24f69c30",
+      "git_blob_sha": "927722d6bbdb2a81195ecef183e40daaa7b9179a",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/train_ft_transformer.py",
+      "size": 9564,
+      "sha256": "1c724034e23472c7f332da0bd75c7e6e107911de3e979c19bc4217b7a9b04225",
+      "git_blob_sha": "631b23578d4252fabf0de686ff793617f8e384fc",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/src/train_lightgbm.py",
+      "size": 4518,
+      "sha256": "8d8f38a6b3883c74a7d127ab1e725127b3f99428413aa89108cbb31346b969c5",
+      "git_blob_sha": "11d37affb82cbccd2a99b3bc792bdc53666f173f",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/tests/__init__.py",
+      "size": 68,
+      "sha256": "a23a4f57feb17475d319b889744bec016a57b3fc0f5d1aa1a36579b6f104b8fa",
+      "git_blob_sha": "24cbdadc9232347e59590e833f184a2c371cd1bf",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/tests/test_contracts.py",
+      "size": 5849,
+      "sha256": "ba71cdced517c7437fd5281cb02a86ba6dda1f88da5599170c66090db4991922",
+      "git_blob_sha": "95f033a8cf1b5e9bd968ddb01bca50dfc8a9e027",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "fraud-detection-mvp/tests/test_pipeline_integration.py",
+      "size": 4319,
+      "sha256": "709f3cf570d2beae8bad7db3b09697064abcc5ca3c534ffdb6e25fba6f8c9d02",
+      "git_blob_sha": "642c381f2922f805f22a3d8b289ee78f3d3f6a4c",
+      "encoding": "utf-8"
+    }
+  ],
+  "original_64_artifacts_verified_locally": {
+    "status": "PASS",
+    "file_count": 64,
+    "manifest_sha256": "1c6a2ed95ac3b7b88509ac71692d68417172896c1b117b7d60c44fe9da479b00",
+    "source_data_sha256": "3a5c83ab6b3cc13dcabe5ffa9f522307fd5f7f7b6e6f6a60c32284ca6283d642"
+  },
+  "excluded": [
+    "raw dataset",
+    "row-level predictions",
+    "derived row arrays",
+    "checkpoints",
+    "credentials",
+    "process logs"
+  ],
+  "package_validation_status": "PASS_PREPARED_PUBLIC_SNAPSHOT"
+}

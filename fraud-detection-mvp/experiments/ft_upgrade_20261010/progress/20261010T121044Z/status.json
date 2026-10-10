@@ -1,0 +1,41 @@
+{
+  "snapshot_utc": "2026-10-10T12:10:44.633536+00:00",
+  "snapshot_local": "2026-10-10T08:10:44-04:00",
+  "campaign_status": "TRAINING_NEURAL",
+  "full_upgrade_complete": false,
+  "completed_valid_neural_trials": 25,
+  "failed_neural_trials": 1,
+  "current_trial": "ft_026",
+  "current_epoch": 10,
+  "active_neural_hours_at_saved_epoch": 7.052841147305508,
+  "campaign_wall_hours": 7.329304379622141,
+  "minimum_neural_hours": 12,
+  "maximum_campaign_wall_hours": 24,
+  "original_started_timestamp": 1791607859.1377695,
+  "minimum_neural_hours_reached": false,
+  "test_accessed_by_upgrade": false,
+  "test_independence": "Original MVP test was viewed before this campaign; any later locked test comparison is exploratory.",
+  "validation_self_recomputation": "PASS: saved predictions, exact ordered IDs/labels, all metrics match",
+  "independent_review_performed": false,
+  "original_64_artifacts_local_verification": {
+    "status": "PASS",
+    "file_count": 64,
+    "manifest_sha256": "1c6a2ed95ac3b7b88509ac71692d68417172896c1b117b7d60c44fe9da479b00",
+    "source_data_sha256": "3a5c83ab6b3cc13dcabe5ffa9f522307fd5f7f7b6e6f6a60c32284ca6283d642"
+  },
+  "executed_source_fingerprints": {
+    "__init__.py": "5ad0ad0005c398de47f839cd4d868aa939ea09637c2e06004f6266f6639f67ae",
+    "campaign.py": "fc9878abcac7f12eaf8062e759f64264a3d530c1c73d9f3c115fd8a48df6e72b",
+    "controls.py": "8297f05b076175751336947f7108c4ca6e87b2dc78f43f9544e3ad3a4ae0295a",
+    "data.py": "33fa662574e5f35b85d630feb49abec20e628fcf8626eb6fc114add3da1b7bd8",
+    "finalize.py": "565a0cc206aaf9d23cdf64dc942024d160f3dedf0d9646baecd504da786e4084",
+    "search.py": "82f992622afcb233f932393c8ee478e22e7a22af8ec174d6e8e3f9ac5f9c6c59",
+    "smoke.py": "3b6cd116246a5c1da38e25fe3d1f146c975b7b9337698a45898435a11a9f4090",
+    "train.py": "e828144dc816046b6806f24b92018292f6518a5a955390cf876742793a25927c",
+    "utils.py": "6579694f4a98ec4e59fca83f63dde95642b31c2a83a50c835bda46314d82309b",
+    "protocol.json": "6af0738e637e5fb6f163d9ec6e1c52b620d9bebd8d0a4c3a1c7191310870b4ae"
+  },
+  "gpu": "NVIDIA RTX 4080 SUPER",
+  "gpu_training_required": true,
+  "privacy": "Public export excludes raw data, row-level derivatives/predictions, weights, credentials, stdout/stderr and local launch receipts."
+}
