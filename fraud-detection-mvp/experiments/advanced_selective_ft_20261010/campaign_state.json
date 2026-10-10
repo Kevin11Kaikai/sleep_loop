@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETED",
+  "updated_utc": "2026-10-10T20:17:35.992949+00:00",
+  "neural_seconds": 8479.948125099065,
+  "absolute_training_stop": 1791691559.1377695,
+  "baseline_preservation": {
+    "status": "PASS",
+    "file_count": 64,
+    "manifest_sha256": "1c6a2ed95ac3b7b88509ac71692d68417172896c1b117b7d60c44fe9da479b00",
+    "source_data_sha256": "3a5c83ab6b3cc13dcabe5ffa9f522307fd5f7f7b6e6f6a60c32284ca6283d642"
+  },
+  "missing_required_trials": []
+}

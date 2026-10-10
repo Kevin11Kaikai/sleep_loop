@@ -1,0 +1,324 @@
+{
+  "train": {
+    "rows": 413378,
+    "fraud_count": 14538,
+    "fraud_rate": 0.03516878014795175,
+    "categorical": [
+      {
+        "feature": "ProductCD",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.0
+      },
+      {
+        "feature": "card1",
+        "unknown_fraction": 0.00798058919439351,
+        "missing_fraction": 0.0
+      },
+      {
+        "feature": "card2",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.01577248910198414
+      },
+      {
+        "feature": "card3",
+        "unknown_fraction": 2.9029121046596577e-05,
+        "missing_fraction": 0.0019860756982713157
+      },
+      {
+        "feature": "card4",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.0020054284456357137
+      },
+      {
+        "feature": "card5",
+        "unknown_fraction": 4.8381868410994295e-05,
+        "missing_fraction": 0.007182288365612103
+      },
+      {
+        "feature": "card6",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.0019981711653740642
+      },
+      {
+        "feature": "addr1",
+        "unknown_fraction": 0.00028545302362486635,
+        "missing_fraction": 0.11495048115768135
+      },
+      {
+        "feature": "addr2",
+        "unknown_fraction": 4.112458814934515e-05,
+        "missing_fraction": 0.11495048115768135
+      },
+      {
+        "feature": "P_emaildomain",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.15553803056766446
+      },
+      {
+        "feature": "R_emaildomain",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.7507341948531369
+      },
+      {
+        "feature": "M1",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.5380426631315648
+      },
+      {
+        "feature": "M2",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.5380426631315648
+      },
+      {
+        "feature": "M3",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.5380426631315648
+      },
+      {
+        "feature": "M4",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.48417429084276375
+      },
+      {
+        "feature": "M5",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.6041564863151885
+      },
+      {
+        "feature": "M6",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.31121878764714134
+      },
+      {
+        "feature": "M7",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.6692059083937704
+      },
+      {
+        "feature": "M8",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.6691962320200882
+      },
+      {
+        "feature": "M9",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.6691962320200882
+      },
+      {
+        "feature": "card1_addr1",
+        "unknown_fraction": 0.03442369937442244,
+        "missing_fraction": 0.0
+      },
+      {
+        "feature": "card1_card2_addr1",
+        "unknown_fraction": 0.03628882040166627,
+        "missing_fraction": 0.0
+      }
+    ],
+    "time_chunks": [
+      {
+        "rows": 68897,
+        "fraud_count": 1848,
+        "fraud_rate": 0.02682264830108713,
+        "dt_first": 86400,
+        "dt_last": 1551020
+      },
+      {
+        "rows": 68897,
+        "fraud_count": 1711,
+        "fraud_rate": 0.02483417275062775,
+        "dt_first": 1551023,
+        "dt_last": 2778632
+      },
+      {
+        "rows": 68896,
+        "fraud_count": 2690,
+        "fraud_rate": 0.03904435671156526,
+        "dt_first": 2778687,
+        "dt_last": 4748462
+      },
+      {
+        "rows": 68896,
+        "fraud_count": 2966,
+        "fraud_rate": 0.04305039479795634,
+        "dt_first": 4748475,
+        "dt_last": 6707226
+      },
+      {
+        "rows": 68896,
+        "fraud_count": 2462,
+        "fraud_rate": 0.035735020901068275,
+        "dt_first": 6707234,
+        "dt_last": 8484174
+      },
+      {
+        "rows": 68896,
+        "fraud_count": 2861,
+        "fraud_rate": 0.041526358569437996,
+        "dt_first": 8484194,
+        "dt_last": 10437996
+      }
+    ]
+  },
+  "validation": {
+    "rows": 88581,
+    "fraud_count": 3042,
+    "fraud_rate": 0.03434145019812375,
+    "categorical": [
+      {
+        "feature": "ProductCD",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.0
+      },
+      {
+        "feature": "card1",
+        "unknown_fraction": 0.01867217574874973,
+        "missing_fraction": 0.0
+      },
+      {
+        "feature": "card2",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.009031282103385602
+      },
+      {
+        "feature": "card3",
+        "unknown_fraction": 5.644551314616001e-05,
+        "missing_fraction": 2.2578205258464003e-05
+      },
+      {
+        "feature": "card4",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 4.5156410516928007e-05
+      },
+      {
+        "feature": "card5",
+        "unknown_fraction": 0.00013546923155078404,
+        "missing_fraction": 0.003206105146701889
+      },
+      {
+        "feature": "card6",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 2.2578205258464003e-05
+      },
+      {
+        "feature": "addr1",
+        "unknown_fraction": 0.00023707115521387205,
+        "missing_fraction": 0.10047301340016482
+      },
+      {
+        "feature": "addr2",
+        "unknown_fraction": 6.773461577539202e-05,
+        "missing_fraction": 0.10047301340016482
+      },
+      {
+        "feature": "P_emaildomain",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.15951502015104818
+      },
+      {
+        "feature": "R_emaildomain",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.8223998374369221
+      },
+      {
+        "feature": "M1",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.26782267077590005
+      },
+      {
+        "feature": "M2",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.26782267077590005
+      },
+      {
+        "feature": "M3",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.26782267077590005
+      },
+      {
+        "feature": "M4",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.4607873020173626
+      },
+      {
+        "feature": "M5",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.5691401090527314
+      },
+      {
+        "feature": "M6",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.21450423905803728
+      },
+      {
+        "feature": "M7",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.3997132567932175
+      },
+      {
+        "feature": "M8",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.3996229439721837
+      },
+      {
+        "feature": "M9",
+        "unknown_fraction": 0.0,
+        "missing_fraction": 0.3996229439721837
+      },
+      {
+        "feature": "card1_addr1",
+        "unknown_fraction": 0.06667344012824421,
+        "missing_fraction": 0.0
+      },
+      {
+        "feature": "card1_card2_addr1",
+        "unknown_fraction": 0.06885223693568598,
+        "missing_fraction": 0.0
+      }
+    ],
+    "time_chunks": [
+      {
+        "rows": 14764,
+        "fraud_count": 474,
+        "fraud_rate": 0.032105120563532916,
+        "dt_first": 10438003,
+        "dt_last": 10809110
+      },
+      {
+        "rows": 14764,
+        "fraud_count": 551,
+        "fraud_rate": 0.03732050934706042,
+        "dt_first": 10809162,
+        "dt_last": 11246665
+      },
+      {
+        "rows": 14764,
+        "fraud_count": 568,
+        "fraud_rate": 0.038471958818748306,
+        "dt_first": 11246704,
+        "dt_last": 11725727
+      },
+      {
+        "rows": 14763,
+        "fraud_count": 469,
+        "fraud_rate": 0.03176861071597914,
+        "dt_first": 11725745,
+        "dt_last": 12192900
+      },
+      {
+        "rows": 14763,
+        "fraud_count": 535,
+        "fraud_rate": 0.036239246765562554,
+        "dt_first": 12192911,
+        "dt_last": 12690519
+      },
+      {
+        "rows": 14763,
+        "fraud_count": 445,
+        "fraud_rate": 0.030142924879766986,
+        "dt_first": 12690525,
+        "dt_last": 13151840
+      }
+    ]
+  }
+}

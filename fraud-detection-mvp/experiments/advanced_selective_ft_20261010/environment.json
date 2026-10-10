@@ -1,0 +1,15 @@
+{
+  "python": "3.12.7",
+  "packages": {
+    "torch": "2.5.1+cu121",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "scikit-learn": "1.5.1",
+    "lightgbm": "4.6.0",
+    "libauc": "2.0.1",
+    "rtdl-revisiting-models": "0.0.2",
+    "rtdl-num-embeddings": "0.0.12"
+  },
+  "captured_utc": "2026-10-10T15:52:08.217691+00:00",
+  "cuda_runtime": "12.1"
+}

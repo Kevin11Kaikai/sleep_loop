@@ -1,0 +1,2 @@
+# Install into the existing project .venv; preserve baseline requirements.
+rtdl-num-embeddings==0.0.12

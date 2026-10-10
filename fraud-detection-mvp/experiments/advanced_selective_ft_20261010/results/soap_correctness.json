@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "official_libauc": "2.0.1",
+  "activation_checkpoint_forward_gradient_match": true,
+  "full_effective_batch_aploss_preserved": true,
+  "ap_statistics_explicit_restore": true,
+  "official_parameter_groups_supported": true,
+  "checked_utc": "2026-10-10T15:53:56.943824+00:00"
+}

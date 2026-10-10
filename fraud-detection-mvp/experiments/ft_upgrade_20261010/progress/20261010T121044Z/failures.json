@@ -1,0 +1,10 @@
+{
+  "count": 1,
+  "events": [
+    {
+      "trial_id": "ft_013",
+      "sha256": "3942f003453545ea2f278757d4c34630a220d00e6ec1f25cf5fae63682a856cf"
+    }
+  ],
+  "ft_013": "Deterministic CUDA multinomial/cumsum failure; CPU-only sampling index generation fixed. Model training remained CUDA. Fresh ft_016 retry completed; failed record preserved. No experiment budget reset."
+}

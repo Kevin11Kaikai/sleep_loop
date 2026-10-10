@@ -1,0 +1,8 @@
+model,status
+M0_compressed,COMPLETED
+M1_full,COMPLETED
+M2_full_spa,COMPLETED
+M3_full_iai,COMPLETED
+M4_full_spa_iai,COMPLETED
+C0_continue_bce,COMPLETED
+C1_official_soap,COMPLETED

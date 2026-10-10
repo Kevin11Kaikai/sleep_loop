@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "mode": "exclusive_fifo_trial",
+  "memory_fraction": 0.8,
+  "cpu_threads": 4,
+  "minimum_free_ram_bytes": 6442450944,
+  "maximum_idle_allocated_bytes": 268435456,
+  "authorized_owners": [
+    "advanced_ft_transformer_goal_20261010",
+    "advanced_selective_ft_20261010"
+  ],
+  "admission_enabled": true
+}

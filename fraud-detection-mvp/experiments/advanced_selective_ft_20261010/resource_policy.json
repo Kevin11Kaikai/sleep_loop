@@ -1,0 +1,7 @@
+{
+  "mode": "exclusive_fifo_trial",
+  "memory_fraction": 0.8,
+  "cpu_threads": 4,
+  "minimum_free_ram_bytes": 6442450944,
+  "own_budget_unchanged": true
+}
