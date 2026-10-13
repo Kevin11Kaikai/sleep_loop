@@ -23,21 +23,5 @@
   "training_seconds": 24.427653999999166,
   "device": "CPU",
   "peak_gpu_allocated_mib": null,
-  "peak_gpu_reserved_mib": null,
-  "model_sha256": "7db3526191aebef3ff7cbc3ac16db21fae344f035a6317e2f9b3e244adad961a",
-  "prepared_manifest_sha256": "37d54cf929ee4934fa006b455d7d7dfd545666dad3c398386d3de78593fb6ecc",
-  "source_sha256": {
-    "src/__init__.py": "f42aabd84d1de8972f8eed883ed3e0e1b45d27624a773e0dae591d3e79899a6c",
-    "src/check_environment.py": "1022f769749b8b9c7db8c1d42aba79dca1de1ba22db2265019e4d6ef93c6ad2e",
-    "src/common.py": "9809fc69af379bd72191dda64494aaf6a78e0ff30074aaa684f750ddcf999349",
-    "src/data.py": "6b9fa4753809e16992bf574145a50e1ed1a568d424e2655715238fa3a6588ec7",
-    "src/download_data.py": "ef4b55ffa7cae1435e8600e1ea6d35fd43620a5f2dd256b0d3bd5c074a9531b2",
-    "src/evaluate.py": "f856bfd2963e85b25b38d247417e4cde0750f59a68d56dbcbfbdd72c0885180e",
-    "src/run.py": "b39d94c55d9771cea28386537de022ba30712b8468cfe8ad34020dfa24f69c30",
-    "src/train_ft_transformer.py": "1c724034e23472c7f332da0bd75c7e6e107911de3e979c19bc4217b7a9b04225",
-    "src/train_lightgbm.py": "8d8f38a6b3883c74a7d127ab1e725127b3f99428413aa89108cbb31346b969c5",
-    "configs/feature_list.md": "8f73b1227736026903afada70895beec65b951165216bf2f2f958b2307c0e366",
-    "configs/mvp.json": "a35c9958d4b1ae495275de79e3fa9df912dddf9ae22ce0027c813f2df1ee9282"
-  },
-  "data_sha256": "3a5c83ab6b3cc13dcabe5ffa9f522307fd5f7f7b6e6f6a60c32284ca6283d642"
+  "peak_gpu_reserved_mib": null
 }

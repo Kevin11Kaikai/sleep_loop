@@ -1019,13 +1019,7 @@
     413378
   ],
   "training_only": true,
-  "source_schema_sha256": "267ffa3d45c911c71cc4e26ac88424b0a98f1c7af401b8530b0467bee24a3997",
   "elapsed_seconds": 25.047921699937433,
-  "files": {
-    "categorical_encoder.joblib": "82942bbcc3a598a72fdc6954dc3431a4b7f372d3b3c2c55169b176891a6a1ccd",
-    "mi_training_indices.npy": "9e33e4e00ed12af4c30aa88561f39a42d7240bd8ba243d2db32b29adb9851d7d",
-    "train.npy": "b1050d46f5eaaa5cf2942b9f79705f0e1a3832347290df9bc65a15ee2dcfce16",
-    "validation.npy": "4f66c3950c33ee686c557ccfc533ce561a8f73f421281130812316db33f99ecb"
-  },
+  "files": {},
   "finished_utc": "2026-10-11T21:37:58.469973+00:00"
 }

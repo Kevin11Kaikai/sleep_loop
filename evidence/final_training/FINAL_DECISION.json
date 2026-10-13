@@ -3,7 +3,6 @@
   "selected_model": "bce_control",
   "selected_epoch": 22,
   "selected_ap": 0.6366325980521216,
-  "selected_checkpoint_sha256": "b60e98adc8fad2cb2f2dcdc8936559e87cc11c039cc1e77ff8976c327ddfeaca",
   "additional_common_epochs": 20,
   "total_continuation_epochs": 25,
   "original_parent_training_epochs": 16,

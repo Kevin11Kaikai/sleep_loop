@@ -1,36 +1,45 @@
-# Fraud Risk Ranking for Limited Investigation Capacity
+# Fraud Detection and Transaction Risk Ranking
 
 An IEEE-CIS portfolio project on improving the information available to a fraud
 ranking model, from an original LightGBM benchmark to feature-enriched ExcelFormer.
 
 ## Project story
 
-- After basic ExcelFormer lagged LightGBM, combined transaction, device and identity
-  clues with patterns across related transactions to provide richer risk context.
-- Adapted inputs to preserve missing/unknown states and encode categories from
-  earlier training blocks; integrated ExcelFormer training with feature mixing,
-  BCE loss and validation-based checkpoint selection.
-- On the same 88,581 development-validation transactions, final AP reached
-  **0.6366**, versus **0.5897** for the original LightGBM. At the same **886-review
-  budget**, captured **830 vs. 789 labeled frauds (+41)**.
+- Investigated ExcelFormer's initial shortfall against LightGBM by combining transaction, device and identity signals with entity-level patterns in activity frequency and spending variability.
+- Adapted ExcelFormer's inputs to preserve missing-value signals and encode categories using earlier training records, enabling interactions across the enriched risk features. Matched feature ablations raised average precision (AP) from **0.5735 to 0.6019**.
+- Extended BCE training with feature mixing and validation-based checkpoint selection, reaching **0.6366 AP versus 0.5897** for initial LightGBM on the same development-validation set; identified **41 more labeled fraud cases** within a fixed **886-transaction review budget**.
 
-Matched ExcelFormer feature ablations improved AP from 0.5735 to 0.6019 before the
-later BCE training extension. This separates evidence for feature adaptation
-from the additional training gain.
+## Complete results
+
+![Complete training results with both LightGBM references](reports/training_complete_20261012/training_complete.png)
+
+[Vector figure](reports/training_complete_20261012/training_complete.svg) ·
+[Figure data and reproduction](reports/training_complete_20261012/README.md)
+
+The figure covers the shared parent and both complete training continuations,
+loss, review-budget capture, and feature ablations. Metrics are raw epoch values.
+The selected BCE checkpoint captures **830 vs. 789** labeled frauds. It was
+selected by validation AP, not by the maximum capture count across epochs.
 
 ## What is included
 
 - `src/`, `configs/`, `tests/`: the original fixed LightGBM/FT-Transformer MVP.
 - `experiments/`: feature construction, identity/UID grouping, typed input
   adaptation, ExcelFormer BCE training, paired continuation and verification code.
-- `evidence/results_summary.json`: the checked comparison, hashes and scope.
+- `evidence/results_summary.json`: the checked comparison and scope.
 - `evidence/final_training/`: final training metrics, stopping reason, checkpoint
   replay checks and learning curves.
+- `evidence/feature_ablation/` and `evidence/training_histories/`: complete epoch logs.
+- `evidence/initial_continuation/`: the initial paired five-epoch results and checks.
+- `evidence/original_mvp/`: the original FT/LightGBM curves and separate held-out evaluation.
+- `reports/training_complete_20261012/`: PNG/SVG, plot data and standalone renderer.
 - `UPSTREAM_SOURCES.json`: pinned external model/reference provenance.
 
 This branch contains the fraud MVP snapshot. It does not modify `main`.
 Raw datasets, derived row-level tensors, predictions, checkpoints, environments,
 credentials, unrelated research and personal application documents are excluded.
+Local absolute paths and artifact/data/checkpoint fingerprints remain in the
+private audit records; published metrics, curves and model source are retained.
 
 ## Reproduction and dependencies
 

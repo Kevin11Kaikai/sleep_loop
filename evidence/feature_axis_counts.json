@@ -1,8 +1,6 @@
 {
   "status": "PASS_EXACT_FIELD_SOURCE_DECOMPOSITION",
   "schema_path": "experiments\\identity_uid_transformer_transfer_20261011\\derived\\B1C\\schema.json",
-  "schema_sha256": "267ffa3d45c911c71cc4e26ac88424b0a98f1c7af401b8530b0467bee24a3997",
-  "receipt_sha256": "de75a81b27e53ad915fd01884054824cc354504635ae322ab28d8dfdf5bf6283",
   "classification_rule": "Horizontal = direct source fields and within-row derived fields; vertical = fields computed by fitting training-partition entity aggregations. This is an engineering source convention; anonymous raw C/V fields may themselves encode upstream history.",
   "horizontal": {
     "total": 192,

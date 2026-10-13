@@ -8,26 +8,22 @@
     "original_lightgbm": {
       "ap": 0.5896844192421578,
       "captured_top1": 789,
-      "review_count": 886,
-      "prediction_sha256": "73a6bd58ac94097ea3dc34f849a5adc2dfd359831cffeaeb84ed75616fbabc2a"
+      "review_count": 886
     },
     "basic_excel_b00": {
       "ap": 0.5734505229256955,
       "captured_top1": 804,
-      "review_count": 886,
-      "prediction_sha256": "7e18678d9d48f7f836fc82e6c3fef9b003c5eeabd1b8f6dd7e51da859df3f776"
+      "review_count": 886
     },
     "enriched_excel_b1c_parent": {
       "ap": 0.6019160318451662,
       "captured_top1": 822,
-      "review_count": 886,
-      "prediction_sha256": "4ec0cca6e15bb7b619dae6a1963a08b231acc30309e0e98861a9f9345f0a605e"
+      "review_count": 886
     },
     "current_bce_excel": {
       "ap": 0.6366325980521217,
       "captured_top1": 830,
-      "review_count": 886,
-      "prediction_sha256": "bb9dbebaf77c5f4dc06dabbd40bdb23f0c6549f1ff3ef499c92df0871195c3a0"
+      "review_count": 886
     }
   },
   "additional_fraud_captured_vs_original_lightgbm": 41,
@@ -35,7 +31,6 @@
   "later_bce_training_ap_delta": 0.03471656620695551,
   "selected_model": "bce_control",
   "selected_epoch": 22,
-  "selected_checkpoint_sha256": "b60e98adc8fad2cb2f2dcdc8936559e87cc11c039cc1e77ff8976c327ddfeaca",
   "stopping_reason": "ADDITIONAL_EPOCH_CAP",
   "early_stopping_configured": true,
   "early_stopping_triggered": false,

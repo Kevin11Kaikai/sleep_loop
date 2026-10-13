@@ -48,6 +48,21 @@ unique-count fields. Missing/unknown indicators and categorical encoding yield
 entity maps use the complete training partition, so the full pipeline is not
 described as strictly streaming.
 
-All copied source/evidence files are listed by SHA256 in `SOURCE_MANIFEST.json`.
+The source inventory is in `SOURCE_MANIFEST.json`; private fingerprints remain local.
 Row data and weights remain local. Reports distinguish saved-prediction rescore,
 fresh checkpoint replay and independent replication.
+
+## Complete results and figure reproduction
+
+The final publication adds all parent/continuation epoch logs and both matched
+training arms, plus the original benchmark curves. Results from the earliest
+held-out evaluation remain explicitly separate from the later development-
+validation comparison. No new model run was performed for publication.
+
+`reports/training_complete_20261012/render_complete.py` can reproduce the full
+figure from the published aggregate snapshot, without excluded datasets or
+checkpoints. Its unchanged historical source is next to it as
+`render_complete_original.py`. The figure-specific README documents this small
+input-loading adaptation. The source inventory and adaptation are documented
+in `SOURCE_MANIFEST.json`; historical source copies remain unchanged.
+Public aggregate records omit local paths and private artifact fingerprints.

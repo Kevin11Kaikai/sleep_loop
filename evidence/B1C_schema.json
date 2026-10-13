@@ -879,23 +879,7 @@
   "unknown_id": 0,
   "fit_rows": 413378,
   "test_accessed": false,
-  "source_sha256": "90b3c2b91721e3e7a9264945ce184b22e476d0324d2e6b98c4f4fa7d024ec4d4",
-  "preparation_code": {
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\prepare.py": "0092b24ed7fc33162d845c462ab4e944b668d85d42caf442cbba8dd162e8e837",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\common.py": "063e27f92e101fba0ed35eadefb9cfa2a0eead0c525b9415b0e882dc1ef8cfd5"
-  },
-  "files": {
-    "adapter.joblib": "f7446373b44b1a0bd8051c4e5a87f918775d2d589f908ffe6b87a309ff086140",
-    "train_dt.npy": "77417b328d51d1e02526d85b58e490c93ad5569ce2e2c5c1a574a1134aa2f72a",
-    "train_ids.npy": "862ad6eeda325d9a1d3e2fd6e410a2704c2a8ba110c792fb0b48f4da8e11dc16",
-    "train_x_cat.npy": "41a1c9b92eb9ec3833f68ddc737fcdf8bc7f0dc4762969d18b0ca9665ab671aa",
-    "train_x_num.npy": "f5396a2ead5ab80fc3072085cb165b654142a1d74a2fc4428f463889b744dd05",
-    "train_y.npy": "ee690a981e3c08aa8b48c3dcaabf7c79927f1b636dadbf2db53cf97548825e53",
-    "validation_dt.npy": "ff400321e2f912b66df1ace62c6c449a4c9c6405a99108f7ec659ae6b7208d0a",
-    "validation_ids.npy": "d0b7f8e9a90d478f84b6315ef60e5510d58973b3cec7afdeebcb07c45ec0e508",
-    "validation_x_cat.npy": "11cf06ffcbb0276e430d2c97536723f6976fe33eb67fc20b64389537411b5507",
-    "validation_x_num.npy": "f76b9e36d9de66cdc2a700669fe32eb8e8ad3fad2e137ad5aa0ddf0e84315318",
-    "validation_y.npy": "a9890e201ea0b469d0fb743380c39801207d9fb2a181f57eb2c06791518a0422"
-  },
+  "preparation_code": {},
+  "files": {},
   "finished_utc": "2026-10-11T21:37:32.278370+00:00"
 }

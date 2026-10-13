@@ -58,26 +58,6 @@
   "peak_reserved_gib": 2.88671875,
   "fresh_model_checkpoint_reload_pass": true,
   "reload_max_abs_error": 0.0,
-  "checkpoint_sha256": "7cd23261578294a38c86c9b8b69fd98c47d5c8de0717874d24a716426fd41272",
-  "prediction_sha256": "5fe06a914dadb75919e58e8e46622c4739bd0d634d08eb3ee7018569d03adf5a",
-  "input_hash": "2bb004f9fd969158b84f1cfa66be7dc2984c998387f3f9347df12a826cfba315:56dad4467dc6948ba20ca531dcbc49ed8331e049d2e46dc43ad73438ec8d3c0c",
-  "code_fingerprints": {
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\analyze.py": "b116906c820871b1ae32fc356be30ca2fcb7b653c61cb33e784c1d4629a6edc2",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\campaign.py": "4b88768f5c0349ca16dbceb72744e457f6cae7727e8cbcfe4df5097c8113a4ab",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\common.py": "063e27f92e101fba0ed35eadefb9cfa2a0eead0c525b9415b0e882dc1ef8cfd5",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\freeze.py": "16078b95bf3668b26084a4374b6181f7226558b82e9991b3673ac2d2e7d913f4",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\models.py": "8eb7e59f6e97cb52978e95bce590544ff262a0a913d59126e916c65c86817641",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\prepare.py": "0092b24ed7fc33162d845c462ab4e944b668d85d42caf442cbba8dd162e8e837",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\resource.py": "4ee995e12bff3dee518a41fdde0dc03b6b967bfda17d49750e4cf65732c4411d",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\smoke.py": "5f6de72985e9a7ec30c27305ee9dcf6762f36b4eb4cf0db83ee60212ae2dfbce",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\train.py": "1e680843b1e3fd9fe1d573a89b1071aea1b0ef431c88c774921ad32436c5713d",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\train_lightgbm.py": "1571402a8eb5fd6792e28b914456399fc6db1c9fb3fdab30a678157d882d8e0f",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\__init__.py": "b01a645cc1cbd56339025d14e1c78b2763581e42a9c3f319b1238cfc23d39953",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\identity_uid_transformer_transfer_20261011\\protocol.json": "00e31f9f732e712465b14b61c312b06f7e10e20ee2052cc47081445e6d89aa73",
-    "D:\\Year3_Mao_Projects\\sleep_loop\\fraud-detection-mvp\\experiments\\ft_upgrade_20261010\\train.py": "e828144dc816046b6806f24b92018292f6518a5a955390cf876742793a25927c",
-    "D:\\Year3_Mao_Projects\\Tabular_Transformer\\benchmark\\experiments\\architecture_benchmark_20261010\\vendor\\excel.py": "4400c931bd5286921446cf8b191c1fafc29c00b959c92d9799fa0251bab62657",
-    "D:\\Year3_Mao_Projects\\Tabular_Transformer\\benchmark\\experiments\\architecture_benchmark_20261010\\vendor\\excel_lib.py": "34555f6960670fa727a8b7fe3383898c284b33fcedac2cbbaf7eab5464804638"
-  },
   "test_accessed": false,
   "finished_utc": "2026-10-12T07:44:56.983637+00:00"
 }
