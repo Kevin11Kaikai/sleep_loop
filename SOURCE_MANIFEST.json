@@ -1,0 +1,454 @@
+{
+  "created_utc": "2026-10-13T01:39:38.816408+00:00",
+  "scope": "Fraud MVP mainline code and aggregate evidence only",
+  "copied_source_files": [
+    {
+      "path": "src/__init__.py",
+      "local_source": "src/__init__.py",
+      "sha256": "f42aabd84d1de8972f8eed883ed3e0e1b45d27624a773e0dae591d3e79899a6c",
+      "bytes": 48
+    },
+    {
+      "path": "src/check_environment.py",
+      "local_source": "src/check_environment.py",
+      "sha256": "1022f769749b8b9c7db8c1d42aba79dca1de1ba22db2265019e4d6ef93c6ad2e",
+      "bytes": 3527
+    },
+    {
+      "path": "src/common.py",
+      "local_source": "src/common.py",
+      "sha256": "9809fc69af379bd72191dda64494aaf6a78e0ff30074aaa684f750ddcf999349",
+      "bytes": 3262
+    },
+    {
+      "path": "src/data.py",
+      "local_source": "src/data.py",
+      "sha256": "6b9fa4753809e16992bf574145a50e1ed1a568d424e2655715238fa3a6588ec7",
+      "bytes": 9707
+    },
+    {
+      "path": "src/download_data.py",
+      "local_source": "src/download_data.py",
+      "sha256": "ef4b55ffa7cae1435e8600e1ea6d35fd43620a5f2dd256b0d3bd5c074a9531b2",
+      "bytes": 5274
+    },
+    {
+      "path": "src/evaluate.py",
+      "local_source": "src/evaluate.py",
+      "sha256": "f856bfd2963e85b25b38d247417e4cde0750f59a68d56dbcbfbdd72c0885180e",
+      "bytes": 16183
+    },
+    {
+      "path": "src/run.py",
+      "local_source": "src/run.py",
+      "sha256": "b39d94c55d9771cea28386537de022ba30712b8468cfe8ad34020dfa24f69c30",
+      "bytes": 6819
+    },
+    {
+      "path": "src/train_ft_transformer.py",
+      "local_source": "src/train_ft_transformer.py",
+      "sha256": "1c724034e23472c7f332da0bd75c7e6e107911de3e979c19bc4217b7a9b04225",
+      "bytes": 9564
+    },
+    {
+      "path": "src/train_lightgbm.py",
+      "local_source": "src/train_lightgbm.py",
+      "sha256": "8d8f38a6b3883c74a7d127ab1e725127b3f99428413aa89108cbb31346b969c5",
+      "bytes": 4518
+    },
+    {
+      "path": "tests/__init__.py",
+      "local_source": "tests/__init__.py",
+      "sha256": "a23a4f57feb17475d319b889744bec016a57b3fc0f5d1aa1a36579b6f104b8fa",
+      "bytes": 68
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "local_source": "tests/test_contracts.py",
+      "sha256": "ba71cdced517c7437fd5281cb02a86ba6dda1f88da5599170c66090db4991922",
+      "bytes": 5849
+    },
+    {
+      "path": "tests/test_pipeline_integration.py",
+      "local_source": "tests/test_pipeline_integration.py",
+      "sha256": "709f3cf570d2beae8bad7db3b09697064abcc5ca3c534ffdb6e25fba6f8c9d02",
+      "bytes": 4319
+    },
+    {
+      "path": "experiments/identity_uid_ablation_20261011/__init__.py",
+      "local_source": "experiments/identity_uid_ablation_20261011/__init__.py",
+      "sha256": "99c7a692735fe0ed06cf7c0b2df3332def9496da8b85fdd28dd3326212933179",
+      "bytes": 81
+    },
+    {
+      "path": "experiments/identity_uid_ablation_20261011/analyze.py",
+      "local_source": "experiments/identity_uid_ablation_20261011/analyze.py",
+      "sha256": "d5e41327c48804ae4b4c01a1de0255195131ed040577ea27ccca5016995f183c",
+      "bytes": 17986
+    },
+    {
+      "path": "experiments/identity_uid_ablation_20261011/common.py",
+      "local_source": "experiments/identity_uid_ablation_20261011/common.py",
+      "sha256": "ffa82ed9fbb54ecd9bd8e70e985dee17b279b66101b3cc173912470454f361ac",
+      "bytes": 3077
+    },
+    {
+      "path": "experiments/identity_uid_ablation_20261011/preflight.py",
+      "local_source": "experiments/identity_uid_ablation_20261011/preflight.py",
+      "sha256": "f1ae6ff11f7469c17c32551b4759f199386def6a820059ca55b8ed36940f20fc",
+      "bytes": 5615
+    },
+    {
+      "path": "experiments/identity_uid_ablation_20261011/train.py",
+      "local_source": "experiments/identity_uid_ablation_20261011/train.py",
+      "sha256": "f4e1ed01cbeb3423affccb1b2d0609514392ce865ac7e1a4eda77bbc8641e3ce",
+      "bytes": 5267
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/__init__.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/__init__.py",
+      "sha256": "b01a645cc1cbd56339025d14e1c78b2763581e42a9c3f319b1238cfc23d39953",
+      "bytes": 82
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/analyze.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/analyze.py",
+      "sha256": "b116906c820871b1ae32fc356be30ca2fcb7b653c61cb33e784c1d4629a6edc2",
+      "bytes": 17277
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/campaign.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/campaign.py",
+      "sha256": "4b88768f5c0349ca16dbceb72744e457f6cae7727e8cbcfe4df5097c8113a4ab",
+      "bytes": 3633
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/common.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/common.py",
+      "sha256": "063e27f92e101fba0ed35eadefb9cfa2a0eead0c525b9415b0e882dc1ef8cfd5",
+      "bytes": 2270
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/freeze.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/freeze.py",
+      "sha256": "16078b95bf3668b26084a4374b6181f7226558b82e9991b3673ac2d2e7d913f4",
+      "bytes": 4971
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/models.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/models.py",
+      "sha256": "8eb7e59f6e97cb52978e95bce590544ff262a0a913d59126e916c65c86817641",
+      "bytes": 4937
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/prepare.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/prepare.py",
+      "sha256": "0092b24ed7fc33162d845c462ab4e944b668d85d42caf442cbba8dd162e8e837",
+      "bytes": 12717
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/resource.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/resource.py",
+      "sha256": "4ee995e12bff3dee518a41fdde0dc03b6b967bfda17d49750e4cf65732c4411d",
+      "bytes": 1150
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/smoke.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/smoke.py",
+      "sha256": "5f6de72985e9a7ec30c27305ee9dcf6762f36b4eb4cf0db83ee60212ae2dfbce",
+      "bytes": 5929
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/train.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/train.py",
+      "sha256": "1e680843b1e3fd9fe1d573a89b1071aea1b0ef431c88c774921ad32436c5713d",
+      "bytes": 10199
+    },
+    {
+      "path": "experiments/identity_uid_transformer_transfer_20261011/train_lightgbm.py",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/train_lightgbm.py",
+      "sha256": "1571402a8eb5fd6792e28b914456399fc6db1c9fb3fdab30a678157d882d8e0f",
+      "bytes": 2712
+    },
+    {
+      "path": "experiments/excel_xgb_convergence_20261012/__init__.py",
+      "local_source": "experiments/excel_xgb_convergence_20261012/__init__.py",
+      "sha256": "7e9ca8c7e516f5c174aa2d465a09bac220d3374ce55390d498fe7d8a0408a233",
+      "bytes": 77
+    },
+    {
+      "path": "experiments/excel_xgb_convergence_20261012/campaign.py",
+      "local_source": "experiments/excel_xgb_convergence_20261012/campaign.py",
+      "sha256": "bf2bd19dee7bb479692c0f771b286ea031716f5c39f4eac8e27a6cb402272449",
+      "bytes": 4301
+    },
+    {
+      "path": "experiments/excel_xgb_convergence_20261012/common.py",
+      "local_source": "experiments/excel_xgb_convergence_20261012/common.py",
+      "sha256": "9eca282cc4d5850777899ab7362ebad9fb97c5fe432e11d70dfc77cb50693245",
+      "bytes": 7298
+    },
+    {
+      "path": "experiments/excel_xgb_convergence_20261012/prepare.py",
+      "local_source": "experiments/excel_xgb_convergence_20261012/prepare.py",
+      "sha256": "c9d29fdca768acfec5430b5708a669b4e9fbb2afe2496f8f084aaebc70c0ac02",
+      "bytes": 10447
+    },
+    {
+      "path": "experiments/excel_xgb_convergence_20261012/report.py",
+      "local_source": "experiments/excel_xgb_convergence_20261012/report.py",
+      "sha256": "58d5fca167a4b0a09f53e9125b8a122796deccf4b9174be3e71a76705bcad986",
+      "bytes": 13788
+    },
+    {
+      "path": "experiments/excel_xgb_convergence_20261012/tests.py",
+      "local_source": "experiments/excel_xgb_convergence_20261012/tests.py",
+      "sha256": "08e1d4c8ff18f34d1f219eca3e49ddf1ae9c45c84765ab6478db37e9873bda69",
+      "bytes": 1943
+    },
+    {
+      "path": "experiments/excel_xgb_convergence_20261012/train.py",
+      "local_source": "experiments/excel_xgb_convergence_20261012/train.py",
+      "sha256": "90ab1cd5fd57e4257125bf6b663b3e40295768ec60fabcc0fd691955190595ac",
+      "bytes": 13036
+    },
+    {
+      "path": "experiments/kaggle_fraudsquad_reproduction_20261011/__init__.py",
+      "local_source": "experiments/kaggle_fraudsquad_reproduction_20261011/__init__.py",
+      "sha256": "fe3d5dc818c949476c7a0b0a8466c4e0942e319acc3713eb70293ddb519f04a7",
+      "bytes": 77
+    },
+    {
+      "path": "experiments/kaggle_fraudsquad_reproduction_20261011/common.py",
+      "local_source": "experiments/kaggle_fraudsquad_reproduction_20261011/common.py",
+      "sha256": "7fd0ce3e548009faef55d27cb7c78b6c8aa62cc237556d2541d00406209b12c2",
+      "bytes": 2171
+    },
+    {
+      "path": "experiments/kaggle_fraudsquad_reproduction_20261011/features.py",
+      "local_source": "experiments/kaggle_fraudsquad_reproduction_20261011/features.py",
+      "sha256": "e4ab4b7f231a66debd0baef61fb56630b26e8e19c68e88d4ac9e3e38528be4ce",
+      "bytes": 6587
+    },
+    {
+      "path": "experiments/kaggle_fraudsquad_reproduction_20261011/prepare.py",
+      "local_source": "experiments/kaggle_fraudsquad_reproduction_20261011/prepare.py",
+      "sha256": "6dc5416e3e6ce67a8c1806f189c4bff9a793f65d633ebc70eb81675cab19f12a",
+      "bytes": 8400
+    },
+    {
+      "path": "experiments/kaggle_fraudsquad_reproduction_20261011/fetch_sources.py",
+      "local_source": "experiments/kaggle_fraudsquad_reproduction_20261011/fetch_sources.py",
+      "sha256": "fb815a196529c88227504c9bdf7dc44ed3a352a4877333a0d96fbd39a1298949",
+      "bytes": 3054
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/__init__.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/__init__.py",
+      "sha256": "03e715e2c70a65612716a973e1cb6b90813fe0fc73a9be4f09f135a2b00f3ae3",
+      "bytes": 67
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/common.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/common.py",
+      "sha256": "79a4c4b0856e073ba513f9717438e908dc7f175f29b2fb13f52d705d8958ef48",
+      "bytes": 11367
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/loss.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/loss.py",
+      "sha256": "d5bfb3c662b664d9398705f88ed9105ccf85d8b6acbf6d08cfc35cd7b67e2a74",
+      "bytes": 868
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/training.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/training.py",
+      "sha256": "e20e4a6f88c6dc65022e9f6d46dd368b1ed1f66ed640c0aaa3c9b81649c639d4",
+      "bytes": 10249
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/teacher.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/teacher.py",
+      "sha256": "aebd64630b0395c2fb1b62e787e6195b52768ef8a0a540894ab220d3ea2cd016",
+      "bytes": 10124
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/contracts.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/contracts.py",
+      "sha256": "13275bdadf5934bacc7131559db87b984ffdad6103a2bc6dd0f2fcc6878a5006",
+      "bytes": 7732
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/campaign.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/campaign.py",
+      "sha256": "c7c584897e1fdbf37a4cfb412a0a758b6fd1517aabe175c54177f6f971890ad3",
+      "bytes": 5138
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/verify.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/verify.py",
+      "sha256": "bc74a52f2fcd4ea6d57068a63e11d0c5d6ce448b4116937ed1a751a171c9e81b",
+      "bytes": 6384
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/report.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/report.py",
+      "sha256": "dbbc246b44d514082eeb9f98c5d2b41ec6e891f118bde9babf5011295a7a7481",
+      "bytes": 23621
+    },
+    {
+      "path": "experiments/excel_xgb_distillation_20261012/teacher_diagnostics.py",
+      "local_source": "experiments/excel_xgb_distillation_20261012/teacher_diagnostics.py",
+      "sha256": "cf6befcbaf92d5aec31ddc607f4f38cab5bbfb6121914606a44d972b8e3d4e3d",
+      "bytes": 1748
+    },
+    {
+      "path": "experiments/ft_upgrade_20261010/__init__.py",
+      "local_source": "experiments/ft_upgrade_20261010/__init__.py",
+      "sha256": "5ad0ad0005c398de47f839cd4d868aa939ea09637c2e06004f6266f6639f67ae",
+      "bytes": 73
+    },
+    {
+      "path": "experiments/ft_upgrade_20261010/train.py",
+      "local_source": "experiments/ft_upgrade_20261010/train.py",
+      "sha256": "e828144dc816046b6806f24b92018292f6518a5a955390cf876742793a25927c",
+      "bytes": 16689
+    },
+    {
+      "path": "experiments/ft_upgrade_20261010/utils.py",
+      "local_source": "experiments/ft_upgrade_20261010/utils.py",
+      "sha256": "6579694f4a98ec4e59fca83f63dde95642b31c2a83a50c835bda46314d82309b",
+      "bytes": 2656
+    },
+    {
+      "path": "experiments/resource_coordination/__init__.py",
+      "local_source": "experiments/resource_coordination/__init__.py",
+      "sha256": "53eda03c7ea1cab12536d2711858071f8840e5ae23223561f76206710d4517e7",
+      "bytes": 81
+    },
+    {
+      "path": "experiments/resource_coordination/scheduler.py",
+      "local_source": "experiments/resource_coordination/scheduler.py",
+      "sha256": "38e653b32fc330fbd33d7f76efa24eea3b93fbca5a91e21d46ba33e6790555a9",
+      "bytes": 14039
+    },
+    {
+      "path": "configs/mvp.json",
+      "local_source": "configs/mvp.json",
+      "sha256": "a35c9958d4b1ae495275de79e3fa9df912dddf9ae22ce0027c813f2df1ee9282",
+      "bytes": 1103
+    },
+    {
+      "path": "configs/feature_list.md",
+      "local_source": "configs/feature_list.md",
+      "sha256": "8f73b1227736026903afada70895beec65b951165216bf2f2f958b2307c0e366",
+      "bytes": 1772
+    },
+    {
+      "path": "requirements.txt",
+      "local_source": "requirements.txt",
+      "sha256": "0674e4af1e81f21da36de9b9e3513c075d25c28305d0c24a3b11cbd4c7e15bfb",
+      "bytes": 251
+    },
+    {
+      "path": "evidence/original_lightgbm.json",
+      "local_source": "results/full/lightgbm_training.json",
+      "sha256": "4a24c744995118ae083970ec7552a407a9a7102d851d082ba76cd478049c9499",
+      "bytes": 2067
+    },
+    {
+      "path": "evidence/feature_ablation/B00.json",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/runs/excel_B00_seed42/result.json",
+      "sha256": "047fa63ccf2ee79a5477f8c7b2399f8a45c4e31dd8e9e88e2275485080057ff2",
+      "bytes": 5075
+    },
+    {
+      "path": "evidence/feature_ablation/B10.json",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/runs/excel_B10_seed42/result.json",
+      "sha256": "a7c0ce5ba5022c976320a05aa4b77b198108901957bc1377bf9733f6de749f30",
+      "bytes": 5077
+    },
+    {
+      "path": "evidence/feature_ablation/B1C.json",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/runs/excel_B1C_seed42/result.json",
+      "sha256": "35592d63d608298dc4dcde7437ec5761536cda336b6e8d8354b064bcfdc75af6",
+      "bytes": 5073
+    },
+    {
+      "path": "evidence/B1C_schema.json",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/derived/B1C/schema.json",
+      "sha256": "267ffa3d45c911c71cc4e26ac88424b0a98f1c7af401b8530b0467bee24a3997",
+      "bytes": 16145
+    },
+    {
+      "path": "evidence/B1C_excel_input.json",
+      "local_source": "experiments/identity_uid_transformer_transfer_20261011/derived/B1C/excel/receipt.json",
+      "sha256": "de75a81b27e53ad915fd01884054824cc354504635ae322ab28d8dfdf5bf6283",
+      "bytes": 19449
+    },
+    {
+      "path": "evidence/feature_axis_counts.json",
+      "local_source": "reports/jpmorgan_closeout_20261012/feature_axis_counts.json",
+      "sha256": "a98d190c72f66ca8d86a1329a7b48394da1925431648fa322dec060705e19fe8",
+      "bytes": 5388
+    },
+    {
+      "path": "evidence/final_training/FINAL_DECISION.json",
+      "local_source": "experiments/excel_xgb_convergence_20261012/FINAL_DECISION.json",
+      "sha256": "c370165037b69c28aa422b72acf66d886f1a9769046d40e8c1f06b9d917c2375",
+      "bytes": 2052
+    },
+    {
+      "path": "evidence/final_training/fresh_verification.json",
+      "local_source": "experiments/excel_xgb_convergence_20261012/fresh_verification.json",
+      "sha256": "21cb175bb942de76f3cce93f9b3320bd5dd8070e6008d421fb7e3ea2e6f7c33e",
+      "bytes": 1808
+    },
+    {
+      "path": "evidence/final_training/verification.json",
+      "local_source": "experiments/excel_xgb_convergence_20261012/verification.json",
+      "sha256": "6dedfed1a7db4dec1d7380fea04e53f1b02cb0761dbd26d5e440f11fe25b2b72",
+      "bytes": 525
+    },
+    {
+      "path": "evidence/final_training/stopping.json",
+      "local_source": "experiments/excel_xgb_convergence_20261012/stopping.json",
+      "sha256": "265a40a17217a33f962923c8f07c41f4afa5af959306180daa6dca9dbdf632f5",
+      "bytes": 229
+    },
+    {
+      "path": "evidence/final_training/results.csv",
+      "local_source": "experiments/excel_xgb_convergence_20261012/results.csv",
+      "sha256": "b8404dadf7c8ba633257d26b578ea56f4acb98afb9028ed62bf460c9d117ace1",
+      "bytes": 831
+    },
+    {
+      "path": "evidence/final_training/all_epoch_metrics.csv",
+      "local_source": "experiments/excel_xgb_convergence_20261012/all_epoch_metrics.csv",
+      "sha256": "498bbea1ff80ae16afcc42bb93cd2c86de68591dbd6d428d05d54d786a9ee623",
+      "bytes": 22868
+    },
+    {
+      "path": "evidence/final_training/temporal_uid_metrics.csv",
+      "local_source": "experiments/excel_xgb_convergence_20261012/temporal_uid_metrics.csv",
+      "sha256": "f5f66bc214d2c6f2d488b5e45e4980a5795ebfbbd6889d97ea454fac084378d4",
+      "bytes": 6927
+    },
+    {
+      "path": "evidence/final_training/learning_curves.svg",
+      "local_source": "experiments/excel_xgb_convergence_20261012/learning_curves.svg",
+      "sha256": "8990e387321be2a901366b2f44bf10d2480da0eb916f333bbca873c2aeb67316",
+      "bytes": 101344
+    },
+    {
+      "path": "evidence/final_training/FINAL_REPORT.md",
+      "local_source": "experiments/excel_xgb_convergence_20261012/FINAL_REPORT.md",
+      "sha256": "e8246f937ade7e99c7bd0f8bd15efd142beb5d2f1578ea5f4c3acbcc48718eef",
+      "bytes": 2687
+    }
+  ],
+  "copied_source_files_modified": false,
+  "original_local_git_branch_changed": false,
+  "training_performed_for_publication": false,
+  "external_vendor_redistributed": false
+}

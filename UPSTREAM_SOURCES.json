@@ -1,0 +1,40 @@
+{
+  "excelformer": [
+    {
+      "architecture": "excel",
+      "repository": "WhatAShot/ExcelFormer",
+      "revision": "17f70526390e70390bb8c8ec3850697eb730f9cd",
+      "file": "bin/excel_former.py",
+      "url": "https://raw.githubusercontent.com/WhatAShot/ExcelFormer/17f70526390e70390bb8c8ec3850697eb730f9cd/bin/excel_former.py",
+      "sha256": "f3b0e8fb7ba5968f956bc042adfb8293784bee06b70cc51e88cb288b01ce470c"
+    },
+    {
+      "architecture": "excel",
+      "repository": "WhatAShot/ExcelFormer",
+      "revision": "17f70526390e70390bb8c8ec3850697eb730f9cd",
+      "file": "lib/deep.py",
+      "url": "https://raw.githubusercontent.com/WhatAShot/ExcelFormer/17f70526390e70390bb8c8ec3850697eb730f9cd/lib/deep.py",
+      "sha256": "587f5c097a2d70689ac326ec34ca205a3056d80c912b64e230cc639ad1544640"
+    },
+    {
+      "architecture": "excel",
+      "repository": "WhatAShot/ExcelFormer",
+      "revision": "17f70526390e70390bb8c8ec3850697eb730f9cd",
+      "file": "lib/aug_utils.py",
+      "url": "https://raw.githubusercontent.com/WhatAShot/ExcelFormer/17f70526390e70390bb8c8ec3850697eb730f9cd/lib/aug_utils.py",
+      "sha256": "9c316df7095ac4ec56462a587af3c2df381b6161ea7eedf975e2ecaedf124671"
+    },
+    {
+      "architecture": "excel",
+      "file": "LICENSE",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "adaptation_description": "Official core unchanged except isolated lib import. Extracted official activation functions and complete augmentation utilities. No KV compression. Reduced width/heads and bounded AP stopping; ordered historical categorical encoding and train-only MI.",
+  "adapted_vendor_sha256": {
+    "excel.py": "4400c931bd5286921446cf8b191c1fafc29c00b959c92d9799fa0251bab62657",
+    "excel_lib.py": "34555f6960670fa727a8b7fe3383898c284b33fcedac2cbbaf7eab5464804638"
+  },
+  "vendor_code_redistributed": false,
+  "feature_reference": "https://www.kaggle.com/code/cdeotte/xgb-fraud-with-magic-0-9600"
+}

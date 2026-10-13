@@ -1,54 +1,26 @@
-# Python
+# Keep datasets, credentials, environments and weights local.
+data/
+models/
+.venv/
+.cache/
+.kaggle/
+.env
+.env.*
+credentials*
+kaggle.json
 __pycache__/
 *.py[cod]
-*.pyd
-*.so
-.Python
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
-# Virtual environments
-.venv/
-venv/
-env/
-ENV/
-
-# IDE / editor
-.vscode/
-.idea/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Notebook checkpoints
-.ipynb_checkpoints/
-
-# Build / packaging
-build/
-dist/
-*.egg-info/
-
-# Local data paths / machine-specific files
-data/manifest.csv
-data/sleep-edfx-cassette/
-*.edf
-*.hyp
-*.edf.edf
-*.edf.hyp
-
-# Generated outputs
-outputs/
-
-# Logs
-*.log
-
-# TensorBoard / training artifacts
-runs/
-
-# Claude Code project memory
-.claude/
-
-# Temporary archives
+*.pt
+*.pth
+*.pkl
+*.joblib
+*.npy
+*.npz
 *.zip
+*.log
+tmp/
+experiments/**/derived/
+experiments/**/runs/
+experiments/**/artifact_store/
+results/prepared/
+results/**/predictions_*.csv
